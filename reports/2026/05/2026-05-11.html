@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — May 11, 2026</title>
+<style>
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #1a1a2e;
+  --text-light: #333333;
+  --text-dark: #e0e0e0;
+  --accent-tips: #0891b2;
+  --accent-ai: #7c3aed;
+  --accent-vibe: #059669;
+  --accent-crypto: #f59e0b;
+  --accent-concepts: #dc2626;
+  --link: #2563eb;
+  --bg-card-light: #f8fafc;
+  --bg-card-dark: #16213e;
+  --border-light: #e5e7eb;
+  --border-dark: #2a2a4a;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: var(--bg-light); --text: var(--text-light); --card: var(--bg-card-light); --border: var(--border-light); }
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: var(--bg-dark); --text: var(--text-dark); --card: var(--bg-card-dark); --border: var(--border-dark); }
+  a { color: #60a5fa; }
+  .story p, .tip-card p, .concept-card p { color: #b0b0b0; }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg, #ffffff);
+  color: var(--text, #333333);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 2px solid var(--border, #e5e7eb);
+  margin-bottom: 32px;
+}
+header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+header .date { font-size: 15px; opacity: 0.6; margin-top: 4px; }
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title.tips { border-color: var(--accent-tips); color: var(--accent-tips); }
+.section-title.ai { border-color: var(--accent-ai); color: var(--accent-ai); }
+.section-title.vibe { border-color: var(--accent-vibe); color: var(--accent-vibe); }
+.section-title.crypto { border-color: var(--accent-crypto); color: var(--accent-crypto); }
+.section-title.concepts { border-color: var(--accent-concepts); color: var(--accent-concepts); }
+.story {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-left: 4px solid transparent;
+}
+.story.ai { border-left-color: var(--accent-ai); }
+.story.vibe { border-left-color: var(--accent-vibe); }
+.story.crypto { border-left-color: var(--accent-crypto); }
+.story h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.story h3 a { color: var(--link); text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; }
+.story p { font-size: 14px; opacity: 0.85; }
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.tip-tag { background: #0891b222; color: var(--accent-tips); }
+.ai-tag { background: #7c3aed22; color: var(--accent-ai); }
+.vibe-tag { background: #05966922; color: var(--accent-vibe); }
+.crypto-tag { background: #f59e0b22; color: var(--accent-crypto); }
+.concept-tag { background: #dc262622; color: var(--accent-concepts); }
+.tip-card {
+  background: var(--card, #f8fafc);
+  border: 1px solid var(--accent-tips);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.tip-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.tip-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.tip-card code {
+  background: #0891b215;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', Menlo, monospace;
+}
+.concept-card {
+  background: var(--card, #f8fafc);
+  border-left: 4px solid var(--accent-concepts);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.concept-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.concept-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.worth-reading {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 8px;
+}
+.worth-reading h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  font-size: 14px;
+}
+.worth-reading li:last-child { border-bottom: none; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { opacity: 0.7; display: block; margin-top: 2px; font-size: 13px; }
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  font-size: 12px;
+  opacity: 0.5;
+}
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+footer th, footer td { text-align: left; padding: 4px 8px; }
+footer th { font-weight: 600; }
+@media (max-width: 600px) {
+  body { padding: 16px 12px; }
+  header h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🤖 AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, May 11, 2026</div>
+</header>
+
+<!-- 💡 Daily Tech Tips -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week</div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Claude Skills Bible: Patterns from 235 Production Skills</strong>
+    <p>A comprehensive guide analyzing 235 real-world Claude Code skills reveals key patterns for writing effective <code>.md</code> skill files: keep instructions declarative, scope each skill to one domain, and use explicit output format constraints. The most impactful skills combine system-prompt-level context with structured <code>YAML</code> frontmatter for tool selection. <a href="https://medium.com/@alirezarezvani/claude-skills-bible-lessons-from-235-production-skills-26860bca1f26">Read the guide →</a></p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Codex</span>
+    <strong>Automate Codex /Review with MCP-Based Review Loops</strong>
+    <p>A new open-source MCP server lets you trigger Codex's <code>/review</code> flow programmatically from any coding agent. It spawns a background Codex instance, feeds review results back to the calling agent with full implementation context, and eliminates the "flapping" problem where reviews undo each other. Install via <code>npm i codex-mcp-code-review</code>. <a href="https://github.com/Szpadel/codex-mcp-code-review">GitHub repo →</a></p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Multi-Agent</span>
+    <strong>Endy: Orchestrate Multiple Coding Agents to Cut LLM Spend</strong>
+    <p>Endy is a new CLI orchestrator that routes tasks to the cheapest capable coding agent (Claude Code, Codex, or Copilot CLI) based on task complexity. Simple refactors go to lighter models; architecture-level work goes to Opus/GPT-5.5. Early users report 40-60% cost reduction on mixed workloads. <code>pip install endy && endy init</code>. <a href="https://github.com/trentisiete/endy">GitHub →</a></p>
+  </div>
+</div>
+
+<!-- 🤖 AI Tools & Updates -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">AI Security</span>
+    <h3><a href="https://openai.com">OpenAI Launches EU Cyber Action Plan with GPT-5.5-Cyber</a></h3>
+    <p>Announced May 11, OpenAI's new initiative grants trusted European governments, businesses, and cybersecurity agencies dedicated access to GPT-5.5 and a specialized GPT-5.5-Cyber model for secure code review, vulnerability triage, and malware analysis. For developers shipping production code in regulated industries, this signals a maturing ecosystem of AI-powered security tooling backed by frontier models.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Google I/O</span>
+    <h3><a href="https://io.google/2026/">Google I/O 2026 Preview: Agentic AI, Android XR, and Aluminum OS</a></h3>
+    <p>Google's I/O (May 19-20) previews reveal the biggest theme is "agentic AI" — agents that autonomously navigate computers and execute multi-step workflows. Expected reveals include Gemini 4.0 with deeper cross-service integration, Android XR smart glasses with real-time translated subtitles via Gemini Live, and "Aluminum OS" merging Android and ChromeOS. For iOS developers, this signals competitive pressure for on-device AI capabilities.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Benchmark</span>
+    <h3><a href="https://github.com/ZeroPathAI/opus-benchmark">Claude Opus 4.6 Vulnerability Detection Benchmark Published</a></h3>
+    <p>ZeroPathAI published an open-source benchmark suite testing Claude Opus 4.6's ability to detect real-world security vulnerabilities in production codebases. Results show significant improvements in detecting injection flaws and authentication bypasses compared to previous models. Useful for teams evaluating AI-assisted security review pipelines — especially relevant given the Claude Security public beta launched last week.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Voice API</span>
+    <h3><a href="https://openai.com/api">OpenAI Ships Real-Time Voice API with Advanced Translation</a></h3>
+    <p>OpenAI announced new real-time voice models in the API capable of advanced speech translation and reasoning, plus confirmed native ad testing inside ChatGPT. For mobile developers, the voice API opens up real-time multilingual features — imagine voice-first crypto portfolio briefings or support chatbots with live translation in your iOS app.</p>
+  </div>
+</div>
+
+<!-- 🛠 Vibe Coding & Dev Tools -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Dev Tools</span>
+    <h3><a href="https://github.com/xryv/DoneSpec">DoneSpec: Deterministic Completion Checks for AI Coding Agents</a></h3>
+    <p>A new open-source framework that adds formal verification to agentic coding workflows. Instead of relying on LLMs to self-assess task completion, DoneSpec defines structured completion criteria that agents must satisfy — including test pass rates, lint scores, and type coverage. Essential for teams adopting agentic coding in production where "done" needs to be provable, not probable.</p>
+  </div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Dev Tools</span>
+    <h3><a href="https://lowdefy.com/articles/lowdefy-agents/">Lowdefy v5.3: Define AI Agents in 30 Lines of YAML</a></h3>
+    <p>Lowdefy's latest release lets you build multi-agent AI systems declaratively in YAML, with built-in tool orchestration and state management. It bridges low-code and AI agent development — useful for rapidly prototyping internal tools that combine LLM reasoning with database queries and API calls, without writing agent framework boilerplate.</p>
+  </div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Security</span>
+    <h3><a href="https://ryanhiebert.com/oauth-for-ai-harnesses/">What AI Harnesses Should Learn from OAuth</a></h3>
+    <p>A thoughtful blog post argues that AI coding agents need OAuth-style permission scoping — fine-grained, revocable, and auditable access controls rather than blanket filesystem access. The post proposes a practical framework for implementing least-privilege AI tool access. Timely reading after last week's TrustFall RCE vulnerability in Claude Code and Cursor.</p>
+  </div>
+</div>
+
+<!-- 💰 Crypto & Markets -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Stablecoins</span>
+    <h3><a href="https://www.theblock.co/post/400709/circle-raises-222m-in-arc-token-presale-at-3b-fdv-from-a16z-crypto-blackrock-and-others-q1-revenue-up-20">Circle Raises $222M for Arc Token at $3B Valuation</a></h3>
+    <p>Circle sold $222M in its Arc blockchain token presale, backed by BlackRock, Apollo, a16z crypto, and Bullish. Q1 revenue hit $694M (up 20%), and USDC supply reached $77B. The Arc token is designed for cross-chain settlement infrastructure — signaling Circle's evolution from stablecoin issuer to full-stack financial infrastructure provider.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3><a href="https://cointelegraph.com/markets/btc-price-target-becomes-85k-next-five-things-bitcoin-this-week">BTC Eyes $85K as $700M Flows Into Crypto Funds</a></h3>
+    <p>Bitcoin held above $80K support despite CME open whipsaws and Iran tensions, with analysts now targeting $85K as the next resistance level. Crypto funds logged $858M in inflows — the sixth consecutive positive week — driven by Clarity Act optimism and institutional Bitcoin ETF demand. The Wall Street rally and Main Street consumer pessimism divergence is a key macro dynamic to watch this week.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3><a href="https://cointelegraph.com/news/cryptocom-receives-uae-central-bank-license-for-virtual-asset-government-payments">Crypto.com Gets UAE License for Government Crypto Payments</a></h3>
+    <p>Crypto.com became the first VASP to receive a UAE central bank SVF license, enabling Dubai residents to pay government fees in crypto. This is the most concrete government-level crypto payment adoption we've seen — a signal that Middle Eastern governments are moving faster than Western regulators on integrating digital assets into public services.</p>
+  </div>
+</div>
+
+<!-- 🔥 Hot Industry Concepts -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Agent Permissioning — The OAuth Model for LLMs</strong>
+    <p>As agentic coding tools gain filesystem, network, and Git access, the industry is converging on OAuth-style permission models for AI agents. The pattern: agents request scoped, time-limited, revocable tokens for specific capabilities (read files, run tests, push code) rather than operating with blanket access. Expect this to become a standard framework by WWDC/I/O season. <a href="https://ryanhiebert.com/oauth-for-ai-harnesses/">Deep dive →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Tokenized Asset Summer — AI Agents as Institutional Buyers</strong>
+    <p>A veteran macro investor argues we're entering "Tokenized Asset Summer" — AI agents need "food" (tokens), and that food is tokenized real-world assets on Ethereum. Circle's $222M Arc raise, BlackRock's expanding onchain fund offerings, and Canton Network's $2B valuation all point to institutional tokenization reaching escape velocity. The AI×crypto convergence thesis is now backed by real capital flows. <a href="https://cointelegraph.com/news/tokenized-assets-summer-veteran-macro-investor-bets-ethereum">Read more →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Stratum V2 — Decentralizing Bitcoin Block Construction</strong>
+    <p>Mining pools controlling 75% of Bitcoin's hashrate (Foundry, AntPool, F2Pool, MARA Pool, and others) joined the Stratum V2 working group — a protocol that returns block construction decisions to individual miners. This is the most significant decentralization upgrade for Bitcoin mining in years, reducing the risk of mining pool censorship and MEV extraction. <a href="https://www.coindesk.com/markets/2026/05/11/bitcoin-mining-pools-with-75-of-btc-hashrate-join-open-standard-for-block-construction">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- 📚 Worth Reading -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/05/11/canton-network-s-digital-asset-targets-usd2-billion-valuation-in-a16z-crypto-led-raise-bloomberg">Canton Network's Digital Asset Targets $2B Valuation</a>
+      <span class="desc">The a16z-backed institutional blockchain for regulated finance is raising at unicorn-plus levels — tokenization infrastructure is serious money now.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/05/11/mara-expected-to-post-q1-losses-as-investors-look-ahead-to-ai-growth-strategy">MARA Pivots from Mining to AI Infrastructure</a>
+      <span class="desc">Bitcoin miner MARA shifts GPU capacity toward AI data center revenue, mirroring the broader crypto-to-AI compute migration trend.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/sui-price-surges-institutional-staking-zero-fee-stablecoin-transfers">SUI Surges 50% on Zero-Fee Stablecoin Transfers</a>
+      <span class="desc">Mysten Labs announces zero-fee stablecoin transfers and privacy transactions on Sui — watch for L1 competition heating up around payment UX.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/whitehat-returns-190k-renegade-hours-after-hacking-the-protocol">White Hat Returns $190K to Renegade Dark Pool</a>
+      <span class="desc">A white hat exploited then returned funds from a DeFi dark pool — a reminder that responsible disclosure in DeFi is evolving.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/boe-governer-global-stablecoin-rules-wrestle-with-us">Bank of England: Global Stablecoin Rules Will "Wrestle" with US</a>
+      <span class="desc">BoE Governor Bailey says international stablecoin standards must confront US dollar dominance — the stablecoin regulation saga goes global.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Generated: 2026-05-11T12:30:00Z · AI &amp; Crypto Daily v3 · 15 items across 5 sections</p>
+  <p><strong>Dedup:</strong> 12 stories filtered (covered in May 6–10 reports) from 80+ candidates</p>
+  <table>
+    <tr><th>Source</th><th>Type</th><th>Status</th></tr>
+    <tr><td>OpenAI/Anthropic/Google announcements</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>Google I/O 2026 preview</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>The Block RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinTelegraph RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinDesk RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>Hacker News RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>Claude/Codex/Cursor news</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>Vibe coding / agentic tools</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>CoreML / MLX / Edge AI</td><td>web_search</td><td>❌ timeout</td></tr>
+  </table>
+  <p style="margin-top: 12px; font-size: 11px;">Curated by AI &amp; Crypto Daily Bot · For an iOS developer at Binance</p>
+</footer>
+
+</body>
+</html>
