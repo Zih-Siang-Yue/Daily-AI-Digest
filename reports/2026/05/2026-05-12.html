@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — May 12, 2026</title>
+<style>
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #1a1a2e;
+  --text-light: #333333;
+  --text-dark: #e0e0e0;
+  --accent-tips: #0891b2;
+  --accent-ai: #7c3aed;
+  --accent-vibe: #059669;
+  --accent-crypto: #f59e0b;
+  --accent-concepts: #dc2626;
+  --link: #2563eb;
+  --bg-card-light: #f8fafc;
+  --bg-card-dark: #16213e;
+  --border-light: #e5e7eb;
+  --border-dark: #2a2a4a;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: var(--bg-light); --text: var(--text-light); --card: var(--bg-card-light); --border: var(--border-light); }
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: var(--bg-dark); --text: var(--text-dark); --card: var(--bg-card-dark); --border: var(--border-dark); }
+  a { color: #60a5fa; }
+  .story p, .tip-card p, .concept-card p { color: #b0b0b0; }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg, #ffffff);
+  color: var(--text, #333333);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 2px solid var(--border, #e5e7eb);
+  margin-bottom: 32px;
+}
+header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+header .date { font-size: 15px; opacity: 0.6; margin-top: 4px; }
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title.tips { border-color: var(--accent-tips); color: var(--accent-tips); }
+.section-title.ai { border-color: var(--accent-ai); color: var(--accent-ai); }
+.section-title.vibe { border-color: var(--accent-vibe); color: var(--accent-vibe); }
+.section-title.crypto { border-color: var(--accent-crypto); color: var(--accent-crypto); }
+.section-title.concepts { border-color: var(--accent-concepts); color: var(--accent-concepts); }
+.story {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-left: 4px solid transparent;
+}
+.story.ai { border-left-color: var(--accent-ai); }
+.story.vibe { border-left-color: var(--accent-vibe); }
+.story.crypto { border-left-color: var(--accent-crypto); }
+.story h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.story h3 a { color: var(--link); text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; }
+.story p { font-size: 14px; opacity: 0.85; }
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.tip-tag { background: #0891b222; color: var(--accent-tips); }
+.ai-tag { background: #7c3aed22; color: var(--accent-ai); }
+.vibe-tag { background: #05966922; color: var(--accent-vibe); }
+.crypto-tag { background: #f59e0b22; color: var(--accent-crypto); }
+.concept-tag { background: #dc262622; color: var(--accent-concepts); }
+.tip-card {
+  background: var(--card, #f8fafc);
+  border: 1px solid var(--accent-tips);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.tip-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.tip-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.tip-card code {
+  background: #0891b215;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', Menlo, monospace;
+}
+.concept-card {
+  background: var(--card, #f8fafc);
+  border-left: 4px solid var(--accent-concepts);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.concept-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.concept-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.worth-reading {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 8px;
+}
+.worth-reading h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  font-size: 14px;
+}
+.worth-reading li:last-child { border-bottom: none; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { opacity: 0.7; display: block; margin-top: 2px; font-size: 13px; }
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  font-size: 12px;
+  opacity: 0.5;
+}
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+footer th, footer td { text-align: left; padding: 4px 8px; }
+footer th { font-weight: 600; }
+@media (max-width: 600px) {
+  body { padding: 16px 12px; }
+  header h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🤖 AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, May 12, 2026</div>
+</header>
+
+<!-- 💡 Daily Tech Tips -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex Agentic Workflows</div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Claude Platform on AWS: Run Claude Agents in Your Own VPC</strong>
+    <p>Anthropic just launched Claude Platform on AWS — a fully managed deployment that runs Claude models inside your own AWS VPC with zero data leaving your account. For teams building agentic coding workflows with strict data sovereignty (common at Binance), this eliminates the "our code goes to Anthropic's servers" objection. Deploy via <code>aws cloudformation deploy --template claude-platform.yaml</code> and connect Claude Code CLI with <code>--endpoint your-vpc-url</code>. <a href="https://claude.com/blog/claude-platform-on-aws">Docs →</a></p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Codex</span>
+    <strong>Codex Pets: Visual Task Tracking for Background Agents</strong>
+    <p>OpenAI's new "Codex Pets" feature adds animated desktop companions that visually track your background Codex agent tasks — green when succeeding, yellow when blocked, red when failed. More than a gimmick: it solves the "did my agent finish?" problem for developers running 3-4 parallel Codex tasks. Enable via <code>codex config set pets.enabled true</code>. Each pet maps to one active agent session. <a href="https://www.augmentedswe.com/p/how-to-use-codex-pets">Guide →</a></p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Security</span>
+    <strong>Mistral NPM Package Compromised — Audit Your AI Dependencies</strong>
+    <p>Mistral AI's official <code>@mistralai/client-ts</code> NPM package was compromised this week, injecting malicious code into downstream projects. If you use any AI SDK as a dependency, run <code>npm audit</code> now and pin exact versions in your <code>package-lock.json</code>. This follows the TrustFall vulnerability pattern — supply chain attacks increasingly target AI developer tooling. <a href="https://github.com/mistralai/client-ts/issues/217">Details →</a></p>
+  </div>
+</div>
+
+<!-- 🤖 AI Tools & Updates -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Cursor</span>
+    <h3><a href="https://cursor.com">Cursor v0.45: Multi-Repository Context Engine for Microservices</a></h3>
+    <p>Cursor's latest release introduces a breakthrough multi-repo context engine that simultaneously understands code across up to 10 linked repositories. For iOS developers working with microservice backends (like Binance's architecture), this means the AI can trace API calls from your Swift client through gateway services to database layers — all in a single prompt context. This is a significant leap beyond the v3.3 parallel build plans released last week.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">JetBrains</span>
+    <h3><a href="https://blog.jetbrains.com">JetBrains Adopts Agent Client Protocol — "Bring Your Own Agent" Strategy</a></h3>
+    <p>JetBrains officially announced support for the Agent Client Protocol (ACP), allowing developers to plug any third-party AI agent (Cursor, Claude Code, Codex) directly into IntelliJ, AppCode, or any JetBrains IDE. This "bring your own agent" approach avoids vendor lock-in while keeping JetBrains' superior refactoring, debugging, and code analysis tools intact. For iOS developers on AppCode, this means you can now use Claude Code's agentic workflows inside your preferred IDE.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Industry</span>
+    <h3><a href="https://techcrunch.com/2026/05/11/gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills/">GM Lays Off IT Workers to Hire AI-Skilled Replacements</a></h3>
+    <p>General Motors laid off hundreds of IT workers and is explicitly rehiring for AI-native skills. Combined with Microsoft's report showing global Git pushes up 78% YoY (developer employment still at record highs), this signals that AI literacy isn't replacing developers — it's redefining which developers get hired. The "AI-augmented engineer" is becoming a hard job requirement, not a nice-to-have.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Report</span>
+    <h3><a href="https://microsoft.com">Microsoft: Global Code Production Surges 78% — Developer Employment Hits Record</a></h3>
+    <p>Microsoft's Global AI Diffusion Report reveals Git pushes increased 78% YoY, driven by Copilot, Claude Code, and Codex. Contrary to replacement fears, developer employment rose 4% (March 2025–2026) as the lower cost of code production expanded software ambitions across industries. For iOS teams, this means more features expected per sprint — and AI coding fluency is how you keep up.</p>
+  </div>
+</div>
+
+<!-- 🛠 Vibe Coding & Dev Tools -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Paradigm Shift</span>
+    <h3><a href="https://www.sdxcentral.com/analysis/cisco-cpo-predicts-ai-will-have-built-majority-of-the-vendors-products-by-end-of-2027/">Cisco CPO: AI Will Build Majority of Products by End of 2027</a></h3>
+    <p>Cisco's Chief Product Officer predicts AI will have built the majority of their products within 18 months. This isn't startup hype — it's a $50B enterprise vendor committing to AI-first product development. The shift from "vibe coding" to "agentic engineering" is accelerating: developers are becoming mission controllers who orchestrate, review, and validate rather than write every line manually.</p>
+  </div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Open Source</span>
+    <h3><a href="https://github.com/AEndrix03/Graft">Graft: Semantic Memory for AI Agents Without the LLM</a></h3>
+    <p>A new open-source project gives AI coding agents persistent semantic memory using graph-based storage — no LLM calls needed for retrieval. Graft lets your agent remember project context, architectural decisions, and past errors across sessions without burning tokens. Especially useful for long-running agentic workflows where context window limits force agents to "forget" earlier work.</p>
+  </div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">AI Agents</span>
+    <h3><a href="https://www.theblock.co/post/400758/moonpay-launching-ai-agent-tool-prediction-market-trading-acquiring-dawn-labs">MoonPay Launches AI Agent for Prediction Market Trading</a></h3>
+    <p>After acquiring Dawn Labs, MoonPay launched an AI-powered tool that generates custom prediction market trading strategies for non-technical users. This represents a new category of AI×crypto product — autonomous trading agents accessible through consumer-grade interfaces. For iOS developers, this is a template for building AI agent UIs that abstract complex DeFi interactions.</p>
+  </div>
+</div>
+
+<!-- 💰 Crypto & Markets -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-golden-cross-appears-first-time-since-2023-will-btc-price-rally">Bitcoin Golden Cross Appears for First Time Since 2023</a></h3>
+    <p>Bitcoin's 50-day moving average crossed above the 200-day MA — the "golden cross" pattern last seen in 2023 that preceded a 150%+ rally. MVRV ratio suggests a shift to bullish momentum, with analysts eyeing $84K resistance. However, BTC miners are under pressure: MARA revenue dropped 18% and CleanSpark posted $224M in BTC holding losses, signaling that mining profitability remains squeezed post-halving.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Solana</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/05/11/the-biggest-consensus-overhaul-in-solana-history-is-officially-live-for-testing">Solana's Alpenglow Consensus Overhaul Goes Live on Testnet</a></h3>
+    <p>The biggest consensus upgrade in Solana's history — codenamed Alpenglow — is now live on a community test cluster. Developed by core team Anza, it promises dramatically improved finality times and validator efficiency. Meanwhile, Solana ETFs logged their strongest weekly inflows since February, with SOL futures open interest climbing 30% as traders eye a rally to $120.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Binance</span>
+    <h3><a href="https://www.theblock.co/post/400813/binance-ai-security-prevented-10-5-billion-user-losses-crypto-scams-phishing">Binance AI Security Systems Prevented $10.5B in User Losses</a></h3>
+    <p>Binance revealed its AI-powered security systems have prevented $10.5 billion in user losses from scams and phishing attacks. In Q1 2026 alone, $1.98 billion was safeguarded across 22.9 million attempts. This highlights how AI/ML is becoming the frontline defense in crypto security — directly relevant for iOS developers building the Binance app's security features and fraud detection UI.</p>
+  </div>
+</div>
+
+<!-- 🔥 Hot Industry Concepts -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agentic Engineering — The Post-Vibe-Coding Paradigm</strong>
+    <p>The industry is rapidly moving past "vibe coding" (writing apps via pure natural language) toward "Agentic Engineering" — where developers act as mission controllers orchestrating autonomous multi-agent systems with strict architectural guardrails. JetBrains' ACP announcement, Cursor's multi-repo context, and Cisco's CPO predictions all point to the same conclusion: the developer role is evolving from "code writer" to "agent orchestrator." This is the career-defining skill shift of 2026. <a href="https://idiallo.com/blog/we-are-not-going-to-agree-on-ai">Perspectives →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Supply Chain Security — The NPM/MCP Attack Surface</strong>
+    <p>Three incidents in one week — Mistral's NPM package compromise, the TrustFall MCP vulnerability, and a Morse code hack that tricked an AI agent into spending $200K — have crystallized a new security category: AI supply chain attacks. Unlike traditional software supply chain attacks, these exploit the trust relationship between AI agents and their tool ecosystem. Expect "AI SBOM" (Software Bill of Materials for AI tools) to become a compliance requirement by Q4 2026. <a href="https://github.com/mistralai/client-ts/issues/217">Mistral incident →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Verifiable Stablecoins — Beyond "Trust Us" Reserves</strong>
+    <p>Galaxy-backed Boundary announced USBD, a "verifiable" institutional stablecoin on Ethereum that uses cryptographic proofs (not just auditor attestations) to prove 1:1 backing in real-time. With Circle stock rallying 15% on USDC adoption momentum and banking groups escalating the stablecoin yield fight ahead of Thursday's CLARITY Act vote, the stablecoin wars are shifting from "who has the most supply" to "who can prove their reserves algorithmically." <a href="https://www.theblock.co/post/400791/galaxy-backed-boundary-to-launch-verifiable-institutional-stablecoin-usbd">Read more →</a></p>
+  </div>
+</div>
+
+<!-- 📚 Worth Reading -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/05/08/kraken-parent-payward-seeks-fresh-funding-at-usd20-billion-valuation-ahead-of-potential-ipo">Kraken Parent Seeks $20B Valuation Ahead of IPO</a>
+      <span class="desc">Payward pursues fresh funding as it ramps up derivatives and stablecoin acquisitions — crypto exchange valuations are heating up again.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/ripple-secures-200m-credit-facility-expand-institutional-prime-brokerage">Ripple Secures $200M From Neuberger Berman for Prime Brokerage</a>
+      <span class="desc">Institutional crypto infrastructure matures as Ripple Prime's revenue triples in a year since its $1.25B acquisition.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/post/400835/ethereum-foundation-names-three-new-co-leads-major-protocol-cluster">Ethereum Foundation Names 3 New Protocol Cluster Co-Leads</a>
+      <span class="desc">EF's restructuring continues — the core team responsible for Ethereum's base layer gets fresh leadership for the post-Pectra era.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/05/11/a-big-nothing-burger-a-q-and-a-with-strategy-s-michael-saylor-on-selling-bitcoin">Saylor Q&A: Why Strategy Sold Bitcoin for Dividends</a>
+      <span class="desc">Michael Saylor explains selling BTC to retire debt and pay STRC dividends — "we're the biggest buyer of bitcoin in the world."</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/05/11/banking-groups-escalate-fight-over-stablecoin-yield-ahead-of-senate-vote">Banking Groups vs. Stablecoins: The Yield Fight Before Thursday's Vote</a>
+      <span class="desc">ABA warns the CLARITY Act could push deposit flight into stablecoins — the stablecoin regulation battle reaches a critical inflection point.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Generated: 2026-05-12T02:30:00Z · AI &amp; Crypto Daily v3 · 16 items across 5 sections</p>
+  <p><strong>Dedup:</strong> 14 stories filtered (covered in May 8–11 reports) from 70+ candidates</p>
+  <table>
+    <tr><th>Source</th><th>Type</th><th>Status</th></tr>
+    <tr><td>Claude/Codex/Cursor AI news</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>OpenAI/Anthropic/Google announcements</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>Vibe coding / agentic tools</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>AI developer tools releases</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>CoreML / MLX / Edge AI</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>Architecture concepts</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>The Block RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinTelegraph RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinDesk RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>Hacker News RSS</td><td>RSS</td><td>✅</td></tr>
+  </table>
+  <p style="margin-top: 12px; font-size: 11px;">Curated by AI &amp; Crypto Daily Bot · For an iOS developer at Binance</p>
+</footer>
+
+</body>
+</html>
