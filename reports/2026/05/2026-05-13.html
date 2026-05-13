@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — May 13, 2026</title>
+<style>
+:root {
+  --bg-light: #ffffff;
+  --bg-dark: #1a1a2e;
+  --text-light: #333333;
+  --text-dark: #e0e0e0;
+  --accent-tips: #0891b2;
+  --accent-ai: #7c3aed;
+  --accent-vibe: #059669;
+  --accent-crypto: #f59e0b;
+  --accent-concepts: #dc2626;
+  --link: #2563eb;
+  --bg-card-light: #f8fafc;
+  --bg-card-dark: #16213e;
+  --border-light: #e5e7eb;
+  --border-dark: #2a2a4a;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: var(--bg-light); --text: var(--text-light); --card: var(--bg-card-light); --border: var(--border-light); }
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: var(--bg-dark); --text: var(--text-dark); --card: var(--bg-card-dark); --border: var(--border-dark); }
+  a { color: #60a5fa; }
+  .story p, .tip-card p, .concept-card p { color: #b0b0b0; }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg, #ffffff);
+  color: var(--text, #333333);
+  line-height: 1.7;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 2px solid var(--border, #e5e7eb);
+  margin-bottom: 32px;
+}
+header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+header .date { font-size: 15px; opacity: 0.6; margin-top: 4px; }
+.section { margin-bottom: 36px; }
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title.tips { border-color: var(--accent-tips); color: var(--accent-tips); }
+.section-title.ai { border-color: var(--accent-ai); color: var(--accent-ai); }
+.section-title.vibe { border-color: var(--accent-vibe); color: var(--accent-vibe); }
+.section-title.crypto { border-color: var(--accent-crypto); color: var(--accent-crypto); }
+.section-title.concepts { border-color: var(--accent-concepts); color: var(--accent-concepts); }
+.story {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-left: 4px solid transparent;
+}
+.story.ai { border-left-color: var(--accent-ai); }
+.story.vibe { border-left-color: var(--accent-vibe); }
+.story.crypto { border-left-color: var(--accent-crypto); }
+.story h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+.story h3 a { color: var(--link); text-decoration: none; }
+.story h3 a:hover { text-decoration: underline; }
+.story p { font-size: 14px; opacity: 0.85; }
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.tip-tag { background: #0891b222; color: var(--accent-tips); }
+.ai-tag { background: #7c3aed22; color: var(--accent-ai); }
+.vibe-tag { background: #05966922; color: var(--accent-vibe); }
+.crypto-tag { background: #f59e0b22; color: var(--accent-crypto); }
+.concept-tag { background: #dc262622; color: var(--accent-concepts); }
+.tip-card {
+  background: var(--card, #f8fafc);
+  border: 1px solid var(--accent-tips);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.tip-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.tip-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.tip-card code {
+  background: #0891b215;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', Menlo, monospace;
+}
+.concept-card {
+  background: var(--card, #f8fafc);
+  border-left: 4px solid var(--accent-concepts);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+}
+.concept-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
+.concept-card p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+.worth-reading {
+  background: var(--card, #f8fafc);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 8px;
+}
+.worth-reading h2 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  font-size: 14px;
+}
+.worth-reading li:last-child { border-bottom: none; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { opacity: 0.7; display: block; margin-top: 2px; font-size: 13px; }
+footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  font-size: 12px;
+  opacity: 0.5;
+}
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12px; }
+footer th, footer td { text-align: left; padding: 4px 8px; }
+footer th { font-weight: 600; }
+@media (max-width: 600px) {
+  body { padding: 16px 12px; }
+  header h1 { font-size: 24px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🤖 AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, May 13, 2026</div>
+</header>
+
+<!-- 💡 Daily Tech Tips -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools: Cursor, Windsurf, Copilot</div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Cursor</span>
+    <strong>Use @Cursor in Microsoft Teams to Delegate Agent Tasks</strong>
+    <p>Cursor's new MS Teams integration lets you mention <code>@Cursor</code> in any channel to spawn a cloud agent that reads thread context, implements solutions, and opens PRs — all without leaving your chat app. For iOS teams using Teams for standup coordination, this means you can file a bug description in chat and get a working fix PR before the meeting ends. Pair with <code>/multitask</code> to run parallel agent branches.</p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Copilot</span>
+    <strong>Prepare for Copilot's AI Credits System (June 1 Deadline)</strong>
+    <p>GitHub Copilot switches to token-based "AI Credits" on June 1: Pro ($10/mo) gets 1,000 credits, Pro+ ($39/mo) gets 3,900. Premium models like GPT-5.4 carry a 6× multiplier — meaning one Opus-level completion costs 6 credits instead of 1. Start tracking your usage now via <code>gh copilot usage --json</code> and switch to lighter models (Sonnet 4.6, GPT-5.5 Instant) for routine completions to stretch your budget.</p>
+  </div>
+
+  <div class="tip-card">
+    <span class="section-tag tip-tag">Cursor</span>
+    <strong>Customize Bugbot Review Depth for Your Team's PRs</strong>
+    <p>Cursor now lets teams configure Bugbot's PR review "effort level" — Default, High (deeper reasoning for subtle bugs), or Custom (natural-language instructions like "focus on memory leaks and retain cycles in Swift"). Set it in your repo's <code>.cursor/bugbot.json</code>. For iOS codebases with complex lifecycle management, High mode catches retain cycle issues that Default misses.</p>
+  </div>
+</div>
+
+<!-- 🤖 AI Tools & Updates -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Cursor</span>
+    <h3><a href="https://cursor.com">Cursor Enters Microsoft Teams — AI Coding Agents Go Where Developers Already Are</a></h3>
+    <p>Beyond the IDE, Cursor is now available inside Microsoft Teams channels. Mention @Cursor with a task description, and it reads the full thread context, implements changes across your codebase, and opens a PR — bridging the gap between project discussion and code execution. Combined with its $2B ARR milestone and 2M+ users, Cursor is evolving from an "AI IDE" into an omnipresent development platform.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">GitHub</span>
+    <h3><a href="https://github.blog">Copilot Deprecates Claude Sonnet 4, Pushes Sonnet 4.6 Migration</a></h3>
+    <p>GitHub officially deprecated Claude Sonnet 4 across all Copilot experiences on May 6, urging developers to migrate to Sonnet 4.6. Opus model usage now carries a 15×–27× credit multiplier — making it prohibitively expensive for routine coding through Copilot's wrapper. The strategic implication: GitHub wants you using their first-party models for daily work and reserving frontier models for complex architecture tasks only.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Claude Code</span>
+    <h3><a href="https://anthropic.com">Claude Code v2.1.139: /goal Command and Git Worktree Integration</a></h3>
+    <p>The latest Claude Code updates (v2.1.129–v2.1.139) introduced two power-user features: <code>/goal</code> lets you set a persistent condition that Claude works toward across multiple turns until satisfied, and native Git worktree support enables parallel branch work without switching contexts. The <code>/skills</code> marketplace now includes OpenAI's official codex-plugin-cc for cross-platform code review. For iOS developers running long refactoring sessions, /goal eliminates the "are we done yet?" problem.</p>
+  </div>
+
+  <div class="story ai">
+    <span class="section-tag ai-tag">Industry</span>
+    <h3><a href="https://cointelegraph.com/news/kevin-warsh-fed-governor-confirmation-us-senate">Kevin Warsh Confirmed as Fed Governor — Most Crypto-Friendly Fed Chair in History</a></h3>
+    <p>The U.S. Senate confirmed Kevin Warsh to the Fed's Board of Governors, positioning the crypto-linked investor to replace Jerome Powell as Chair (term ends May 15). Warsh holds significant crypto investments, has called Bitcoin "the new gold for people under 40," and opposes CBDCs in favor of private stablecoins. Short-term hawkish monetary policy may create volatility, but long-term this is the most structurally bullish Fed appointment for digital assets ever.</p>
+  </div>
+</div>
+
+<!-- 🛠 Vibe Coding & Dev Tools -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Composable Stack</span>
+    <h3><a href="https://cursor.com">The "Composable AI Stack" Emerges: Cursor + Claude Code + Copilot Together</a></h3>
+    <p>May 2026's biggest meta-trend: developers are no longer choosing one AI tool — they're stacking them. Cursor for IDE-level agent orchestration, Claude Code for deep terminal-based agentic workflows, and Copilot for inline completions and PR reviews. OpenAI's official codex-plugin-cc running inside Claude Code exemplifies this cross-pollination. The winning strategy is treating each tool as a layer in a composable development stack, not a monolithic replacement.</p>
+  </div>
+
+  <div class="story vibe">
+    <span class="section-tag vibe-tag">Ethereum</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/05/12/the-ethereum-foundation-unveils-new-clear-signing-standard-to-stop-users-from-approving-malicious-crypto-transactions">Ethereum Foundation Launches "Clear Signing" Standard</a></h3>
+    <p>After billions lost to phishing and blind-signing attacks, the Ethereum Foundation unveiled a new security standard that translates raw transaction data into human-readable descriptions before wallet approval. For iOS wallet developers, this is a critical integration: implement Clear Signing via EIP-7702 to show users exactly what they're approving instead of opaque hex data. Expect Ledger, MetaMask, and Trust Wallet SDKs to adopt this within weeks.</p>
+  </div>
+</div>
+
+<!-- 💰 Crypto & Markets -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">TradFi</span>
+    <h3><a href="https://www.coindesk.com/business/2026/05/12/jpmorgan-files-to-launch-new-tokenized-fund-as-wall-street-tokenization-race-heats-up">JPMorgan Launches Second Tokenized Money Market Fund on Ethereum</a></h3>
+    <p>JPMorgan filed to launch its second tokenized money market fund on Ethereum, investing in U.S. Treasurys and overnight repos. This follows BlackRock's expanded onchain fund offerings from last week — the Wall Street tokenization race is accelerating into a full sprint. Combined with DTCC's Chainlink-powered Collateral AppChain targeting Q4 2026, traditional finance infrastructure is migrating to blockchain at an institutional pace.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/05/12/bitcoin-s-bull-bear-cycle-turns-green-for-first-time-since-march-2023">Bitcoin Bull-Bear Cycle Indicator Turns Green — First Time Since March 2023</a></h3>
+    <p>CoinDesk's composite bull-bear indicator flipped green for the first time since March 2023 — the signal that preceded the last major rally from $28K to $73K. BTC climbed back to $80,800 despite a three-year-high CPI print. Analysts are eyeing $90K as the next explosive level, though the hawkish inflation data and Warsh's tight-money stance add near-term uncertainty. The Hyperliquid ETF's "very solid" first day of trading adds to the risk-on sentiment.</p>
+  </div>
+
+  <div class="story crypto">
+    <span class="section-tag crypto-tag">Infrastructure</span>
+    <h3><a href="https://cointelegraph.com/news/dtcc-to-use-chainlink-to-power-247-collateral-management-network">DTCC Partners with Chainlink for 24/7 Tokenized Collateral Management</a></h3>
+    <p>The world's largest post-trade infrastructure provider (processing $2.5Q annually) will integrate Chainlink's Runtime Environment to build a "Collateral AppChain" — enabling automated, 24/7 cross-market collateral management on-chain. Target launch is Q4 2026, with live transaction tests in July. Chainlink co-founder Sergey Nazarov called collateral management "the killer application" for blockchain in TradFi. This is the most significant institutional DeFi infrastructure deal of 2026.</p>
+  </div>
+</div>
+
+<!-- 🔥 Hot Industry Concepts -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Privacy Infrastructure — Crypto's Next "Killer App"</strong>
+    <p>CoinDesk reports that privacy-focused blockchains have topped $1 billion in combined funding: Circle's Arc ($222M), Canton Network ($2B valuation), and Tempo's latest raise. Bitwise CIO Matt Hougan argues regulation, corporate competition, and AI surveillance concerns are driving institutions toward privacy-preserving infrastructure — not privacy coins, but privacy layers for compliant finance. For developers, this means privacy-preserving computation (FHE, ZK-proofs) is becoming a core infrastructure skill, not a niche. <a href="https://www.coindesk.com/business/2026/05/12/privacy-emerges-as-crypto-s-next-killer-app-with-arc-canton-and-tempo-topping-usd1-billion-in-funding">Deep dive →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Crypto-Friendly Fed — A Structural Market Regime Change</strong>
+    <p>Kevin Warsh's Senate confirmation marks the first time a Fed Chair nominee has disclosed personal crypto investments, publicly called Bitcoin a "policeman for policy," and explicitly favored private stablecoins over CBDCs. This isn't a tactical trade — it's a regime change in how the world's most powerful central bank views digital assets. Expect institutional capital allocation models to permanently shift, with Bitcoin potentially reclassified from "alternative" to "macro hedge" in institutional portfolios. <a href="https://cointelegraph.com/news/kevin-warsh-fed-governor-confirmation-us-senate">Read more →</a></p>
+  </div>
+
+  <div class="concept-card">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Composable AI Toolchains — The End of "One Tool to Rule Them All"</strong>
+    <p>The AI coding tools market has matured past the "pick one winner" phase into a composable ecosystem: Cursor for multi-agent IDE orchestration, Claude Code for deep terminal workflows with /goal persistence, Copilot for inline completions — and they're interoperating via plugins. OpenAI's codex-plugin-cc running inside Claude Code is the canonical example. The developer skill isn't "which tool to use" anymore — it's knowing which layer each tool excels at and composing them effectively. <a href="https://cursor.com">Explore →</a></p>
+  </div>
+</div>
+
+<!-- 📚 Worth Reading -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.theblock.co/post/401047/first-ever-hyperliquid-etf-launches-posts-very-solid-first-day-of-trading-analyst">First-Ever Hyperliquid ETF Launches with "Very Solid" Day One</a>
+      <span class="desc">HYPE token exposure without owning crypto — the ETF wrapper reaches DeFi derivatives protocols.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/05/12/binance-s-chief-marketing-officer-rachel-conlan-is-leaving-the-exchange">Binance CMO Rachel Conlan Departing; Eowyn Chen Steps In</a>
+      <span class="desc">Former Trust Wallet CEO Eowyn Chen takes over marketing as Binance continues leadership transitions.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/bermuda-financial-services-stellar">Bermuda Transitions Key Financial Services to Stellar Blockchain</a>
+      <span class="desc">Premier announces accepting and investing in digital assets — a national-scale blockchain adoption case study.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/05/12/france-s-central-banker-beau-breaks-with-ecb-s-lagarde-calls-for-private-tokenized-euro-mobilization">France's Central Banker Breaks with Lagarde on Private Tokenized Euro</a>
+      <span class="desc">Banque de France deputy governor calls for private-sector digital euro development — a fracture within the ECB.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/us-senate-banking-committee-draft-crypto-market-structure-bill-markup">CLARITY Act Latest Draft Raises Eyebrows Ahead of Senate Markup</a>
+      <span class="desc">Ethics provisions and bipartisan tensions heat up as the most significant crypto market structure bill advances.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Generated: 2026-05-13T03:00:00Z · AI &amp; Crypto Daily v3 · 15 items across 5 sections</p>
+  <p><strong>Dedup:</strong> 18 stories filtered (covered in May 8–12 reports) from 65+ candidates</p>
+  <table>
+    <tr><th>Source</th><th>Type</th><th>Status</th></tr>
+    <tr><td>Cursor/Copilot/Claude Code news</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>DTCC/Chainlink tokenization</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>Kevin Warsh/Fed crypto impact</td><td>web_search</td><td>✅</td></tr>
+    <tr><td>The Block RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinTelegraph RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>CoinDesk RSS</td><td>RSS</td><td>✅</td></tr>
+    <tr><td>OpenAI/Anthropic/Google announcements</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>Vibe coding / agentic tools</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>CoreML / MLX / Edge AI</td><td>web_search</td><td>❌ timeout</td></tr>
+    <tr><td>Hacker News RSS</td><td>RSS</td><td>❌ empty</td></tr>
+  </table>
+  <p style="margin-top: 12px; font-size: 11px;">Curated by AI &amp; Crypto Daily Bot · For an iOS developer at Binance</p>
+</footer>
+
+</body>
+</html>
