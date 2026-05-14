@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — May 14, 2026</title>
+  <style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AI &amp; Crypto Daily</h1>
+    <div class="date">Thursday, May 14, 2026</div>
+  </header>
+
+  <!-- ===== DAILY TECH TIPS ===== -->
+  <div class="section">
+    <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-device ML</div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">WWDC 2026</span>
+      <strong>Apple's "Core AI" Framework — The Core ML Successor Leaked Ahead of WWDC</strong>
+      <p>Bloomberg's Mark Gurman reports Apple will replace Core ML with a new "Core AI" framework in iOS 27/macOS 27, designed from the ground up for generative AI. The key innovation: automatic routing that decides whether to run inference on-device via the Neural Engine or offload to cloud models based on performance and privacy requirements. For Binance iOS developers, this means your ML pipeline code will change significantly — start reviewing your <code>MLModel</code> usage and plan migration. WWDC sessions drop June 8.</p>
+    </div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">MLX</span>
+      <strong>MLX Now Powers Ollama on Mac — Run Local LLMs at Native Speed</strong>
+      <p>Ollama officially switched to MLX as its primary inference engine on Mac in March 2026, delivering massive speedups for local LLM inference on Apple Silicon. Combined with Apple's research showing M5 chips will have dedicated Neural Accelerators optimized for MLX compute patterns, this makes Mac the best platform for local AI development. Try it now: <code>brew install ollama &amp;&amp; ollama run llama3.2</code> — you'll see 2-3x faster token generation vs the old GGML backend on M3/M4 Macs.</p>
+    </div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">Apple Neural Engine</span>
+      <strong>Reverse-Engineered ANE Training — Forward + Backward Passes on Apple Neural Engine</strong>
+      <p>Developers have successfully reverse-engineered the M4 chip's Apple Neural Engine to perform local AI model training (both forward and backward passes) — something Core ML and MLX officially restrict to inference only. Apple is widely expected to formalize this at WWDC 2026 via a new "Metal Tensor API" or through the updated Core AI stack. For edge AI enthusiasts, this means on-device fine-tuning of small models could become a first-class capability on iPhone/iPad — imagine personalizing fraud detection models directly on the user's device without sending data to servers.</p>
+    </div>
+  </div>
+
+  <!-- ===== AI TOOLS & UPDATES ===== -->
+  <div class="section">
+    <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">AI × Crypto</span>
+      <h3><a href="https://www.coindesk.com/markets/2026/05/13/anthropic-openai-tokens-plunge-nearly-40-as-ai-firms-warn-spv-transfers-are-invalid">Anthropic &amp; OpenAI Tokens Plunge 40% — AI Firms Warn SPV Transfers Invalid</a></h3>
+      <p>Solana-based tokens claiming to track private-market valuations of Anthropic and OpenAI dropped nearly 40% this week after both companies warned that the Special Purpose Vehicle (SPV) structures backing these tokens may be invalid. This is a cautionary tale at the AI×crypto intersection — tokenizing pre-IPO equity without issuer consent creates legal landmines. For developers building tokenization features, ensure your legal framework covers secondary transfer restrictions.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Google</span>
+      <h3><a href="https://io.google/2026/">Google I/O 2026 Starts Monday — Gemini 4.0, Android XR, Project Mariner Expected</a></h3>
+      <p>Google I/O kicks off May 19 with the biggest expected theme being "agentic AI" — agents that autonomously navigate computers and execute multi-step workflows. Expected reveals include Gemini 4.0 with cross-service deep integration, Android XR smart glasses with real-time Gemini Live translation, and Project Mariner (autonomous browser agent). For iOS developers, watch for competitive signals on on-device AI — Google's approach to balancing cloud vs edge inference will set expectations users bring to Apple's ecosystem.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Tokenization</span>
+      <h3><a href="https://cointelegraph.com/news/fidelity-filq-tokenized-fund-chainlink-sygnum">Fidelity International Launches AAA-Rated Tokenized Fund on Chainlink</a></h3>
+      <p>Fidelity International's FILQ tokenized liquidity fund received Moody's top-tier AAA-mf rating — a first for tokenized funds. Built on Chainlink with Sygnum as custodian and JPMorgan providing daily NAV data, FILQ offers 24/7 redemptions and settlements. This is the strongest institutional validation of tokenized fund infrastructure yet. When Fidelity + Moody's + JPMorgan converge on a tokenized product, the asset management industry takes notice.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Ethereum</span>
+      <h3><a href="https://www.coindesk.com/business/2026/05/13/ethereum-app-builder-consensys-has-delayed-its-potential-ipo-until-fall">Consensys Delays IPO Until Fall Amid Market Volatility</a></h3>
+      <p>The MetaMask wallet builder, which had engaged JPMorgan and Goldman Sachs to lead its IPO process, is pushing its public listing to fall 2026. Alongside Ledger also shelving its $4B U.S. listing plans, this signals that crypto IPO windows remain narrow despite improving regulatory clarity. For the Ethereum ecosystem, Consensys going public would be a landmark event — worth tracking as market conditions evolve.</p>
+    </div>
+  </div>
+
+  <!-- ===== VIBE CODING & DEV TOOLS ===== -->
+  <div class="section">
+    <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+    <div class="card vibe">
+      <span class="section-tag vibe-tag">Security</span>
+      <h3><a href="https://www.theblock.co/post/401179/immufefi-absorb-code4rena-bug-bounty-customers-shutdown-decision">Code4rena Shuts Down — Immunefi Absorbs Bug Bounty Customers</a></h3>
+      <p>Code4rena, the competitive audit platform that pioneered crowdsourced smart contract security, is shutting down. Immunefi will absorb its bounty programs, rewards, and researcher community. For developers submitting to bug bounty programs or running security audits, this consolidation means Immunefi becomes the dominant platform — update your submission workflows accordingly. The shutdown also raises questions about sustainability of competitive audit models vs traditional security firms.</p>
+    </div>
+
+    <div class="card vibe">
+      <span class="section-tag vibe-tag">Open Source</span>
+      <h3><a href="https://cointelegraph.com/press-releases/tea-protocol-announces-june-4-mainnet-launch-and-tge-on-aerodrome-to-secure-open-source-development-in-the-ai-era">Tea Protocol Mainnet June 4 — Securing Open-Source Dependencies in the AI Era</a></h3>
+      <p>Tea Protocol, created by Homebrew's Max Howell, launches its mainnet on June 4 with a token on Base via Aerodrome. The protocol incentivizes open-source maintainers by allowing package users to stake tokens on dependencies — directly addressing the "xz-utils problem" of unpaid critical infrastructure. With AI agents consuming open-source packages at unprecedented scale (and last week's Mistral NPM compromise fresh in memory), this is a timely attempt to create economic sustainability for the packages your AI tools depend on.</p>
+    </div>
+  </div>
+
+  <!-- ===== CRYPTO & MARKETS ===== -->
+  <div class="section">
+    <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">Macro</span>
+      <h3><a href="https://www.theblock.co/post/400974/senate-confirm-trump-federal-reserve-chair-kevin-warsh">Kevin Warsh Confirmed as Fed Chair — Crypto-Friendly Stance Expected</a></h3>
+      <p>The Senate voted to confirm Kevin Warsh as the next Federal Reserve Chair, succeeding Jerome Powell. Warsh, a former Fed governor and investor, is viewed as more receptive to digital assets and financial innovation than his predecessor. Bitcoin traders are eyeing a "fast move to $90K" following tomorrow's CLARITY Act vote, with the Warsh confirmation adding bullish macro sentiment. This is the most significant change in Fed leadership for crypto markets since Powell's appointment.</p>
+    </div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">Markets</span>
+      <h3><a href="https://www.theblock.co/post/401169/bitcoin-pinned-near-critical-support-as-hot-ppi-spike-compounds-rate-hike-fears-analysts">Bitcoin Pinned Near $80K as Hot PPI Data Spooks Markets</a></h3>
+      <p>Bitcoin hovers around $80,000 after April's core PPI surged 1% month-over-month — the hottest reading since 2022. Rate-hike odds are climbing as crypto ETFs show outflows, creating a tug-of-war between macro headwinds (inflation, Iran tensions) and bullish catalysts (CLARITY Act vote Thursday, Warsh confirmation, conviction buyers surging 300%). Long-term holders now control nearly 4 million BTC — the highest conviction level since 2021.</p>
+    </div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">TradFi</span>
+      <h3><a href="https://cointelegraph.com/news/societe-generale-expands-tokenized-collateral-and-stablecoin-push-on-canton-network">Société Générale Deploys Stablecoins on Canton for Tokenized Finance</a></h3>
+      <p>France's largest bank is deploying its EURCV and USDCV stablecoins on the Canton Network for tokenized collateral, repo financing, and institutional settlement. Following DTCC's Chainlink integration announced Monday, this is another major traditional finance institution committing to blockchain-based settlement infrastructure. The pattern is clear: institutional tokenized finance is moving from pilots to production deployment in Q3-Q4 2026.</p>
+    </div>
+  </div>
+
+  <!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+  <div class="section">
+    <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>Dual-Tier AI Framework Strategy — Cloud Routing vs Edge Inference</strong>
+      <p>Apple's leaked "Core AI" framework reveals a pattern every platform is converging on: automatic routing between on-device (edge) and cloud-based AI inference. Google does this with Gemini Nano vs Gemini Pro; Apple will formalize it in Core AI. For mobile developers, the architectural implication is clear — design your ML features with a "runtime router" that can swap between local and remote models based on latency, privacy, and capability requirements. This isn't just Apple's approach; it's becoming the universal pattern for AI-powered apps.</p>
+    </div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>Institutional Tokenization Reaches Production — The Fidelity/DTCC/SocGen Week</strong>
+      <p>Three events in one week confirm tokenized finance has crossed from pilot to production: Fidelity's AAA-rated tokenized fund on Chainlink, DTCC's 24/7 collateral management via Chainlink (announced Monday), and SocGen deploying stablecoins on Canton. The common thread: established financial infrastructure providers (Moody's ratings, JPMorgan NAV data, DTCC settlement) are now directly integrated with blockchain rails. This is the "crossing the chasm" moment for institutional DeFi. <a href="https://www.coindesk.com/business/2026/05/13/animoca-backed-nuva-connects-figure-s-usd19-billion-of-tokenized-assets-to-ethereum">Deep dive →</a></p>
+    </div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>CLARITY Act Markup Day — The Most Important 24 Hours for US Crypto Regulation</strong>
+      <p>The Senate Banking Committee votes Thursday on the CLARITY Act — the most sweeping U.S. crypto market structure bill ever. With 100+ amendments filed targeting stablecoins, ethics, and DeFi, plus Coinbase CEO Brian Armstrong publicly backing the bill, this is the regulatory event of 2026 so far. The bill would finally define SEC vs CFTC jurisdiction over digital assets. A successful markup could trigger the "fast move to $90K" traders are positioning for. <a href="https://cointelegraph.com/news/coinbase-ceo-brian-armstrong-clarity-act-thursday-markup">Deep dive →</a></p>
+    </div>
+  </div>
+
+  <!-- ===== WORTH READING ===== -->
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/05/13/animoca-backed-nuva-connects-figure-s-usd19-billion-of-tokenized-assets-to-ethereum">Animoca-Backed NUVA Connects Figure's $19B Tokenized Assets to Ethereum</a>
+        <span class="desc">Protocol led by ex-BNY executive bridges HELOCs and Treasuries to DeFi markets.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/400803/hyperliquid-dominates-weekly-blockchain-fee-revenue-vertical-chains-gain-ground">Hyperliquid Dominates Weekly Blockchain Fee Revenue</a>
+        <span class="desc">Vertical chains capturing more fee revenue than general-purpose L1s — the specialization thesis in action.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/05/13/bitcoin-s-available-supply-is-shrinking-as-long-term-hoarding-hits-record-4-million-btc">Bitcoin Conviction Buyers Surge 300% — 4M BTC Now in Long-Term Holding</a>
+        <span class="desc">The strongest HODLer accumulation signal since late 2021.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/05/13/telecom-giant-kddi-to-acquire-14-9-stake-in-coincheck-group-in-usd65-million-deal">Telecom Giant KDDI Acquires 14.9% Stake in Coincheck for $65M</a>
+        <span class="desc">Japan's telecom-crypto convergence accelerates with revenue sharing and customer referral deals.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/05/13/the-2020-signal-returns-why-the-copper-to-gold-breakout-could-point-to-bitcoin-breakout">Copper-to-Gold Breakout Echoes 2020 — Could Signal Bitcoin Rally</a>
+        <span class="desc">The macro signal that preceded BTC's last major bull run has reappeared.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Generated: 2026-05-14T09:00:00Z &nbsp;·&nbsp; AI &amp; Crypto Daily v4 &nbsp;·&nbsp; 17 items across 5 sections</p>
+    <p><strong>Dedup:</strong> 22 stories filtered (covered in May 9–13 reports) from 85+ candidates</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>web_search AI/Vibe</td>
+          <td>❌ timeout (6/7 failed)</td>
+        </tr>
+        <tr>
+          <td>web_search Edge AI</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>The Block RSS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>CoinTelegraph RSS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>CoinDesk RSS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>Hacker News RSS</td>
+          <td>❌ empty</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 12px;">Curated by AI &amp; Crypto Daily Bot · For an iOS developer at Binance</p>
+  </footer>
+
+</body>
+</html>
