@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — May 18, 2026</title>
+  <style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AI &amp; Crypto Daily</h1>
+    <div class="date">Monday, May 18, 2026</div>
+  </header>
+
+  <!-- ===== DAILY TECH TIPS ===== -->
+  <div class="section">
+    <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex Agentic Workflows</div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">Claude Code</span>
+      <strong>Routines — Wake Up to Ready-to-Merge PRs Every Morning</strong>
+      <p>Anthropic's "Code w/ Claude" event introduced Routines — async automations that let Claude Code work overnight on tasks you define before leaving your desk. Set up a Routine with <code>claude routine create --name "nightly-refactor" --trigger cron:0 2 * * *</code> to schedule a 2 AM refactoring pass across your codebase. Routines leverage multi-agent orchestration under the hood: one agent plans the changes, another implements, and a third runs your test suite. Combined with the new Desktop App GUI, you can review Routine outputs visually each morning. For iOS developers running long SwiftUI migration tasks, this turns sleep into productive agent time. <a href="https://docs.anthropic.com/en/docs/claude-code/routines">Docs →</a></p>
+    </div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">Codex</span>
+      <strong>Codex Memory — Your Agent Learns Your Codebase Preferences</strong>
+      <p>OpenAI's massive April update gave Codex persistent "memory" — your agent now remembers coding patterns, architecture decisions, and style preferences across sessions. It proactively suggests tasks based on past context and can pull information directly from Slack and Google Docs. For iOS teams, this means Codex learns your naming conventions, preferred SwiftUI patterns, and even your PR review style over time. Enable via <code>codex config set memory.enabled true</code>. Combined with the new cross-tool context feature, Codex can now reference your Jira tickets while writing implementation code — no more manual context switching. <a href="https://platform.openai.com/docs/codex/memory">Docs →</a></p>
+    </div>
+
+    <div class="card tips">
+      <span class="section-tag tip-tag">Claude Code</span>
+      <strong>Claude Code Desktop App — GUI Mode for Visual Orchestration</strong>
+      <p>The new standalone Claude Code Desktop App adds a visual interface alongside the CLI and IDE integrations. You get a real-time dependency graph showing how agents traverse your codebase, a diff viewer with inline approval/rejection, and a session timeline for tracking multi-file changes. The killer feature for iOS developers: drag-and-drop <code>.xcodeproj</code> files directly into the app to seed context. This is particularly powerful for teams using the "Two-Agent Standard" — run Claude Code Desktop for visual oversight while Codex handles background tasks. <a href="https://claude.ai/code/desktop">Download →</a></p>
+    </div>
+  </div>
+
+  <!-- ===== AI TOOLS & UPDATES ===== -->
+  <div class="section">
+    <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Google I/O</span>
+      <h3><a href="https://io.google/2026/">Google I/O 2026 Keynote Today — Gemini 4.0, Project Mariner, Android XR</a></h3>
+      <p>Google I/O kicks off today at 10am PT with "agentic AI" as the central theme. Expected reveals include Gemini 4.0 with cross-service deep integration (Gmail, Calendar, Maps acting as a unified agent), Project Mariner (autonomous browser agent that navigates websites on your behalf), and Android XR smart glasses with real-time Gemini-powered translation. For iOS developers, the competitive signal is critical: Google's Gemini Nano on-device vs Apple's Foundation Models Framework is the defining mobile AI battle of 2026. Watch for Genkit framework updates targeting multi-agent orchestration in Go and TypeScript.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Notion</span>
+      <h3><a href="https://developers.notion.com">Notion Developer Platform — Build AI Agent Workflows in Your Wiki</a></h3>
+      <p>Notion expanded from collaborative workspace into the agent orchestration market with its new Developer Platform. Developers can now build AI-enabled workflows that execute custom code, sync databases, and integrate external coding agents (Claude, Codex, Copilot) directly into Notion's workspace infrastructure. For teams using Notion as their engineering wiki, this means your documentation can now trigger automated code generation, test execution, and deployment workflows. The API supports webhooks for bi-directional agent communication — your sprint planning page can literally generate Jira tickets and scaffold code.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">SAP</span>
+      <h3><a href="https://www.sap.com/products/artificial-intelligence/agent-hub.html">SAP AI Agent Hub — Enterprise Orchestration for Agent Sprawl</a></h3>
+      <p>At Sapphire 2026, SAP launched the AI Agent Hub — a centralized control plane for governing, securing, and monitoring AI agents across enterprise departments. As companies deploy 5-10+ different AI agents across engineering, finance, and operations, the "shadow agent" problem has become real: ungoverned agents accessing sensitive data without audit trails. SAP's Hub provides RBAC, usage dashboards, and policy enforcement across vendor boundaries. For Binance-scale organizations running multiple coding agents, this pattern — centralized agent governance — is becoming a security requirement.</p>
+    </div>
+
+    <div class="card ai">
+      <span class="section-tag ai-tag">Codex</span>
+      <h3><a href="https://openai.com/codex">Codex Surpasses 4M Weekly Active Developers — Enterprise Push Accelerates</a></h3>
+      <p>OpenAI's Codex has crossed 4 million weekly active developers, up from 2.5M in March, driven by partnerships with Accenture and PwC rolling out Codex to Fortune 500 enterprises. The key differentiator: Codex is bundled into existing ChatGPT Pro and Enterprise subscriptions, making it the zero-incremental-cost option for organizations already on OpenAI. Combined with the April memory update and mobile relay, Codex is positioning as the "always-on background agent" — handling overnight builds, PR reviews, and migration tasks while developers sleep.</p>
+    </div>
+  </div>
+
+  <!-- ===== VIBE CODING & DEV TOOLS ===== -->
+  <div class="section">
+    <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+    <div class="card vibe">
+      <span class="section-tag vibe-tag">Laravel</span>
+      <h3><a href="https://laravel.com/docs/ai">Laravel AI SDK Adds Sub-Agent Support — Agentic PHP Arrives</a></h3>
+      <p>The Laravel ecosystem took a significant step forward by adding sub-agent support to its AI SDK. Developers can now construct workflows where a primary agent autonomously delegates specialized tasks to sub-agents — e.g., a code review agent spawning security audit, performance analysis, and documentation sub-agents in parallel. This pattern mirrors how Claude Code's multi-agent orchestration works, but for PHP/Laravel backends. For teams with Laravel-based APIs behind iOS apps, this enables AI-powered API development workflows without switching to a Node/Python stack.</p>
+    </div>
+
+    <div class="card vibe">
+      <span class="section-tag vibe-tag">Solana</span>
+      <h3><a href="https://www.theblock.co/post/401530/new-era-for-crypto-users-who-trade-anything-everything-jito-goes-consumer-ceo-says">Jito Goes Consumer — "Trade Anything and Everything" on Solana</a></h3>
+      <p>Jito, the dominant Solana MEV infrastructure provider, is pivoting from pure validator tooling to consumer-facing trading products. CEO Lucas Bruder says a "new class of users coming onchain want to trade anything and everything" — and Jito is building the infrastructure to support tokenized equities, prediction markets, and cross-chain swaps from a single interface. For developers building Solana-based trading features, Jito's consumer APIs could simplify integration significantly compared to building custom orderbook infrastructure.</p>
+    </div>
+
+    <div class="card vibe">
+      <span class="section-tag vibe-tag">Swift</span>
+      <h3><a href="https://github.com/AnyLanguageModel/swift">AnyLanguageModel — One Swift API for CoreML, MLX, Ollama &amp; Cloud</a></h3>
+      <p>The open-source AnyLanguageModel package has gained significant traction as the abstraction layer iOS developers need in 2026. A single Swift API dynamically routes inference requests between Core ML (Neural Engine), MLX (GPU), Ollama (local), and cloud fallbacks (OpenAI/Anthropic) based on device thermal state, network availability, and model capability requirements. This eliminates the need to maintain separate integration code for each ML framework. Install via <code>swift package add AnyLanguageModel</code> and replace your scattered ML imports with a unified <code>import AnyLM</code> interface.</p>
+    </div>
+  </div>
+
+  <!-- ===== CRYPTO & MARKETS ===== -->
+  <div class="section">
+    <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">Japan</span>
+      <h3><a href="https://cointelegraph.com/news/sbi-rakuten-nomura-line-up-to-launch-crypto-investment-trusts-report">Japan's SBI, Rakuten &amp; Nomura Race to Launch Crypto Investment Trusts</a></h3>
+      <p>Japan's biggest brokerages — SBI Securities, Rakuten Securities, and Nomura — are all developing in-house crypto investment trusts following the cabinet's bill reclassifying crypto under the Financial Instruments and Exchange Act. Another 11 companies confirmed they would consider offering crypto funds once regulations finalize. Japan is positioning to become Asia's largest regulated crypto fund market by 2028. For Binance, this intensifies competition in the Japanese institutional market alongside the existing Gopax and Korean exchange positioning.</p>
+    </div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">TradFi</span>
+      <h3><a href="https://cointelegraph.com/news/italys-largest-bank-more-than-doubles-crypto-holdings-to-235m-in-q1-report">Italy's Intesa Sanpaolo Doubles Crypto Holdings to $235M — Adds ETH &amp; XRP</a></h3>
+      <p>Europe's largest bank by assets, Intesa Sanpaolo, grew its crypto portfolio from $100M to $235M in Q1 2026 — a 135% increase in one quarter. The bank made first-time investments in Ethereum and XRP while nearly exiting Solana entirely. This is the most aggressive crypto allocation by a European megabank to date, and follows the MiCA regulatory framework now operational across the EU (Poland just passed its MiCA bill). European institutional adoption is accelerating faster than US counterparts despite the CLARITY Act progress.</p>
+    </div>
+
+    <div class="card crypto">
+      <span class="section-tag crypto-tag">Markets</span>
+      <h3><a href="https://www.coindesk.com/markets/2026/05/16/crypto-longs-lose-usd500-million-as-bitcoin-slides-to-usd78-000-sol-and-xrp-down-5">Crypto Longs Liquidated $500M — BTC at $78K as Bond Rout Continues</a></h3>
+      <p>A massive leveraged liquidation cascade wiped $500M in long positions as Bitcoin slid to $78,000, with SOL and XRP each dropping 5%. The selloff tracked a global bond market rout and the worst session for US stocks since March. Meanwhile, Michael Saylor signaled another Strategy BTC purchase while controversially suggesting the company may eventually need to sell some Bitcoin to avoid "impairing the asset." The macro picture remains challenging: Iran war uncertainty, rising bond yields, and crude above $100 create persistent headwinds despite strong long-term holder conviction.</p>
+    </div>
+  </div>
+
+  <!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+  <div class="section">
+    <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>Agent Sprawl Governance — The Enterprise Control Plane Pattern</strong>
+      <p>With enterprises now running 5-10+ AI agents across departments (Claude Code for engineering, Copilot for docs, Codex for CI/CD, custom agents for security), "agent sprawl" has become 2026's version of "cloud sprawl." SAP's AI Agent Hub and Red Hat's Desktop sandbox both implement the same architectural pattern: a centralized control plane that provides RBAC, audit logging, cost tracking, and policy enforcement across all agent vendors. For teams at Binance deploying multiple coding agents, implementing an agent registry with usage quotas and data access policies is now a compliance requirement — not a nice-to-have. The pattern: treat agents like microservices and apply the same governance mesh. <a href="https://www.sap.com/products/artificial-intelligence/agent-hub.html">Learn more →</a></p>
+    </div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>Post-Quantum Cryptography — NIST Standards Hit Production</strong>
+      <p>Forward-thinking architectures are already implementing Post-Quantum Cryptography (PQC) protocols to protect against future quantum-computing decryption threats. NIST's finalized PQC standards (ML-KEM, ML-DSA, SLH-DSA) are being adopted by Apple (iMessage PQ3), Signal, and major cloud providers in 2026. For crypto developers, this is existential: Bitcoin's ECDSA signatures and Ethereum's secp256k1 curve are theoretically vulnerable to sufficiently powerful quantum computers. Projects like Ethereum's Pectra upgrade are laying groundwork for PQC migration. Start auditing your cryptographic dependencies now — the transition timeline is years, but the planning must start today. <a href="https://csrc.nist.gov/projects/post-quantum-cryptography">NIST PQC →</a></p>
+    </div>
+
+    <div class="card concepts">
+      <span class="section-tag concept-tag">Trending</span>
+      <strong>VerifiedX &amp; Bitcoin DeFi — Programmable, Private BTC Goes Live</strong>
+      <p>VerifiedX launched a Bitcoin sidechain enabling programmable, privacy-preserving transactions without synthetic wrappers like wBTC. This targets growing institutional demand for native DeFi on Bitcoin — the original blockchain — rather than routing BTC value through Ethereum or Solana bridges (which keep getting exploited). CoinDesk reports that Bernstein analysts highlighted Figure's Q1 results showing the uniqueness of blockchain-native lending marketplaces vs traditional fintech. The thesis: Bitcoin DeFi with native privacy is the next frontier after tokenized Treasuries. <a href="https://www.coindesk.com/tech/2026/05/17/defi-s-new-front-verifiedx-bets-bitcoin-s-next-chapter-is-programmable-private">Deep dive →</a></p>
+    </div>
+  </div>
+
+  <!-- ===== WORTH READING ===== -->
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://cointelegraph.com/news/strategy-mstr-michael-saylor-bitcoin-sell-statement-btc">Saylor Floats Bitcoin Sales — "Never Sell" Mantra Could "Impair" BTC</a>
+        <span class="desc">Strategy's executive chairman breaks from his hardline stance, suggesting some BTC sales may be necessary to support the asset's market health long-term.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/bernstein-say-figures-q1-shows-uniqueness-of-blockchain-marketplaces">Bernstein: Figure's Q1 Shows Blockchain Marketplaces Are Fundamentally Different</a>
+        <span class="desc">Figure Technology's quarterly results reveal how blockchain-native lending platforms outperform balance-sheet fintech models on efficiency and transparency.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/05/17/the-clarity-act-took-a-step-forward-state-of-crypto">CoinDesk State of Crypto: Unpacking the CLARITY Act Markup</a>
+        <span class="desc">A detailed breakdown of Thursday's contentious committee session — what passed, what failed, and what it means for the full Senate vote timeline.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/05/24/a-russian-stablecoin-built-to-dodge-sanctions-says-it-can-survive-even-if-they-re-lifted">A7A5: The Russian Stablecoin Built to Dodge Sanctions</a>
+        <span class="desc">A deep look at how A7A5 uses faster settlement, yield, and regional crypto infrastructure to move money around banking restrictions — and why it claims relevance beyond geopolitical tensions.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/401563/alleged-forsage-co-founder-extradited-from-thailand-pleads-not-guilty-in-340-million-ponzi-case">Forsage Co-Founder Extradited — $340M Ponzi Case Moves Forward</a>
+        <span class="desc">The alleged mastermind behind the crypto Ponzi scheme pleads not guilty after extradition from Thailand — a reminder of the industry's ongoing enforcement actions.</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Generated: 2026-05-18T09:00:00Z &nbsp;·&nbsp; AI &amp; Crypto Daily v4 &nbsp;·&nbsp; 16 items across 5 sections</p>
+    <p><strong>Dedup:</strong> 34 stories filtered (covered in May 13–17 reports) from 90+ candidates</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>web_search Claude/Codex/Cursor</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>web_search Vibe/Agentic tools</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>web_search AI dev tool releases</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>web_search CoreML/MLX iOS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>web_search Architecture concepts</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>web_search OpenAI/Anthropic/Google</td>
+          <td>❌ timeout</td>
+        </tr>
+        <tr>
+          <td>web_search Edge AI / Neural Engine</td>
+          <td>❌ timeout</td>
+        </tr>
+        <tr>
+          <td>The Block RSS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>CoinTelegraph RSS</td>
+          <td>✅</td>
+        </tr>
+        <tr>
+          <td>CoinDesk RSS</td>
+          <td>✅</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 12px;">Curated by AI &amp; Crypto Daily Bot · For an iOS developer at Binance</p>
+  </footer>
+
+</body>
+</html>
