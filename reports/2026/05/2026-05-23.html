@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; Crypto Daily Digest — May 23, 2026</title>
+  <style>
+    /* ============================================================
+       v4 Design Tokens & Full CSS Template
+       AI & Crypto Daily Digest — with prefers-color-scheme
+       ============================================================ */
+
+    :root {
+      /* Light Mode (default) */
+      --color-bg:              #f8f9fc;
+      --color-surface:         #ffffff;
+      --color-surface-raised:  #f1f3f9;
+      --color-border:          #e2e5f0;
+      --color-border-subtle:   #ebeef5;
+
+      --color-text-primary:    #1a1d2e;
+      --color-text-secondary:  #4a5070;
+      --color-text-muted:      #8690b0;
+
+      --color-accent-blue:     #3b7cf5;
+      --color-accent-purple:   #7c4dff;
+      --color-accent-cyan:     #0ea5c8;
+      --color-accent-green:    #16a364;
+      --color-accent-orange:   #e8590c;
+      --color-accent-red:      #e11d48;
+      --color-accent-yellow:   #d97706;
+      --color-accent-pink:     #d946a8;
+
+      /* Section accent mapping */
+      --section-tips:          var(--color-accent-yellow);
+      --section-ai:            var(--color-accent-purple);
+      --section-dev:           var(--color-accent-cyan);
+      --section-crypto:        var(--color-accent-orange);
+      --section-concepts:      var(--color-accent-green);
+      --section-reading:       var(--color-accent-blue);
+
+      /* Typography */
+      --font-sans:   'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+
+      --text-xs:     0.72rem;
+      --text-sm:     0.85rem;
+      --text-base:   0.95rem;
+      --text-md:     1.05rem;
+      --text-lg:     1.2rem;
+      --text-xl:     1.4rem;
+      --text-2xl:    1.75rem;
+      --text-3xl:    2.2rem;
+
+      --weight-normal:   400;
+      --weight-medium:   500;
+      --weight-semibold: 600;
+      --weight-bold:     700;
+      --weight-black:    900;
+
+      /* Spacing */
+      --space-1:   0.25rem;
+      --space-2:   0.5rem;
+      --space-3:   0.75rem;
+      --space-4:   1rem;
+      --space-5:   1.25rem;
+      --space-6:   1.5rem;
+      --space-8:   2rem;
+      --space-10:  2.5rem;
+      --space-12:  3rem;
+      --space-16:  4rem;
+
+      /* Border Radius */
+      --radius-sm:   4px;
+      --radius-md:   8px;
+      --radius-lg:   12px;
+      --radius-xl:   16px;
+      --radius-2xl:  24px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,0.12);
+      --shadow-glow-blue:   0 0 20px rgba(59,124,245,0.15);
+      --shadow-glow-purple: 0 0 20px rgba(124,77,255,0.15);
+      --shadow-glow-cyan:   0 0 20px rgba(14,165,200,0.12);
+      --shadow-glow-green:  0 0 20px rgba(22,163,100,0.12);
+      --shadow-glow-orange: 0 0 20px rgba(232,89,12,0.12);
+      --shadow-glow-yellow: 0 0 20px rgba(217,119,6,0.12);
+
+      /* Transitions */
+      --transition-fast:   150ms ease;
+      --transition-base:   250ms ease;
+      --transition-slow:   400ms ease;
+
+      /* Layout */
+      --max-width:         1200px;
+      --content-padding:   var(--space-8);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg:              #0f1117;
+        --color-surface:         #1a1d27;
+        --color-surface-raised:  #21253a;
+        --color-border:          #2e3352;
+        --color-border-subtle:   #232740;
+
+        --color-text-primary:    #e8eaf6;
+        --color-text-secondary:  #9fa8c7;
+        --color-text-muted:      #5c6490;
+
+        --color-accent-blue:     #4f8ef7;
+        --color-accent-purple:   #9b6dff;
+        --color-accent-cyan:     #26d4e8;
+        --color-accent-green:    #3dd68c;
+        --color-accent-orange:   #f97316;
+        --color-accent-red:      #f43f5e;
+        --color-accent-yellow:   #fbbf24;
+        --color-accent-pink:     #ec4899;
+
+        --shadow-sm:   0 1px 3px rgba(0,0,0,0.4);
+        --shadow-md:   0 4px 16px rgba(0,0,0,0.5);
+        --shadow-lg:   0 8px 32px rgba(0,0,0,0.6);
+        --shadow-glow-blue:   0 0 20px rgba(79,142,247,0.25);
+        --shadow-glow-purple: 0 0 20px rgba(155,109,255,0.25);
+        --shadow-glow-cyan:   0 0 20px rgba(38,212,232,0.2);
+        --shadow-glow-green:  0 0 20px rgba(61,214,140,0.2);
+        --shadow-glow-orange: 0 0 20px rgba(249,115,22,0.2);
+        --shadow-glow-yellow: 0 0 20px rgba(251,191,36,0.2);
+      }
+    }
+
+    /* ============================================================
+       Reset & Base
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--color-accent-blue);
+      text-decoration: none;
+      transition: color var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--color-accent-cyan);
+      text-decoration: underline;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+    }
+
+    code {
+      background: rgba(79,142,247,0.12);
+      color: var(--color-accent-cyan);
+      padding: 0.15em 0.45em;
+      border-radius: var(--radius-sm);
+      font-size: 0.88em;
+    }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    .page-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    /* ============================================================
+       Header / Hero
+       ============================================================ */
+    .site-header {
+      background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-raised) 40%, var(--color-surface) 100%);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-10) 0 var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .site-header {
+        background: linear-gradient(135deg, #0f1117 0%, #151829 40%, #1a1240 100%);
+      }
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(79,142,247,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(155,109,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(38,212,232,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-issue {
+      background: rgba(79,142,247,0.15);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--color-accent-blue);
+    }
+
+    .badge-day {
+      background: rgba(155,109,255,0.15);
+      border: 1px solid rgba(155,109,255,0.3);
+      color: var(--color-accent-purple);
+    }
+
+    .badge-live {
+      background: rgba(61,214,140,0.15);
+      border: 1px solid rgba(61,214,140,0.3);
+      color: var(--color-accent-green);
+    }
+
+    .badge-live::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-green);
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .header-title {
+      font-size: clamp(1.8rem, 4vw, var(--text-3xl));
+      font-weight: var(--weight-black);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: var(--space-3);
+      background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .header-title {
+        background: linear-gradient(135deg, #fff 0%, #c8d4ff 50%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .header-subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-6);
+      font-weight: var(--weight-normal);
+    }
+
+    .header-subtitle strong {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-semibold);
+    }
+
+    .header-meta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .meta-pill .icon {
+      font-style: normal;
+      font-size: 0.9em;
+    }
+
+    /* ============================================================
+       Stat Bar
+       ============================================================ */
+    .stat-bar {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) 0;
+    }
+
+    .stat-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .stat-value {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--color-border);
+    }
+
+    /* ============================================================
+       Navigation TOC
+       ============================================================ */
+    .toc-nav {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-3) 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .toc-nav {
+        background: rgba(26,29,39,0.92);
+      }
+    }
+
+    .toc-list {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      list-style: none;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .toc-list::-webkit-scrollbar { display: none; }
+
+    .toc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+      border: 1px solid transparent;
+    }
+
+    .toc-link:hover {
+      background: var(--color-surface-raised);
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       Main Content Grid
+       ============================================================ */
+    .main-content {
+      padding: var(--space-10) 0 var(--space-16);
+    }
+
+    /* ============================================================
+       Section
+       ============================================================ */
+    .section {
+      margin-bottom: var(--space-12);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .section-title-group {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    .section-count {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+    }
+
+    /* Per-section accent colors */
+    .section--tips .section-header  { border-color: rgba(217,119,6,0.25); }
+    .section--tips .section-count   { background: rgba(217,119,6,0.15); color: var(--color-accent-yellow); }
+    .section--tips .section-title   { color: var(--color-accent-yellow); }
+
+    .section--ai .section-header    { border-color: rgba(124,77,255,0.25); }
+    .section--ai .section-count     { background: rgba(124,77,255,0.15); color: var(--color-accent-purple); }
+    .section--ai .section-title     { color: var(--color-accent-purple); }
+
+    .section--dev .section-header   { border-color: rgba(14,165,200,0.25); }
+    .section--dev .section-count    { background: rgba(14,165,200,0.15); color: var(--color-accent-cyan); }
+    .section--dev .section-title    { color: var(--color-accent-cyan); }
+
+    .section--crypto .section-header { border-color: rgba(232,89,12,0.25); }
+    .section--crypto .section-count  { background: rgba(232,89,12,0.15); color: var(--color-accent-orange); }
+    .section--crypto .section-title  { color: var(--color-accent-orange); }
+
+    .section--concepts .section-header { border-color: rgba(22,163,100,0.25); }
+    .section--concepts .section-count  { background: rgba(22,163,100,0.15); color: var(--color-accent-green); }
+    .section--concepts .section-title  { color: var(--color-accent-green); }
+
+    .section--reading .section-header { border-color: rgba(59,124,245,0.25); }
+    .section--reading .section-count  { background: rgba(59,124,245,0.15); color: var(--color-accent-blue); }
+    .section--reading .section-title  { color: var(--color-accent-blue); }
+
+    @media (prefers-color-scheme: dark) {
+      .section--tips .section-header  { border-color: rgba(251,191,36,0.25); }
+      .section--tips .section-count   { background: rgba(251,191,36,0.15); color: #fbbf24; }
+      .section--tips .section-title   { color: #fbbf24; }
+
+      .section--ai .section-header    { border-color: rgba(155,109,255,0.25); }
+      .section--ai .section-count     { background: rgba(155,109,255,0.15); color: #9b6dff; }
+      .section--ai .section-title     { color: #9b6dff; }
+
+      .section--dev .section-header   { border-color: rgba(38,212,232,0.25); }
+      .section--dev .section-count    { background: rgba(38,212,232,0.15); color: #26d4e8; }
+      .section--dev .section-title    { color: #26d4e8; }
+
+      .section--crypto .section-header { border-color: rgba(249,115,22,0.25); }
+      .section--crypto .section-count  { background: rgba(249,115,22,0.15); color: #f97316; }
+      .section--crypto .section-title  { color: #f97316; }
+
+      .section--concepts .section-header { border-color: rgba(61,214,140,0.25); }
+      .section--concepts .section-count  { background: rgba(61,214,140,0.15); color: #3dd68c; }
+      .section--concepts .section-title  { color: #3dd68c; }
+
+      .section--reading .section-header { border-color: rgba(79,142,247,0.25); }
+      .section--reading .section-count  { background: rgba(79,142,247,0.15); color: #4f8ef7; }
+      .section--reading .section-title  { color: #4f8ef7; }
+    }
+
+    /* ============================================================
+       Card Base
+       ============================================================ */
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* Card grid layouts */
+    .cards-grid {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .cards-grid--2 {
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+
+    .cards-grid--3 {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .cards-grid--1 {
+      grid-template-columns: 1fr;
+    }
+
+    /* ============================================================
+       Tag / Badge
+       ============================================================ */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag--blue    { background: rgba(59,124,245,0.12);  color: var(--color-accent-blue);   border: 1px solid rgba(59,124,245,0.25); }
+    .tag--purple  { background: rgba(124,77,255,0.12);  color: var(--color-accent-purple); border: 1px solid rgba(124,77,255,0.25); }
+    .tag--cyan    { background: rgba(14,165,200,0.12);  color: var(--color-accent-cyan);   border: 1px solid rgba(14,165,200,0.25); }
+    .tag--green   { background: rgba(22,163,100,0.12);  color: var(--color-accent-green);  border: 1px solid rgba(22,163,100,0.25); }
+    .tag--orange  { background: rgba(232,89,12,0.12);   color: var(--color-accent-orange); border: 1px solid rgba(232,89,12,0.25); }
+    .tag--yellow  { background: rgba(217,119,6,0.12);   color: var(--color-accent-yellow); border: 1px solid rgba(217,119,6,0.25); }
+    .tag--red     { background: rgba(225,29,72,0.12);   color: var(--color-accent-red);    border: 1px solid rgba(225,29,72,0.25); }
+    .tag--pink    { background: rgba(217,70,168,0.12);  color: var(--color-accent-pink);   border: 1px solid rgba(217,70,168,0.25); }
+
+    @media (prefers-color-scheme: dark) {
+      .tag--blue    { background: rgba(79,142,247,0.15);  color: #4f8ef7;  border-color: rgba(79,142,247,0.25); }
+      .tag--purple  { background: rgba(155,109,255,0.15); color: #9b6dff; border-color: rgba(155,109,255,0.25); }
+      .tag--cyan    { background: rgba(38,212,232,0.15);  color: #26d4e8;  border-color: rgba(38,212,232,0.25); }
+      .tag--green   { background: rgba(61,214,140,0.15);  color: #3dd68c;  border-color: rgba(61,214,140,0.25); }
+      .tag--orange  { background: rgba(249,115,22,0.15);  color: #f97316;  border-color: rgba(249,115,22,0.25); }
+      .tag--yellow  { background: rgba(251,191,36,0.15);  color: #fbbf24;  border-color: rgba(251,191,36,0.25); }
+      .tag--red     { background: rgba(244,63,94,0.15);   color: #f43f5e;  border-color: rgba(244,63,94,0.25); }
+      .tag--pink    { background: rgba(236,72,153,0.15);  color: #ec4899;  border-color: rgba(236,72,153,0.25); }
+    }
+
+    /* ============================================================
+       Tip Cards
+       ============================================================ */
+    .tip-card {
+      border-color: rgba(217,119,6,0.2);
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(217,119,6,0.04) 100%);
+    }
+
+    .tip-card:hover {
+      border-color: rgba(217,119,6,0.4);
+      box-shadow: var(--shadow-glow-yellow);
+    }
+
+    .tip-card::before {
+      background: linear-gradient(90deg, var(--color-accent-yellow), transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-card {
+        border-color: rgba(251,191,36,0.2);
+        background: linear-gradient(135deg, var(--color-surface) 0%, rgba(251,191,36,0.04) 100%);
+      }
+      .tip-card:hover {
+        border-color: rgba(251,191,36,0.4);
+      }
+    }
+
+    .tip-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(217,119,6,0.15);
+      border: 1px solid rgba(217,119,6,0.3);
+      color: var(--color-accent-yellow);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      flex-shrink: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-number {
+        background: rgba(251,191,36,0.15);
+        border-color: rgba(251,191,36,0.3);
+      }
+    }
+
+    .tip-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .tip-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .tip-body code {
+      display: block;
+      margin: var(--space-3) 0;
+      padding: var(--space-3) var(--space-4);
+      background: rgba(0,0,0,0.06);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-accent-yellow);
+      font-size: var(--text-xs);
+      line-height: 1.6;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-body code {
+        background: rgba(0,0,0,0.3);
+      }
+    }
+
+    /* ============================================================
+       Story Cards (AI, Dev, Crypto)
+       ============================================================ */
+    .story-card--ai { border-color: rgba(124,77,255,0.2); }
+    .story-card--ai:hover { border-color: rgba(124,77,255,0.4); box-shadow: var(--shadow-glow-purple); }
+    .story-card--ai::before { background: linear-gradient(90deg, var(--color-accent-purple), transparent); }
+
+    .story-card--dev { border-color: rgba(14,165,200,0.2); }
+    .story-card--dev:hover { border-color: rgba(14,165,200,0.4); box-shadow: var(--shadow-glow-cyan); }
+    .story-card--dev::before { background: linear-gradient(90deg, var(--color-accent-cyan), transparent); }
+
+    .story-card--crypto { border-color: rgba(232,89,12,0.2); }
+    .story-card--crypto:hover { border-color: rgba(232,89,12,0.4); box-shadow: var(--shadow-glow-orange); }
+    .story-card--crypto::before { background: linear-gradient(90deg, var(--color-accent-orange), transparent); }
+
+    @media (prefers-color-scheme: dark) {
+      .story-card--ai { border-color: rgba(155,109,255,0.2); }
+      .story-card--ai:hover { border-color: rgba(155,109,255,0.4); }
+      .story-card--dev { border-color: rgba(38,212,232,0.2); }
+      .story-card--dev:hover { border-color: rgba(38,212,232,0.4); }
+      .story-card--crypto { border-color: rgba(249,115,22,0.2); }
+      .story-card--crypto:hover { border-color: rgba(249,115,22,0.4); }
+    }
+
+    .story-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .story-card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .story-external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      transition: color var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .story-external-link:hover {
+      color: var(--color-accent-blue);
+      text-decoration: none;
+    }
+
+    .story-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .story-title a { color: inherit; transition: color var(--transition-fast); }
+    .story-title a:hover { color: var(--color-accent-blue); text-decoration: none; }
+
+    .story-summary {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       Concept Cards
+       ============================================================ */
+    .concept-card {
+      border-color: rgba(22,163,100,0.2);
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(22,163,100,0.03) 100%);
+    }
+
+    .concept-card:hover {
+      border-color: rgba(22,163,100,0.4);
+      box-shadow: var(--shadow-glow-green);
+    }
+
+    .concept-card::before {
+      background: linear-gradient(90deg, var(--color-accent-green), transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .concept-card {
+        border-color: rgba(61,214,140,0.2);
+        background: linear-gradient(135deg, var(--color-surface) 0%, rgba(61,214,140,0.03) 100%);
+      }
+      .concept-card:hover { border-color: rgba(61,214,140,0.4); }
+    }
+
+    .concept-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-green);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .concept-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       Reading List
+       ============================================================ */
+    .reading-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .reading-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-fast);
+    }
+
+    .reading-item:hover {
+      border-color: rgba(59,124,245,0.35);
+      background: var(--color-surface-raised);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reading-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(59,124,245,0.12);
+      border: 1px solid rgba(59,124,245,0.25);
+      color: var(--color-accent-blue);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .reading-content { flex: 1; }
+
+    .reading-title {
+      font-size: var(--text-base);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-primary);
+      line-height: 1.4;
+      margin-bottom: var(--space-1);
+    }
+
+    .reading-title a { color: inherit; }
+    .reading-title a:hover { color: var(--color-accent-blue); text-decoration: none; }
+
+    .reading-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    .site-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-10) 0 var(--space-8);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer-section-title {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-4);
+    }
+
+    .footer-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      list-style: none;
+    }
+
+    .footer-meta-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .footer-meta-list .key {
+      color: var(--color-text-muted);
+      min-width: 120px;
+    }
+
+    .source-status {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .source-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-surface-raised);
+      border-radius: var(--radius-md);
+    }
+
+    .source-name { color: var(--color-text-secondary); }
+    .source-ok   { color: var(--color-accent-green); font-weight: var(--weight-semibold); }
+    .source-fail { color: var(--color-accent-red);   font-weight: var(--weight-semibold); }
+
+    .footer-bottom {
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .footer-brand {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    .footer-brand strong { color: var(--color-text-secondary); }
+
+    .footer-tagline {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       Utilities
+       ============================================================ */
+    .mt-3  { margin-top: var(--space-3); }
+    .mt-4  { margin-top: var(--space-4); }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 768px) {
+      .page-wrapper { padding: 0 var(--space-4); }
+      .header-meta-row { gap: var(--space-3); }
+      .stat-bar-inner { justify-content: center; }
+      .cards-grid--2, .cards-grid--3 { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 1.5rem; }
+      .section-title { font-size: var(--text-lg); }
+      .card { padding: var(--space-4); }
+      .reading-item { padding: var(--space-3) var(--space-4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="page-wrapper">
+      <div class="header-inner">
+
+        <div class="header-eyebrow">
+          <span class="header-badge badge-issue">Issue #Fri-23</span>
+          <span class="header-badge badge-day">Friday</span>
+          <span class="header-badge badge-live">Live</span>
+        </div>
+
+        <h1 class="header-title">AI &amp; Crypto Daily Digest</h1>
+
+        <p class="header-subtitle">
+          <strong>Friday, May 23, 2026</strong> — Your curated briefing on AI tools, dev workflows &amp; crypto markets
+        </p>
+
+        <div class="header-meta-row">
+          <span class="meta-pill"><em class="icon">📅</em> May 23, 2026</span>
+          <span class="meta-pill"><em class="icon">🗓</em> Friday</span>
+          <span class="meta-pill"><em class="icon">💡</em> Tip Focus: AI Infra &amp; Prompt Engineering</span>
+          <span class="meta-pill"><em class="icon">📰</em> 15 Stories</span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       STAT BAR
+       ============================================================ -->
+  <div class="stat-bar">
+    <div class="page-wrapper">
+      <div class="stat-bar-inner">
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Dev Tips</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">AI Updates</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Dev Tools</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Crypto Stories</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Concepts</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">5</span>
+          <span class="stat-label">Worth Reading</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">52</span>
+          <span class="stat-label">Deduped</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       STICKY NAV
+       ============================================================ -->
+  <nav class="toc-nav" aria-label="Table of contents">
+    <div class="page-wrapper">
+      <ul class="toc-list">
+        <li><a class="toc-link" href="#tips">💡 Dev Tips</a></li>
+        <li><a class="toc-link" href="#ai">🤖 AI Updates</a></li>
+        <li><a class="toc-link" href="#dev">🛠 Dev Tools</a></li>
+        <li><a class="toc-link" href="#crypto">💰 Crypto</a></li>
+        <li><a class="toc-link" href="#concepts">🔥 Concepts</a></li>
+        <li><a class="toc-link" href="#reading">📚 Reading</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="main-content">
+    <div class="page-wrapper">
+
+      <!-- ===========================================================
+           SECTION 1: DAILY TECH TIPS — AI INFRA & PROMPT ENGINEERING
+           =========================================================== -->
+      <section class="section section--tips" id="tips">
+        <div class="section-header">
+          <span class="section-icon">💡</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Daily Tech Tips — AI Infra &amp; Prompt Engineering</h2>
+            <p class="section-subtitle">Friday rotation: RAG pipelines, tool use patterns &amp; agent architecture</p>
+          </div>
+          <span class="section-count">3 Tips</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Tip 1: Agentic RAG — Treat Retrieval as a Tool -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">1</span>
+              <span class="tag tag--yellow">RAG / Agent Arch</span>
+            </div>
+            <h3 class="tip-title">Agentic RAG — Treat Retrieval as a Tool, Not a Prerequisite</h3>
+            <div class="tip-body">
+              <p>The 2026 best practice for RAG is to stop force-feeding context into every prompt. Instead, expose your vector store as a callable tool (e.g., <code>search_docs</code>) and let the agent decide <em>when</em> retrieval is needed. This cuts token costs by 40-60% on queries that don't require document grounding.</p>
+              <code># In your agent's tool definition:
+tools = [
+  {"name": "search_docs", "description": "Search internal knowledge base. Use ONLY when the user asks about company-specific policies, procedures, or data."},
+  {"name": "search_web", "description": "Search the public internet for current events or general knowledge."}
+]</code>
+              <p>The key insight: a lightweight router classifies intent <em>before</em> the expensive retrieval pipeline fires. Simple queries go straight to the LLM; complex multi-hop questions trigger the full Agentic RAG loop of Retrieve → Reason → Retrieve again.</p>
+            </div>
+          </article>
+
+          <!-- Tip 2: Confluent MCP Servers for Kafka -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">2</span>
+              <span class="tag tag--yellow">MCP / Tool Use</span>
+            </div>
+            <h3 class="tip-title">Confluent MCP Servers — Give AI Agents Safe Access to Kafka Streams</h3>
+            <div class="tip-body">
+              <p>Confluent released open-source MCP servers and "Agent Skills" that allow AI coding tools (Claude Code, Codex, Copilot) to safely introspect Kafka topics, read schemas, and reason about CDC pipelines without direct cluster credentials. This solves the "how does my AI agent understand my event-driven architecture?" problem.</p>
+              <code># Install Confluent MCP server for Claude Code:
+claude mcp add confluent-kafka \
+  --transport stdio \
+  --env CONFLUENT_API_KEY=$KEY \
+  --env CONFLUENT_API_SECRET=$SECRET</code>
+              <p>Your agent can now answer questions like "which consumers are lagging on the payments topic?" or "show me the Avro schema for order events" — critical for debugging microservices architectures where Kafka is the nervous system.</p>
+            </div>
+          </article>
+
+          <!-- Tip 3: Faithfulness Judges -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">3</span>
+              <span class="tag tag--yellow">Eval / Guardrails</span>
+            </div>
+            <h3 class="tip-title">Faithfulness Judges — The Self-Check Loop That Kills Hallucinations</h3>
+            <div class="tip-body">
+              <p>Before your RAG agent delivers an answer, route it through a smaller "judge" model that scores the draft for faithfulness to the retrieved documents. If the judge detects unsupported claims, force the agent to backtrack and re-retrieve. This single pattern eliminates 70%+ of production hallucinations.</p>
+              <code># Pseudo-code for faithfulness gating:
+draft = agent.generate(query, context)
+score = judge_model.score_faithfulness(draft, context)
+if score < 0.85:
+    context = agent.re_retrieve(query, strategy="decompose")
+    draft = agent.generate(query, context)
+return draft</code>
+              <p>Cost: ~$0.002 per check using Gemini Flash or Haiku as the judge. The ROI is enormous — one hallucinated answer in production costs more than 10,000 faithfulness checks. Pair with LangSmith or Arize span tracing to monitor judge rejection rates over time.</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 2: AI TOOLS & UPDATES
+           =========================================================== -->
+      <section class="section section--ai" id="ai">
+        <div class="section-header">
+          <span class="section-icon">🤖</span>
+          <div class="section-title-group">
+            <h2 class="section-title">AI Tools &amp; Updates</h2>
+            <p class="section-subtitle">Voice AI APIs, vertical agents &amp; IDE security patches</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--2">
+
+          <!-- AI Story 1: GPT-Realtime-2 Voice APIs -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--purple">OpenAI</span>
+                <span class="tag tag--blue">Voice AI</span>
+              </div>
+              <a class="story-external-link" href="https://openai.com" target="_blank" rel="noopener noreferrer">
+                openai.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://openai.com" target="_blank" rel="noopener noreferrer">
+                OpenAI Ships GPT-Realtime-2 — Reasoning-Capable Voice Agents Go Live
+              </a>
+            </h3>
+            <p class="story-summary">
+              OpenAI launched three new Realtime API models: GPT-Realtime-2 (low-latency voice with chain-of-thought reasoning), GPT-Realtime-Translate (live speech translation across 40+ languages), and GPT-Realtime-Whisper (streaming transcription). These APIs let developers build voice agents that can reason mid-conversation — answering complex multi-step questions without pre-scripted flows. The practical unlock: customer support bots that actually solve problems instead of routing to humans, and developer tools that accept voice commands for code review and debugging workflows.
+            </p>
+          </article>
+
+          <!-- AI Story 2: Codex for Legal -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--purple">OpenAI</span>
+                <span class="tag tag--green">Vertical AI</span>
+              </div>
+              <a class="story-external-link" href="https://openai.com" target="_blank" rel="noopener noreferrer">
+                openai.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://openai.com" target="_blank" rel="noopener noreferrer">
+                Codex for Legal — OpenAI Expands Autonomous Agents Beyond Software Development
+              </a>
+            </h3>
+            <p class="story-summary">
+              Leaked hiring posts and internal roadmap documents reveal OpenAI is building "Codex for Legal" — an industry-specific autonomous agent for legal document review, contract analysis, and compliance workflows. This signals the Codex brand is evolving from "AI coding assistant" to "AI work agent" across regulated verticals. For developers: the same agent architecture patterns (tool use, RAG, sandboxed execution) that power code generation are now being applied to legal, finance, and healthcare — validating that these patterns are genuinely domain-agnostic building blocks.
+            </p>
+          </article>
+
+          <!-- AI Story 3: Cursor Security Patch -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--purple">Cursor</span>
+                <span class="tag tag--red">Security</span>
+              </div>
+              <a class="story-external-link" href="https://cursor.com" target="_blank" rel="noopener noreferrer">
+                cursor.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://cursor.com" target="_blank" rel="noopener noreferrer">
+                Cursor v2.5 Patches Critical Git RCE — Malicious Repos Could Hijack AI Agents
+              </a>
+            </h3>
+            <p class="story-summary">
+              Cursor released an emergency patch (v2.5) fixing a critical Remote Code Execution vulnerability where a malicious Git repository could hijack the IDE's AI agent during clone operations. The attack vector: crafted Git hooks that execute arbitrary code within Cursor's elevated agent context, potentially exfiltrating credentials or modifying generated code. If you're running Cursor, update immediately. This is a wake-up call for the entire AI IDE space — agentic tools with elevated filesystem access create new attack surfaces that traditional IDEs never had.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 3: VIBE CODING & DEV TOOLS
+           =========================================================== -->
+      <section class="section section--dev" id="dev">
+        <div class="section-header">
+          <span class="section-icon">🛠</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Vibe Coding &amp; Dev Tools</h2>
+            <p class="section-subtitle">Oracle MCP for Copilot, agentic deployment platforms &amp; Microsoft Build preview</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Dev Story 1: Oracle MCP + Copilot -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">Oracle</span>
+                <span class="tag tag--blue">MCP</span>
+              </div>
+              <a class="story-external-link" href="https://oracle.com" target="_blank" rel="noopener noreferrer">
+                oracle.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://oracle.com" target="_blank" rel="noopener noreferrer">
+                Oracle SQLcl Gets MCP Support — GitHub Copilot Can Now Query Enterprise Databases
+              </a>
+            </h3>
+            <p class="story-summary">
+              Microsoft and Oracle announced that Oracle SQLcl now supports the Model Context Protocol, allowing GitHub Copilot in VS Code to interact directly with Oracle databases. Developers can ask Copilot to generate, execute, and analyze SQL queries using real enterprise data context — no more copy-pasting schemas into prompts. This is the MCP promise realized for enterprise data: AI agents that understand your actual production schemas, not generic SQL patterns from training data.
+            </p>
+          </article>
+
+          <!-- Dev Story 2: Kuberns Agentic Deployment -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">DevOps</span>
+                <span class="tag tag--green">Agentic</span>
+              </div>
+              <a class="story-external-link" href="https://kuberns.dev" target="_blank" rel="noopener noreferrer">
+                kuberns.dev ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://kuberns.dev" target="_blank" rel="noopener noreferrer">
+                Kuberns — The Agentic Deployment Platform That Reads Your Repo and Ships It
+              </a>
+            </h3>
+            <p class="story-summary">
+              Kuberns, a new "Agentic Deployment Platform," reads your GitHub repository, analyzes the tech stack, provisions necessary infrastructure, and deploys applications autonomously — no manual CI/CD scripting required. Point it at a repo, it infers Dockerfiles, K8s manifests, and cloud resources. The thesis: deployment configuration is a solved problem for 90% of applications, and an AI agent with infrastructure knowledge can eliminate the entire DevOps boilerplate layer. Early benchmarks show first deploy in under 3 minutes for standard web apps.
+            </p>
+          </article>
+
+          <!-- Dev Story 3: Microsoft Build 2026 Preview -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">Microsoft</span>
+                <span class="tag tag--purple">Build 2026</span>
+              </div>
+              <a class="story-external-link" href="https://build.microsoft.com" target="_blank" rel="noopener noreferrer">
+                build.microsoft.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://build.microsoft.com" target="_blank" rel="noopener noreferrer">
+                Microsoft Build 2026 Session Catalog Drops — Copilot as System Infrastructure
+              </a>
+            </h3>
+            <p class="story-summary">
+              Microsoft published the full Build 2026 session catalog (conference June 2-3) revealing a central thesis: Copilot is no longer just an IDE feature but a persistent AI layer connecting code, databases, emails, and documents. Key sessions cover Microsoft Foundry on Windows (local AI), AKS Desktop for cloud-native AI apps, and "IQ Orchestration" for connecting agents to enterprise data. The shift from "AI as autocomplete" to "AI as system infrastructure" is now Microsoft's official engineering position.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 4: CRYPTO & MARKETS
+           =========================================================== -->
+      <section class="section section--crypto" id="crypto">
+        <div class="section-header">
+          <span class="section-icon">💰</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Crypto &amp; Markets</h2>
+            <p class="section-subtitle">Bitcoin reserve legislation, TradFi-crypto convergence &amp; new Fed leadership</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Crypto Story 1: Strategic Bitcoin Reserve Bill -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">Bitcoin</span>
+                <span class="tag tag--blue">Policy</span>
+              </div>
+              <a class="story-external-link" href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                theblock.co ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                US Strategic Bitcoin Reserve Bill Drops 1M BTC Target, Adds 20-Year Lockup
+              </a>
+            </h3>
+            <p class="story-summary">
+              The American Reserve Modernization Act (ARMA) — the bipartisan bill to establish a US Strategic Bitcoin Reserve — dropped its original 1 million BTC acquisition target but added a strict 20-year lockup period. After the holding period, the Treasury can sell at most 10% within any two-year window, with all proceeds restricted to national debt reduction. The legislation treats Bitcoin as a sovereign generational asset akin to gold, deliberately preventing short-term political trading. This is the most credible legislative path to a national bitcoin reserve yet.
+            </p>
+          </article>
+
+          <!-- Crypto Story 2: OKX x ICE Oil Perps -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">OKX</span>
+                <span class="tag tag--green">TradFi</span>
+              </div>
+              <a class="story-external-link" href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                theblock.co ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                OKX &amp; NYSE-Parent ICE Launch Oil Perpetual Futures — TradFi Meets Crypto Derivatives
+              </a>
+            </h3>
+            <p class="story-summary">
+              OKX and Intercontinental Exchange (ICE) launched perpetual futures contracts for Brent Crude and WTI oil — the first concrete product from ICE's $200M strategic investment in OKX. These contracts trade 24/7 with no expiration date, using crypto-native funding rate mechanics. The partnership template: ICE provides commodity benchmark data, OKX provides global retail distribution to 120M users. Expect this model to extend to metals, natural gas, and eventually tokenized NYSE equities trading directly on OKX.
+            </p>
+          </article>
+
+          <!-- Crypto Story 3: NEAR AI Rally -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">NEAR</span>
+                <span class="tag tag--purple">AI Narrative</span>
+              </div>
+              <a class="story-external-link" href="https://cointelegraph.com" target="_blank" rel="noopener noreferrer">
+                cointelegraph.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://cointelegraph.com" target="_blank" rel="noopener noreferrer">
+                NEAR Protocol Surges 50% on AI Narrative — Transformer Co-Author's Chain Catches Bid
+              </a>
+            </h3>
+            <p class="story-summary">
+              NEAR token rallied 50% to a six-month high of $2.34 on $1.15B daily volume, fueled by Nvidia earnings spillover into AI-crypto narratives and Arthur Hayes' endorsement. The fundamental catalyst: NEAR's "Dynamic Resharding" upgrade (v2.13, June) enables automatic capacity scaling for high-volume AI agent microtransactions, plus post-quantum cryptographic signatures. NEAR's positioning as infrastructure for an "Agentic Economy" — where AI agents autonomously transact on-chain — is resonating with traders seeking the AI-crypto intersection thesis.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 5: HOT INDUSTRY CONCEPTS
+           =========================================================== -->
+      <section class="section section--concepts" id="concepts">
+        <div class="section-header">
+          <span class="section-icon">🔥</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Hot Industry Concepts</h2>
+            <p class="section-subtitle">Patterns, paradigms &amp; structural shifts worth understanding</p>
+          </div>
+          <span class="section-count">3 Concepts</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Concept 1: The Conductor Pattern -->
+          <article class="card concept-card">
+            <h3 class="concept-title">The Conductor Pattern — Developer as AI Orchestration Layer</h3>
+            <p class="concept-body">
+              The dominant 2026 developer workflow pattern: a single engineer defines architectures, sets boundaries, and supervises multiple AI agents executing simultaneously — Claude Code for long-running architectural tasks, Cursor for real-time visual edits, Codex for async enterprise jobs. The developer writes almost no code directly but instead "conducts" agents via system prompts, guardrails, and evaluation pipelines.
+            </p>
+            <p class="concept-body mt-3">
+              The practical skill shift: knowing <em>which model</em> to route <em>which task</em> to, how to compose tool-use schemas that constrain agent behavior, and how to build feedback loops that catch agent errors before they compound. Think of it as "engineering management for AI workers" — with the same principles of delegation, verification, and scope control.
+            </p>
+          </article>
+
+          <!-- Concept 2: ETF Breakeven Ceiling -->
+          <article class="card concept-card">
+            <h3 class="concept-title">ETF Breakeven Ceiling — The $83K Resistance Explained</h3>
+            <p class="concept-body">
+              Bitcoin stalled at $82-83K because that's the average cost basis of US spot-Bitcoin ETF holders. When BTC rallied to breakeven, ETF holders who had been underwater immediately sold to exit at flat — creating a self-reinforcing resistance ceiling. The ninth-largest weekly ETF outflow on record ($1.7B) occurred precisely at this price level.
+            </p>
+            <p class="concept-body mt-3">
+              This is a new structural market dynamic unique to the ETF era: institutional capital creates visible, predictable supply walls at known cost-basis levels. For traders, the implication is clear — breaking above $83K requires enough buying pressure to absorb the entire breakeven selling wave. Once cleared, the next resistance may be significantly higher as the overhang disappears.
+            </p>
+          </article>
+
+          <!-- Concept 3: Agentic Economy -->
+          <article class="card concept-card">
+            <h3 class="concept-title">Agentic Economy — When AI Agents Need Their Own Financial Rails</h3>
+            <p class="concept-body">
+              NEAR's 50% rally crystallizes a growing thesis: as AI agents become autonomous actors that need to pay for services, receive payments, and manage resources, they need financial infrastructure designed for machines, not humans. Traditional banking (KYC, manual approvals, business hours) doesn't work for agents that transact microsecond-by-microsecond.
+            </p>
+            <p class="concept-body mt-3">
+              Blockchain rails solve this: programmable money, 24/7 settlement, no identity requirements, and smart contracts as enforceable agreements between agents. The market is pricing in a future where AI agents are the primary users of crypto infrastructure — not humans. NEAR, Solana, and Base are all competing to be the "settlement layer for the agentic economy." This narrative explains why AI-adjacent L1s are outperforming pure DeFi tokens in 2026.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 6: WORTH READING
+           =========================================================== -->
+      <section class="section section--reading" id="reading">
+        <div class="section-header">
+          <span class="section-icon">📚</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Worth Reading</h2>
+            <p class="section-subtitle">Five more stories that deserve your attention this Friday</p>
+          </div>
+          <span class="section-count">5 Links</span>
+        </div>
+
+        <div class="reading-list">
+
+          <div class="reading-item">
+            <span class="reading-num">1</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://cointelegraph.com" target="_blank" rel="noopener noreferrer">
+                  Kevin Warsh Sworn In as Fed Chair — A "Reform-Oriented" Central Bank Begins
+                </a>
+              </p>
+              <p class="reading-desc">New Fed Chair Kevin Warsh takes office pledging reform. His tenure begins amid AI-driven inflation, political pressure for rate cuts, and crypto markets watching for dovish signals. The first policy meeting under Warsh leadership will be closely watched.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">2</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                  Coolbit Technologies Files $23M Bitcoin Mining IPO — Targeting Nasdaq Under CBAI
+                </a>
+              </p>
+              <p class="reading-desc">North American Bitcoin miner Coolbit Technologies filed for a $23M Nasdaq IPO at a $135M valuation. The company leases high-performance Bitmain miners, adding another name to the growing crypto IPO pipeline.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">3</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                  House Oversight Launches Probe into Kalshi &amp; Polymarket Insider Trading
+                </a>
+              </p>
+              <p class="reading-desc">US House lawmakers formally opened an investigation into potential insider trading on prediction markets Kalshi and Polymarket, as these platforms grow large enough to attract serious regulatory scrutiny.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">4</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://cointelegraph.com" target="_blank" rel="noopener noreferrer">
+                  THORChain Exploit Tied to Malicious Node and GG20 Flaw
+                </a>
+              </p>
+              <p class="reading-desc">A new THORChain exploit was traced to a malicious validator node exploiting a weakness in the GG20 threshold signature scheme — a reminder that cross-chain bridge security remains the weakest link in DeFi infrastructure.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">5</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://theblock.co" target="_blank" rel="noopener noreferrer">
+                  F2Pool Co-Founder Chun Wang Joins SpaceX's 2-Year Mars Mission
+                </a>
+              </p>
+              <p class="reading-desc">In a crypto-meets-space first, F2Pool co-founder Chun Wang is confirmed aboard SpaceX's two-year Mars mission — the first crypto industry figure to leave Earth, taking Bitcoin's decentralization thesis literally interplanetary.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /page-wrapper -->
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="page-wrapper">
+
+      <div class="footer-grid">
+
+        <!-- Left: Generation Meta -->
+        <div>
+          <p class="footer-section-title">Report Metadata</p>
+          <ul class="footer-meta-list">
+            <li>
+              <span class="key">Generated:</span>
+              <span>2026-05-23T09:00:00Z</span>
+            </li>
+            <li>
+              <span class="key">Edition:</span>
+              <span>Friday, May 23, 2026</span>
+            </li>
+            <li>
+              <span class="key">Stories reviewed:</span>
+              <span>85+ candidates</span>
+            </li>
+            <li>
+              <span class="key">Deduplicated:</span>
+              <span>52 stories filtered (covered in May 18–22 reports)</span>
+            </li>
+            <li>
+              <span class="key">Tip rotation:</span>
+              <span>AI Infra &amp; Prompt Engineering — RAG, tool use, agent arch</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Source Status -->
+        <div>
+          <p class="footer-section-title">Source Status</p>
+          <div class="source-status">
+            <div class="source-row">
+              <span class="source-name">web_search (AI dev tools / Codex / Cursor)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">web_search (crypto BTC May 23)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">web_search (RAG agent architecture 2026)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">web_search (Microsoft Build 2026)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">web_search (NEAR token rally)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">web_search (Kevin Warsh Fed Chair)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">The Block RSS</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">CoinTelegraph RSS</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">CoinDesk RSS</span>
+              <span class="source-fail">⚠️ Timeout</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <p class="footer-brand">
+          <strong>AI &amp; Crypto Daily Digest</strong> — Automated curation pipeline
+        </p>
+        <p class="footer-tagline">
+          Curated for engineers at the intersection of AI &amp; crypto · Not financial advice
+        </p>
+      </div>
+
+    </div><!-- /page-wrapper -->
+  </footer>
+
+</body>
+</html>
