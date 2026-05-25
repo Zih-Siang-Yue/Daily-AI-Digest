@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; Crypto Daily Digest — May 25, 2026</title>
+  <style>
+    /* ============================================================
+       v4 Design Tokens & Full CSS Template
+       AI & Crypto Daily Digest — with prefers-color-scheme
+       ============================================================ */
+
+    :root {
+      /* Light Mode (default) */
+      --color-bg:              #f8f9fc;
+      --color-surface:         #ffffff;
+      --color-surface-raised:  #f1f3f9;
+      --color-border:          #e2e5f0;
+      --color-border-subtle:   #ebeef5;
+
+      --color-text-primary:    #1a1d2e;
+      --color-text-secondary:  #4a5070;
+      --color-text-muted:      #8690b0;
+
+      --color-accent-blue:     #3b7cf5;
+      --color-accent-purple:   #7c4dff;
+      --color-accent-cyan:     #0ea5c8;
+      --color-accent-green:    #16a364;
+      --color-accent-orange:   #e8590c;
+      --color-accent-red:      #e11d48;
+      --color-accent-yellow:   #d97706;
+      --color-accent-pink:     #d946a8;
+
+      /* Section accent mapping */
+      --section-tips:          var(--color-accent-yellow);
+      --section-ai:            var(--color-accent-purple);
+      --section-dev:           var(--color-accent-cyan);
+      --section-crypto:        var(--color-accent-orange);
+      --section-concepts:      var(--color-accent-green);
+      --section-reading:       var(--color-accent-blue);
+
+      /* Typography */
+      --font-sans:   'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono:   'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
+
+      --text-xs:     0.72rem;
+      --text-sm:     0.85rem;
+      --text-base:   0.95rem;
+      --text-md:     1.05rem;
+      --text-lg:     1.2rem;
+      --text-xl:     1.4rem;
+      --text-2xl:    1.75rem;
+      --text-3xl:    2.2rem;
+
+      --weight-normal:   400;
+      --weight-medium:   500;
+      --weight-semibold: 600;
+      --weight-bold:     700;
+      --weight-black:    900;
+
+      /* Spacing */
+      --space-1:   0.25rem;
+      --space-2:   0.5rem;
+      --space-3:   0.75rem;
+      --space-4:   1rem;
+      --space-5:   1.25rem;
+      --space-6:   1.5rem;
+      --space-8:   2rem;
+      --space-10:  2.5rem;
+      --space-12:  3rem;
+      --space-16:  4rem;
+
+      /* Border Radius */
+      --radius-sm:   4px;
+      --radius-md:   8px;
+      --radius-lg:   12px;
+      --radius-xl:   16px;
+      --radius-2xl:  24px;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md:   0 4px 16px rgba(0,0,0,0.1);
+      --shadow-lg:   0 8px 32px rgba(0,0,0,0.12);
+      --shadow-glow-blue:   0 0 20px rgba(59,124,245,0.15);
+      --shadow-glow-purple: 0 0 20px rgba(124,77,255,0.15);
+      --shadow-glow-cyan:   0 0 20px rgba(14,165,200,0.12);
+      --shadow-glow-green:  0 0 20px rgba(22,163,100,0.12);
+      --shadow-glow-orange: 0 0 20px rgba(232,89,12,0.12);
+      --shadow-glow-yellow: 0 0 20px rgba(217,119,6,0.12);
+
+      /* Transitions */
+      --transition-fast:   150ms ease;
+      --transition-base:   250ms ease;
+      --transition-slow:   400ms ease;
+
+      /* Layout */
+      --max-width:         1200px;
+      --content-padding:   var(--space-8);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg:              #0f1117;
+        --color-surface:         #1a1d27;
+        --color-surface-raised:  #21253a;
+        --color-border:          #2e3352;
+        --color-border-subtle:   #232740;
+
+        --color-text-primary:    #e8eaf6;
+        --color-text-secondary:  #9fa8c7;
+        --color-text-muted:      #5c6490;
+
+        --color-accent-blue:     #4f8ef7;
+        --color-accent-purple:   #9b6dff;
+        --color-accent-cyan:     #26d4e8;
+        --color-accent-green:    #3dd68c;
+        --color-accent-orange:   #f97316;
+        --color-accent-red:      #f43f5e;
+        --color-accent-yellow:   #fbbf24;
+        --color-accent-pink:     #ec4899;
+
+        --shadow-sm:   0 1px 3px rgba(0,0,0,0.4);
+        --shadow-md:   0 4px 16px rgba(0,0,0,0.5);
+        --shadow-lg:   0 8px 32px rgba(0,0,0,0.6);
+        --shadow-glow-blue:   0 0 20px rgba(79,142,247,0.25);
+        --shadow-glow-purple: 0 0 20px rgba(155,109,255,0.25);
+        --shadow-glow-cyan:   0 0 20px rgba(38,212,232,0.2);
+        --shadow-glow-green:  0 0 20px rgba(61,214,140,0.2);
+        --shadow-glow-orange: 0 0 20px rgba(249,115,22,0.2);
+        --shadow-glow-yellow: 0 0 20px rgba(251,191,36,0.2);
+      }
+    }
+
+    /* ============================================================
+       Reset & Base
+       ============================================================ */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text-primary);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--color-accent-blue);
+      text-decoration: none;
+      transition: color var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--color-accent-cyan);
+      text-decoration: underline;
+    }
+
+    code, pre {
+      font-family: var(--font-mono);
+    }
+
+    code {
+      background: rgba(79,142,247,0.12);
+      color: var(--color-accent-cyan);
+      padding: 0.15em 0.45em;
+      border-radius: var(--radius-sm);
+      font-size: 0.88em;
+    }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    .page-wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--space-6);
+    }
+
+    /* ============================================================
+       Header / Hero
+       ============================================================ */
+    .site-header {
+      background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-surface-raised) 40%, var(--color-surface) 100%);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-10) 0 var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .site-header {
+        background: linear-gradient(135deg, #0f1117 0%, #151829 40%, #1a1240 100%);
+      }
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(79,142,247,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(155,109,255,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(38,212,232,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .badge-issue {
+      background: rgba(79,142,247,0.15);
+      border: 1px solid rgba(79,142,247,0.3);
+      color: var(--color-accent-blue);
+    }
+
+    .badge-day {
+      background: rgba(155,109,255,0.15);
+      border: 1px solid rgba(155,109,255,0.3);
+      color: var(--color-accent-purple);
+    }
+
+    .badge-live {
+      background: rgba(61,214,140,0.15);
+      border: 1px solid rgba(61,214,140,0.3);
+      color: var(--color-accent-green);
+    }
+
+    .badge-live::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent-green);
+      animation: pulse-green 2s infinite;
+    }
+
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .header-title {
+      font-size: clamp(1.8rem, 4vw, var(--text-3xl));
+      font-weight: var(--weight-black);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: var(--space-3);
+      background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-accent-purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .header-title {
+        background: linear-gradient(135deg, #fff 0%, #c8d4ff 50%, #a78bfa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    }
+
+    .header-subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-6);
+      font-weight: var(--weight-normal);
+    }
+
+    .header-subtitle strong {
+      color: var(--color-text-primary);
+      font-weight: var(--weight-semibold);
+    }
+
+    .header-meta-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .meta-pill .icon {
+      font-style: normal;
+      font-size: 0.9em;
+    }
+
+    /* ============================================================
+       Stat Bar
+       ============================================================ */
+    .stat-bar {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-4) 0;
+    }
+
+    .stat-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .stat-value {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--color-border);
+    }
+
+    /* ============================================================
+       Navigation TOC
+       ============================================================ */
+    .toc-nav {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: var(--space-3) 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .toc-nav {
+        background: rgba(26,29,39,0.92);
+      }
+    }
+
+    .toc-list {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      list-style: none;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+
+    .toc-list::-webkit-scrollbar { display: none; }
+
+    .toc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+      border: 1px solid transparent;
+    }
+
+    .toc-link:hover {
+      background: var(--color-surface-raised);
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+      text-decoration: none;
+    }
+
+    /* ============================================================
+       Main Content Grid
+       ============================================================ */
+    .main-content {
+      padding: var(--space-10) 0 var(--space-16);
+    }
+
+    /* ============================================================
+       Section
+       ============================================================ */
+    .section {
+      margin-bottom: var(--space-12);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .section-title-group {
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--color-text-primary);
+      line-height: 1.2;
+    }
+
+    .section-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    .section-count {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+    }
+
+    /* Per-section accent colors */
+    .section--tips .section-header  { border-color: rgba(217,119,6,0.25); }
+    .section--tips .section-count   { background: rgba(217,119,6,0.15); color: var(--color-accent-yellow); }
+    .section--tips .section-title   { color: var(--color-accent-yellow); }
+
+    .section--ai .section-header    { border-color: rgba(124,77,255,0.25); }
+    .section--ai .section-count     { background: rgba(124,77,255,0.15); color: var(--color-accent-purple); }
+    .section--ai .section-title     { color: var(--color-accent-purple); }
+
+    .section--dev .section-header   { border-color: rgba(14,165,200,0.25); }
+    .section--dev .section-count    { background: rgba(14,165,200,0.15); color: var(--color-accent-cyan); }
+    .section--dev .section-title    { color: var(--color-accent-cyan); }
+
+    .section--crypto .section-header { border-color: rgba(232,89,12,0.25); }
+    .section--crypto .section-count  { background: rgba(232,89,12,0.15); color: var(--color-accent-orange); }
+    .section--crypto .section-title  { color: var(--color-accent-orange); }
+
+    .section--concepts .section-header { border-color: rgba(22,163,100,0.25); }
+    .section--concepts .section-count  { background: rgba(22,163,100,0.15); color: var(--color-accent-green); }
+    .section--concepts .section-title  { color: var(--color-accent-green); }
+
+    .section--reading .section-header { border-color: rgba(59,124,245,0.25); }
+    .section--reading .section-count  { background: rgba(59,124,245,0.15); color: var(--color-accent-blue); }
+    .section--reading .section-title  { color: var(--color-accent-blue); }
+
+    @media (prefers-color-scheme: dark) {
+      .section--tips .section-header  { border-color: rgba(251,191,36,0.25); }
+      .section--tips .section-count   { background: rgba(251,191,36,0.15); color: #fbbf24; }
+      .section--tips .section-title   { color: #fbbf24; }
+
+      .section--ai .section-header    { border-color: rgba(155,109,255,0.25); }
+      .section--ai .section-count     { background: rgba(155,109,255,0.15); color: #9b6dff; }
+      .section--ai .section-title     { color: #9b6dff; }
+
+      .section--dev .section-header   { border-color: rgba(38,212,232,0.25); }
+      .section--dev .section-count    { background: rgba(38,212,232,0.15); color: #26d4e8; }
+      .section--dev .section-title    { color: #26d4e8; }
+
+      .section--crypto .section-header { border-color: rgba(249,115,22,0.25); }
+      .section--crypto .section-count  { background: rgba(249,115,22,0.15); color: #f97316; }
+      .section--crypto .section-title  { color: #f97316; }
+
+      .section--concepts .section-header { border-color: rgba(61,214,140,0.25); }
+      .section--concepts .section-count  { background: rgba(61,214,140,0.15); color: #3dd68c; }
+      .section--concepts .section-title  { color: #3dd68c; }
+
+      .section--reading .section-header { border-color: rgba(79,142,247,0.25); }
+      .section--reading .section-count  { background: rgba(79,142,247,0.15); color: #4f8ef7; }
+      .section--reading .section-title  { color: #4f8ef7; }
+    }
+
+    /* ============================================================
+       Card Base
+       ============================================================ */
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    /* Card grid layouts */
+    .cards-grid {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .cards-grid--2 {
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    }
+
+    .cards-grid--3 {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    .cards-grid--1 {
+      grid-template-columns: 1fr;
+    }
+
+    /* ============================================================
+       Tag / Badge
+       ============================================================ */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag--blue    { background: rgba(59,124,245,0.12);  color: var(--color-accent-blue);   border: 1px solid rgba(59,124,245,0.25); }
+    .tag--purple  { background: rgba(124,77,255,0.12);  color: var(--color-accent-purple); border: 1px solid rgba(124,77,255,0.25); }
+    .tag--cyan    { background: rgba(14,165,200,0.12);  color: var(--color-accent-cyan);   border: 1px solid rgba(14,165,200,0.25); }
+    .tag--green   { background: rgba(22,163,100,0.12);  color: var(--color-accent-green);  border: 1px solid rgba(22,163,100,0.25); }
+    .tag--orange  { background: rgba(232,89,12,0.12);   color: var(--color-accent-orange); border: 1px solid rgba(232,89,12,0.25); }
+    .tag--yellow  { background: rgba(217,119,6,0.12);   color: var(--color-accent-yellow); border: 1px solid rgba(217,119,6,0.25); }
+    .tag--red     { background: rgba(225,29,72,0.12);   color: var(--color-accent-red);    border: 1px solid rgba(225,29,72,0.25); }
+    .tag--pink    { background: rgba(217,70,168,0.12);  color: var(--color-accent-pink);   border: 1px solid rgba(217,70,168,0.25); }
+
+    @media (prefers-color-scheme: dark) {
+      .tag--blue    { background: rgba(79,142,247,0.15);  color: #4f8ef7;  border-color: rgba(79,142,247,0.25); }
+      .tag--purple  { background: rgba(155,109,255,0.15); color: #9b6dff; border-color: rgba(155,109,255,0.25); }
+      .tag--cyan    { background: rgba(38,212,232,0.15);  color: #26d4e8;  border-color: rgba(38,212,232,0.25); }
+      .tag--green   { background: rgba(61,214,140,0.15);  color: #3dd68c;  border-color: rgba(61,214,140,0.25); }
+      .tag--orange  { background: rgba(249,115,22,0.15);  color: #f97316;  border-color: rgba(249,115,22,0.25); }
+      .tag--yellow  { background: rgba(251,191,36,0.15);  color: #fbbf24;  border-color: rgba(251,191,36,0.25); }
+      .tag--red     { background: rgba(244,63,94,0.15);   color: #f43f5e;  border-color: rgba(244,63,94,0.25); }
+      .tag--pink    { background: rgba(236,72,153,0.15);  color: #ec4899;  border-color: rgba(236,72,153,0.25); }
+    }
+
+    /* ============================================================
+       Tip Cards
+       ============================================================ */
+    .tip-card {
+      border-color: rgba(217,119,6,0.2);
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(217,119,6,0.04) 100%);
+    }
+
+    .tip-card:hover {
+      border-color: rgba(217,119,6,0.4);
+      box-shadow: var(--shadow-glow-yellow);
+    }
+
+    .tip-card::before {
+      background: linear-gradient(90deg, var(--color-accent-yellow), transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-card {
+        border-color: rgba(251,191,36,0.2);
+        background: linear-gradient(135deg, var(--color-surface) 0%, rgba(251,191,36,0.04) 100%);
+      }
+      .tip-card:hover {
+        border-color: rgba(251,191,36,0.4);
+      }
+    }
+
+    .tip-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(217,119,6,0.15);
+      border: 1px solid rgba(217,119,6,0.3);
+      color: var(--color-accent-yellow);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-bold);
+      flex-shrink: 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .tip-number {
+        background: rgba(251,191,36,0.15);
+        border-color: rgba(251,191,36,0.3);
+      }
+    }
+
+    .tip-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .tip-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       Story Cards (AI, Dev, Crypto)
+       ============================================================ */
+    .story-card--ai { border-color: rgba(124,77,255,0.2); }
+    .story-card--ai:hover { border-color: rgba(124,77,255,0.4); box-shadow: var(--shadow-glow-purple); }
+    .story-card--ai::before { background: linear-gradient(90deg, var(--color-accent-purple), transparent); }
+
+    .story-card--dev { border-color: rgba(14,165,200,0.2); }
+    .story-card--dev:hover { border-color: rgba(14,165,200,0.4); box-shadow: var(--shadow-glow-cyan); }
+    .story-card--dev::before { background: linear-gradient(90deg, var(--color-accent-cyan), transparent); }
+
+    .story-card--crypto { border-color: rgba(232,89,12,0.2); }
+    .story-card--crypto:hover { border-color: rgba(232,89,12,0.4); box-shadow: var(--shadow-glow-orange); }
+    .story-card--crypto::before { background: linear-gradient(90deg, var(--color-accent-orange), transparent); }
+
+    @media (prefers-color-scheme: dark) {
+      .story-card--ai { border-color: rgba(155,109,255,0.2); }
+      .story-card--ai:hover { border-color: rgba(155,109,255,0.4); }
+      .story-card--dev { border-color: rgba(38,212,232,0.2); }
+      .story-card--dev:hover { border-color: rgba(38,212,232,0.4); }
+      .story-card--crypto { border-color: rgba(249,115,22,0.2); }
+      .story-card--crypto:hover { border-color: rgba(249,115,22,0.4); }
+    }
+
+    .story-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .story-card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .story-external-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      transition: color var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .story-external-link:hover {
+      color: var(--color-accent-blue);
+      text-decoration: none;
+    }
+
+    .story-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .story-title a { color: inherit; transition: color var(--transition-fast); }
+    .story-title a:hover { color: var(--color-accent-blue); text-decoration: none; }
+
+    .story-summary {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       Concept Cards
+       ============================================================ */
+    .concept-card {
+      border-color: rgba(22,163,100,0.2);
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(22,163,100,0.03) 100%);
+    }
+
+    .concept-card:hover {
+      border-color: rgba(22,163,100,0.4);
+      box-shadow: var(--shadow-glow-green);
+    }
+
+    .concept-card::before {
+      background: linear-gradient(90deg, var(--color-accent-green), transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .concept-card {
+        border-color: rgba(61,214,140,0.2);
+        background: linear-gradient(135deg, var(--color-surface) 0%, rgba(61,214,140,0.03) 100%);
+      }
+      .concept-card:hover { border-color: rgba(61,214,140,0.4); }
+    }
+
+    .concept-title {
+      font-size: var(--text-md);
+      font-weight: var(--weight-semibold);
+      color: var(--color-accent-green);
+      line-height: 1.35;
+      margin-bottom: var(--space-3);
+    }
+
+    .concept-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       Reading List
+       ============================================================ */
+    .reading-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .reading-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition-fast);
+    }
+
+    .reading-item:hover {
+      border-color: rgba(59,124,245,0.35);
+      background: var(--color-surface-raised);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .reading-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(59,124,245,0.12);
+      border: 1px solid rgba(59,124,245,0.25);
+      color: var(--color-accent-blue);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-bold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .reading-content { flex: 1; }
+
+    .reading-title {
+      font-size: var(--text-base);
+      font-weight: var(--weight-medium);
+      color: var(--color-text-primary);
+      line-height: 1.4;
+      margin-bottom: var(--space-1);
+    }
+
+    .reading-title a { color: inherit; }
+    .reading-title a:hover { color: var(--color-accent-blue); text-decoration: none; }
+
+    .reading-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    .site-footer {
+      background: var(--color-surface);
+      border-top: 1px solid var(--color-border);
+      padding: var(--space-10) 0 var(--space-8);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .footer-section-title {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--color-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-4);
+    }
+
+    .footer-meta-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      list-style: none;
+    }
+
+    .footer-meta-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      color: var(--color-text-secondary);
+    }
+
+    .footer-meta-list .key {
+      color: var(--color-text-muted);
+      min-width: 120px;
+    }
+
+    .source-status {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .source-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-surface-raised);
+      border-radius: var(--radius-md);
+    }
+
+    .source-name { color: var(--color-text-secondary); }
+    .source-ok   { color: var(--color-accent-green); font-weight: var(--weight-semibold); }
+    .source-fail { color: var(--color-accent-red);   font-weight: var(--weight-semibold); }
+
+    .footer-bottom {
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .footer-brand {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    .footer-brand strong { color: var(--color-text-secondary); }
+
+    .footer-tagline {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-style: italic;
+    }
+
+    /* ============================================================
+       Utilities
+       ============================================================ */
+    .mt-3  { margin-top: var(--space-3); }
+    .mt-4  { margin-top: var(--space-4); }
+
+    /* ============================================================
+       Responsive
+       ============================================================ */
+    @media (max-width: 768px) {
+      .page-wrapper { padding: 0 var(--space-4); }
+      .header-meta-row { gap: var(--space-3); }
+      .stat-bar-inner { justify-content: center; }
+      .cards-grid--2, .cards-grid--3 { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .header-title { font-size: 1.5rem; }
+      .section-title { font-size: var(--text-lg); }
+      .card { padding: var(--space-4); }
+      .reading-item { padding: var(--space-3) var(--space-4); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="page-wrapper">
+      <div class="header-inner">
+
+        <div class="header-eyebrow">
+          <span class="header-badge badge-issue">Issue #Sun-25</span>
+          <span class="header-badge badge-day">Sunday</span>
+          <span class="header-badge badge-live">Live</span>
+        </div>
+
+        <h1 class="header-title">AI &amp; Crypto Daily Digest</h1>
+
+        <p class="header-subtitle">
+          <strong>Sunday, May 25, 2026</strong> — Your curated briefing on AI tools, dev workflows &amp; crypto markets
+        </p>
+
+        <div class="header-meta-row">
+          <span class="meta-pill"><em class="icon">📅</em> May 25, 2026</span>
+          <span class="meta-pill"><em class="icon">🗓</em> Sunday</span>
+          <span class="meta-pill"><em class="icon">💡</em> Tip Focus: Weekend Projects</span>
+          <span class="meta-pill"><em class="icon">📰</em> 16 Stories</span>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       STAT BAR
+       ============================================================ -->
+  <div class="stat-bar">
+    <div class="page-wrapper">
+      <div class="stat-bar-inner">
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Project Tips</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">AI News</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Vibe Coding</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Crypto</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Concepts</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Worth Reading</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-value">34</span>
+          <span class="stat-label">Deduped</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       STICKY NAV
+       ============================================================ -->
+  <nav class="toc-nav" aria-label="Table of contents">
+    <div class="page-wrapper">
+      <ul class="toc-list">
+        <li><a class="toc-link" href="#tips">💡 Weekend Projects</a></li>
+        <li><a class="toc-link" href="#ai">🤖 AI News</a></li>
+        <li><a class="toc-link" href="#dev">🛠 Vibe Coding</a></li>
+        <li><a class="toc-link" href="#crypto">💰 Crypto</a></li>
+        <li><a class="toc-link" href="#concepts">🔥 Hot Concepts</a></li>
+        <li><a class="toc-link" href="#reading">📚 Worth Reading</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main class="main-content">
+    <div class="page-wrapper">
+
+      <!-- ===========================================================
+           SECTION 1: TIPS — WEEKEND PROJECTS (SUNDAY)
+           =========================================================== -->
+      <section class="section section--tips" id="tips">
+        <div class="section-header">
+          <span class="section-icon">💡</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Weekend Project Tips</h2>
+            <p class="section-subtitle">Sunday rotation: hands-on projects combining multiple tools — build something today</p>
+          </div>
+          <span class="section-count">3 Tips</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Tip 1: On-Device LLM iOS App -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">1</span>
+              <span class="tag tag--yellow">MLX + SwiftUI</span>
+            </div>
+            <h3 class="tip-title">Build an Offline AI Chat App with MLX Swift in One Afternoon</h3>
+            <div class="tip-body">
+              <p>Combine Apple's <code>mlx-swift</code> + <code>MLXLMCommon</code> packages to run a 4-bit quantized Llama-3 8B entirely on your M-series Mac or iPhone. Steps: (1) Add the SPM packages, (2) Download a quantized model via <code>mlx-lm</code> CLI, (3) Use <code>MLXLLM.load()</code> + async token generation in SwiftUI. Zero cloud costs, full privacy, runs offline. Use Cursor to scaffold the SwiftUI views while Claude Code handles the MLX integration layer.</p>
+              <p class="mt-3"><strong>Time:</strong> ~3 hours | <strong>Tools:</strong> Xcode, mlx-swift, Cursor, 4-bit GGUF from HuggingFace</p>
+            </div>
+          </article>
+
+          <!-- Tip 2: Build a Custom MCP Server with AgentGate -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">2</span>
+              <span class="tag tag--yellow">MCP + AgentGate</span>
+            </div>
+            <h3 class="tip-title">Build a Secure Custom MCP Server with Runtime Authorization</h3>
+            <div class="tip-body">
+              <p>Stand up an MCP server that exposes your local tools (file system, database queries, API calls) and wrap it with AgentGate for runtime trust scoring. Steps: (1) <code>npx @modelcontextprotocol/create-server</code> to scaffold, (2) Register tools with Zod schemas, (3) Add AgentGate middleware for purpose-alignment scoring and human-in-the-loop approvals on writes. (4) Connect to Claude Desktop. Result: your AI agent can read freely but any destructive action requires your approval via Slack webhook.</p>
+              <p class="mt-3"><strong>Time:</strong> ~2 hours | <strong>Tools:</strong> Node.js, MCP SDK, AgentGate, Claude Desktop</p>
+            </div>
+          </article>
+
+          <!-- Tip 3: Vericoding Pipeline -->
+          <article class="card tip-card">
+            <div class="tip-header">
+              <span class="tip-number">3</span>
+              <span class="tag tag--yellow">Dafny + Codex</span>
+            </div>
+            <h3 class="tip-title">Your First Vericoding Pipeline: Let AI Write Formally Verified Code</h3>
+            <div class="tip-body">
+              <p>Try the "vericoding" pattern: write a formal spec in Dafny, then have Codex generate both the implementation and the mathematical proof. Steps: (1) Install Dafny extension in VS Code, (2) Write a spec for a simple function (e.g., binary search with bounds guarantee), (3) Prompt Codex: "Implement this Dafny spec and generate the verification proof." (4) Run <code>dafny verify</code> — if it passes, the code is mathematically correct for all inputs. Current LLM success rate on Dafny: 82%.</p>
+              <p class="mt-3"><strong>Time:</strong> ~1.5 hours | <strong>Tools:</strong> VS Code, Dafny, Codex CLI, Z3 solver</p>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 2: AI NEWS
+           =========================================================== -->
+      <section class="section section--ai" id="ai">
+        <div class="section-header">
+          <span class="section-icon">🤖</span>
+          <div class="section-title-group">
+            <h2 class="section-title">AI News</h2>
+            <p class="section-subtitle">Wall Street AI blitz, agent authorization &amp; AI models jolting Washington</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--2">
+
+          <!-- AI Story 1: Anthropic & OpenAI Wall Street Race -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--purple">Anthropic</span>
+                <span class="tag tag--blue">OpenAI</span>
+              </div>
+              <a class="story-external-link" href="https://thenewstack.io/anthropic-openai-wall-street-ai-agents-developers/" target="_blank" rel="noopener noreferrer">
+                thenewstack.io ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://thenewstack.io/anthropic-openai-wall-street-ai-agents-developers/" target="_blank" rel="noopener noreferrer">
+                Anthropic &amp; OpenAI Race to Embed AI Agents Inside Wall Street Workflows
+              </a>
+            </h3>
+            <p class="story-summary">
+              Anthropic deployed 10 specialized finance agents (Earnings Reviewer, Model Builder, Pitch Builder) with native FactSet/Moody's integrations and a $1.5B Goldman-backed JV. OpenAI countered within 24 hours with a $10B "Deployment Company" spin-off targeting CFO operations with PwC. JPMorgan's Jamie Dimon publicly demoed Claude analyzing Treasury swaps live. Citadel CEO Ken Griffin admitted being "fairly depressed" after watching AI agents perform analyst-grade work. The enterprise AI land-grab is now measured in hours, not quarters.
+            </p>
+          </article>
+
+          <!-- AI Story 2: AgentGate Authorization -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--red">Security</span>
+                <span class="tag tag--cyan">MCP</span>
+              </div>
+              <a class="story-external-link" href="https://www.tryagentgate.com/" target="_blank" rel="noopener noreferrer">
+                tryagentgate.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://www.tryagentgate.com/" target="_blank" rel="noopener noreferrer">
+                AgentGate Ships: Runtime Authorization Layer for AI Agents (OAuth Can't See What Agents Do)
+              </a>
+            </h3>
+            <p class="story-summary">
+              New open-source tool solves the "OAuth blind spot" for autonomous AI agents. AgentGate sits between agents and APIs, scoring every action via purpose-alignment embeddings, behavioral velocity monitoring, and delegation chain verification — all in under 100ms. Auto-approves safe reads, auto-denies dangerous ops, routes ambiguous writes to humans. Includes MCP integration out-of-the-box. Addresses OWASP Agentic AI Top 10 and the NIST AI Risk framework requirement for runtime (not just onboarding) security.
+            </p>
+          </article>
+
+          <!-- AI Story 3: AI Models Jolting Washington -->
+          <article class="card story-card--ai">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--purple">Policy</span>
+                <span class="tag tag--orange">Regulation</span>
+              </div>
+              <a class="story-external-link" href="https://www.politico.com/news/2026/05/24/anthropic-openai-mythos-what-to-know-00934668" target="_blank" rel="noopener noreferrer">
+                politico.com ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://www.politico.com/news/2026/05/24/anthropic-openai-mythos-what-to-know-00934668" target="_blank" rel="noopener noreferrer">
+                AI Models Jolting Washington: What Congress Needs to Know About Frontier Capabilities
+              </a>
+            </h3>
+            <p class="story-summary">
+              Politico deep-dive on how Claude Mythos and OpenAI's latest models are forcing emergency Congressional briefings. Lawmakers grappling with frontier model capabilities that outpace existing regulatory frameworks. Key tension: national competitiveness vs. safety guardrails. Both companies deploying lobbyists at unprecedented scale while simultaneously calling for regulation. The policy window for meaningful AI governance is narrowing as capabilities accelerate.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 3: VIBE CODING
+           =========================================================== -->
+      <section class="section section--dev" id="dev">
+        <div class="section-header">
+          <span class="section-icon">🛠</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Vibe Coding</h2>
+            <p class="section-subtitle">Vericoding emerges, AI-driven design automation &amp; what's left for human coders</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Dev Story 1: Vericoding -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">Formal Verification</span>
+              </div>
+              <a class="story-external-link" href="https://blog.icme.io/vericoding-the-end-of-trust-me-bro-the-ai-wrote-it/" target="_blank" rel="noopener noreferrer">
+                blog.icme.io ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://blog.icme.io/vericoding-the-end-of-trust-me-bro-the-ai-wrote-it/" target="_blank" rel="noopener noreferrer">
+                Vericoding: The End of "Trust Me Bro, The AI Wrote It"
+              </a>
+            </h3>
+            <p class="story-summary">
+              A new paradigm where LLMs generate both code AND mathematical proofs of correctness. Rather than testing after the fact, AI writes implementations in Dafny or Lean 4 alongside formal proofs verified by SMT solvers. Current benchmarks: 82% success in Dafny, 44% in Rust/Verus. Max Tegmark's team applying it to the Signal app. AI-written code carries 2.74x more vulnerabilities — vericoding eliminates the trust gap by making correctness deterministic, not probabilistic.
+            </p>
+          </article>
+
+          <!-- Dev Story 2: What's Left for AI-Assisted Coding -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">Essay</span>
+                <span class="tag tag--purple">Future of Dev</span>
+              </div>
+              <a class="story-external-link" href="https://stephen.bochinski.dev/blog/2026/05/24/whats-left-for-ai-assisted-coding/" target="_blank" rel="noopener noreferrer">
+                stephen.bochinski.dev ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://stephen.bochinski.dev/blog/2026/05/24/whats-left-for-ai-assisted-coding/" target="_blank" rel="noopener noreferrer">
+                What's Left for AI-Assisted Coding: The Human Edge in 2026
+              </a>
+            </h3>
+            <p class="story-summary">
+              Thoughtful developer essay arguing that as AI handles 60%+ of code generation, the remaining human value concentrates in: (1) distributed systems architecture decisions, (2) security boundary design, (3) cross-team API contracts, and (4) organizational context that no model has in its training data. The "AI Validator" role is real — knowing <em>how</em> to code is table stakes; knowing <em>what</em> to build and <em>why</em> is the moat.
+            </p>
+          </article>
+
+          <!-- Dev Story 3: Teaching Codex to Test Voice Apps -->
+          <article class="card story-card--dev">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--cyan">Codex</span>
+                <span class="tag tag--green">Testing</span>
+              </div>
+              <a class="story-external-link" href="https://www.elicited.blog/posts/teaching-codex-to-test-a-voice-first-calendar" target="_blank" rel="noopener noreferrer">
+                elicited.blog ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://www.elicited.blog/posts/teaching-codex-to-test-a-voice-first-calendar" target="_blank" rel="noopener noreferrer">
+                Teaching Codex to Test a Voice-First Calendar App
+              </a>
+            </h3>
+            <p class="story-summary">
+              Practical walkthrough of using OpenAI Codex as a test-generation agent for voice-UI apps. The author created a AGENTS.md file teaching Codex how to simulate voice intents, mock speech-to-text outputs, and validate calendar state transitions. Key insight: voice apps need scenario-based tests that mimic ambiguous human speech patterns — and Codex excels when given structured examples of edge-case utterances in its context window.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 4: CRYPTO & MARKETS
+           =========================================================== -->
+      <section class="section section--crypto" id="crypto">
+        <div class="section-header">
+          <span class="section-icon">💰</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Crypto &amp; Markets</h2>
+            <p class="section-subtitle">Ethereum Glamsterdam, CLARITY Act advances &amp; the Qivalis euro stablecoin</p>
+          </div>
+          <span class="section-count">3 Stories</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Crypto Story 1: Ethereum Glamsterdam -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">Ethereum</span>
+                <span class="tag tag--green">Upgrade</span>
+              </div>
+              <a class="story-external-link" href="https://ethereum.org" target="_blank" rel="noopener noreferrer">
+                ethereum.org ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://ethereum.org" target="_blank" rel="noopener noreferrer">
+                Ethereum Glamsterdam Upgrade Enters Final Testnet Phase — Parallel Execution Coming to L1
+              </a>
+            </h3>
+            <p class="story-summary">
+              The most significant ETH upgrade since the Merge is approaching mainnet (targeting summer 2026). Key EIPs: Block-Level Access Lists (EIP-7928) enable parallel transaction execution, Enshrined Proposer-Builder Separation (EIP-7732) moves MEV fairness on-chain. Gas limit expansion from 60M to 200M projected. Analysts say a successful launch could push ETH back toward $4,000. ETH currently consolidating at $2,100 while whales accumulate to record 26.55M ETH holdings.
+            </p>
+          </article>
+
+          <!-- Crypto Story 2: CLARITY Act -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">Regulation</span>
+                <span class="tag tag--blue">US Senate</span>
+              </div>
+              <a class="story-external-link" href="https://www.congress.gov" target="_blank" rel="noopener noreferrer">
+                congress.gov ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://www.congress.gov" target="_blank" rel="noopener noreferrer">
+                CLARITY Act Advances to Senate Floor — Most Comprehensive US Crypto Regulation in History
+              </a>
+            </h3>
+            <p class="story-summary">
+              Senate Banking Committee voted 15-9 to advance the Digital Asset Market Clarity Act on May 14. Draws bright jurisdictional line between SEC (digital securities) and CFTC (digital commodities). Introduces "mature blockchain test" for tokens transitioning from SEC to CFTC oversight. Creates "Regulation Crypto" exemption path for capital formation. Crucially protects non-custodial developers and DeFi protocols from being regulated as financial intermediaries. Headed for full Senate vote this summer — 60 votes needed to overcome filibuster.
+            </p>
+          </article>
+
+          <!-- Crypto Story 3: Qivalis Euro Stablecoin -->
+          <article class="card story-card--crypto">
+            <div class="story-card-header">
+              <div class="story-card-meta">
+                <span class="tag tag--orange">Stablecoins</span>
+                <span class="tag tag--purple">Europe</span>
+              </div>
+              <a class="story-external-link" href="https://www.theblock.co" target="_blank" rel="noopener noreferrer">
+                theblock.co ↗
+              </a>
+            </div>
+            <h3 class="story-title">
+              <a href="https://www.theblock.co" target="_blank" rel="noopener noreferrer">
+                Qivalis Consortium Expands to 37 Banks — Europe's MiCA-Compliant Euro Stablecoin Nears Launch
+              </a>
+            </h3>
+            <p class="story-summary">
+              The pan-European banking consortium added 25 new members (including ABN AMRO, Nordea, Intesa Sanpaolo) bringing total to 37 banks across 15 countries. MiCA-compliant euro stablecoin targeting H2 2026 launch. 1:1 backed, built on Fireblocks infrastructure. Strategic play to reduce European dependence on USD-denominated stablecoins (currently 95%+ of $320B market). Applied for Electronic Money Institution license from Dutch central bank.
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 5: HOT CONCEPTS
+           =========================================================== -->
+      <section class="section section--concepts" id="concepts">
+        <div class="section-header">
+          <span class="section-icon">🔥</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Hot Concepts</h2>
+            <p class="section-subtitle">Structural patterns &amp; paradigm shifts surfacing this weekend</p>
+          </div>
+          <span class="section-count">3 Concepts</span>
+        </div>
+
+        <div class="cards-grid cards-grid--3">
+
+          <!-- Concept 1: Vericoding -->
+          <article class="card concept-card">
+            <h3 class="concept-title">Vericoding — From Probabilistic Testing to Deterministic Proof</h3>
+            <p class="concept-body">
+              The paradigm shift from "test enough and hope" to "prove once and know." As AI generates 60%+ of code, testing alone can't keep pace with output velocity. Vericoding lets LLMs write formal proofs alongside implementations — Z3 or Lean verify correctness mathematically. Testing shows presence of bugs; vericoding proves their absence.
+            </p>
+            <p class="concept-body mt-3">
+              The economics are compelling: human code review of 1,000 AI-generated lines costs hours; a machine-checked proof costs seconds. The bottleneck shifts from "can AI write correct code?" to "can humans write correct specifications?" — a much smaller, more tractable problem. Expect vericoding to become a standard CI/CD gate for critical paths within 18 months.
+            </p>
+          </article>
+
+          <!-- Concept 2: Runtime Agent Security -->
+          <article class="card concept-card">
+            <h3 class="concept-title">Runtime Agent Security — The Death of Static Authorization</h3>
+            <p class="concept-body">
+              OAuth grants static scopes ("this app can read your files"). But AI agents generate actions dynamically — an agent with read access might chain 47 tool calls into an exfiltration pipeline. Runtime security (AgentGate, OWASP Agentic Top 10) treats every agent action as untrusted until scored for purpose-alignment in real-time. The IETF is drafting OAuth extensions with <code>requested_actor</code> parameters for agent identity.
+            </p>
+            <p class="concept-body mt-3">
+              Key mental model shift: security perimeter moves from "who are you?" to "what are you doing right now?" Static RBAC is dead for autonomous systems. Every agentic architecture needs a Policy Decision Point that scores behavioral intent at request time — not just at auth time. This is the "firewall moment" for the agentic era.
+            </p>
+          </article>
+
+          <!-- Concept 3: The AI Validator Developer -->
+          <article class="card concept-card">
+            <h3 class="concept-title">The AI Validator Developer — From Writer to Verifier</h3>
+            <p class="concept-body">
+              As AI handles code generation, the developer role bifurcates: "prompt engineers" who direct AI output, and "AI validators" who review, verify, and architect. The validator's edge is organizational context (why this service exists, who consumes it, what the business constraints are) — information no model has in training data.
+            </p>
+            <p class="concept-body mt-3">
+              Ben Evans' analysis of AI job exposure aligns: roles with high tacit knowledge and cross-functional dependencies are AI-resistant. Developers who write specs, design system boundaries, and verify agent outputs are the new senior engineers. Developers who only type code are competing against $0.01/1K token completion APIs. The career moat is moving from "can you code?" to "can you specify and validate?"
+            </p>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ===========================================================
+           SECTION 6: WORTH READING
+           =========================================================== -->
+      <section class="section section--reading" id="reading">
+        <div class="section-header">
+          <span class="section-icon">📚</span>
+          <div class="section-title-group">
+            <h2 class="section-title">Worth Reading</h2>
+            <p class="section-subtitle">Four more stories deserving your attention this Sunday</p>
+          </div>
+          <span class="section-count">4 Links</span>
+        </div>
+
+        <div class="reading-list">
+
+          <div class="reading-item">
+            <span class="reading-num">1</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://www.ben-evans.com/benedictevans/2026/5/24/ai-job-exposure" target="_blank" rel="noopener noreferrer">
+                  "Predicting AI Job Exposure" — Ben Evans
+                </a>
+              </p>
+              <p class="reading-desc">Nuanced analysis of which roles face displacement vs. augmentation. Argues that job exposure correlates with task decomposability, not skill level. A senior architect with cross-team context is safer than a mid-level CRUD developer.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">2</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://blog.adafruit.com/2026/05/19/ai-agents-just-got-their-own-web-browser-via-a-firefox-fork/" target="_blank" rel="noopener noreferrer">
+                  "AI Agents Just Got Their Own Web Browser via a Firefox Fork" — Adafruit
+                </a>
+              </p>
+              <p class="reading-desc">A Firefox fork purpose-built for AI agent web browsing. Stripped of human UI chrome, optimized for programmatic DOM access and screenshot-based navigation. Could become the standard runtime for web-capable autonomous agents.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">3</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://www.wsj.com/tech/ai/ai-debunks-conspiracy-theories-92eff2c5" target="_blank" rel="noopener noreferrer">
+                  "How AI Talks People Out of Conspiracy Theories" — Wall Street Journal
+                </a>
+              </p>
+              <p class="reading-desc">Research showing AI chatbots can reduce belief in conspiracy theories by 20% in a single conversation. The mechanism: patient, evidence-based dialogue at scale. Raises questions about AI's persuasive power as both positive and negative force.</p>
+            </div>
+          </div>
+
+          <div class="reading-item">
+            <span class="reading-num">4</span>
+            <div class="reading-content">
+              <p class="reading-title">
+                <a href="https://www.cnn.com/2026/05/24/us/ai-flying-airplanes" target="_blank" rel="noopener noreferrer">
+                  "AI Is Learning to Fly Airplanes — And Aviation Is Starting to Embrace It" — CNN
+                </a>
+              </p>
+              <p class="reading-desc">Major airlines testing AI co-pilot systems for routine flight operations. The same pattern as autonomous driving: AI handles the boring 95% while humans manage edge cases. FAA certifications reportedly in progress for cargo flights first.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div><!-- /page-wrapper -->
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="page-wrapper">
+
+      <div class="footer-grid">
+
+        <!-- Left: Generation Meta -->
+        <div>
+          <p class="footer-section-title">Report Metadata</p>
+          <ul class="footer-meta-list">
+            <li>
+              <span class="key">Generated:</span>
+              <span>2026-05-25T09:00:00Z</span>
+            </li>
+            <li>
+              <span class="key">Edition:</span>
+              <span>Sunday, May 25, 2026</span>
+            </li>
+            <li>
+              <span class="key">Tip rotation:</span>
+              <span>Weekend Projects (hands-on multi-tool builds)</span>
+            </li>
+            <li>
+              <span class="key">Stories reviewed:</span>
+              <span>48+ candidates</span>
+            </li>
+            <li>
+              <span class="key">Deduplicated:</span>
+              <span>34 stories filtered (covered in May 20–24 reports)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: Source Status -->
+        <div>
+          <p class="footer-section-title">Source Status</p>
+          <div class="source-status">
+            <div class="source-row">
+              <span class="source-name">Hacker News RSS</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Web Search (crypto)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Web Search (AI/architecture)</span>
+              <span class="source-ok">✅ OK</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">Web Search (AI tools)</span>
+              <span class="source-fail">⚠️ Timeout (partial)</span>
+            </div>
+            <div class="source-row">
+              <span class="source-name">The Block / CoinTelegraph RSS</span>
+              <span class="source-fail">⚠️ Timeout</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <div class="footer-bottom">
+        <p class="footer-brand">
+          <strong>AI &amp; Crypto Daily Digest</strong> — Automated curation pipeline
+        </p>
+        <p class="footer-tagline">
+          Curated for engineers at the intersection of AI &amp; crypto · Not financial advice
+        </p>
+      </div>
+
+    </div><!-- /page-wrapper -->
+  </footer>
+
+</body>
+</html>
