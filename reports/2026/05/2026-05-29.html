@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-05-29</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, May 29, 2026 · Issue #149</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Context Engineering</span>
+    <strong>Replace Prompt Stuffing with MCP Progressive Discovery</strong>
+    <p>Stop pasting entire API docs into your system prompts. With MCP's 2026 stateless architecture, your agent can call <code>tools/list</code> at runtime to discover available capabilities and only load what's needed for the current task. This reduces context bloat by 60-80% and lets you stay within token budgets even with complex multi-tool workflows. Connect your agent to an MCP server and let it dynamically browse tools instead of pre-loading everything.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agentic RAG</span>
+    <strong>Add a Self-RAG Reflection Loop to Catch Hallucinations</strong>
+    <p>The Self-RAG pattern (now standard in LangGraph) adds a verification step after retrieval: the agent evaluates whether fetched documents actually answer the query before generating. If relevance scores are low, it autonomously rewrites the query and searches again. Implement this with a simple <code>grade_documents</code> node in your LangGraph workflow—it cuts hallucination rates by 40% in production pipelines.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Architecture</span>
+    <strong>Use Server-Side Tool Chaining to Cut Agent Token Costs</strong>
+    <p>Instead of your agent making 5 sequential tool calls (each consuming round-trip tokens), 2026 MCP servers support programmatic server-side orchestration. Define a <code>compound_tool</code> that chains DB query → transform → validate → write on the server side, returning one consolidated result. This reduces agent turns from 5 to 1, saving ~70% on token costs for multi-step data workflows.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3>Claude Code Doubles Rate Limits, Ships Built-in Security Scanner</h3>
+    <p>Anthropic doubled usage limits for Pro, Max, and Enterprise Claude Code tiers this week, directly addressing the #1 developer complaint of hitting caps during long refactoring sessions. The new "Claude Security" feature brings context-aware vulnerability scanning into the coding workflow—it analyzes your changes against known CVE patterns and flags issues before you commit. This is particularly useful for iOS developers shipping SDK updates where supply-chain security matters.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI × Dell</span>
+    <h3>Codex Gets On-Prem Deployment via Dell Partnership</h3>
+    <p>OpenAI partnered with Dell Technologies to offer hybrid on-premises deployments of Codex for enterprises with strict data residency requirements. This means regulated industries (finance, healthcare, government) can now run Codex agents inside their own infrastructure rather than routing code through OpenAI's cloud. For Binance-scale operations, this opens the door to using Codex for internal tooling without compliance concerns about code leaving the network.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor</span>
+    <h3>Cursor 3's Agents Window: Run 10 Parallel Cloud Agents</h3>
+    <p>Cursor 3 (launched April 2026) introduced the Agents Window—a panel that lets you spin up to 10 parallel cloud-based AI agents working simultaneously across different repos. While you're writing UI code in one tab, background agents handle dependency updates, test generation, or documentation in parallel. This is the first mainstream IDE to treat "agent fleet management" as a first-class UX feature rather than a terminal hack.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Market Data</span>
+    <h3>AI Coding Agents Now Touch 28% of All GitHub Projects</h3>
+    <p>A large-scale GitHub study published this week confirms that agentic coding tools are involved in 22-28% of all GitHub projects globally, up from ~8% in January 2025. The study also found that 41% of all new code committed globally is now AI-generated. For development teams, the implication is clear: code review skills and test infrastructure are now more valuable than raw coding speed.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security</span>
+    <h3>ACM Issues Formal Warning on Vibe Coding Security Risks</h3>
+    <p>The ACM's Technology Policy Council published a TechBrief warning about systemic security vulnerabilities from vibe coding practices. Their analysis shows that non-technical users and rushed developers bypassing traditional QA are creating a spike in inherited vulnerabilities—particularly SQL injection, hardcoded secrets, and missing input validation. The actionable takeaway: if you're using vibe coding for rapid prototyping, always run a security linting pass (like <code>semgrep</code> or Claude Security) before promoting to production.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">ByteDance</span>
+    <h3>TRAE IDE: Dual-Agent Architecture for Different Coding Modes</h3>
+    <p>ByteDance's TRAE IDE introduces a novel split-agent design: "Builder" for greenfield projects (ships code from zero, fast) and "Coder" for careful planning on existing codebases (uses sub-agents for deep architectural work). It also ships native Figma and database integrations, making it particularly appealing for full-stack mobile developers who need to go from design mockup to working API in one tool.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Industry Shift</span>
+    <h3>Job Market: "AI Agent Orchestration" Roles Up 340% YoY</h3>
+    <p>While traditional manual implementation roles declined ~17% year-over-year, job postings requiring "AI Agent Orchestration" experience exploded by 340%. The modern developer role is converging toward technical management—reviewing agent PRs, writing strict test environments to keep agents on track, and architecting prompt/context systems. For iOS developers, this means investing in testing infrastructure and agent workflow design pays outsized career dividends.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Crashes Below $75K as US-Iran Tensions Trigger Mass Liquidations</h3>
+    <p>Bitcoin dropped to ~$73,300 today amid a broad risk-off sell-off triggered by escalating US-Iran military tensions. Over $150M in long positions were liquidated as BTC broke the psychological $75K support level. ETH is struggling below $2,200 with declining active addresses. Notably, AI tokens are the one sector defying the crash—rallying while everything else bleeds. Strive added 1,109 BTC to its treasury (now 16,500 BTC total), showing institutional accumulation continues despite short-term pain.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3>FDIC Proposes Bank-Grade AML Rules for Stablecoin Issuers</h3>
+    <p>The FDIC approved a notice of proposed rulemaking that would require bank-affiliated stablecoin issuers to meet full Bank Secrecy Act, AML, and sanctions compliance—far stricter than current money-transmitter frameworks. This prepares the ground for the GENIUS Act's full implementation in January 2027. For exchanges like Binance, this signals that stablecoin compliance infrastructure will need significant upgrades over the next 6 months.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Infrastructure</span>
+    <h3>AI Tokens Rally as Only Green Sector in Today's Sell-Off</h3>
+    <p>While the broader crypto market saw significant losses today, AI-related tokens are the standout sector—posting gains against a sea of red. This divergence highlights growing investor conviction that AI×crypto infrastructure (decentralized compute, on-chain inference, AI agent tokens) represents a fundamentally different value proposition from pure speculative assets. Watch tokens in the AI compute and data marketplace categories.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Context Engineering (replacing Prompt Engineering)</strong>
+    <p>The industry has officially shifted vocabulary from "Prompt Engineering" to "Context Engineering." The difference: prompt engineering focuses on crafting static instruction text, while context engineering treats the AI's context window like RAM—dynamically loading only relevant data via MCP servers, progressive tool discovery, and context offloading. If you're still writing 2,000-word system prompts, you're doing it wrong in 2026. The new skill is architecting what data flows into context and when.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Multi-Agent RAG: Supervisor + Specialist Sub-Agents</strong>
+    <p>For complex queries spanning multiple domains, the emerging pattern is a "supervisor" agent that decomposes tasks and orchestrates specialized sub-agents—one searches financial data, another reads legal PDFs, a third synthesizes the final report. This is the production architecture behind tools like Claude Code's internal planning system. LangGraph makes this composable with its stateful graph execution model. If you're building any RAG system handling cross-domain data, this is the 2026 default pattern.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Two-Agent Developer Standard</strong>
+    <p>Senior developers in 2026 have converged on using 2-3 specialized AI tools rather than one monolithic assistant: Cursor for daily shipping and fast iteration, Claude Code for deep architectural reasoning across massive codebases, and a background agent (Codex or OpenCode) for automated maintenance tasks. Mastering the handoff points between tools—knowing which type of work to route where—is becoming a core developer skill alongside traditional coding.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Documentation — MCP Server Integration Guide</a>
+      <span class="desc">Updated docs covering how to connect Claude Code to custom MCP servers for enterprise workflows, including OAuth 2.1 setup for remote servers.</span>
+    </li>
+    <li>
+      <a href="https://langchain-ai.github.io/langgraph/">LangGraph: Building Stateful Multi-Agent RAG Systems</a>
+      <span class="desc">The definitive framework for building Self-RAG, Corrective RAG, and Multi-Agent RAG patterns with durable state and cycle support.</span>
+    </li>
+    <li>
+      <a href="https://modelcontextprotocol.io/specification">MCP Specification (2026-07-28 RC)</a>
+      <span class="desc">The latest MCP release candidate introducing stateless protocol architecture and programmatic server-side tool chaining.</span>
+    </li>
+    <li>
+      <a href="https://www.cmegroup.com/trading/cryptocurrency.html">CME Group 24/7 Crypto Futures Trading — Now Live</a>
+      <span class="desc">CME's landmark move to round-the-clock BTC, ETH, and XRP derivatives trading goes live today, aligning institutional and spot markets.</span>
+    </li>
+    <li>
+      <a href="https://github.com/opencode-ai/opencode">OpenCode: Open-Source ADE with 6M Monthly Active Developers</a>
+      <span class="desc">Plug any model into this polished Terminal UI. Supports parallel agents, MCP connections, and custom tool definitions.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-05-29T12:00:00Z · Thursday Edition (AI Infra &amp; Prompt Engineering focus)</p>
+  <p>Dedup: 12 stories filtered from past 5 days · Sources: 7 web searches, 0 RSS (fallback used)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Vibe/Tools</td><td>✅ OK</td><td>38</td></tr>
+    <tr><td>Web Search — Crypto/Regulatory</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>15</td></tr>
+    <tr><td>RSS — Crypto (The Block, CoinDesk, CoinTelegraph)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+    <tr><td>RSS — AI (HN, OpenAI, Google)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
