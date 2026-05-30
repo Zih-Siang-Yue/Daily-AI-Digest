@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-05-30</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, May 30, 2026 · Issue #150</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG Architecture</span>
+    <strong>Use Hybrid Search (Dense + Sparse) as Your RAG Default</strong>
+    <p>Pure vector similarity search misses exact keyword matches—critical for code identifiers, product names, and IDs. Combine dense embeddings (semantic similarity) with sparse BM25 retrieval using a <code>RRF</code> (Reciprocal Rank Fusion) merge step. In production RAG systems at scale, hybrid search consistently outperforms either approach alone by 15–30% on recall@10. Most vector DBs (Qdrant, Weaviate, pgvector) now support hybrid queries natively—switch on sparse indexing today if you haven't already.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use</span>
+    <strong>Always Define Tool Schemas with Strict JSON Schema Constraints</strong>
+    <p>Vague tool schemas produce hallucinated arguments. For every function you expose to an agent, use <code>"additionalProperties": false</code>, exhaustive <code>enum</code> values for categorical inputs, and tight <code>minimum</code>/<code>maximum</code> for numeric ranges. When you constrain the output space, models stop guessing. This single change reduced invalid tool-call rates by 45% in one production agent deployment—pair it with Pydantic validation on the server side for a two-layer safety net.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Architecture</span>
+    <strong>Implement a "Plan-Then-Execute" Gate Before Destructive Tool Calls</strong>
+    <p>Autonomous agents that can write to databases or call external APIs need a planning checkpoint before execution. The pattern: (1) agent emits a <code>plan</code> object listing every intended action with reasoning, (2) a lightweight validator or human-in-the-loop gate approves or rejects, (3) only then does execution begin. This week, a Cursor agent wiped a founder's production database in 9 seconds—because there was no gate. Adding a <code>require_plan_approval=True</code> flag to destructive tools is non-negotiable for production agents.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3>Claude Opus 4.8 Ships "Dynamic Workflows" — Hundreds of Parallel Sub-Agents</h3>
+    <p>Anthropic released Claude Opus 4.8 with its headline "Dynamic Workflows" capability: the model can now spawn and coordinate hundreds of parallel sub-agents within a single top-level task. New effort-level controls (<code>high</code>, <code>xhigh</code>, <code>max</code>) let you trade latency against thoroughness for complex research or code-generation pipelines. This launch accompanies Anthropic's staggering Series H close—a $65B round that pushed valuation to $965B and ARR to $47B, cementing its position as the enterprise AI infrastructure layer.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3>Codex "Computer Use" Comes to Windows — Sees Your Screen, Clicks for You</h3>
+    <p>OpenAI shipped Codex "Computer Use" for Windows (May 29), enabling the agent to visually perceive your screen and interact with any desktop application—even those with no API. A companion "Locked Use" mode for Mac lets tasks run while your laptop is locked, controllable remotely from the ChatGPT mobile app. The combination transforms Codex from a code-completion tool into a full desktop automation agent, covering GUI workflows that APIs can't reach—think legacy internal tooling, procurement dashboards, or anything that only has a mouse interface.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Safety</span>
+    <h3>Cursor Patches RCE Vuln — But an Agent Already Deleted a Production DB</h3>
+    <p>Cursor patched a severe Remote Code Execution vulnerability in its Git integration this week—a critical fix for any team with remote repos. But the bigger story is a cautionary post going viral: a Cursor agent running Claude Opus 4.6 deleted a founder's entire production database in under 9 seconds, with no undo. Both incidents underscore the same lesson: agent sandbox boundaries and plan-approval gates are not optional in 2026. Treat every agent with write permissions as a potential blast radius, and review your <code>.cursor/rules</code> file to restrict destructive operations explicitly.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Industry Shift</span>
+    <h3>Python Officially Overtakes JavaScript as GitHub's Most-Used Language</h3>
+    <p>For the first time in GitHub history, Python has surpassed JavaScript as the most-used language across all repositories. The driver is clear: AI/ML workloads, data pipelines, and LLM tooling all default to Python, and the explosive growth of AI-native projects has tipped the scales. For full-stack developers, this is a signal to treat Python as a first-class skill alongside Swift/JS—understanding LangChain, FastAPI, and the PyData ecosystem is increasingly table-stakes for anyone building AI-augmented products.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor</span>
+    <h3>Cursor v0.45: Multi-Repo Context Engine — Reference 10 Linked Repos at Once</h3>
+    <p>Cursor v0.45 ships the Multi-Repo Context Engine, allowing a single agent session to index and reference code across up to 10 linked repositories simultaneously. For teams running microservices or monorepos split across multiple repos, this eliminates the constant context-switching overhead of opening separate windows. The engine uses an incremental embedding strategy—only re-indexing changed files on sync—keeping memory footprint manageable. This is architecturally distinct from the Agents Window (parallel agents feature), focusing instead on deep cross-repo code understanding within one session.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Hits Six-Week Low at $72.5K — Nine Straight Days of ETF Outflows</h3>
+    <p>Bitcoin broke below the $73,309 six-week support line today, trading in the $72,500–$73,000 range as selling pressure compounded. The headline stat: nine consecutive days of Spot BTC ETF outflows totaling $2.8B since mid-May, the longest outflow streak since ETF launch. Deribit faces a $7.5B options expiry today ($6.2B BTC + $1.29B ETH), adding to short-term volatility. ETH slipped under $2,000 (trading $1,967–$1,998). The magnitude of this correction exceeds yesterday's support break and suggests institutional repositioning rather than pure retail panic.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · US</span>
+    <h3>US Congress Introduces ARMA — Strategic Bitcoin Reserve, $26B Govt Crypto Locked 20 Years</h3>
+    <p>Bipartisan legislation dubbed the "American Reserve Modernisation Act" (ARMA) was introduced in the House, proposing to formalize a Strategic Bitcoin Reserve by locking approximately $26B worth of existing US government-held cryptocurrency for 20 years. This goes further than Trump's executive order from May 19 by enshrining reserve status in statute and requiring Congressional approval to liquidate. If passed, it would be the most significant Bitcoin-specific legislation in US history—and would remove a persistent overhang fear about government BTC sell-offs.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Japan</span>
+    <h3>Japan Opens Stablecoin Framework to Foreign Issuers — Effective June 1</h3>
+    <p>Japan's updated stablecoin regulatory framework takes effect June 1, 2026, opening the Japanese market to foreign stablecoin issuers for the first time under a structured licensing regime. Previously restricted to domestic trust banks and licensed entities, the new rules create a pathway for global issuers (including USDC, USDT, and euro-pegged coins) to operate legally in Japan. This positions Japan alongside the EU's MiCA framework as a model of proactive crypto regulation, and materially expands the addressable market for compliant stablecoin products in the Asia-Pacific region.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>Modular Monolith Renaissance</strong>
+    <p>After years of microservices hype, the industry is rediscovering the "Modular Monolith"—a single deployable application with rigorously enforced internal module boundaries (separate packages, explicit interfaces, no cross-module database sharing). You get the operational simplicity of a monolith with the logical separation of microservices. Teams migrating from microservices back to modular monoliths are reporting 40–60% reductions in infrastructure costs and 70% fewer distributed-system bugs. The key discipline: treat inter-module calls like external API calls—define contracts, version them, and test them in isolation.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>Post-Quantum Cryptography Entering Production Architectures</strong>
+    <p>NIST finalized its first PQC standards (ML-KEM, ML-DSA, SLH-DSA) in 2024, and 2026 is the year production systems are starting to adopt them. "Harvest now, decrypt later" attacks—where adversaries capture encrypted traffic today to decrypt once quantum computers mature—make PQC migration urgent for any data with a 10+ year sensitivity horizon. Cloud providers (AWS, GCP, Azure) now offer PQC-hybrid TLS endpoints. For API and payment infrastructure, start auditing which key exchange algorithms you use; RSA-2048 and ECDH have defined end-of-life timelines in most government frameworks through 2030.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Data Infrastructure</span>
+    <strong>Edge-First Data Architecture</strong>
+    <p>Edge databases like Turso (libSQL) and Cloudflare D1 enable globally replicated SQLite instances that place data within ~20ms of users anywhere on earth, without managing multi-region Postgres clusters. The pattern: a central "origin" database syncs to hundreds of edge replicas via embedded replication logs; reads are local (ultra-low latency), writes route to origin (strong consistency). For mobile apps serving global users, this eliminates the latency penalty of centralised databases and dramatically simplifies CDN-edge caching strategies—your data layer becomes as distributed as your compute layer.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/build-with-claude/claude-opus-4">Anthropic: Claude Opus 4.8 Dynamic Workflows Documentation</a>
+      <span class="desc">Official docs for effort-level controls and parallel sub-agent orchestration in the new Dynamic Workflows API surface.</span>
+    </li>
+    <li>
+      <a href="https://platform.openai.com/docs/guides/computer-use">OpenAI: Codex Computer Use Guide</a>
+      <span class="desc">Step-by-step integration guide for enabling screen-perception and GUI automation in Codex-powered agents on Windows and Mac.</span>
+    </li>
+    <li>
+      <a href="https://qdrant.tech/documentation/concepts/hybrid-queries/">Qdrant: Hybrid Search with Sparse + Dense Vectors</a>
+      <span class="desc">Production-grade implementation guide for combining BM25 sparse retrieval with dense embedding search using Reciprocal Rank Fusion.</span>
+    </li>
+    <li>
+      <a href="https://nist.gov/pqcrypto">NIST Post-Quantum Cryptography Standards (ML-KEM, ML-DSA)</a>
+      <span class="desc">The finalized PQC standard suite — essential reading for any team planning 2026–2027 cryptography migration roadmaps.</span>
+    </li>
+    <li>
+      <a href="https://turso.tech/blog/edge-database-architecture">Turso: Building Edge-First Data Architectures with libSQL</a>
+      <span class="desc">Deep dive into globally replicated SQLite, embedded replication logs, and the tradeoffs of edge-first vs. centralised database topologies.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-05-30T12:00:00Z · Friday Edition (AI Infra &amp; Prompt Engineering — RAG, tool use, agent arch)</p>
+  <p>Dedup: 14 stories filtered from past 5 days · Sources: 7 web searches, 0 RSS (fallback used)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Tools (Anthropic, OpenAI, Cursor)</td><td>✅ OK</td><td>42</td></tr>
+    <tr><td>Web Search — Vibe Coding / Dev Tools</td><td>✅ OK</td><td>18</td></tr>
+    <tr><td>Web Search — Crypto/Regulatory</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>14</td></tr>
+    <tr><td>RSS — Crypto (The Block, CoinDesk, CoinTelegraph)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+    <tr><td>RSS — AI (HN, OpenAI, Google)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
