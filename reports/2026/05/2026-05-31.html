@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-05-31</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, May 31, 2026 · Issue #151</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Governance</span>
+    <strong>Combine Claude Code Hooks + AGENTS.md for Production-Grade Agent Governance</strong>
+    <p>The week's top takeaway: pair pre/post-tool hooks (Monday) with strict AGENTS.md rules and plan-approval gates (Friday) to create a defense-in-depth system for autonomous agents. Wire <code>post_tool.sh</code> to reject any <code>rm -rf</code> or <code>DROP TABLE</code> commands and auto-checkpoint after every 5 file writes. The two mechanisms are complementary — AGENTS.md sets declarative policy at the agent level ("never delete files without explicit confirmation"), while hooks enforce it at the tool-call level in real-time. Together they cover the gap that caused this week's viral incident: a Cursor agent wiping a production database in 9 seconds with no audit trail. This combination is your minimum viable governance layer for any agent with write permissions.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">On-Device Inference</span>
+    <strong>Use INT8 Quantization for ANE, INT4 for GPU — Route by Hardware</strong>
+    <p>Tuesday's biggest insight applied: the Neural Engine outperforms GPU for battery-constrained inference but <em>only</em> with INT8. Build a two-path inference strategy: Core ML INT8 for always-on features (text classification, summarization), MLX INT4 for heavy generation tasks (chat, code completion). The routing decision is simple — check <code>ProcessInfo.processInfo.thermalState</code> and the app's background/foreground state. Foreground + plugged-in → MLX INT4 on GPU. Background or battery-sensitive → Core ML INT8 on ANE. This single architectural split can cut energy consumption by 40–60% for apps with persistent AI features, which is critical for App Store reviews and user retention in battery-sensitive markets.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">FinOps · Enterprise</span>
+    <strong>Set Per-Agent Token Budgets in CI/CD to Prevent Tokenmaxxing</strong>
+    <p>The week's enterprise lesson (Uber, Microsoft): implement <code>max_tokens_per_task</code> environment variables in your agent configs. Claude Code supports <code>--max-cost</code> flags; Codex supports budget profiles. Set a hard ceiling and let the agent optimize within it rather than optimizing for thoroughness. The critical insight from Uber's 4-months-in-4-weeks burn: agents left to their own devices will naturally maximize token consumption because more tokens correlate with more "complete" answers. Counter this with budget-aware prompting — explicitly tell the agent its token budget in the system prompt and reward conciseness. In CI/CD pipelines, add a budget-exceeded exit code (<code>exit 2</code>) that fails the build and notifies the team lead, creating accountability at the pipeline level rather than the credit card level.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Safety</span>
+    <h3>OpenAI Launches Biodefense Program — AI for Pandemic Preparedness</h3>
+    <p>OpenAI shared with Axios its new biodefense initiative, explicitly acknowledging AI's dual-use potential in biosecurity. The program provides specialized models and tooling for pandemic preparedness, offering government agencies and research institutions access to AI-powered pathogen surveillance and response planning tools. Unlike general-purpose model access, the biodefense tier includes enhanced safety filters tuned to prevent misuse while preserving utility for legitimate public health research. Strategically, this positions OpenAI as a national security partner — a significant reputational shift that mirrors how defense contractors engage with government — and provides regulatory goodwill as Congress debates AI oversight legislation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · FinOps</span>
+    <h3>Codex Profiles: Granular Token Activity Tracking Per Developer</h3>
+    <p>Alongside Computer Use for Windows, OpenAI shipped "Codex Profiles" — a per-developer dashboard showing token consumption breakdown by task type, model tier, and session length. Each profile tracks which agent workflows are cost-effective (high output-per-token ratio) vs. burning budget inefficiently. This directly addresses the enterprise FinOps crisis surfaced this week: Uber burning through its entire 2026 AI budget in 4 months because no one had per-developer cost visibility. Codex Profiles integrates with SSO identity providers so managers can see team-level spend without accessing individual session content. Pair it with the <code>--max-cost</code> flag enforcement for a complete cost-governance loop.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Confluent · MCP</span>
+    <h3>Confluent MCP Servers: Data Streaming Meets AI Coding Agents</h3>
+    <p>Confluent launched local and managed MCP servers that let AI coding agents securely connect to your Kafka/Flink infrastructure. Agents can now write platform-aware streaming code — Flink SQL queries, Kafka producer configs, schema-registry-aware serialization — instead of generic boilerplate that ignores your actual cluster topology. The MCP server exposes tools for topic listing, schema introspection, consumer group lag queries, and Flink job status checks. For teams using Claude Code or Cursor with Confluent Cloud, this means your agent has real-time knowledge of your streaming infrastructure when generating event-driven application code. Local MCP mode ensures credentials never leave your network; managed mode handles auth via Confluent's existing RBAC controls.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Agents</span>
+    <h3>Google Managed Agents GA: Single API Call to Spawn a Sandboxed Agent</h3>
+    <p>Google's Managed Agents (built on Gemini 3.5 Flash) reached general availability: a single API call spins up an AI agent that reasons, uses tools, and executes code inside an isolated Linux sandbox. No infrastructure management, no container orchestration — deploy agent workflows like serverless functions. The sandbox includes a Python runtime, filesystem access scoped to the task, and tool access defined by your API call. Pricing follows an execution-time model (per second of agent runtime) rather than pure token pricing, which incentivizes efficient agents rather than verbose ones. For teams building agentic features on Google Cloud, Managed Agents replaces the DIY approach of wiring ADK + Cloud Run + Cloud Tasks yourself.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Microsoft · Build 2026</span>
+    <h3>Microsoft AI-Native Windows App Development with WinUI 3</h3>
+    <p>At Build 2026, Microsoft unveiled tools for creating native Windows 11 applications using AI agents and the WinUI 3 framework. The agent handles layout generation, WCAG accessibility compliance, platform API integration, and Windows 11 design language adherence — developers describe the app's behavior in natural language and the agent generates production-ready native code. Unlike web-based Electron wrappers, the output is genuine WinUI 3 XAML with proper Win32 and WinRT interop. Microsoft explicitly called this part of the "post-vibe-coding" era: moving from AI-assisted editing to AI-native application assembly. The toolchain integrates with GitHub Copilot Workspace and Azure DevOps for end-to-end CI/CD on generated native apps.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Consolidates at $73.5K–$74K — Market Awaits Next Week's Macro Data</h3>
+    <p>Bitcoin settled into a tight $73,500–$74,000 range on Saturday after Friday's options expiry cleared $7.5B in notional exposure (the Deribit max pain event). ETF outflows have slowed materially — daily outflows dropped from ~$450M Wednesday to ~$120M Friday — but a reversal to inflows hasn't materialized. ETH is relatively outperforming at ~$2,020, benefiting from capital rotation as ETF staking approval anticipation builds. The market is in "wait-and-see" mode ahead of next week's economic data including US PCE and jobs data which will drive Fed rate expectations. Technical analysts are watching the $71.8K level as the next support if macro data disappoints.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">BNB Chain</span>
+    <h3>BNB Surges 12% to $780 — Binance Ecosystem Momentum Reignites</h3>
+    <p>BNB broke out sharply today with a 12% surge touching $780, driven by a confluence of factors: growing DeFi activity on BNB Chain, anticipation of the upcoming Pascal hard fork (which introduces EIP-7702 account abstraction and parallel EVM execution), and general ecosystem sentiment improvement following Binance's regulatory progress in key markets. The move outpaced all major large-cap assets — BTC was flat, ETH up 2% — signaling renewed confidence specifically in the Binance ecosystem rather than broad-market risk appetite. BNB Chain's 7-day DEX volume hit a 6-month high of $4.2B, and active addresses on-chain reached levels not seen since Q4 2024.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Treasury Management</span>
+    <h3>Sharplink Ends Galaxy Digital ETH Management — Brings Treasury In-House</h3>
+    <p>Sharplink Gaming terminated its discretionary ETH asset management agreements with Galaxy Digital and ParaFi Capital, moving treasury management fully in-house with dedicated crypto treasury staff. The decision signals a maturation trend emerging across crypto-native public companies: firms that initially outsourced treasury management to third-party crypto specialists are now building internal capabilities as the asset class matures and internal talent becomes available. Galaxy Digital and ParaFi retain their advisory relationships but lose the discretionary management mandate. For public companies watching this space, the trend has regulatory implications — in-house treasury management requires stronger internal controls documentation for SOX compliance and SEC reporting of crypto holdings.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Infrastructure</span>
+    <strong>AI Gateways — The New Control Plane Between Your App and LLMs</strong>
+    <p>Like API gateways for microservices, AI Gateways are emerging as the standard middleware layer between applications and multiple LLM providers. They handle request routing (cheap model vs. expensive model based on task complexity), rate limiting, prompt caching, response observability, and provider failover — treating LLM calls as infrastructure rather than one-off API integrations. Early implementations include Kong AI Gateway, Cloudflare AI Gateway, and open-source options like LiteLLM proxy. The key value: centralized cost accounting, unified retry logic, and a single place to enforce content policies and audit logging across all LLM traffic in an organization. As model diversity increases (GPT, Claude, Gemini, local models), the gateway pattern becomes the only sane way to manage multi-provider LLM strategies at scale.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulated AI</span>
+    <strong>HITL (Human-in-the-Loop) Architecture Patterns</strong>
+    <p>For regulated environments — banking, healthcare, government — the 2026 standard is explicit architectural support for human validation gates built into AI workflow state machines. The pattern: workflows have explicit <code>PENDING_HUMAN_REVIEW</code> states with defined escalation paths, SLA timers, and audit-trail-generating decision nodes. When an AI agent reaches a decision boundary (e.g., approving a loan, flagging a compliance violation, executing a trade), the system persists state and routes to a human reviewer queue rather than proceeding autonomously. The architecture stores the agent's full reasoning chain, the data it reviewed, and the human reviewer's decision in an immutable audit log. This is becoming a regulatory requirement in EU AI Act high-risk system classifications and US financial regulators' model risk management guidance (SR 11-7 updates).</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security · AI Code</span>
+    <strong>SBOMs for AI-Generated Code — Digital Provenance as CI/CD Standard</strong>
+    <p>With 41% of code now AI-generated (GitHub's May 2026 stat), Software Bill of Materials (SBOMs) are evolving to track code provenance beyond just third-party dependencies. The emerging standard tracks: which model generated a code block, which prompt produced it, the human reviewer who approved it, and the commit hash where it was introduced. This "AI provenance layer" is becoming a requirement in US federal government contracts (following CISA's software supply chain guidance updates) and a competitive differentiator for security-conscious enterprises bidding on regulated-industry work. Tooling is nascent — <a href="https://cyclonedx.org">CycloneDX 1.6</a> added AI/ML component fields, and SPDX 3.0 includes dataset and model attestation schemas — but expect CI/CD platforms to build native SBOM generation for AI-assisted commits within 12 months.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/codex-computer-use/">OpenAI: Codex Computer Use for Windows — Official Launch</a>
+      <span class="desc">Full technical overview of Computer Use capabilities including screen perception, GUI interaction, and the Locked Use mode for Mac background tasks.</span>
+    </li>
+    <li>
+      <a href="https://www.confluent.io/blog/confluent-mcp-server-ai-agents/">Confluent: MCP Servers for AI Agent Integration with Kafka &amp; Flink</a>
+      <span class="desc">Architecture guide for connecting AI coding agents to live Kafka clusters via MCP — covering schema introspection, topic discovery, and consumer group tooling.</span>
+    </li>
+    <li>
+      <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview">Google: Managed Agents GA Documentation (Vertex AI Agent Engine)</a>
+      <span class="desc">Official docs for single-API-call agent spawning with isolated sandbox environments, tool configuration, and per-second billing model.</span>
+    </li>
+    <li>
+      <a href="https://cyclonedx.org/specification/overview/">CycloneDX 1.6: AI/ML Component Provenance in SBOMs</a>
+      <span class="desc">The emerging SBOM standard that includes AI model and dataset attestation fields — essential reading for teams building audit-ready AI code pipelines.</span>
+    </li>
+    <li>
+      <a href="https://konghq.com/products/kong-ai-gateway">Kong AI Gateway: Multi-Provider LLM Control Plane</a>
+      <span class="desc">Production-ready AI Gateway with unified routing, rate limiting, prompt caching, and observability across OpenAI, Anthropic, Gemini, and local models.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-05-31T02:00:00Z · Saturday Edition (Best of Week — Top Tips + Synthesis)</p>
+  <p>Dedup: 72 stories filtered from past 5 days · 13 new stories published · Sources: 8 web searches, 0 RSS (fallback used)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI Tools (OpenAI Codex Profiles, Biodefense, Confluent MCP)</td><td>✅ OK</td><td>38</td></tr>
+    <tr><td>Web Search — Vibe Coding / Dev Tools (Google Managed Agents, Microsoft WinUI 3)</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Crypto/Markets (BTC consolidation, BNB surge, Sharplink)</td><td>✅ OK</td><td>31</td></tr>
+    <tr><td>Web Search — Architecture/Concepts (AI Gateways, HITL, SBOMs)</td><td>✅ OK</td><td>19</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (May 26–30)</td><td>✅ 72 filtered</td><td>0</td></tr>
+    <tr><td>RSS — Crypto (The Block, CoinDesk, CoinTelegraph)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+    <tr><td>RSS — AI (HN, OpenAI, Google)</td><td>⚠️ Skipped (web fallback)</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
