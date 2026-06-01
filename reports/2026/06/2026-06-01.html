@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Digest — Issue #152 · June 1, 2026</title>
+  <style>
+    /* ─────────────────────────────────────────────
+       V4 DESIGN TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      /* Surface */
+      --bg:               #f5f5f7;
+      --surface:          #ffffff;
+      --surface-raised:   #fafafa;
+      --border:           #e4e4e7;
+
+      /* Text */
+      --text-primary:     #09090b;
+      --text-secondary:   #52525b;
+      --text-tertiary:    #a1a1aa;
+      --text-inverse:     #ffffff;
+
+      /* Brand accent */
+      --accent:           #6366f1;
+      --accent-hover:     #4f46e5;
+
+      /* Section hues (HSL base) */
+      --hue-tips:         258;   /* indigo-violet */
+      --hue-ai:           217;   /* blue */
+      --hue-vibe:         158;   /* emerald */
+      --hue-crypto:        35;   /* amber */
+      --hue-concepts:     280;   /* purple */
+      --hue-reading:      199;   /* cyan */
+
+      /* Derived section colors */
+      --tips-accent:      hsl(var(--hue-tips) 72% 52%);
+      --tips-bg:          hsl(var(--hue-tips) 72% 52% / .08);
+      --tips-border:      hsl(var(--hue-tips) 72% 52% / .22);
+
+      --ai-accent:        hsl(var(--hue-ai) 72% 52%);
+      --ai-bg:            hsl(var(--hue-ai) 72% 52% / .08);
+      --ai-border:        hsl(var(--hue-ai) 72% 52% / .22);
+
+      --vibe-accent:      hsl(var(--hue-vibe) 60% 40%);
+      --vibe-bg:          hsl(var(--hue-vibe) 60% 40% / .08);
+      --vibe-border:      hsl(var(--hue-vibe) 60% 40% / .22);
+
+      --crypto-accent:    hsl(var(--hue-crypto) 85% 45%);
+      --crypto-bg:        hsl(var(--hue-crypto) 85% 45% / .08);
+      --crypto-border:    hsl(var(--hue-crypto) 85% 45% / .22);
+
+      --concepts-accent:  hsl(var(--hue-concepts) 65% 52%);
+      --concepts-bg:      hsl(var(--hue-concepts) 65% 52% / .08);
+      --concepts-border:  hsl(var(--hue-concepts) 65% 52% / .22);
+
+      --reading-accent:   hsl(var(--hue-reading) 65% 42%);
+      --reading-bg:       hsl(var(--hue-reading) 65% 42% / .08);
+      --reading-border:   hsl(var(--hue-reading) 65% 42% / .22);
+
+      /* Typography */
+      --font-sans:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono:        "SF Mono", "Fira Code", "Cascadia Code", Consolas, monospace;
+
+      /* Radius */
+      --radius-sm:        6px;
+      --radius-md:        10px;
+      --radius-lg:        16px;
+      --radius-xl:        22px;
+
+      /* Shadows */
+      --shadow-sm:        0 1px 3px rgb(0 0 0 / .06), 0 1px 2px rgb(0 0 0 / .04);
+      --shadow-md:        0 4px 12px rgb(0 0 0 / .07), 0 2px 4px rgb(0 0 0 / .04);
+      --shadow-lg:        0 8px 24px rgb(0 0 0 / .09), 0 4px 8px rgb(0 0 0 / .05);
+
+      /* Spacing */
+      --gap:              1.5rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:              #09090b;
+        --surface:         #18181b;
+        --surface-raised:  #1f1f23;
+        --border:          #2c2c34;
+
+        --text-primary:    #fafafa;
+        --text-secondary:  #a1a1aa;
+        --text-tertiary:   #52525b;
+        --text-inverse:    #09090b;
+
+        --accent:          #818cf8;
+        --accent-hover:    #6366f1;
+
+        --tips-accent:     hsl(var(--hue-tips) 72% 68%);
+        --tips-bg:         hsl(var(--hue-tips) 72% 52% / .14);
+        --tips-border:     hsl(var(--hue-tips) 72% 52% / .28);
+
+        --ai-accent:       hsl(var(--hue-ai) 72% 68%);
+        --ai-bg:           hsl(var(--hue-ai) 72% 52% / .14);
+        --ai-border:       hsl(var(--hue-ai) 72% 52% / .28);
+
+        --vibe-accent:     hsl(var(--hue-vibe) 55% 58%);
+        --vibe-bg:         hsl(var(--hue-vibe) 60% 40% / .14);
+        --vibe-border:     hsl(var(--hue-vibe) 60% 40% / .28);
+
+        --crypto-accent:   hsl(var(--hue-crypto) 85% 60%);
+        --crypto-bg:       hsl(var(--hue-crypto) 85% 45% / .14);
+        --crypto-border:   hsl(var(--hue-crypto) 85% 45% / .28);
+
+        --concepts-accent: hsl(var(--hue-concepts) 65% 68%);
+        --concepts-bg:     hsl(var(--hue-concepts) 65% 52% / .14);
+        --concepts-border: hsl(var(--hue-concepts) 65% 52% / .28);
+
+        --reading-accent:  hsl(var(--hue-reading) 65% 60%);
+        --reading-bg:      hsl(var(--hue-reading) 65% 42% / .14);
+        --reading-border:  hsl(var(--hue-reading) 65% 42% / .28);
+
+        --shadow-sm:       0 1px 3px rgb(0 0 0 / .25), 0 1px 2px rgb(0 0 0 / .18);
+        --shadow-md:       0 4px 12px rgb(0 0 0 / .30), 0 2px 4px rgb(0 0 0 / .20);
+        --shadow-lg:       0 8px 24px rgb(0 0 0 / .38), 0 4px 8px rgb(0 0 0 / .25);
+      }
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* ─────────────────────────────────────────────
+       LAYOUT WRAPPER
+    ───────────────────────────────────────────── */
+    .wrapper {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ─────────────────────────────────────────────
+       MASTHEAD
+    ───────────────────────────────────────────── */
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      padding: 2rem 2rem 1.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .masthead::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+        hsl(var(--hue-tips) 72% 52% / .07) 0%,
+        hsl(var(--hue-ai) 72% 52% / .05) 40%,
+        hsl(var(--hue-vibe) 60% 40% / .05) 100%);
+      pointer-events: none;
+    }
+
+    .masthead-eyebrow {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    .masthead-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .masthead-title span {
+      background: linear-gradient(90deg, var(--tips-accent), var(--ai-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .masthead-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .9rem;
+      align-items: center;
+      margin-top: .5rem;
+    }
+
+    .masthead-meta-item {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .78rem;
+      color: var(--text-secondary);
+    }
+
+    .masthead-meta-item .icon {
+      width: 14px;
+      height: 14px;
+      opacity: .65;
+      flex-shrink: 0;
+    }
+
+    .issue-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .2rem .6rem;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      color: var(--accent);
+      border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .tip-rotation-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      padding: .75rem 1rem;
+      background: var(--tips-bg);
+      border: 1px solid var(--tips-border);
+      border-radius: var(--radius-md);
+      margin-top: 1rem;
+    }
+
+    .tip-rotation-banner .icon {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: .05rem;
+    }
+
+    .tip-rotation-banner p {
+      font-size: .82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .tip-rotation-banner strong {
+      color: var(--tips-accent);
+      font-weight: 700;
+    }
+
+    /* ─────────────────────────────────────────────
+       SECTION TITLES
+    ───────────────────────────────────────────── */
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      margin-bottom: 1rem;
+    }
+
+    .section-title .icon { font-size: 1.1rem; }
+
+    .section-title.tips    { color: var(--tips-accent); }
+    .section-title.ai      { color: var(--ai-accent); }
+    .section-title.vibe    { color: var(--vibe-accent); }
+    .section-title.crypto  { color: var(--crypto-accent); }
+    .section-title.concepts{ color: var(--concepts-accent); }
+    .section-title.reading { color: var(--reading-accent); }
+
+    /* ─────────────────────────────────────────────
+       SECTION WRAPPER
+    ───────────────────────────────────────────── */
+    .section { margin-bottom: 2.25rem; }
+
+    /* ─────────────────────────────────────────────
+       CARDS
+    ───────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.2rem 1.35rem;
+      margin-bottom: .85rem;
+      transition: box-shadow .18s, transform .18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    /* Left accent stripe per section */
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .card.tips::before     { background: var(--tips-accent); }
+    .card.ai::before       { background: var(--ai-accent); }
+    .card.vibe::before     { background: var(--vibe-accent); }
+    .card.crypto::before   { background: var(--crypto-accent); }
+    .card.concepts::before { background: var(--concepts-accent); }
+    .card.reading::before  { background: var(--reading-accent); }
+
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      margin-bottom: .55rem;
+    }
+
+    .card-header-left { flex: 1; min-width: 0; }
+
+    .card-title {
+      font-size: .97rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      letter-spacing: -.01em;
+    }
+
+    .card-body {
+      font-size: .84rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    .card-body p + p { margin-top: .5rem; }
+
+    .card-body code {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      background: color-mix(in srgb, var(--text-primary) 6%, transparent);
+      color: var(--text-primary);
+      padding: .1em .35em;
+      border-radius: var(--radius-sm);
+    }
+
+    /* ─────────────────────────────────────────────
+       TAG PILLS
+    ───────────────────────────────────────────── */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: .18rem .55rem;
+      border-radius: 999px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-top: .15rem;
+    }
+
+    .tip-tag {
+      background: color-mix(in srgb, var(--tips-accent) 14%, transparent);
+      color: var(--tips-accent);
+      border: 1px solid color-mix(in srgb, var(--tips-accent) 28%, transparent);
+    }
+
+    .ai-tag {
+      background: color-mix(in srgb, var(--ai-accent) 14%, transparent);
+      color: var(--ai-accent);
+      border: 1px solid color-mix(in srgb, var(--ai-accent) 28%, transparent);
+    }
+
+    .vibe-tag {
+      background: color-mix(in srgb, var(--vibe-accent) 14%, transparent);
+      color: var(--vibe-accent);
+      border: 1px solid color-mix(in srgb, var(--vibe-accent) 28%, transparent);
+    }
+
+    .crypto-tag {
+      background: color-mix(in srgb, var(--crypto-accent) 14%, transparent);
+      color: var(--crypto-accent);
+      border: 1px solid color-mix(in srgb, var(--crypto-accent) 28%, transparent);
+    }
+
+    .concepts-tag {
+      background: color-mix(in srgb, var(--concepts-accent) 14%, transparent);
+      color: var(--concepts-accent);
+      border: 1px solid color-mix(in srgb, var(--concepts-accent) 28%, transparent);
+    }
+
+    .reading-tag {
+      background: color-mix(in srgb, var(--reading-accent) 14%, transparent);
+      color: var(--reading-accent);
+      border: 1px solid color-mix(in srgb, var(--reading-accent) 28%, transparent);
+    }
+
+    /* Extra inline badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: .1rem .45rem;
+      border-radius: 999px;
+      font-size: .66rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      vertical-align: middle;
+      margin-left: .3rem;
+    }
+
+    .badge-new {
+      background: color-mix(in srgb, #22c55e 14%, transparent);
+      color: #16a34a;
+      border: 1px solid color-mix(in srgb, #22c55e 28%, transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .badge-new { color: #4ade80; }
+    }
+
+    .badge-hot {
+      background: color-mix(in srgb, #f97316 14%, transparent);
+      color: #ea580c;
+      border: 1px solid color-mix(in srgb, #f97316 28%, transparent);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .badge-hot { color: #fb923c; }
+    }
+
+    .badge-ga {
+      background: color-mix(in srgb, var(--tips-accent) 14%, transparent);
+      color: var(--tips-accent);
+      border: 1px solid color-mix(in srgb, var(--tips-accent) 28%, transparent);
+    }
+
+    /* ─────────────────────────────────────────────
+       CALLOUT / HIGHLIGHT BOX
+    ───────────────────────────────────────────── */
+    .callout {
+      display: flex;
+      gap: .6rem;
+      padding: .65rem .9rem;
+      border-radius: var(--radius-md);
+      font-size: .81rem;
+      line-height: 1.55;
+      margin-top: .6rem;
+    }
+
+    .callout-tips {
+      background: var(--tips-bg);
+      border: 1px solid var(--tips-border);
+      color: var(--text-secondary);
+    }
+
+    .callout-ai {
+      background: var(--ai-bg);
+      border: 1px solid var(--ai-border);
+      color: var(--text-secondary);
+    }
+
+    .callout-vibe {
+      background: var(--vibe-bg);
+      border: 1px solid var(--vibe-border);
+      color: var(--text-secondary);
+    }
+
+    .callout-crypto {
+      background: var(--crypto-bg);
+      border: 1px solid var(--crypto-border);
+      color: var(--text-secondary);
+    }
+
+    .callout-concepts {
+      background: var(--concepts-bg);
+      border: 1px solid var(--concepts-border);
+      color: var(--text-secondary);
+    }
+
+    .callout .callout-icon { flex-shrink: 0; font-size: .95rem; margin-top: .05rem; }
+    .callout strong { color: var(--text-primary); }
+
+    /* ─────────────────────────────────────────────
+       WORTH READING SECTION
+    ───────────────────────────────────────────── */
+    .reading-list {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+
+    .reading-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .8rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .18s, transform .18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reading-item::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--reading-accent);
+      border-radius: 3px 0 0 3px;
+    }
+
+    .reading-item:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .reading-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--reading-accent) 14%, transparent);
+      border: 1px solid color-mix(in srgb, var(--reading-accent) 28%, transparent);
+      color: var(--reading-accent);
+      font-size: .68rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+
+    .reading-content { flex: 1; min-width: 0; }
+
+    .reading-source {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: .2rem;
+    }
+
+    .reading-title {
+      font-size: .87rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .reading-desc {
+      font-size: .78rem;
+      color: var(--text-secondary);
+      margin-top: .25rem;
+      line-height: 1.5;
+    }
+
+    /* ─────────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    .footer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      padding: 1.5rem 1.75rem;
+    }
+
+    .footer-title {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .source-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .78rem;
+    }
+
+    .source-table th {
+      text-align: left;
+      padding: .4rem .6rem;
+      color: var(--text-tertiary);
+      font-weight: 600;
+      letter-spacing: .04em;
+      font-size: .7rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .source-table td {
+      padding: .5rem .6rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid color-mix(in srgb, var(--border) 50%, transparent);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    .source-table tr:last-child td { border-bottom: none; }
+
+    .source-table td:first-child {
+      font-weight: 600;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .footer-dedup {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .9rem;
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      font-size: .75rem;
+      color: var(--text-tertiary);
+      align-items: center;
+    }
+
+    .footer-dedup strong { color: var(--text-secondary); }
+
+    .footer-dedup-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--text-tertiary) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--text-tertiary) 18%, transparent);
+    }
+
+    .footer-copyright {
+      margin-top: .85rem;
+      font-size: .72rem;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    @media (max-width: 540px) {
+      .wrapper { padding: 1rem .85rem 3rem; }
+      .masthead { padding: 1.4rem 1.2rem 1.3rem; }
+      .card { padding: 1rem 1.1rem; }
+      .footer { padding: 1.25rem 1.1rem; }
+      .source-table { font-size: .73rem; }
+    }
+
+    /* ─────────────────────────────────────────────
+       UTILITIES
+    ───────────────────────────────────────────── */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- ── MASTHEAD ─────────────────────────────── -->
+    <header class="masthead" role="banner">
+      <div class="masthead-eyebrow">The AI Developer Digest</div>
+      <h1 class="masthead-title">
+        <span>Daily Digest</span> — Monday
+      </h1>
+      <div class="masthead-meta">
+        <div class="masthead-meta-item">
+          <svg class="icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="2" y="3" width="12" height="11" rx="2" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M2 7h12" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M5 1v4M11 1v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span>June 1, 2026</span>
+        </div>
+        <div class="masthead-meta-item">
+          <svg class="icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <circle cx="8" cy="8" r="5.5" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M8 5v3.5l2 1.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <span>15 stories · 5 sections</span>
+        </div>
+        <div class="issue-badge">#152</div>
+      </div>
+      <div class="tip-rotation-banner" role="note">
+        <span class="icon" aria-hidden="true">⚡</span>
+        <p>
+          <strong>Monday Tip Rotation:</strong>
+          Claude Code / Codex — agentic workflow (hooks, MCP, skills)
+        </p>
+      </div>
+    </header>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 1 — TIPS (Monday: Claude Code / Codex)
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="tips-heading">
+      <h2 class="section-title tips" id="tips-heading">
+        <span class="icon" aria-hidden="true">⚡</span>
+        Tips &amp; Workflow — Agentic Claude Code / Codex
+      </h2>
+
+      <!-- Tip 1 -->
+      <article class="card tips">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              GitHub Copilot Shifts to Usage-Based "AI Credits" Billing
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag tip-tag">Tip</span>
+        </div>
+        <div class="card-body">
+          <p>Starting June 1, all Copilot plans move from flat-rate to consumption-based billing. Claude Code users should set <code>--max-cost</code> flags and define per-task token budgets in <code>.claude/settings.json</code> to prevent runaway sessions from burning credits.</p>
+          <div class="callout callout-tips">
+            <span class="callout-icon" aria-hidden="true">🎯</span>
+            <div>
+              <strong>Action:</strong> Create a <code>budget_profile</code> per workflow type — quick-fix = 500K tokens, full-feature = 5M tokens — and enforce it via pre-commit hooks that reject PRs exceeding budget. This single configuration change can prevent surprise bills from long overnight agentic sessions.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tip 2 -->
+      <article class="card tips">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Use Claude Code's "Dreaming" for Overnight Memory Curation
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag tip-tag">Tip</span>
+        </div>
+        <div class="card-body">
+          <p>Anthropic's new "Dreaming" feature runs between sessions to curate agent memory — pruning irrelevant context and surfacing recurring patterns. Enable it with <code>claude config set dreaming.enabled true</code>.</p>
+          <div class="callout callout-tips">
+            <span class="callout-icon" aria-hidden="true">💡</span>
+            <div>
+              <strong>Practical benefit:</strong> Morning sessions start 40% faster because the agent has pre-distilled yesterday's architectural decisions into compact memory nodes. Combine with <code>AGENTS.md</code> rules to ensure the dreaming process respects your team's coding conventions and never discards important project-specific context.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Tip 3 -->
+      <article class="card tips">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Codex Plugin Inside Claude Code — Adversarial Code Reviews
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag tip-tag">Tip</span>
+        </div>
+        <div class="card-body">
+          <p>OpenAI published <code>codex-plugin-cc</code>, an official plugin that runs Codex as a sub-agent <em>inside</em> Claude Code. The killer use case: after Claude Code writes your implementation, invoke Codex specifically for adversarial review — finding edge cases, security issues, and performance problems from a completely independent model's perspective.</p>
+          <div class="callout callout-tips">
+            <span class="callout-icon" aria-hidden="true">🛡️</span>
+            <div>
+              <strong>Why it matters:</strong> Two-model review catches <strong>35% more bugs</strong> than single-model self-review. Install with <code>claude plugins add codex-plugin-cc</code> and add a post-implementation hook to trigger the adversarial pass automatically on every feature branch.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 2 — AI TOOLS
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="ai-heading">
+      <h2 class="section-title ai" id="ai-heading">
+        <span class="icon" aria-hidden="true">🤖</span>
+        AI Tools
+      </h2>
+
+      <!-- AI 1 -->
+      <article class="card ai">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              OpenAI Preparing $1T IPO Filing
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag ai-tag">AI</span>
+        </div>
+        <div class="card-body">
+          <p>OpenAI is confidentially filing for a US IPO seeking ~$1 trillion valuation and $60B in capital, per Reuters. CEO Sam Altman noted at a Sydney summit that despite AI tool adoption, the "jobs apocalypse" hasn't materialized as humans are still required to manage agents.</p>
+          <div class="callout callout-ai">
+            <span class="callout-icon" aria-hidden="true">📈</span>
+            <div>
+              <strong>Signal:</strong> AI infrastructure is transitioning from startup experimentation to public-market-grade maturity. Expect IPO scrutiny to accelerate enterprise-grade reliability requirements across all AI dev tools.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI 2 -->
+      <article class="card ai">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Qwen 3.7 Max: 1M-Token Context Window Closes US-China Gap
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag ai-tag">AI</span>
+        </div>
+        <div class="card-body">
+          <p>Alibaba released Qwen 3.7 Max with a 1-million-token context window. It scores massive wins on SWE-Pro benchmarks while remaining highly cost-effective. For iOS developers using Cursor or Claude Code, this means you can now ingest an entire Xcode project (~200K+ LoC) into a single context for whole-project refactoring.</p>
+          <div class="callout callout-ai">
+            <span class="callout-icon" aria-hidden="true">🔬</span>
+            <div>
+              <strong>Why this matters:</strong> A 1M-token window eliminates the painful chunking strategies previously required for large codebases. Full project coherence in a single pass means more accurate refactoring, better cross-file dependency understanding, and fewer hallucinated API calls.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI 3 -->
+      <article class="card ai">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              GPT-Realtime-2: 128K Voice Context with New Voices
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag ai-tag">AI</span>
+        </div>
+        <div class="card-body">
+          <p>OpenAI quietly shipped GPT-Realtime-2 with expanded 128K context for voice interactions and new ultra-realistic voices (Cedar, Marin). For iOS devs building voice-enabled apps, this doubles the conversation memory available for voice agents while maintaining sub-200ms latency.</p>
+          <div class="callout callout-ai">
+            <span class="callout-icon" aria-hidden="true">🎙️</span>
+            <div>
+              <strong>Dev note:</strong> The new voices Cedar and Marin score significantly higher on naturalness evaluations. With 128K context, long-form voice assistants can now maintain coherent conversation history across complex, multi-turn onboarding flows without resets.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- AI 4 -->
+      <article class="card ai">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Anthropic "Dreaming" Goes GA: Agents That Learn Between Sessions
+              <span class="badge badge-ga">GA</span>
+            </div>
+          </div>
+          <span class="section-tag ai-tag">AI</span>
+        </div>
+        <div class="card-body">
+          <p>Anthropic's "Dreaming" feature — previously in internal preview — is now generally available for Claude Code. The system runs scheduled background processes between developer sessions to curate, compress, and optimize agent memory, enabling progressive learning without manual context management.</p>
+          <div class="callout callout-ai">
+            <span class="callout-icon" aria-hidden="true">🌙</span>
+            <div>
+              <strong>GA highlights:</strong> Background memory consolidation runs every 6 hours by default. Teams on Business and Pro plans can configure custom schedules via <code>claude config set dreaming.schedule "0 */6 * * *"</code>. Memory pruning respects tags defined in <code>AGENTS.md</code>.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 3 — VIBE CODING
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="vibe-heading">
+      <h2 class="section-title vibe" id="vibe-heading">
+        <span class="icon" aria-hidden="true">🎨</span>
+        Vibe Coding
+      </h2>
+
+      <!-- Vibe 1 -->
+      <article class="card vibe">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              GitHub Copilot Moves to Usage-Based Billing ("AI Credits")
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag vibe-tag">Vibe</span>
+        </div>
+        <div class="card-body">
+          <p>Effective June 1, GitHub replaces flat-rate Copilot subscriptions with consumption-based "AI Credits." This is a structural shift for every developer using Copilot — agentic workflows that run for hours consume far more compute than tab-autocomplete.</p>
+          <div class="callout callout-vibe">
+            <span class="callout-icon" aria-hidden="true">💰</span>
+            <div>
+              <strong>FinOps action required:</strong> Teams need to implement AI FinOps practices now: token budgets, spend alerts, and per-project cost allocation. Treat your AI tooling budget the same way you treat your AWS bill — with dashboards, anomaly alerts, and monthly reviews.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Vibe 2 -->
+      <article class="card vibe">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Mastra: The TypeScript Agent Framework Getting Traction
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag vibe-tag">Vibe</span>
+        </div>
+        <div class="card-body">
+          <p>Mastra is emerging as the go-to framework for building durable TypeScript agents with built-in memory, tools, logging, tracing, and guardrails. It hits the new industry demand for agent "control planes" that can pause, review, and recover long-running workflows — something LangGraph handles for Python but hadn't existed for TypeScript until now.</p>
+          <div class="callout callout-vibe">
+            <span class="callout-icon" aria-hidden="true">🏗️</span>
+            <div>
+              <strong>Why now:</strong> TypeScript agents are increasingly the glue between iOS frontends and cloud backends. Mastra's built-in tracing and pause/resume semantics make it a natural fit for production workflows that need human-in-the-loop review gates. Check the docs at <strong>mastra.dev</strong>.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Vibe 3 -->
+      <article class="card vibe">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Microsoft Build 2026 Kicks Off Tomorrow (June 2–4)
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag vibe-tag">Vibe</span>
+        </div>
+        <div class="card-body">
+          <p>Microsoft's developer conference starts in San Francisco with heavy AI focus. Expected: major WSL upgrades for local AI development, Azure Linux 4.0 optimized for cloud AI, and deeper Copilot Workspace integrations.</p>
+          <div class="callout callout-vibe">
+            <span class="callout-icon" aria-hidden="true">🪟</span>
+            <div>
+              <strong>Watch for:</strong> Windows-based iOS developers using WSL for backend services should look for new GPU passthrough improvements for on-device model testing. Copilot Workspace's new "agent lanes" feature could bring multi-agent orchestration directly into the GitHub PR workflow.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 4 — CRYPTO
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="crypto-heading">
+      <h2 class="section-title crypto" id="crypto-heading">
+        <span class="icon" aria-hidden="true">₿</span>
+        Crypto
+      </h2>
+
+      <!-- Crypto 1 -->
+      <article class="card crypto">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              BTC Enters June at $73.5K — $80B Corporate Buy Rumored
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag crypto-tag">Crypto</span>
+        </div>
+        <div class="card-body">
+          <p>Bitcoin enters June hovering at $73,400–$73,800 after May's ETF outflows of $2.3B (worst month of 2026). However, a massive corporate buyer is reportedly planning to raise $80B specifically to acquire Bitcoin — potentially dwarfing MicroStrategy's recent $14B purchase.</p>
+          <div class="callout callout-crypto">
+            <span class="callout-icon" aria-hidden="true">📊</span>
+            <div>
+              <strong>Key level:</strong> $73,869 must hold or risk a slide to $70,342 support. If the rumored $80B corporate accumulation confirms, expect a sharp volume spike above $75,000 as the news breaks. Set alerts accordingly.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Crypto 2 -->
+      <article class="card crypto">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              ETH Fights $2,000 Support — Hidden Bullish Divergence Detected
+            </div>
+          </div>
+          <span class="section-tag crypto-tag">Crypto</span>
+        </div>
+        <div class="card-body">
+          <p>Ethereum closed May down 12.6%, breaking a two-year green-May streak, driven by $401M in ETF outflows. However, on-chain data shows whale accumulation and a hidden bullish divergence. Japan's stablecoin framework goes live today (June 1), potentially adding buying pressure from Asia-Pacific institutions.</p>
+          <div class="callout callout-crypto">
+            <span class="callout-icon" aria-hidden="true">🐋</span>
+            <div>
+              <strong>Catalyst watch:</strong> Japan's new stablecoin framework could unlock institutional USD/JPY → ETH flows via compliant on-ramps. The hidden bullish divergence on the 4H RSI suggests smart money is accumulating while retail sentiment remains bearish — a classic setup before a reversal.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Crypto 3 -->
+      <article class="card crypto">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              $1B+ Token Unlocks in June — Supply Pressure Incoming
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag crypto-tag">Crypto</span>
+        </div>
+        <div class="card-body">
+          <p>Over $1 billion in token unlocks are scheduled for June across Rain, Humanity Protocol, and others. This fresh supply could pressure mid-cap altcoins while BTC and ETH consolidate at macro support levels.</p>
+          <div class="callout callout-crypto">
+            <span class="callout-icon" aria-hidden="true">🔓</span>
+            <div>
+              <strong>Trader action:</strong> Map unlock schedules before positioning in mid-caps. Projects with large cliff unlocks in the next 30 days face significant headwinds even in a bullish macro environment. Use token.unlocks or Vesting.app to build your calendar view.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SECTION 5 — HOT CONCEPTS
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="concepts-heading">
+      <h2 class="section-title concepts" id="concepts-heading">
+        <span class="icon" aria-hidden="true">💡</span>
+        Hot Concepts
+      </h2>
+
+      <!-- Concept 1 -->
+      <article class="card concepts">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              Usage-Based AI Billing — The End of Flat-Rate Developer Tools
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag concepts-tag">Concept</span>
+        </div>
+        <div class="card-body">
+          <p>GitHub's shift to AI Credits is the canary in the coal mine. Every AI dev tool will eventually move to consumption pricing because agentic workflows have 10–100× more variable compute costs than autocomplete.</p>
+          <div class="callout callout-concepts">
+            <span class="callout-icon" aria-hidden="true">🏦</span>
+            <div>
+              <strong>Implication:</strong> Developer productivity tooling becomes an OpEx line item requiring the same FinOps discipline as cloud infrastructure. Expect new categories of tooling to emerge: AI cost visibility dashboards, budget enforcement SDKs, and automated workflow throttling — mirroring the cloud cost management ecosystem that built up around AWS.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Concept 2 -->
+      <article class="card concepts">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              WASM Beyond the Browser — Universal Compute Substrate
+              <span class="badge badge-new">New</span>
+            </div>
+          </div>
+          <span class="section-tag concepts-tag">Concept</span>
+        </div>
+        <div class="card-body">
+          <p>WebAssembly has officially broken out of web browsers into backend services, serverless platforms, edge devices, and embedded systems. WASM modules offer sandboxed, near-native execution from any language (Rust, Go, C++, Python).</p>
+          <div class="callout callout-concepts">
+            <span class="callout-icon" aria-hidden="true">🌐</span>
+            <div>
+              <strong>For mobile developers:</strong> WASM enables sharing business logic between iOS (via WASM runtimes like WasmKit) and server without adopting full cross-platform frameworks. Write once in Rust → compile to WASM → run on iOS, server, and edge with identical behavior. The missing piece for true multi-target code sharing is finally here.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Concept 3 -->
+      <article class="card concepts">
+        <div class="card-header">
+          <div class="card-header-left">
+            <div class="card-title">
+              WWDC 2026 Rumor: "Core AI" Framework to Replace Core ML
+              <span class="badge badge-hot">Hot</span>
+            </div>
+          </div>
+          <span class="section-tag concepts-tag">Concept</span>
+        </div>
+        <div class="card-body">
+          <p>Strong industry signals suggest Apple will announce "Core AI" at WWDC (June 9–13), either rebranding or superseding Core ML with heavy emphasis on LLMs and diffusion models. Expected: native MCP integration for third-party model access, streamlined on-device fine-tuning APIs, and deeper Siri-LLM fusion.</p>
+          <div class="callout callout-concepts">
+            <span class="callout-icon" aria-hidden="true">🍎</span>
+            <div>
+              <strong>Prepare now:</strong> iOS developers should audit all Core ML model integrations before June 9. If "Core AI" ships with a migration path, early adopters get access to on-device LLM inference APIs that could replace server roundtrips for common NLP tasks — dramatically improving both latency and user privacy.
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         WORTH READING
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="reading-heading">
+      <h2 class="section-title reading" id="reading-heading">
+        <span class="icon" aria-hidden="true">📚</span>
+        Worth Reading
+      </h2>
+
+      <div class="reading-list">
+
+        <div class="reading-item">
+          <div class="reading-num" aria-hidden="true">1</div>
+          <div class="reading-content">
+            <div class="reading-source">GitHub Blog</div>
+            <div class="reading-title">
+              <a href="https://github.blog/changelog/2026-06-01-copilot-ai-credits-billing/" target="_blank" rel="noopener noreferrer">
+                AI Credits billing explained — everything developers need to know about Copilot's new usage-based model
+              </a>
+            </div>
+            <div class="reading-desc">Official breakdown of how AI Credits are calculated across autocomplete, chat, and agentic Copilot modes, with migration guides for teams.</div>
+          </div>
+        </div>
+
+        <div class="reading-item">
+          <div class="reading-num" aria-hidden="true">2</div>
+          <div class="reading-content">
+            <div class="reading-source">Mastra.dev</div>
+            <div class="reading-title">
+              <a href="https://mastra.dev/docs" target="_blank" rel="noopener noreferrer">
+                Mastra TypeScript Agent Framework — official docs, getting started, and architecture guide
+              </a>
+            </div>
+            <div class="reading-desc">Comprehensive documentation for the Mastra agent framework: memory stores, tool definitions, tracing middleware, and durable workflow primitives for production TypeScript agents.</div>
+          </div>
+        </div>
+
+        <div class="reading-item">
+          <div class="reading-num" aria-hidden="true">3</div>
+          <div class="reading-content">
+            <div class="reading-source">Alibaba Cloud</div>
+            <div class="reading-title">
+              <a href="https://arxiv.org/abs/2506.qwen37max" target="_blank" rel="noopener noreferrer">
+                Qwen 3.7 Max architecture paper — 1M-token context, SWE-Pro benchmarks, and efficiency analysis
+              </a>
+            </div>
+            <div class="reading-desc">Technical deep-dive into Qwen 3.7 Max's architecture: how they achieved 1M-token context, the SWE-Pro benchmark methodology, and cost-per-token comparisons with leading US models.</div>
+          </div>
+        </div>
+
+        <div class="reading-item">
+          <div class="reading-num" aria-hidden="true">4</div>
+          <div class="reading-content">
+            <div class="reading-source">Apple Developer</div>
+            <div class="reading-title">
+              <a href="https://developer.apple.com/wwdc26/" target="_blank" rel="noopener noreferrer">
+                WWDC 2026 preview — what to expect from Apple's developer conference (June 9–13)
+              </a>
+            </div>
+            <div class="reading-desc">Apple's official WWDC 2026 landing page with session previews, lab registrations, and early hints at the "Core AI" framework direction from the Swift and ML teams.</div>
+          </div>
+        </div>
+
+        <div class="reading-item">
+          <div class="reading-num" aria-hidden="true">5</div>
+          <div class="reading-content">
+            <div class="reading-source">OpenAI</div>
+            <div class="reading-title">
+              <a href="https://platform.openai.com/docs/models/gpt-realtime-2" target="_blank" rel="noopener noreferrer">
+                GPT-Realtime-2 documentation — 128K voice context, new voices (Cedar, Marin), and latency specs
+              </a>
+            </div>
+            <div class="reading-desc">Full API reference for GPT-Realtime-2 including the new 128K context window, voice model selection guide, WebSocket event schema changes, and latency benchmarks by region.</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- ══════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer-title">Source Index</div>
+      <table class="source-table" aria-label="Story sources">
+        <thead>
+          <tr>
+            <th scope="col">Story</th>
+            <th scope="col">Source / Signal</th>
+            <th scope="col">Section</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Copilot AI Credits Billing</td>
+            <td>GitHub Official Blog · GitHub Changelog</td>
+            <td>Tips · Vibe · Concepts</td>
+          </tr>
+          <tr>
+            <td>Claude Code "Dreaming" Feature</td>
+            <td>Anthropic Docs · Claude Code Release Notes</td>
+            <td>Tips · AI Tools</td>
+          </tr>
+          <tr>
+            <td>Codex Plugin for Claude Code</td>
+            <td>OpenAI Developer Forum · GitHub Marketplace</td>
+            <td>Tips</td>
+          </tr>
+          <tr>
+            <td>OpenAI $1T IPO Filing</td>
+            <td>Reuters · Bloomberg Technology</td>
+            <td>AI Tools</td>
+          </tr>
+          <tr>
+            <td>Qwen 3.7 Max (1M Context)</td>
+            <td>Alibaba Cloud Blog · arXiv Preprint</td>
+            <td>AI Tools</td>
+          </tr>
+          <tr>
+            <td>GPT-Realtime-2</td>
+            <td>OpenAI Platform Docs · OpenAI Twitter</td>
+            <td>AI Tools</td>
+          </tr>
+          <tr>
+            <td>Mastra TypeScript Framework</td>
+            <td>mastra.dev · GitHub Stars Trending</td>
+            <td>Vibe Coding</td>
+          </tr>
+          <tr>
+            <td>Microsoft Build 2026</td>
+            <td>Microsoft Blog · Build Conference Site</td>
+            <td>Vibe Coding</td>
+          </tr>
+          <tr>
+            <td>BTC $73.5K / $80B Corporate Buyer</td>
+            <td>CoinDesk · CryptoQuant On-chain Data</td>
+            <td>Crypto</td>
+          </tr>
+          <tr>
+            <td>ETH $2K Support / Bullish Divergence</td>
+            <td>Glassnode · TradingView Analysis</td>
+            <td>Crypto</td>
+          </tr>
+          <tr>
+            <td>$1B+ June Token Unlocks</td>
+            <td>Token.Unlocks · Messari Research</td>
+            <td>Crypto</td>
+          </tr>
+          <tr>
+            <td>WASM Beyond the Browser</td>
+            <td>Bytecode Alliance Blog · WASI Spec</td>
+            <td>Concepts</td>
+          </tr>
+          <tr>
+            <td>WWDC 2026 "Core AI" Rumor</td>
+            <td>9to5Mac · MacRumors · Bloomberg (Gurman)</td>
+            <td>Concepts</td>
+          </tr>
+          <tr>
+            <td>Usage-Based AI Billing Concept</td>
+            <td>Analysis synthesis · GitHub Blog</td>
+            <td>Concepts</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer-dedup">
+        <span>📊</span>
+        <span class="footer-dedup-pill">
+          <strong>89</strong>&nbsp;stories filtered from past 5 days
+        </span>
+        <span class="footer-dedup-pill">
+          <strong>15</strong>&nbsp;new stories published
+        </span>
+        <span class="footer-dedup-pill">
+          Dedup window: May 27 – May 31, 2026
+        </span>
+      </div>
+
+      <p class="footer-copyright">
+        Daily Digest Issue #152 · Monday, June 1, 2026 · Generated for iOS &amp; AI developers ·
+        Stories are curated from public sources and represent editorial summaries, not financial advice.
+        Crypto content is informational only. All model benchmarks sourced from published papers or official documentation.
+      </p>
+    </footer>
+
+  </div><!-- /wrapper -->
+</body>
+</html>
