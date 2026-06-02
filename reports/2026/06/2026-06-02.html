@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-02</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, June 2, 2026 · Issue #153</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS: CoreML, MLX &amp; On-Device Inference</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX Swift</span>
+    <strong>Run Open-Source LLMs at 40–60 tok/s on iPhone with MLX Swift</strong>
+    <p>Apple's MLX framework has matured into a production-ready solution for on-device LLM inference on iOS. Using the <code>MLX Swift LM</code> package, you can now download quantized models (Gemma 4, Qwen 3.5, Phi-4) directly from Hugging Face and run them at 40–60 tokens/second on A18/M4 hardware — without any Python or ONNX conversion pipeline. The key architectural advantage: MLX uses Apple's Unified Memory Architecture (UMA) for zero-copy GPU sharing, meaning no data movement between CPU and GPU. Drop a 4-bit quantized model into your Xcode project and have streaming text generation running in under 10 minutes. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML vs MLX</span>
+    <strong>Route Inference by Power State: ANE for Background, GPU for Foreground</strong>
+    <p>The 2026 best practice for iOS AI apps: use Core ML (Neural Engine) for always-on background tasks and MLX (GPU) for interactive foreground generation. Core ML INT8 models use ~240MB RAM and are extremely battery-efficient via the ANE, but lack streaming speed. MLX INT4 models deliver chat-speed generation but consume more power. Build a two-path router: check <code>ProcessInfo.processInfo.thermalState</code> and <code>UIApplication.shared.applicationState</code> — foreground + cool thermal → MLX GPU path; background or elevated thermal → Core ML ANE path. This single architectural split cuts energy consumption 40–60% for apps with persistent AI features.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Foundation Models</span>
+    <strong>Use Apple's Foundation Models Framework for Zero-Latency Local NLP</strong>
+    <p>Apple's Foundation Models framework lets you prompt the on-device SLM powering Apple Intelligence in just 3 lines of Swift — no model downloads, no network calls. Use it for text summarization, entity extraction, and classification tasks where privacy and instant response matter. The framework returns native Swift types (not JSON strings), eliminating parsing boilerplate. For iOS apps at Binance, this means user-facing NLP features (transaction categorization, support message triage) can run entirely on-device with zero latency. Reserve MLX/Core ML for heavier tasks like code generation or long-form chat. <a href="https://developer.apple.com/documentation/foundationmodels">Apple Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft Build</span>
+    <h3><a href="https://build.microsoft.com/en-US/home">Microsoft Merges Semantic Kernel + AutoGen into Unified Agent Framework</a></h3>
+    <p>At Build 2026 (opening today), Microsoft announced the merger of Semantic Kernel and AutoGen into a single "Microsoft Agent Framework" SDK for .NET and Python. This provides a commercially-supported, production-ready foundation for multi-agent systems with built-in memory management, tool orchestration, and enterprise governance via the new "Agent 365" security layer. For teams building agentic backends, this eliminates the "which Microsoft SDK?" confusion and provides a clear path from prototype to production.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft Build</span>
+    <h3><a href="https://build.microsoft.com/en-US/home">WSL 3: Paravirtualized GPU/NPU Access for Local AI Development</a></h3>
+    <p>The biggest developer infrastructure announcement at Build: WSL 3 brings paravirtualized GPU and Neural Processing Unit (NPU) access to Windows, enabling near-native performance for Linux AI workloads running locally. Combined with the new Windows Agent Framework (agents as system-level services managed via Intune), Microsoft is positioning Windows as a first-class AI agent runtime. The new Windows Agent Store offers 85% revenue share for developers distributing AI agents.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub Copilot</span>
+    <h3><a href="https://github.blog">Copilot Gets Homegrown Models + Fleet Mode for Autonomous Multi-Step Workflows</a></h3>
+    <p>Microsoft unveiled first-party coding models to power Copilot (reducing third-party token costs) alongside "Fleet Mode" — Copilot's CLI can now autonomously read issues, generate tests, execute codebase-wide refactoring, and open PRs without step-by-step human input. This is GitHub's answer to Claude Code's agentic capabilities, bringing fully autonomous coding loops directly into the GitHub ecosystem. Also new: "Agentic Porting" tools to port legacy x86 apps to Windows on ARM using AI agents.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Copilot Studio</span>
+    <h3><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/">Computer-Using Agents GA in Copilot Studio — Adaptive UI Interaction</a></h3>
+    <p>Microsoft made "Computer-Using Agents" generally available in Copilot Studio. These agents interact directly with web and desktop app UIs (clicking, typing, reading screens) rather than relying on APIs. The killer feature: "adaptive interface recovery" — if a target app changes its layout, the agent autonomously re-learns the interaction pattern without breaking. For enterprises with legacy internal tools that have no API, this is transformative for workflow automation.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Microsoft Build</span>
+    <h3><a href="https://build.microsoft.com/en-US/home">Azure Agent Mesh: Federated Agent Execution Across PC, Cloud &amp; Edge</a></h3>
+    <p>Targeting late 2026 GA, Azure Agent Mesh enables federated AI agent execution across local Windows PCs, Windows 365 cloud PCs, and Azure Arc infrastructure — seamlessly routing agent workloads to the optimal compute tier based on latency, cost, and data residency requirements. This is the infrastructure layer that makes "agents everywhere" practical rather than theoretical. Combined with the Azure AI Foundry's 3,000+ model catalog, it standardizes multi-model agent deployment at enterprise scale.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">On-Device Agents</span>
+    <h3>iOS Agentic Workflows: App Intents + Local Models for Multi-Step Automation</h3>
+    <p>The 2026 iOS development trend gaining rapid traction: equipping on-device MLX/Core ML models with tool-calling capabilities via evolved App Intents. Local agents can now plan and execute multi-step tasks across apps — reading screen context, interfacing with device APIs, and executing actions without any user data leaving the device. This architectural pattern replaces the "dumb Siri shortcut" approach with genuine agent reasoning, running entirely on the A18/M4 Neural Engine. For Binance's iOS app, this enables private portfolio analysis, smart alerts, and automated trading workflows that never touch external servers.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">AI-Native Apps</span>
+    <h3>Generative UI: Dynamic Interface Generation Replacing Static Layouts</h3>
+    <p>The architectural pattern gaining rapid traction in 2026: instead of pre-built menu-driven UIs, AI-native apps dynamically generate interface components in real-time based on user intent. The AI interprets what the user wants to accomplish and assembles the optimal UI on the fly — forms, charts, action buttons, and data displays that didn't exist until the user expressed their need. For iOS developers, this means rethinking SwiftUI architecture: moving from declarative static hierarchies to intent-driven component generation pipelines, where the AI acts as a real-time layout engine.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Breaks Below $71K — Fear Index Drops as $4.2B Exits in 3 Weeks</h3>
+    <p>Bitcoin fell below the $71,000 support level to trade around $70,900–$72,000, hitting a 10-week low and breaching its 100-day moving average for the first time since mid-April. The Crypto Fear &amp; Greed Index has dropped into "Fear" territory (28–35) while traditional equities hit record highs — a stark divergence. Cumulative outflows over the past 3 weeks reached $4.21 billion, with $1.67B exiting in the most recent week alone. MicroStrategy (now "Strategy") reportedly selling BTC has added supply pressure. Key support: $69,500 (200-day MA).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>Bitmine Buys 26,497 ETH ($52M) — Targeting 5% of Total Supply</h3>
+    <p>Despite ETH trading at ~$1,970–$2,000 (down 30% YTD, 60% below ATH), Ethereum treasury firm Bitmine aggressively accumulated another 26,497 ETH worth $52M, bringing total holdings to 5.41 million ETH. Chairman Tom Lee stated the firm is on track to own 5% of Ethereum's total circulating supply by late 2026. Separately, prediction market Kalshi submitted self-certification to launch regulated perpetual futures for ETH, XRP, SOL, and DOGE following CFTC's approval of BTC perps.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Macro</span>
+    <h3>Crypto-Equity Divergence Widens — S&amp;P Records While Crypto Bleeds</h3>
+    <p>The most notable market structure development: the S&amp;P 500 is hitting all-time highs while crypto markets are in a pronounced downturn — a divergence not seen since early 2023. Analysts attribute crypto-specific weakness to: (1) rising Middle East geopolitical tensions affecting risk appetite, (2) persistent institutional outflows from ETF products, (3) shifting Fed rate expectations with 72% probability of a 25bps hike by December. The implication: crypto is re-coupling with its "speculative risk" narrative rather than the "digital gold / inflation hedge" thesis that dominated 2024–2025.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>The Reflection Pattern — Agents That Self-Verify Before Responding</strong>
+    <p>The highest-leverage AI architecture pattern of 2026: agents that critique and verify their own output before returning a final answer. Rather than a single generation pass, the Reflection Pattern adds an explicit self-evaluation step where the agent checks its work against the original requirements, catches logical errors, and iterates internally before responding. In production deployments, this pattern reduces code-generation bugs by 35–50% at the cost of ~2× latency (which is acceptable for non-interactive workloads like CI/CD agents). Implement it as a simple graph cycle in LangGraph or a post-generation hook in Claude Code. <a href="https://langchain-ai.github.io/langgraph/">LangGraph Docs →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Platform</span>
+    <strong>Windows as AI Agent Runtime — The Post-Cloud Compute Shift</strong>
+    <p>Microsoft's Build 2026 announcements signal a fundamental architectural shift: the local operating system is becoming the primary runtime for AI agents, not just the cloud. The Windows Agent Framework, WSL 3 with GPU/NPU passthrough, and the Windows Agent Store collectively position local PCs as first-class agent execution environments. The implication for developers: plan for a hybrid compute future where agents seamlessly roam between local hardware (for latency-sensitive, private tasks) and cloud (for heavy reasoning). This mirrors the iOS local-first AI trend — Apple and Microsoft are converging on the same "compute at the edge" thesis.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI-Augmented System Design — Architects Get an AI Sparring Partner</strong>
+    <p>The discipline of software architecture itself is being transformed by AI tooling. In 2026, architects input high-level constraints ("must support 1M concurrent users with sub-100ms latency") and AI tools instantly generate C4 diagrams, evaluate trade-offs, and draft Architecture Decision Records (ADRs) directly in Git. AI systems also run autonomous threat models (STRIDE, PASTA) against architecture diagrams to catch security misconfigurations before deployment. The "10x architect" is emerging — not someone who designs faster, but someone who explores 10× more design alternatives using AI as an interactive sparring partner before committing to a direction.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://build.microsoft.com/en-US/home">Microsoft Build 2026: Full Developer Keynote — Agent Framework, WSL 3 & Azure Agent Mesh</a>
+      <span class="desc">Complete keynote coverage of Build 2026's AI developer announcements including the Semantic Kernel + AutoGen merger, Windows Agent Store, and the unified Agent Framework SDK.</span>
+    </li>
+    <li>
+      <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift Examples — On-Device LLM Inference for iOS & macOS</a>
+      <span class="desc">Official MLX Swift repository with working examples for running Llama, Gemma, Phi, and Qwen models on Apple hardware at 40–60 tokens/second with zero-copy GPU memory sharing.</span>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/documentation/foundationmodels">Apple Foundation Models Framework Documentation</a>
+      <span class="desc">Official docs for prompting Apple Intelligence's on-device SLM directly from Swift — text generation, summarization, and entity extraction with native type returns.</span>
+    </li>
+    <li>
+      <a href="https://langchain-ai.github.io/langgraph/">LangGraph: The Reflection Pattern & Self-Verifying Agent Architectures</a>
+      <span class="desc">Implementation guide for building agents that critique their own output using graph cycles — the dominant reliability pattern for production AI systems in 2026.</span>
+    </li>
+    <li>
+      <a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/computer-use">Copilot Studio Computer-Using Agents — GA Documentation</a>
+      <span class="desc">Full technical docs for deploying agents that interact with desktop and web UIs via screen perception, including the adaptive interface recovery mechanism.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-02T09:00:00Z · Tuesday Edition (AI x iOS — CoreML, Create ML, MLX on-device inference)</p>
+  <p>Dedup: 96 stories filtered from past 5 days · 15 new stories published · Sources: 4 web searches, 0 RSS (3 search timeouts, web fallback used)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — CoreML/MLX/iOS AI</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — Crypto Markets</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Microsoft Build 2026</td><td>✅ OK</td><td>35</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — AI Tools (Claude/Codex/Cursor)</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Vibe Coding Tools</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (May 28 – Jun 1)</td><td>✅ 96 filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
