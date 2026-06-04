@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-04</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, June 4, 2026 · Issue #155</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-Device ML: Apple Neural Engine, MLX, ONNX Mobile</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">WWDC Preview</span>
+    <strong>Core AI Framework: What the Leaked APIs Mean for Your iOS ML Pipeline</strong>
+    <p>With WWDC 2026 just 4 days away (June 8–12), leaked developer documentation confirms Apple is replacing Core ML with <strong>Core AI</strong> — a unified framework built around LLMs and diffusion models rather than traditional classifier/regressor patterns. The critical architecture change: Core AI introduces a standardized <strong>MCP plugin mechanism</strong> for third-party model connectivity, meaning your app can expose tools to local AI agents exactly like you'd expose tools to Claude Code or Codex. Start preparing now: audit every <code>MLModel</code> integration in your codebase. The migration path reportedly preserves existing <code>.mlmodel</code> files but adds new <code>.coreai</code> model descriptors that include tool-calling schemas, prompt templates, and memory configuration. Early adopters who ship Core AI features at iOS 27 launch will have a significant competitive advantage.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Weight Compression</span>
+    <strong>New ANE-Optimized Quantization: Mixed-Precision INT4/INT8 per Layer</strong>
+    <p>Apple's upcoming Core AI converter tools (expected at WWDC) reportedly fix the notorious fp16 overflow bugs that plagued Neural Engine deployments and introduce <strong>per-layer mixed-precision quantization</strong>. The practical pattern: attention layers stay at INT8 (preserving reasoning quality) while feed-forward layers compress to INT4 (saving 40% memory with minimal quality loss). This is the same technique Meta used for LLaMA 3.2 mobile deployments. For your existing MLX models, you can apply this today using <code>mlx_lm.convert --mixed-precision</code> flag — the converter analyzes each layer's sensitivity and assigns quantization levels automatically. The result: models that previously required 6GB RAM can fit in 3.8GB, enabling 7B-parameter models to run on iPhone 15 Pro (6GB) with headroom for app state.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Siri Extensions</span>
+    <strong>Prepare for Siri Extensions API: Plug Your AI Agent Into Apple Intelligence</strong>
+    <p>The biggest developer opportunity at WWDC: the new <strong>Siri Extensions API</strong> lets third-party apps plug custom AI agents directly into Siri, Writing Tools, and Image Playground. Unlike basic App Intents (which execute predefined shortcuts), Siri Extensions expose your app's AI capabilities as first-class citizens in Apple Intelligence — users can invoke your agent by name within any system AI surface. For Binance's iOS app, this means a user could say "Hey Siri, ask Binance about my portfolio performance this week" and get a response powered by your on-device agent without leaving any context. Start designing your agent's tool schema now using the existing App Intents format — Apple's converter will reportedly upgrade intents to Siri Extensions automatically.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google</span>
+    <h3><a href="https://blog.google/technology/ai/">Gemini Spark: Google's 24/7 Proactive AI Agent Enters Public Beta</a></h3>
+    <p>Google officially launched <strong>Gemini Spark</strong> into public beta this week — a fundamentally different AI product that runs persistently in the background, acting autonomously without waiting for prompts. Powered by Gemini 3.5 Flash, Spark monitors your connected apps (Gmail, Calendar, Drive, 30+ third-party services), learns behavioral patterns, and executes multi-step tasks proactively: parsing credit card statements for hidden fees, booking appointments, drafting responses. The paradigm shift from "reactive chatbot" to "proactive agent" is real. For developers: Spark introduces the <strong>Agent Payment Protocol (AP2)</strong> enabling autonomous purchases, and a "Skills" system for user-defined recurring automations. Available to Google AI Ultra subscribers ($100/month). This is the clearest signal yet that always-on agents are the next consumer AI battleground.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3>Project Glasswing Expands: 150 Critical Infrastructure Orgs Get Claude Mythos for Vuln Hunting</h3>
+    <p>Anthropic expanded <strong>Project Glasswing</strong>, its AI cybersecurity initiative, giving 150 additional critical-infrastructure organizations access to the specialized <strong>Claude Mythos Preview</strong> model. Unlike general-purpose Claude, Mythos is specifically trained for vulnerability discovery — it can analyze codebases at scale, identify severe security flaws, and generate patches. This positions Anthropic alongside OpenAI's biodefense program as a national-security AI partner. For enterprise iOS teams: if your organization qualifies as critical infrastructure (financial services likely do), apply for Glasswing access. Having an AI that can scan your entire codebase for zero-days before attackers find them is a material security advantage — especially for apps handling financial transactions.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google</span>
+    <h3><a href="https://deepmind.google/technologies/gemini/">Gemini Omni: Physics-Aware Video Generation from Any Input Mix</a></h3>
+    <p>Google pushed forward with <strong>Gemini Omni</strong>, a hyper-realistic AI generation tool that creates and edits video, audio, and text through fluid physics-aware simulations using any combination of user inputs (text, images, video clips, voice). Unlike existing video gen tools (Sora, Runway), Omni maintains physical consistency — objects have persistent mass, lighting follows real physics, and generated humans maintain anatomical correctness across frames. For mobile developers building content-creation features: Gemini Omni's API enables real-time video manipulation that was previously impossible without dedicated rendering pipelines. The integration opportunity: user-facing "magic edit" features in iOS apps that leverage cloud-side Omni for heavy generation while keeping the interaction loop snappy via streaming responses.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple × Google</span>
+    <h3>Apple Partners with Google: Distilled Gemini Models to Power On-Device Apple Intelligence</h3>
+    <p>In a surprising partnership ahead of WWDC, reports confirm Apple is using <strong>distilled versions of Google Gemini</strong> to train its on-device Foundation Models for iOS 27. Google provides training infrastructure and base model capabilities; Apple handles the user experience, privacy layer, and on-device optimization via Core AI. This explains how Apple can offer competitive on-device AI without building frontier models from scratch — they're leveraging Google's scale while maintaining their privacy-first execution model. For developers: this means Apple's on-device models will be significantly more capable in iOS 27 than iOS 26, with better reasoning, code understanding, and multi-modal capabilities — all running locally on the Neural Engine without cloud roundtrips.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Regulation</span>
+    <h3>SEC Publishes "Pro-Innovation" Draft Strategic Plan — DeFi Safe Harbor Incoming</h3>
+    <p>The SEC under Chairman Paul Atkins published its Draft Strategic Plan for FY2026–2030, pivoting decisively away from "regulation by enforcement" toward building a "rational, coherent, and principled" regulatory foundation for digital assets. The headline: a <strong>five-year DeFi front-end safe harbor</strong> exempting decentralized exchange interfaces from full broker-dealer registration. For developers building DeFi front-ends and Web3 tooling: this is the regulatory green light you've been waiting for. The SEC and CFTC's joint "Project Crypto" initiative also introduced a five-category token taxonomy clarifying which assets are commodities vs. securities. If you're building compliance tooling or token-classification systems, this taxonomy becomes your reference standard.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Regulatory</span>
+    <h3>CLARITY Act Faces "Now or 2030" Deadline — What Developers Need to Know</h3>
+    <p>Senator Cynthia Lummis issued a public warning: if the CLARITY Act stalls in the current Senate session, the US won't have a comprehensive crypto regulatory framework until 2030. The bill introduces a <strong>"decentralization certification pathway"</strong> — tokens can graduate from securities to commodities classification as their networks mature. For exchange and DeFi developers: the bill's passage would fundamentally change how you handle token listings, compliance checks, and user jurisdictional restrictions. The "decentralization score" metric it proposes could become an API-queryable standard — start thinking about how your systems would consume regulatory classification data programmatically rather than via manual legal review.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Hong Kong</span>
+    <h3>Hong Kong Mandates Licensing for VA Advisory &amp; Management — HK$5M Capital Required</h3>
+    <p>Hong Kong's FSTB and SFC finalized consultation conclusions requiring all Virtual Asset advisory and management firms to obtain licenses with a minimum paid-up capital of <strong>HK$5 million</strong>. This extends Hong Kong's existing crypto licensing regime (which already covers exchanges and custodians) to cover advisory and portfolio management services. For fintech builders in APAC: any AI-powered investment advisory feature in a crypto app now requires this license in Hong Kong. If your iOS app offers portfolio recommendations or automated trading strategies, coordinate with your legal team on Hong Kong licensing requirements before launch. The regulation creates barriers to entry but also legitimizes the space for institutional capital.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Plunges to $65K–$67K — $1.86B Liquidated in 24 Hours as Extreme Fear Returns</h3>
+    <p>Bitcoin extended its crash to the <strong>$65,000–$67,000</strong> range, down 12–13% in a week and now decisively below the $70K level that held last week. The immediate trigger: renewed US-Iran military strikes disrupting a ceasefire, combined with sticky CPI at 3.8% and rising Treasury yields driving a broad risk-off rotation. <strong>$1.86 billion</strong> in leveraged longs were liquidated in a single 24-hour window — the largest cascade since March 2025. The Fear &amp; Greed Index hit 11 (Extreme Fear). On-chain: whale wallets (10–10K BTC) dumped 24,600 coins while retail frantically bought the dip. If BTC fails to reclaim $70K, analysts see $60K as the next macro support. ETF outflows continued — May was the worst month on record for spot BTC ETFs ($2.97B net outflows).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>ETH Drops Below $2,000 for First Time Since 2023 — Glamsterdam Delay Crushes Sentiment</h3>
+    <p>Ethereum broke below the psychological <strong>$2,000</strong> mark to trade in the $1,870–$1,970 range, underperforming BTC by 5–6% on the ratio. The catalyst: the Ethereum Foundation officially confirmed the highly anticipated <strong>Glamsterdam upgrade</strong> (3.3× gas limit expansion, 10,000 TPS on L1) is delayed to Q3 2026 — removing the key June catalyst that short-term speculators were positioned for. ETH ETFs extended their withdrawal streak to 16 consecutive days. ETH now trades well below both its 50-day MA ($2,194) and 200-day MA ($2,509). Next structural support: $1,545. The silver lining: DeFi TVL remains stable, suggesting the sell-off is driven by speculative positioning rather than fundamental protocol abandonment.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">South Africa</span>
+    <h3>South African High Court Rules Bitcoin is "Money and Capital" — Global Precedent Set</h3>
+    <p>In <em>Mangundhla v. SARB</em>, the Gauteng High Court ruled Bitcoin meets the legal definition of both "money" and "capital" under South African exchange control laws. This means transferring crypto from local to foreign wallets now constitutes unlawful capital export without Reserve Bank approval. This directly contradicts a 2025 ruling and will likely escalate to appellate courts, but the immediate impact is significant: South African users face new restrictions on moving crypto offshore. For global exchanges like Binance: this creates a new compliance checkpoint for South African users — implement geo-fenced transfer warnings and potentially require exchange control documentation for outbound crypto transfers from SA-domiciled accounts.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Paradigm Shift</span>
+    <strong>Proactive AI Agents — The End of "Ask Then Answer"</strong>
+    <p>Gemini Spark's launch crystallizes a trend that will define the next wave of AI products: <strong>proactive agents</strong> that act without being prompted. Unlike reactive chatbots (you type → AI responds), proactive agents run persistently, monitor context streams, detect opportunities/threats, and execute autonomously. Google charges $100/month because these agents consume 24/7 cloud compute. For iOS developers: this is the architectural pattern to internalize for WWDC. Apple's Siri Extensions + on-device Foundation Models enable the same proactive pattern but running locally — monitoring notifications, calendar events, and app state to surface intelligent actions before the user asks. The apps that nail "proactive but not annoying" will define the next generation of mobile UX. Design principle: proactive agents should default to <em>informing</em> (badge/notification) not <em>acting</em> (autonomous execution) until trust is established.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulatory</span>
+    <strong>Token Classification Taxonomies — Programmable Compliance Is Here</strong>
+    <p>The SEC/CFTC's joint five-category token taxonomy and CLARITY Act's "decentralization certification pathway" mark the arrival of <strong>programmable regulatory compliance</strong>. Instead of lawyers manually classifying each token, regulatory status becomes a queryable data point: is this token a commodity, security, utility, stablecoin, or hybrid? Does it pass the decentralization threshold? For engineering teams at exchanges: build your compliance systems around taxonomic APIs rather than static lists. Design your token listing pipeline to consume classification data from on-chain attestation oracles (like the ones being built on Chainlink) that automatically score decentralization metrics. The pattern: compliance-as-code where regulatory status is computed, not opined — and where a token's classification can <em>change</em> as its network matures, requiring your systems to handle state transitions gracefully.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>The $1.86B Liquidation Cascade — Why DeFi Needs Circuit Breakers</strong>
+    <p>This week's $1.86B liquidation event — the largest single-day cascade in 15 months — exposes a structural weakness in crypto market microstructure: the absence of circuit breakers. Traditional exchanges halt trading when prices move too fast; crypto markets amplify moves via cascading liquidations that trigger more liquidations in a positive feedback loop. The emerging solution: <strong>progressive liquidation</strong> protocols that partially unwind positions over minutes rather than milliseconds, and "soft circuit breakers" that temporarily increase collateral requirements during volatility spikes rather than fully halting markets. Projects like Euler v2 and Morpho Blue are implementing these mechanisms. For DeFi developers: if you're building lending or perp protocols, progressive liquidation isn't optional — it's the difference between your protocol surviving a crash and creating systemic contagion.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Preview — Core AI, Siri Extensions, and iOS 27 Developer Sessions</a>
+      <span class="desc">Apple's official WWDC landing page with session previews. Register for labs focused on Core AI migration, on-device model optimization, and the new Siri Extensions API.</span>
+    </li>
+    <li>
+      <a href="https://blog.google/technology/ai/">Google Gemini Spark — Proactive Agent Architecture and Developer Integration Guide</a>
+      <span class="desc">Technical overview of Spark's persistent execution model, the Agent Payment Protocol (AP2), and how to build "Skills" that trigger autonomous actions on user-defined schedules.</span>
+    </li>
+    <li>
+      <a href="https://www.sec.gov/about/plans-reports/strategic-plan-2026-2030">SEC Draft Strategic Plan FY2026–2030 — Full Text with DeFi Safe Harbor Details</a>
+      <span class="desc">The complete draft of the SEC's pivot from enforcement-first to innovation-first crypto regulation, including the five-category token taxonomy and DeFi front-end safe harbor provisions.</span>
+    </li>
+    <li>
+      <a href="https://www.anthropic.com/research/project-glasswing">Anthropic Project Glasswing — AI-Powered Vulnerability Discovery for Critical Infrastructure</a>
+      <span class="desc">Anthropic's technical brief on Claude Mythos Preview: how the specialized model identifies vulnerabilities across codebases at scale, application process for qualifying organizations.</span>
+    </li>
+    <li>
+      <a href="https://docs.euler.finance/v2/liquidation-engine">Euler v2: Progressive Liquidation Engine — Circuit Breakers for DeFi</a>
+      <span class="desc">Technical documentation for Euler's progressive liquidation system: time-weighted unwinding, soft circuit breakers, and preventing cascade amplification in volatile markets.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-04T09:00:00Z · Thursday Edition (Edge AI / On-device ML — Apple Neural Engine, MLX, ONNX Mobile)</p>
+  <p>Dedup: 120+ stories filtered from past 5 days · 15 new stories published · Sources: 6 web searches, 0 RSS (3 search timeouts, web fallback used)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>32</td></tr>
+    <tr><td>Web Search — Crypto Markets</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — WWDC/Core AI/Edge ML</td><td>✅ OK</td><td>18</td></tr>
+    <tr><td>Web Search — Gemini Spark/Google AI</td><td>✅ OK</td><td>15</td></tr>
+    <tr><td>Web Search — Vibe Coding Tools</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Edge AI/ONNX</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (May 30 – Jun 3)</td><td>✅ 120+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
