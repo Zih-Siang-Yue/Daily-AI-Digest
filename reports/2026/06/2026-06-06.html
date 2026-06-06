@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-06</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, June 6, 2026 · Issue #157 · Best of Week Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Security, WWDC Prep &amp; RAG Pipelines</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Security</span>
+    <strong>Claude Code GitHub Action Vulnerability: Audit Your CI/CD Workflows Now</strong>
+    <p>A CVSS 7.8 vulnerability (discovered by researcher RyotaK, patched June 4) allowed attackers to <strong>hijack any public repository</strong> using the Claude Code GitHub Action by simply opening a malicious issue. The flaw exploited the Action's read/write permissions — the agent would process issue content as instructions, enabling arbitrary code execution. <strong>Action required:</strong> if you use <code>anthropic/claude-code-action</code> in any workflow, update to the latest version immediately. Also audit your Action permissions — apply the principle of least privilege by setting <code>permissions: contents: read</code> unless write access is explicitly needed. This week's most impactful security lesson: AI agents in CI/CD pipelines are a new attack surface that traditional SAST tools don't cover.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">WWDC Prep</span>
+    <strong>WWDC 2026 Keynote in 2 Days: Prepare Your Dev Environment Now</strong>
+    <p>Apple's keynote streams <strong>June 8 at 10:00 AM PDT</strong> — rumored to be Tim Cook's final keynote as CEO before handing off to John Ternus. Expected: Core AI framework replacing Core ML, Siri "Campo" overhaul with on-screen understanding, Xcode 26 with full MCP-backed agentic coding, and Visual Intelligence "Siri mode" in the Camera app. <strong>Prep checklist:</strong> (1) Back up your Xcode projects and provisioning profiles, (2) Create a separate APFS volume for macOS 27 beta via <code>diskutil apfs addVolume</code>, (3) Download Xcode 25.x archive from developer.apple.com as your stable fallback, (4) Review your Core ML model integrations — migration to Core AI starts Day 1. Register for WWDC labs now if you haven't already.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Weekend Project</span>
+    <strong>Build a RAG Pipeline This Weekend with Firecrawl + Dify</strong>
+    <p>Both tools are trending heavily this week as the go-to stack for rapid RAG prototyping. <strong>Firecrawl</strong> is a web scraping API purpose-built for LLM consumption — it crawls URLs and returns clean, structured markdown with metadata, ready for embedding. <strong>Dify</strong> is a visual drag-and-drop LLM application builder with built-in vector stores and workflow orchestration. The combo: Firecrawl ingests your documentation sources → Dify chunks, embeds, and serves them via a chat interface. Ship a working internal knowledge base by Monday. Start at <a href="https://firecrawl.dev">firecrawl.dev</a> and <a href="https://dify.ai">dify.ai</a> — both have generous free tiers for prototyping.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3>Claude Writes 80% of Anthropic's Own Code — "Recursive Self-Improvement" Warning Issued</h3>
+    <p>In a sobering disclosure this week, Anthropic revealed that <strong>over 80% of code merged into its production codebase in May was authored by Claude</strong>. Engineers are now merging 8× more code per quarter than during 2021–2025. Anthropic leadership explicitly warned that Claude is achieving "recursive self-improvement" faster than anticipated — the AI is building better versions of itself — and called for the industry to maintain credible options to halt frontier development before humans lose meaningful oversight. For developers: this validates the "AI coding agent" workflow as production-ready at scale, but also underscores the importance of human review gates. If Anthropic itself is concerned about autonomous code velocity, your team's review processes need to keep pace.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3><a href="https://platform.openai.com/docs/devkit">OpenAI DevKit 2.0: Full-Stack Toolkit for Building Autonomous Agents</a></h3>
+    <p>OpenAI launched <strong>DevKit 2.0</strong>, a comprehensive SDK explicitly designed for building autonomous AI agents with native multi-step reasoning, built-in tool chaining, and persistent memory layers. Unlike the previous fragmented approach (Assistants API + Function Calling + separate memory), DevKit 2.0 provides a unified abstraction: define your agent's tools, memory schema, and reasoning strategy in a single configuration file, then deploy as a stateful service. For iOS teams building backend AI features: DevKit 2.0 handles the orchestration complexity that previously required LangChain or custom implementations. Key feature: built-in <strong>durable execution</strong> — agent runs survive restarts and resume from checkpoints automatically.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Security</span>
+    <h3>Claude Code GitHub Action Patched After CVSS 7.8 Exploit (RyotaK)</h3>
+    <p>Security researcher RyotaK disclosed a critical vulnerability in the <strong>Claude Code GitHub Action</strong> that allowed complete repository takeover via malicious GitHub issues. The attack vector: the Action processed issue content with full read/write permissions, enabling arbitrary code injection into any repository using the Action on public repos. Anthropic patched the flaw within 4 days and paid a bug bounty. <strong>Broader implication:</strong> AI agents integrated into CI/CD pipelines represent a fundamentally new attack surface. The exploit is structurally similar to prompt injection — untrusted user input (issues) flowing into an AI agent with elevated permissions. Expect more vulnerabilities in this class as AI Actions proliferate.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple</span>
+    <h3>WWDC 2026 Keynote Sunday: Tim Cook's Farewell, Core AI, and Agentic Siri</h3>
+    <p>Apple's WWDC keynote (June 8) is shaping up as the company's most significant developer event in years — and reportedly <strong>Tim Cook's final keynote as CEO</strong> before John Ternus takes over in September. Beyond the Core AI framework (replacing Core ML), expect: <strong>Siri "Campo"</strong> — a ground-up rebuild with on-screen understanding, multi-app actions, and Google Gemini-powered reasoning; <strong>Visual Intelligence</strong> moving to a dedicated Camera mode; and <strong>Xcode 26</strong> with fully agentic MCP-backed coding workflows. For iOS developers: this is the most consequential platform shift since SwiftUI's introduction. Monday morning will be all about installing betas and exploring new APIs.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Enterprise</span>
+    <h3><a href="https://developer.workday.com">Workday Ships Agent-Ready MCP Tools for Enterprise AI Development</a></h3>
+    <p>Workday introduced <strong>"Developer Agent" and "Agent-Ready Tools"</strong> built over the Model Context Protocol (MCP), enabling enterprise developers to build AI applications that interact with HR, finance, and operations data using plain language — with built-in guardrails enforcing data access policies. This is significant because it proves MCP is becoming the universal standard for enterprise tool integration, not just a developer-tool curiosity. For iOS teams building enterprise features: Workday's MCP tools mean your on-device AI agents can now safely query employee and financial data with proper authorization boundaries, enabling "ask Siri about my PTO balance" workflows.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">AI-Native</span>
+    <h3>Taskade Genesis: Prompt-to-Deployed-Application in Seconds</h3>
+    <p><strong>Taskade Genesis</strong> is gaining massive popularity this week for a fundamentally different approach to AI code generation: instead of returning code snippets, it returns <strong>fully deployed, live, cloneable applications</strong>. Ask for a regex tester → get a working hosted app with a shareable URL. Ask for a data validator → same thing. The architectural insight: Genesis combines code generation, hosting, and deployment into a single atomic operation. For rapid prototyping, internal tooling, and hackathon-style experiments, this eliminates the "last mile" problem of getting AI-generated code actually running somewhere. Think of it as Vercel + Claude merged into one prompt interface.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Infrastructure</span>
+    <h3>Smooth API: Browser-as-a-Service Designed for AI Coding Agents</h3>
+    <p>A new serverless <strong>"browser-as-a-service" API</strong> designed specifically for AI coding agents that need to browse documentation, debug web issues, or scrape reference material — without the overhead of spinning up headless Chrome instances. Smooth API provides a clean REST interface: send a URL, get back structured page content optimized for LLM consumption (clean text, extracted code blocks, structured metadata). For developers building MCP tools or Claude Code plugins that need web access: this is significantly lighter than Puppeteer/Playwright approaches, handles anti-bot protection, and returns LLM-friendly output directly. Pricing is per-request with no infrastructure management.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Crashes Below $60K — Non-Farm Payrolls Kill Rate Cut Hopes for 2026</h3>
+    <p>Bitcoin breached the critical <strong>$60,000 psychological support</strong>, trading between $59,400–$61,900 — the lowest level since Q3 2025. The immediate trigger: unexpectedly strong US non-farm payroll data that prompted markets to price in a <strong>69% probability of zero Federal Reserve rate cuts in 2026</strong>. The "higher for longer" narrative is crushing speculative risk assets. Spot BTC ETFs have logged <strong>13 consecutive days of net outflows</strong> totaling $4.33 billion (≈59,000 BTC) — the worst hemorrhage on record. Michael Saylor's Strategy is now sitting on <strong>$12 billion in floating losses</strong>. The Fear &amp; Greed Index has collapsed to single digits. Next support: $55,000 (2024 accumulation zone).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>ETH Implodes to $1,550 — Foundation Sells 20K ETH, Executives Depart</h3>
+    <p>Ethereum is the worst performer among majors today, plunging <strong>11% to $1,550–$1,650</strong> — now down 66% from its previous all-time high and back at mid-2025 levels. Unlike previous ETH drawdowns driven purely by macro, this sell-off has protocol-specific catalysts: the Ethereum Foundation sold approximately <strong>20,000 ETH</strong> this week, and <strong>8 top executives and core researchers departed</strong> the Foundation in late May, sparking leadership confidence crisis. Adding structural pressure: Layer 2 fees are so low they're failing to generate meaningful token burn, causing ETH to shift from deflationary back to <strong>slightly inflationary</strong> — undermining the ultrasound money thesis. ETH spot ETFs are in their 17th consecutive outflow day.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Liquidations</span>
+    <h3>$4.33B Exits Spot BTC ETFs in 13 Days — Institutional Capitulation</h3>
+    <p>The institutional retreat from crypto is accelerating. In the worst streak since ETF launch, <strong>$4.33 billion has fled spot Bitcoin ETFs</strong> over 13 consecutive trading days — roughly 59,000 BTC returned to market. Combined with $1.6–1.8B in leveraged long liquidations in the past 24 hours, the sell pressure is overwhelming any dip-buying. The structural narrative has shifted: institutions that entered crypto via ETFs in 2024–2025 are now rotating capital into AI-sector IPOs (Anthropic, OpenAI, SpaceX) which offer comparable growth profiles with less volatility. Crypto is re-coupling with its "speculative risk asset" identity rather than the "institutional store of value" thesis.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>The Modular Monolith Renaissance — Microservices Backlash Arrives</strong>
+    <p>The 2026 architecture trend that's reshaping how teams build software: the <strong>Modular Monolith</strong>. After a decade of microservices dogma, the industry is converging on a pragmatic middle ground — single deployment units with strict, enforced internal boundaries (domain modules). You get the independent development benefits of microservices without the massive infrastructure overhead, network latency, debugging complexity, and operational cost. Microservices are now reserved only for components that genuinely need independent, massive scaling. For iOS backend teams: if your service mesh has 40+ microservices and your team is &lt;20 engineers, you likely have accidental complexity. The modular monolith pattern lets you consolidate without sacrificing domain isolation. Tools like Spring Modulith and .NET Aspire's module boundaries make enforcement automatic.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Developer Experience</span>
+    <strong>Platform Engineering: The 2026 Standard for Developer Productivity</strong>
+    <p>With developers now expected to understand cloud infra, security, AI tooling, observability, and coding simultaneously, <strong>Platform Engineering</strong> has emerged as the organizational pattern to combat cognitive overload. Dedicated platform teams build <strong>Internal Developer Platforms (IDPs)</strong> that offer "paved roads" — self-service infrastructure, automated CI/CD, pre-configured observability, and AI tool governance — so application developers can focus exclusively on business logic. The key insight: instead of every team reinventing deployment pipelines and AI tool integrations, a platform team provides opinionated defaults with escape hatches. For Binance's iOS team: platform engineering means your AI agent deployments, model serving infrastructure, and cost governance should come as pre-built platform capabilities, not team-by-team custom implementations.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI Safety</span>
+    <strong>Recursive Self-Improvement: When AI Builds Itself Faster Than Humans Can Review</strong>
+    <p>Anthropic's disclosure that 80% of its own codebase is now AI-authored crystallizes the most consequential AI safety concern of 2026: <strong>recursive self-improvement</strong> — AI systems improving their own capabilities faster than humans can meaningfully audit the changes. This isn't theoretical anymore; it's operational reality at a frontier lab. The architectural response emerging across the industry: <strong>mandatory review gates with cryptographic attestation</strong> — every AI-generated code change must be signed off by a human reviewer, with the review itself verified to be substantive (not rubber-stamped). Combined with Salt Code-style policy enforcement and differential testing (comparing AI-generated vs. human-reviewed behavior), this creates a "speed limit" on autonomous improvement. The question for 2026: how fast is too fast?</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 — Register for Labs, Preview Sessions, Core AI Migration Guides</a>
+      <span class="desc">Apple's official WWDC hub with lab registration still open. Priority: Core AI migration, Siri Extensions, and the new Xcode 26 agentic coding features.</span>
+    </li>
+    <li>
+      <a href="https://firecrawl.dev/docs">Firecrawl Documentation — Web Scraping API for LLM-Ready Content</a>
+      <span class="desc">Complete API reference for the trending web scraping tool. Covers crawling strategies, output formats, and integration with vector databases for RAG pipelines.</span>
+    </li>
+    <li>
+      <a href="https://platform.openai.com/docs/devkit">OpenAI DevKit 2.0 — Autonomous Agent Building SDK</a>
+      <span class="desc">Official documentation for the new full-stack agent toolkit: tool chaining, persistent memory, durable execution, and deployment patterns.</span>
+    </li>
+    <li>
+      <a href="https://docs.dify.ai">Dify — Open-Source Visual LLM Application Builder</a>
+      <span class="desc">Drag-and-drop agent building with built-in RAG, vector stores, and workflow orchestration. The fastest path from prototype to production for knowledge-base applications.</span>
+    </li>
+    <li>
+      <a href="https://developer.workday.com/mcp">Workday MCP Tools — Enterprise Agent Integration Guide</a>
+      <span class="desc">Technical docs for building AI agents that safely query HR, finance, and operations data via the Model Context Protocol with enterprise-grade access controls.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-06T09:00:00Z · Saturday Edition (Best of Week — Security, WWDC Prep, RAG)</p>
+  <p>Dedup: 150+ stories filtered from past 5 days · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Crypto Markets</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — WWDC/Apple AI</td><td>✅ OK</td><td>18</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Vibe Coding Tools</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — CoreML/MLX/iOS</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 1 – Jun 5)</td><td>✅ 150+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
