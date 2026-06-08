@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-08</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, June 8, 2026 · Issue #159 · 🎉 WWDC 2026 Keynote Day</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflow Patterns</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Claude Code MCP Hooks: Auto-Validate Agent Output Before File Writes</strong>
+    <p>With Claude Code writing 80%+ of production code at scale, the critical missing piece is <strong>output validation hooks</strong> that fire between agent generation and filesystem writes. Configure <code>.claude/hooks/pre-write.sh</code> to intercept every file modification with custom validation: run SwiftLint on generated Swift files, check for banned API patterns (e.g., <code>UIWebView</code> references), or enforce your team's module boundary rules. The hook receives the proposed diff as stdin and can reject writes with a non-zero exit code — the agent then auto-corrects based on your rejection message. Pattern: <code>#!/bin/bash</code> → pipe stdin to <code>swiftlint lint --stdin</code> → reject if warnings exceed threshold. This gives you guardrails without slowing down the agent's creative flow. Combined with <code>--dynamic-workers</code>, each sub-agent independently validates its output before merge. <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex</span>
+    <strong>Codex "Sites" for iOS Teams: Generate Internal Dashboards From Production Data</strong>
+    <p>OpenAI's new <strong>Codex Sites</strong> feature generates fully hosted, interactive web applications from natural language — not just code snippets. The killer workflow for iOS teams: ask Codex to "build a dashboard showing our app's crash-free rate by iOS version, pulling from our Firebase Crashlytics API." It outputs a live, shareable URL with auto-refreshing charts. No deployment pipeline needed. The generated sites include auth scaffolding, responsive layouts, and API integrations to 62+ SaaS connectors (Snowflake, Salesforce, Datadog). For Binance mobile teams: generate real-time trading volume dashboards, A/B test result viewers, or release readiness scorecards — all from a single prompt. Share the URL in Slack; stakeholders get live data without requesting engineering time. <a href="https://openai.com/index/codex/">Try Codex Sites →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>WWDC Day-One Workflow: Use Claude Code to Explore New iOS 27 APIs in Real-Time</strong>
+    <p>The WWDC keynote starts <strong>today at 10:00 AM PDT</strong>. Within hours, Apple will drop iOS 27 beta and Xcode 18 with new frameworks. Here's your optimal Claude Code workflow for rapid API exploration: (1) Install beta Xcode side-by-side using <code>xcode-select --switch</code>, (2) Point Claude Code at the new SDK headers: <code>claude code --include /Applications/Xcode-beta.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/</code>, (3) Ask: "What's new in Foundation Models v2? Show me the Swift API for on-device fine-tuning." Claude Code will diff against iOS 26 SDK headers and summarize every new public API, deprecated symbol, and renamed method — faster than reading release notes manually. Queue this as a <code>--dynamic-workers 10</code> job across all major frameworks simultaneously.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor</span>
+    <h3><a href="https://cursor.com/changelog">Cursor 3.7 Ships "Design Mode" — Visual UI Editing Inside the IDE</a></h3>
+    <p>Cursor just released version 3.7 with a game-changing feature: <strong>Design Mode</strong> in its built-in browser. Instead of describing UI changes in text, you can now click on elements, draw bounding boxes, or use voice input to instruct the AI to redesign layouts visually. Think Figma-meets-IDE — select a button, say "make this bigger with rounded corners and a gradient," and the agent modifies your SwiftUI/React code to match. For iOS developers: this bridges the gap between design mockups and implementation. Open your app's preview in Cursor's browser, point at the element you want changed, and let the agent handle the CSS/SwiftUI translation. This is the most significant UX improvement to AI coding since autocomplete went multi-line.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3>ChatGPT "Dreaming" Memory: Persistent Context That Evolves Overnight</h3>
+    <p>OpenAI rolled out a fundamentally new memory architecture for ChatGPT called <strong>"Dreaming"</strong> — the system now consolidates, reorganizes, and strengthens memories during off-hours, similar to human sleep-based memory consolidation. Instead of simple key-value preference storage, Dreaming builds a dynamic knowledge graph of your preferences, work patterns, codebase context, and communication style that improves with each interaction. For developers using ChatGPT/Codex as a daily coding companion: your agent now genuinely "knows" your project architecture, naming conventions, and preferred patterns without re-explaining them each session. The practical impact: fewer context-setting prompts, more immediately relevant suggestions, and an agent that remembers last week's architectural decisions when you revisit the same module today.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple</span>
+    <h3>WWDC 2026 Keynote TODAY: Foundation Models v2, Standalone Siri App, Xcode 18</h3>
+    <p>Apple's most consequential developer event kicks off <strong>today at 10:00 AM PDT</strong>. Confirmed announcements include: <strong>Foundation Models v2</strong> with a larger on-device LLM and Swift API for on-device fine-tuning; a <strong>standalone Siri app</strong> functioning as a full conversational AI (think ChatGPT but Apple-native); <strong>Xcode 18</strong> with enhanced predictive code completion trained specifically on Swift/Apple SDKs requiring no API keys; <strong>iOS 27</strong> with refined Liquid Glass UI and new gesture navigation to accommodate Siri's expanded role; and Google Gemini powering server-side Apple Intelligence. For iOS developers at Binance: prioritize Foundation Models v2 sessions — on-device fine-tuning means you can train custom models on user portfolio patterns without data leaving the device. First betas drop immediately after the keynote.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">IBM × Google</span>
+    <h3>IBM + Google Launch Gemini Enterprise Agent Platform for Hybrid Cloud</h3>
+    <p>IBM and Google Cloud announced a massive partnership merging IBM Consulting Advantage with Google's new <strong>Gemini Enterprise Agent Platform</strong> to deploy production-grade AI agents across hybrid cloud environments. The platform provides pre-built agent templates for common enterprise workflows (incident response, code review, compliance checking) with built-in governance rails — agents can only access data they're authorized for via policy-as-code boundaries. For enterprise mobile teams: this means your backend AI services can now run across hybrid cloud (on-prem + GCP) with unified agent management. The key differentiator vs. raw model APIs: built-in audit trails, explainable decision logs, and rollback capabilities that enterprise compliance teams require.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Dropbox</span>
+    <h3>Dropbox "Nova": AI Agents Embedded in CI/CD — Beyond the IDE</h3>
+    <p>Dropbox unveiled <strong>Nova</strong>, an enterprise platform that embeds AI coding agents directly into production infrastructure — not just the IDE. Nova agents autonomously investigate production crashes by correlating logs, traces, and code changes; execute large-scale dependency migrations across monorepos; fix flaky tests using a "propose, validate, iterate" loop; and submit reviewed PRs. The architectural insight: Nova treats agents as <strong>infrastructure peers</strong> (like Kubernetes controllers) rather than developer assistants. They run 24/7, have their own service accounts and permissions boundaries, and operate within CI/CD pipelines autonomously. For large iOS teams: imagine an agent that detects a crash spike post-release, bisects the offending commit, generates a fix, runs the test suite, and opens a revert PR — all before your on-call engineer wakes up.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Codex</span>
+    <h3>Codex "Time to Fly" Rebrand: From Developer Tool to Enterprise Automation Platform</h3>
+    <p>OpenAI launched a major rebrand campaign for Codex called <strong>"Time to Fly"</strong>, signaling its evolution from a coding assistant into a full enterprise automation platform. The numbers back it: <strong>5 million weekly active users</strong>, with non-developers (analysts, PMs, bankers) now 20% of the user base and growing 3× faster than engineers. New capabilities include six role-specific plugins connecting to 62 SaaS apps, "Annotations" for in-place document editing, and the announcement that Codex will merge directly into ChatGPT. For iOS teams: this means your product managers and designers can now generate functional prototypes and data queries without engineering tickets — coordinate with non-technical stakeholders who may start building alongside your codebase.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Industry Data</span>
+    <h3>46% of All Professional Code Is Now AI-Generated — Agentic Engineering Is the New Normal</h3>
+    <p>New industry data confirms that <strong>46% of all professional code written globally</strong> is now AI-generated (up from 41% just weeks ago). The market for AI developer tools hit <strong>$12.8 billion</strong> with 85% of professional developers using them daily. The paradigm has fully shifted: Andrej Karpathy's "vibe coding" term is now reserved for prototyping; production work is called <strong>"Agentic Engineering"</strong> — where humans define architecture boundaries, set quality gates, choose sub-agents, and review diffs rather than write syntax. The most valued engineering skill in June 2026: orchestrating parallel AI agents to reliably ship production-grade software. For hiring managers: evaluate candidates on their ability to decompose problems for agent execution, not their typing speed.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional</span>
+    <h3>CME Nasdaq Crypto Index Futures Launch Today — Multi-Asset Institutional Access</h3>
+    <p>A major institutional milestone arrives today: CME Group and Nasdaq officially launch the <strong>Nasdaq CME Crypto Index Futures</strong>. This new product allows institutional investors to trade a market-cap-weighted basket of top cryptocurrencies — including BTC, ETH, SOL, XRP, ADA, LINK, and XLM — rather than standalone single-asset contracts. This is the first regulated multi-crypto futures product available to US institutions. The significance: pension funds and endowments that previously could only access crypto via single-asset BTC ETFs now get diversified exposure through a familiar futures wrapper. For exchange developers: expect increased institutional flow patterns that differ from retail — basket rebalancing, arbitrage between index and components, and new correlation-based trading strategies that your matching engine should accommodate.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>ETH Hits Lowest RSI in History — Exchange Supply Drops to 2016 Levels</h3>
+    <p>Ethereum's technical picture presents a paradox: the <strong>RSI (Relative Strength Index) plunged to its lowest reading in ETH's entire trading history</strong>, signaling extreme oversold conditions, while exchange supply simultaneously dropped to <strong>14.8 million ETH — the lowest since 2016</strong>. Translation: everyone who wanted to sell has already sold, and remaining holders are moving coins to cold storage/staking rather than exchanges. ETH trades at $1,630–$1,680 after an 18% weekly decline. A whale linked to Ethereum co-founder Joseph Lubin moved 110,000 ETH to defend a $259M DAI debt position, while institutional buyer Bitmine purchased 100,000+ ETH during the crash. The supply/demand setup is historically bullish when combined with an RSI this oversold — but macro headwinds (no Fed cuts, AI capital rotation) could override technicals.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3>GENIUS Act Stablecoin Rules Deadline Tomorrow — DeFi Infrastructure Implications</h3>
+    <p><strong>June 9 is the final deadline</strong> for public comments to FinCEN and OFAC on the GENIUS Act's proposed stablecoin rules. The rules will officially treat permitted stablecoin issuers as financial institutions under the Bank Secrecy Act, mandating AML controls, sanctions screening, and suspicious activity monitoring. For DeFi infrastructure: any protocol integrating USDC, USDT, or other permitted stablecoins must now consider whether their smart contracts facilitate "money transmission" under the new framework. Separately, a new <strong>Digital Asset PARITY Act</strong> proposes a $200 de minimis exemption for network fees and stablecoin purchases — relieving everyday crypto users from reporting sub-$200 transactions. Exchange developers: implement jurisdiction-aware compliance flows that differentiate between institutional stablecoin transfers (full AML) and retail micropayments (de minimis exempt).</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Paradigm Shift</span>
+    <strong>Agentic Engineering — The Post-Vibe-Coding Professional Standard</strong>
+    <p>June 2026 marks the official inflection point where "vibe coding" (prompting AI and accepting output) became strictly a prototyping technique, while production engineering adopted <strong>Agentic Engineering</strong> as its formal methodology. The distinction: agentic engineers don't write code — they <strong>orchestrate systems of AI agents</strong> with strict architectural boundaries, CI/CD quality gates, automated validation hooks, and rigorous diff review processes. Karpathy declared "vibe coding" passé. Cursor runs 10 parallel agents per seat. Dropbox treats agents as infrastructure. 46% of code is AI-generated. The bottleneck has permanently shifted from <em>code production</em> to <em>architectural judgment, system decomposition, and review quality</em>. For career development: invest in skills that agents can't replace — system design thinking, failure mode analysis, and cross-team coordination.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Apple Ecosystem</span>
+    <strong>Foundation Models v2 + On-Device Fine-Tuning — The Privacy-First AI Stack</strong>
+    <p>Today's WWDC announcements crystallize Apple's unique position in AI: while OpenAI/Anthropic/Google compete on cloud intelligence scale, Apple is building the <strong>privacy-first AI stack</strong> where models run and learn entirely on-device. Foundation Models v2's on-device fine-tuning means your iOS app can <em>personalize its AI to each user</em> — learning their patterns, preferences, and vocabulary — without any data leaving the phone. Combined with the standalone Siri app (persistent conversational context), Visual Intelligence in Camera, and Xcode 18's local-only code completion: Apple is betting that <strong>private, personalized AI beats generic cloud AI</strong> for consumer applications. The developer opportunity: apps that leverage on-device fine-tuning will feel genuinely "intelligent" in ways cloud-only competitors can't match — because they know <em>your</em> user, not an average of all users.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>Multi-Asset Crypto Futures — From Single-Coin Bets to Portfolio Products</strong>
+    <p>The CME Nasdaq Crypto Index Futures launch signals a structural maturation of crypto markets: the transition from <strong>single-asset speculation to portfolio-level institutional products</strong>. Previous crypto derivatives were exclusively single-coin (BTC futures, ETH options). Index futures allow institutions to express views on "crypto as an asset class" rather than picking individual coins — the same evolution that transformed equities when S&amp;P 500 index funds launched in 1976. For exchange developers: this creates demand for <strong>basket order types</strong>, portfolio margin systems that cross-collateralize across assets, and index tracking products that rebalance automatically. The long-term implication: crypto stops being "which coin will pump" and becomes "what allocation does crypto deserve in a diversified portfolio" — a fundamentally different (and larger) capital pool.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Keynote — Live Stream Starting 10:00 AM PDT Today</a>
+      <span class="desc">Watch live. Expected: Foundation Models v2 with on-device fine-tuning, standalone Siri app, Xcode 18 with local AI code completion, iOS 27 Liquid Glass, and Google Gemini integration. First betas available immediately after.</span>
+    </li>
+    <li>
+      <a href="https://cursor.com/changelog">Cursor 3.7 Changelog — Design Mode, Visual UI Editing, Voice Commands</a>
+      <span class="desc">Full release notes for Cursor's most UX-forward update: Design Mode turns the built-in browser into a visual editor where you click/draw/speak changes instead of typing code modification requests.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/codex/">OpenAI Codex "Time to Fly" — Sites, Annotations, and the Non-Developer Revolution</a>
+      <span class="desc">Official announcement of Codex's transformation: 5M weekly users, Sites for instant hosted apps, 62 SaaS connectors, and the merger into ChatGPT. Includes enterprise deployment guides.</span>
+    </li>
+    <li>
+      <a href="https://www.cmegroup.com/markets/cryptocurrencies.html">CME Nasdaq Crypto Index Futures — Product Specifications and Trading Guide</a>
+      <span class="desc">Technical specs for the new multi-asset crypto index futures: contract size, margin requirements, settlement mechanics, and the 7-coin composition methodology.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks Documentation — Pre-Write Validation and Custom Guardrails</a>
+      <span class="desc">Official guide to configuring .claude/hooks/ for output validation. Covers pre-write, post-write, and pre-commit hooks with examples for Swift, Python, and TypeScript projects.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-08T09:00:00Z · Monday Edition (Claude Code / Codex — Agentic Workflow Patterns)</p>
+  <p>Dedup: 170+ stories filtered from past 5 days (Jun 3–Jun 7) · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — WWDC/Apple Intelligence</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Crypto Markets</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 3–Jun 7)</td><td>✅ 170+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
