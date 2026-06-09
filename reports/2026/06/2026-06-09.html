@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-09</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, June 9, 2026 · Issue #160 · WWDC 2026 Post-Keynote Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflow Budget Control</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Budget-Proof Your Claude Code Deployment: The New Headless Pricing Model</strong>
+    <p>After Microsoft canceled most internal Claude Code licenses because engineers burned through annual AI budgets in months, and Uber exhausted its $3.4B AI budget in just 4 months, Anthropic is responding with a <strong>new split pricing model effective June 15</strong>. Interactive daily coding chats remain on the current plan, but headless agents, automated pipelines, and 3rd-party integrations shift to a separate monthly credit billed at direct API rates. <strong>Action for your team:</strong> audit which Claude Code sessions are interactive vs. automated. Move CI/CD agents (test generation, PR review bots, migration scripts) to the headless tier now. Use <code>--max-cost 5.00</code> per automated session as a hard budget cap. Pattern: tag each agent session with <code>CLAUDE_BILLING_TAG=ci-pipeline</code> to track spend by workflow type. This gives finance visibility without slowing developer velocity.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex</span>
+    <strong>Codex Lockdown Mode: Prevent Data Exfiltration via Prompt Injection</strong>
+    <p>OpenAI shipped <strong>Lockdown Mode</strong> (GA this week) — an opt-in workspace security setting that prevents AI agents from accessing live web browsing or executing file downloads. This neutralizes the #1 enterprise security concern with autonomous agents: data exfiltration via prompt injection. Enable it via Settings → Workspace → Security → Lockdown Mode. When active, Codex agents can still read/write local files and execute terminal commands, but cannot reach external URLs or download binaries. For teams at financial institutions where data sovereignty is critical: enable Lockdown Mode organization-wide, then create explicit allowlists for specific domains your agents legitimately need (e.g., your internal package registry, documentation sites). The granular control is at <code>codex config set lockdown.allowlist "registry.internal.com,docs.api.com"</code>.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">WWDC</span>
+    <strong>Post-WWDC Action: Wire Your iOS App Into Siri's New Multi-Model Extensions</strong>
+    <p>Yesterday's WWDC keynote confirmed the biggest developer opportunity of 2026: Apple's new <strong>Siri Extensions system</strong> lets users choose between ChatGPT, Gemini, and Claude as their device's AI backbone — and third-party apps can plug directly into this multi-model pipeline. The immediate workflow for iOS teams: (1) Convert your existing App Intents to the new <code>@Generable</code> macro format — this makes your app's capabilities visible to all three AI providers simultaneously. (2) Use the new <code>@Guide</code> macro to provide structured prompts that help the AI understand your app's domain context. (3) Test with each backend: <code>Settings → Siri → AI Provider → [switch between ChatGPT/Gemini/Claude]</code> and verify your intents work across all three. Apps that ship Siri Extension support at iOS 27 launch get featured placement in the new "AI-Ready Apps" App Store collection.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Acquisition</span>
+    <h3>SpaceX Acquires Cursor for $60B — AI IDE Gets Rocket Fuel</h3>
+    <p>In the most consequential developer-tool acquisition since Microsoft bought GitHub, <strong>SpaceX is acquiring Cursor for $60 billion</strong>. The deal is timed to close 30 days after SpaceX's June 12 IPO. Elon Musk's play: integrate Cursor's agent infrastructure with xAI's Grok models and SpaceX's massive compute capacity, creating an enterprise AI development platform to rival Microsoft's GitHub Copilot ecosystem. Cursor is projecting <strong>$6B+ annualized revenue</strong> with 67% of Fortune 500 companies as customers. For Cursor users: no immediate changes, but expect Grok model options alongside Claude/GPT in coming months, and potentially preferential pricing for SpaceX compute. The bigger signal: AI coding tools are now valued like infrastructure companies, not startups.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple</span>
+    <h3>WWDC 2026 Results: Multi-Model Siri, Foundation Models v2, @Generable Macros</h3>
+    <p>Yesterday's WWDC keynote delivered on every leak and then some. The headline for developers: Apple is <strong>not picking one AI provider</strong> — instead, iOS 27 lets users choose between ChatGPT, Gemini, and Claude as their Siri backend, with third-party apps hooking into all three via a unified Extensions API. The <strong>Foundation Models Framework</strong> ships new Swift macros (<code>@Generable</code>, <code>@Guide</code>) that declaratively wire AI capabilities into SwiftUI views. On-device fine-tuning via Core AI is real — models learn per-user patterns without data leaving the device. Xcode 18's AI code completion is trained specifically on Swift/Apple SDKs and requires no API keys or cloud connection. First betas dropped last night. For Binance iOS: prioritize the Foundation Models Framework sessions — on-device personalization for portfolio insights is now a shipping API.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">IPO Race</span>
+    <h3>Both OpenAI and Anthropic File for IPOs — The AI Arms Race Goes Public</h3>
+    <p>In an unprecedented dual filing, both <strong>OpenAI and Anthropic</strong> submitted confidential S-1 IPO registrations within a week of each other. Anthropic filed first (early June), OpenAI followed on June 8. Combined with SpaceX's June 12 IPO, this creates the largest coordinated wave of tech offerings since the dot-com era. Anthropic's enterprise momentum is notable: it <strong>overtook OpenAI in US business adoption</strong> for the first time (34.4% vs. 32.3% market share per the Ramp AI Index). For developers: public-market scrutiny means more predictable pricing, better SLAs, and reduced risk of sudden model deprecations. But it also means both companies will aggressively monetize — expect premium enterprise tiers and usage-based billing to tighten. Lock in favorable API pricing now before post-IPO margin pressure hits.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Policy</span>
+    <h3>Sanders Proposes 50% "AI Tax" — Sovereign Wealth Fund From AI Profits</h3>
+    <p>Senator Bernie Sanders introduced the <strong>American AI Sovereign Wealth Fund Act</strong>, proposing a one-time 50% tax on frontier AI companies — targeting OpenAI, Anthropic, and xAI specifically (excluding Google and Meta). The twist: the tax would be paid in <strong>company stock rather than cash</strong>, creating a public sovereign wealth fund with voting rights and dividends. While passage is uncertain, this signals growing political momentum to redistribute AI-generated wealth. For the industry: if enacted, this would dilute existing shareholders significantly and could slow the IPO timeline. For developers: no immediate impact on tool access, but it highlights that AI companies' regulatory risk extends far beyond model safety into economic policy territory.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google</span>
+    <h3>Google Antigravity 2.0: Standalone Agent Platform with Desktop, CLI, and SDK</h3>
+    <p>Launched May 19 at Google I/O and now gaining real traction, <strong>Antigravity 2.0</strong> is Google's answer to Claude Code and Cursor combined — a standalone agent platform powered by Gemini 3.5 Flash. Unlike browser-based Gemini, Antigravity ships as a desktop app, CLI tool, and SDK that developers can integrate into any workflow. The key differentiator: native integration with Google's infrastructure (Cloud Run, Vertex AI, BigQuery) means your agents can spin up serverless backends, query data warehouses, and deploy to GKE directly from natural language prompts. For teams already on Google Cloud: Antigravity eliminates the "AI tool → deployment" gap that Cursor/Claude Code users still bridge manually. Early benchmarks show Flash-powered agents complete multi-file tasks 40% faster than GPT-4o equivalents due to lower latency, though reasoning depth on complex architecture decisions still favors Claude Opus 4.8.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Zed</span>
+    <h3>Zed Ships Universal Agent Client Protocol — Plug Any Model Into a Rust-Fast Editor</h3>
+    <p>Open-source editor <strong>Zed</strong> is gaining significant momentum by shipping a <strong>Universal Agent Client Protocol</strong> that lets developers plug Claude 4.7, Gemini 3.5, GPT-5.4, or local models into a blazing-fast Rust-based editor with zero configuration overhead. Unlike Cursor (proprietary, $20-96/mo) or VS Code (Electron-heavy), Zed offers sub-millisecond keypress latency while supporting full agentic workflows: multi-file editing, terminal execution, and background tasks — all with BYOK pricing. The protocol standardizes how models interact with editor state, meaning a tool built for Zed works identically across Claude, Gemini, and GPT backends. For developers frustrated by Cursor's pricing or VS Code's memory usage: Zed + your preferred API key delivers 90% of the agentic experience at a fraction of the cost and 10× the editor responsiveness.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor</span>
+    <h3>Composer 2.5: Multi-File Agent That Recovers From Its Own Mistakes</h3>
+    <p>Cursor's latest <strong>Composer 2.5</strong> (shipped May 29, now widely deployed) introduces a fundamentally more reliable agentic coding experience. Built with heavy post-training and RL feedback, the new agent explicitly handles messy, long-form, multi-file software tasks and — critically — <strong>recovers autonomously from its own mistakes</strong>. Previous agents would get stuck in error loops; Composer 2.5 detects when its approach is failing, backtracks, and tries alternative strategies without human intervention. It also takes on terminal operations and debugging directly. For iOS teams doing large refactors: Composer 2.5's self-correction capability means you can assign "migrate this module from UIKit to SwiftUI" tasks and walk away — the agent handles compilation errors, missing imports, and API mismatches iteratively until the build passes.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>BTC Bounces 5% to $63.8K on Geopolitical Easing — Sovereign Funds Buy the Dip</h3>
+    <p>After briefly dipping below $60K last week, Bitcoin <strong>sharply rebounded 5% to $63,800</strong> on Monday following Trump's public statement that Netanyahu "has no choice but to accept an Iran deal" — immediately easing Strait of Hormuz tensions and shifting risk sentiment. More significantly, <strong>Middle East sovereign wealth funds and UAE family offices</strong> are actively accumulating at these levels according to Coinbase's Head of Institutional Strategy. MicroStrategy added another 1,550 BTC ($101M). However, BTC remains in a macro downtrend — sitting 50% below its October 2025 ATH of ~$126K. Polymarket gives only a 21% chance of $150K by year-end. The market structure: institutional buyers stepping in at $60K-64K while retail remains in extreme fear (index: 12).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>BitMine Buys 25,000 More ETH — Corporate Treasury Now Holds 5.54M Tokens</h3>
+    <p><strong>BitMine</strong>, the Ethereum treasury firm linked to investor Tom Lee, purchased an additional <strong>25,000 ETH ($42M) from Kraken</strong>, bringing its total holdings to a staggering 5.54 million ETH. This is the largest single corporate ETH treasury in existence — dwarfing even the Ethereum Foundation's holdings. ETH currently trades at $1,600-$1,700 after a 22% weekly drop, but BitMine's continued aggressive accumulation signals deep conviction that current prices represent extreme undervaluation. The thesis: with ETH's exchange supply at 2016 lows and large treasuries removing tokens from circulation, a supply squeeze becomes inevitable once macro sentiment shifts. For DeFi developers: monitor BitMine's wallet activity as a leading indicator of institutional ETH positioning.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>$390B Wiped, $7B Liquidated — Steepest Weekly Decline Since FTX Collapse</h3>
+    <p>The numbers are staggering: <strong>$390 billion in total crypto market cap</strong> evaporated in the past week, with <strong>$7 billion in leveraged positions liquidated</strong> — the worst cascade since FTX's implosion in November 2022. The structural drivers: capital rotation to AI IPOs (Anthropic, OpenAI, SpaceX), zero Fed rate cuts priced for 2026, and a packed macro calendar this week (June 8-13) with critical inflation data. The Fear &amp; Greed Index at 12 (Extreme Fear) suggests capitulation is near-complete. Historical pattern: readings below 15 have preceded 30-60 day recovery windows in 7 of the last 9 instances. For exchange developers: this is the stress test your systems were built for — verify matching engine performance under sustained 3-5× normal volume and ensure liquidation engines handle cascades without degradation.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Research</span>
+    <strong>AI Agents Fail at Teamwork — Stanford HAI's Multi-Agent Coordination Problem</strong>
+    <p>A newly published Stanford HAI study reveals a critical limitation in the "multi-agent" paradigm everyone is rushing toward: <strong>when AI coding agents (Codex, Claude, etc.) are paired together, their output quality actually <em>declines</em></strong> compared to working alone. The agents struggle to manage code conflicts, lack "social intelligence" for coordination, and frequently overwrite each other's work without awareness. This directly challenges the industry narrative of "just throw more agents at it." The practical implication for teams: don't blindly parallelize — use <strong>strict file-level ownership boundaries</strong> where each agent owns specific files/modules with no overlap, combined with a "coordinator agent" that handles merge conflicts. The architectural pattern that works: hierarchical delegation (one planning agent → many execution agents with non-overlapping scope) rather than peer-to-peer collaboration.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">iOS · WWDC</span>
+    <strong>Declarative AI: @Generable and @Guide — SwiftUI Meets Foundation Models</strong>
+    <p>WWDC 2026's most developer-impactful announcement isn't a new framework — it's two Swift macros that fundamentally change how AI integrates with iOS apps. <strong><code>@Generable</code></strong> marks any Swift struct as AI-generatable: the Foundation Models Framework can instantiate it from natural language, handling parsing, validation, and type safety automatically. <strong><code>@Guide</code></strong> attaches contextual prompts to your data types, teaching the on-device AI about your domain without fine-tuning. Together, they create a <strong>declarative AI programming model</strong>: instead of imperative prompt engineering, you define <em>what</em> your AI can produce (typed Swift structs) and <em>how</em> it should reason (guides), and the system handles the rest. This is the SwiftUI moment for AI — just as SwiftUI replaced imperative UIKit layout with declarative views, @Generable replaces imperative prompt wrangling with declarative AI contracts.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Enterprise</span>
+    <strong>The AI Budget Crisis — When Developer Adoption Outpaces Finance Controls</strong>
+    <p>Microsoft canceling Claude Code licenses, Uber burning $3.4B in 4 months, and the industry-wide rush to usage-based billing reveals a new enterprise pattern: <strong>AI tool adoption is outrunning financial governance</strong>. Developers love these tools so much they maximize usage without cost awareness — the opposite of cloud computing's "FinOps" maturity. The emerging solution: <strong>AI FinOps</strong> — dedicated cost governance for AI agent spending, analogous to how cloud FinOps matured in 2019-2021. Practices: per-team AI budgets with automatic throttling, "spot instance" pricing for batch agent work (off-peak hours = 40% cheaper), and mandatory cost tags on every agent session. For engineering leaders: if you're deploying Claude Code or Codex to 50+ engineers without per-team budget caps and spend dashboards, you're 3 months away from your own "Microsoft moment." Implement AI FinOps controls now.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Session Videos — Foundation Models Framework, @Generable Deep Dive</a>
+      <span class="desc">All 200+ sessions now streaming. Priority queue: "Build with Foundation Models" (session 101), "Declarative AI with @Generable" (session 204), and "Migrate from Core ML to Core AI" (session 301).</span>
+    </li>
+    <li>
+      <a href="https://cursor.com/changelog">Cursor Composer 2.5 — Self-Correcting Multi-File Agent Architecture</a>
+      <span class="desc">Full technical deep-dive on how Composer 2.5's RL-trained recovery mechanism detects and escapes error loops. Includes benchmarks: 73% fewer human interventions vs. Composer 2.0 on complex refactoring tasks.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/pricing">Claude Code Headless Pricing — New Split Billing Model (June 15)</a>
+      <span class="desc">Official pricing documentation for the interactive vs. headless billing split. Includes migration guide, budget cap configuration, and billing tag setup for CI/CD agents.</span>
+    </li>
+    <li>
+      <a href="https://hai.stanford.edu/research">Stanford HAI: Multi-Agent Coordination in Software Engineering</a>
+      <span class="desc">The full research paper on why AI agents fail at teamwork. Includes quantitative benchmarks and architectural recommendations for hierarchical delegation patterns.</span>
+    </li>
+    <li>
+      <a href="https://zed.dev/blog">Zed Universal Agent Client Protocol — Open Standard for AI Editor Integration</a>
+      <span class="desc">Technical specification for the protocol that lets any AI model interact with editor state. Includes reference implementations for Claude, Gemini, and GPT backends.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-09T09:00:00Z · Monday Edition (Claude Code / Codex — Agentic Workflow Budget Control)</p>
+  <p>Dedup: 180+ stories filtered from past 5 days (Jun 4–Jun 8) · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>32</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — CoreML/MLX/iOS</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Crypto Markets</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 4–Jun 8)</td><td>✅ 180+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
