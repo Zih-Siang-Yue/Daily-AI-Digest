@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-10</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, June 10, 2026 · Issue #161 · WWDC Week Day 3 &amp; CPI Watch</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools: Cursor, Copilot &amp; Claude Code Advanced Usage</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Claude Code Safe Mode: Debug Broken Workspaces Without Disabling Everything Manually</strong>
+    <p>New in Claude Code v2.1.166: the <code>--safe-mode</code> flag (or <code>CLAUDE_CODE_SAFE_MODE=1</code> env var) boots a clean session with <strong>all custom plugins, hooks, CLAUDE.md overrides, and MCP servers disabled</strong>. This is your nuclear debugging option when a workspace becomes broken — bad MCP configs, infinite hook loops, or corrupted memory files that cause crashes on startup. Instead of manually hunting through <code>~/.claude/</code> config directories, run <code>claude --safe-mode</code>, verify the core agent works, then re-enable components one by one to isolate the failure. For teams with complex multi-MCP setups: alias <code>cs='claude --safe-mode'</code> in your shell profile. When a teammate reports "Claude Code won't start," this is step one — takes 2 seconds instead of 20 minutes of config archaeology. <a href="https://docs.anthropic.com/en/docs/claude-code/cli">CLI Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Fallback Models: Auto-Switch When Your Primary Model Hits Rate Limits</strong>
+    <p>The new <code>fallbackModel</code> setting (v2.1.168) lets you configure <strong>up to three backup models</strong> that Claude Code automatically rotates to when your primary model is overloaded or rate-limited. Configure in <code>.claude/settings.json</code>: <code>"fallbackModel": ["claude-4-6-sonnet", "claude-4-6-opus"]</code>. The agent seamlessly switches mid-task without losing context — you won't even notice the transition unless you check the session log. For teams on shared API keys that frequently hit Opus 4.8 rate limits during peak hours: set Sonnet 4.5 as your first fallback for fast completions, Opus 4.6 as second for complex reasoning. This eliminates the frustrating "model overloaded, try again later" interruptions that break flow state during deep coding sessions.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor</span>
+    <strong>Cursor's /cd Command — Change Working Directory Without Breaking Prompt Cache</strong>
+    <p>A deceptively powerful new addition in Cursor 3.7.2: the <code>/cd</code> command lets you change your working directory <strong>mid-session without invalidating the prompt cache</strong>. Previously, switching between monorepo modules meant either opening new windows (losing context) or manually referencing paths from root. Now: <code>/cd packages/ios-sdk</code> scopes all subsequent file references, completions, and agent actions to that directory — while preserving your conversation history and cached prompt context. For monorepo teams at Binance: this means hopping between <code>/cd packages/trading-engine</code> and <code>/cd packages/mobile-app</code> within a single session while the agent retains cross-module understanding. Combined with <code>@workspace</code> references, you get module-scoped precision with project-wide awareness.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code "Outcomes" — Self-Grading Loop Eliminates Lazy Code Generation</a></h3>
+    <p>Anthropic activated <strong>Outcomes</strong> in Claude Code v2.1.169 — a structural quality loop where the agent evaluates and verifies its own output against a quality threshold <em>before</em> presenting results to you. Instead of generating code and hoping it's correct, Claude now runs an internal grading pass: checking for edge cases, verifying type safety, testing logical consistency, and assessing whether the solution is genuinely complete or just superficially plausible. Early reports show a <strong>40% reduction in "lazy code"</strong> — those frustratingly incomplete implementations with TODO placeholders. For iOS developers: this is especially impactful for SwiftUI code generation where previous agents would emit views with hardcoded data or missing error states. Outcomes catches these before you see them.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple · WWDC</span>
+    <h3>Xcode 18 Beta Day 3: Strict UIScene Mandate Breaks Legacy Apps on iOS 27</h3>
+    <p>As developers dig into the Xcode 18 beta this week, the most impactful (and breaking) change is emerging: <strong>UISceneDelegate lifecycle is now completely mandatory</strong> on iOS 27. Apps that still rely on the traditional single-window AppDelegate pattern will crash on launch and push notifications will silently fail. This isn't a deprecation warning — it's a hard enforcement. Additionally, <strong>SiriKit is officially deprecated</strong> in favor of App Intents, meaning any Siri integration not yet migrated to the new system will stop working. For Binance iOS: if your app hasn't adopted UIScene (added in iOS 13 but previously optional), this is now a P0 migration before your iOS 27 SDK target ships. Use Claude Code's <code>--dynamic-workers</code> to parallelize the AppDelegate→UIScene refactor across all your entry points.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Apple · WWDC</span>
+    <h3>Core AI Framework Replaces Core ML — Image Input Support &amp; Server-Side Execution</h3>
+    <p>WWDC sessions released this week confirm the full scope of the <strong>Core AI</strong> framework replacing Core ML. Key new capabilities beyond what was announced in the keynote: the Foundation Models API now accepts <strong>image inputs alongside text</strong> (multimodal on-device inference), supports <strong>third-party foundation models</strong> (fine-tuned Llama/Mistral variants via GGUF), and enables <strong>server-side model execution</strong> via Apple's Private Cloud Compute. For developers with existing .mlmodel files: Apple is hosting dedicated migration sessions this week covering the Core ML → Core AI pathway. The practical implication: you can now run vision-language models on-device for tasks like receipt scanning, chart analysis, or UI understanding — all without leaving Apple's privacy sandbox.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3>Claude Code Configurable Effort: "Extra" and "Max" Thinking Modes for Complex Tasks</h3>
+    <p>Claude Code now lets you explicitly control <strong>how deeply the agent reasons</strong> via configurable effort levels. Set <code>--effort extra</code> (or <code>xhigh</code> in CLI) for complex architectural decisions, and <code>--effort max</code> for problems requiring deep multi-step reasoning. Conversely, "fast mode" for Opus 4.8 was optimized to complete routine tasks at <strong>2.5× speed for a fraction of the cost</strong>. The practical workflow: use fast mode for boilerplate generation, test scaffolding, and simple refactors (saves ~60% tokens). Switch to extra/max effort for system design, security reviews, and complex debugging where you need the model to think deeply before acting. Tag your CI/CD agent sessions with <code>--effort fast</code> to dramatically reduce automated pipeline costs.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Apple · IDE</span>
+    <h3>Xcode 18's On-Device AI Coding Assistant: No API Keys, No Cloud, No Training on Your Code</h3>
+    <p>Developers working with the Xcode 18 beta this week are reporting that Apple's <strong>built-in AI coding assistant</strong> is surprisingly capable — and entirely private. It runs via on-device models and Apple's Private Cloud Compute, requires no API key or account setup, and Apple explicitly guarantees your code is never used for training. The assistant now handles <strong>automatic app localization</strong> (generate string catalogs from natural language), <strong>direct simulator interaction</strong> (tell it to "tap the login button and screenshot the result"), and is extensible via <strong>custom skills</strong>. For teams evaluating whether Xcode 18's built-in AI replaces external tools: it won't replace Claude Code for complex multi-file agent tasks, but for single-file completions, localization, and UI iteration within SwiftUI previews, it's now competitive — and the privacy guarantees matter for enterprise compliance.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Workflow</span>
+    <h3>Claude Code "Outcomes" + Cursor Design Mode = Zero-Touch UI Iteration Pipeline</h3>
+    <p>A powerful new workflow pattern emerging from the WWDC developer community this week: combine <strong>Claude Code's Outcomes loop</strong> (self-grading code generation) with <strong>Cursor's Design Mode</strong> (visual UI editing) for zero-touch UI iteration. The pipeline: (1) Describe your desired UI change in Claude Code → agent generates SwiftUI code with self-verification. (2) Open the preview in Cursor's built-in browser with Design Mode → visually adjust spacing, colors, and layout by clicking/speaking. (3) Agent translates visual changes back to code modifications. The result: you go from concept to pixel-perfect UI without writing a single line manually. For iOS teams doing rapid prototyping during WWDC week: this pipeline lets you experiment with new iOS 27 visual styles (Liquid Glass, updated system components) at 10× the speed of manual iteration.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Enterprise</span>
+    <h3>App Intents Migration Sprint: How AI Agents Are Handling the SiriKit Deprecation</h3>
+    <p>With SiriKit officially deprecated in Xcode 18 and App Intents now mandatory for Siri integration, teams across the iOS ecosystem are using AI coding agents to <strong>automate the migration at scale</strong>. The pattern gaining traction: point Claude Code at your existing SiriKit intent definitions (<code>INIntent</code> subclasses) and instruct it to generate equivalent <code>AppIntent</code> structs with the new <code>@Generable</code> macro annotations for Foundation Models compatibility. Early reports show the agent handles 80-90% of straightforward intent migrations autonomously, with manual intervention needed only for custom UI extensions and complex parameter resolution. For teams with 20+ SiriKit intents: run this as a <code>--dynamic-workers 20</code> batch job — one agent per intent definition — and review the consolidated PR.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3>CPI Day: Crypto Braces for Hot Inflation Print — BTC Holds $61K–$63K</h3>
+    <p>Today is a <strong>critical inflection point</strong> for crypto markets: the US Consumer Price Index (CPI) release is expected to show +4.2% YoY — well above the Fed's 2% target. Bitcoin trades in a tight <strong>$61,000–$63,800</strong> range as traders position for the print. A hot CPI number would effectively confirm zero rate cuts in 2026 and potentially trigger another leg down toward $55K support. The FOMC meeting on June 17 is the next major catalyst. Market structure: leveraged longs have been flushed over the past week ($1.1B+ in liquidations), meaning current positioning is lighter — which paradoxically could limit downside if CPI comes in-line. Spot BTC ETF outflows have slowed to $180M/day (down from $400M/day last week), suggesting institutional capitulation may be nearing exhaustion.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">DeFi</span>
+    <h3>rsETH/KelpDAO Exploit Triggers Systemic DeFi Liquidity Shock — TVL Drops Billions</h3>
+    <p>A DeFi exploit targeting <strong>rsETH (KelpDAO's restaked ETH token)</strong> escalated into a systemic liquidity crisis across Ethereum lending protocols this week. What began as an isolated smart contract vulnerability quickly cascaded: utilization rates on major lending pools (Aave, Morpho) surged above 95%, triggering <strong>mass withdrawal rushes</strong> and creating a multi-billion-dollar drop in total DeFi TVL. The exploit exposed concentration risk in liquid restaking tokens — a single vulnerability in one protocol's pricing oracle propagated across the entire lending stack because rsETH was widely used as collateral. For DeFi developers: this is a textbook lesson in <strong>composability risk</strong> — audit your protocol's collateral dependencies, especially for LRT tokens where oracle manipulation can trigger cascade liquidations.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>ETH Slides Below $1,650 — Narrative Headwinds Mount Despite Technical Oversold</h3>
+    <p>Ethereum continues bleeding, trading at <strong>$1,620–$1,670</strong> after losing the $1,700 support level. Despite historically oversold RSI readings, multiple narrative headwinds are preventing a bounce: (1) The rsETH exploit shook confidence in Ethereum's DeFi composability thesis, (2) Fierce Layer-2 competition means minimal fee burn (ETH is back to <strong>slightly inflationary</strong>), (3) Institutional capital continues rotating to AI IPOs, and (4) Analysts now warn of a potential slide to $1,500 if CPI triggers broader risk-off. However, on-chain supply metrics remain bullish: exchange reserves at multi-year lows, staking deposits still growing, and whale addresses are accumulating at these levels. The disconnect between price action and supply fundamentals suggests ETH is a coiled spring — direction depends entirely on macro resolution.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Emerging</span>
+    <strong>Context Engineering — The Discipline That Replaced "Prompt Engineering"</strong>
+    <p>The hottest paradigm shift in AI development this week: <strong>Context Engineering</strong> is rapidly displacing "prompt engineering" as the core skill for building reliable AI systems. The distinction: prompt engineering focuses on crafting the perfect instruction text. Context engineering focuses on <strong>everything the model sees</strong> — system prompts, retrieved documents, tool definitions, conversation history, memory files, and environmental state. It's the engineering discipline of building dynamic systems that assemble the right context at the right time. For agent architects: your <code>CLAUDE.md</code> files, MCP tool schemas, memory configurations, and retrieval pipelines are all context engineering. The realization: a mediocre prompt with excellent context vastly outperforms a perfect prompt with poor context. Invest in your context assembly pipeline, not your prompt wording. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering">Deep dive →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">DeFi Risk</span>
+    <strong>LRT Composability Risk — When Liquid Restaking Tokens Become Systemic Contagion Vectors</strong>
+    <p>The rsETH/KelpDAO exploit crystallizes a structural risk the DeFi ecosystem has been ignoring: <strong>Liquid Restaking Tokens (LRTs) are composability time bombs</strong>. The pattern: LRTs like rsETH, ezETH, and pufETH are used as collateral across dozens of lending protocols simultaneously. A single oracle manipulation or depeg event cascades instantly across the entire DeFi stack because every protocol references the same underlying asset. Unlike traditional stETH (backed by established Lido infrastructure), newer LRTs have thinner liquidity, less battle-tested smart contracts, and complex redemption mechanics that break under stress. The architectural lesson for protocol developers: implement <strong>isolation modes</strong> for LRT collateral (separate risk pools), <strong>circuit breakers</strong> that pause lending when utilization spikes above 90%, and <strong>time-weighted oracles</strong> that resist flash manipulation.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Apple · Architecture</span>
+    <strong>The UIScene Migration Mandate — Apple's Forcing Function for Modern App Architecture</strong>
+    <p>Apple making UISceneDelegate <strong>mandatory</strong> on iOS 27 isn't just a lifecycle change — it's a deliberate forcing function to modernize app architecture patterns across the entire ecosystem. The UIScene model enables multi-window support, proper state restoration, better background processing, and clean separation between app lifecycle and UI lifecycle. Apps that resisted this migration for 7 years (since iOS 13) now face a hard deadline. The deeper architectural pattern: Apple is <strong>systematically removing escape hatches</strong> that allowed legacy patterns to persist — strict concurrency in Swift 6, mandatory UIScene in iOS 27, SiriKit→App Intents migration. Each forces apps toward modern, privacy-respecting, multi-model-compatible architectures. For engineering leaders: treat this as a signal to audit all "we'll migrate later" technical debt — Apple is no longer patient.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Sessions — Core AI Migration, App Intents, UIScene Deep Dives</a>
+      <span class="desc">Day 3 sessions now live. Priority: "Migrate from Core ML to Core AI" (session 301), "Adopt App Intents for Siri" (session 205), and "Mastering UIScene Lifecycle" (session 108). Labs available through Friday.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/cli">Claude Code v2.1.169 Release Notes — Safe Mode, Outcomes, Fallback Models</a>
+      <span class="desc">Full changelog for the latest Claude Code releases. Covers --safe-mode debugging, the Outcomes self-grading loop, configurable effort levels, and fallbackModel setup with examples.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering">Context Engineering Guide — Beyond Prompt Engineering</a>
+      <span class="desc">Anthropic's official documentation on building effective context systems. Covers memory management, tool schema design, retrieval strategies, and the shift from static prompts to dynamic context assembly.</span>
+    </li>
+    <li>
+      <a href="https://defillama.com/">DeFi Llama — Track TVL Impact from rsETH/KelpDAO Incident</a>
+      <span class="desc">Real-time DeFi TVL tracking. Monitor the systemic impact of the LRT exploit across Aave, Morpho, and other lending protocols. Filter by "Liquid Restaking" category to see affected protocols.</span>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/documentation/uikit/app_and_environment/scenes">Apple UIScene Documentation — Migration Guide for iOS 27 Mandate</a>
+      <span class="desc">Official Apple documentation on adopting UISceneDelegate. Includes step-by-step migration from AppDelegate-only lifecycle, multi-window support, and state restoration patterns.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-10T09:00:00Z · Wednesday Edition (AI Dev Tools — Cursor, Claude Code, Copilot Advanced Usage)</p>
+  <p>Dedup: 190+ stories filtered from past 5 days (Jun 5–Jun 9) · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code Features</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — WWDC/Xcode 18 Beta</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — Crypto Markets/CPI</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — AI IDE Tools</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>RSS — Hacker News AI</td><td>⚠️ 502 Error</td><td>0</td></tr>
+    <tr><td>RSS — Crypto Feeds</td><td>⚠️ Skipped (web OK)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 5–Jun 9)</td><td>✅ 190+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
