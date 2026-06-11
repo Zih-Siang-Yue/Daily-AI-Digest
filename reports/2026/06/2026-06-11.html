@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-11</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, June 11, 2026 · Issue #162 · WWDC Week Day 4 &amp; Post-CPI Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-Device ML: Apple Neural Engine, MLX, ONNX Mobile</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Edge AI</span>
+    <strong>Unlock the "Dark Accelerator": Run LLMs Directly on Apple Neural Engine via CoreML Tensor Layouts</strong>
+    <p>The AI research community cracked open Apple's Neural Engine for direct LLM inference this year — projects like <strong>"Orion" and "ANEgpt"</strong> have reverse-engineered the ANE's tensor layout requirements, enabling developers to bypass the CPU/GPU entirely and run billion-parameter models on the 16-core Neural Engine at extraordinary power efficiency. The practical workflow for iOS developers: convert your GGUF/MLX model to CoreML format using <code>coremltools.convert()</code> with the <code>compute_units=ct.ComputeUnit.NEURAL_ENGINE</code> flag, then optimize tensor shapes to match ANE's preferred <code>[1, C, 1, S]</code> layout (channels-first, sequence-last). The payoff: 3-5x better tokens/watt compared to GPU inference, meaning your on-device AI features drain significantly less battery. For Binance iOS: portfolio summarization and chart narration models become viable as always-on background features when running on ANE. <a href="https://developer.apple.com/documentation/coreml">CoreML Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">WWDC · Core AI</span>
+    <strong>Core AI PyTorch Extensions: Run Qwen, Mistral, and SAM 3 Locally on Apple Silicon — Zero Cloud Cost</strong>
+    <p>Announced in WWDC sessions this week, Apple's new <strong>Core AI PyTorch Extensions</strong> package lets you download, benchmark, and run open-source models (Qwen 3, Mistral-7B, SAM 3 for image segmentation) directly on Apple Silicon with zero token costs or cloud latency. The integration path: install via <code>pip install coreai-pytorch</code>, load any HuggingFace model, and the extension automatically converts it to an ANE-optimized format using MLX under the hood. For iOS deployment: export the optimized model as a <code>.mlpackage</code> and embed directly in your app bundle. The key insight from WWDC sessions: Apple is explicitly encouraging developers to treat open-source models as <strong>first-class citizens</strong> in the Apple AI ecosystem — not just Apple's own Foundation Models. This means you can ship custom fine-tuned Mistral variants for domain-specific tasks (like financial NLP) without paying per-token API fees.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Swift · Edge AI</span>
+    <strong>LanguageModel Protocol: Hot-Swap Between Foundation Models, Gemini, and Claude in Swift</strong>
+    <p>The new <strong>LanguageModel Protocol</strong> (announced in WWDC session 402) provides a unified Swift interface for swapping between Apple's on-device Foundation Models, Google Gemini (via server), and Anthropic Claude — all through a single <code>import LanguageModel</code> statement and Swift Package Manager dependency. The protocol defines a common <code>generate(prompt:options:)</code> API with streaming support, so your app code stays identical regardless of which backend is active. The routing logic: use Apple's free on-device model for simple tasks (summaries, classification), Gemini for multimodal vision tasks, and Claude for complex multi-step reasoning — all decided at runtime based on task complexity and network availability. For iOS teams: implement the protocol once, then A/B test different model backends with zero code changes. Combined with the <code>@Generable</code> macro, your typed Swift structs automatically serialize to whichever model is active. <a href="https://developer.apple.com/documentation/foundationmodels">Foundation Models Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3><a href="https://anthropic.com/news">Claude "Fable 5" Drops — Purpose-Built for Agentic Coding With Massive Token Efficiency</a></h3>
+    <p>Anthropic released <strong>Claude Fable 5</strong> on June 9 — a new model specifically optimized for autonomous coding workflows. Unlike the general-purpose Opus 4.8, Fable 5 is trained with heavy RL on multi-file edit tasks, achieving <strong>comparable code quality at 40% fewer tokens</strong>. It's now the default model inside Claude Code for routine tasks (reserving Opus for complex reasoning). GitHub immediately made Fable 5 available in Copilot on the same day. For teams managing AI budgets: switching routine Claude Code sessions to Fable 5 can cut your monthly spend significantly while maintaining output quality for standard refactoring, test generation, and feature implementation. Reserve <code>--effort max</code> with Opus 4.8 for architectural decisions only.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3>GPT-5.5 Ships Quietly — 52.5% Fewer Coding Hallucinations Than GPT-5.3</h3>
+    <p>OpenAI rolled out <strong>GPT-5.5</strong> this week — a retrained base model that specifically targets the #1 developer complaint: hallucinated APIs, non-existent method signatures, and confidently wrong code. Internal benchmarks show a <strong>52.5% reduction in coding hallucinations</strong> compared to GPT-5.3-Codex. The improvement comes from a new training methodology that cross-references generated code against actual package registries and documentation during RLHF. GPT-5.5 is already rolling out as the default for Codex CLI and will replace GPT-5.4 in ChatGPT Pro within weeks. For developers who switched away from OpenAI models due to hallucination issues: this is worth re-evaluating, especially for languages/frameworks where Claude's training data was also limited (niche Swift packages, proprietary SDKs).</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub</span>
+    <h3>GitHub Copilot Overhauls Billing: Usage-Based Credits Replace Flat Subscriptions</h3>
+    <p>GitHub fundamentally changed its Copilot business model on June 1, shifting from flat monthly subscriptions to <strong>usage-based billing with AI credits</strong>. The new tiers: <strong>Copilot Free</strong> (limited monthly credits), <strong>Copilot Pro</strong> ($19/mo with generous credits), and <strong>Copilot Max</strong> ($39/mo with priority access to frontier models). The key change: you now choose which model handles each request — Fable 5 for efficient routine tasks, Opus 4.8 for heavy reasoning — and pay different credit rates per model. For enterprise teams: this means your Copilot cost is now proportional to actual usage rather than per-seat. Teams with light users save money; power users who run background agents all day will pay more. Budget accordingly and set per-team credit caps via the new admin dashboard.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Codex</span>
+    <h3>Codex App 26.608: Import Your Claude Code Setup in One Click</h3>
+    <p>OpenAI shipped <strong>Codex App 26.608</strong> with a headline feature targeting Claude Code users: <strong>one-click migration flows</strong> that import your <code>.claude/</code> directory configs, MCP server definitions, memory files, and custom hooks directly into Codex's workspace. The migration wizard maps Claude Code concepts to Codex equivalents: <code>CLAUDE.md</code> → Codex System Prompt, MCP tools → Codex Connectors, hooks → Codex Workflows. Additionally, the update includes a revamped plugin marketplace (200+ verified enterprise connectors) and standalone web search within code mode. For teams evaluating a multi-tool strategy: you can now run both Claude Code and Codex against the same project with synchronized configurations, picking whichever agent handles specific task types better.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Open Source</span>
+    <h3><a href="https://github.com/nicepkg/opencode">OpenCode Hits 160K GitHub Stars — The Free Claude Code Alternative Goes Mainstream</a></h3>
+    <p><strong>OpenCode</strong> has exploded to become the most-adopted open-source coding agent ever built, crossing 160,000 GitHub stars this week. It provides a terminal-native agentic coding experience nearly identical to Claude Code — multi-file editing, tool use, background tasks, memory — but completely free with BYOK (Bring Your Own Key) support for any model provider via OpenRouter. The architecture: a lightweight Go binary that handles context management, file I/O, and tool execution locally, while routing inference to your chosen model (Claude, GPT, Gemini, or local via Ollama). For developers at companies with restrictive AI tool procurement: OpenCode sidesteps vendor lock-in concerns entirely since all processing is either local or through your own API keys. Combined with MCP tool support, it's genuinely production-ready for daily development work.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cognition</span>
+    <h3>Devin Desktop Launches: Windsurf Reborn as an Autonomous Agent Command Center</h3>
+    <p>Cognition officially launched <strong>Devin Desktop</strong> this month — the result of its 2025 acquisition of Codeium's Windsurf IDE, now rebuilt as an "Agent Command Center." The architecture merges Windsurf's fast local VS Code-fork editor experience with Devin's fully autonomous cloud agents. The workflow: write and review code locally in a snappy editor, then delegate complex tasks (large refactors, test suites, CI/CD debugging) to Devin cloud agents that run in sandboxed environments with their own compute. A Kanban-style <strong>"Agents Window"</strong> lets you manage up to 10 parallel agents, each working on different branches. For teams currently using Cursor: Devin Desktop's differentiator is true background autonomy — agents continue working after you close your laptop, with results waiting in your inbox the next morning.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google</span>
+    <h3>Antigravity CLI (Go): 289 Tokens/Second Makes It the Fastest Agentic Coding Tool Available</h3>
+    <p>Google's <strong>Antigravity CLI</strong> — the Go-based successor to the old Gemini CLI — is rapidly gaining developer adoption thanks to raw speed: it generates code via Gemini 3.5 Flash at <strong>289 tokens/second</strong>, nearly 4x faster than current Anthropic/OpenAI equivalents. The CLI is purpose-built for developers who prioritize latency over maximum reasoning depth. The sweet spot: rapid prototyping, boilerplate generation, test scaffolding, and documentation — tasks where speed matters more than deep architectural reasoning. For multi-tool workflows: use Antigravity CLI for high-velocity iteration loops (scaffold → test → iterate), then switch to Claude Code for the final architectural review pass. The Go binary is <strong>12MB with zero dependencies</strong>, installs in 2 seconds, and integrates natively with Google Cloud infrastructure for deployment. <a href="https://cloud.google.com/antigravity">Try Antigravity →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Macro</span>
+    <h3>CPI Lands at 4.2% but Core Cools — BTC Holds $61.7K as Markets Parse the Split Signal</h3>
+    <p>Yesterday's CPI print delivered a <strong>split signal</strong> that confused traders: headline inflation at 4.2% YoY (above the Fed's 2% target) but core CPI (excluding food and energy) came in at just 0.2% MoM — slightly cooler than expected. Bitcoin's response was muted, holding steady at <strong>$61,700–$62,200</strong> rather than the feared crash to $55K. The interpretation: the Fed now has cover to hold rates steady without hiking further, but cuts remain off the table for 2026. The Fear &amp; Greed Index sits at 9 (Extreme Fear) — the lowest reading in over a year. Spot BTC ETF outflows have now crossed <strong>$5.5 billion across 13 days</strong>. The FOMC meeting on June 17 is the next binary event. Historical pattern: extreme fear readings below 10 have preceded 30-60 day recoveries in 7 of the last 9 instances — but macro headwinds this cycle are structurally different.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3>CFTC Approves First-Ever Crypto Perpetual Futures for US Customers via Kalshi</h3>
+    <p>In a landmark regulatory move, the <strong>CFTC officially approved crypto perpetual futures</strong> for the first time in US history. Prediction market Kalshi received clearance to list a <strong>Bitcoin perpetual contract (BTCPERP)</strong> for US retail and institutional customers. This is monumental because perpetual futures — the dominant crypto derivative globally (representing 70%+ of all crypto trading volume on offshore exchanges) — were previously completely unavailable to US traders in a regulated venue. For exchange developers: this creates a regulated onshore competitor to Binance Futures, dYdX, and other offshore perps venues. Expect significant liquidity migration from unregulated to regulated perpetuals over the next 6-12 months. Build API integrations to Kalshi's clearing infrastructure now if you're in the US market. The broader signal: US regulators are choosing to <strong>domesticate DeFi-native instruments</strong> rather than ban them.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Sanctions</span>
+    <h3>EU's 21st Sanctions Package Explicitly Targets Crypto Infrastructure for First Time</h3>
+    <p>The European Commission unveiled its <strong>21st Russian sanctions package</strong> on June 10, and for the first time it directly targets crypto infrastructure: <strong>11 specific crypto exchanges are banned</strong> from EU transactions, and a new mechanism allows the EU to <strong>fully ban crypto services from entire non-EU jurisdictions</strong> operating in the bloc. This is the most aggressive crypto-specific sanctions enforcement ever proposed by a major regulatory body. For compliance teams at global exchanges: implement geo-blocking at the wallet level (not just IP), as the EU's enforcement mechanism will track on-chain flows to banned exchanges regardless of front-end access points. Additionally, screen all counterparty exchanges against the new EU Sanctions list (expected to be published in the Official Journal by June 20). This fundamentally changes the compliance stack from "screen users" to "screen infrastructure."</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulatory Shift</span>
+    <strong>Regulated Perpetuals — DeFi's Killer Instrument Goes Compliant</strong>
+    <p>The CFTC's approval of crypto perpetual futures represents a <strong>paradigm shift in how regulators approach DeFi-native financial instruments</strong>. Rather than banning perpetuals (as many expected), US regulators chose to create a regulated pathway — effectively acknowledging that perps are too important to crypto market structure to prohibit. The pattern: take the most successful DeFi innovation (perpetual futures with funding rates), wrap it in a regulated clearing structure (Kalshi's CFTC-supervised clearinghouse), and offer it to the same users who previously accessed it offshore. This is the <strong>"domestication" playbook</strong> — expect the same approach for on-chain options (Lyra, Aevo) and prediction markets next. For protocol developers: design your smart contracts to be "regulation-compatible" from day one — separable clearing layers, identity hooks, and auditable settlement — because regulators will prefer to domesticate rather than destroy.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Apple · Edge AI</span>
+    <strong>The Edge-First Mandate — Apple Penalizes Cloud-Dependent AI Apps in iOS 27</strong>
+    <p>WWDC 2026 sessions this week revealed Apple's aggressive new stance: iOS 27 inherently <strong>penalizes applications that rely on cloud LLM "API wrappers"</strong> through strict privacy protocols, mandatory data disclosure labels, and deprioritized background execution. Apple's message is clear — if your AI feature can run on-device, it <em>must</em> run on-device. Apps that route simple tasks (text classification, summarization, entity extraction) to cloud APIs when the Neural Engine is capable will face App Store review pushback and receive lower "privacy scores" visible to users. The architectural mandate for iOS developers: implement a <strong>tiered inference strategy</strong> — on-device Foundation Models for simple/medium tasks, Private Cloud Compute for complex reasoning, and third-party APIs (Claude/GPT) only for capabilities that genuinely exceed device hardware. With the M5 chip hitting 133 TOPS and the A19 Pro's expanded Neural Accelerators, the "device can't handle it" excuse covers far fewer use cases than a year ago.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Developer Tools</span>
+    <strong>The Model Router Pattern — Multi-Model Orchestration Replaces Single-Provider Lock-In</strong>
+    <p>A clear architectural pattern has crystallized across WWDC, GitHub Copilot's billing changes, and the proliferation of BYOK tools this week: the <strong>Model Router</strong> is becoming standard infrastructure. Instead of hardcoding a single AI provider, production applications now dynamically route requests to different models based on task complexity, cost, latency requirements, and availability. Apple's LanguageModel Protocol, Copilot's per-model credit pricing, OpenCode's multi-provider routing, and Cursor's model menu all implement the same pattern: a thin routing layer that matches each request to the optimal model. For iOS developers: abstract your AI calls behind a router protocol today. The practical benefits — cost optimization (use cheap Flash models for simple tasks), resilience (automatic fallback when one provider rate-limits), and future-proofing (swap in tomorrow's model without code changes) — compound dramatically at scale. This is the "dependency injection" pattern, but for AI.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Sessions — Core AI PyTorch Extensions, LanguageModel Protocol, Neural Engine Deep Dives</a>
+      <span class="desc">Day 4 sessions now streaming. Priority: "Run Open Models on Apple Silicon" (session 405), "The LanguageModel Protocol" (session 402), and "Optimizing for Apple Neural Engine" (session 507).</span>
+    </li>
+    <li>
+      <a href="https://github.com/nicepkg/opencode">OpenCode — Open-Source Terminal Coding Agent (160K+ Stars)</a>
+      <span class="desc">The fastest-growing open-source Claude Code alternative. Go binary, BYOK multi-provider, MCP tool support, and full agentic workflows. Zero vendor lock-in.</span>
+    </li>
+    <li>
+      <a href="https://anthropic.com/news">Claude Fable 5 — Purpose-Built Coding Model Release Notes</a>
+      <span class="desc">Technical details on the new Fable 5 model: training methodology, token efficiency improvements, supported task types, and integration with Claude Code and GitHub Copilot.</span>
+    </li>
+    <li>
+      <a href="https://www.kalshi.com/markets/btcperp">Kalshi BTCPERP — First Regulated US Crypto Perpetual Futures</a>
+      <span class="desc">Contract specifications, margin requirements, funding rate mechanics, and trading hours for the CFTC-approved Bitcoin perpetual. A milestone for US crypto derivatives.</span>
+    </li>
+    <li>
+      <a href="https://cloud.google.com/antigravity">Google Antigravity CLI — The Fastest Agentic Coding Tool</a>
+      <span class="desc">Official docs for the Go-based CLI. 289 tok/s via Gemini 3.5 Flash, 12MB binary, zero dependencies. Includes quickstart, GCP integration, and multi-agent orchestration guides.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-11T09:00:00Z · Thursday Edition (Edge AI / On-Device ML — Apple Neural Engine, MLX, ONNX Mobile)</p>
+  <p>Dedup: 200+ stories filtered from past 5 days (Jun 6–Jun 10) · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>32</td></tr>
+    <tr><td>Web Search — Edge AI/Neural Engine</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — Crypto Markets/CPI</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — CoreML/MLX</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 6–Jun 10)</td><td>✅ 200+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
