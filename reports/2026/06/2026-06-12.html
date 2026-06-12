@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-12</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, June 12, 2026 · Issue #163 · SpaceX IPO Day &amp; WWDC Week Finale</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering: RAG, Tool Use, Agent Architecture</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Infra</span>
+    <strong>OpenAI Responses API: Replace Assistants API With a Simpler, Faster Agent Backbone</strong>
+    <p>OpenAI shipped the <strong>Responses API</strong> this week — a clean replacement for the now-deprecated Assistants API. It combines the simplicity of Chat Completions with built-in state management, tool use (web search, computer use, file search), and streaming — everything you need for production agentic apps in a single endpoint. The key improvement: instead of managing threads, runs, and message objects separately, Responses API handles all state internally with a single <code>POST /responses</code> call. For iOS developers building AI-powered features: this dramatically simplifies your backend if you're routing mobile app requests to OpenAI. Previously you needed 5+ API calls to manage an assistant session; now it's one call with automatic context windowing. Pair with the new <strong>Agents SDK</strong> (now production-ready) for sandboxed code execution and Lockdown Mode protection against prompt injection. <a href="https://platform.openai.com/docs/api-reference/responses">API Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MCP</span>
+    <strong>MCP Is Now Universal: Xcode, IntelliJ, VS Code All Speak the Same Agent Protocol</strong>
+    <p>As of WWDC this week, <strong>Model Context Protocol (MCP)</strong> has achieved universal IDE adoption — Apple's Xcode 18, JetBrains IntelliJ 2026.2, and VS Code all natively support MCP as the standard interface between AI agents and development environments. This means any MCP tool you build works identically across all three IDEs without modification. The practical implication for tool authors: write one MCP server (e.g., a custom linter, database connector, or internal API bridge) and it instantly works in Cursor, Claude Code, Xcode's agent workbench, and IntelliJ's AI assistant. For iOS teams: build internal MCP tools that bridge your CI/CD systems (Fastlane, Xcode Cloud) into any agent — a <code>fastlane-mcp</code> server lets Claude Code trigger builds, run tests, and fetch crash logs without leaving the terminal. The protocol's <code>tools/list</code> and <code>tools/call</code> primitives are simple enough to implement in an afternoon. <a href="https://modelcontextprotocol.io/docs">MCP Spec →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Architecture</span>
+    <strong>Nvidia Nemotron 3 Ultra: 550B Open-Weight Model With 1M Context for Tool-Calling Agents</strong>
+    <p>Nvidia released <strong>Nemotron 3 Ultra</strong> on Hugging Face — a 550-billion-parameter Mixture-of-Experts model with a <strong>1-million-token context window</strong>, explicitly designed for long-running agentic tool-calling workflows. Unlike general chat models, Nemotron 3 Ultra is optimized for scenarios where agents need to maintain context across hundreds of tool invocations, file reads, and multi-step reasoning chains. The architecture: 128 experts with 8 active per token, delivering frontier-quality reasoning at inference costs comparable to a 70B dense model. For teams building self-hosted AI infrastructure: this is the first open-weight model that genuinely competes with Claude/GPT for agentic tasks while running on your own hardware (8× H100 minimum). Deploy via <code>vllm serve nvidia/nemotron-3-ultra</code> with automatic MoE sharding. The 1M context window means your agent never loses track of a multi-file refactoring session. <a href="https://huggingface.co/nvidia/nemotron-3-ultra">Hugging Face →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Security</span>
+    <h3>Claude Code Security Patch: /proc/self/environ Exploit Exposed API Keys to Malicious Repos</h3>
+    <p>A critical vulnerability disclosed on June 11 revealed that Claude Code's "Read" tool could be tricked into accessing <code>/proc/self/environ</code> — the Linux file containing all environment variables, including your <strong>Anthropic API key</strong>. A malicious repository could embed a crafted <code>.claude/settings.json</code> that instructed the agent to read this path and exfiltrate the key via a seemingly innocent code comment or git commit message. The vulnerability was patched in <strong>version 2.1.128</strong>. <strong>Action required:</strong> (1) Update Claude Code immediately: <code>claude update</code>. (2) Rotate your Anthropic API key if you've cloned untrusted repos since May. (3) For defense-in-depth, run Claude Code inside containers or use the new <code>--sandbox</code> flag that restricts filesystem access to the project directory only. This is a reminder: AI agents with filesystem access are an attack surface — treat them like any other privileged process.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google</span>
+    <h3><a href="https://one.google.com/about/plans">Google Slashes Gemini AI Plus to $4.99/mo — Undercutting Everyone</a></h3>
+    <p>Google dropped the price of its <strong>Gemini AI Plus</strong> subscription from $8/month to <strong>$4.99/month</strong> while simultaneously doubling included Google Drive storage to 400GB. This directly undercuts OpenAI's cheapest tier (ChatGPT Go at $8/mo) and makes Anthropic's $20/mo Claude minimum look expensive for casual users. The strategic play: Google is commoditizing AI access to drive Google Cloud adoption — cheap consumer AI creates habits that funnel enterprise workloads to GCP. For developers evaluating AI costs: Gemini 3.5 Flash at $4.99/mo is now the cheapest way to access a frontier-quality model for personal productivity. The catch: the Plus tier limits you to Flash-class models. Pro/Ultra still require the $19.99 tier. For teams building consumer AI features: Google's aggressive pricing signals that AI access will trend toward free — differentiate on <em>integration quality</em> and <em>domain-specific fine-tuning</em>, not raw model access.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub</span>
+    <h3>GitHub Copilot SDK Hits GA — Embed Agent Runtime in Your Own Apps</h3>
+    <p>GitHub transitioned Copilot from an IDE extension into a <strong>full platform</strong> with the General Availability of the <strong>Copilot SDK</strong>. Developers can now embed Copilot's agent runtime — including multi-turn sessions, tool invocation, code generation, and context management — directly into custom applications. The SDK exposes the same agent loop that powers Copilot in VS Code, but accessible via a TypeScript/Python library. For iOS teams building internal dev tools: embed the Copilot SDK into your PR review dashboards, migration planning tools, or code health monitors. The agent handles the reasoning; you control the UI and data sources. Combined with GitHub's new credit-based billing, you pay per invocation rather than per seat — making it cost-effective for batch operations like nightly code quality reports or automated changelog generation. <a href="https://docs.github.com/copilot/sdk">SDK Docs →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft</span>
+    <h3>MAI-Code-1-Flash: Microsoft's In-House Coding Model Joins the Copilot Picker</h3>
+    <p>Microsoft began rolling out <strong>MAI-Code-1-Flash</strong> — its proprietary, internally developed coding model — directly into the VS Code Copilot model picker. Positioned as a hyper-fast, low-cost alternative to Claude Haiku 4.5 and Gemini Flash, MAI-Code-1-Flash is optimized for single-file completions, inline suggestions, and rapid autocomplete where latency matters more than deep reasoning. Early benchmarks show <strong>sub-200ms response times</strong> on commodity hardware. For developers who find Claude/GPT too slow for real-time autocomplete: MAI-Code-1-Flash fills the "instant suggestion" role while you reserve heavier models for multi-file agent tasks. The model is free for all Copilot tiers and doesn't consume AI credits — Microsoft is subsidizing it to keep developers in the VS Code ecosystem.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Industry Data</span>
+    <h3>The Vibe Coding Productivity Paradox: 90% Adoption, 45% Security Failure Rate</h3>
+    <p>A <em>Forbes</em> report published June 11 quantifies the dark side of the agentic revolution: while <strong>90% of developers now use AI coding tools daily</strong> and vibe coding has completely saturated the market, up to <strong>45% of AI-generated code is failing security benchmarks</strong>. Developers are pushing unreviewed agent-generated code to production, introducing massive technical debt. Gartner predicts a <strong>2,500% increase in software defects</strong> by 2028 if strict governance isn't applied. The industry response: companies are pulling senior engineers away from writing code and repositioning them as "human operators" — architects whose sole job is to review agentic PRs and ensure system safety. For iOS teams: implement mandatory security scanning (SAST/DAST) in your CI pipeline that specifically targets AI-generated patterns. Tools like Snyk and Semgrep now have "AI-generated code" rulesets that catch the unique vulnerability patterns agents introduce.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Collaboration</span>
+    <h3>Roo Code "Roo Remote": Bring AI Coding Agents Into Slack for Non-Technical Teams</h3>
+    <p><strong>Roo Code</strong> (a popular VS Code extension with 800K+ installs) is experimenting with <strong>"Roo Remote"</strong> — bringing coding agents directly into collaborative platforms like Slack so non-technical team members can assign tickets to AI agents as if they were human developers. The workflow: a product manager types <code>@roo fix the login button alignment on iOS</code> in a Slack channel, and a cloud-hosted Roo agent picks up the task, creates a branch, makes the fix, runs tests, and opens a PR — all without a developer touching their IDE. For mobile teams: this extends the "Codex Sites" pattern (non-engineers using AI tools) into actual codebase changes. The governance model: Roo Remote agents can only target files within pre-approved directories and require human approval before merge. This is the "ticket-to-PR" pipeline that every engineering manager has been dreaming about — but requires strict guardrails to prevent chaos.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google</span>
+    <h3>WebMCP: Model Context Protocol Comes to Chrome 149 — Agents in the Browser</h3>
+    <p>Google launched an <strong>origin trial for WebMCP in Chrome 149</strong>, bringing the Model Context Protocol directly to the browser. This means web applications can now expose MCP tool endpoints that AI agents discover and invoke without custom API wrappers. The implication: your web-based admin panels, dashboards, and internal tools become instantly "agent-accessible" — an AI assistant can navigate, query, and act on your web apps through standardized MCP calls rather than brittle screen-scraping. For teams building internal tools at Binance: add MCP annotations to your web dashboards and any AI agent (Claude, Gemini, Copilot) can query trade data, pull reports, or trigger workflows through the browser. The origin trial is open now — ship MCP-annotated pages and test with Chrome Canary. <a href="https://developer.chrome.com/docs/webmcp">Chrome WebMCP Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">IPO · Macro</span>
+    <h3>SpaceX IPO Day: $1.75T Valuation Drains Crypto Liquidity — BTC Edges to $63.3K</h3>
+    <p>Today marks the historic <strong>SpaceX IPO</strong> — the largest public offering in history at a ~$1.75 trillion valuation. With 20-30% of shares allocated to retail investors, analysts are warning of a massive <strong>"liquidity drain"</strong> from crypto markets as retail traders liquidate BTC and ETH positions to fund SPCX share purchases. Binance has even opened full-share limit orders for SpaceX stock to meet demand. Bitcoin edged up 1.9% to <strong>$63,331</strong> on a modest relief bounce, but remains deep in bearish territory (50-day EMA at $71,677). The SpaceX S-1 revealed the company holds <strong>18,712 BTC (~$1.2B)</strong> on its corporate balance sheet — a long-term bullish signal for institutional adoption even as short-term flows are negative. Market sentiment remains at Extreme Fear. The FOMC meeting on June 17 is the next binary catalyst.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum</span>
+    <h3>ETH Perpetual Open Interest Hits All-Time High on Binance — Massive Volatility Ahead</h3>
+    <p>Despite Ethereum trading at deeply oversold levels (~<strong>$1,665</strong>), perpetual contract open interest on Binance just hit an <strong>all-time record of 3.7 million ETH</strong>. This paradox — extremely bearish price action combined with record-high speculative positioning — historically precedes explosive directional moves. Translation: a massive amount of capital is betting on ETH's next move, but the direction is unclear. Combined with today's PPI data release and the FOMC next week, ETH is coiling for a violent resolution. For exchange developers: ensure your risk engine and liquidation infrastructure can handle cascading scenarios in both directions. The last time OI was this elevated relative to spot price (November 2022), ETH moved 40% within 21 days. Whether that's up or down depends entirely on macro. Watch the $1,550 support and $1,800 resistance as trigger levels.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3>Japan Reclassifies Crypto as Financial Instruments — 20% Tax Rate, Spot ETFs Coming</h3>
+    <p>Japan's parliament is poised to pass landmark legislation <strong>reclassifying crypto assets as financial instruments</strong> — putting them on the same regulatory tier as stocks and bonds. The practical impact: capital gains tax drops from a maximum of <strong>55% to a flat 20%</strong> (phased by 2028), and the framework paves the way for domestic spot crypto ETFs. To balance the friendly tax environment, the bill heavily increases penalties for insider trading and unregistered selling (up to 10 years prison), creating a "high-trust ecosystem" for institutional participation. For global exchanges: Japan becomes the most tax-competitive G7 nation for crypto. Expect increased Japanese institutional flow into BTC/ETH spot products. The compliance requirement: implement strict market surveillance and insider trading detection for Japanese-domiciled users before the law takes effect.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security Crisis</span>
+    <strong>The AI Security Gap — When Velocity Outpaces Verification</strong>
+    <p>The convergence of this week's data points — 45% of AI-generated code failing security benchmarks, the Claude Code /proc exploit, and Gartner's 2,500% defect prediction — crystallizes the industry's most urgent problem: <strong>code production velocity has massively outpaced security verification capacity</strong>. We can generate code 10× faster, but our review/testing/security infrastructure was built for human-speed development. The emerging architectural response: <strong>"shift-left agent security"</strong> — where every AI agent invocation passes through a security middleware layer (think: a WAF but for code generation) that scans output for vulnerability patterns before it reaches the filesystem. Companies implementing this pattern: Snyk's "AI Code Firewall," Semgrep's "Agent Guard," and GitHub's new "Copilot Trust Center." For engineering leaders: budget for security tooling at the same rate you're budgeting for AI agent licenses — the ratio should be 1:1, not the current industry average of 1:8.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulatory</span>
+    <strong>The MiCA Cliff — July 1 Deadline Forces DeFi's Identity Crisis</strong>
+    <p>The EU's <strong>MiCA transitional period ends July 1, 2026</strong> — just 19 days away. Crypto asset service providers (CASPs) operating without a formal MiCA license will be forced to halt EU operations. But the deeper story is the <strong>"DeFi Dilemma"</strong> EU regulators have publicly acknowledged: MiCA was written for entities and persons, not autonomous smart contracts. EU advisor Peter Kerstens stated lawmakers need an entirely "new theory" to regulate DeFi because traditional law cannot apply to automated networks with no controlling party. The interim solution: the UK's "controlling-person test" (if an identifiable person controls a regulated activity, rules apply regardless of decentralization claims) and the CFTC's "domestication" approach (wrap DeFi instruments in regulated wrappers). For protocol developers: the regulatory direction is clear — <strong>permissionless execution with identifiable governance</strong>. Build your protocols with separable compliance layers that can activate per-jurisdiction without compromising the core protocol's permissionless nature.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Platform Shift</span>
+    <strong>The Composable AI Stack — No Single Winner, Just Best-in-Class Routing</strong>
+    <p>June 2026's landscape has settled into a definitive architectural pattern: there is no single "best" AI coding tool — there's a <strong>composable stack</strong> where each tool handles what it does best. The emerging standard: <strong>Cursor</strong> for visual, multi-file IDE editing with Design Mode. <strong>Claude Code</strong> in the terminal for deep codebase reasoning and massive architectural refactors. <strong>Codex</strong> in the cloud for asynchronous fire-and-forget PRs and non-engineering automation. <strong>Antigravity</strong> for velocity-first prototyping via Gemini Flash. <strong>Xcode 18</strong> for privacy-first on-device completions. The architectural insight: developers who commit to a single tool are leaving performance on the table. The optimal setup routes each task to the best-fit agent — exactly the Model Router pattern from this week's WWDC announcements, but applied to your development workflow itself. The MCP universal protocol makes this composability frictionless for the first time.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://platform.openai.com/docs/api-reference/responses">OpenAI Responses API — The New Standard for Agentic App Backends</a>
+      <span class="desc">Official API reference for the Assistants API replacement. Covers single-call state management, built-in tool use (web search, code execution, file I/O), and streaming. Migration guide from Assistants included.</span>
+    </li>
+    <li>
+      <a href="https://huggingface.co/nvidia/nemotron-3-ultra">Nvidia Nemotron 3 Ultra — 550B MoE Model for Agentic Tool-Calling</a>
+      <span class="desc">Model card, deployment guide, and benchmark results. 1M context window, 128 experts/8 active, optimized for long-running agent sessions. Includes vLLM serving configs and quantization options.</span>
+    </li>
+    <li>
+      <a href="https://modelcontextprotocol.io/docs">Model Context Protocol (MCP) Specification — Universal Agent-IDE Standard</a>
+      <span class="desc">The protocol spec now adopted by Xcode, IntelliJ, VS Code, Cursor, and Claude Code. Covers tool discovery, invocation, and resource management. Build one MCP server, deploy everywhere.</span>
+    </li>
+    <li>
+      <a href="https://docs.github.com/copilot/sdk">GitHub Copilot SDK — Embed Agent Runtime in Custom Applications</a>
+      <span class="desc">GA documentation for the Copilot platform SDK. TypeScript/Python libraries, multi-turn session management, tool registration, and credit-based billing integration. Build custom AI dev tools on GitHub's infrastructure.</span>
+    </li>
+    <li>
+      <a href="https://developer.chrome.com/docs/webmcp">Chrome WebMCP Origin Trial — MCP in the Browser</a>
+      <span class="desc">Developer guide for adding MCP annotations to web applications. Make your internal dashboards agent-accessible without building custom API bridges. Chrome 149+ required.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-12T09:00:00Z · Friday Edition (AI Infra &amp; Prompt Engineering — RAG, Tool Use, Agent Architecture)</p>
+  <p>Dedup: 220+ stories filtered from past 5 days (Jun 7–Jun 11) · 15 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Crypto Markets/SpaceX IPO</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — RAG/Agent Architecture</td><td>⚠️ Timeout</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 7–Jun 11)</td><td>✅ 220+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
