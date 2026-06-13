@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-13</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, June 13, 2026 · Issue #164 · Post-WWDC Week Wrap &amp; SpaceX IPO Aftermath</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — BEST OF WEEK ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The Most Impactful Tips Revisited</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Apple · Core AI</span>
+    <strong>Core AI <code>.aimodel</code> Export Pipeline: The Production-Ready MLX → .aimodel Workflow</strong>
+    <p>This week confirmed the full <strong>MLX → coreai-torch → .aimodel</strong> pipeline is production-ready for iOS developers. The workflow: fine-tune your model on Mac using <strong>MLX</strong> (now with Metal 4 GPU acceleration and distributed training over Thunderbolt mesh for multi-Mac setups), then export with <code>coreai.llm.export --format aimodel --quantize int4</code> to produce an optimized <code>.aimodel</code> bundle ready for Core AI deployment. Key detail: <code>int4</code> quantization is critical — it halves the on-device footprint without measurable quality regression for instruction-following tasks. For iOS teams: add the export step to your Xcode Cloud pipeline so every merged fine-tune automatically produces a signed <code>.aimodel</code> artifact. The pipeline now supports LoRA adapters natively, meaning you can ship a base model once and swap adapters per-feature without redownloading the full weights. <a href="https://developer.apple.com/documentation/coreai">Core AI Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Apple · Foundation Models</span>
+    <strong>Free Private Cloud Compute for Apps Under 2M Downloads — Zero-Cost Cloud Inference</strong>
+    <p>Apple's post-WWDC clarification this week is huge: apps with <strong>under 2 million downloads</strong> qualify for the <strong>free tier of Private Cloud Compute (PCC)</strong>, meaning you can route requests to Apple's server-side Foundation Models at zero cost. Combined with the new <strong>LanguageModel Protocol</strong> — a Swift API for multi-model routing that transparently selects between on-device and cloud inference based on request complexity, battery state, and network conditions — you get a production-quality AI backend without provisioning a single server. The practical workflow: declare <code>LanguageModelSession(policy: .adaptive)</code> and Core AI handles routing automatically; simple completions run on-device, complex multi-turn sessions route to PCC. For most indie apps and internal Binance iOS tools: this means <strong>$0 AI inference costs</strong> until you hit 2M downloads. After that, PCC pricing scales per compute-second — far cheaper than equivalent GPT-4o API calls. Implement the LanguageModel Protocol now to future-proof your routing logic as the threshold evolves. <a href="https://developer.apple.com/documentation/foundationmodels">Foundation Models Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Agentic</span>
+    <strong>Dynamic Workflows with Parallel Sub-Agents: 2.5× Speed for Repo-Wide Migrations</strong>
+    <p>Anthropic's <strong>Dynamic Workflows</strong> feature — now shipping in Opus 4.8 — is the week's most impactful productivity upgrade. It lets Claude Code automatically plan and spawn <strong>hundreds of parallel sub-agents</strong> across your codebase, each tackling an isolated chunk of a large migration in parallel. Use <code>claude --dynamic-workers 16</code> to set the parallelism budget (default: 4). Real-world benchmark: a Swift 5 → Swift 6 concurrency migration across a 400-file monorepo completed in <strong>11 minutes vs. 28 minutes</strong> sequentially — 2.5× faster. The orchestrator agent generates a dependency graph first (which files can be migrated independently), then fans out workers with isolated git worktrees per agent to avoid merge conflicts. Each sub-agent commits to its branch; the orchestrator merges and resolves conflicts in a final pass. <strong>Best practice:</strong> set <code>--dynamic-workers</code> to your CPU core count minus 2 to avoid system thrash. For Binance iOS: this is ideal for App Intents migrations, UIScene refactors, and any deprecation sweep touching dozens of files. <a href="https://docs.anthropic.com/claude-code/dynamic-workflows">Dynamic Workflows Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Infrastructure</span>
+    <h3><a href="https://openai.com/blog/ona-acquisition">OpenAI Acquires Ona — Persistent Cloud Sandboxes for Multi-Day Agents</a></h3>
+    <p>OpenAI is acquiring <strong>Ona</strong>, a startup specializing in persistent sandbox environments — the missing infrastructure layer for agents that need to run tasks spanning <strong>multiple days</strong>, even after a user closes their laptop. Today's Codex agents die when your session ends; with Ona's technology, the agent's execution environment (filesystem state, running processes, browser sessions, terminal history) is serialized to cloud storage and resumed transparently. The practical implication: Codex can now accept a ticket on Monday ("refactor our entire authentication module"), work through it autonomously over 72 hours, and surface a complete PR on Thursday — without a single open browser tab. For iOS teams: this unlocks "set it and forget it" refactors for large-scale migrations. Expect Ona-powered persistence in Codex Pro tiers by Q3 2026.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Business</span>
+    <h3>Anthropic Hits First Profitable Quarter — IPO Filing at $965B Valuation</h3>
+    <p>Anthropic is approaching its <strong>first profitable quarter</strong>, fueled almost entirely by <strong>Claude Code enterprise seat growth</strong> and the API business that powers third-party agentic applications. The company has filed S-1 paperwork targeting a public listing at a <strong>$965 billion valuation</strong> — making it the second-largest AI IPO ever, trailing only OpenAI's $852B listing. The profitability signal matters: it validates the "AI developer tooling" business model at scale and suggests Claude Code's per-seat pricing (~$100/mo enterprise) is converting and retaining at rates that cover Anthropic's substantial inference costs. For developers and Binance platform teams evaluating long-term AI vendor lock-in: Anthropic's financial health reduces the risk of abrupt pricing changes or service shutdowns. The IPO also means audited financials — transparency that enterprise buyers have been demanding.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Defense · Policy</span>
+    <h3>Pentagon Shifts 2/3 of AI Workload Away from Anthropic — OpenAI/Google/Microsoft Fill Gap</h3>
+    <p>The DoD quietly moved approximately <strong>two-thirds of its AI workload</strong> from Anthropic to OpenAI, Google, and Microsoft after Anthropic refused to enable <strong>autonomous weapons systems without mandatory human oversight</strong> on every lethal decision. Anthropic's Constitutional AI principles explicitly prohibit deployment patterns where the model makes irreversible physical-world decisions without a human in the loop — a dealbreaker for certain DoD use cases. The contracts reallocated are worth an estimated $2.4B over five years. The broader implication: AI labs are increasingly bifurcating into "Constitutional" (Anthropic, Cohere) vs. "Compliant" (OpenAI, Google) camps on defense use. For enterprise architects: this signals that Anthropic will maintain strict usage policy constraints even at massive revenue cost — which is actually a feature, not a bug, for civilian enterprise deployments that need predictable model behavior.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Mistral · Rebrand</span>
+    <h3><a href="https://mistral.ai/vibe">Mistral Rebrands Le Chat as "Vibe" — VS Code Extension with Isolated Sandbox Sessions</a></h3>
+    <p>Mistral AI rebranded <strong>Le Chat</strong> to <strong>"Vibe"</strong> and simultaneously launched a VS Code extension that brings isolated sandbox sessions and parallel coding agents directly into the IDE. Each Vibe session runs in a fully isolated container — code changes, npm installs, and terminal commands are sandboxed and reversible. The parallel agents feature lets you run up to 4 independent Vibe sessions on different tasks simultaneously, each with its own sandbox, then review and merge the diffs. Critically, Vibe is powered by Mistral's latest Codestral model — which benchmarks competitively with GPT-4o on Python/TypeScript while running at significantly lower latency for European-hosted workloads. For GDPR-conscious teams: Vibe's EU-only data residency option makes it the only frontier coding assistant with guaranteed data sovereignty. <a href="https://marketplace.visualstudio.com/items?itemName=mistralai.vibe">VS Code Marketplace →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Model</span>
+    <h3><a href="https://blog.jetbrains.com/rider/2026/06/mellum2">JetBrains Mellum2 — 12B Open-Source Model for Low-Latency Coding in Rider 2026.2</a></h3>
+    <p>JetBrains released <strong>Mellum2</strong>, their in-house 12-billion-parameter open-source model, in <strong>Rider 2026.2 EAP</strong>. Designed specifically for real-time IDE completions, Mellum2 delivers sub-100ms suggestion latency for C#, Kotlin, and Swift — comparable to GitHub Copilot's speed but running <strong>fully on-device</strong> via Apple Silicon or CUDA. The key new feature alongside Mellum2: <strong>quality-check hooks</strong> that automatically run after every AI agent output, evaluating completions against your project's style guide, test coverage thresholds, and security rules before they appear in the editor. Think of it as a built-in reviewer that catches obvious mistakes before you even see them. For teams on Rider: enable Mellum2 in Settings → AI Assistant → Local Model and combine it with the quality hooks to get fast completions with automated guardrails — no cloud dependency required.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Migration</span>
+    <h3>Google Deprecates Gemini Code Assist on June 18 — Forced Migration to Antigravity</h3>
+    <p>Google officially confirmed the <strong>June 18 sunset</strong> of both the Gemini CLI and all Gemini Code Assist IDE extensions (VS Code, JetBrains, and standalone). All users are being migrated to <strong>Antigravity</strong> — Google's rebranded, restructured AI developer tooling platform powered by Gemini Flash. The migration is not seamless: Antigravity uses a different authentication model (OAuth2 + workspace scoping vs. API key), different config file format (<code>.antigravity/config.yaml</code> vs. <code>.gemini/</code>), and deprecates the <code>@workspace</code> context command in favor of Antigravity's native repo-indexing. If you have Gemini Code Assist in your CI pipelines or VS Code settings sync: <strong>you have 5 days to migrate</strong>. Priority action: export your Gemini workspace context, install the Antigravity extension, re-authenticate, and re-index your repos. <a href="https://antigravity.dev/migrate">Migration Guide →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Mining</span>
+    <h3><a href="https://mempool.space/mining">Bitcoin Mining Difficulty Drops 10.7% — First "Hashrate Bear Market" of This Cycle</a></h3>
+    <p>Bitcoin's network just confirmed a historic <strong>10.7% downward difficulty adjustment</strong> — the largest single drop of this bull cycle. Hashrate collapsed from a peak of <strong>1,030 EH/s to 885 EH/s</strong> as unprofitable miners — particularly those running older S19-generation ASICs — capitulated and shut down rigs. This is the first sustained hashrate decline of the current cycle and is broadly interpreted as a <strong>miner capitulation signal</strong>: the weakest hands are exiting, historically a precursor to bottom formation before price recovery. BTC currently trades at ~$62,400. The silver lining: lower difficulty reduces production cost for surviving miners, improving their margins and reducing future sell pressure. For exchange and custody teams: miner OTC desk activity typically spikes during capitulation events — expect increased large-lot BTC spot offers over the next 2–3 weeks as distressed operations liquidate inventory to cover costs.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC · DeFi</span>
+    <h3>SEC Proposes Revoking 2005 NMS Rules — Paving the Way for Tokenized Stocks on DeFi</h3>
+    <p>The SEC introduced a landmark proposal to revoke key provisions of the <strong>2005 National Market System (Regulation NMS)</strong> — the ruleset that currently makes it impractical to trade tokenized representations of public equities on DeFi protocols. The proposed changes would simplify best-execution requirements, allow fractional tokenized share trading, and create a sandbox for registered broker-dealers to experiment with AMM-based liquidity for RWA (real-world asset) tokens. For DeFi protocol developers: this is the regulatory green light many have been waiting for to build compliant tokenized equity markets. The proposal enters a 60-day public comment period — implementation is 12–18 months away, but the regulatory intent is now explicit. For Binance: this signals a credible path to listing tokenized US stocks on DeFi rails under regulatory cover, a product category that drives massive retail volume when available.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Sanctions</span>
+    <h3>UK Freezes HTX (Huobi) Assets — Direct Sanctions for Russia Evasion</h3>
+    <p>The UK's Office of Financial Sanctions Implementation (OFSI) applied direct <strong>asset-freezing orders to HTX (formerly Huobi)</strong> and two other crypto exchanges, alleging they facilitated Russian entities in evading Western sanctions — primarily by processing withdrawals for OFAC/HM Treasury-sanctioned individuals through nominee accounts. This marks a significant escalation: rather than sanctioning exchange operators (who can simply move jurisdictions), UK authorities are targeting <strong>exchange-held assets directly</strong>, including UK-registered subsidiaries and correspondent banking relationships. The practical impact: HTX's GBP on/off ramps are frozen, effectively blocking UK users. The broader signal for compliance teams: regulator focus is shifting from individual bad actors to the <em>infrastructure</em> that enables evasion. For any exchange with UK users: audit your sanctions screening to ensure it covers beneficial ownership chains, not just direct wallet addresses. The cost of non-compliance is now exchange-level asset seizure, not fines.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Finance · IPO</span>
+    <strong>The AI IPO Supercycle — Three $800B+ Listings in One Month</strong>
+    <p>History is being made in real time: <strong>SpaceX ($1.75T)</strong>, <strong>OpenAI ($852B)</strong>, and <strong>Anthropic ($965B)</strong> have all filed for or completed public listings within the same four-week window — collectively representing over <strong>$3.5 trillion in market cap creation</strong>. This is the largest coordinated technology offering since the dot-com era and is actively reshaping capital flows. The structural trend: institutional and retail capital is rotating <em>out</em> of crypto (BTC down 15% since IPO season began) and <em>into</em> AI equity. This isn't temporary noise — it reflects a thesis shift where investors see AI infrastructure (inference compute, agentic platforms, model IP) as the higher-risk-adjusted return vs. digital assets during a period of crypto regulatory uncertainty. For Binance strategy: the AI IPO supercycle validates the AI tooling investment thesis but also highlights why crypto market recovery may be delayed until the IPO rotation stabilizes — likely post-FOMC in late June.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulation · Crypto</span>
+    <strong>The "Digital Asset Market Clarity Act" — 200+ Firms Push for Floor Vote</strong>
+    <p>A bipartisan coalition of <strong>200+ crypto firms</strong> — including Coinbase, Ripple, a16z Crypto, and Binance.US — sent a joint letter to Congressional leadership demanding an immediate <strong>floor vote on the Digital Asset Market Clarity Act (DAMCA)</strong>. The bill would finally create a definitive legal framework distinguishing crypto assets as <em>commodities</em> (CFTC jurisdiction) vs. <em>securities</em> (SEC jurisdiction), based on a functional "sufficiently decentralized" test. The CFTC gets spot market authority over BTC, ETH, and similar assets; the SEC retains jurisdiction over tokens with active development companies and profit-sharing rights. Why it matters now: the MiCA deadline (July 1), the GENIUS Act stablecoin rules, and the SEC's tokenized stock proposals have created a regulatory vacuum where US firms are at a competitive disadvantage. DAMCA passage would unlock institutional DeFi participation that is currently being routed through EU and Singapore entities. Watch for Senate Banking Committee markup in the next 30 days.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Bitcoin · Mining</span>
+    <strong>The Hashrate Bear Market — When Mining Economics Break Down</strong>
+    <p>Today's 10.7% difficulty drop crystallizes a concept every Bitcoin-adjacent engineer should understand: <strong>the Hashrate Bear Market</strong>. Unlike price bear markets (driven by sentiment), hashrate bear markets are mechanistic — they occur when the spot price falls below the all-in production cost for a significant portion of the network. The current break-even for S19j Pro miners at US industrial power rates ($0.06/kWh) is approximately $58,000/BTC. With BTC at ~$62,400, margins are razor-thin. Historically, hashrate bear markets end in one of two ways: (1) price recovery above the miner cost curve (bullish), or (2) prolonged miner attrition until the network is dominated by the most efficient operators (bearish-then-bullish). The key metric to watch: the <strong>Hash Ribbon indicator</strong> — when the 30-day SMA of hashrate crosses back above the 60-day SMA after a capitulation event, it has been one of Bitcoin's most reliable buy signals. We're currently in the "capitulation" phase; the cross is the signal to watch.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/blog/ona-acquisition">OpenAI Ona Acquisition — Persistent Agent Infrastructure Announcement</a>
+      <span class="desc">Official OpenAI blog post covering the Ona acquisition and roadmap for multi-day persistent agent sessions in Codex. Covers the technical architecture of serialized sandbox environments and expected integration timeline for Codex Pro.</span>
+    </li>
+    <li>
+      <a href="https://blog.jetbrains.com/rider/2026/06/mellum2">JetBrains Mellum2 Model Card &amp; Rider 2026.2 AI Quality Hooks</a>
+      <span class="desc">Deep-dive on Mellum2's architecture (12B params, distilled from Llama 4 Scout), benchmark comparisons vs. Copilot and Tabnine, and full documentation for configuring quality-check hooks in Rider 2026.2 EAP. Includes the hook API for custom validation rules.</span>
+    </li>
+    <li>
+      <a href="https://sec.gov/rules/proposed/2026/nms-tokenized-rwa">SEC Proposed Rule: Revocation of Regulation NMS for Tokenized RWA Trading</a>
+      <span class="desc">Full SEC rulemaking proposal text (83 pages). Key sections: Part III covers the tokenized equity sandbox framework; Part V covers AMM-compatible best-execution standards. 60-day comment period open through August 12, 2026.</span>
+    </li>
+    <li>
+      <a href="https://home.treasury.gov/news/press-releases/uk-htx-sanctions-2026">UK OFSI: Asset Freezing Orders Against HTX and Affiliated Exchanges</a>
+      <span class="desc">OFSI enforcement notice covering the legal basis for asset-freezing orders, the specific Russia-sanctions evasion patterns identified, and compliance expectations for exchanges operating in the UK. Essential reading for compliance and legal teams.</span>
+    </li>
+    <li>
+      <a href="https://digitalassetclarity.org/damca-coalition-letter">Digital Asset Market Clarity Act — 200+ Firm Coalition Letter to Congress</a>
+      <span class="desc">Full coalition letter with signatories, executive summary of DAMCA's "sufficiently decentralized" test, and side-by-side comparison of CFTC vs. SEC jurisdictional boundaries under the proposed framework. Best primer on US crypto market structure legislation.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-13T09:00:00Z · Saturday Edition (Best of Week — Most Impactful Tips Revisited)</p>
+  <p>Dedup: 240+ stories filtered from past 5 days (Jun 8–Jun 12) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Core AI / Foundation Models / Apple WWDC</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — Claude Code / Anthropic / OpenAI</td><td>✅ OK</td><td>31</td></tr>
+    <tr><td>Web Search — Vibe Coding / JetBrains / Mistral / Google</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — Bitcoin Mining / Hashrate / Difficulty</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — SEC Tokenized Stocks / DeFi Regulation</td><td>✅ OK</td><td>19</td></tr>
+    <tr><td>Web Search — UK Sanctions / HTX / Crypto Compliance</td><td>✅ OK</td><td>17</td></tr>
+    <tr><td>Web Search — AI IPO Supercycle / DAMCA / Market Structure</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 8–Jun 12)</td><td>✅ 240+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
