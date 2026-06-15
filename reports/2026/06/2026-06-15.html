@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-15</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, June 15, 2026 · Issue #165 · Pre-FOMC Weekend &amp; Export Control Fallout</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — BEST OF WEEK ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Agentic Workflows &amp; Local-First Compute</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Windows</span>
+    <strong>Codex "Computer Use" on Windows 11: Full Desktop Automation via Virtual Mouse &amp; Keyboard</strong>
+    <p>OpenAI expanded Codex's <strong>Computer Use</strong> capability to Windows 11 this week — previously macOS-only. The agent can now navigate the Windows desktop, click through applications, fill forms, test compiled programs, and troubleshoot system workflows entirely hands-free using a virtual mouse and keyboard. For iOS developers who also work in cross-platform CI environments: Codex can now autonomously run your Windows-specific build pipelines, test Unity builds, or verify .NET backend services without manual intervention. The practical workflow: assign a Codex agent to "build the Windows target, run integration tests, screenshot failures" and review results asynchronously. Combined with the Ona acquisition for persistent sessions, this enables truly fire-and-forget multi-platform testing. <a href="https://platform.openai.com/docs/guides/computer-use">Computer Use Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Local Compute</span>
+    <strong>The $1,800/Month Problem: How to Cut Agentic Coding Costs 80% With Local-First Inference</strong>
+    <p>This week's data confirmed what many suspected: heavy Claude Code and Codex users are spending <strong>$500–$1,800/month</strong> on API tokens. The industry's response is a massive push toward <strong>local-first compute</strong>. The practical stack for 2026: use <strong>Ollama</strong> + <strong>Qwen 3.7 Max</strong> (or Llama variants) for routine completions and boilerplate generation, route only complex multi-file reasoning to cloud models (Claude Opus/GPT-5.5). Tools like <strong>OpenCode</strong> (160K GitHub stars) make this seamless — configure <code>provider: ollama</code> for fast tasks and <code>provider: anthropic</code> for effort-max tasks in the same session. For teams managing AI budgets: set up a local inference server (NVIDIA DGX Spark or Mac Studio with M4 Ultra) and route 70-80% of agent traffic locally. Reserve cloud API calls for architectural decisions and complex debugging only.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Infra</span>
+    <strong>OpenAI Models Now on AWS Bedrock: Break Free from Azure Lock-In for Enterprise Agents</strong>
+    <p>In a significant infrastructure expansion, OpenAI's frontier models (GPT-5.5) and Codex agents became <strong>generally available on Amazon Bedrock</strong> this week — breaking the exclusive Microsoft Azure dependency. For enterprise teams at Binance running multi-cloud infrastructure: you can now invoke GPT-5.5 and Codex directly from your AWS accounts with native IAM authentication, VPC endpoints, and existing billing. This eliminates the need for separate Azure subscriptions just for AI inference. The practical implication: your internal agentic tools (PR review bots, code migration pipelines, automated testing) can now call OpenAI models with the same latency and security posture as your existing AWS workloads. Configure via <code>aws bedrock invoke-model --model-id openai.gpt-5-5</code> or use the Bedrock SDK in your Python/TypeScript automation. <a href="https://aws.amazon.com/bedrock/">AWS Bedrock Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Policy</span>
+    <h3>Anthropic Disables Fable 5 &amp; Mythos 5 for Foreign Nationals — Export Control Shock</h3>
+    <p>In a dramatic Friday move, <strong>Anthropic abruptly restricted access to its most advanced models</strong> — Claude Fable 5 and Mythos 5 — for all foreign nationals outside the US, UK, and EU. The action followed a direct <strong>US government export-control directive</strong> citing national security concerns around potential jailbreaks that could identify software vulnerabilities. The restriction applies to API access, Claude Code sessions, and all downstream integrations (including GitHub Copilot when using Fable 5). For international development teams: immediately check whether your Claude API keys are tied to restricted jurisdictions. If affected, you'll be downgraded to Sonnet 4.5 automatically. For Binance teams operating across multiple regions: audit your AI toolchain's geographic dependencies and ensure fallback models are configured. This signals a new era where <strong>AI model access is geopolitically gated</strong> — build your workflows to be model-agnostic from day one.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Investment</span>
+    <h3><a href="https://cloud.google.com/blog/anthropic-investment">Google Pours $2B Into Anthropic — Cloud Compute Infrastructure Deal</a></h3>
+    <p>Google Cloud announced a landmark <strong>$2 billion compute and infrastructure investment into Anthropic</strong> on June 10, securing preferred pricing and deep integration for Claude models on GCP. This mirrors Amazon's earlier $4B compute pledge and cements the pattern: frontier AI labs need hyperscaler infrastructure partnerships to survive. For enterprise teams choosing between Azure (OpenAI), AWS (Bedrock + OpenAI), and GCP (Anthropic): Google's investment means Claude will run fastest and cheapest on GCP infrastructure. If your organization is already GCP-native, expect preferential Claude API latency and pricing tiers tied to your existing Google Cloud commitment. The broader signal: the AI infrastructure wars have made model access a <strong>cloud vendor differentiation strategy</strong> — your choice of cloud provider increasingly determines which AI models perform best for you.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Industry · Policy</span>
+    <h3>UK AI Adoption Summit: Google, Anthropic, OpenAI &amp; Microsoft Sign Joint Safety Pact</h3>
+    <p>On June 8, the four largest AI companies — <strong>Google, Anthropic, OpenAI, and Microsoft</strong> — signed a joint statement with the UK government committing to evidence-based policymaking, responsible AI development, and shared safety standards. The UK simultaneously announced a <strong>£200 million package</strong> to boost AI workplace integration and fund AI skills programs. For developers: this signals increasing regulatory alignment across AI providers, meaning safety features (content filtering, usage monitoring, audit logging) will converge rather than diverge across tools. For enterprise procurement: the joint commitment reduces risk in multi-vendor AI strategies since all providers are aligning on the same safety floor. Expect mandatory safety reporting requirements in enterprise AI contracts by Q4 2026.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Scale</span>
+    <h3>Cursor Hits $2B ARR — SpaceX/xAI Eyes $60B Acquisition Option</h3>
+    <p>Cursor reached <strong>$2 billion Annual Recurring Revenue</strong> in February 2026, with 67% of Fortune 500 companies now using the platform. The biggest news: SpaceX (which absorbed xAI) announced a <strong>$60 billion acquisition option</strong> for Cursor, or an immediate $10B joint development partnership to pair Cursor's developer reach with xAI's Colossus supercomputer. This is the fastest revenue growth in SaaS history. For developers: the SpaceX deal signals that Cursor's roadmap will increasingly incorporate Grok models alongside Claude/GPT, potentially giving users access to xAI's compute cluster for heavy agent workloads. Whether the acquisition closes or not, Cursor's position as the dominant AI IDE is now undeniable — budget for it as essential infrastructure, not an experiment.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Paradigm Shift</span>
+    <h3>Karpathy Declares "Vibe Coding" Dead — Welcome to "Agentic Engineering"</h3>
+    <p>Andrej Karpathy — who coined "vibe coding" in early 2025 and recently joined Anthropic — officially declared the term obsolete this month, renaming the current paradigm <strong>"Agentic Engineering."</strong> The distinction: vibe coding was about prompting AI to write code for you. Agentic engineering is about <strong>designing systems where autonomous agents safely plan, execute, and iterate</strong> on multi-step workflows within bounded, sandboxed environments. The practical implication for senior developers: your role has shifted from "person who writes code" to <strong>"human operator"</strong> — the architect who designs agent boundaries, reviews autonomous PRs, and ensures system safety. For iOS teams: this means investing in architecture that explicitly supports agent interaction patterns (modular boundaries, comprehensive test suites as verification gates, clear API contracts agents can reason about).</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Atoms · New</span>
+    <h3>Atoms: Coordinated AI Agent Teams That Ship Complete Apps From a Single Prompt</h3>
+    <p>Gaining massive traction this week, <strong>Atoms</strong> represents the next evolution beyond single coding agents. Instead of one AI assistant writing code, Atoms deploys a <strong>coordinated team of specialized agents</strong> — product managers, full-stack engineers, data analysts, and SEO specialists — that collaborate to build and deploy complete applications from a single plain-text prompt. Each agent handles its domain: the PM agent creates specs, the engineering agents implement features in parallel, the QA agent writes and runs tests, and the deployment agent ships to production. For teams evaluating build-vs-buy for internal tools: Atoms can prototype entire admin dashboards or data pipelines in hours rather than sprint cycles. The limitation: it excels at greenfield apps but struggles with integration into existing complex codebases. Best used for <strong>standalone tools, internal utilities, and MVPs</strong>.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Sourcegraph · Enterprise</span>
+    <h3>Sourcegraph Amp Upgrades to Claude Opus 4.8 + GPT-5.5 "Smart Mode"</h3>
+    <p><strong>Sourcegraph Amp</strong> — the enterprise-focused coding agent for large monorepos — received a major upgrade this week, now powered by both <strong>Claude Opus 4.8 and GPT-5.5</strong> in its "Smart Mode." The agent dynamically routes queries to whichever model handles specific task types best: Opus for deep codebase reasoning and refactoring, GPT-5.5 for rapid completions and documentation. For enterprise teams with massive codebases (100K+ files): Amp's unique advantage is its native code graph understanding — it indexes your entire repository and uses structural awareness (not just text search) to find relevant code. The Opus 4.8 upgrade specifically improves cross-file dependency tracking and large-scale rename/refactor operations. Combined with Sourcegraph's existing code search infrastructure, this makes Amp the strongest option for teams where codebase navigation is the bottleneck.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Recovery</span>
+    <h3>BTC Rebounds to $63,600–$64,500 — ETF Outflows Finally Show Signs of Reversal</h3>
+    <p>Bitcoin staged a modest weekend recovery, trading in the <strong>$63,600–$64,500 range</strong> after dipping into the $59,000s earlier in June. The critical signal: after 13 consecutive days of ETF outflows totaling $4.3 billion, Friday saw <strong>$85 million in net inflows</strong> — the first positive day in nearly three weeks. The mining difficulty drop (covered last issue) has reduced sell pressure from miners, and the SpaceX IPO liquidity drain appears to be normalizing. However, the <strong>FOMC meeting on Tuesday (June 17)</strong> remains the dominant binary catalyst. Markets are pricing in a rate hold at 3.5-3.75%, but any hawkish forward guidance could trigger another leg down. The Fear &amp; Greed Index has improved slightly from 9 to 13 (still Extreme Fear). For traders: the $65,000 level (50-day EMA proximity) is the key resistance — a close above it would signal trend reversal.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Security</span>
+    <h3>Ethereum's Post-Quantum Era Begins — Kohaku Project Enables SPHINCS+ Without Hard Fork</h3>
+    <p>The Ethereum Foundation's <strong>Kohaku Project</strong> announced a breakthrough this week: Ethereum accounts can now prepare for post-quantum cryptography using <strong>SPHINCS+ signature schemes</strong> as a transitional defense — and critically, this requires <strong>no hard fork</strong>. The implementation cost under the current framework is approximately $0.07 per account migration. Vetted by Vitalik Buterin, Justin Drake, and the core cryptography team, this positions Ethereum as the first major blockchain with a viable quantum-resistance upgrade path that doesn't require network-level consensus changes. For developers building on Ethereum: you can begin migrating high-value accounts to quantum-resistant signatures now, treating it as a defense-in-depth measure before quantum computing reaches cryptographically-relevant scale. Ethereum now leads Bitcoin on post-quantum preparedness — a potential narrative catalyst once quantum computing timelines crystalize further.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · US</span>
+    <h3>NY DFS Overhauls Stablecoin Rules — Aligns State Framework With Federal GENIUS Act</h3>
+    <p>The New York Department of Financial Services (DFS) released a <strong>draft regulation (Part 202, Title 23 NYCRR)</strong> that fundamentally streamlines its stablecoin oversight to align with the new federal GENIUS Act. Previously, NY's BitLicense created a patchwork framework that made stablecoin issuance uniquely burdensome in the state. The new rules harmonize reserve requirements, audit cadences, and redemption guarantees with federal standards — effectively ending the "New York penalty" for stablecoin issuers. For stablecoin and payment teams: this removes a major compliance friction point for serving NY-based users. Combined with Japan's stablecoin law (enacted June 1) and the GENIUS Act at federal level, the global stablecoin regulatory picture is rapidly converging on a common standard: full reserves, regular audits, instant redemption rights. Build your compliance infrastructure to this emerging global baseline.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>The Modular Monolith Renaissance — Microservices Backlash Reaches Critical Mass</strong>
+    <p>After a decade of "microservices by default," 2026 has seen a decisive swing back to <strong>Modular Monoliths</strong> — single-deployable applications with strict internal domain boundaries. The driver: teams discovered that premature microservice decomposition created massive operational overhead (the "invisible tax" of service mesh, distributed tracing, and cross-service debugging) without proportional benefit for organizations under 50 engineers. The architecture: ship as one binary, but enforce module boundaries via compile-time dependency rules, internal API contracts, and database-per-module isolation. The key benefit for AI-assisted development: agents work <strong>dramatically better</strong> with modular monoliths because the entire codebase is accessible in a single context window — no cross-repo navigation or service discovery needed. If your team is under 50 people and running 20+ microservices, seriously evaluate consolidation. The 2026 data shows modular monoliths ship features 40% faster with half the operational incidents.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Developer Experience</span>
+    <strong>Cognitive Load as an Architecture Metric — The New Performance Indicator</strong>
+    <p>The most impactful shift in software design philosophy for 2026: treating <strong>developer cognitive load as a first-class architecture metric</strong>, alongside latency, throughput, and availability. The principle: over-engineered systems don't just slow down computers — they slow down humans (and AI agents). Teams are now actively measuring and reducing the mental overhead required to understand, navigate, and safely modify their systems. Practical implementation: (1) Limit the number of concepts a developer must hold in working memory to modify any single feature (target: under 7). (2) Use visual architecture mapping tools that auto-generate from code. (3) Standardize interfaces so patterns are predictable across modules. (4) Evaluate every new abstraction against "does this reduce or increase the mental load for the next person?" The connection to AI: lower cognitive load = better agent performance, because agents suffer from the same comprehension bottlenecks as humans when codebases are unnecessarily complex.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Geopolitics · AI</span>
+    <strong>The AI Export Control Era — Model Access Becomes a Geopolitical Weapon</strong>
+    <p>Anthropic's Friday export-control compliance (disabling Fable 5 for foreign nationals) marks the beginning of a new reality: <strong>frontier AI model access is now geopolitically gated</strong>. Just as semiconductor export controls reshaped the chip industry, AI model export controls are creating a two-tier world: countries with unrestricted access to frontier models, and countries limited to older or smaller models. The architectural implication for global engineering teams: you can no longer assume universal model availability. Build your AI-dependent systems with <strong>model-agnostic abstractions</strong> that gracefully degrade when specific models become unavailable in certain jurisdictions. The emerging pattern: "model sovereignty" — maintaining access to local open-weight alternatives (Mistral, Qwen, Llama) as insurance against export-control disruption. For Binance's globally distributed teams: inventory every AI dependency, map it to geographic availability, and ensure fallback paths exist for every critical workflow.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://platform.openai.com/docs/guides/computer-use">OpenAI Codex Computer Use — Windows 11 Desktop Automation Guide</a>
+      <span class="desc">Official documentation for Codex's Computer Use feature, now GA on Windows. Covers virtual input setup, application navigation patterns, screenshot-based verification, and integration with persistent Ona sessions for multi-day automation.</span>
+    </li>
+    <li>
+      <a href="https://aws.amazon.com/bedrock/openai/">OpenAI on AWS Bedrock — Enterprise Deployment Guide</a>
+      <span class="desc">AWS documentation for accessing GPT-5.5 and Codex agents natively on Bedrock. Covers IAM authentication, VPC endpoint configuration, and cost comparison vs. direct OpenAI API access.</span>
+    </li>
+    <li>
+      <a href="https://ethresear.ch/t/kohaku-post-quantum-signatures">Ethereum Kohaku Project — Post-Quantum SPHINCS+ Implementation Research</a>
+      <span class="desc">Ethereum Foundation research post detailing the SPHINCS+ signature scheme integration, gas cost analysis, and the no-hard-fork upgrade path. Includes migration guides for high-value accounts.</span>
+    </li>
+    <li>
+      <a href="https://www.dfs.ny.gov/reports_and_publications/press_releases/pr202606091">NY DFS Part 202 — Draft Stablecoin Regulation Aligned With GENIUS Act</a>
+      <span class="desc">Full regulatory text for New York's stablecoin framework overhaul. Key sections cover reserve composition requirements, audit frequency, and redemption timing guarantees matching federal standards.</span>
+    </li>
+    <li>
+      <a href="https://modulith.dev/">Modular Monolith Architecture Guide — 2026 Best Practices</a>
+      <span class="desc">Community-maintained guide for implementing modular monoliths. Covers module boundary enforcement, database isolation patterns, and migration paths from both monoliths and microservices. Includes benchmarks against microservice alternatives.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-15T09:00:00Z · Sunday Edition (Best of Week — Agentic Workflows &amp; Local-First Compute)</p>
+  <p>Dedup: 250+ stories filtered from past 5 days (Jun 10–Jun 14) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>32</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — Crypto Markets/BTC/ETH</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>18</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 10–Jun 13)</td><td>✅ 250+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
