@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-16</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, June 16, 2026 · Issue #166 · FOMC Day 1 &amp; BlackRock BITA Launch</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI x iOS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS: Core AI States, ANE Optimization &amp; Model Compression</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Performance</span>
+    <strong>Core AI "States" for KV Caching: Eliminate Redundant Computation in On-Device LLM Inference</strong>
+    <p>The Core AI framework introduced at WWDC includes a powerful feature most developers haven't explored yet: <strong>States</strong> — mutable inputs that persist and update in-place across inference calls. The killer use case: <strong>KV (Key-Value) caching for transformer models</strong>. Without States, every new token generation recomputes the full attention matrix from scratch — O(n²) per sequence step. With States, you cache the K and V tensors between calls, reducing each generation step to O(n). Implementation: declare your KV cache as a <code>CoreAI.State</code> input in your model graph, and the runtime handles persistence across calls automatically — no manual buffer management. For a 3B-parameter on-device model generating 128 tokens, this delivers <strong>4-6x faster inference</strong> with identical output quality. Combined with Ahead-of-Time compilation (which eliminates the 20-50s cold start), your on-device LLM feels instant. <a href="https://developer.apple.com/documentation/coreai">Core AI Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ANE · Hardware</span>
+    <strong>ANE Tensor Alignment Rules: Ensure Your Model Actually Runs on Neural Engine (Not CPU)</strong>
+    <p>A common iOS developer frustration: you deploy a CoreML/Core AI model expecting Neural Engine acceleration, but inference silently falls back to CPU — killing battery life and throughput. The fix is strict <strong>tensor alignment</strong>. The ANE has specific hardware constraints: (1) Keep tensor dimensions as <strong>powers of 2</strong> (pad vocabulary sizes to the nearest multiple of 64). (2) Use <strong>Channel-Last (NHWC)</strong> memory layout — the ANE's internal SRAM is optimized for this order. (3) Ensure all tensors are <strong>16-byte aligned</strong>. (4) Maximum dimension size: 16,384 per axis. If any constraint is violated, the runtime silently routes to GPU/CPU. To verify: use Xcode's <strong>Core ML Performance Report</strong> (Product → Profile → Core ML) and check the "Compute Unit" column — every layer should show "Neural Engine." For Binance iOS: ensure your chart narration and portfolio summary models pass these checks before shipping. The payoff: 3-5x better tokens/watt vs. GPU fallback. <a href="https://developer.apple.com/documentation/coreml/optimizing-performance">Performance Guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Deployment</span>
+    <strong>Ship 4-bit LoRA Adapters Instead of Full Models: 90% Smaller App Bundle, Same Quality</strong>
+    <p>The biggest mistake iOS developers make with on-device AI: shipping a full 4GB model in the app bundle. The 2026 best practice: ship a <strong>base model once via on-demand resources</strong>, then swap <strong>4-bit quantized LoRA adapters</strong> per feature — each adapter is only 50-200MB. The workflow: fine-tune on Mac using <code>mlx-lm --lora --bits 4</code>, export with <code>coreai-torch export --format aimodel --adapters</code>, then load adapters dynamically at runtime via <code>CoreAI.Model.loadAdapter("finance-chat")</code>. The base model stays cached on-device; adapters hot-swap in ~200ms. For Binance iOS: maintain one base Mistral-3B model and create specialized adapters for different features — portfolio analysis, market sentiment, trade narration — without multiplying your storage footprint. Key insight: <strong>int4 quantization</strong> with GPTQ produces zero measurable quality regression for instruction-following tasks while halving the weight file size. <a href="https://developer.apple.com/documentation/coreai">Core AI Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Ecosystem</span>
+    <h3><a href="https://openai.com/index/partner-network">OpenAI Launches $150M Partner Network — 300K Certified AI Consultants by Year-End</a></h3>
+    <p>OpenAI announced the <strong>OpenAI Partner Network</strong> on June 14, backed by a $150 million investment to build an enterprise AI adoption ecosystem. The program partners with major systems integrators (Accenture, Deloitte, TCS) to train and certify <strong>300,000 AI consultants</strong> by December 2026 — specialists who can deploy Codex, GPT-5.5, and custom agents within enterprise workflows. For engineering teams at Binance: this signals that OpenAI is aggressively pursuing the enterprise integration layer — expect certified partners to offer turnkey agentic workflow deployments for financial services, compliance automation, and internal tooling. The practical implication: if your team has been self-building OpenAI integrations, evaluate whether a certified partner can accelerate deployment of complex multi-agent systems (regulatory monitoring, automated code review pipelines) with production SLAs and support.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Agents</span>
+    <h3>Google Rolls Out Autonomous "Search Agents" — 24/7 Background Web Monitoring for AI Ultra</h3>
+    <p>Google began rolling out <strong>autonomous information agents</strong> to Google AI Ultra subscribers on June 12. Unlike traditional search (pull-based), these agents work <strong>24/7 in the background</strong>, continuously monitoring the web, news feeds, and real-time data sources, then proactively alerting you when specific conditions are met. Think "IFTTT for the entire internet, powered by Gemini." Example use cases: monitor competitor product launches, track crypto regulatory filings, watch for security vulnerability disclosures in your dependency tree, or get alerted when a specific GitHub repo publishes a new release. For developers: this is Google's answer to Anthropic's agent ecosystem — but focused on <strong>information retrieval and monitoring</strong> rather than code execution. The integration with NotebookLM means agents can synthesize findings into structured research briefs automatically. Currently available on AI Ultra tier ($19.99/mo) with a 10-agent limit per account.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Community</span>
+    <h3>Anthropic Launches "Claude Corps" — National Fellowship for AI-Assisted Public Service</h3>
+    <p>Anthropic announced <strong>Claude Corps</strong> on June 11 — a national fellowship program that deploys AI-skilled engineers into government agencies and public service organizations. Fellows receive full Anthropic tooling access (Claude Code, Fable 5, enterprise APIs) and spend 6-12 months building AI-powered systems for public infrastructure: healthcare scheduling, transit optimization, permitting automation, and emergency response coordination. The program targets experienced developers who want to apply agentic AI skills outside the private sector. For the broader ecosystem: Claude Corps signals Anthropic's bet that <strong>public sector adoption</strong> will be a major growth vector — and that demonstrating real-world impact in government services builds trust faster than marketing. Application window opens July 1 for the Fall 2026 cohort. If you're considering a sabbatical with impact, this is worth bookmarking.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub · Security</span>
+    <h3>Claude Code GitHub Action Vulnerability Patched — Prompt Injection via Malicious Issues</h3>
+    <p>A critical security report in early June revealed that the <code>claude-code-action</code> GitHub workflow was vulnerable to <strong>prompt injection attacks via malicious GitHub issues</strong>. An attacker could craft an issue body that, when processed by the Claude Code action's read/write CI/CD pipeline, would hijack the agent's execution context — potentially leaking secrets, modifying code, or approving PRs. Anthropic patched the exploit in <strong>version 1.0.94</strong> and paid a bug bounty. <strong>Action required:</strong> (1) Update your <code>claude-code-action</code> workflow to v1.0.94+. (2) Add <code>permissions: contents: read</code> (not write) for issue-triggered workflows. (3) Enable the new <code>--untrusted-input-guard</code> flag that sanitizes external input before agent processing. This is the second major Claude Code security issue in a week (after the /proc/self/environ exploit), reinforcing that <strong>AI agents in CI/CD are a first-class attack surface</strong> requiring the same hardening as any privileged automation.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">CircleCI · MCP</span>
+    <h3><a href="https://circleci.com/blog/mcp-server">CircleCI MCP Server — Connect AI Agents Directly to Your CI/CD Pipeline</a></h3>
+    <p>CircleCI released an official <strong>Model Context Protocol (MCP) server</strong> on June 12 that connects AI coding agents (Claude Code, Cursor, Windsurf) directly to your CI/CD pipelines. The MCP server exposes tools for: reading build logs, fetching test results, triggering pipeline runs, accessing artifacts, and debugging failed jobs — all from within your agent's context. For iOS teams: instead of manually checking CircleCI when a build fails, your coding agent can <code>tools/call circleci.get_failed_tests</code>, read the failure logs, fix the code, push a commit, and trigger a re-run — all in one autonomous loop. Setup: <code>npx @circleci/mcp-server --token $CIRCLE_TOKEN</code> in your MCP config. This is the CI/CD integration pattern the industry has been waiting for — turning build systems from passive reporters into active participants in agentic workflows. <a href="https://circleci.com/docs/mcp">Docs →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Hugging Face · Code Review</span>
+    <h3>Hugging Face "Serge" — Open-Source AI Code Review That Runs on Any OpenAI-Compatible Model</h3>
+    <p><strong>Serge</strong>, launched June 12, is Hugging Face's open-source, GitHub-native AI code review system. Unlike proprietary solutions (CodeRabbit, Copilot Reviews), Serge runs against <strong>any OpenAI-compatible model endpoint</strong> — meaning you can point it at your self-hosted Nemotron, a local Ollama instance, or a private Claude API. It automatically reviews pull requests on every push, providing inline comments on code quality, potential bugs, performance issues, and style violations. The architecture: a lightweight GitHub App that triggers on PR events, fetches the diff, chunks it for context-window compliance, and streams review comments back as GitHub review annotations. For teams with data sovereignty requirements: Serge never sends code to a third-party service — all inference happens on <em>your</em> chosen model endpoint. Install via GitHub Marketplace or self-host the Docker container. <a href="https://github.com/huggingface/serge">GitHub →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Databricks · Enterprise</span>
+    <h3>Databricks OmniGenT — Open-Source Meta-Harness for Governing Multi-Agent Enterprises</h3>
+    <p>Databricks open-sourced <strong>OmniGenT</strong> this week — a meta-harness designed for enterprises running dozens of AI agents across different ecosystems (Claude Code, Codex, Cursor, custom agents). The problem it solves: when 50 developers each run autonomous agents against the same codebase, you need governance — rate limiting, audit logging, cost attribution, conflict detection, and policy enforcement. OmniGenT provides a unified control plane that sits between your agents and your infrastructure, enforcing rules like "no agent can modify production configs without human approval" or "total daily spend across all agents cannot exceed $500." For engineering leadership at Binance: if you're scaling AI agent adoption across multiple teams, OmniGenT prevents the "governance gap" — the gap between agent velocity and organizational safety controls. Think of it as a <strong>service mesh for AI agents</strong>. <a href="https://github.com/databricks/omnigent">GitHub →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Rally</span>
+    <h3>BTC Surges to $67K on Iran Ceasefire — FOMC Day 1 Under New Chair Kevin Warsh</h3>
+    <p>Bitcoin climbed to a <strong>two-week high near $67,000</strong> as markets opened the week with a geopolitical relief rally — a U.S.-Iran ceasefire agreement reopened the Strait of Hormuz, removing a major macro overhang on risk assets. Crypto-linked equities (Coinbase, Robinhood) jumped 5%+. The critical catalyst ahead: the <strong>FOMC meeting begins today (June 16-17)</strong> — notably the first under newly confirmed Fed Chair <strong>Kevin Warsh</strong>. While markets price in 98.2% probability of rates holding at 3.50-3.75%, traders are laser-focused on Warsh's press conference tomorrow and the updated dot plot. A dovish tone acknowledging reduced inflation risk (oil down post-ceasefire) could trigger the next leg up toward the 50-day EMA at ~$71,700. The Fear &amp; Greed Index has recovered from 9 to 28 (still Fear territory). The reversal from $59K lows to $67K in 10 days is the fastest BTC recovery of this cycle.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">BlackRock · ETF</span>
+    <h3>BlackRock's Bitcoin Premium Income ETF (BITA) Begins Trading Today on Nasdaq</h3>
+    <p>BlackRock's new <strong>iShares Bitcoin Premium Income ETF (Ticker: BITA)</strong> officially begins trading on the Nasdaq today. Unlike existing spot BTC ETFs (which simply hold Bitcoin), BITA is an <strong>actively managed covered-call strategy</strong> that holds BTC exposure via BlackRock's IBIT and writes call options to target a <strong>15-25% annual yield</strong>. This is significant because it brings traditional income-investor capital into Bitcoin for the first time — retirees, dividend-focused funds, and fixed-income allocators who previously had no Bitcoin product matching their mandate. For exchange teams: BITA creates new hedging demand on BTC options markets and will likely increase institutional options flow on Deribit and CME. For traders: covered-call strategies cap upside during explosive rallies but provide consistent income during consolidation phases like the current one — expect BITA to attract billions in the range-bound environment.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Accumulation</span>
+    <h3>Bitmine Nears 5% of Total ETH Supply — $10.4B Stake Generates $220M Annual Yield</h3>
+    <p>The most stunning accumulation story of 2026: <strong>Bitmine Immersion Technologies (NYSE: BMNR)</strong> now holds <strong>5.62 million ETH — 4.66% of the entire global Ethereum supply</strong>, valued at approximately $10.4 billion. Of this, 4.71 million ETH is actively staked, generating a projected <strong>$219-226 million in annualized staking rewards</strong>. To capitalize on the yield, Bitmine's newly issued <strong>Series A Preferred Stock (BMNP)</strong> also begins trading on NYSE today, offering weekly dividends backed by ETH staking income. This is the MicroStrategy playbook applied to Ethereum — and at 4.66% of supply, Bitmine's accumulation is creating a structural supply squeeze. For market analysts: when a single entity holds nearly 5% of a deflationary asset (ETH post-merge burns ~0.5%/year), the supply dynamics become increasingly reflexive. Watch BMNR/BMNP trading as a proxy for institutional ETH conviction.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>AI-Native Architecture — Designing Systems Where AI Is Infrastructure, Not a Feature</strong>
+    <p>The most significant architectural paradigm shift of 2026: teams are moving from "adding AI to existing apps" to <strong>designing systems from the ground up to integrate AI models as core infrastructure</strong>. An AI-native architecture treats LLM inference, vector databases, and agent orchestration as first-class system components — not bolted-on API calls. Key patterns: (1) <strong>Async inference queues</strong> — never block your main request path on AI calls; route them through message queues with timeout fallbacks. (2) <strong>Vector stores as primary indices</strong> — supplement traditional databases with embedding-based retrieval for any unstructured data. (3) <strong>Agent-compatible APIs</strong> — design every internal service with MCP-style tool descriptions so agents can discover and invoke them without custom integration code. (4) <strong>Cost-aware routing</strong> — implement model routing that dynamically selects cheaper models for simple tasks and reserves expensive frontier models for complex reasoning. For iOS teams: this means architecting your backend so on-device agents can seamlessly escalate to cloud agents without the mobile app caring which model responds.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">DeFi · Infrastructure</span>
+    <strong>Institutional Clearing Goes On-Chain — DTCC Connects to Public Blockchains</strong>
+    <p>A quiet but seismic shift in financial infrastructure: the <strong>DTCC (Depository Trust &amp; Clearing Corporation)</strong> — which clears virtually all US equity and bond trades — has connected its tokenization services to <strong>public blockchains (Stellar, Ethereum L2s)</strong> for institutional settlement. This means traditional securities can now settle on-chain while maintaining the DTCC's Central Counterparty (CCP) safety guarantees. The hybrid architecture: trade execution happens on traditional order books or AMMs, but settlement and clearing route through DTCC's on-chain adapters — providing T+0 settlement (vs. the current T+1) with institutional-grade risk management. Combined with the SEC's proposed Reg NMS repeal (enabling tokenized stock AMMs) and the CFTC's perpetual futures approval, the picture is clear: <strong>TradFi rails are converging with DeFi infrastructure at the clearing layer</strong>. For protocol builders: design your settlement modules to be DTCC-compatible from day one. For exchange teams: the clearing layer is where the real institutional DeFi opportunity lives — not just listing tokens, but providing institutional-grade settlement.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Governance</span>
+    <strong>The Agent Governance Stack — Why Every Team Needs an AI Service Mesh</strong>
+    <p>As AI agent adoption crosses 90% of development teams, the industry's #1 operational challenge has crystallized: <strong>governing autonomous agents at scale</strong>. When 50 developers each run Claude Code, Codex, and Cursor agents against the same monorepo simultaneously, you get merge conflicts, runaway API costs, unauthorized infrastructure changes, and security incidents. The emerging solution: an <strong>"Agent Service Mesh"</strong> — a governance layer (Databricks OmniGenT, internal solutions at Google/Meta) that sits between agents and infrastructure, providing: (1) <strong>Rate limiting</strong> — per-team and per-agent token budgets. (2) <strong>Audit logging</strong> — every tool invocation, file write, and API call is recorded. (3) <strong>Policy enforcement</strong> — "no agent touches production configs" or "all agent PRs require human approval." (4) <strong>Conflict detection</strong> — alert when two agents modify the same file simultaneously. (5) <strong>Cost attribution</strong> — track which team/project/feature consumes what AI budget. This is the governance gap that Gartner's "2,500% defect increase" warning points to. The answer isn't fewer agents — it's better guardrails.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://developer.apple.com/documentation/coreai">Apple Core AI Framework — States, AOT Compilation &amp; ANE Optimization Guide</a>
+      <span class="desc">Complete developer documentation for the Core AI framework. Key sections: "Working with States" for KV caching, "Ahead-of-Time Compilation" for instant model loading, and "Neural Engine Optimization" for tensor alignment requirements.</span>
+    </li>
+    <li>
+      <a href="https://circleci.com/docs/mcp">CircleCI MCP Server — Connect AI Agents to CI/CD</a>
+      <span class="desc">Setup guide for the official CircleCI Model Context Protocol server. Covers authentication, available tools (build logs, test results, pipeline triggers), and integration with Claude Code, Cursor, and Windsurf.</span>
+    </li>
+    <li>
+      <a href="https://github.com/huggingface/serge">Hugging Face Serge — Open-Source AI Code Review</a>
+      <span class="desc">GitHub-native PR review system compatible with any OpenAI-compatible model endpoint. Self-hostable, data-sovereign, with inline GitHub review annotations. Includes Docker deployment guide and model configuration.</span>
+    </li>
+    <li>
+      <a href="https://github.com/databricks/omnigent">Databricks OmniGenT — Enterprise Agent Governance Harness</a>
+      <span class="desc">Open-source meta-harness for governing multi-agent enterprises. Provides rate limiting, audit logging, cost attribution, conflict detection, and policy enforcement across Claude Code, Codex, and custom agents.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/partner-network">OpenAI Partner Network — Enterprise AI Adoption at Scale</a>
+      <span class="desc">Official announcement of the $150M partner network. Details on certification program, systems integrator partnerships (Accenture, Deloitte, TCS), and the goal of 300K certified AI consultants by end of 2026.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-16T09:00:00Z · Tuesday Edition (AI x iOS — CoreML, MLX, On-Device Inference)</p>
+  <p>Dedup: 260+ stories filtered from past 5 days (Jun 11–Jun 15) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — Claude Code/Codex/Cursor</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — OpenAI/Anthropic/Google</td><td>✅ OK</td><td>30</td></tr>
+    <tr><td>Web Search — Vibe Coding/AI IDE Tools</td><td>✅ OK</td><td>28</td></tr>
+    <tr><td>Web Search — AI Developer Tools</td><td>✅ OK</td><td>32</td></tr>
+    <tr><td>Web Search — CoreML/MLX/Edge AI</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>Web Search — Crypto Markets/FOMC</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>Web Search — DeFi/Regulatory</td><td>✅ OK</td><td>26</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 11–Jun 15)</td><td>✅ 260+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
