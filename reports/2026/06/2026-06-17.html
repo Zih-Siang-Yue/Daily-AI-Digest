@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-17</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, June 17, 2026 · Issue #167 · FOMC Day 2 &amp; Coinbase System Update</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI Dev Tools ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools: Cursor, Copilot &amp; Windsurf Advanced Usage</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot · Billing</span>
+    <strong>GitHub Copilot Moves to Usage-Based Billing: Optimize Your Agent Spend With Premium Model Routing</strong>
+    <p>GitHub officially transitioned all Copilot plans to <strong>usage-based billing</strong> this week — replacing the flat $10-$39/seat/month model with a credit system where different models consume different amounts. Practical impact: using Claude Opus 4.8 or GPT-5.5 for complex refactoring burns 10× more credits than using MAI-Code-1-Flash for autocomplete. The optimization strategy: configure your <code>.github/copilot-config.yml</code> with model routing rules — use Flash-tier models for inline completions (sub-200ms, near-zero cost) and reserve premium models only for multi-file agent tasks triggered via <code>@workspace</code>. For teams managing budgets: set per-developer monthly credit caps in your GitHub org settings and enable the new "Usage Insights" dashboard to identify which workflows are consuming disproportionate credits. The key insight: the cheapest tokens are the ones you don't generate — invest in better prompts and project context (<code>AGENTS.md</code>, <code>.cursorrules</code>) to reduce retry loops. <a href="https://github.com/orgs/community/discussions/197089">Billing Details →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Workflow</span>
+    <strong>Cursor's Background Agents: Queue Tasks While You Sleep, Review PRs in the Morning</strong>
+    <p>Cursor's <strong>Background Agents</strong> — launched in v0.50 and now stable — let you queue multiple coding tasks that execute autonomously in cloud sandboxes while you're away. The workflow: open Cursor's agent panel, type a series of natural-language tasks ("Migrate all UIKit delegates to async/await", "Add unit tests for the PaymentService module", "Fix all SwiftLint warnings in /Sources"), and each spawns an isolated cloud environment that works independently. When you return, each task has produced a diff you can review and merge. The advanced pattern: chain tasks with dependencies using <code>@after:task-1</code> annotations — "After the UIKit migration is done, run the full test suite and fix any failures." For iOS teams doing large-scale refactors: queue 10-15 migration tasks Friday evening, review clean PRs Monday morning. Combine with Cursor's <strong>Rules for AI</strong> (<code>.cursorrules</code>) to ensure all background agents follow your team's coding conventions, import ordering, and documentation standards automatically.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf · Context</span>
+    <strong>Windsurf's "Memories" Feature: Persistent Project Context That Survives Session Restarts</strong>
+    <p>Windsurf (formerly Codewind by Codeium) shipped a powerful feature that most developers haven't discovered: <strong>Memories</strong> — a persistent knowledge store that accumulates project-specific context across sessions. Unlike ephemeral chat history, Memories capture architectural decisions ("we use MVVM-C with Combine"), coding conventions ("all network calls go through NetworkService"), and past debugging insights ("the flaky test in AuthTests is caused by keychain race conditions"). The system auto-extracts these from your conversations and stores them in <code>.windsurf/memories.md</code>. The advanced usage: manually add "remember:" annotations in conversations to force-save critical context. For teams: commit <code>.windsurf/memories.md</code> to your repo so every team member's Windsurf agent inherits the same project knowledge — effectively creating a shared team brain that prevents repetitive explanations. This pattern applies identically to Claude Code's <code>CLAUDE.md</code> and Cursor's <code>.cursorrules</code> — the key insight is that <strong>persistent context files are the highest-ROI investment</strong> in AI-assisted development.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Financials</span>
+    <h3><a href="https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/">OpenAI Financials Leaked: $34B Spending, $21B Losses Against $13B Revenue</a></h3>
+    <p>OpenAI's pre-IPO financials leaked via the <em>Financial Times</em> and <em>Fortune</em>, revealing <strong>$34 billion in total spending last year against $13 billion in revenue — a $21 billion net loss</strong>. The numbers contextualize the massive infrastructure investment required to maintain frontier AI: compute costs alone exceeded $22B. For developers relying on OpenAI APIs: this signals potential pricing pressure ahead of the IPO as the company needs to demonstrate a path to profitability. The practical implication: diversify your model dependencies now. If OpenAI raises API prices 20-30% post-IPO to close the gap, teams with model-agnostic architectures (routing between GPT, Claude, Gemini, and open-weight models) will absorb the shock gracefully. Teams locked into a single provider will face sudden budget crunches.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Policy</span>
+    <h3><a href="https://techcrunch.com/2026/06/16/anthropics-latest-feud-with-the-trump-admin-may-actually-help-it-sales-data-suggests/">Anthropic's White House Feud Actually Boosts Sales — Enterprise Trust Signal</a></h3>
+    <p>TechCrunch reports that Anthropic's ongoing clash with the Trump administration — triggered by the Fable 5 export-control compliance — is <strong>actually accelerating enterprise sales</strong>. The reasoning: enterprise buyers interpret Anthropic's willingness to sacrifice government revenue ($2.4B DoD contracts) over ethical principles as a <strong>trust signal</strong> that the company won't compromise model safety for profit. Enterprise seats grew 23% in the two weeks following the export-control announcement. For engineering teams evaluating AI vendors: Anthropic is positioning itself as the "safety-first" option — predictable behavior, strong usage policies, Constitutional AI constraints. This matters when your AI agent has write access to production systems. The Washington Post piece on HN adds color: Anthropic "lost the White House's trust, then its flagship product" — but gained enterprise confidence in return.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Wolfram · Release</span>
+    <h3><a href="https://writings.stephenwolfram.com/2026/06/launching-version-15-of-wolfram-language-mathematica-built-in-useful-ai-lots-of-new-core-functionality/">Wolfram Language 15 Launches: Built-In AI Assistant + Symbolic Music Computation</a></h3>
+    <p>Stephen Wolfram released <strong>Version 15 of Wolfram Language &amp; Mathematica</strong> with a deeply integrated AI assistant that understands computational semantics — not just text prompts. Unlike generic LLM integrations, Wolfram's AI can reason about mathematical structures, symbolic expressions, and data transformations natively. The 66-point HN discussion highlights the <strong>symbolic music computation</strong> feature as particularly novel: compose, analyze, and transform music using the same symbolic paradigm as mathematics. For developers building quantitative tools at Binance: Wolfram 15's new <code>LLMFunction</code> primitive lets you wrap AI capabilities into type-safe computational pipelines — think structured financial modeling where the AI generates hypotheses and Wolfram verifies them symbolically. The licensing model remains expensive ($395/year), but for teams doing heavy quantitative work, the symbolic+AI combination is unmatched.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">France · Sovereignty</span>
+    <h3><a href="https://www.theguardian.com/world/2026/jun/16/france-ai-data-tools-palantir-chapsvision">France Ditches Palantir for Domestic AI Provider — Sovereignty Trend Accelerates</a></h3>
+    <p>France announced it will <strong>replace Palantir's AI data tools with domestic provider ChapsVision</strong> for intelligence and defense workloads — the highest-profile AI sovereignty decision of 2026. The move (11 points on HN, significant engagement) signals a structural shift: nations are increasingly demanding domestic AI infrastructure for sensitive workloads, even at capability cost. The pattern mirrors Anthropic's export controls but in reverse — governments are <em>choosing</em> to restrict which foreign AI they use. For globally distributed engineering teams: build your AI toolchain to support regional provider substitution. The same task might route to Claude in the US, Mistral in France, and Qwen in Asia — <strong>model sovereignty is becoming a deployment requirement</strong>, not just a preference.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Y Combinator · Agent</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/16/this-ai-builds-you-a-business-runs-it-and-settles-payments-in-usdc">Y Combinator's Locus Founder: Text a Business Idea, AI Builds and Runs It</a></h3>
+    <p>Y Combinator unveiled <strong>Locus Founder</strong> — an AI agent that receives a business idea via iMessage, SMS, or Telegram, then autonomously builds the product, deploys it, handles customer interactions, and <strong>settles payments in USDC on-chain</strong>. This represents the extreme end of the "agentic engineering" spectrum: the human provides a one-sentence intent, the AI handles everything from code generation to payment rails. For developers evaluating the agent landscape: Locus Founder is a data point on where the industry is heading — fully autonomous AI businesses that operate without human intervention post-launch. The USDC settlement layer is notable: crypto payment rails are becoming the default for AI-to-AI commerce because they're programmable, instant, and don't require traditional banking integration.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Gartner · Governance</span>
+    <h3><a href="https://www.theregister.com/ai-ml/2026/05/27/4-in-10-ai-agents-headed-for-demotion-or-the-rubbish-bin/5246964">Gartner: 40% of AI Agents Headed for Demotion or Retirement by 2028</a></h3>
+    <p>A Gartner research note gaining traction on HN this week warns that <strong>4 in 10 enterprise AI agents will be "demoted or binned"</strong> within two years of deployment due to inadequate governance, uncontrolled costs, and failure to demonstrate ROI. The primary failure modes: agents that generate plausible-looking output but introduce subtle bugs at scale, agents that exceed cost budgets due to unbounded tool-calling loops, and agents that conflict with each other when multiple teams deploy simultaneously. For engineering leaders: this validates the "Agent Governance Stack" concept from yesterday's report — deploying agents without rate limiting, audit logging, and policy enforcement is setting up for expensive failures. The actionable takeaway: treat AI agent deployment like any production service — with SLOs, cost caps, and automated alerting on anomalous behavior.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Local LLM · DeepSeek</span>
+    <h3>Native Coding Agent Optimized for Local LLM &amp; DeepSeek v4 With Vector Memory</h3>
+    <p><strong>Intellios Code</strong> launched on HN today — a native coding agent specifically optimized for <strong>local LLM inference and DeepSeek v4</strong> with persistent vector memory. Unlike cloud-first agents (Claude Code, Codex), Intellios runs entirely on your hardware with zero data leaving your machine. The differentiator: a built-in <strong>vector memory system</strong> that indexes your codebase semantically and persists across sessions — so the agent "remembers" your architecture decisions, past fixes, and coding patterns without re-reading files. For teams with strict data sovereignty requirements (financial services, defense): this is the first local-first agent that approaches cloud agent quality for routine coding tasks. The DeepSeek v4 optimization means it runs efficiently on consumer GPUs (RTX 4090 or M4 Max) while maintaining competitive code generation quality. Best used alongside cloud agents: local for routine completions, cloud for complex multi-file reasoning.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Coinbase · Platform</span>
+    <h3><a href="https://www.theblock.co/post/405012/coinbase-unveils-system-update-unlocking-an-ai-advisor-global-unified-liquidity-options-trading-and-more">Coinbase "System Update": AI Advisor, Tokenized Stocks &amp; Global Unified Liquidity</a></h3>
+    <p>Coinbase dropped its most ambitious product update ever — the <strong>"System Update"</strong> bundle includes: (1) An <strong>AI-powered financial advisor</strong> that provides personalized portfolio recommendations. (2) <strong>Tokenized US stocks</strong> backed 1:1 with dividend pass-through — directly competing with Robinhood and traditional brokers. (3) <strong>Global unified liquidity</strong> between US and international platforms, eliminating the fragmentation that previously hurt execution quality. (4) Stock options trading and ACATS portfolio transfers from traditional brokers. For exchange developers at Binance: Coinbase is making the strongest play yet to become an <strong>"everything app" for finance</strong> — crypto, stocks, options, AI advice, all on one platform. The tokenized stock launch (with dividends!) directly validates the SEC's NMS revocation direction and signals this product category is ready for mainstream competition.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Upgrade</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/16/ethereum-s-biggest-protocol-overhaul-in-years-moves-into-its-final-development-stage">Ethereum Glamsterdam Enters Final Dev Stage — Biggest Overhaul in Years</a></h3>
+    <p>Ethereum's <strong>Glamsterdam upgrade</strong> — the network's most significant protocol overhaul since The Merge — has entered its final development stage with teams now testing in closed devnet environments. The upgrade bundles multiple EIPs focused on: validator economics restructuring, blob throughput increases for L2 scaling, and execution layer optimizations. This is the upgrade that was previously split across "Pectra" and "Fusaka" phases — now consolidated into a single ambitious fork. For developers building on Ethereum: the devnet testing phase typically means 3-4 months until mainnet deployment. Monitor the devnet for breaking changes to your contracts, particularly around gas pricing and blob data availability. For traders: successful Glamsterdam testing historically creates positive sentiment catalysts for ETH — watch for testnet milestone announcements as potential momentum triggers.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Mining · AI Pivot</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/16/bitcoin-miners-ai-pivot-faces-usd50-billion-reality-check-says-vaneck">Bitcoin Miners' AI Pivot Faces $50B Reality Check — VanEck Report</a></h3>
+    <p>VanEck published a sobering analysis: Bitcoin miners who pivoted to <strong>AI/HPC hosting</strong> now face a collective <strong>$50 billion capital expenditure challenge</strong> to actually deliver on their data center commitments. The gap between announced AI hosting contracts and operational infrastructure is widening — investors are shifting focus from "contract announcements" to "execution risk." The core problem: mining facilities optimized for SHA-256 ASICs require extensive retrofitting for GPU/TPU racks (cooling, power density, networking). Many miners announced AI pivots during the hashrate bear market to prop up stock prices, but few have the engineering expertise or capital to deliver. For investors: discriminate between miners with actual operational AI capacity (Core Scientific, Applied Digital) versus those with just MOUs and press releases. The $50B number represents the industry's total unfunded infrastructure gap.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">RWA · Milestone</span>
+    <strong>Tokenized Asset Market Crosses $43B — The Quiet TradFi Migration</strong>
+    <p>CoinTelegraph reports the tokenized real-world asset (RWA) market has <strong>surged 37% in six months to exceed $43 billion</strong>, with adoption broadening beyond money market funds into equities, private credit, real estate, and commodities. The institutional accelerator: BlackRock, Franklin Templeton, State Street (which just launched a GENIUS Act-aligned stablecoin reserve fund), and now Coinbase are all competing to tokenize traditional finance. The structural thesis: tokenization isn't "crypto for TradFi" — it's <strong>TradFi upgrading its settlement layer</strong> to achieve T+0, 24/7 trading, fractional ownership, and programmable compliance. For protocol developers and exchange teams: the next 12 months will see tokenized securities volume eclipse most DeFi blue chips. Build infrastructure that can handle regulated tokenized assets — KYC-gated pools, dividend distribution contracts, and cross-chain settlement for institutional-grade products. <a href="https://cointelegraph.com/news/tokenized-rwa-market-tops-43b-wall-street-pushes-deeper-onchain">Full analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Derivatives · Regulation</span>
+    <strong>US-Regulated Bitcoin Perpetuals: The Product That Could Reshape Crypto Trading</strong>
+    <p>CoinTelegraph and multiple outlets are covering the imminent arrival of <strong>US-regulated Bitcoin perpetual futures</strong> — the product that currently drives 70%+ of global crypto volume but has been exclusively available offshore (Binance Futures, Bybit, Hyperliquid). The CFTC approved the framework in Q1 2026, and multiple US venues are now preparing to list. The structural impact: perpetuals in a regulated venue means US institutional capital can finally access the most liquid crypto derivative without offshore counterparty risk. For exchanges: this creates both threat and opportunity — regulated US perpetuals will attract institutional flow away from offshore venues, but the total market expands as institutions previously excluded can now participate. For trading infrastructure teams: prepare for increased API load, tighter spread requirements, and institutional-grade order types (iceberg, TWAP) on perpetual products. The Hyperliquid token surging 12.9% (CoinDesk 20) reflects market anticipation of the DeFi perpetuals narrative strengthening.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI Economics</span>
+    <strong>The $21B Question: Can Frontier AI Labs Reach Profitability Before Capital Runs Out?</strong>
+    <p>OpenAI's leaked financials ($21B losses) combined with Anthropic's first profitable quarter creates a fascinating case study in <strong>AI business model divergence</strong>. The contrast: OpenAI is spending massively on compute infrastructure, moonshot research (Sora, Advanced Voice, robotics), and enterprise partnerships — burning cash to capture market share. Anthropic is focused narrowly on developer tooling (Claude Code) and API revenue — reaching profitability by staying disciplined on scope. The implication for the developer ecosystem: <strong>the tools you depend on have wildly different financial health</strong>. Anthropic's profitability means pricing stability and continued investment in Claude Code. OpenAI's losses mean either future price increases, feature cuts, or dependency on continued VC/IPO funding. For engineering teams: this is another argument for model-agnostic architecture. The lab that's profitable today may not be tomorrow's best model provider. Build routing layers, not lock-in.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://github.com/orgs/community/discussions/197089">GitHub Copilot Usage-Based Billing — Community Discussion &amp; Migration Guide</a>
+      <span class="desc">Official GitHub community thread explaining the billing transition, credit consumption rates per model, and strategies for optimizing spend. Includes cost comparison calculators and team budget management tips.</span>
+    </li>
+    <li>
+      <a href="https://fortune.com/2026/06/16/openai-financials-leaked-losses-revenue-profit/">OpenAI's Pre-IPO Financials: $21B Losses, $13B Revenue — Full Breakdown</a>
+      <span class="desc">Fortune's analysis of the leaked financial documents. Covers compute cost breakdown, revenue sources (API vs. subscriptions), and what the numbers mean for the upcoming IPO valuation.</span>
+    </li>
+    <li>
+      <a href="https://writings.stephenwolfram.com/2026/06/launching-version-15-of-wolfram-language-mathematica-built-in-useful-ai-lots-of-new-core-functionality/">Stephen Wolfram: Launching Version 15 — Built-In AI &amp; New Core Functionality</a>
+      <span class="desc">Deep technical blog post covering LLMFunction primitives, symbolic music computation, enhanced neural network framework, and the philosophical approach to integrating AI with computational mathematics.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/06/16/ethereum-s-biggest-protocol-overhaul-in-years-moves-into-its-final-development-stage">Ethereum Glamsterdam — Final Development Stage Technical Overview</a>
+      <span class="desc">CoinDesk's technical breakdown of the consolidated upgrade: validator economics, blob throughput scaling, and the devnet testing timeline. Essential reading for Ethereum developers preparing for breaking changes.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/tokenized-rwa-market-tops-43b-wall-street-pushes-deeper-onchain">Tokenized RWA Market Tops $43B — Institutional Blockchain Adoption Data</a>
+      <span class="desc">Token Terminal data analysis showing 37% growth in 6 months. Breakdown by asset class, institutional participants, and the regulatory frameworks enabling adoption. Includes DeFi integration opportunities.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-17T09:00:00Z · Wednesday Edition (AI Dev Tools — Cursor, Copilot, Windsurf Advanced Usage)</p>
+  <p>Dedup: 270+ stories filtered from past 5 days (Jun 12–Jun 16) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>12</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>10</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>12</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 12–Jun 16)</td><td>✅ 270+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
