@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-19</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, June 19, 2026 · Issue #169 · Post-FOMC Selloff Deepens &amp; AI Agent Commerce Arrives</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI Infra & Prompt Engineering ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering: RAG, Tool Use &amp; Agent Architecture</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG · Architecture</span>
+    <strong>Contextual Retrieval: Replace Naive RAG Chunking With Anthropic's Contextual Embedding Pattern</strong>
+    <p>The #1 failure mode of RAG systems in production: chunks lose meaning when separated from their document. Anthropic's <strong>Contextual Retrieval</strong> pattern (now production-proven at scale) fixes this by prepending each chunk with a model-generated context summary before embedding. The workflow: (1) Split document into standard chunks (512-1024 tokens). (2) For each chunk, call a fast model with: <code>"Given the full document, write a 2-sentence context for this chunk: {chunk}"</code>. (3) Concatenate context + chunk, then embed the combined text. The result: retrieval recall improves 30-50% because the embedding now captures document-level semantics, not just local text. For iOS apps with on-device RAG (using Core AI + vector stores): generate contextual prefixes at indexing time on your server, ship the pre-contextualized embeddings to the device. The cost is ~2x embedding tokens at index time, but zero additional cost at query time. Combine with hybrid search (BM25 keyword + vector similarity) for best results. <a href="https://docs.anthropic.com/en/docs/build-with-claude/retrieval-augmented-generation">Anthropic RAG Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Patterns</span>
+    <strong>The "Tool Sandwich" Pattern: Guarantee Structured Output From AI Agents Every Time</strong>
+    <p>When building agentic workflows that call tools, the biggest reliability issue is <strong>malformed tool calls</strong> — the model generates invalid JSON, hallucinates parameter names, or calls tools in the wrong order. The "Tool Sandwich" pattern eliminates this: (1) <strong>Pre-tool reasoning</strong> — force the model to output a structured plan in a <code>&lt;thinking&gt;</code> block before any tool call. (2) <strong>Tool execution</strong> — validate the call against your schema before executing; reject and retry on malformation. (3) <strong>Post-tool reflection</strong> — after the tool returns, force the model to summarize what it learned before proceeding. Implementation in Claude Code / Codex: wrap your system prompt with explicit <code>tool_choice: "required"</code> for steps that must call tools, and use <code>tool_choice: "none"</code> for reflection steps. For iOS agents using Function Calling: define strict JSON schemas with <code>additionalProperties: false</code> and enable Structured Outputs mode — this guarantees valid JSON every call, at the cost of ~5% higher latency. The payoff: agent success rate jumps from ~70% to 95%+ on multi-step tasks.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · MCP</span>
+    <strong>Design Your Agent's Tool Surface Like an API: The Principle of Minimal Authority</strong>
+    <p>The most common anti-pattern in agent architectures: giving the agent access to every tool in your system "just in case." This creates security risks, increases hallucination surface, and wastes context tokens on tool descriptions the agent never uses. The fix: apply the <strong>Principle of Minimal Authority (PoLA)</strong> — give each agent only the tools it needs for its current task scope. Implementation pattern for MCP servers: (1) Define <strong>tool profiles</strong> — named sets of tools for specific workflows (e.g., "code-review" profile only exposes read tools, never write). (2) Rotate tools per conversation turn based on the current phase. (3) Use <code>inputSchema</code> constraints to limit what values tools accept (e.g., a file-write tool that only accepts paths within <code>/src/</code>). For production agent deployments at Binance: create a <strong>tool gateway</strong> that wraps your MCP servers with per-agent allow-lists, rate limits, and audit logging. Every tool invocation should produce a structured log entry: <code>{agent_id, tool_name, params, result_hash, timestamp}</code>. This is the minimum governance layer for any agent touching production systems. <a href="https://spec.modelcontextprotocol.io/specification/security/">MCP Security Spec →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Alchemy · Visa</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/18/alchemy-s-ai-driven-identity-and-payment-service-gains-access-to-visa-network">Alchemy's AgentCard Gets Visa Network Access — AI Agents Can Now Spend Money Autonomously</a></h3>
+    <p>In a landmark integration, Alchemy's <strong>AgentCard</strong> connected to Visa's Intelligent Commerce network, enabling AI agents built on any provider (OpenAI, Anthropic, open-weight models) to <strong>effect commercial transactions autonomously</strong>. This isn't theoretical — it's live infrastructure where an AI agent can browse, select, purchase, and receive digital goods using Visa rails with built-in fraud protection. For developers building agentic workflows: this is the first production-grade payment primitive designed specifically for AI-to-human and AI-to-AI commerce. The architecture pattern: your agent holds a virtual card with programmable spend limits, merchant category restrictions, and real-time webhook notifications back to your control plane. For Binance teams exploring agent-driven trading infrastructure: AgentCard demonstrates how autonomous agents will interact with financial systems — expect similar patterns for on-chain settlement in the next 6 months.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">HIVE · Sovereign AI</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/18/hive-shares-jumps-10-on-usd220m-canada-sovereign-ai-infrastructure-deal">HIVE Secures $220M Canadian Sovereign AI Deal — Crypto Miner Pivot Validated</a></h3>
+    <p>HIVE Digital Technologies (formerly a crypto miner) signed a <strong>$220 million GPU cloud contract with Bell Canada and Cohere</strong> — a Canadian sovereign AI infrastructure deal that validates the miner-to-AI-compute pivot thesis. Unlike the miners VanEck warned about last week (facing $50B unfunded gaps), HIVE has <strong>operational infrastructure and a signed revenue contract</strong> adding $70M ARR. The deal supports Canada's sovereign AI strategy — keeping AI training on domestic infrastructure rather than US hyperscalers. For engineering teams: this signals that <strong>national AI sovereignty</strong> is becoming a procurement requirement, not just a policy preference. French companies choosing ChapsVision over Palantir, Canada routing to HIVE over AWS — the pattern is clear. Design your AI infrastructure to support regional compute routing as a first-class requirement.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Algorand · Post-Quantum</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/18/algorand-unveils-post-quantum-roadmap-to-secure-blockchain-by-2027">Algorand Unveils Post-Quantum Roadmap — Full Resistance by 2028</a></h3>
+    <p>Following Ethereum's Kohaku SPHINCS+ approach (covered June 15), <strong>Algorand published a comprehensive post-quantum roadmap</strong> targeting full quantum resistance by 2028. Unlike Ethereum's opt-in account migration, Algorand plans protocol-level changes affecting all accounts — a more ambitious but disruptive approach. The roadmap acknowledges that quantum-resistant cryptography adoption "could take years, requiring changes not only to user wallets but also to core protocol infrastructure." For blockchain developers: the post-quantum race is accelerating. Ethereum (opt-in, no hard fork), Algorand (full protocol overhaul), and Solana (research phase) represent three different migration strategies. If you're designing new protocols or smart contract architectures today, <strong>build with cryptographic agility</strong> — abstract signature verification behind interfaces that can swap algorithms without contract redeployment.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Capital Rotation · AI</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/18/the-great-rotation-investors-desert-the-magnificent-7-crypto-for-ai-bottlenecks">The Great Rotation: Investors Desert Mag 7 &amp; Crypto for AI Infrastructure Plays</a></h3>
+    <p>CoinDesk reports a significant capital rotation pattern: investors are moving <strong>out of both Magnificent 7 tech stocks AND crypto</strong> into pure AI infrastructure plays — semiconductors, memory stocks (HBM providers), and space-related opportunities. This is a new wrinkle on last week's "altcoin-to-AI" rotation story: it's not just crypto losing to AI stocks — even the largest tech companies are losing to <strong>AI supply-chain bottleneck plays</strong>. The thesis: investors believe the real value capture is in the physical infrastructure layer (chips, memory, data centers, power) rather than the application layer (software companies, crypto). For crypto markets: this explains why BTC can't sustain rallies even with positive news — the <strong>marginal dollar of risk capital is being deployed elsewhere</strong> until AI infrastructure demand saturates.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Custodia · Banking</span>
+    <h3><a href="https://cointelegraph.com/news/custodia-vantage-unveil-token-that-shifts-between-bank-deposits-and-stablecoins">Custodia &amp; Vantage Propose Dual-Mode Token: Bank Deposit ↔ Stablecoin Toggle</a></h3>
+    <p>Custodia Bank and Vantage Bank proposed a novel token architecture that <strong>dynamically toggles between being a bank deposit and a stablecoin</strong> depending on context. When held in the banking system, it's a standard FDIC-insured deposit; when transferred to blockchain rails, it converts to a stablecoin backed by the bank's reserves. The system allows banks to <strong>retain customer deposits</strong> while giving users blockchain-native payment capability. For developers building payment infrastructure: this "dual-mode" pattern solves the fundamental tension between banking regulation (deposits must stay in the banking system) and crypto utility (users want programmable, instant transfers). If adopted, this architecture could make stablecoins interoperable with traditional banking without requiring users to "off-ramp" — the token itself is simultaneously both.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Prediction Markets</span>
+    <h3><a href="https://cointelegraph.com/news/wealthsimple-launches-kalshi-powered-prediction-market-app-for-canadian-investors">Wealthsimple Launches Kalshi-Powered Prediction Markets for Canadian Investors</a></h3>
+    <p>Canadian fintech giant Wealthsimple launched <strong>prediction market trading powered by Kalshi's infrastructure</strong>, marking the first regulated prediction market product available to Canadian retail investors. The launch comes as prediction markets face regulatory challenges globally — CME is suing the CFTC over Kalshi's perpetual futures, Kentucky is targeting Polymarket, and Congress is debating insider-trading rules for lawmakers betting on policy outcomes. For product developers: prediction markets are rapidly becoming a <strong>mainstream financial product category</strong> (not just a crypto curiosity). The integration pattern — established fintech wrapping specialized infrastructure — suggests opportunities for white-label prediction market APIs. For Binance: watch this space for potential product expansion as regulatory clarity emerges.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Gillibrand · Perps</span>
+    <h3><a href="https://www.theblock.co/post/405334/sen-gillibrand-son-building-perps-exchange-dual-cftc-sec-oversight">Sen. Gillibrand's Son Building Perps Exchange With Dual CFTC/SEC Oversight</a></h3>
+    <p>The <strong>American Perpetuals Exchange Corporation</strong> raised $30 million at a $300 million valuation — and its founder is the son of Sen. Kirsten Gillibrand, co-author of crypto regulation legislation. The exchange seeks <strong>voluntary dual regulation from both CFTC and SEC</strong>, positioning itself as the "most regulated" perpetuals venue in the US. For the derivatives industry: this creates an interesting competitive dynamic against CME's lawsuit (which argues perps shouldn't exist as futures at all) and DeFi protocols (which operate without traditional regulatory oversight). For exchange teams: the "voluntary over-regulation" strategy is a differentiation play targeting institutional capital that demands maximum regulatory cover. Watch this as a template for how US crypto derivatives will be structured post-CME lawsuit resolution.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Selloff</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/18/bitcoin-ether-slide-after-a-hawkish-fed-even-as-trump-s-signed-iran-deal-lifts-stocks">BTC Drops Below $63K as Post-FOMC Selloff Deepens — Stocks Rally on Iran Deal</a></h3>
+    <p>Bitcoin extended losses below <strong>$63,000</strong> as the post-FOMC hawkish hangover intensified — remarkably, while US equities rallied on Trump's signed Iran peace deal. This <strong>decoupling from risk assets</strong> is the most concerning signal: traditionally BTC correlates with stocks on macro events, but the market is now treating crypto as a <strong>source of liquidity for AI stock purchases</strong> rather than a beneficiary of risk-on sentiment. Strategy's preferred stock STRC hit record lows below par at $82.50, pausing the above-par share sales that fund Michael Saylor's BTC purchases. Marex analysts describe positioning as "defensive and thin" — institutional leverage has been aggressively unwound. The bond market is signaling higher-for-longer rates, with the Dollar Index approaching a major breakout that historically pressures BTC. The Fear &amp; Greed Index remains deep in Fear territory.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Stablecoins · KYC</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/06/18/u-s-agencies-seek-stablecoin-customer-id-rules-akin-to-banks-in-new-genius-act-rule">US Agencies Push Bank-Level KYC Requirements for Stablecoin Issuers</a></h3>
+    <p>The Federal Reserve, Treasury, and other regulators issued a <strong>proposed rule requiring stablecoin issuers to implement Customer Identification Programs (CIP)</strong> identical to those required of regulated banks under the Bank Secrecy Act. This goes beyond the GENIUS Act's reserve requirements — it would make stablecoin issuers responsible for <strong>verifying the identity of every user</strong>, not just institutional counterparties. For exchange compliance teams: if finalized, this creates a new compliance layer between your platform and stablecoin issuers. Users holding USDC/PYUSD may need to be identity-verified by the issuer, not just your exchange. For DeFi: this rule would make privacy-preserving stablecoins functionally impossible in the US regulatory perimeter. The comment period is now open — expect fierce industry pushback arguing this overreaches the GENIUS Act's intent.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Governance</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/18/ethereum-foundation-loses-another-key-leader-as-co-executive-director-hsiao-wei-wang-resigns">Ethereum Foundation Loses Another Director — Leadership Exodus Accelerates</a></h3>
+    <p>Ethereum Foundation co-executive director <strong>Hsiao-Wei Wang resigned</strong>, following fellow co-ED Tomasz Stańczak's earlier departure — marking the latest in a string of high-profile EF exits that are fueling governance concerns. CoinTelegraph reports the departures are sparking community debate over <strong>decentralization, governance structure, and the Foundation's future role</strong>. Combined with ETH's price underperformance (analysts predict "another selling wave" as ETH struggles to overcome $1,700), the narrative around Ethereum is increasingly bearish in the short term. For developers: the Glamsterdam upgrade (entering final dev stage per last week) remains on track regardless of Foundation personnel changes — protocol development continues even as organizational leadership churns. Watch for how the community responds: more departures could trigger a governance reform catalyst.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Fintech · Agent Commerce</span>
+    <strong>AI Agent Commerce Infrastructure — The New Financial Primitive</strong>
+    <p>This week's Alchemy/Visa AgentCard integration marks the birth of a new financial infrastructure category: <strong>Agent Commerce</strong> — payment systems designed for non-human economic actors. The pattern: AI agents need to buy API calls, purchase data, hire other agents, and acquire compute resources — all programmatically, without human intervention per transaction. The emerging stack: (1) <strong>Identity</strong> — agent-specific credentials with programmable spending limits. (2) <strong>Payment rails</strong> — Visa/Mastercard for fiat, USDC/stablecoins for crypto-native settlement. (3) <strong>Governance</strong> — policy engines that enforce per-agent budgets and merchant restrictions. (4) <strong>Audit</strong> — complete transaction logs tied to specific agent decisions. For Binance's product teams: agent commerce is where crypto payment rails have a <strong>natural advantage</strong> over traditional finance — programmable, instant, borderless, and designed for machine-to-machine interaction. The first exchange to offer "Agent Trading Accounts" (API-first, stablecoin-denominated, with programmatic risk limits) captures the emerging AI-native trading demand.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Markets · Regime</span>
+    <strong>The Crypto-Equity Decorrelation — BTC Becomes a Liquidity Source, Not a Beneficiary</strong>
+    <p>This week crystallized a structural market regime shift: Bitcoin is <strong>decoupling from equities to the downside</strong>. The Iran peace deal lifted stocks significantly while BTC fell — the opposite of the "digital gold / risk asset" narrative. The data tells a clear story: investors are <strong>liquidating crypto positions to fund AI infrastructure investments</strong>. It's not that crypto fundamentals deteriorated — it's that the opportunity cost of holding BTC vs. AI supply-chain stocks (NVIDIA, SK Hynix, TSMC) became too high for institutional allocators. Bitwise calls BTC "deeply discounted versus AI stocks" but acknowledges the discount could persist as long as AI capex cycle accelerates. For traders: traditional crypto-equity correlation models are broken. Build new frameworks that incorporate <strong>AI sector relative performance</strong> as a leading indicator for crypto flows. When AI stocks peak (sector rotation out of semis), that capital will seek its next home — and BTC at a discount becomes attractive again.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">DeFi · Regulation</span>
+    <strong>Malta's DeFi Rulebook — The "Decentralization Spectrum" Framework</strong>
+    <p>Malta's financial regulator (MFSA) proposed the first comprehensive <strong>DeFi regulatory framework</strong> that treats decentralization as a <strong>spectrum rather than a binary</strong>. Under the proposed rules, protocols that claim to be "decentralized" but have admin keys, upgradeable contracts, or concentrated token governance would face regulatory obligations proportional to their <strong>actual degree of centralization</strong>. The framework covers DAOs, "software-based organizations," and hybrid structures under the existing MiCA regulatory umbrella. For protocol developers: this is the regulatory future. The binary "centralized = regulated, decentralized = free" framework is ending globally. Design your governance to be <strong>measurably decentralized</strong> on specific criteria (token distribution, admin key timelock duration, governance participation breadth), because regulators will increasingly audit these metrics. Malta's framework, combined with the US GENIUS Act and Japan's stablecoin law, is converging toward a global standard where <strong>regulation scales with centralization</strong>. <a href="https://cointelegraph.com/news/malta-defi-framework-daos-software-based-organizations-mica">Full analysis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/18/the-great-rotation-investors-desert-the-magnificent-7-crypto-for-ai-bottlenecks">The Great Rotation: Capital Flows from Tech &amp; Crypto to AI Infrastructure</a>
+      <span class="desc">CoinDesk's deep analysis of the capital rotation from Mag 7 and crypto into semiconductors, memory, and AI supply-chain stocks. Includes flow data, sector correlation breakdown, and implications for crypto recovery timing.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/18/buying-bitcoin-below-its-200-week-average-has-historically-delivered-over-100-in-median-returns-kraken-says">BTC Below 200-Week MA: Kraken's Historical Returns Analysis</a>
+      <span class="desc">Bitcoin briefly dipped below its 200-week moving average — a rare event that Kraken's research shows has historically marked strong entry points with 100%+ median returns. Includes statistical breakdown of previous occurrences and time-to-recovery.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/06/18/alchemy-s-ai-driven-identity-and-payment-service-gains-access-to-visa-network">Alchemy AgentCard × Visa — AI Agent Payment Infrastructure</a>
+      <span class="desc">Technical deep-dive into how Alchemy's AgentCard enables AI agents to conduct commercial transactions on Visa rails. Covers the identity model, spend controls, and fraud prevention architecture for non-human economic actors.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/malta-defi-framework-daos-software-based-organizations-mica">Malta's DeFi Rulebook: Decentralization as a Spectrum</a>
+      <span class="desc">CoinTelegraph's analysis of Malta's proposed DeFi regulatory framework under MiCA. Key insight: regulators will assess decentralization on a spectrum and apply proportional obligations. Includes comparison with US and Japanese approaches.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/build-with-claude/retrieval-augmented-generation">Anthropic's Contextual Retrieval — Production RAG Architecture</a>
+      <span class="desc">Official Anthropic documentation for Contextual Retrieval — the RAG pattern that prepends model-generated context to chunks before embedding. Includes implementation guides, benchmarks showing 30-50% recall improvement, and integration with Claude's tool-use API.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-19T09:00:00Z · Friday Edition (AI Infra &amp; Prompt Engineering — RAG, Tool Use, Agent Architecture)</p>
+  <p>Dedup: 290+ stories filtered from past 5 days (Jun 14–Jun 18) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>10</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>11</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>⚠️ 502 Bad Gateway</td><td>0</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 14–Jun 18)</td><td>✅ 290+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
