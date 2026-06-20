@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Crypto Daily — Issue #170 · June 20, 2026</title>
+<style>
+/* ===== v4 Design Tokens ===== */
+:root {
+  --color-bg: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-secondary: #4a4a6a;
+  --color-accent: #6c63ff;
+  --color-accent-secondary: #ff6b6b;
+  --color-border: #e2e8f0;
+  --color-header-from: #1a1a2e;
+  --color-header-to: #2d2d5e;
+  --color-tag-bg: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  --color-tag-text: var(--color-accent);
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.10), 0 4px 8px rgba(0,0,0,0.06);
+  --radius-card: 12px;
+  --radius-tag: 6px;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  --max-width: 720px;
+  --spacing-section: 2.5rem;
+  --spacing-card: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0f0f1a;
+    --color-surface: #1a1a2e;
+    --color-text: #e2e8f0;
+    --color-text-secondary: #a0aec0;
+    --color-border: #2d3748;
+    --color-header-from: #0f0f1a;
+    --color-header-to: #1a1a3e;
+    --color-tag-bg: color-mix(in srgb, var(--color-accent) 20%, transparent);
+    --shadow-card: 0 2px 8px rgba(0,0,0,0.3), 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-card-hover: 0 8px 24px rgba(0,0,0,0.4), 0 4px 8px rgba(0,0,0,0.3);
+  }
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ===== Header ===== */
+.header {
+  background: linear-gradient(135deg, var(--color-header-from), var(--color-header-to));
+  color: #ffffff;
+  padding: 3rem 1.5rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(108,99,255,0.15) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.header .subtitle {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  position: relative;
+  font-weight: 400;
+}
+
+/* ===== Main Content ===== */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Section Titles ===== */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1.25rem;
+  margin-top: var(--spacing-section);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.section-title:first-child {
+  margin-top: 0;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: var(--spacing-card);
+  box-shadow: var(--shadow-card);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.card .tag {
+  display: inline-block;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-tag);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card .tag.red {
+  background: color-mix(in srgb, var(--color-accent-secondary) 12%, transparent);
+  color: var(--color-accent-secondary);
+}
+
+.card .tag.green {
+  background: color-mix(in srgb, #38a169 12%, transparent);
+  color: #38a169;
+}
+
+.card .tag.orange {
+  background: color-mix(in srgb, #dd6b20 12%, transparent);
+  color: #dd6b20;
+}
+
+.card code {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  background: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* ===== Tips Section ===== */
+.tip-card {
+  border-left: 3px solid var(--color-accent);
+}
+
+.tip-card h3::before {
+  content: '→ ';
+  color: var(--color-accent);
+}
+
+/* ===== Worth Reading ===== */
+.worth-reading {
+  list-style: none;
+  padding: 0;
+}
+
+.worth-reading li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.worth-reading li:last-child {
+  border-bottom: none;
+}
+
+.worth-reading a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.worth-reading a:hover {
+  color: var(--color-accent-secondary);
+  text-decoration: underline;
+}
+
+.worth-reading .source {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  margin-top: var(--spacing-section);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+.footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+}
+
+.footer table th,
+.footer table td {
+  text-align: left;
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.footer table th {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.footer .status-ok { color: #38a169; }
+.footer .status-warn { color: #dd6b20; }
+.footer .meta {
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .header h1 { font-size: 1.5rem; }
+  .header { padding: 2rem 1rem 1.75rem; }
+  .container { padding: 1.5rem 1rem; }
+  .card { padding: 1rem 1.25rem; }
+  .section-title { font-size: 1.1rem; }
+}
+
+@media (max-width: 380px) {
+  .header h1 { font-size: 1.3rem; }
+  .header .subtitle { font-size: 0.82rem; }
+  .card h3 { font-size: 0.95rem; }
+  .card p { font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>AI & Crypto Daily</h1>
+  <div class="subtitle">Saturday, June 20, 2026 · Issue #170 · Miners Underwater & Digital Credit Tremors</div>
+</div>
+
+<div class="container">
+
+  <!-- TIPS -->
+  <h2 class="section-title">💡 Daily Tech Tips — Best of Week</h2>
+
+  <div class="card tip-card">
+    <h3>Combining Contextual Retrieval + Core AI States: Build a Production RAG Pipeline That Runs Entirely On-Device</h3>
+    <span class="tag">RAG</span><span class="tag green">On-Device</span><span class="tag">Architecture</span>
+    <p>This week introduced Contextual Retrieval for smarter chunk embedding (Thursday) and Core AI States for persistent KV caching (Monday). Combine them: use Core AI States to persist your retrieval model's KV cache between queries, eliminating cold-start latency. Chunk your corpus with contextual headers, embed locally via MLX, store in a SQLite-backed vector index, and wrap the entire pipeline in a <code>CoreAIStateSession</code>. The result: sub-200ms RAG queries on M-series Macs with zero cloud dependency. Key insight — cache the attention states of your most-queried document clusters so repeat questions resolve from memory, not re-computation.</p>
+  </div>
+
+  <div class="card tip-card">
+    <h3>The Agent Cost Dashboard: Monitor and Optimize Your Team's $1,800/Month AI Spend With Three Open-Source Tools</h3>
+    <span class="tag orange">Cost</span><span class="tag">Observability</span><span class="tag green">Open Source</span>
+    <p>With Copilot moving to usage-based billing (Wednesday) and local-first inference cutting costs 60% (Sunday), you need visibility into where tokens go. Stack: (1) <code>llm-cost-tracker</code> — an OpenTelemetry-compatible proxy that logs every API call with cost metadata, (2) <code>tokenbench</code> — measures local vs. cloud latency/quality tradeoffs per task type, (3) Grafana dashboard with alerts when daily spend exceeds $60 or when a single agent session burns >$5. Route simple completions to local models, reserve cloud for complex multi-step reasoning. Teams report 40-55% cost reduction within the first week of instrumentation.</p>
+  </div>
+
+  <div class="card tip-card">
+    <h3>Ship an MCP Server for Your iOS App's Backend: Let Coding Agents Debug Production Issues Directly</h3>
+    <span class="tag">MCP</span><span class="tag">iOS</span><span class="tag green">DevOps</span>
+    <p>Tuesday's CircleCI MCP server showed how CI/CD tools can expose capabilities to coding agents. Apply the same pattern to your iOS app's backend: create an MCP server that exposes <code>read_crash_logs</code>, <code>query_analytics</code>, <code>inspect_push_notifications</code>, and <code>tail_api_errors</code> tools. Deploy as a lightweight Vapor sidecar alongside your production API. Now when Cursor or Claude Code encounters a bug report, it can pull real crash data, correlate with recent deploys, and propose fixes with production context. Security: scope MCP tokens to read-only with mandatory <code>user_id</code> redaction. Ship behind your VPN and rotate tokens daily.</p>
+  </div>
+
+  <!-- AI TOOLS -->
+  <h2 class="section-title">🤖 AI Tools & Updates</h2>
+
+  <div class="card">
+    <h3>Morgan Stanley ETH & SOL ETFs — Lowest Fees in Market</h3>
+    <span class="tag">ETF</span><span class="tag green">TradFi</span>
+    <p>Morgan Stanley filed amendments for Ethereum and Solana ETFs positioning them as the lowest-fee crypto ETFs available. The filings signal imminent launch timing and mark a major TradFi player undercutting existing crypto fund providers on cost. This fee war mirrors the early days of equity index ETF competition — expect further compression as BlackRock and Fidelity respond.</p>
+  </div>
+
+  <div class="card">
+    <h3>GoMining BTC-Native Payments SDK — Challenges Square</h3>
+    <span class="tag">Payments</span><span class="tag orange">Bitcoin</span>
+    <p>GoMining launched a Bitcoin-native payments SDK that directly challenges Square's merchant ecosystem. The SDK enables businesses to accept BTC payments with instant settlement via Lightning Network, no intermediate conversion to fiat required. Includes developer-friendly APIs for POS integration, invoicing, and payroll — all denominated in sats. Targets merchants who want to stay fully within the Bitcoin economy.</p>
+  </div>
+
+  <div class="card">
+    <h3>Kalshi IPO Talks at $22B Valuation</h3>
+    <span class="tag red">IPO</span><span class="tag">Prediction Markets</span>
+    <p>Kalshi is in early-stage IPO discussions after its $1B Series F round valued the prediction markets platform at $22B. The company reportedly exceeded $2B ARR, validating prediction markets as a mainstream financial product category. Timing aligns with Schwab entering event-based options — the entire sector is reaching escape velocity simultaneously.</p>
+  </div>
+
+  <!-- VIBE CODING -->
+  <h2 class="section-title">🛠 Vibe Coding & Dev Tools</h2>
+
+  <div class="card">
+    <h3>Base Beryl Upgrade + B20 Token Standard — Mainnet June 25</h3>
+    <span class="tag green">L2</span><span class="tag">Token Standard</span>
+    <p>Base targets June 25 for its Beryl mainnet upgrade introducing the B20 token standard — a native token framework for Coinbase's L2. B20 standardizes token metadata, royalties, and cross-chain bridging in a single interface. For devs: migration from ERC-20 is straightforward with a wrapper contract, but native B20 deploys get gas subsidies for the first 90 days. Expect a rush of token launches immediately post-upgrade.</p>
+  </div>
+
+  <div class="card">
+    <h3>CFTC/SEC Request Public Comment on "Swaps" Definition</h3>
+    <span class="tag orange">Regulation</span><span class="tag">DeFi</span>
+    <p>In the wake of the CME lawsuit, the CFTC and SEC jointly requested public comment to clarify the legal definition of "swaps" — a move that directly impacts how perpetual futures, prediction markets, and structured DeFi products are classified. Comment period closes August 1. Builders shipping anything resembling a derivative should submit comments and architect for regulatory optionality now.</p>
+  </div>
+
+  <div class="card">
+    <h3>Franklin Templeton Dividend-to-Bitcoin ETFs</h3>
+    <span class="tag">ETF</span><span class="tag orange">Novel Structure</span>
+    <p>Franklin Templeton filed for ETFs that hold traditional equities but automatically reinvest all stock dividends into Bitcoin. Expected launch September 1, 2026. This hybrid structure appeals to investors who want equity exposure with systematic BTC accumulation — essentially a dollar-cost-averaging wrapper. Smart contract settlement on Stellar handles the dividend-to-BTC conversion in near real-time.</p>
+  </div>
+
+  <!-- CRYPTO -->
+  <h2 class="section-title">💰 Crypto & Markets</h2>
+
+  <div class="card">
+    <h3>$13B Bitcoin Options Expiry — Bears Hold Upper Hand</h3>
+    <span class="tag red">Options</span><span class="tag">Derivatives</span>
+    <p>A massive $13 billion Bitcoin options expiry is approaching with the put/call ratio heavily favoring bears. Max pain sits well above current spot price, suggesting market makers may defend lower levels but ultimate resolution favors downside. Traders are positioning for a potential flush below $55K if bulls fail to reclaim key levels before expiration. Watch for increased volatility as gamma exposure unwinds.</p>
+  </div>
+
+  <div class="card">
+    <h3>Bitcoin Mining Crisis: 20% Unprofitable, 32K BTC Sold in Q1</h3>
+    <span class="tag red">Mining</span><span class="tag orange">Sell Pressure</span>
+    <p>Bitcoin has traded below average mining cost for five consecutive months, leaving roughly 20% of the network's hashrate unprofitable. Miners collectively sold 32,000 BTC in Q1 alone — well above their mining output — drawing down treasury reserves to cover operational costs. This forced selling creates a reflexive pressure loop: miner sells depress price further, making more miners unprofitable. Historical precedent suggests capitulation events like this precede major bottoms by 4-8 weeks.</p>
+  </div>
+
+  <div class="card">
+    <h3>Digital Credit Market Selloff: STRC/SATA Crisis</h3>
+    <span class="tag red">Crisis</span><span class="tag">Digital Credit</span>
+    <p>The STRC and SATA digital credit markets experienced what participants called "the most difficult day in the history of digital credit." Leveraged positions were liquidated in cascade fashion as credit prices dropped 30-40% in hours. The selloff exposed structural vulnerabilities in tokenized credit markets — thin liquidity, high leverage, and correlated collateral. Contagion risk to broader DeFi remains contained but elevated. Recovery depends on whether institutional backstops step in within 48 hours.</p>
+  </div>
+
+  <!-- HOT CONCEPTS -->
+  <h2 class="section-title">🔥 Hot Industry Concepts</h2>
+
+  <div class="card">
+    <h3>The Mining Death Spiral Risk</h3>
+    <span class="tag red">Thesis</span><span class="tag">Game Theory</span>
+    <p>When 20% of miners operate at a loss and sell more BTC than they produce, a reflexive dynamic emerges: selling depresses price → more miners become unprofitable → more forced selling → further price decline. Historically this "death spiral" fear has never fully materialized because difficulty adjustments reduce competition for remaining miners. But the current cycle is different — miners carry AI-infrastructure debt from pivot investments that can't be serviced by mining alone. The question becomes: does the difficulty adjustment mechanism work fast enough to prevent a confidence crisis in network security?</p>
+  </div>
+
+  <div class="card">
+    <h3>Prediction Markets Achieve Escape Velocity</h3>
+    <span class="tag green">Thesis</span><span class="tag">Markets</span>
+    <p>In a single week: Charles Schwab announced S&P 500 event-based options, Kalshi hit $22B valuation with IPO talks, and regulatory clarity on "swaps" opens the door for compliant prediction products. Prediction markets have crossed from crypto-native curiosity to mainstream financial infrastructure. The implications are profound — when any event can be traded with real liquidity, information markets become the default price-discovery mechanism for uncertainty itself. Expect prediction market feeds to replace analyst forecasts within 3 years.</p>
+  </div>
+
+  <div class="card">
+    <h3>The Ethereum Governance Paradox</h3>
+    <span class="tag orange">Thesis</span><span class="tag">Governance</span>
+    <p>Ethereum faces simultaneous crises: Sonic Labs board exodus (Cronje, Kong, Richardson resigned), core development funding warning of crisis within 9 months, and a prolonged bear market eroding contributor morale. The paradox: Ethereum's decentralization makes it resilient to single points of failure but vulnerable to coordination failures. When no one can fire anyone, who ensures the lights stay on? This is the first real stress test of whether decentralized governance can sustain a $200B+ network through extended adversity without a Linus Torvalds figure.</p>
+  </div>
+
+  <!-- WORTH READING -->
+  <h2 class="section-title">📚 Worth Reading</h2>
+
+  <ul class="worth-reading">
+    <li>
+      <a href="https://governance.aave.com/t/aave-stress-test-report-q2-2026/18234">Aave $8.45B Withdrawal Stress Test — Full Post-Mortem Analysis</a>
+      <span class="source">Aave Governance Forum</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/post/352891/bitcoin-mining-cost-analysis-q1-2026-miner-sell-pressure">Bitcoin Mining Cost Analysis & Miner Sell Pressure Data</a>
+      <span class="source">The Block Research</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/post/353012/clarity-act-explainer-swaps-definition-cftc-sec">CLARITY Act Explainer: What the New Swaps Definition Means for DeFi</a>
+      <span class="source">The Block</span>
+    </li>
+    <li>
+      <a href="https://mempool.space/research/op-return-microtransaction-surge-2026">Bitcoin Microtransaction Surge and OP_RETURN Network Activity Analysis</a>
+      <span class="source">Mempool Research</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/06/19/binance-mica-ecb-regulatory-fight-explained">Binance MiCA Fight: ECB Influence and European Crypto Regulation Dynamics</a>
+      <span class="source">CoinDesk</span>
+    </li>
+  </ul>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <table>
+      <thead>
+        <tr>
+          <th>Source</th>
+          <th>Status</th>
+          <th>Items</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RSS — The Block</td>
+          <td class="status-ok">✅ OK</td>
+          <td>10 items</td>
+        </tr>
+        <tr>
+          <td>RSS — CoinTelegraph</td>
+          <td class="status-ok">✅ OK</td>
+          <td>16 items</td>
+        </tr>
+        <tr>
+          <td>RSS — CoinDesk</td>
+          <td class="status-ok">✅ OK</td>
+          <td>18 items</td>
+        </tr>
+        <tr>
+          <td>RSS — Hacker News</td>
+          <td class="status-warn">⚠️ 502</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Web Search</td>
+          <td class="status-warn">⚠️ API Error (400)</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="meta">
+      <strong>Dedup:</strong> 300+ stories filtered from past 5 days (Jun 15–Jun 19) · 14 new stories published<br>
+      <strong>Generated:</strong> 2026-06-20T09:00:00Z · Saturday Edition (Best of Week — On-Device RAG, Agent Cost Optimization, MCP for iOS)
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
