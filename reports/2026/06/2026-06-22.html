@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-22</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, June 22, 2026 · Issue #171 · Samsung Deploys Codex &amp; Anthropic Under Pressure</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — Claude Code / Codex ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code &amp; Codex: Agentic Workflows</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Hooks</span>
+    <strong>Claude Code Hooks: Auto-Run Tests Before Every Commit Without Leaving the Agent</strong>
+    <p>Claude Code's <strong>hooks system</strong> lets you define pre/post actions that execute automatically during agentic workflows — without manual intervention. The killer pattern for iOS teams: create a <code>PreCommit</code> hook that runs <code>swift test --filter UnitTests</code> before any git commit the agent makes. If tests fail, the agent sees the output and fixes the code before retrying. Configuration in <code>CLAUDE.md</code>: add a <code>hooks:</code> block specifying trigger events (<code>pre_commit</code>, <code>post_edit</code>, <code>pre_push</code>) and their associated commands. Advanced pattern: chain a <code>post_edit</code> hook that runs SwiftLint on modified files — the agent auto-fixes style violations as it writes code, producing clean PRs that pass CI on the first try. The ROI: eliminate the "fix lint → push → CI fails → fix again" loop entirely. Teams report 30-40% fewer CI retry cycles after adopting hooks. <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Samsung</span>
+    <strong>Samsung's Codex Deployment Pattern: How to Roll Out AI Coding Agents to 100K+ Engineers</strong>
+    <p>OpenAI announced Samsung Electronics deployed <strong>ChatGPT Enterprise and Codex to employees worldwide</strong> — one of the largest enterprise AI coding rollouts ever. The deployment pattern is instructive for any engineering org: (1) <strong>Phased rollout</strong> — start with internal tools teams, expand to platform engineers, then product teams. (2) <strong>Custom system prompts</strong> per division — Samsung's semiconductor team has different Codex configurations than their mobile division. (3) <strong>Sandbox-first policy</strong> — Codex runs in isolated cloud environments with no access to production credentials. (4) <strong>Usage analytics dashboard</strong> — track which teams generate the most value (merged PRs per Codex session). For Binance engineering: this validates enterprise-scale AI coding deployment. The key learning: invest in <code>AGENTS.md</code> / project context files before scaling — Samsung reportedly spent 6 weeks on context engineering before enabling Codex org-wide. <a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment">OpenAI Announcement →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cost Control · Agents</span>
+    <strong>Lupen &amp; Compass: Two New Open-Source Tools for Controlling AI Agent Spend</strong>
+    <p>Two new open-source projects launched on HN this weekend addressing the #1 pain point of agentic coding: <strong>cost visibility and budget enforcement</strong>. <a href="https://github.com/momoraul/Lupen">Lupen</a> provides itemized, verified receipts for Claude Code and Codex sessions — breaking down exactly which tool calls consumed tokens and their dollar cost. <a href="https://github.com/dshakes/compass">Compass</a> adds guardrails and a hard budget cap to AI coding agents — if a session hits $X, it stops and reports what was accomplished. Together they solve the "I woke up to a $200 overnight agent bill" problem. Integration pattern: run Compass as a wrapper around your agent invocations, feed its logs to Lupen for weekly team spend reports. For teams managing multiple concurrent Background Agents in Cursor or Claude Code: set per-task budget caps at $5-10 and let Compass enforce them automatically.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Enterprise</span>
+    <h3><a href="https://openai.com/index/chatgpt-enterprise-spend-controls">OpenAI Ships Enterprise Spend Controls &amp; Usage Analytics</a></h3>
+    <p>OpenAI launched <strong>new spend controls and usage analytics for ChatGPT Enterprise</strong>, directly addressing the cost predictability concerns raised by the leaked $21B loss financials last week. Organizations can now set per-user, per-team, and per-model credit caps with real-time dashboards showing consumption patterns. The practical impact: engineering managers can allocate Codex budgets by team, auto-throttle expensive models (GPT-5.5, Opus 4.8) when budgets near limits, and route routine tasks to cheaper models automatically. Combined with the Samsung deployment news, this signals OpenAI's enterprise strategy is maturing rapidly ahead of their IPO. For teams already on ChatGPT Enterprise: enable the new analytics immediately — the data will inform your Q3 budget planning for AI tooling.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Reliability</span>
+    <h3><a href="https://status.claude.com/incidents/lv35v0q9nsj2">Claude Opus/Sonnet Hit by Major Outage — 529 Rate Limits Spike</a></h3>
+    <p>Anthropic experienced <strong>elevated error rates across Opus 4.8, Opus 4.7, Opus 4.6, and Sonnet 4.6</strong> over the weekend, with users reporting pervasive 529 (overloaded) errors even on the 20× Max plan. The HN discussion (32 points, 35 comments) reveals widespread frustration — developers report workflow interruptions during critical weekend coding sessions. The reliability question is becoming material: if you're building production systems that depend on Claude Code for autonomous tasks, you need fallback routing. <strong>Actionable architecture</strong>: implement a model router that detects 529s and automatically fails over to DeepSeek v4 or GPT-5.5 for continued operation. One HN commenter reports migrating from Claude to DeepSeek cut costs from $606K/yr to $231K/yr — though with quality tradeoffs on complex reasoning tasks.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">China · Open Source</span>
+    <h3><a href="https://startupfortune.com/chinas-zai-open-sourced-a-frontier-coding-model-the-same-day-washington-banned-its-american-rival/">China's Z.ai Open-Sources Frontier Coding Model as Washington Bans Its Rival</a></h3>
+    <p>In a remarkable geopolitical move, China's Z.ai <strong>open-sourced a frontier-level coding model on the same day Washington imposed new export restrictions</strong> on competing American AI models. The timing is likely deliberate — demonstrating that export controls create open-source alternatives rather than containment. For developers: this adds another high-quality option to the model router stack. Z.ai's model reportedly performs competitively with Claude Sonnet on code generation benchmarks while running efficiently on consumer hardware. Combined with DeepSeek v4 (covered June 17), the open-weight coding model landscape is now genuinely competitive with proprietary options for most routine coding tasks.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">CoinDesk · Security</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/20/ai-is-making-crypto-security-cheaper-faster-and-harder-to-ignore">AI Is Making Crypto Security Cheaper, Faster and Harder to Ignore</a></h3>
+    <p>CoinDesk reports that <strong>AI-powered smart contract auditing tools are fundamentally reshaping security expectations</strong> in crypto development. Tools using LLMs for vulnerability detection are now catching bugs in minutes that human auditors take weeks to find — at 10-100× lower cost. The implication: "we couldn't afford an audit" is no longer acceptable when AI tools can scan contracts for common vulnerabilities at near-zero marginal cost. For protocol developers: integrate AI security scanning into your CI/CD pipeline as a mandatory pre-deployment check. The tools won't replace human auditors for complex logic bugs, but they eliminate entire classes of known vulnerabilities (reentrancy, integer overflow, access control issues) before code reaches production.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">HN · MCP</span>
+    <h3><a href="https://medium.com/dev-genius/i-built-an-mcp-server-in-200-lines-of-go-and-claude-became-10x-more-useful-5352546a48cb">Build an MCP Server in 200 Lines of Go — Claude Becomes 10× More Useful</a></h3>
+    <p>A Show HN post demonstrates building a complete <strong>Model Context Protocol server in just 200 lines of Go</strong> that makes Claude dramatically more capable for specific workflows. The pattern: expose your domain-specific tools (database queries, API calls, internal services) as MCP endpoints, and Claude Code can orchestrate them autonomously. For iOS/mobile teams: build an MCP server that wraps your crash reporting API, analytics dashboard, and feature flag system — Claude can then investigate production issues by pulling real data rather than guessing. The 200-line Go implementation proves MCP servers don't need to be complex infrastructure projects — a single file can make your AI coding agent contextually aware of your entire production environment.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agent Governance · ANMA</span>
+    <h3><a href="https://github.com/anma-labs/anma">ANMA: Boundary Contracts That Make Cheap Models Follow Architecture Rules</a></h3>
+    <p>A new Show HN project tackles the Gartner "40% of agents will be demoted" problem head-on. <strong>ANMA</strong> provides YAML-based boundary contracts that enforce architecture rules on AI coding agents, even when using cheaper models like Claude Haiku 4.5. The benchmark results: without ANMA, Haiku ignored architecture rules 13/19 runs; with ANMA, 0/20 violations. The system works via <code>CLAUDE.md</code> integration, git hooks, and CI checks — creating a governance layer that's cheaper than switching to expensive models. For teams managing AI coding budgets: this suggests a "cheap model + strong contracts" approach can match expensive model quality for rule-following tasks, saving 5-10× on token costs while maintaining code consistency.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Woltspace · Remote Agents</span>
+    <h3><a href="https://www.woltspace.com/">Woltspace: Containerized Lodge for Coding Agents You Control via Telegram</a></h3>
+    <p>Woltspace launched on HN today — a fully containerized environment for running <strong>Claude Code agents that you control remotely via Telegram or Slack</strong>. Each agent ("Wolt") runs in its own sandbox with full terminal access, manages its own website, and can build full-stack apps accessible via Cloudflare tunnels. The key differentiator from Cursor Background Agents: <strong>everything runs on your machine</strong> with zero data leaving your network, and you can interact with running agents from your phone while away from the computer. For teams with strict data sovereignty requirements: this is a self-hosted alternative to cloud-based coding agent services, with the convenience of mobile control. Open source at github.com/jerpint/woltspace.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Geopolitics</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/21/bitcoin-holds-near-usd64-000-as-a-renewed-hormuz-threat-clouds-us-iran-ceasefire-talks">BTC Holds $64K as Iran's Hormuz Threat Clouds Ceasefire Talks</a></h3>
+    <p>Bitcoin stabilized near <strong>$64,000</strong> over the weekend after Friday's selloff, but geopolitical uncertainty escalated as Iran ordered the Strait of Hormuz closed again — directly threatening the US-Iran ceasefire deal that briefly lifted stocks last week. The macro picture: crypto remains caught between improving on-chain fundamentals (Glassnode's "capitulation twice as weak" signal from Thursday) and external risk events that drive correlation with risk assets. For traders: the $63K-$64K range is now critical consolidation territory. A break below targets $59K; sustained holding above $65K could trigger the relief rally the on-chain data has been suggesting for two weeks.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">ETF · Outflows</span>
+    <h3><a href="https://cointelegraph.com/news/bitcoin-etfs-shed-a-record-64b-in-30-days-as-bitcoin-shivers">Bitcoin ETFs Shed Record $6.4B in 30 Days — Largest Outflow Since 2024 Launch</a></h3>
+    <p>US-listed spot Bitcoin ETFs recorded their <strong>biggest 30-day net outflow since launching in January 2024</strong> — $6.4 billion exited as BTC fell 17% over the past month. This data point confirms the "Great Rotation" thesis from last week: institutional capital is systematically leaving crypto ETFs for AI infrastructure plays. The ETF outflow accelerated after the hawkish FOMC meeting and STRC's below-par collapse. For the market structure: ETF flows are now a leading indicator — when outflows reverse, it signals institutional re-entry. Watch for the first positive weekly flow as a bottoming signal. The magnitude ($6.4B in 30 days vs. total AUM of ~$60B) shows roughly 10% of ETF capital rotated out — a significant but not catastrophic repositioning.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">MEV · Security</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/21/ethereum-s-biggest-sandwich-bot-drained-of-usd7-5-million-in-ironic-exploit">Jaredfromsubway.eth Drained for $7.5M — Ethereum's Biggest MEV Bot Exploited</a></h3>
+    <p>In a poetic twist, <strong>Ethereum's most notorious sandwich attack bot "jaredfromsubway.eth" was itself exploited for $7.5 million</strong> through a counter-MEV honeypot. Blockaid confirmed an attacker tricked the bot into approving fake trading routes, then used those approvals to drain WETH, USDC and USDT. The bot was responsible for 70% of sandwich attacks on Ethereum between Nov 2024–Oct 2025. For DeFi developers: this demonstrates that MEV extractors are themselves vulnerable to exploit — the "predator becomes prey" dynamic could reduce sandwich attack prevalence as bot operators reassess risk. For users: private transaction pools (Flashbots Protect, MEV Blocker) remain the best defense against sandwich attacks regardless.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">MiCA 2.0 · DeFi</span>
+    <strong>MiCA 2.0: Europe Prepares to Regulate DeFi and Stablecoins More Aggressively</strong>
+    <p>CoinTelegraph reports the European Commission is <strong>actively seeking comment on MiCA 2.0 revisions</strong> targeting stablecoins and DeFi — building on Malta's "decentralization spectrum" framework from last week. The MiCA 2.0 consultation covers: expanding stablecoin reserve requirements, defining DeFi protocol obligations based on degree of centralization, and potentially requiring DAOs to register as legal entities. Combined with the US GENIUS Act's stablecoin KYC rules (covered June 19), a <strong>global regulatory convergence</strong> is forming around the principle that decentralization is a spectrum, not a binary. For protocol builders: if you ship a product in 2026, design for MiCA 2.0 compliance from day one — the regulatory cost of retrofitting is 10× higher than building it in. <a href="https://cointelegraph.com/features/crypto-industry-stablecoins-defi-mica">Full analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI Agents · Reliability</span>
+    <strong>The Agent Reliability Crisis — When Your Infrastructure Goes Down at 2 AM</strong>
+    <p>This weekend's Anthropic outage (Opus 4.8, 4.7, 4.6 and Sonnet 4.6 all affected simultaneously) crystallizes a new infrastructure risk: <strong>entire engineering workflows halting because a single AI provider is overloaded</strong>. Developers on the Claude 20× Max plan — paying premium prices — couldn't work. Meanwhile, HN saw launches of Lupen (spend tracking), Compass (budget caps), and ANMA (boundary contracts) — all addressing agent governance. The emerging pattern: <strong>AI agents need the same operational maturity as any production service</strong> — SLOs, fallback routing, circuit breakers, and cost caps. The "move fast with AI agents" era is giving way to "operate AI agents reliably." Teams shipping agent-dependent workflows without multi-provider fallback are accepting unhedged single-point-of-failure risk. Build routing layers now, not after your next weekend outage.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Japan · Institutional</span>
+    <strong>Japanese Pension Funds Enter Crypto — The Quiet Institutional Adoption Signal</strong>
+    <p>CoinTelegraph reports a <strong>Japanese corporate pension fund with 1,200 participating businesses plans to allocate ~1% of assets to crypto</strong>. This is Japan's first corporate pension fund crypto allocation — a milestone that signals institutional adoption is progressing even during the bear market. Pension fund capital is the "stickiest" money in finance: once allocated, it stays for decades with systematic rebalancing. The Nikkei report comes alongside Japan increasingly positioning itself as a crypto-friendly jurisdiction (revised tax framework, relaxed stablecoin rules). For the market: pension fund flows are tiny individually but represent a <strong>structural shift in asset allocation models</strong>. When pension consultants start recommending 1-3% crypto allocations as standard, the aggregate inflow dwarfs ETF volumes. This is a leading indicator of that shift.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment">Samsung Deploys ChatGPT Enterprise &amp; Codex Worldwide</a>
+      <span class="desc">OpenAI's case study on one of the largest enterprise AI coding rollouts. Covers deployment strategy, division-specific configurations, and lessons for scaling AI tools across 100K+ engineers.</span>
+    </li>
+    <li>
+      <a href="https://blog.firetiger.com/migrating-from-claude-to-deepseek-without-breaking-everything/">Migrating from Claude to DeepSeek: $606K/yr to $231K/yr</a>
+      <span class="desc">Practical guide on migrating production AI workloads from Anthropic to DeepSeek v4. Covers quality tradeoffs, prompt adaptation, and the specific task categories where DeepSeek matches or exceeds Claude.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/20/how-strc-lost-its-par-the-timeline-behind-strategy-s-preferred-stock-meltdown">How STRC Lost Its Par — Strategy's Preferred Stock Meltdown Timeline</a>
+      <span class="desc">CoinDesk's deep dive into the sequence of events that turned Strategy's STRC from a successful capital-raising vehicle into a marketwide debate about Saylor's BTC flywheel sustainability.</span>
+    </li>
+    <li>
+      <a href="https://www.pewresearch.org/internet/2026/06/17/americans-and-ai-2026-chatbots-smart-devices-and-views-on-impact/">Americans and AI 2026: Pew Research Study</a>
+      <span class="desc">Comprehensive survey data on how Americans actually use and perceive AI tools in 2026. Key finding: chatbot usage has tripled since 2024, but trust in AI-generated content remains low across demographics.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/06/20/ai-is-making-crypto-security-cheaper-faster-and-harder-to-ignore">AI-Powered Crypto Security: The New Standard for Smart Contract Auditing</a>
+      <span class="desc">How AI tools are democratizing smart contract security, making professional-grade vulnerability scanning accessible at near-zero cost. Includes tool comparisons and integration patterns for CI/CD pipelines.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-22T09:00:00Z · Monday Edition (Claude Code / Codex — Agentic Workflows, Hooks, MCP, Skills)</p>
+  <p>Dedup: 310+ stories filtered from past 5 days (Jun 17–Jun 21) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>7</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>12</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>13</td></tr>
+    <tr><td>RSS — OpenAI Blog</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>RSS — Google AI Blog</td><td>✅ OK</td><td>6</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 17–Jun 21)</td><td>✅ 310+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
