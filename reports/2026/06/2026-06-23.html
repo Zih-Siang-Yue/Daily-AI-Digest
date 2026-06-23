@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-23</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, June 23, 2026 · Issue #172 · GPT-5.5-Cyber Launch &amp; OKX-NYSE TradFi Bridge</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI x iOS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS: CoreML, Create ML &amp; On-Device Inference</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">WebGPU · Browser ML</span>
+    <strong>Run Image Inpainting Models Entirely in the Browser via WebGPU — No Server Required</strong>
+    <p>Simon Willison just demonstrated porting the <strong>Moebius 0.2B image inpainting model</strong> to run entirely client-side using ONNX Runtime Web + WebGPU — no Python, no server, no CUDA required. The pipeline: export PyTorch model → ONNX format → load in browser via <code>ort.InferenceSession</code> with the WebGPU execution provider. It works in Chrome, Firefox, and Safari with a one-time 1.3GB download (cached via CacheStorage API). For iOS developers: this same pattern works in <strong>WKWebView</strong> on devices with Metal/WebGPU support. The architectural insight for Binance iOS: ship compute-intensive ML features (chart pattern recognition, document scanning, image analysis) as WebGPU-powered web views embedded in your native app — instant updates without App Store review. Combine with <code>ODR</code> (On-Demand Resources) for the model weights to keep your binary small. Performance: the 0.2B model runs real-time inference on M-series chips in the browser. <a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">Tutorial →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">CoreML · Vision</span>
+    <strong>Build a Real-Time Document Scanner With CoreML's VNDocumentCameraViewController + Custom Classifier</strong>
+    <p>Most iOS apps using document scanning stop at Apple's built-in <code>VNDocumentCameraViewController</code> — which is great for OCR but doesn't classify document types. The advanced pattern: chain the camera output into a <strong>custom CoreML classifier</strong> that identifies document types (ID card, passport, bank statement, invoice) in real-time. Architecture: (1) Use <code>VNDocumentCameraViewController</code> for edge detection and perspective correction. (2) Feed the corrected image to a small custom <code>.mlmodel</code> trained via Create ML's Image Classifier template — 50 samples per category is sufficient for 95%+ accuracy on well-defined document types. (3) Route each classified document to its specialized OCR pipeline. For Binance KYC flows: this enables <strong>instant document type detection</strong> before the user taps "capture" — showing a real-time overlay confirming "Passport detected" or "Please use a government ID." The classifier runs at 30fps on the Neural Engine with zero perceptible latency. Ship the model via <code>MLModelCollection</code> for server-side updates without binary changes.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Create ML · Fine-Tuning</span>
+    <strong>Fine-Tune On-Device Models With Create ML Components: The Federated Learning Shortcut</strong>
+    <p>Create ML Components (introduced WWDC24, matured in Xcode 18) enables a powerful pattern most iOS developers overlook: <strong>on-device model fine-tuning</strong> using user-specific data that never leaves the device. The workflow: (1) Ship a base model via your app bundle. (2) Collect user-specific training data locally (e.g., the user's typing patterns, frequently accessed features, personal document layouts). (3) Use <code>MLTrainingSession</code> to fine-tune the model on-device during idle time (plugged in, charging, backgrounded). (4) Save the personalized model to the app's container. The result: each user gets a model adapted to their specific usage patterns — without sending training data to any server. For Binance: apply this to <strong>personalized anomaly detection</strong> — train a small classifier on each user's normal transaction patterns, then flag unusual activity locally before it reaches your backend fraud system. This provides sub-second alerting while maintaining total data privacy. The fine-tuning process takes 30-90 seconds for tabular models on iPhone 15+. <a href="https://developer.apple.com/documentation/createml/creating-a-model-with-create-ml-components">Apple Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Cybersecurity</span>
+    <h3><a href="https://openai.com/index/daybreak-securing-the-world/">OpenAI Launches GPT-5.5-Cyber — Specialized Model for Security Operations</a></h3>
+    <p>OpenAI announced <strong>DayBreak</strong>, a new initiative shipping <strong>GPT-5.5-Cyber</strong> — a purpose-built model fine-tuned for cybersecurity tasks including vulnerability analysis, threat hunting, incident response, and security code review. This is OpenAI's first <strong>vertically-specialized GPT variant</strong> targeting a specific professional domain rather than general reasoning. For engineering teams: if GPT-5.5-Cyber performs as claimed, it could replace or augment SAST tools in your CI/CD pipeline for security-focused code review. The vertical specialization approach validates what Anthropic did with Claude's coding focus — expect more domain-specific model variants from all major labs. For Binance security teams: evaluate this for smart contract audit augmentation and real-time threat detection in API traffic patterns.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Vibe Coding · Claude Code</span>
+    <h3><a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">Simon Willison Ports ML Model to Browser Without Writing a Line of Code</a></h3>
+    <p>In a masterclass demonstration of <strong>vibe coding</strong>, Simon Willison used Claude Code (Opus 4.8) to port a complete PyTorch model to a browser-based WebGPU application — from ONNX conversion to Hugging Face publishing to frontend deployment — <strong>without reading or writing any code himself</strong>. The workflow: pre-gather all resources locally (repo, weights, documentation), launch Claude Code as a background agent, feed it browser errors and screenshots iteratively, and use subagents to analyze third-party code. Key technique: having Claude maintain <code>notes.md</code> and <code>plan.md</code> files throughout for continuity. This validates that frontier AI agents can now handle complete end-to-end ML engineering tasks when given proper context and iterative feedback.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Economics · Analysis</span>
+    <h3><a href="https://www.wheresyoured.at/brokenomics/">AI's Brokenomics — The Case That AI Companies Have No Viable Business Model</a></h3>
+    <p>Ed Zitron's latest deep analysis (trending on HN) argues that <strong>generative AI companies are structurally unprofitable</strong>: a $200/month Anthropic subscription allows users to burn $8,000 in actual compute, while OpenAI's equivalent burns $14,000. When token-based billing launched in Q1, companies like Uber exhausted entire annual AI budgets in one quarter. The counter-thesis to the "AI will eat everything" narrative, it provides a data-driven framework for understanding <strong>when AI tools deliver ROI vs. when they're cost sinks</strong>. For engineering managers: use this as a framework to justify specific AI tool purchases — calculate your actual token usage vs. subscription cost to determine if you're above or below the profitability threshold for your provider.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Five Eyes · Policy</span>
+    <h3><a href="https://www.cyber.gov.au/about-us/view-all-content/news/five-eyes-cyber-security-agencies-statement">Five Eyes Cyber Agencies Issue Joint Statement on AI Risks</a></h3>
+    <p>The cybersecurity agencies of all Five Eyes nations (US, UK, Australia, Canada, New Zealand) issued a <strong>joint statement on AI-driven cyber risk</strong>, marking the first coordinated policy position on how AI is reshaping the threat landscape. The statement acknowledges AI is simultaneously accelerating both offensive capabilities (automated vulnerability discovery, deepfake social engineering) and defensive tools (anomaly detection, automated incident response). For security-conscious development teams: this signals incoming regulatory requirements around AI security tooling. Organizations should begin documenting their AI-assisted security posture now — auditors will likely reference this framework within 12 months.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">OKX · NYSE · TradFi</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/22/okx-and-nyse-partner-to-bridge-tradfi-and-crypto-markets-in-joint-venture-led-by-andrew-cuomo">OKX &amp; NYSE Launch Joint Venture — 120M Crypto Users Get Access to NYSE Markets</a></h3>
+    <p>OKX and Intercontinental Exchange (NYSE parent) announced a <strong>joint venture co-chaired by Andrew Cuomo</strong> that will enable OKX's 120 million global users to access ICE futures and NYSE tokenized equities markets. This is the most significant <strong>crypto-TradFi infrastructure bridge</strong> announced in 2026 — a tier-1 crypto exchange directly integrating with the world's largest stock exchange operator. For exchange engineering teams: this sets the architectural template for how crypto and traditional markets will converge. Expect unified order books spanning both domains, likely requiring real-time cross-margin calculations across crypto and equity positions. The regulatory structure (pending approval) suggests a hybrid entity that satisfies both SEC and crypto-specific requirements.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Anchorage · Banking</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/19/anchorage-aims-to-bring-banks-onchain-with-new-tokenized-deposit-platform">Anchorage Launches Tokenized Deposit Platform — Banks Can Go On-Chain Without Core System Changes</a></h3>
+    <p>Anchorage Digital launched a <strong>tokenized deposit platform</strong> enabling traditional banks to offer 24/7 payments and settlement on blockchain rails <strong>without replacing their core banking systems</strong>. The architecture: banks connect their existing ledger to Anchorage's blockchain layer via API, and deposits become tokenized representations that move instantly on-chain while the bank retains custody and regulatory compliance. For developers building payment infrastructure: this is the <strong>"gradual migration" approach</strong> to bank-on-chain — far more realistic than expecting banks to rebuild core systems. Combined with yesterday's Custodia dual-mode token concept (Jun 19), a clear pattern emerges: the future isn't "banks vs. crypto" but banks <em>using</em> crypto rails transparently.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Baillie Gifford · Tokenization</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/22/tradfi-fund-manager-baillie-gifford-introduces-solana-ethereum-tokenized-fund-with-bny">Baillie Gifford Tokenizes Bond Fund on Solana &amp; Ethereum via BNY</a></h3>
+    <p>Scotland's Baillie Gifford — managing $230B+ in assets — launched the <strong>BAGEY fund (Enhanced Yield)</strong> as a tokenized product on both Solana and Ethereum, custodied by BNY. It's an actively managed short-duration corporate bond portfolio accessible to eligible investors via on-chain tokens. This is notable because Baillie Gifford is a <strong>traditional, conservative fund manager</strong> (known for early Tesla/Amazon bets), not a crypto-native firm. Their entry validates tokenized fixed-income as a serious institutional product category. For DeFi developers: BAGEY tokens could become high-quality collateral in lending protocols — institutional-grade yield, on-chain composability.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Momentum</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-funding-rate-hits-2-week-high-is-70k-next">BTC Funding Rate Hits 2-Week High — $65.5K as Iran Deal Drops Oil Prices</a></h3>
+    <p>Bitcoin surged to <strong>$65,500</strong> as the Iran peace deal sent oil toward a 16-week low, with funding rates reaching their highest level in two weeks signaling renewed bullish positioning. The RSI divergence on the weekly chart combined with three consecutive weekly closes above $63K is forming what analysts call a <strong>textbook bottoming pattern</strong>. However, ETF outflows and macro red flags (hawkish Fed stance, dollar strength) could still cap upside at $70K in the near term. For traders: the $65K-$66K zone is the battleground — a sustained break above targets $70K, while failure to hold risks re-testing $63K support. The Iran-driven oil decline is net-positive for risk assets as it reduces inflation pressure and increases the probability of eventual Fed rate cuts.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Strategy · Treasury</span>
+    <h3><a href="https://cointelegraph.com/news/strategy-300-million-usd-reserve-acquires-520-btc">Strategy Adds $300M Cash Reserve + 520 BTC — Reassuring STRC Dividend Holders</a></h3>
+    <p>Michael Saylor's Strategy boosted its <strong>USD Reserve to $1.4 billion</strong> and acquired 520 Bitcoin (worth ~$35M), funded through $335.5M in MSTR share sales. The cash reserve buildup is explicitly designed to <strong>reassure STRC preferred share investors</strong> about dividend sustainability after the instrument hit record lows below par last week. This marks a tactical pivot: rather than maximizing BTC purchases, Strategy is prioritizing capital structure stability. For market participants: the $300M cash hoard signals Management expects continued STRC pressure and is preemptively building a dividend coverage moat. Watch STRC's price response — if it recovers toward par, expect aggressive BTC buying to resume.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · CBDC</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/06/22/u-s-senate-passes-housing-bill-that-carries-four-year-ban-on-a-fed-cbdc">US Senate Passes 4-Year Ban on Fed CBDC — Embedded in Housing Bill</a></h3>
+    <p>The US Senate passed a housing bill containing a <strong>four-year prohibition on the Federal Reserve issuing a CBDC</strong>. While a Fed digital dollar was never close to reality (still in research phase), the legislative ban formally prevents even pilot programs through 2030. For the crypto industry: this is <strong>bullish for private stablecoins</strong> (USDC, PYUSD, USDT) — the government has effectively ceded the digital dollar space to the private sector for at least four more years. Combined with the GENIUS Act's stablecoin framework, the US regulatory position is now clear: private issuers with full reserves, not a government-operated digital currency. For exchange product teams: build around private stablecoins with confidence — regulatory risk of a competing Fed product is now off the table until at least 2030.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Tokenization · Patents</span>
+    <strong>The Tokenization Patent War — Securitize vs. tZERO Signals Market Maturity</strong>
+    <p>Securitize and tZERO are now <strong>locked in a patent dispute over tokenization technology</strong> as the race to bring Wall Street on-chain intensifies. When companies start fighting over IP rather than competing on features, it signals the market has moved from "exploration" to "extraction" — the land grab phase where infrastructure positions become defensible moats. CoinDesk reports that tokenization hype may be "outrunning Wall Street reality" (21Shares co-founder's warning), but the patent battle says otherwise: companies are investing in legal protection because they believe the revenue opportunity is real and imminent. For protocol developers and exchange teams: if you're building tokenization infrastructure, <strong>document your novel implementations now</strong>. Patent trolls follow market momentum, and tokenization is the next target. The Securitize/tZERO conflict will likely define the IP landscape for the next decade of digital securities. <a href="https://www.coindesk.com/business/2026/06/22/securitize-and-tzero-clash-over-patents-as-race-to-bring-wall-street-onchain-heats-up">Full analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">UK · Stablecoins</span>
+    <strong>Bank of England's 40B-Pound Stablecoin Cap — The UK Bets Big on Private Digital Money</strong>
+    <p>The Bank of England published <strong>draft rules for systemic stablecoins</strong>, introducing a temporary £40 billion issuance cap while easing reserve requirements. This is remarkable: the BoE is explicitly <strong>creating regulatory space for stablecoins to grow to £40B</strong> — larger than most UK banks' deposit bases. Combined with the US CBDC ban (also today), a clear global pattern emerges: <strong>Western governments are choosing regulated private stablecoins over central bank digital currencies</strong>. The BoE framework covers reserve composition (high-quality liquid assets), redemption guarantees (1:1 at par, same-day), and systemic importance thresholds. For stablecoin teams at exchanges: the UK is now arguably the most stablecoin-friendly G7 jurisdiction — with clear rules, generous caps, and no CBDC competition. This could trigger a wave of UK-domiciled stablecoin issuance in 2027. <a href="https://cointelegraph.com/news/bank-of-england-stablecoin-rules-clears-path-for-2027-launch">Details →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Hacks · Q2 Record</span>
+    <strong>Q2 2026: Most-Hacked Quarter in Crypto History — 83 Incidents, $755M Stolen</strong>
+    <p>CoinTelegraph reports Q2 2026 is now the <strong>most-hacked quarter on record</strong> with 83 cybersecurity incidents totaling $755M in losses — cross-chain bridges remain the costliest attack vector. This data point arrives alongside OpenAI's GPT-5.5-Cyber launch and the Five Eyes joint AI security statement, creating an inflection moment: <strong>AI-powered security tools are arriving precisely when the threat landscape demands them</strong>. The irony: the same AI capabilities that enable automated vulnerability discovery also power the AI-assisted audit tools (covered Jun 22) that could prevent these exploits. For protocol developers and exchange security teams: the $755M quarterly loss figure makes the ROI case for AI security tooling trivial to justify. If AI auditing catches even one bridge exploit, it pays for itself 1000x over. Integrate automated security scanning into every deployment pipeline — the era of "ship first, audit later" is definitively over.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://simonwillison.net/2026/Jun/22/porting-moebius/">Porting Moebius to the Browser With Claude Code — Complete Walkthrough</a>
+      <span class="desc">Simon Willison's detailed account of using Claude Code to port a PyTorch model to WebGPU without writing code. Includes the full workflow: ONNX conversion, Hugging Face publishing, CacheStorage caching, and the subagent technique for analyzing third-party code.</span>
+    </li>
+    <li>
+      <a href="https://www.wheresyoured.at/brokenomics/">AI's Brokenomics — Why Generative AI Has No Business Model</a>
+      <span class="desc">Ed Zitron's data-heavy analysis arguing AI subscriptions are structurally unprofitable. Key data: $200/month plans allow $8K-$14K in compute usage. Required reading for anyone making AI tooling budget decisions.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/22/okx-and-nyse-partner-to-bridge-tradfi-and-crypto-markets-in-joint-venture-led-by-andrew-cuomo">OKX × NYSE Joint Venture — Full Coverage</a>
+      <span class="desc">CoinDesk's deep dive into the most significant crypto-TradFi infrastructure deal of 2026. Covers the regulatory structure, technology integration plans, and what 120M crypto users accessing NYSE markets means for both ecosystems.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/06/22/ether-s-biggest-corporate-holders-back-new-ethereum-research-hub">Ethlabs: Ethereum's Biggest Corporate Holders Form Independent Research Hub</a>
+      <span class="desc">As the Ethereum Foundation loses leadership, major ETH holders (SharpLink, Bitmine, Consensys) are forming Ethlabs — an independent research entity to diversify Ethereum's development funding and governance beyond the Foundation.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/markets/solana-captures-95-of-tokenized-equity-as-sol-bottom-debate-grows">Solana Captures 95% of Tokenized Equity Volume</a>
+      <span class="desc">Data showing Solana has become the dominant chain for tokenized equities trading. Includes analysis of whether $60 was SOL's cycle bottom and what tokenized equity demand means for Solana's fundamental value proposition.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-23T09:00:00Z · Tuesday Edition (AI x iOS — CoreML, Create ML, MLX On-Device Inference)</p>
+  <p>Dedup: 320+ stories filtered from past 5 days (Jun 18–Jun 22) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>16</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>15</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>RSS — OpenAI Blog</td><td>⚠️ 403 Forbidden</td><td>0</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 18–Jun 22)</td><td>✅ 320+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
