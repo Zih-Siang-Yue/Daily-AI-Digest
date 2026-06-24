@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-24</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, June 24, 2026 · Issue #173 · BTC Tests $60K &amp; Ethereum Foundation Restructures</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI Dev Tools ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools: Cursor, Windsurf &amp; Copilot Advanced Usage</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Background Agents</span>
+    <strong>Cursor Background Agents: Run Multi-File Refactors While You Sleep</strong>
+    <p>Cursor's <strong>Background Agents</strong> feature lets you queue complex, multi-file refactoring tasks that run autonomously in a cloud sandbox — even after you close your laptop. The killer workflow for iOS teams: before leaving for the day, describe a large refactor (e.g., "migrate all UIKit delegates to async/await concurrency patterns across the networking module"), assign it as a background task, and review the PR next morning. Key configuration: set <code>.cursor/rules</code> with project-specific architecture constraints so the agent respects your module boundaries. Advanced tip: combine with Cursor's <strong>Notepads</strong> feature — create a "refactoring guidelines" notepad with your team's style rules, reference it in the task prompt with <code>@notepad</code>, and the background agent follows your conventions precisely. Teams report 3-5x faster large-scale migrations compared to manual refactoring. The agent creates atomic commits per file, making code review manageable even for 50+ file changes. <a href="https://docs.cursor.com/background-agent">Cursor Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot · Agent Mode</span>
+    <strong>GitHub Copilot Agent Mode: Chain Multi-Step Tasks With Natural Language Plans</strong>
+    <p>Copilot's <strong>Agent Mode</strong> (GA in VS Code since May 2026) goes beyond autocomplete — it can execute multi-step coding plans autonomously: edit multiple files, run terminal commands, fix lint errors, and iterate until tests pass. The pattern most developers miss: <strong>structured planning prompts</strong>. Instead of "add authentication to my API," write: "Plan: (1) Create auth middleware in <code>src/middleware/auth.ts</code>, (2) Add JWT validation using existing <code>jose</code> dependency, (3) Apply middleware to all routes in <code>src/routes/index.ts</code>, (4) Add unit tests in <code>tests/auth.test.ts</code>, (5) Run tests and fix failures." This explicit step breakdown increases Agent Mode success rate from ~60% to ~90% on complex tasks. For iOS projects: Copilot Agent Mode now supports Xcode-adjacent workflows via VS Code with the Swift extension — use it for refactoring Swift packages, generating test suites, and updating CI configurations while keeping Xcode for builds and debugging.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf · Cascade</span>
+    <strong>Windsurf Cascade: The "Flows" Feature That Makes Multi-Agent Coding Predictable</strong>
+    <p>Windsurf (formerly Codeium) shipped <strong>Flows</strong> — pre-defined multi-step templates that guarantee consistent agent behavior across your team. Unlike free-form prompts (where each developer gets different results), Flows enforce a specific sequence of actions: analyze → plan → implement → test → commit. Create custom Flows for your team's recurring patterns: "New API Endpoint Flow" (scaffold route + handler + validation + tests + docs), "Bug Fix Flow" (reproduce → root cause → fix → regression test → changelog). The advantage over Cursor's approach: Flows are <strong>version-controlled and shareable</strong> — check them into your repo's <code>.windsurf/flows/</code> directory so every team member gets identical agent behavior. For organizations managing multiple AI coding tools: Windsurf Flows + ANMA boundary contracts (covered June 22) creates a governance layer that works regardless of which model powers the agent. <a href="https://docs.windsurf.com/flows">Windsurf Flows Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cerebras · Earnings</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/23/ai-chipmaker-cerebras-down-11-after-first-public-earnings-report">Cerebras Down 11% After First Public Earnings — AI Chip Margins Under Pressure</a></h3>
+    <p>AI chipmaker <strong>Cerebras fell 11%</strong> after its first public earnings report despite revenue surging 92% year-over-year. The issue: the company forecasted <strong>lower core gross margins</strong> next quarter, signaling that AI chip competition is intensifying and pricing power is eroding faster than expected. This is a warning signal for the "AI infrastructure = guaranteed profits" thesis — even with massive demand growth, margin compression from competitors (NVIDIA, AMD, custom ASICs) means revenue growth doesn't automatically translate to profitability. For developers relying on AI infrastructure stocks as a macro indicator: Cerebras' margin guidance suggests the <strong>AI hardware buildout may be peaking</strong> in terms of supplier economics, even as demand remains strong. Watch NVIDIA's next earnings for confirmation of this trend.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Trump · Quantum</span>
+    <h3><a href="https://cointelegraph.com/news/trump-orders-quantum-computing-push-and-post-quantum-cryptography-upgrade">Trump Signs Executive Orders for Quantum Computing Push &amp; Post-Quantum Crypto Upgrades</a></h3>
+    <p>President Trump signed executive orders directing <strong>government investment in quantum computing development</strong> and mandating federal agencies begin transitioning to post-quantum cryptography standards. The Block notes this "could be a boon for Bitcoin" — as government spending accelerates quantum timeline awareness, it validates the urgency of crypto protocols adopting quantum-resistant signatures. Combined with Algorand's post-quantum roadmap (covered June 19) and Ethereum's Kohaku SPHINCS+ approach, <strong>post-quantum cryptography is now a top-3 priority</strong> across both government and crypto. For developers: NIST's finalized post-quantum standards (CRYSTALS-Kyber, CRYSTALS-Dilithium) should be evaluated for any new system design. Apple already ships post-quantum iMessage — if your app handles sensitive data, you're behind.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · Prediction Markets</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/23/meta-is-developing-a-prediction-market-app-called-arena-as-sector-booms-nyt">Meta Building "Arena" — Zuckerberg Orders Prediction Market App Development</a></h3>
+    <p>Mark Zuckerberg has ordered Meta staff to develop <strong>"Arena," a standalone prediction market app</strong> using a points-based system rather than real money, per NYT. The app would let users forecast future events — competing directly with Kalshi ($22B valuation) and Polymarket. This is <strong>Big Tech's first direct entry</strong> into prediction markets, bringing Meta's 3B+ user base to the category. The "points not money" angle likely sidesteps gambling regulations, similar to how Meta's metaverse tokens avoided securities classification. For the prediction market ecosystem: Meta's entry validates the sector but threatens incumbents through sheer distribution. For crypto-native prediction protocols: differentiate on <strong>real-money settlement and permissionless market creation</strong> — two things Meta cannot offer under US regulation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Franklin Templeton · Crypto</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/23/franklin-templeton-closes-250-digital-acquisition-deal-and-sets-up-new-franklin-crypto-division">Franklin Templeton Launches Dedicated "Franklin Crypto" Division After $250M Acquisition</a></h3>
+    <p>Franklin Templeton closed a <strong>$250 million acquisition</strong> and established a new <strong>Franklin Crypto division</strong>, marking one of the largest traditional asset manager commitments to crypto infrastructure. This follows their dividend-to-Bitcoin ETF filing (covered June 20) and signals Franklin is building a full-stack crypto business — custody, tokenization, funds, and blockchain settlement on Stellar. For the industry: when a $1.5T AUM asset manager creates a dedicated crypto division (not just a "digital assets team"), it means crypto is now a <strong>permanent business line</strong>, not an experiment. For exchange teams: expect Franklin to become both a competitor (direct custody/trading) and a partner (institutional distribution) simultaneously.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Chainlink · Project Pangea</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/23/chainlink-teams-up-with-47-south-korean-european-banks-to-speed-up-international-money-transfers">Chainlink's Project Pangea: 47 Banks Test Stablecoin-Powered FX Settlement</a></h3>
+    <p>Chainlink announced <strong>Project Pangea</strong> — a consortium of 47 South Korean and European banks testing <strong>stablecoin-based cross-border FX settlement</strong> in near real-time. The project uses regulated euro and won stablecoins to settle multimillion-dollar currency trades, replacing the T+2 SWIFT process with sub-minute finality. This is the <strong>largest bank consortium</strong> ever assembled for blockchain-native FX settlement. For developers building payment infrastructure: Pangea's architecture (Chainlink CCIP as the interoperability layer, regulated stablecoins as settlement assets, bank-grade KYC at endpoints) is likely the template for how international payments will work by 2028. For Binance's P2P and payment teams: Pangea's stablecoin routing model could inform cross-border fiat gateway optimization.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Allium · On-Chain Data</span>
+    <h3><a href="https://www.theblock.co/post/405776/blockchain-data-startup-allium-raises-40m-series-b-as-institutional-interest-in-onchain-analytics-grows-fortune">Allium Raises $40M Series B — On-Chain Analytics Demand Exploding</a></h3>
+    <p>Blockchain data startup <strong>Allium raised $40M</strong> as institutional interest in on-chain analytics surges. The company provides real-time blockchain data infrastructure — think "Snowflake for crypto" — letting teams query across 60+ chains with SQL. For engineering teams: Allium represents the maturing of on-chain data tooling from "scrape it yourself" to enterprise-grade infrastructure. If your team still runs custom indexers for blockchain data, evaluate managed solutions — the build-vs-buy calculus has shifted decisively toward buy as data volumes grow 10x annually. For Binance's data engineering: Allium's multi-chain normalization patterns could inform internal analytics pipeline improvements.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Tether · Oobit · PIX</span>
+    <h3><a href="https://www.theblock.co/post/405819/tether-backed-oobit-brings-usdt-170-million-users-brazils-pix-payment-network">Tether-Backed Oobit Brings USDT to 170M Users via Brazil's PIX Network</a></h3>
+    <p>Tether-backed <strong>Oobit integrated USDT with Brazil's PIX</strong> instant payment network, giving nearly <strong>170 million PIX users</strong> direct access to stablecoin payments. PIX is one of the world's most successful instant payment systems (processing more transactions than Visa in Brazil), and adding USDT rails creates a seamless fiat-to-crypto bridge without requiring users to understand blockchain. For product teams: this is the "invisible crypto" pattern in action — users interact with familiar payment UX while settlement happens on stablecoin rails behind the scenes. The integration model (existing national payment system + stablecoin settlement layer) is replicable across other instant payment networks (UPI in India, FPS in UK, SEPA Instant in EU).</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · $60K Test</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/23/bitcoin-s-recent-drop-below-usd60-000-signals-fed-etf-and-ai-pressures-deutsche-bank">BTC Tests $60K — Deutsche Bank Flags Fed, ETF, and AI Capital Rotation as Triple Headwinds</a></h3>
+    <p>Bitcoin <strong>slid toward $60,000</strong> in its lowest level since late 2024, with Deutsche Bank publishing a research note identifying <strong>three structural headwinds</strong>: hawkish Federal Reserve policy, continued ETF outflows, and capital rotation into AI infrastructure. A separate CoinDesk analysis suggests BTC may need to <strong>plunge 15% further</strong> to the $50K-$54K range before a true bottom forms, based on on-chain realized price bands. Meanwhile, multi-year Bitcoin holder selling hit a <strong>19-month low</strong> — suggesting OG holders aren't panicking, but new capital isn't entering. The $10.6B options expiry approaching adds another volatility catalyst. For traders: the $60K level is now critical psychological support — a clean break below opens $54K as the next battleground per on-chain indicators.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Restructuring</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/23/vitalik-buterin-says-ethereum-foundation-will-cut-budget-40-in-major-reset">Vitalik Announces EF 40% Budget Cut &amp; 20% Layoffs — "Major Reset" Underway</a></h3>
+    <p>Vitalik Buterin confirmed the Ethereum Foundation will <strong>cut its budget by 40%</strong> and reduce headcount by 20%, implementing a new "5-cluster structure" following the exodus of nine senior leaders since January. Simultaneously, $170M in ETH long positions were liquidated as the altcoin market tumbled. The restructuring comes as CoinTelegraph reports the controversial "staking tax" proposal to fund the EF <strong>may already be obsolete</strong> — with large ETH holders forming independent research entities (EthLabs) as an alternative funding model. For ETH holders: the budget cut signals the Foundation is accepting a smaller, more focused role, which could be structurally positive long-term — less bureaucracy, more aligned contributors. But short-term, the leadership vacuum and bearish price action (testing $2,400 area) create an uncertain 3-6 month outlook.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">CBOE · Perp Futures</span>
+    <h3><a href="https://cointelegraph.com/news/cboe-bitcoin-ether-perpetual-futures-cftc-kalshi">CBOE Mulls Converting BTC &amp; ETH Continuous Futures to Perpetual Futures</a></h3>
+    <p>CBOE is considering <strong>converting its BTC and ETH continuous futures contracts into full perpetual futures</strong>, joining Coinbase and Kalshi in the rapidly expanding US perps market following CFTC regulatory clarity. The move signals that <strong>traditional exchange operators now view perps as inevitable</strong> rather than controversial. Combined with the CFTC chair's statement that "perp trading isn't suitable for all assets" (narrowing scope rather than blocking crypto perps), the US perpetual futures landscape is crystallizing: CBOE, Coinbase, Kalshi, and the new American Perpetuals Exchange (covered June 19) will all compete for institutional flow. For Binance's derivatives team: US competitors entering perps means regulatory harmonization pressure — expect demand for more standardized risk frameworks across jurisdictions.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Tokenization · FOMO</span>
+    <strong>The Tokenization FOMO Wave — BNY Says Asset Managers Are Rushing In</strong>
+    <p>BNY (the world's largest custodian bank) reports <strong>"FOMO is driving asset managers into tokenized funds"</strong> — fund issuers are exploring blockchain-based ETFs for fear of missing an early foothold. This comes as Roubini (famous crypto critic "Dr. Doom") launched his own <strong>tokenized "Technodollar" security</strong> backed by a Nasdaq-listed ETF he oversees. When the most vocal crypto skeptics and the world's largest custodians are both racing to tokenize, you're witnessing a <strong>consensus formation event</strong>. The tokenization narrative has crossed from "if" to "how fast" — CoinDesk reports the SEC's delay on tokenized stock approval is actually viewed as a "relief" by builders who want more time to build compliance infrastructure. For exchange teams: tokenized fund custody and secondary trading is becoming table-stakes functionality for 2027. <a href="https://www.coindesk.com/markets/2026/06/23/bny-sees-fomo-driving-asset-managers-into-tokenized-funds">Full report →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">UK · Political Shift</span>
+    <strong>UK's New PM Andy Burnham — The Most Crypto-Friendly G7 Leader?</strong>
+    <p>UK PM Starmer stepped down, with <strong>Andy Burnham</strong> taking over — and CoinTelegraph reports he brings genuine crypto enthusiasm from his time as Manchester mayor, where he actively supported blockchain industry development. Combined with the BoE's £40B stablecoin cap (covered June 23) and now a crypto-friendly PM, the UK is positioning itself as potentially the <strong>most welcoming G7 jurisdiction for digital assets</strong>. Meanwhile, OKX's Europe chief warns <strong>80% of crypto exchanges won't survive MiCA</strong> as the July 1 deadline approaches — suggesting massive market consolidation in EU, potentially pushing companies toward UK licensing. For compliance teams: the UK-EU regulatory divergence is creating a clear strategic choice for crypto companies — build in the UK for flexibility, or in the EU for market access, but increasingly not both under one license.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Digital Euro · CBDC Race</span>
+    <strong>EU Advances Digital Euro While US Bans CBDC — The Great Monetary Divergence</strong>
+    <p>In a single week, the US Senate <strong>banned a Fed CBDC through 2030</strong> while the EU Parliament <strong>advanced the digital euro bill</strong> through a key committee vote, and the former BIS chief publicly softened his stance on stablecoins, backing "coexistence with fiat." This creates the most significant <strong>monetary policy divergence</strong> between Western economies in decades: the US is betting on private stablecoins (USDC, PYUSD), while Europe pursues a government-issued digital currency. For global payment platforms: you now need <strong>two fundamentally different integration architectures</strong> — private stablecoin rails for US markets, potential CBDC integration for EU markets. The winner long-term depends on which approach delivers better UX, lower costs, and broader adoption. Meanwhile, Chainlink's Project Pangea (also today) shows a third path: bank-issued stablecoins as the settlement layer, owned by neither government nor tech companies. <a href="https://cointelegraph.com/news/eu-committee-digital-euro-cbdc-bill-key-vote">EU coverage →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/06/23/vitalik-buterin-says-ethereum-foundation-will-cut-budget-40-in-major-reset">Vitalik's EF Reset — 40% Budget Cut, 20% Headcount Reduction, New 5-Cluster Structure</a>
+      <span class="desc">CoinDesk's full coverage of the most significant Ethereum Foundation restructuring ever. Includes the new organizational structure, funding outlook, and what it means for protocol development timelines.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/23/bitcoin-s-recent-drop-below-usd60-000-signals-fed-etf-and-ai-pressures-deutsche-bank">Deutsche Bank: Why Bitcoin Dropped Below $60K — The Triple Headwind Analysis</a>
+      <span class="desc">Deutsche Bank's research note identifying the three structural forces suppressing BTC: Fed policy, ETF outflows, and AI capital rotation. Includes their price targets and recovery catalysts.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/features/ethereums-funding-scare-why-a-hated-staking-tax-may-already-be-obsolete">Ethereum's Staking Tax Debate — Why It May Already Be Obsolete</a>
+      <span class="desc">Deep analysis of the EF funding crisis, the controversial staking tax proposal, and why alternative funding models (EthLabs, corporate holder contributions) may make it unnecessary.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/post/405777/okx-europe-chief-mica-deadline-nears">OKX Europe: 80% of Crypto Exchanges Won't Survive MiCA</a>
+      <span class="desc">OKX's European head explains why the July 1 MiCA deadline will trigger massive industry consolidation, which firms are prepared, and what the post-MiCA landscape looks like.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/23/spacex-s-usd600-billion-dive-erased-nearly-half-a-bitcoin-market-cap-in-three-days">SpaceX's $600B Market Cap Plunge — What It Means for Risk Assets</a>
+      <span class="desc">The SpaceX rout erased nearly half a Bitcoin market cap in three days. Analysis of how private tech valuation crashes are now directly impacting crypto through sentiment contagion and portfolio rebalancing.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-24T09:00:00Z · Wednesday Edition (AI Dev Tools — Cursor, Windsurf, Copilot Advanced Usage)</p>
+  <p>Dedup: 340+ stories filtered from past 5 days (Jun 19–Jun 23) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>24</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>22</td></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>⚠️ 502 Bad Gateway</td><td>0</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 19–Jun 23)</td><td>✅ 340+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
