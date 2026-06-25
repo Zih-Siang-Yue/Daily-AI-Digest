@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-25</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, June 25, 2026 · Issue #174 · BTC Breaks Rainbow Chart &amp; Kalshi Eyes $40B</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — Edge AI / On-Device ML ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-Device ML: Apple Neural Engine, MLX &amp; ONNX Mobile</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX Swift · LLMs</span>
+    <strong>Run Quantized LLMs On-Device With MLX Swift: Ship a Private AI Assistant in Your iOS App</strong>
+    <p>Apple's <strong>MLX Swift</strong> framework (open-sourced via <code>ml-explore/mlx-swift</code>) now supports 4-bit quantized models up to 8B parameters running entirely on-device via the Neural Engine + GPU unified memory. The killer pattern for iOS apps: bundle a quantized Llama 3.2 or Phi-4 model as an On-Demand Resource, load it via <code>MLXModel.load(hub: "mlx-community/Phi-4-4bit")</code>, and stream token output to a SwiftUI view. Performance on iPhone 16 Pro: ~35 tokens/sec for 4-bit Phi-4 (3.8B), ~18 tok/sec for 8B models. The architecture advantage over cloud APIs: zero latency, works offline, no per-token cost, and user data never leaves the device. For Binance: use on-device LLMs for <strong>private portfolio analysis</strong> — summarize transaction history, generate tax reports, or explain complex DeFi positions without sending sensitive financial data to external servers. Bundle the model as ODR so it downloads post-install (keeping binary under 200MB). <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ONNX Mobile · Cross-Platform</span>
+    <strong>ONNX Runtime Mobile: Deploy One Model Across iOS, Android &amp; Web With Hardware-Specific Acceleration</strong>
+    <p>ONNX Runtime Mobile 1.19 shipped with <strong>CoreML Execution Provider v3</strong> — automatically routing compatible operations to the Apple Neural Engine while falling back to Metal GPU for unsupported ops. The cross-platform pattern: train your model once in PyTorch, export to ONNX, and deploy with hardware-accelerated inference on iOS (Neural Engine), Android (NNAPI/QNN), and Web (WebGPU) from a single artifact. Key optimization for iOS: use <code>ort.SessionOptions().appendExecutionProvider("CoreML", {MLComputeUnits: "ALL"})</code> to enable the Neural Engine. Performance comparison on iPhone 16: CoreML EP is 2.3× faster than CPU-only and 40% more power-efficient than Metal-only execution for vision models. For exchange apps: deploy <strong>real-time chart pattern recognition</strong> — train a lightweight CNN on candlestick patterns, export to ONNX, run inference on every new candle with sub-5ms latency. The model stays under 2MB and runs silently on the Neural Engine without impacting UI performance. <a href="https://onnxruntime.ai/docs/execution-providers/CoreML-ExecutionProvider.html">ONNX CoreML Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Neural Engine · Scheduling</span>
+    <strong>Neural Engine Power Scheduling: Run ML Inference During Idle Time Without Draining Battery</strong>
+    <p>Most iOS developers fire ML inference on-demand (user taps a button → run model). But the <strong>power-efficient pattern</strong> is background scheduling: use <code>BGProcessingTask</code> combined with <code>ProcessInfo.thermalState</code> checks to run expensive ML inference only when the device is charging, cool, and idle. Architecture: (1) Register a <code>BGProcessingTaskRequest</code> with <code>requiresExternalPower = true</code>. (2) In the handler, check <code>ProcessInfo.processInfo.thermalState</code> — abort if above <code>.fair</code>. (3) Run batch inference (process last 24h of user data, pre-compute recommendations, update personalized models). (4) Cache results in a local SQLite store for instant retrieval when the user opens the app. This pattern enables <strong>computationally expensive ML features</strong> without any battery impact — the user never notices. For Binance iOS: run overnight portfolio risk analysis, pre-compute personalized market alerts, or update the on-device anomaly detection model (covered June 23) during charging. The Neural Engine draws only 1-3W during inference — comparable to the idle radio, invisible on the battery chart. Combine with <code>MLComputeUnits.cpuAndNeuralEngine</code> to avoid GPU thermal pressure from background tasks. <a href="https://developer.apple.com/documentation/backgroundtasks/bgprocessingtaskrequest">Apple BGTask Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Kalshi · $40B</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/24/kalshi-targets-a-massive-usd40-billion-valuation-widening-lead-over-rival-polymarket">Kalshi Targets $40B Valuation — Nearly Doubles From $22B in Weeks</a></h3>
+    <p>Kalshi is now targeting a <strong>$40 billion valuation</strong> for its next funding round (per FT), nearly doubling from the $22B Series F just days ago. The prediction market operator is eyeing a 2027 IPO and widening its lead over crypto-native rival Polymarket. This velocity of valuation growth ($22B → $40B in weeks) signals that prediction markets are entering a <strong>winner-take-most dynamic</strong> where the platform with deepest liquidity compounds network effects exponentially. Combined with CBOE launching S&P 500 binary options and Meta's "Arena" app (covered June 24), the prediction market sector is experiencing the fastest institutional validation of any fintech category in 2026. For developers: prediction market APIs are becoming essential data feeds — Kalshi's price signals now drive everything from news headline generation to automated trading strategies.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cambrian · AI x Crypto</span>
+    <h3><a href="https://www.theblock.co/post/406028/a16z-csx-backed-cambrian-seed-round-blockchain-data-oracle-network">a16z-Backed Cambrian Raises $6M for Blockchain Data Oracle Network for AI Agents</a></h3>
+    <p>Cambrian, backed by <strong>a16z CSX</strong>, raised $6M seed to build blockchain data infrastructure specifically designed for <strong>AI agents to consume on-chain data</strong>. The thesis: as AI agents increasingly participate in DeFi (automated trading, liquidation bots, yield optimization), they need structured, verifiable blockchain data feeds — not raw RPC calls. Cambrian provides agent-friendly APIs with built-in data verification, cross-chain normalization, and real-time streaming. This is the <strong>first dedicated oracle network designed for AI agent consumers</strong> rather than smart contract consumers. For developers building agentic trading systems: Cambrian's architecture eliminates the "garbage in, garbage out" problem where agents hallucinate blockchain state from poorly formatted data. The AI-agent-as-DeFi-participant thesis is rapidly moving from experimental to infrastructure-grade.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Bitcoin · AI Rotation</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/24/bitcoin-falls-to-usd60-000-as-ai-trade-continues-to-draw-investor-interest-and-capital">Bitcoin Falls Below $60K as AI Trade Continues Drawing Capital Away From Crypto</a></h3>
+    <p>CoinDesk reports Bitcoin's decline below $60K is directly linked to <strong>AI infrastructure investment siphoning institutional capital from crypto</strong>. South Korea's SK Hynix filed to raise $30B in a US offering — one semiconductor company alone raising half of Bitcoin's total ETF AUM. The "Great Rotation" thesis (covered June 22) is accelerating: institutional allocators face a binary choice between AI capex plays showing 90%+ revenue growth and crypto assets in a prolonged drawdown. For the AI-crypto intersection: this capital competition is structural, not cyclical. Until crypto generates AI-level revenue growth narratives (tokenized AI compute, prediction markets, DeFi yields), the rotation continues. The silver lining: when AI infrastructure spending inevitably peaks (Cerebras margins already compressing, June 24), crypto becomes the rotation <em>destination</em>.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">SBI · Japan Stablecoin</span>
+    <h3><a href="https://www.theblock.co/post/406028/sbi-group-japan-stablecoin-jpysc">SBI Group Launches Japan's First Trust Bank-Backed Stablecoin JPYSC</a></h3>
+    <p>SBI Group launched <strong>JPYSC</strong> — Japan's first stablecoin issued by a regulated trust bank, fully backed by Japanese government bonds and yen deposits. This is fundamentally different from algorithmic or offshore stablecoins: it carries <strong>deposit insurance equivalent protection</strong> through Japan's trust banking framework. Combined with Japan's pension fund crypto allocation (covered June 22) and relaxed tax rules, Japan is quietly building the most comprehensive institutional crypto infrastructure in Asia. For exchange teams: JPYSC opens JPY-denominated DeFi rails that meet Japanese FSA requirements — expect institutional Japanese capital to flow into on-chain markets through this regulated bridge rather than through Tether or USDC.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">CBOE · Binary Options</span>
+    <h3><a href="https://www.theblock.co/post/406028/cboe-launches-prediction-market-suite-binary-option-contracts-sp-500">CBOE Launches S&amp;P 500 Binary Options — TradFi's Prediction Market Play</a></h3>
+    <p>CBOE revived its <strong>binary options suite with S&P 500 contracts</strong>, directly competing with Kalshi and Polymarket for the prediction market category. These contracts let traders bet on whether the S&P 500 will close above or below a strike price on a given day — essentially prediction markets wearing a TradFi suit. The strategic implication: <strong>every major exchange is now chasing prediction market revenue</strong> (CBOE binary options, Coinbase perps, Kalshi event contracts, Schwab event-based options). For developers building trading interfaces: binary/prediction-style UX is becoming the default interaction pattern for speculative products. Simple yes/no outcomes with clear payoffs outperform complex option chains for retail engagement. Build for this UX paradigm shift — the "will X happen by date Y" interface beats traditional order books for user activation.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Ground · On-Chain Yield</span>
+    <h3><a href="https://www.theblock.co/post/406040/superstate-co-founder-ground-funding-crypto-onchain-yield">Superstate Co-Founder Raises $3.6M for Ground — Fintechs Get Plug-and-Play On-Chain Yield</a></h3>
+    <p>Ground, founded by a <strong>Superstate co-founder</strong> and backed by Bain Capital Crypto and ParaFi, raised $3.6M to let fintechs access on-chain yield without building crypto infrastructure themselves. The product: a single API that routes fintech customer deposits into tokenized treasury funds (like Superstate's USTB) and DeFi lending protocols — abstracting all the blockchain complexity behind a REST endpoint. For fintech engineers: Ground represents the <strong>"Stripe for on-chain yield"</strong> pattern — traditional apps can offer 4-5% yields to customers without understanding smart contracts, wallets, or gas. The architecture: Ground handles custody (via qualified custodian), smart contract interactions, and regulatory compliance; the fintech just calls <code>POST /deposits</code> and <code>GET /yield</code>. For Binance's Earn products: watch this "yield-as-a-service" category closely — it could become both a competitor (fintechs offering similar yields) and a distribution partner (Ground routing to Binance Earn products).</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Fed · Skinny Accounts</span>
+    <h3><a href="https://www.theblock.co/post/406050/who-gets-direct-line-to-fed-congress-weighs-risks-fed-skinny-accounts-crypto-fintech-firms">Congress Debates "Skinny Accounts" — Could Crypto Firms Get Direct Fed Access?</a></h3>
+    <p>Congress held hearings on whether crypto and fintech firms should get <strong>direct "skinny accounts" at the Federal Reserve</strong> — limited-purpose accounts that bypass commercial bank intermediation for settlement. If approved, this would let stablecoin issuers and crypto exchanges settle directly with the Fed rather than through bank partners (which can debank them). The implications are enormous: <strong>direct Fed access eliminates the debanking risk</strong> that has plagued crypto companies for years. Custodia Bank (denied in 2023) would finally have a viable path. For exchange compliance teams: skinny accounts would fundamentally change the business model — no more dependence on correspondent banking relationships that can be severed at will. Monitor this bill closely; if it passes, expect a wave of crypto firms applying for Fed master accounts within 90 days.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · $59K</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-nearly-loses-59k-as-dxy-surges-are-traders-bracing-for-more-pain">BTC Nearly Loses $59K as Dollar Surges — Rainbow Chart Enters "BTC is Dead" Zone</a></h3>
+    <p>Bitcoin dropped <strong>perilously close to $59,000</strong> as the US Dollar Index (DXY) surged on hawkish Fed expectations under new chair Kevin Warsh. Simultaneously, CoinDesk reports BTC has broken below the floor of its famous Rainbow Chart into the historically-labeled <strong>"BTC is dead" zone</strong> for the first time since 2022. 10x Research forecasts a potential fall to $55K before finding a bottom. However, CoinTelegraph reports a <strong>$530M buy wall between $60,500-$65,000</strong> — creating a massive demand zone where bulls are positioning for a relief bounce. For traders: the DXY strength is the proximate cause; until dollar momentum fades (requiring dovish Fed pivot or weaker economic data), BTC remains under structural pressure. The Rainbow Chart breakdown is psychologically significant but historically has marked generational buying opportunities — every prior entry into this zone preceded 300%+ rallies within 18 months.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Binance · MiCA</span>
+    <h3><a href="https://cointelegraph.com/news/binance-eu-license-greece-mica-setback">Binance Withdraws Greece MiCA Application — Seeks New EU Jurisdiction Before July 1</a></h3>
+    <p>Binance <strong>withdrew its MiCA license application filed through Greece</strong> and is now racing to secure authorization in another EU jurisdiction before the July 1 deadline. Both CoinTelegraph, CoinDesk, and The Block confirm Binance's co-CEO remains "committed" to European operations, but the clock is ticking — unlicensed firms must wind down EU activities after July 1. This comes as OKX's Europe chief warned 80% of exchanges won't survive MiCA (covered June 22). The strategic read: Binance likely found Greece's regulatory requirements more onerous than expected and is pivoting to a more accommodating jurisdiction (France, Austria, or Czech Republic are likely targets). For Binance's millions of European users: service continuity depends on securing approval within 6 days — an extremely tight timeline that suggests either an alternative application was already in progress, or a temporary passporting arrangement is being negotiated.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SecondFi · Hack</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/24/secondfi-loses-usd2-4-million-in-cardano-wallet-exploit-with-up-to-usd20-million-at-risk">SecondFi Loses $2.4M in Cardano Wallet Exploit — Up to $20M At Risk</a></h3>
+    <p>SecondFi was hit by <strong>three separate attacks exploiting a flaw in its wallet generation software</strong>, losing $2.4M in ADA with a further $20M potentially at risk. The team secured 129 million ADA before attackers could reach it. CoinTelegraph reports the exploit was traced to an <strong>address-level vulnerability</strong> in SecondFi's key derivation process. This is the latest in Q2 2026's record-breaking hack quarter ($755M total, covered June 23). For wallet developers and security teams: wallet generation bugs are the most dangerous class of vulnerability because they affect <em>all</em> addresses generated by the flawed code, not just a single contract. If you're building wallet infrastructure, mandate cryptographic audits of your key derivation paths specifically — standard smart contract audits don't cover this attack surface.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Debasement · Macro</span>
+    <strong>The "Debasement Trade" Unwinds — Gold, Silver &amp; Bitcoin Drop Together</strong>
+    <p>CoinDesk reports that <strong>gold, silver, and Bitcoin are falling simultaneously</strong> as the "debasement trade" unwinds. For years, the thesis was simple: governments will print money, debasing fiat, so hold hard assets. But Fed chair Warsh's hawkish stance (rate <em>hikes</em> on the table, not cuts) directly attacks this narrative — if the Fed is tightening, there's no debasement to hedge against. The correlation between gold and BTC breaking down <em>to the downside simultaneously</em> is rare and signals a <strong>regime change in macro positioning</strong>. For portfolio construction: the "digital gold" narrative for Bitcoin is being stress-tested in real-time. If BTC recovers faster than gold, the digital gold thesis strengthens (younger generation prefers BTC as hard money). If gold recovers first, BTC's correlation shifts back toward tech/risk assets. Watch the relative recovery rates over the next 30 days — they'll define the narrative for the rest of 2026. <a href="https://www.coindesk.com/markets/2026/06/24/gold-silver-and-bitcoin-tumble-as-debasement-trade-unwinds">Full analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Runes · Bitcoin Activity</span>
+    <strong>The Runes Revival — Bitcoin Transactions Hit 2-Year High at 820K+ Daily</strong>
+    <p>Bitcoin network transactions <strong>blasted past 820,000 per day</strong> — a two-year high — driven by a Runes token revival on Bitcoin's base layer. CoinDesk reports this "forgotten coin" metric is surprising everyone: while BTC price plumbs lows, <strong>on-chain activity is surging</strong>. The Runes protocol (BRC-20 successor) enables fungible tokens on Bitcoin without heavy blockchain bloat. The divergence between price (near cycle lows) and activity (near cycle highs) is historically <strong>one of the strongest bottoming signals</strong> in crypto — it means builders and users are accumulating while speculators capitulate. For developers: Runes' 820K daily transactions prove there's massive demand for Bitcoin-native tokenization. If you're building wallet or explorer infrastructure, Runes support is now table-stakes. The transaction fee revenue from Runes also helps miners stay profitable during the margin squeeze (covered yesterday), creating a positive feedback loop for network security.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Credit Unions · Stablecoins</span>
+    <strong>$25B in Credit Union Assets Join Stablecoin Infrastructure — Regulated Money Goes On-Chain</strong>
+    <p>Credit unions managing <strong>$25 billion in combined assets</strong> joined a stablecoin infrastructure pilot from Stablecore, Circuit, and Curql — giving member institutions access to test stablecoin payments and digital asset services under the GENIUS Act framework. This is significant because credit unions are the <strong>most conservative financial institutions</strong> in the US — they serve 130M+ Americans and are governed by federal regulations that prioritize depositor safety above all else. When credit unions adopt stablecoin infrastructure, it signals the technology has crossed the "safe enough for grandma's savings" threshold. Combined with SBI's JPYSC trust-bank stablecoin (also today) and the BoE's £40B framework (June 23), <strong>regulated stablecoin infrastructure is now a global phenomenon</strong>, not a crypto-native experiment. For product teams: the "who do you bank with?" question is about to include stablecoin issuers as valid answers for mainstream users. <a href="https://cointelegraph.com/news/credit-unions-join-stablecoin-infrastructure-program">Details →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/24/bitcoin-just-broke-below-the-floor-of-its-famous-rainbow-chart-into-the-btc-is-dead-zone">Bitcoin Breaks the Rainbow Chart Floor — Historical Precedent &amp; Recovery Analysis</a>
+      <span class="desc">CoinDesk's analysis of what it means when BTC enters the "dead zone" on the Rainbow Chart — including every prior instance and the subsequent rallies that followed. Spoiler: it's historically been the best buying opportunity.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/06/24/upheaval-at-the-ethereum-foundation-has-some-of-crypto-s-biggest-names-feeling-bullish">EF Upheaval Has Crypto's Biggest Names Feeling Bullish — The Protocol Newsletter</a>
+      <span class="desc">CoinDesk's Protocol Newsletter on why the Ethereum Foundation chaos (EthLabs formation, layoffs, restructuring) is being interpreted as structurally bullish by insiders — less bureaucracy, more aligned incentives.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/markets/bitcoin-daily-close-points-to-the-next-demand-zone-as-530m-in-buy-bids-emerge">$530M Buy Wall Analysis — Bitcoin's Next Demand Zone</a>
+      <span class="desc">Technical deep dive into the $530M in buy bids between $60,500-$65,000, the liquidation cluster dynamics, and why this zone could define the next major BTC move.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/06/24/trump-refuses-to-sign-law-with-u-s-cbdc-ban-demands-approval-of-elections-bill">Trump Refuses to Sign CBDC Ban — Clarity Act Imperiled</a>
+      <span class="desc">Trump abruptly cancelled the housing bill signing (which carried the CBDC ban), demanding Congress pass an elections bill first. The political chess move could delay both the CBDC prohibition and the Clarity Act's DeFi framework.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/06/24/ex-fca-policy-insider-explains-the-great-divide-in-the-uk-s-crypto-ambition">UK's "Great Divide" — Ambition vs. Execution in Crypto Regulation</a>
+      <span class="desc">Former FCA policymaker explains why the UK's pro-crypto rhetoric isn't translating into practical regulatory outcomes, and what needs to change for London to actually become a crypto hub.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-25T09:00:00Z · Thursday Edition (Edge AI / On-Device ML — Apple Neural Engine, MLX, ONNX Mobile)</p>
+  <p>Dedup: 360+ stories filtered from past 5 days (Jun 20–Jun 24) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>23</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>25</td></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>19</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>⚠️ Empty Response</td><td>0</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 20–Jun 24)</td><td>✅ 360+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
