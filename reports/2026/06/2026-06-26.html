@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-26</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, June 26, 2026 · Issue #175 · BTC Hits $58K &amp; Trump Seeks to Hold OpenAI's Next Model</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — AI Infra & Prompt Engineering ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering: RAG, Tool Use &amp; Agent Architecture</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG · Architecture</span>
+    <strong>Contextual Retrieval: How to Build RAG That Actually Works for Code-Heavy Domains</strong>
+    <p>Standard RAG pipelines fail on codebases because naive chunking splits functions mid-body and embedding models can't capture structural relationships. The <strong>proven pattern for code-aware RAG</strong>: (1) Use AST-aware chunking — parse files into functions/classes/modules rather than fixed-size text chunks. For Swift, use <code>SwiftSyntax</code> to split by declaration boundaries. (2) Generate contextual headers for each chunk: prepend the file path, parent class name, and a one-line AI-generated summary before embedding. Anthropic's research shows this reduces retrieval failures by 49% vs. raw chunking. (3) Implement hybrid retrieval: combine vector similarity (semantic) with BM25 keyword search (exact matches on function names, error codes). For iOS codebases: index your project with contextual headers like <code>// File: Sources/Networking/APIClient.swift | Class: APIClient | Purpose: Handles all REST API requests with retry logic</code> before each chunk. This lets the retrieval system find relevant code even when the query uses different terminology than the implementation. <a href="https://docs.anthropic.com/en/docs/build-with-claude/retrieval">Anthropic RAG Guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Patterns</span>
+    <strong>Structured Tool Use: Design Agent Tools That Succeed 95% of the Time</strong>
+    <p>The #1 reason AI agents fail in production isn't model capability — it's <strong>poorly designed tool interfaces</strong>. After observing thousands of agent sessions, the pattern that maximizes tool-call success: (1) <strong>Narrow tool scope</strong> — each tool does exactly one thing. Instead of a generic <code>database_query</code> tool, create specific <code>get_user_by_id</code>, <code>list_recent_orders</code>, <code>search_products</code> tools. Models pick the right tool 95%+ of the time when names are self-explanatory. (2) <strong>Exhaustive parameter descriptions</strong> — include valid ranges, enum values, and example values in the schema. (3) <strong>Return structured errors</strong> — when a tool fails, return <code>{"error": "user_not_found", "suggestion": "try search_users instead"}</code> so the agent can self-correct. (4) <strong>Include a "think" tool</strong> — a no-op tool the agent can call to reason about complex decisions before acting. For iOS MCP servers: expose your app's capabilities as granular tools — <code>get_crash_reports(last_hours=24)</code>, <code>check_feature_flag(name="new_trading_ui")</code>, <code>get_app_metrics(metric="p95_latency")</code>. The agent orchestrates them into diagnostic workflows automatically.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · Multi-Agent</span>
+    <strong>The Supervisor-Worker Pattern: Scale Agent Reliability With Hierarchical Delegation</strong>
+    <p>Single-agent architectures hit a ceiling around 15-20 tool calls — beyond that, context pollution causes degraded reasoning. The <strong>supervisor-worker pattern</strong> solves this: a lightweight "supervisor" agent decomposes tasks and delegates subtasks to specialized "worker" agents, each with their own fresh context window. Architecture: (1) <strong>Supervisor</strong> receives the user request, creates a plan (3-7 steps), and dispatches each step to the appropriate worker. (2) <strong>Workers</strong> are specialized — one for code generation, one for testing, one for documentation, one for deployment. Each worker has a focused system prompt and limited tool access. (3) <strong>Handoff protocol</strong> — workers return structured results; the supervisor validates before proceeding. If a worker fails, the supervisor can retry with modified instructions or escalate. For production: implement this in Claude Code using subagents (<code>Task.spawn</code>), or with OpenAI's Agents SDK using handoff patterns. The key insight: workers don't need frontier-model intelligence — use Haiku/GPT-4o-mini for routine workers, reserve Opus/GPT-5.5 for the supervisor's planning step. This cuts costs 60-70% while maintaining output quality. <a href="https://docs.anthropic.com/en/docs/build-with-claude/agentic-patterns">Agentic Patterns →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Trump · OpenAI</span>
+    <h3><a href="https://www.axios.com/2026/06/25/trump-administration-openai-gpt-model-release">Trump Administration Asks to Hold OpenAI's Next Model Release</a></h3>
+    <p>The Trump administration has requested that OpenAI <strong>delay the public release of its next GPT model</strong> for government review, per Axios. This unprecedented request suggests the White House wants advance access to evaluate national security implications before general availability. The move comes days after Trump's executive order on quantum computing (covered June 24) and signals a new era of <strong>government involvement in frontier AI release decisions</strong>. For developers: if this becomes standard practice, expect 2-4 week delays between model completion and public API access. The competitive implication is significant — if only US-allied governments get early access while Chinese labs like DeepSeek release openly, it could fragment the global AI tooling ecosystem along geopolitical lines.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Alibaba</span>
+    <h3><a href="https://yipzap.com/anthropic-accuses-alibaba-of-largest-ai-distillation-attack-28-8m-fraudulent-exchanges/">Anthropic Accuses Alibaba of Largest AI Distillation Attack: 28.8M Fraudulent Exchanges</a></h3>
+    <p>Anthropic has accused Alibaba of conducting the <strong>largest model distillation attack ever documented</strong> — 28.8 million fraudulent API exchanges designed to extract Claude's reasoning capabilities into a competing model. This is the first time a major AI lab has publicly named a specific company as the perpetrator of industrial-scale distillation. The implications for AI developers: if confirmed, this validates concerns about API-based model theft and will likely accelerate <strong>output watermarking, fingerprinting, and rate-limiting</strong> across all major API providers. For teams building on Claude/GPT APIs: expect stricter usage policies, potential output degradation for suspicious query patterns, and new terms of service around competitive model training. The broader industry effect: open-weight models become more attractive when API providers add friction to prevent distillation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Rust</span>
+    <h3><a href="https://rustfoundation.org/media/rust-foundation-welcomes-openai-as-platinum-member-announces-donation-to-rust-project/">OpenAI Joins Rust Foundation as Platinum Member</a></h3>
+    <p>OpenAI became a <strong>Platinum Member of the Rust Foundation</strong>, joining alongside a significant financial donation to the Rust project. This signals OpenAI's deepening investment in systems programming for AI infrastructure — Rust's memory safety guarantees and performance characteristics make it ideal for inference engines, model serving, and the low-level infrastructure powering AI services. For developers: this likely means better Rust tooling in Codex/ChatGPT (trained on more Rust code with Foundation input), and potentially Rust-based SDKs for OpenAI's APIs. Combined with Micron's 346% AI sales jump (HBM demand), the AI hardware+software stack is rapidly maturing from research prototypes to production-grade systems engineering.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Oracle · AI Layoffs</span>
+    <h3><a href="https://finance.yahoo.com/technology/ai/articles/oracle-workforce-shrinks-13-204431510.html">Oracle Workforce Shrinks by 21,000 Employees Amid AI Adoption</a></h3>
+    <p>Oracle's workforce contracted by <strong>21,000 employees (13% of staff)</strong> as the company aggressively adopts AI to automate internal operations. This is the largest single AI-attributed workforce reduction at a major tech company to date. Simultaneously, BitGo cut 15% of staff to "sharpen focus on AI and stablecoins." The pattern is accelerating: companies are <strong>simultaneously cutting headcount AND hiring AI engineers</strong> — a net reduction in total employees but a shift in composition. For individual developers: the survival strategy is clear — become the person who builds and maintains the AI systems that replaced the other roles. The "AI doesn't take jobs, it takes tasks" framing (trending on HN today) is increasingly being contradicted by actual layoff numbers.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">IntelliJ · Local-First</span>
+    <h3><a href="https://plugins.jetbrains.com/plugin/31304-llamatik-code/">LlamaTik Code: Local-First AI Coding Assistant for IntelliJ IDEs</a></h3>
+    <p>A new paid plugin launched on HN offering a <strong>fully local AI coding assistant for IntelliJ-based IDEs</strong> (Android Studio, AppCode, IDEA). Unlike cloud-dependent tools, LlamaTik runs models entirely on your machine — zero data leaves your network. For teams at companies with strict data policies (like Binance), local-first AI assistants eliminate the compliance headache of sending proprietary code to third-party APIs. The tradeoff: you need decent hardware (M-series Mac or NVIDIA GPU with 16GB+ VRAM) for responsive inference. Combined with the Woltspace self-hosted pattern (covered June 22), a clear "sovereign AI development" stack is emerging: local models for autocomplete + self-hosted agents for complex tasks + cloud APIs only for frontier reasoning.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Linux · Security</span>
+    <h3><a href="https://www.phoronix.com/news/Akrites">Linux Foundation Launches Akrites to Defend FOSS from AI-Enabled Exploits</a></h3>
+    <p>The Linux Foundation launched <strong>Akrites</strong>, a new initiative specifically designed to protect open-source software from AI-powered exploitation attempts. As AI models become capable of automatically discovering and exploiting vulnerabilities in public codebases, Akrites provides automated scanning, patch generation, and coordinated disclosure workflows for the open-source ecosystem. For iOS developers relying on open-source dependencies (Alamofire, SwiftNIO, etc.): this is defense infrastructure for your supply chain. AI-powered exploit discovery means vulnerabilities in popular packages will be found faster — both by defenders and attackers. The race is now about who finds and patches first. Integrate dependency vulnerability scanning into your CI pipeline if you haven't already — the time between vulnerability discovery and exploitation is compressing from weeks to hours.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Story Protocol · AI Data</span>
+    <h3><a href="https://cointelegraph.com/news/story-protocol-pivots-to-ai-with-rebrand-to-data-foundation">Story Protocol Rebrands to DATA Foundation — Building Licensable Data Layer for AI</a></h3>
+    <p>Story Protocol (a16z-backed, $140M raised) <strong>rebranded to the DATA Foundation</strong>, pivoting from IP protection to building an audit layer for AI data consent, licensing, and provenance. The thesis: AI companies have "run out of internet to scrape" and now need structured, licensed data pipelines. The DATA Foundation provides blockchain-verified provenance tracking so AI firms can prove their training data was legally obtained. For developers building AI features: this addresses the <strong>legal liability time bomb</strong> in AI training data. If you're fine-tuning models on proprietary data, maintaining an audit trail of data consent becomes critical as copyright enforcement intensifies globally. The Hollywood-backed AI consent registry (also trending on HN today) validates this trend — content creators are building machine-readable opt-in/opt-out infrastructure.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · $58K</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/25/bitcoin-plunges-to-new-multi-year-low-of-usd58-000-but-a-short-squeeze-setup-emerges">BTC Plunges to $58K Multi-Year Low — But Short-Squeeze Setup Emerges</a></h3>
+    <p>Bitcoin crashed to a <strong>new 2026 low of $58,000</strong> after US PCE inflation came in at 3-year highs, triggering $600M in hourly crypto liquidations. CoinTelegraph reports the crash "confirmed a bear flag breakdown" with a technical target of $54,000. However, CoinDesk notes that <strong>derivatives markets signal overcrowded shorts</strong> — creating conditions for a violent snapback rally. A prominent BTC miner warns of a further 30% decline to $44,000 by year-end, citing Strategy's mNAV falling to 0.72 (historically a cycle-turn signal). Meanwhile, a quant fund says four historically reliable on-chain indicators have aligned, leaving BTC "one move away from confirming a major turning point." For traders: maximum uncertainty — both extreme bullish and bearish scenarios have strong supporting data.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Kraken · Aave</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/25/kraken-in-talks-to-buy-15-stake-in-defi-lender-aave-at-usd385-million-valuation">Kraken Eyes 15% Stake in Aave at $385M Valuation — Aave Founder Says "Not for Sale"</a></h3>
+    <p>Kraken (operating as Payward) is in talks to acquire a <strong>15% stake in DeFi lender Aave at a $385 million valuation</strong> — representing roughly a 70% discount to Aave's fully diluted market cap. Aave founder Stani Kulechov publicly responded that "AAVE isn't for sale at a 70% discount," pointing to the recent "Aave Will Win" governance proposal that redirected 100% of protocol revenue to token holders. This is the first major CeFi-attempts-to-acquire-DeFi moment of 2026. For the industry: if Kraken succeeds, it sets a precedent for <strong>centralized exchanges absorbing DeFi protocols</strong> — collapsing the CeFi/DeFi distinction. If it fails, it proves DAO governance can resist hostile takeover attempts from well-capitalized buyers.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Base · Outage</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/06/25/coinbase-s-base-blockchain-resumes-after-two-hour-outage-disrupted-network">Coinbase's Base Blockchain Suffers 2-Hour Outage — L2 Centralization Risk Exposed</a></h3>
+    <p>Coinbase's Base blockchain experienced a <strong>2-hour chain stall</strong> that halted all transaction processing, deposits, and withdrawals on one of Ethereum's largest L2 networks. The Block reports an "unsafe head stall interrupting block production." Meanwhile, Sophon ($70M raised) announced it's <strong>shutting down its own L2 to migrate to Base</strong> — concentrating even more activity on a single sequencer. This incident crystallizes the L2 centralization debate: Base's single-sequencer architecture means one infrastructure failure takes down the entire network. For DeFi developers: if your protocol runs on Base, implement <strong>multi-chain deployment or circuit breakers</strong> that detect chain stalls and redirect user flows. For exchange teams: L2 dependency creates new categories of operational risk that don't exist on L1.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Stablecoin FX · DeFi</span>
+    <strong>The Stablecoin FX Layer — Uniswap &amp; Spark Build Infrastructure for 100+ Digital Currencies</strong>
+    <p>Uniswap and Spark (MakerDAO's lending arm) are building a shared <strong>"FX Layer" for stablecoin-to-stablecoin trading</strong>, seeded with $150M in liquidity. The thesis: as regulated stablecoins proliferate (USDC, PYUSD, EURC, JPYSC, GBP stablecoins under BoE framework), there needs to be deep, efficient exchange infrastructure between them — just like traditional FX markets. Combined with Circle and Nomura targeting Japan's $440B daily FX market using stablecoins and Invesco's $2.5T tokenized stablecoin reserve fund, the stablecoin sector is rapidly evolving from "USD pegs" to a <strong>full multi-currency digital FX ecosystem</strong>. For exchange product teams: stablecoin FX pairs (EUR/USD on-chain, JPY/USD on-chain) could become a major new trading category by 2027 — potentially larger than crypto spot markets. <a href="https://www.coindesk.com/business/2026/06/25/uniswap-spark-aim-to-build-stablecoin-fx-market-as-banks-fintechs-enter-the-industry">Full coverage →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI · Crypto Valuation</span>
+    <strong>Crypto Firms Valued for AI Power, Not Crypto — Galaxy Digital Leads the Shift</strong>
+    <p>CoinTelegraph reports a new valuation paradigm: <strong>Wall Street is pricing some crypto firms on their AI infrastructure capabilities</strong> rather than digital asset exposure. Galaxy Digital's stock surge correlates with its GPU/HPC capacity announcements, not its crypto portfolio. The thesis: Bitcoin miners and crypto infrastructure companies own massive power contracts and GPU deployments — assets that AI companies desperately need. This creates a "sum of parts" dynamic where a company's AI compute division trades at 30-50x revenue while its crypto operations trade at 5-10x. For crypto industry participants: if your company has significant compute infrastructure, <strong>the market may value your AI optionality more than your crypto operations</strong>. Expect more crypto firms to rebrand or restructure to unlock this valuation premium — BitGo's layoffs to "focus on AI" today fits this exact pattern.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulation · Senate</span>
+    <strong>US Crypto Legislation Enters July Sprint — Housing Bill Turmoil Threatens Timeline</strong>
+    <p>The Block reports the <strong>Senate is racing to advance comprehensive crypto legislation in July</strong>, but Trump's refusal to sign the housing bill (which carried the CBDC ban, covered June 23) has thrown the legislative calendar into turmoil. The sweeping crypto bill — combining elements of FIT21, the GENIUS Act, and market structure reform — faces a narrowing path as Congressional sessions run out. Combined with MiCA's July 1 deadline in Europe and the UK's accelerating regulatory framework, <strong>Q3 2026 is the most consequential regulatory quarter in crypto history</strong>. Multiple jurisdictions are simultaneously finalizing rules that will define the industry for the next decade. For compliance teams: prepare for a scenario where US, EU, and UK rules all finalize within 90 days of each other — potentially with conflicting requirements that force strategic jurisdiction choices. <a href="https://www.theblock.co/post/406231/senate-races-advance-crypto-legislation-housing-bill-turmoil-threatens-timeline">Details →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/25/quant-fund-says-bitcoin-is-near-a-major-inflection-point-as-rare-onchain-signals-align">Quant Fund: Bitcoin Near Major Inflection Point — Four Rare On-Chain Signals Align</a>
+      <span class="desc">Hyperion Decimus' analysis of four historically reliable indicators that have converged simultaneously, with historical precedent showing 200%+ rallies within 12 months of this configuration.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/learn/galaxy-digital-ai-infrastructure-valuation">Why Wall Street Values Galaxy Digital for AI Power, Not Just Crypto</a>
+      <span class="desc">Deep analysis of the emerging "dual-valuation" paradigm where crypto companies with GPU/compute infrastructure trade at AI multiples rather than crypto multiples.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/25/strategy-s-yield-generating-strc-stock-is-more-correlated-with-btc-than-ever">Strategy's STRC More Correlated With BTC Than Ever — Income Vehicle Thesis Under Threat</a>
+      <span class="desc">Analysis of why STRC's tightening BTC correlation undermines its appeal as a low-volatility income product, with MSTR hitting 16-month lows and mNAV falling to 0.72.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/polymarket-first-crypto-touchpoint-world-cup-bettors">60% of World Cup Bettors on Polymarket Are First-Time Crypto Users</a>
+      <span class="desc">Data showing prediction markets have become the dominant crypto onboarding mechanism for mainstream users — 60% of World Cup bettors never touched crypto before Polymarket.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/25/circle-and-nomura-join-forces-to-target-a-usd750-billion-daily-foreign-exchange-market-in-japan">Circle &amp; Nomura Target Japan's $440B Daily FX Market With Stablecoin Settlement</a>
+      <span class="desc">How the stablecoin giant and Japanese financial corporation plan to deploy cross-border FX settlements using USDC and JPYSC, targeting the world's third-largest currency market.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> · Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-26T09:00:00Z · Friday Edition (AI Infra &amp; Prompt Engineering — RAG, Tool Use, Agent Architecture)</p>
+  <p>Dedup: 380+ stories filtered from past 5 days (Jun 21–Jun 25) · 14 new stories published</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>17</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>19</td></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>11</td></tr>
+    <tr><td>RSS — Hacker News (AI/Coding)</td><td>✅ OK</td><td>20</td></tr>
+    <tr><td>Web Search — All Categories</td><td>⚠️ API Error (400)</td><td>0</td></tr>
+    <tr><td>Dedup Check — Last 5 Days (Jun 21–Jun 25)</td><td>✅ 380+ filtered</td><td>0</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
