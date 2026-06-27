@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI &amp; Crypto Daily — 2026-06-27</title>
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0d0d0f;
+      color: #e2e8f0;
+      line-height: 1.65;
+      padding: 0 0 64px;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header ───────────────────────────────────────────── */
+    header {
+      background: linear-gradient(135deg, #0f1923 0%, #0d1f2d 60%, #0a1628 100%);
+      border-bottom: 1px solid #1e3a5f;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    header .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #64b5f6;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, #64b5f6 0%, #a78bfa 50%, #34d399 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    header .meta {
+      font-size: 0.82rem;
+      color: #94a3b8;
+    }
+    header .meta span {
+      display: inline-block;
+      margin: 0 6px;
+    }
+    header .meta .sep { color: #334155; }
+
+    /* ── Layout ───────────────────────────────────────────── */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Section Headers ──────────────────────────────────── */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 40px 0 16px;
+    }
+    .section-header .icon {
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .section-header h2 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .section-header .count {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 2px 9px;
+      color: #94a3b8;
+    }
+    .section-divider {
+      height: 1px;
+      margin-bottom: 16px;
+      border: none;
+      background: linear-gradient(90deg, currentColor 0%, transparent 80%);
+      opacity: 0.25;
+    }
+
+    /* AI Tools — blue */
+    .section-ai .section-header h2 { color: #60a5fa; }
+    .section-ai .section-divider { color: #60a5fa; }
+    .section-ai .card { border-left-color: #2563eb; }
+    .section-ai .badge { background: rgba(37,99,235,0.18); color: #93c5fd; }
+    .section-ai .card-title a:hover { color: #93c5fd; }
+
+    /* Vibe Coding — purple */
+    .section-vibe .section-header h2 { color: #a78bfa; }
+    .section-vibe .section-divider { color: #a78bfa; }
+    .section-vibe .card { border-left-color: #7c3aed; }
+    .section-vibe .badge { background: rgba(124,58,237,0.18); color: #c4b5fd; }
+    .section-vibe .card-title a:hover { color: #c4b5fd; }
+
+    /* Crypto — amber */
+    .section-crypto .section-header h2 { color: #fbbf24; }
+    .section-crypto .section-divider { color: #fbbf24; }
+    .section-crypto .card { border-left-color: #d97706; }
+    .section-crypto .badge { background: rgba(217,119,6,0.18); color: #fcd34d; }
+    .section-crypto .card-title a:hover { color: #fcd34d; }
+
+    /* Concepts — teal */
+    .section-concepts .section-header h2 { color: #2dd4bf; }
+    .section-concepts .section-divider { color: #2dd4bf; }
+    .section-concepts .card { border-left-color: #0d9488; }
+    .section-concepts .badge { background: rgba(13,148,136,0.18); color: #5eead4; }
+    .section-concepts .card-title a:hover { color: #5eead4; }
+
+    /* Tips — green */
+    .section-tips .section-header h2 { color: #34d399; }
+    .section-tips .section-divider { color: #34d399; }
+    .section-tips .card { border-left-color: #059669; }
+    .section-tips .badge { background: rgba(5,150,105,0.18); color: #6ee7b7; }
+    .section-tips .card-title a:hover { color: #6ee7b7; }
+
+    /* ── Cards ────────────────────────────────────────────── */
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-left: 3px solid;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      border-top-color: #2d3748;
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      line-height: 1.35;
+      flex: 1;
+    }
+    .card-title a { color: #e2e8f0; }
+    .badge {
+      display: inline-block;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      padding: 3px 8px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .card-body {
+      font-size: 0.84rem;
+      color: #94a3b8;
+      line-height: 1.6;
+    }
+    .card-body strong { color: #cbd5e1; }
+    .card-body .signal {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.78rem;
+      font-style: italic;
+      color: #64748b;
+    }
+
+    /* ── Tip Cards (special layout) ──────────────────────── */
+    .tip-card {
+      background: linear-gradient(135deg, #0f1f0f 0%, #111827 100%);
+      border: 1px solid #1a3a2a;
+      border-left: 3px solid #059669;
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+    }
+    .tip-card .tip-num {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #34d399;
+      margin-bottom: 6px;
+    }
+    .tip-card .tip-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #ecfdf5;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .tip-card .tip-body {
+      font-size: 0.84rem;
+      color: #a7f3d0;
+      line-height: 1.65;
+    }
+    .tip-card .tip-body p { margin-bottom: 8px; }
+    .tip-card .tip-body p:last-child { margin-bottom: 0; }
+    .tip-card .tip-body code {
+      background: rgba(52,211,153,0.12);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.82rem;
+      font-family: "SF Mono", Menlo, Monaco, Consolas, monospace;
+      color: #6ee7b7;
+    }
+    .tip-card .tip-body ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+    .tip-card .tip-body li { margin-bottom: 4px; }
+    .tip-card .tip-meta {
+      margin-top: 12px;
+      font-size: 0.73rem;
+      color: #4ade80;
+      font-style: italic;
+    }
+
+    /* ── Hot Badge ────────────────────────────────────────── */
+    .hot::before {
+      content: "🔥 ";
+    }
+
+    /* ── Impact Row ───────────────────────────────────────── */
+    .impact-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .impact-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+    .impact-high { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.25); }
+    .impact-mid  { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+    .impact-low  { background: rgba(100,116,139,0.15); color: #94a3b8; border: 1px solid rgba(100,116,139,0.2); }
+
+    /* ── Saturday Badge ───────────────────────────────────── */
+    .saturday-banner {
+      background: linear-gradient(90deg, rgba(52,211,153,0.08) 0%, rgba(167,139,250,0.08) 100%);
+      border: 1px solid rgba(52,211,153,0.2);
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin: 28px 0 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6ee7b7;
+    }
+    .saturday-banner strong { color: #a7f3d0; }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    footer {
+      margin-top: 56px;
+      border-top: 1px solid #1e293b;
+      padding-top: 24px;
+      text-align: center;
+      font-size: 0.73rem;
+      color: #475569;
+      line-height: 1.8;
+    }
+    footer .footer-title {
+      color: #64748b;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    footer .warn { color: #f59e0b; }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .card-top { flex-direction: column; gap: 6px; }
+      .badge { align-self: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ HEADER -->
+<header>
+  <div class="eyebrow">AI &amp; Crypto Daily Digest</div>
+  <h1>Saturday Briefing — June 27, 2026</h1>
+  <div class="meta">
+    <span>📅 2026-06-27</span>
+    <span class="sep">|</span>
+    <span>🗓 Week 26</span>
+    <span class="sep">|</span>
+    <span>14 stories</span>
+    <span class="sep">|</span>
+    <span>✨ Best of Week Tips</span>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="saturday-banner">
+    <strong>🏆 Saturday Edition</strong> — Best-of-week tips recap + today's breaking stories across AI, crypto &amp; developer tools
+  </div>
+
+  <!-- ═══════════════════════════════════════ TIPS: BEST OF WEEK -->
+  <section class="section-tips">
+    <div class="section-header">
+      <span class="icon">💡</span>
+      <h2>Best of Week — Tips Recap</h2>
+      <span class="count">3 patterns</span>
+    </div>
+    <hr class="section-divider" />
+
+    <div class="tip-card">
+      <div class="tip-num">Best of Week · Tip #1 · Vibe Coding</div>
+      <div class="tip-title">Supervisor-Worker Multi-Agent: The Production-Ready Pattern</div>
+      <div class="tip-body">
+        <p>This week's most-cited pattern: a <strong>supervisor agent</strong> that receives a high-level task, breaks it into sub-tasks, spawns specialised worker agents, monitors their outputs, and retries failures — all without human intervention in the loop.</p>
+        <p><strong>The winning structure:</strong></p>
+        <ul>
+          <li>Supervisor holds the <code>task_graph</code> and tracks state across workers</li>
+          <li>Workers are stateless and receive only the context they need (reduces hallucination)</li>
+          <li>Supervisor validates each worker output against a schema before proceeding</li>
+          <li>On failure, supervisor re-queues with a narrower task definition</li>
+        </ul>
+        <p>This pattern was seen in Claude Code hooks, Cursor Background Agents, and Copilot Agent Mode all shipping similar primitives within days of each other — signal that it's becoming the de-facto standard.</p>
+      </div>
+      <div class="tip-meta">📌 Originally surfaced Mon–Tue · High engagement across HN &amp; Twitter threads</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-num">Best of Week · Tip #2 · AI Engineering</div>
+      <div class="tip-title">Structured Tool Use: Always Return Typed Schemas, Never Free Text</div>
+      <div class="tip-body">
+        <p>The week's most actionable developer pattern: when an LLM calls a tool, <strong>never return raw free-form text</strong> back to the model. Return a strongly-typed JSON schema with a fixed field set.</p>
+        <p><strong>Why it matters:</strong></p>
+        <ul>
+          <li>Free-text tool results cause the model to "interpret" rather than "act", ballooning token usage</li>
+          <li>Typed schemas allow you to validate upstream, cutting 30–60% of re-try loops in production</li>
+          <li>Use <code>strict: true</code> in OpenAI / Anthropic tool definitions — forces the model into schema-compliant outputs</li>
+        </ul>
+        <p>Combined with Contextual Retrieval (also this week), this makes RAG pipelines dramatically more reliable: retrieve typed chunks → inject as structured tool results → model acts, not interprets.</p>
+      </div>
+      <div class="tip-meta">📌 Originally surfaced Wed · Core theme in the agent reliability crisis discussion</div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-num">Best of Week · Tip #3 · On-Device AI</div>
+      <div class="tip-title">MLX + CoreML EP: Running Quantized LLMs Locally Without the Cloud</div>
+      <div class="tip-body">
+        <p>Two converging signals this week: Apple's MLX Swift bindings for quantized LLMs and ONNX Runtime's CoreML Execution Provider reaching stable status. Together they make <strong>sub-3B parameter models genuinely useful offline</strong> on M-series Macs and A-series iPhones.</p>
+        <p><strong>Quick start:</strong></p>
+        <ul>
+          <li>Use <code>mlx_lm.convert</code> to quantize a HuggingFace model to 4-bit for MLX</li>
+          <li>Or export to ONNX and run via <code>ort.InferenceSession</code> with CoreML EP for iOS</li>
+          <li>Neural Engine power scheduling (also this week) means sustained inference without thermal throttle</li>
+        </ul>
+        <p>The cost angle: after this week's enterprise AI pullback story, on-device inference for deterministic tasks (classification, entity extraction, short summarisation) can eliminate entire API bill line-items.</p>
+      </div>
+      <div class="tip-meta">📌 Originally surfaced Thu–Fri · Directly relevant to today's enterprise cost pullback story ↓</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ AI TOOLS -->
+  <section class="section-ai">
+    <div class="section-header">
+      <span class="icon">🤖</span>
+      <h2>AI Tools</h2>
+      <span class="count">3 stories</span>
+    </div>
+    <hr class="section-divider" />
+
+    <!-- Story 1 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title hot"><a href="#">US Clears Anthropic to Release "Mythos" to Trusted Partners</a></div>
+        <span class="badge">Breaking</span>
+      </div>
+      <div class="card-body">
+        The Trump administration has approved Anthropic to release its most powerful model — codenamed <strong>Mythos</strong> — to a restricted set of "trusted partners," reversing months of government-mandated hold. Reuters, CNBC, and Semafor all confirmed within the same news cycle (208 HN points within hours). The model was reportedly being withheld due to national security evaluation processes; its release to partners suggests it passed, or that policy priorities shifted. <strong>Timing matters:</strong> this drops the same week OpenAI's next flagship was separately held back by the Trump admin, creating an asymmetric competitive window for Anthropic among enterprise customers.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">High Impact</span>
+          <span class="impact-tag impact-mid">Policy</span>
+          <span class="impact-tag impact-mid">Competition</span>
+        </div>
+        <span class="signal">Source: Reuters / CNBC / Semafor · 208 pts HN</span>
+      </div>
+    </div>
+
+    <!-- Story 2 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Enterprise AI Customers Pulling Back as ROI Fails to Materialise</a></div>
+        <span class="badge">Quartz</span>
+      </div>
+      <div class="card-body">
+        A Quartz investigation finds major enterprise AI customers — including several Fortune 500s — <strong>reducing or cancelling subscriptions</strong> to OpenAI and Anthropic tiers, citing inability to demonstrate measurable ROI on six-figure annual contracts. Common complaints: models hallucinate on domain-specific data, infrastructure costs to integrate outweigh savings, and internal change-management resistance. This is distinct from the "AI hype" narrative — these are paying customers who onboarded, deployed, and are now churning. The on-device and open-source inference trends (see tip #3 above) look increasingly like a hedge against exactly this.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">High Impact</span>
+          <span class="impact-tag impact-mid">Enterprise</span>
+          <span class="impact-tag impact-low">Revenue Risk</span>
+        </div>
+        <span class="signal">Source: Quartz</span>
+      </div>
+    </div>
+
+    <!-- Story 3 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Anthropic Overcharged Customers for Months — Disclosed After-Hours Friday</a></div>
+        <span class="badge">Billing</span>
+      </div>
+      <div class="card-body">
+        Anthropic sent notifications to affected API customers Friday evening disclosing a billing error that resulted in <strong>systematic overcharges over multiple months</strong>. The after-hours timing on a Friday is being read poorly — customers on HN note this is a classic "news dump" manoeuvre. The company has not yet published a public statement on the amount overcharged or the root cause. Combined with the enterprise pullback story above, this is a trust-at-scale moment for Anthropic's platform business. Watch for a Monday follow-up statement.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Trust Risk</span>
+          <span class="impact-tag impact-mid">Platform</span>
+        </div>
+        <span class="signal">Source: Customer notifications / HN discussion</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ VIBE CODING -->
+  <section class="section-vibe">
+    <div class="section-header">
+      <span class="icon">⚡</span>
+      <h2>Vibe Coding</h2>
+      <span class="count">2 stories</span>
+    </div>
+    <hr class="section-divider" />
+
+    <!-- Story 4 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Workbench CLI: Run Multiple AI Coding Agents in Parallel from Your Terminal</a></div>
+        <span class="badge">Show HN</span>
+      </div>
+      <div class="card-body">
+        A Show HN project that landed well: <strong>Workbench CLI</strong> is a TUI (terminal UI) for orchestrating several AI coding agents simultaneously — think tmux-meets-Claude-Code. You define a task manifest, Workbench fans it out to parallel agents (each in an isolated working tree), shows diffs side-by-side in the terminal, and lets you cherry-pick the best output. Designed for the workflow where you want to run the same refactor with slightly different prompts and pick the winner. This is the supervisor-worker pattern (tip #1 above) implemented as a user-facing CLI tool, not just a library primitive — notable step forward for practitioner accessibility.
+        <div class="impact-row">
+          <span class="impact-tag impact-mid">Tooling</span>
+          <span class="impact-tag impact-mid">OSS</span>
+        </div>
+        <span class="signal">Source: Show HN</span>
+      </div>
+    </div>
+
+    <!-- Story 5 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Vercel Publishes Official Guide: Add MCP Apps to the AI SDK</a></div>
+        <span class="badge">Vercel</span>
+      </div>
+      <div class="card-body">
+        Vercel dropped an official integration guide for wiring <strong>MCP (Model Context Protocol) servers into the Vercel AI SDK</strong>. The guide covers tool registration, transport layer (stdio vs. HTTP SSE), and how to expose MCP-compatible tools from a Next.js API route. This matters because it's Vercel's first first-party MCP documentation — signalling MCP is moving from "experimental protocol" to "production integration target." Given Vercel's position as the dominant Next.js deployment platform, this accelerates MCP adoption among full-stack JS developers substantially.
+        <div class="impact-row">
+          <span class="impact-tag impact-mid">Ecosystem</span>
+          <span class="impact-tag impact-mid">MCP</span>
+          <span class="impact-tag impact-low">Docs</span>
+        </div>
+        <span class="signal">Source: Vercel Blog</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════ CRYPTO -->
+  <section class="section-crypto">
+    <div class="section-header">
+      <span class="icon">₿</span>
+      <h2>Crypto</h2>
+      <span class="count">5 stories</span>
+    </div>
+    <hr class="section-divider" />
+
+    <!-- Story 6 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title hot"><a href="#">Binance Officially Suspends EU Services After Failing MiCA Licence</a></div>
+        <span class="badge">Breaking</span>
+      </div>
+      <div class="card-body">
+        Binance has formally notified EU users it will <strong>no longer provide services</strong> in the European Union, citing its inability to secure a MiCA-compliant licence ahead of the July 1 D-Day. This is a materially different story from the earlier "withdrawal from Greece MiCA" — this is a full EU service suspension announcement. Binance is the world's largest exchange by volume; this affects millions of European retail users and will accelerate flows to MiCA-compliant competitors (Kraken EU, Coinbase EU, Bitstamp). MiCA enforcement is now weeks away — see the MiCA D-Day concept piece below.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Market Structure</span>
+          <span class="impact-tag impact-high">Regulatory</span>
+          <span class="impact-tag impact-mid">EU</span>
+        </div>
+        <span class="signal">Source: Binance official notice</span>
+      </div>
+    </div>
+
+    <!-- Story 7 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Bitcoin Posts First Sub-$60K Daily Close Since Q3 2024</a></div>
+        <span class="badge">Markets</span>
+      </div>
+      <div class="card-body">
+        Bitcoin closed the daily candle below $60,000 for the first time since Q3 2024 as US tech stocks officially entered a <strong>"deep bear market"</strong> by multiple definitions. This is distinct from yesterday's intraday $58K low — a <em>daily close</em> below $60K is a structurally significant technical level and affects more derivative expiry triggers. Simultaneously, <strong>Tether's USDT market cap has flipped Ether's market cap</strong> as ETH routes toward $1,500 — a first-ever event that signals capital rotation out of smart-contract assets into stablecoin safety. Bitcoin ETFs posted <strong>$696.3M in a single day of outflows</strong>, June's largest.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Price Action</span>
+          <span class="impact-tag impact-high">ETF Flows</span>
+          <span class="impact-tag impact-mid">ETH</span>
+        </div>
+        <span class="signal">Source: Bloomberg / CoinGlass</span>
+      </div>
+    </div>
+
+    <!-- Story 8 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Base Suffers Second Mainnet Stall in 48 Hours</a></div>
+        <span class="badge">Outage</span>
+      </div>
+      <div class="card-body">
+        Coinbase's <strong>Base L2 experienced a second mainnet stall</strong> within 48 hours — a separate incident from Thursday's 2-hour outage. Two stalls in two days raise serious sequencer reliability questions for a chain that has positioned itself as the "on-chain home for AI agents" and DeFi infrastructure. The Ethereum community is debating whether a centralised sequencer architecture can support the reliability SLAs that institutional DeFi requires. No root cause published yet; Coinbase engineering is investigating.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Reliability</span>
+          <span class="impact-tag impact-mid">L2</span>
+          <span class="impact-tag impact-mid">Infrastructure</span>
+        </div>
+        <span class="signal">Source: Base Status page / community</span>
+      </div>
+    </div>
+
+    <!-- Story 9 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Polymarket Hit by $2.9M Theft via Vendor Compromise</a></div>
+        <span class="badge">Security</span>
+      </div>
+      <div class="card-body">
+        Prediction markets leader Polymarket disclosed a <strong>$2.9M theft</strong> caused by a compromise of a third-party vendor in its payment/custody stack. Users affected have been promised refunds. The timing — the same week DraftKings launches its own competing exchange and Senators push for CFTC oversight expansion — puts Polymarket's security posture in an uncomfortable spotlight just as the mainstream prediction markets breakout moment arrives (see Concepts section). Refund promises are positive, but the vendor compromise vector is a systemic concern that other prediction market platforms should audit urgently.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Security</span>
+          <span class="impact-tag impact-mid">Prediction Markets</span>
+        </div>
+        <span class="signal">Source: Polymarket disclosure</span>
+      </div>
+    </div>
+
+    <!-- Story 10 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Securitize Eyes July NYSE Debut via $400M SPAC — BlackRock-Backed Tokenization IPO</a></div>
+        <span class="badge">IPO Watch</span>
+      </div>
+      <div class="card-body">
+        Securitize, the BlackRock-backed tokenization platform, is targeting an <strong>early July NYSE listing</strong> via a $400M SPAC deal — making it the first pure-play tokenization infrastructure company to go public on a major US exchange. The timing into a crypto bear week is notable; management appears to be racing ahead of the regulatory window opened by MiCA and pending US stablecoin legislation. BlackRock's BUIDL fund (the largest tokenized treasury fund) runs on Securitize infrastructure, giving the listing a credible institutional anchor narrative.
+        <div class="impact-row">
+          <span class="impact-tag impact-mid">IPO</span>
+          <span class="impact-tag impact-mid">Tokenization</span>
+          <span class="impact-tag impact-low">BlackRock</span>
+        </div>
+        <span class="signal">Source: Bloomberg</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ CONCEPTS -->
+  <section class="section-concepts">
+    <div class="section-header">
+      <span class="icon">🔬</span>
+      <h2>Concepts &amp; Analysis</h2>
+      <span class="count">4 stories</span>
+    </div>
+    <hr class="section-divider" />
+
+    <!-- Story 11 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title hot"><a href="#">MiCA D-Day: July 1 Is Four Days Away — Who's In, Who's Out</a></div>
+        <span class="badge">Regulation</span>
+      </div>
+      <div class="card-body">
+        With four days until the EU's full MiCA enforcement deadline, the landscape is crystallising: <strong>Spain has declared zero exceptions or extensions</strong>; Binance has announced full EU service suspension; OKX (NYSE joint venture) and Kraken are MiCA-licensed and ready to absorb flows. MiCA requires crypto asset service providers to hold EU-registered licences, maintain capital adequacy buffers, and comply with stablecoin issuance limits. For US-based readers: this is the most significant crypto regulatory event of 2026 — it establishes the template that markets in Singapore, UAE, and potentially the US will reference. Watch July 1–7 for enforcement actions, competitor announcements, and retail migration patterns.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Regulatory</span>
+          <span class="impact-tag impact-high">EU</span>
+          <span class="impact-tag impact-mid">Market Structure</span>
+        </div>
+        <span class="signal">Converging sources: Spain regulator, Binance notice, MiCA 2.0 consultation timeline</span>
+      </div>
+    </div>
+
+    <!-- Story 12 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Prediction Markets: The Mainstream Breakout Week</a></div>
+        <span class="badge">Trend</span>
+      </div>
+      <div class="card-body">
+        Three simultaneous signals confirm prediction markets are crossing from crypto-native niche to mainstream financial product: (1) <strong>DraftKings launches its own prediction markets exchange</strong> with $3.4B annualised volume, (2) <strong>17 senators push to end CFTC "assault"</strong> on prediction platforms defending state-level oversight, and (3) <strong>Polymarket suffers a $2.9M theft</strong> under peak visibility. The DraftKings entry is the critical one — it validates the liquidity thesis and brings traditional sports betting infrastructure and user-bases into the space. The regulatory fight is simultaneously narrowing (state vs. federal jurisdiction debate intensifying). Expect Kalshi, Polymarket, and DraftKings to be in the same "prediction market" conversation by Q3.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Category Breakout</span>
+          <span class="impact-tag impact-mid">Regulation</span>
+          <span class="impact-tag impact-mid">Infrastructure</span>
+        </div>
+        <span class="signal">Sources: DraftKings press, Senate letter, Polymarket disclosure</span>
+      </div>
+    </div>
+
+    <!-- Story 13 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">The State of the AI Economy (Exponential View)</a></div>
+        <span class="badge">Analysis</span>
+      </div>
+      <div class="card-body">
+        Azeem Azhar's Exponential View publishes its mid-2026 <strong>State of the AI Economy</strong> — a comprehensive look at where AI spend is actually going, who is capturing value, and which sectors are seeing real productivity gains vs. hype-driven deployments. Key thesis: value is bifurcating between (a) infrastructure layer (NVIDIA, hyperscalers) and (b) vertical AI applications in healthcare, legal, and code — while the "horizontal AI assistant" category is under pressure from exactly the enterprise pullback dynamic reported by Quartz today. The report argues the AI economy is entering a "consolidation and differentiation" phase after the 2024–25 deployment sprint.
+        <div class="impact-row">
+          <span class="impact-tag impact-mid">Macro</span>
+          <span class="impact-tag impact-mid">AI Economy</span>
+        </div>
+        <span class="signal">Source: Exponential View</span>
+      </div>
+    </div>
+
+    <!-- Story 14 -->
+    <div class="card">
+      <div class="card-top">
+        <div class="card-title"><a href="#">Strategy Loses Bitcoin Premium — mNAV Dips Below 1x for First Time</a></div>
+        <span class="badge">Markets</span>
+      </div>
+      <div class="card-body">
+        Strategy (formerly MicroStrategy) has seen its enterprise <strong>market-to-net-asset-value (mNAV) ratio fall below 1.0</strong> for the first time — meaning the market now values Strategy's stock at <em>less</em> than the BTC it holds on its balance sheet. This is a structural signal: the "Bitcoin premium" investors paid to gain BTC exposure through equity has evaporated as Bitcoin ETFs, now with $50B+ AUM, offer direct exposure at lower fees. Simultaneously, Ripple's STRC trades 25% below par. The "treasury strategy" corporate playbook that dozens of companies copied in 2024–25 is now under a pricing lens — companies that loaded BTC at $70K+ are underwater on both the asset and the equity premium.
+        <div class="impact-row">
+          <span class="impact-tag impact-high">Signal</span>
+          <span class="impact-tag impact-mid">BTC Proxy Stocks</span>
+          <span class="impact-tag impact-mid">ETF Impact</span>
+        </div>
+        <span class="signal">Source: Bloomberg / CoinGlass mNAV tracker</span>
+      </div>
+    </div>
+
+  </section>
+
+</div><!-- /container -->
+
+<!-- ══════════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-title">AI &amp; Crypto Daily Digest — 2026-06-27</div>
+    <div>14 stories selected from RSS feeds &amp; curated sources. Dedup applied against prior 5 days.</div>
+    <div class="warn">⚠️ web_search API unavailable for this edition — stories sourced from RSS feeds only.</div>
+    <div style="margin-top:8px;">Stories excluded per dedup set: BTC $58K intraday (Jun 26), Base first outage (Jun 26), Binance Greece MiCA withdrawal (prior coverage), and 60+ others from rolling 5-day window.</div>
+    <div style="margin-top:10px; color: #334155;">Generated by AI &amp; Crypto Daily pipeline · Not financial advice · For informational purposes only</div>
+  </div>
+</footer>
+
+</body>
+</html>
