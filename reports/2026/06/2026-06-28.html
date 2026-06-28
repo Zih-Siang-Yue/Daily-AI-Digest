@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI & Crypto Daily Digest — 2026-06-28 (Sunday)</title>
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-card: #f8f9fa;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: rgba(0,0,0,0.04);
+  --accent-tips: #8b5cf6;
+  --accent-ai: #3b82f6;
+  --accent-vibe: #10b981;
+  --accent-crypto: #f59e0b;
+  --accent-concepts: #ef4444;
+  --accent-reading: #6366f1;
+  --tag-bg-tips: color-mix(in srgb, #8b5cf6 12%, transparent);
+  --tag-bg-ai: color-mix(in srgb, #3b82f6 12%, transparent);
+  --tag-bg-vibe: color-mix(in srgb, #10b981 12%, transparent);
+  --tag-bg-crypto: color-mix(in srgb, #f59e0b 12%, transparent);
+  --tag-bg-concepts: color-mix(in srgb, #ef4444 12%, transparent);
+  --tag-bg-reading: color-mix(in srgb, #6366f1 12%, transparent);
+  --gradient-bar: linear-gradient(90deg, #8b5cf6, #3b82f6, #10b981, #f59e0b, #ef4444);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f0f1a;
+    --bg-card: #1a1a2e;
+    --text: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border: #2d2d44;
+    --shadow: rgba(0,0,0,0.2);
+    --tag-bg-tips: color-mix(in srgb, #8b5cf6 20%, transparent);
+    --tag-bg-ai: color-mix(in srgb, #3b82f6 20%, transparent);
+    --tag-bg-vibe: color-mix(in srgb, #10b981 20%, transparent);
+    --tag-bg-crypto: color-mix(in srgb, #f59e0b 20%, transparent);
+    --tag-bg-concepts: color-mix(in srgb, #ef4444 20%, transparent);
+    --tag-bg-reading: color-mix(in srgb, #6366f1 20%, transparent);
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 0;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.rainbow-bar {
+  height: 4px;
+  background: var(--gradient-bar);
+  width: 100%;
+}
+
+header {
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+header .subtitle {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+header .date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title.tips { border-bottom-color: var(--accent-tips); }
+.section-title.ai { border-bottom-color: var(--accent-ai); }
+.section-title.vibe { border-bottom-color: var(--accent-vibe); }
+.section-title.crypto { border-bottom-color: var(--accent-crypto); }
+.section-title.concepts { border-bottom-color: var(--accent-concepts); }
+.section-title.reading { border-bottom-color: var(--accent-reading); }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px var(--shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.card.tips { border-left: 3px solid var(--accent-tips); }
+.card.ai { border-left: 3px solid var(--accent-ai); }
+.card.vibe { border-left: 3px solid var(--accent-vibe); }
+.card.crypto { border-left: 3px solid var(--accent-crypto); }
+.card.concepts { border-left: 3px solid var(--accent-concepts); }
+
+.card h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.card .tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.card.tips .tag { background: var(--tag-bg-tips); color: var(--accent-tips); }
+.card.ai .tag { background: var(--tag-bg-ai); color: var(--accent-ai); }
+.card.vibe .tag { background: var(--tag-bg-vibe); color: var(--accent-vibe); }
+.card.crypto .tag { background: var(--tag-bg-crypto); color: var(--accent-crypto); }
+.card.concepts .tag { background: var(--tag-bg-concepts); color: var(--accent-concepts); }
+
+.card .summary {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.card .source {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.card .source a {
+  color: var(--accent-ai);
+  text-decoration: none;
+}
+
+.card .source a:hover {
+  text-decoration: underline;
+}
+
+.reading-list {
+  list-style: none;
+  padding: 0;
+}
+
+.reading-list li {
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-reading);
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+.reading-list li a {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.reading-list li a:hover {
+  color: var(--accent-reading);
+}
+
+.reading-list li .desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+footer h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.source-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+
+.source-table th,
+.source-table td {
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.source-table th {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.status-ok { color: #10b981; }
+.status-warn { color: #f59e0b; }
+.status-err { color: #ef4444; }
+
+.footer-note {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+
+<div class="rainbow-bar"></div>
+
+<header>
+  <h1>AI & Crypto Daily Digest</h1>
+  <div class="subtitle">Best of Week Edition</div>
+  <div class="date">Sunday, June 28, 2026</div>
+</header>
+
+<div class="content">
+
+  <!-- DAILY TECH TIPS — BEST OF WEEK -->
+  <h2 class="section-title tips">💡 Daily Tech Tips — Best of Week</h2>
+
+  <div class="card tips">
+    <span class="tag">Best of Week · Agentic Coding</span>
+    <h3>Context Window Management: The #1 Skill for AI Coding Agents</h3>
+    <p class="summary">This week's most practical insight from agentic coding tools (Claude Code, Cursor, Codex): the single biggest factor in agent success is context window management. The pattern: (1) Start every task with a focused system prompt that constrains the agent's scope. (2) Use project-level documentation files (<code>.cursor/rules</code>, <code>CLAUDE.md</code>, <code>.github/copilot-instructions.md</code>) to inject persistent context without consuming the conversation window. (3) For large codebases, implement "progressive disclosure" — feed the agent only the files relevant to the current subtask, not the entire project tree. (4) When an agent starts hallucinating or losing coherence, that's a context overflow signal — break the task into smaller subtasks with fresh windows. Teams report 40-60% improvement in first-attempt success rates after implementing structured context management. The meta-insight: treat your AI coding agent's context window like a precious resource — the same way you'd optimize memory in a constrained embedded system.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="tag">Best of Week · Edge AI</span>
+    <h3>On-Device ML Power Budget: The 3W Rule for Background Inference</h3>
+    <p class="summary">The week's key Edge AI insight: Apple's Neural Engine consumes only 1-3W during active inference — comparable to the cellular radio's idle draw. This means you can run sophisticated ML models continuously in the background without any measurable battery impact. The architecture pattern for iOS apps: schedule inference via <code>BGProcessingTask</code> with <code>requiresExternalPower = false</code> (yes, even on battery!), check <code>ProcessInfo.thermalState</code>, and run batch predictions during natural idle periods. Combine with <code>MLComputeUnits.cpuAndNeuralEngine</code> to avoid GPU thermal pressure. Real-world application for exchange apps: pre-compute personalized price alerts, run anomaly detection on transaction patterns, and update recommendation models — all invisibly, using power the device would waste on idle radio cycles anyway. The 3W budget gives you ~6 hours of continuous inference on a full iPhone 16 battery before you'd notice a 10% difference.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="tag">Best of Week · AI Infra</span>
+    <h3>Structured Output + Schema Validation = Reliable Agent Pipelines</h3>
+    <p class="summary">The week's most actionable AI infrastructure pattern: every tool result returned to an LLM agent should be a strongly-typed JSON object with a fixed schema — never free-form text. Combined with <code>strict: true</code> mode in OpenAI/Anthropic tool definitions, this eliminates 30-60% of agent retry loops. The complete reliability stack: (1) Schema-validate all tool inputs before execution. (2) Return typed JSON with explicit error objects (not string errors). (3) Include a <code>"suggestion"</code> field in error responses so the agent can self-correct. (4) Add a no-op "think" tool for complex decision points. For iOS developers building MCP servers: expose your app's capabilities as granular, well-typed tools — <code>get_crash_reports(last_hours: Int)</code>, <code>check_feature_flag(name: String) -&gt; Bool</code>. The agent orchestrates them into diagnostic workflows automatically.</p>
+  </div>
+
+  <!-- AI TOOLS & UPDATES -->
+  <h2 class="section-title ai">🤖 AI Tools & Updates</h2>
+
+  <div class="card ai">
+    <span class="tag">Bittensor · AI</span>
+    <h3>Yuma Launches DCG-Backed Bittensor Fund — Institutional Decentralized AI Arrives</h3>
+    <p class="summary">DCG-backed Yuma launched an institutional investment fund for Bittensor (TAO), the decentralized AI network. This arrives as centralized AI models face restrictions (Anthropic's Mythos release held by government) and enterprise customers pull back from cloud AI subscriptions. Bittensor's thesis — a decentralized marketplace where anyone can contribute compute and models — now has its first institutional on-ramp. For developers: decentralized AI inference is moving from experiment to investable category. Watch TAO subnet development as a leading indicator of where decentralized AI capabilities are headed.</p>
+    <div class="source">CoinTelegraph, Jun 27 · <a href="https://cointelegraph.com/news/yuma-bittensor-fund-institutional-tao-decentralized-ai" target="_blank">Read →</a></div>
+  </div>
+
+  <div class="card ai">
+    <span class="tag">Markets · ETF</span>
+    <h3>Average IBIT Investor Now Down 40% — Spot Bitcoin ETFs Cap Second-Worst Week</h3>
+    <p class="summary">Friday's $444.51M net outflow capped a seventh straight negative week for Bitcoin ETFs — the longest weekly losing streak on record. The average IBIT (BlackRock Bitcoin ETF) investor is now down approximately 40% from their entry point. This statistic matters because it quantifies the pain threshold: when 40% of the investor base is underwater, capitulation dynamics intensify. For the market: this creates a reflexive cycle — underwater investors sell on rallies, capping upside. The ETF structural dynamic (daily creation/redemption) amplifies selling pressure in ways that didn't exist in prior crypto cycles.</p>
+    <div class="source">The Block, Jun 27 · <a href="https://www.theblock.co/post/406451/average-ibit-investor-now-down-about-40-as-spot-bitcoin-etfs-cap-second-worst-week-on-record" target="_blank">Read →</a></div>
+  </div>
+
+  <div class="card ai">
+    <span class="tag">Exchanges · MiCA</span>
+    <h3>Coinbase & OKX Race to Capture Binance's EU Users Post-MiCA Failure</h3>
+    <p class="summary">With Binance officially suspending EU services, Coinbase's Brian Armstrong and OKX's Star Xu are offering new user sign-up bonuses of up to 8% to lure Binance's estimated 450 million EU users. This is the largest user migration event in crypto exchange history. For the industry: the competitive dynamics of MiCA enforcement are now playing out in real-time — compliant exchanges have a 3-day window before July 1 to capture migrating users with aggressive onboarding incentives.</p>
+    <div class="source">CoinDesk, Jun 27 · <a href="https://www.coindesk.com/business/2026/06/27/coinbase-and-okx-try-to-lure-in-binance-s-450m-eu-users-after-failing-to-secure-a-mica-license" target="_blank">Read →</a></div>
+  </div>
+
+  <!-- VIBE CODING & DEV TOOLS -->
+  <h2 class="section-title vibe">🛠 Vibe Coding & Dev Tools</h2>
+
+  <div class="card vibe">
+    <span class="tag">Bitcoin · Research</span>
+    <h3>Fidelity Publishes Bitcoin Security Model Paper — Rebukes Post-Halving Fear</h3>
+    <p class="summary">Fidelity Digital Assets published a comprehensive research paper arguing Bitcoin's fixed supply schedule does NOT undermine network security even as block rewards shrink after each halving. Their model shows transaction fees, ordinals/Runes activity, and the growing value of the reward (even at smaller BTC quantities) maintain sufficient miner incentive. For developers building on Bitcoin: this is institutional-grade validation that the security budget concern is manageable — important for anyone evaluating long-term infrastructure commitments to Bitcoin L2s or Runes-based applications.</p>
+    <div class="source">CoinTelegraph, Jun 27 · <a href="https://cointelegraph.com/news/fidelity-bitcoin-long-term-security-halvings-report" target="_blank">Read →</a></div>
+  </div>
+
+  <div class="card vibe">
+    <span class="tag">EU · Regulation</span>
+    <h3>EU Lawmakers Push DeFi, Staking & NFT Regulation Assessment</h3>
+    <p class="summary">The European Parliament published a nonbinding report outlining its vision for future EU crypto regulation beyond MiCA — specifically targeting DeFi protocols, staking services, and NFTs. The report warns against fragmented national MiCA interpretations and calls for harmonized rules. For DeFi developers: this is the first official signal of what "MiCA 2.0" will cover. If you're building staking infrastructure or NFT marketplaces serving EU users, regulatory requirements are coming within 18-24 months. Start compliance architecture planning now.</p>
+    <div class="source">CoinTelegraph, Jun 27 · <a href="https://cointelegraph.com/news/eu-lawmakers-assessing-defi-staking-nft-regulation" target="_blank">Read →</a></div>
+  </div>
+
+  <!-- CRYPTO & MARKETS -->
+  <h2 class="section-title crypto">💰 Crypto & Markets</h2>
+
+  <div class="card crypto">
+    <span class="tag">Bitcoin · On-Chain</span>
+    <h3>Bitcoin Faces Fresh Capitulation Risk — 50K BTC Moved at a Loss</h3>
+    <p class="summary">Nearly 50,000 BTC moved to exchanges at a loss while short-term holders' stress reached 2-year highs. The capitulation signal: when large volumes move at a realized loss to exchanges, it typically precedes either a final flush (bottom formation) or an extended grind lower. Combined with the ETF outflow data (7 consecutive negative weeks) and Strategy's mNAV below 1.0, the bearish case has structural support. However, historically, capitulation events of this magnitude have marked cycle bottoms within 30-60 days.</p>
+    <div class="source">CoinTelegraph, Jun 27 · <a href="https://cointelegraph.com/markets/bitcoin-faces-fresh-capitulation-risk-as-50k-btc-moves-at-a-loss" target="_blank">Read →</a></div>
+  </div>
+
+  <div class="card crypto">
+    <span class="tag">Tether · DeFi</span>
+    <h3>Tether Launches Gold-Backed Lending — $23B Bullion Put to Work</h3>
+    <p class="summary">Tether is extending its tokenized gold strategy (XAUT) by allowing holders to borrow against their bullion — mirroring bitcoin-backed lending without selling the underlying asset. With $23B in gold reserves, this creates one of the largest collateralized lending markets in DeFi. For the industry: Tether is quietly building a full financial services stack — stablecoins, gold tokens, and now lending — that rivals traditional banks in scope while operating on blockchain rails.</p>
+    <div class="source">CoinDesk, Jun 27 · <a href="https://www.coindesk.com/business/2026/06/27/tether-putting-usd23-billion-gold-stockpile-to-work-with-bullion-backed-loans" target="_blank">Read →</a></div>
+  </div>
+
+  <div class="card crypto">
+    <span class="tag">Binance · Macro</span>
+    <h3>CZ Explains Crypto's Sour 2026: AI Rotation + Global Tension + 4-Year Cycle</h3>
+    <p class="summary">Binance founder CZ told CoinDesk there's "no single cause" for crypto's 50% decline over the past year, attributing it to AI capital rotation (institutional money flowing to GPU/compute investments), global geopolitical tension, and the natural 4-year Bitcoin cycle. This is notable as the first comprehensive post-mortem from a major industry figure on the 2026 downturn — acknowledging the AI competition for capital as a structural factor, not just cyclical.</p>
+    <div class="source">CoinDesk, Jun 27 · <a href="https://www.coindesk.com/policy/2026/06/27/binance-founder-cz-blames-crypto-s-sour-2026-on-mix-of-ai-global-tension-4-year-cycle" target="_blank">Read →</a></div>
+  </div>
+
+  <!-- HOT INDUSTRY CONCEPTS -->
+  <h2 class="section-title concepts">🔥 Hot Industry Concepts</h2>
+
+  <div class="card concepts">
+    <span class="tag">Regulation</span>
+    <h3>MiCA Day Zero: The Great EU Exchange Migration</h3>
+    <p class="summary">With 3 days until MiCA enforcement (July 1), the largest crypto user migration in history is underway. Binance's 450M EU users must choose new platforms; Coinbase and OKX are offering 8% deposit bonuses; Spain has declared "no exceptions." This is not just a regulatory event — it's a market structure transformation that will concentrate EU liquidity among 3-4 compliant platforms (Kraken, Coinbase, OKX, Bitstamp) while fragmenting the offshore market. The long-term effect: higher compliance costs = higher barriers to entry = exchange oligopoly in regulated markets.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="tag">Markets · Signal</span>
+    <h3>The Bitcoin Treasury Trade Unwinds — Strategy mNAV &lt; 1.0</h3>
+    <p class="summary">Strategy (MicroStrategy) trading below the value of its Bitcoin holdings marks the death of the "Bitcoin premium" thesis. For 3 years, companies could buy BTC, get a stock premium, and use that premium to buy more BTC (reflexive loop). Now that Bitcoin ETFs offer direct exposure at lower cost, the premium has evaporated — and companies that bought BTC at $70K+ face underwater positions on both the asset AND the equity. Ripple CEO Brad Garlinghouse called it "financial engineering that distracted the market." Expect copycat treasury companies (Metaplanet, Semler Scientific) to face similar mNAV compression.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="tag">Prediction Markets</span>
+    <h3>Polymarket Under Siege: $3.1M Hack + CFTC Probe + Deceptive Marketing Claims</h3>
+    <p class="summary">Three simultaneous crises for the prediction markets leader: (1) hack total revised upward to $3.1M, (2) bipartisan senators demanding CFTC investigation, and (3) reports of paying creators to stage fake winning bets. This triple threat arrives precisely as DraftKings launches its own competing exchange ($3.4B volume) and Kalshi targets $40B valuation. The prediction markets category is maturing, but Polymarket's trust deficit may open the door for regulated competitors to capture the mainstream moment. Irony: a platform built on "truth through markets" is being investigated for manufacturing false signals.</p>
+  </div>
+
+  <!-- WORTH READING -->
+  <h2 class="section-title reading">📚 Worth Reading</h2>
+
+  <ul class="reading-list">
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/27/why-a-selloff-in-gold-and-silver-is-dragging-bitcoin-down" target="_blank">Why a Selloff in Gold and Silver Is Dragging Bitcoin Down</a>
+      <p class="desc">Deep analysis of how the debasement trade unwind is mechanically pulling BTC lower alongside precious metals, and what conditions would need to change for the correlation to break.</p>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/opinion/2026/06/27/what-robinhood-s-recent-layoffs-say-about-the-current-state-of-crypto-investments" target="_blank">Robinhood Layoffs and the State of Crypto Investments</a>
+      <p class="desc">Despite Robinhood's restructuring and industry-wide layoffs signaling a late bear market, the authors argue there's no reason to panic — historical parallels suggest this phase precedes recovery.</p>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/crypto-stocks-underperform-tech-market-slump" target="_blank">Coinbase, Circle Underperform Big Tech as Crypto Stock Slump Deepens</a>
+      <p class="desc">Data showing crypto-native stocks (Coinbase, Circle) have posted steeper losses than Oracle, Netflix, and Salesforce — quantifying the performance gap between crypto equities and the broader market.</p>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/markets/sol-reclaims-72-but-onchain-data-flags-weakening-momentum" target="_blank">SOL Reclaims $72 But On-Chain Data Flags Weakening Momentum</a>
+      <p class="desc">Solana found short-term strength from tokenized stock trading but declining TVL and DEX volumes point to fading momentum. A study in when price action diverges from fundamentals.</p>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/us-senators-urge-cftc-probe-polymarket-over-report-deceptive-marketing" target="_blank">US Senators Urge CFTC Probe of Polymarket Over Deceptive Marketing</a>
+      <p class="desc">Full coverage of the bipartisan Senate letter demanding CFTC investigation into Polymarket after reports that the platform paid creators to stage fake winning bets.</p>
+    </li>
+  </ul>
+
+</div>
+
+<footer>
+  <h4>Sources & Pipeline Status</h4>
+  <table class="source-table">
+    <thead>
+      <tr>
+        <th>Source</th>
+        <th>Status</th>
+        <th>Items</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>CoinDesk (RSS)</td>
+        <td><span class="status-ok">✅ OK</span></td>
+        <td>11 items</td>
+      </tr>
+      <tr>
+        <td>CoinTelegraph (RSS)</td>
+        <td><span class="status-ok">✅ OK</span></td>
+        <td>10 items</td>
+      </tr>
+      <tr>
+        <td>The Block (RSS)</td>
+        <td><span class="status-ok">✅ OK</span></td>
+        <td>10 items</td>
+      </tr>
+      <tr>
+        <td>Hacker News (RSS)</td>
+        <td><span class="status-warn">⚠️ Empty</span></td>
+        <td>0 items</td>
+      </tr>
+      <tr>
+        <td>Web Search API</td>
+        <td><span class="status-err">⚠️ API Error 400</span></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footer-note">Dedup: 400+ stories from past 5 days (Jun 23–27) filtered; ~15 dedup exclusions applied. Fresh angles on continuing stories included (IBIT investor loss data, CZ macro analysis, Tether gold lending).</p>
+  <p class="footer-note" style="margin-top: 0.5rem;">Generated by AI & Crypto Daily Digest v4 · Sunday "Best of Week" edition</p>
+</footer>
+
+</body>
+</html>
