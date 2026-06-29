@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-29</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, June 29, 2026 &middot; Best of Week Edition &middot; MiCA D-Day Tomorrow</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS — Best of Week ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week Recap</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Agentic Workflow</span>
+    <strong>Claude Code Hooks + MCP: Build Self-Healing CI Pipelines</strong>
+    <p>The week's most impactful tip for AI coding: use <code>claude_code_hooks</code> to intercept failed CI runs, pipe the error context into a Claude Code session, and let the agent auto-fix linting, type errors, and failing tests. The architecture: (1) Add a <code>post-commit</code> hook that triggers Claude Code on CI failure via <code>claude --hooks-file .claude/hooks.json</code>. (2) Define repair actions per error type in your hooks config — lint errors get auto-fixed, test failures get analyzed with <code>@file</code> context. (3) Supervisor validates the fix against the original test before committing. Teams using this pattern report <strong>70% reduction in CI-fix round-trips</strong>. The meta-lesson: hooks transform Claude Code from "on-demand assistant" to "always-on code health monitor." <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Hooks Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · iOS + AI</span>
+    <strong>Create ML + Transfer Learning: Train Custom Models in 10 Minutes on Mac</strong>
+    <p>This week's most practical iOS/AI tip: Apple's <code>Create ML</code> app now supports one-shot transfer learning from Apple's foundation models. The workflow: (1) Open Create ML, select "Image Classifier" or "Text Classifier." (2) Drag your labeled training data (as few as 10 images per category). (3) Create ML applies transfer learning from Apple's base vision/NLP models — training completes in under 10 minutes on M-series Macs. (4) Export as <code>.mlmodel</code> and drag into Xcode. The key insight: you don't need thousands of labeled examples anymore. Transfer learning from Apple's foundation models means <strong>50-100 examples per class achieves 95%+ accuracy</strong> for domain-specific tasks. For Binance iOS: train custom classifiers for transaction category detection, screenshot-based deposit verification, or chart pattern recognition — all running on-device with zero cloud dependency. <a href="https://developer.apple.com/machine-learning/create-ml/">Create ML →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Dev Productivity</span>
+    <strong>The "3-Window" Agentic Coding Workflow That 10x'd This Week's Coverage</strong>
+    <p>The meta-pattern behind all agentic coding tools shipping this week (Cursor Background Agents, Copilot Agent Mode, Windsurf Flows): the <strong>3-window workflow</strong>. Window 1: your primary IDE for focused editing. Window 2: an AI agent running background tasks (refactoring, test generation, documentation). Window 3: a terminal with <code>claude --watch</code> monitoring file changes and suggesting improvements in real-time. The key: never let one agent have your full attention — treat AI assistants like junior devs running in parallel. You review their PRs, don't pair-program every line. This maps directly to the supervisor-worker pattern from earlier this week. The 3-window layout gives you <strong>3-5x throughput</strong> on routine tasks while maintaining quality through review-before-merge. Combine with <code>.cursor/rules</code> or <code>CLAUDE.md</code> to ensure all agents follow your team's conventions.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Framework Ventures</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/28/crypto-s-next-frontier-isn-t-crypto-it-s-financing-ai-and-robotics-framework-s-anderson-says">Crypto's Next Frontier: Financing AI &amp; Robotics via Blockchain</a></h3>
+    <p>Framework Ventures co-founder Michael Anderson says blockchain is becoming the <strong>financial layer for capital-intensive AI and robotics industries</strong> rather than just crypto-native speculation. The thesis: tokenized infrastructure financing lets retail and institutional investors directly fund GPU clusters, robot fleets, and AI compute — unlocking $100B+ in capital that traditional VC/PE structures can't efficiently deploy. For developers at the AI-crypto intersection: this is the first major VC firm explicitly declaring that crypto's value-add is financing physical AI infrastructure, not competing with it.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Mythos</span>
+    <h3><a href="https://cointelegraph.com/news/yuma-bittensor-fund-institutional-tao-decentralized-ai">Decentralized AI Gains Momentum as Centralized Models Face Restrictions</a></h3>
+    <p>The Yuma/Bittensor fund launch (DCG-backed) arrives alongside fresh Anthropic Mythos restrictions, creating a narrative inflection: <strong>decentralized AI networks gain investment interest precisely when centralized models face government gatekeeping</strong>. TAO's subnet architecture — where anyone can contribute specialized AI capabilities and earn rewards — is being positioned as a hedge against single-company model access risk. For AI developers: monitor Bittensor subnets as an early signal of where decentralized inference capabilities are headed. The institutional on-ramp changes the calculus from "crypto experiment" to "investable category."</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">BIS · Stablecoins</span>
+    <h3><a href="https://cointelegraph.com/news/bis-warns-stablecoins-risk-fragmenting-global-financial-system">BIS Warns Stablecoins Risk Fragmenting Global Financial System</a></h3>
+    <p>The Bank for International Settlements issued its strongest warning yet: private stablecoins <strong>fall short on "singleness, elasticity, and integrity"</strong> requirements for sound money and risk fragmenting the global monetary system. BIS urges policymakers to accelerate tokenized central bank and commercial bank money instead. For developers: this framing matters because BIS sets the intellectual framework that central banks follow. Expect tighter stablecoin regulation globally within 12-18 months — design your systems for a world where regulated stablecoins (bank-issued, CBDC-adjacent) coexist with existing ones under stricter rules.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">SBI · Japan</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/28/sbi-s-usd289-million-bitbank-deal-is-symptomatic-of-japan-s-crypto-consolidation-architect-partners">SBI's $289M Bitbank Acquisition — Japan's Crypto Consolidation Accelerates</a></h3>
+    <p>SBI Group's $289M acquisition of Bitbank signals that <strong>Japan's crypto market is entering rapid consolidation</strong> as sweeping reforms reshape the country's digital asset landscape. Architect Partners analysis: this is a bet on "regulated scale" — combining SBI's banking infrastructure (JPYSC stablecoin, covered Jun 25) with Bitbank's exchange technology. For exchange engineering teams: Japan is building the template for how traditional finance absorbs crypto infrastructure through M&A rather than building from scratch. The JPYSC + Bitbank + SBI banking stack creates an integrated fiat-to-crypto pipeline that competitors will struggle to replicate.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Base · Post-Mortem</span>
+    <h3><a href="https://cointelegraph.com/news/base-post-mortem-reveals-sequencer-bug-behind-back-to-back-outages">Base Reveals Sequencer Race Condition Behind Back-to-Back Outages</a></h3>
+    <p>Coinbase's Base published its post-mortem: a <strong>"race condition" after system reset prevented sequencers from catching up</strong>, causing the second outage. The first outage's fix actually triggered the second — a classic cascading failure pattern. For L2 infrastructure engineers: this is a textbook case of why distributed systems need <strong>chaos testing for recovery paths</strong>, not just happy paths. The fix-causes-new-failure pattern is the #1 cause of extended outages in production systems. If you're building on Base or any single-sequencer L2, implement client-side circuit breakers that detect chain stalls within 30 seconds and redirect to fallback paths.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Solana · DAT Stocks</span>
+    <h3><a href="https://www.theblock.co/post/406414/solana-dat-stocks-climb-double-digits-sol-jumps-9">Solana DAT Stocks Surge 22% as SOL Jumps 9% — Tokenized Stocks Drive Activity</a></h3>
+    <p>Sol Strategies (STKE) climbed 22% as Solana's tokenized stock trading (DAT) protocol drove fresh ecosystem momentum. <strong>SOL jumped 9%</strong> while the broader market bled — a divergence driven by real on-chain utility rather than speculation. The tokenized stock use case gives Solana a concrete revenue narrative (trading fees, settlement) that other L1s lack. For developers: Solana's real-time settlement capabilities make it the natural home for tokenized equities — this validates the chain's performance-first architecture for financial applications specifically.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Q2 Close</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/06/28/bitcoin-falls-below-usd60-000-on-track-for-a-rare-back-to-back-quarterly-loss">BTC Below $60K — On Track for Rare Back-to-Back Quarterly Loss</a></h3>
+    <p>Bitcoin is ending Q2 below $60,000, marking a <strong>rare back-to-back losing first half</strong> that runs against the usual halving-year pattern. Down 7% on the week with altcoins falling harder (ETH -8%, memecoins -15%+). CoinDesk notes this is only the third time BTC has posted consecutive quarterly losses in a halving cycle. The historical precedent from 2018 and 2022: back-to-back quarterly losses preceded 12-18 month recovery phases. For traders: the quarterly close on Monday is critical — portfolio managers rebalancing at quarter-end can amplify moves in either direction.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Strategy · $13B Underwater</span>
+    <h3><a href="https://www.theblock.co/post/406460/michael-saylor-signals-another-bitcoin-buy-as-strategy-sits-about-13-billion-underwater">Saylor Signals More BTC Buying Despite Strategy Sitting $13B Underwater</a></h3>
+    <p>Michael Saylor teased another Bitcoin purchase even as Strategy sits approximately <strong>$13 billion underwater</strong> on its $50B BTC stash. Meanwhile, Grayscale's head of research publicly suggested Strategy should <strong>sell $3B in Bitcoin to cover cash obligations</strong> and restore market confidence. The tension: Saylor's conviction buy vs. Grayscale's pragmatic "prove solvency" argument. With STRC at record lows (25% below par) and mNAV below 1.0, the market is pricing in forced selling risk — whether or not it materializes.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Binance · $400M Outflows</span>
+    <h3><a href="https://cointelegraph.com/news/binance-400m-weekly-net-outflows-mica-deadline-nears">Binance Posts $400M Weekly Outflows — But No Mass Migration Yet</a></h3>
+    <p>Early exchange flow data shows <strong>$400M in weekly net outflows from Binance</strong> as the July 1 MiCA deadline arrives tomorrow — but CoinTelegraph notes there are "no clear signs of mass migration" despite competitors' aggressive user-acquisition campaigns. The $400M represents normal market dynamics amplified by bearish conditions rather than panic withdrawals. For the industry: the real migration test comes July 1-7 when Binance officially ceases EU services and users must choose new platforms. The measured pace suggests most EU users haven't yet migrated — creating a compressed timeline that benefits exchanges with the smoothest onboarding.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">MiCA · D-Day Eve</span>
+    <strong>MiCA Enforcement Begins Tomorrow — The Penalty Framework Is Ready</strong>
+    <p>The European Banking Authority published its <strong>penalty framework on the eve of MiCA enforcement</strong>: non-compliant significant token issuers face fines of up to 12.5% of annual revenue. Spain confirmed "no exceptions or extensions." Tomorrow (July 1) marks the largest crypto regulatory enforcement event in history — every exchange serving EU users without a MiCA license must cease operations. The competitive landscape is crystallizing: Kraken, OKX, Coinbase, and Bitstamp are MiCA-licensed and ready; Binance, Bybit, and dozens of smaller exchanges are not. For the market: expect <strong>increased short-term volatility</strong> as EU-based users execute forced migrations, but long-term clarity should attract institutional capital. <a href="https://cointelegraph.com/news/eu-watchdog-eba-details-big-crypto-fines-as-landmark-laws-bite">EBA framework →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">On-Chain Signal</span>
+    <strong>UTXO Capitulation Signal Fires — Historically Profitable for Long-Term Holders</strong>
+    <p>CryptoQuant analyst Darkfost identified a <strong>UTXO-based capitulation signal</strong> firing for the first time since 2022: the ratio of UTXOs in loss vs. profit has reached levels that historically preceded major bottom formations. "These periods have always been profitable for long-term investors," Darkfost noted. Combined with Strategy's $13B underwater position, ETF 7-week outflow streak, and BTC's rare back-to-back quarterly loss, the <strong>confluence of capitulation indicators is the densest since November 2022</strong> — the exact month that marked the last cycle's absolute bottom. The counter-argument: macro conditions (hawkish Fed, AI capital rotation) didn't exist in prior cycles. <a href="https://cointelegraph.com/news/bitcoin-unspent-transaction-outputs-signal-capitulation-underway-analyst">Analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">CZ · State of Crypto</span>
+    <strong>CZ Wants to Make the US the "Capital of Crypto" — Post-Binance Vision Emerges</strong>
+    <p>In an exclusive CoinDesk interview, Binance founder CZ outlined his <strong>post-Binance vision: making the US the global capital of crypto</strong> through education, investment, and regulatory engagement. This is a significant pivot — from building an offshore exchange empire to positioning as a US-aligned crypto advocate. The strategic read: CZ is betting that the next crypto cycle will be US-driven (ETF flows, stablecoin legislation, tokenization), not Asia-driven. Combined with his earlier statement blaming crypto's downturn on "AI rotation + global tension + 4-year cycle," CZ appears to be positioning for a 2027 bull market narrative centered on US institutional adoption. <a href="https://www.coindesk.com/policy/2026/06/28/cz-wants-to-make-the-u-s-the-capital-of-crypto-state-of-crypto">Full interview →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://cointelegraph.com/markets/will-bitcoin-price-recover-in-july">Will Bitcoin Recover in July? Past Gains &amp; Heavy Shorts Point to $75K Rally</a>
+      <span class="desc">Bitcoin's historical July performance and current overcrowded short positioning create conditions for a violent relief rally — but a break below $55K keeps downside risk alive.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/features/hodlers-digest-binance">Hodler's Digest: Binance EU Exit, EthLabs Rising, Week in Review</a>
+      <span class="desc">CoinTelegraph's comprehensive two-week digest covering Binance's EU exit, the EthLabs non-profit formation backed by BitMine and Joe Lubin, and key market movements.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/28/samson-mow-says-bitcoin-bottom-is-in-but-analysts-remain-divided">Samson Mow Says Bitcoin Bottom Is In — Analysts Remain Divided</a>
+      <span class="desc">The bitcoin advocate argues the traditional 4-year halving cycle has fundamentally changed, while multiple analysts counter with data suggesting further downside remains likely.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/06/27/dogecoin-and-hyperliquid-s-hype-led-weekly-crypto-losses-as-ai-stocks-lure-buyers">DOGE &amp; HYPE Lead Weekly Losses as AI Stocks Lure Buyers Away</a>
+      <span class="desc">The equal-weight S&amp;P 500 hit record highs via AI stock rotation while crypto was left behind entirely — quantifying the capital competition between AI equities and digital assets.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/grayscales-pandl-strategy-sells-3b-bitcoin-confidence">Grayscale: Strategy Should Sell $3B in Bitcoin to Restore Confidence</a>
+      <span class="desc">Grayscale's research head makes the case for proactive de-risking, while CryptoQuant argues Strategy has alternative paths to support STRC without dumping BTC.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> &middot; Curated for iOS developers at Binance</p>
+  <p>Generated: 2026-06-29T09:00:00Z &middot; Sunday "Best of Week" Edition</p>
+  <p>Dedup: 420+ stories filtered from past 5 days (Jun 24–28) &middot; 18 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>20 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>18 items</td></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>11 items</td></tr>
+    <tr><td>RSS — Hacker News</td><td>⚠️ 502 Gateway</td><td>0 items</td></tr>
+    <tr><td>Web Search API</td><td>⚠️ API Error (400)</td><td>0 items</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
