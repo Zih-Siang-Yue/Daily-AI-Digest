@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-06-30</title>
+<style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, June 30, 2026 — AI x iOS Edition</div>
+</header>
+
+<!-- Daily Tech Tips -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">CoreML · Personalization</span>
+    <strong>CoreML Adaptive Models — Personalize On-Device ML Without Retraining</strong>
+    <p>CoreML's <code>MLUpdateTask</code> API enables on-device model personalization without server round-trips. The pattern: ship a base <code>.mlmodel</code> trained on generic data, then fine-tune it locally using the user's behavior. Architecture: (1) Create an updatable model in Create ML by enabling the "Is Updatable" flag on the final layers. (2) Collect user interaction data locally (taps, swipes, time-on-screen) into a <code>MLBatchProvider</code>. (3) Schedule updates via <code>MLUpdateTask</code> during charging (combine with <code>BGProcessingTask</code>). (4) The updated model replaces the base model silently — user sees better predictions without any cloud dependency. For Binance iOS: personalize the asset watchlist ranking, price alert thresholds, and trading pair recommendations based on individual user behavior — all on-device, all private. The key constraint: only the last 1-3 layers can be updated (keeps training fast at &lt;30 seconds), but that's sufficient for personalization tasks. Performance: ~25 seconds to fine-tune a 50-class image classifier on iPhone 16 Pro with 200 examples. <a href="https://developer.apple.com/documentation/coreml/mlupdatetask">Read more →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Vision · Pipeline</span>
+    <strong>Vision + CoreML Pipeline — Chain Multiple Models for Complex iOS Features</strong>
+    <p>Most iOS developers run a single CoreML model in isolation. The power move: chain multiple models using Vision's <code>VNSequenceRequestHandler</code> to build multi-step AI pipelines that run entirely on the Neural Engine. Pattern: (1) First model: object detection (find regions of interest). (2) Second model: classification (identify what's in each region). (3) Third model: action prediction (determine what to do with the classification). Example for a trading app: detect chart patterns → classify pattern type (head-and-shoulders, double-bottom, etc.) → predict confidence score for the pattern. All three models execute in a single Neural Engine pass using <code>VNImageRequestHandler</code> with shared pixel buffer — zero memory copies between stages. The pipeline runs at 60fps on recent iPhones, enabling real-time chart analysis overlays. Key API: create a <code>VNCoreMLRequest</code> for each model, add all to a single <code>VNImageRequestHandler.perform([request1, request2, request3])</code> call. Vision automatically optimizes the execution graph. <a href="https://developer.apple.com/documentation/vision/vnsequencerequesthandler">Read more →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Swift Testing · Productivity</span>
+    <strong>Swift Testing Framework + AI-Generated Test Fixtures</strong>
+    <p>The new Swift Testing framework (shipping with Swift 6.1) combined with AI coding agents creates a powerful workflow for iOS test coverage. Pattern: (1) Write your implementation code normally. (2) Use Claude Code or Cursor with the prompt: "Generate <code>@Test</code> functions for [file] using Swift Testing framework. Use parameterized tests with <code>@Test(arguments:)</code> for edge cases. Mock network calls with URLProtocol." (3) The agent generates comprehensive test suites with <code>#expect()</code> assertions, <code>@Suite</code> organization, and <code>withKnownIssue</code> for flaky tests. The key Swift Testing advantage over XCTest: parameterized tests via <code>@Test(arguments: [case1, case2, case3])</code> let the AI generate one test function that covers dozens of edge cases. For Binance iOS: generate test fixtures for API response parsing, order validation logic, and WebSocket message handling. The AI agent can read your Codable structs and generate both valid and malformed JSON fixtures automatically. Combine with <code>confirmation()</code> for async expectation testing. <a href="https://developer.apple.com/documentation/testing">Read more →</a></p>
+  </div>
+</div>
+
+<!-- AI Tools & Updates -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">BIS · Macro</span>
+    <h3><a href="https://cointelegraph.com/news/excessive-ai-spending-risks-global-financial-consequences-bis-warns">BIS Warns Excessive AI Spending Risks Global Financial Consequences</a></h3>
+    <p>The Bank for International Settlements issued a major warning that excessive AI infrastructure spending — now exceeding $300B annually across hyperscalers — risks creating a systemic financial bubble. BIS argues the capital concentration in a handful of companies building GPU clusters creates "unprecedented concentration risk" if AI revenue fails to materialize at the scale required to justify investments. For the AI-crypto intersection: this echoes the BIS stablecoin warning from last week but targets the other side of the capital rotation — the AI investment boom that has been siphoning capital from crypto markets. If AI spending corrects, crypto could be the beneficiary of a reverse rotation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">AI x DeFi · Analysis</span>
+    <h3><a href="https://cointelegraph.com/news/can-ai-drain-defi-separating-claude-mythos-hype-from-reality">Can AI Drain DeFi? Separating Claude Mythos Hype from Reality</a></h3>
+    <p>CoinTelegraph published a deep analysis on whether advanced AI models (specifically Anthropic's Mythos) could be used to systematically exploit DeFi protocols. The verdict: current AI models can identify obvious vulnerabilities faster than humans, but the "AI drains all DeFi" fear is overblown — smart contract auditing is already AI-augmented, and the attack surface requires domain expertise that general models lack. The practical takeaway for DeFi developers: use AI models as co-auditors (feed them your Solidity/Vyper code for review), but don't rely on them as sole defense. The real risk isn't AI attacking DeFi — it's AI making attack discovery cheaper for human hackers.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Strategy · Capital</span>
+    <h3><a href="https://www.theblock.co/post/406512/strategy-buys-btc-mstr-strc-collapse-bitcoin-holdings-underwater">Strategy Pauses BTC Buys, Unveils New Capital Framework</a></h3>
+    <p>Strategy (fka MicroStrategy) made its most significant policy shift: pausing Bitcoin purchases and establishing a $1B digital credit repurchase program as its USD reserve tops $2.5B. The new capital framework opens the door to potentially selling Bitcoin to fund preferred dividends and stock buybacks — a dramatic reversal from Saylor's "never sell" mantra. MSTR and STRC shares recovered Monday after the announcement, suggesting markets view the capital discipline positively. For the broader market: if Strategy becomes a net seller rather than buyer, it removes one of Bitcoin's largest structural demand sources (~$50B in holdings).</p>
+  </div>
+</div>
+
+<!-- Vibe Coding & Dev Tools -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Arkham · Data</span>
+    <h3><a href="https://www.theblock.co/post/406604/arkham-launches-ranking-system-for-prediction-market-traders">Arkham Launches Elo Ranking for Prediction Market Traders</a></h3>
+    <p>Blockchain analytics firm Arkham launched an Elo-based ranking system for prediction market traders — applying chess-style competitive ratings to on-chain betting performance. The top-ranked trader "GardenerCx" shows 64.3% win rate over 2,644 bets. This matters for developers: Arkham is building the "social layer" for prediction markets that Polymarket/Kalshi lack. Transparent performance metrics create accountability and enable a new class of "copy-trading" products where users can follow high-Elo predictors. The architecture pattern: on-chain activity → statistical modeling → reputation score — applicable to any domain where you need to rank participants by verifiable outcomes.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Loopring · Post-Mortem</span>
+    <h3><a href="https://www.theblock.co/post/406492/loopring-sunsets-dex">Loopring Sunsets DEX — zk-Rollup Pioneer Exits After Lack of Adoption</a></h3>
+    <p>Loopring, one of Ethereum's pioneering zk-rollup projects, is shutting down its DEX citing "lack of meaningful adoption." This is significant: Loopring was among the first to ship zk-rollup technology for trading, yet couldn't compete against newer L2s (Arbitrum, Base, zkSync) that launched with stronger ecosystem incentives. The lesson for infrastructure builders: being early with superior technology doesn't guarantee adoption — distribution, ecosystem grants, and first-party applications (like Base has Coinbase) matter more than protocol-level innovation. For developers evaluating L2 choices: prefer chains with strong first-party application anchors over pure infrastructure plays.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">BlackRock · DeFi</span>
+    <h3><a href="https://www.theblock.co/post/405670/blackrock-ethena-partnership-usde">BlackRock's Aladdin Platform Adds Deeper Ethena Stablecoin Support</a></h3>
+    <p>BlackRock's institutional portfolio management platform Aladdin (managing $11.5T+ in assets) expanded its integration with Ethena's USDe stablecoin products. This bridges the world's largest asset manager's risk management infrastructure with DeFi yield — institutional clients can now monitor and manage USDe positions alongside traditional assets within the same dashboard. For developers: this is the strongest signal yet that DeFi yields are becoming a mainstream institutional allocation. When BlackRock integrates a DeFi protocol into the same system that manages sovereign wealth funds, the category has crossed from "crypto-native" to "financial infrastructure."</p>
+  </div>
+</div>
+
+<!-- Crypto & Markets -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">UK · Regulation</span>
+    <h3><a href="https://cointelegraph.com/news/uk-crypto-rules-2027-fca-authorization-deadline">UK FCA Publishes Final Crypto Rules — February 2027 Authorization Deadline</a></h3>
+    <p>The UK's Financial Conduct Authority published its comprehensive crypto regulatory framework, requiring all crypto firms operating in the UK to obtain FCA authorization by February 2027. The rules cover capital requirements, stablecoin issuance, market abuse prevention, and consumer protection. Unlike MiCA's abrupt July 1 deadline, the UK gives firms 8 months to comply — a more measured approach. For exchange compliance teams: the UK framework covers staking, lending, and custody specifically (areas MiCA Phase 1 doesn't fully address). If you serve UK users, begin authorization paperwork now — the FCA's track record suggests application processing will take 6-12 months.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">BNY · Stablecoins</span>
+    <h3><a href="https://www.coindesk.com/business/2026/06/29/wall-street-s-bny-expands-stablecoin-services-for-institutions-starting-with-circle-s-usdc">BNY Mellon Expands USDC Services — World's Largest Custodian Goes Deeper Into Stablecoins</a></h3>
+    <p>BNY Mellon ($50T+ in assets under custody) expanded its stablecoin capabilities by adding USDC minting and burning services for institutional clients. This means institutions can now create and redeem USDC directly through their existing BNY custody relationship — no need for separate Circle accounts. BNY plans to add additional stablecoins via its Digital Asset Custody platform. For the industry: when the world's largest custodian bank builds native stablecoin infrastructure, it removes the last friction point for institutional stablecoin adoption. The "custody problem" for stablecoins is now solved at scale.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Options</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-put-call-ratio-hits-1-year-high-are-bears-preparing-for-drop-to-55k">Bitcoin Put-Call Ratio Hits 1-Year High — Bears Position for $55K</a></h3>
+    <p>Bitcoin's put-call ratio surged to its highest level in 12 months as traders pile into protective puts ahead of Q2 close and MiCA enforcement. Rising demand for downside protection combined with persistent ETF outflows ($1.8B weekly) highlight Bitcoin's structural weakness despite lower oil prices reducing one macro headwind. However, historically extreme put-call ratios have marked short-term bottoms — when "everyone" is hedged, the forced selling that drives further decline is already exhausted. The Q2 quarterly close today (June 30) adds options expiry pressure that could amplify moves in either direction.</p>
+  </div>
+</div>
+
+<!-- Hot Industry Concepts -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">MiCA · D-Day</span>
+    <strong>MiCA Day 1 — The Largest Crypto Regulatory Enforcement Event in History</strong>
+    <p>Today, July 1 (well, tomorrow for most readers — June 30 is the last day before enforcement), marks the official start of MiCA enforcement across the EU. After weeks of coverage, the landscape is now final: Germany leads with the most authorized firms; Binance's CZ claims their application was "fully compliant" but blocked by "political forces"; 10 million users need new platforms; and competing exchanges are offering aggressive sign-up bonuses. The new angle today: CZ's claim of political interference adds a geopolitical dimension to what was previously framed as a compliance failure. If true, MiCA enforcement becomes a tool for incumbents to block competitors — a concerning precedent for regulatory capture in digital assets. <a href="https://www.theblock.co/post/406554/binance-founder-cz-mica-application-fully-compliant-near-approval-political-forces-intervened">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Stablecoins · Risk</span>
+    <strong>Yield Stablecoins = Shadow Banking? JPMorgan Sounds the Alarm</strong>
+    <p>JPMorgan executives drew a direct comparison between yield-bearing stablecoins and the shadow banking system that contributed to the 2008 financial crisis. Their argument: when stablecoins offer yield (like Ethena's USDe, or proposed GENIUS Act yield provisions), they effectively become unregulated money market funds — attracting deposits without the capital buffers, deposit insurance, or Fed backstop that protect traditional bank deposits. This framing matters because JPMorgan's position often previews regulatory thinking. Combined with the BIS stablecoin warning (Jun 29) and the GENIUS Act debate, the "should stablecoins pay yield?" question is becoming the defining regulatory battleground of 2026. For DeFi builders: design for a world where yield-bearing stablecoins face bank-like regulations within 18 months. <a href="https://www.theblock.co/post/406599/jpmorgan-execs-draw-comparison-between-yield-stablecoins-shadow-banking">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Prediction Markets · M&amp;A</span>
+    <strong>Prediction Market M&amp;A Wave Coming — Bernstein Analysis</strong>
+    <p>Bernstein published research arguing that the prediction market infrastructure rush will spark a wave of M&amp;A across consumer platforms. Their thesis: as Kalshi ($40B valuation), Polymarket, and DraftKings all compete for the same prediction market users, consumer brands with existing audiences (sports apps, news platforms, social media) will acquire prediction market technology rather than building it. The acquisition targets: smaller prediction market platforms, odds-making technology companies, and market-making firms specializing in event contracts. For developers: if you're building prediction market infrastructure (matching engines, resolution oracles, UX components), you're building acquisition targets. The category is following the exact trajectory of payments (where Stripe/Square acquired dozens of point solutions) and cloud (where AWS/Azure consolidated fragmented infrastructure). <a href="https://www.theblock.co/post/406520/bernstein-says-prediction-market-infrastructure-rush-could-spark-wave-of-ma-across-consumer-platforms">Read more →</a></p>
+  </div>
+</div>
+
+<!-- Worth Reading -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/06/29/private-keys-not-smart-contracts-caused-40-of-crypto-s-usd16-billion-hack-losses-here-s-whats-being-done">Private keys, not smart contracts, caused 40% of crypto's $16B hack losses</a>
+        <span class="desc">Deep analysis showing key management failures — not code bugs — are the dominant attack vector, and what the industry is building to fix it.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/06/29/j-p-morgan-broadens-blockchain-settlement-network-as-banks-modernize-cross-border-payments">J.P. Morgan broadens blockchain settlement network across Asia-Pacific</a>
+        <span class="desc">Kinexys adds 5 APAC currencies for 24/7 institutional settlement — the quiet buildout of blockchain rails inside traditional banking.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/06/29/bitcoin-lending-is-entering-a-new-institutional-era-according-to-silicon-valley-bank">Bitcoin lending enters new institutional era, says Silicon Valley Bank</a>
+        <span class="desc">SVB's framework for how Bitcoin-collateralized lending has matured post-2022 collapse — stronger risk controls, lower rates, institutional participation.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/406506/vitalik-buterin-calls-obfuscation-cryptographys-final-boss-but-says-current-approaches-remain-wildly-impractical">Vitalik calls obfuscation cryptography's "final boss"</a>
+        <span class="desc">Vitalik's technical deep-dive on why indistinguishability obfuscation could enable truly private on-chain voting, but remains decades away from practical deployment.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/406502/indias-usdt-premium-tops-8-5-as-crypto-remittance-crackdown-squeezes-stablecoin-supply-report">India's USDT premium tops 8.5% amid remittance crackdown</a>
+        <span class="desc">Stablecoin supply squeeze in India creates massive arbitrage opportunity — quantifying what happens when governments restrict crypto remittance corridors.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>Generated: 2026-06-30T09:00:00Z</p>
+  <p>Tuesday Edition — AI x iOS (CoreML, Create ML, MLX on-device inference)</p>
+  <p>Dedup: 450+ stories filtered from past 5 days (Jun 25–29) · 22 dedup exclusions applied</p>
+  <table>
+    <tr>
+      <th>Source</th>
+      <th>Status</th>
+      <th>Items</th>
+    </tr>
+    <tr>
+      <td>RSS — CoinTelegraph</td>
+      <td>✅ OK</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>RSS — CoinDesk</td>
+      <td>✅ OK</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>RSS — The Block</td>
+      <td>✅ OK</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>RSS — Hacker News</td>
+      <td>⚠️ Empty Response</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Web Search API</td>
+      <td>⚠️ API Error (400)</td>
+      <td>0</td>
+    </tr>
+  </table>
+</footer>
+
+</body>
+</html>
