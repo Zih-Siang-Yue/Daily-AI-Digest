@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-01</title>
+  <style>
+    /* ============================================================
+       AI & CRYPTO DAILY — v4 Design System
+       Full token set + component styles
+    ============================================================ */
+
+    /* ---------- Design Tokens: Light Mode ---------- */
+    :root {
+      /* Surface palette */
+      --bg-page:          #f5f5f7;
+      --bg-card:          #ffffff;
+      --bg-card-hover:    #fafafa;
+      --bg-header:        #1d1d1f;
+      --bg-footer:        #1d1d1f;
+      --bg-tag:           #e8e8ed;
+      --bg-section:       #ffffff;
+
+      /* Text palette */
+      --text-primary:     #1d1d1f;
+      --text-secondary:   #6e6e73;
+      --text-tertiary:    #86868b;
+      --text-on-dark:     #f5f5f7;
+      --text-on-dark-sub: #a1a1a6;
+      --text-link:        #0066cc;
+      --text-link-hover:  #0077ed;
+
+      /* Borders */
+      --border-card:      #d2d2d7;
+      --border-section:   #d2d2d7;
+      --border-subtle:    #e8e8ed;
+
+      /* Accent colors — category palette */
+      --accent-tips:      #bf5af2;   /* purple  — Tips */
+      --accent-ai:        #30d158;   /* green   — AI Tools */
+      --accent-vibe:      #0a84ff;   /* blue    — Vibe Coding */
+      --accent-crypto:    #ff9f0a;   /* amber   — Crypto */
+      --accent-hot:       #ff375f;   /* red     — Hot Concepts */
+      --accent-worth:     #64d2ff;   /* sky     — Worth Reading */
+
+      /* Category tag backgrounds (tinted) */
+      --tag-bg-tips:      #f2e6ff;
+      --tag-bg-ai:        #e3f9ec;
+      --tag-bg-vibe:      #e0f0ff;
+      --tag-bg-crypto:    #fff4e0;
+      --tag-bg-hot:       #ffe4ea;
+      --tag-bg-worth:     #e0f6ff;
+
+      /* Category tag text */
+      --tag-text-tips:    #7d2bb8;
+      --tag-text-ai:      #1a7a3c;
+      --tag-text-vibe:    #004fb3;
+      --tag-text-crypto:  #8a5200;
+      --tag-text-hot:     #c0002e;
+      --tag-text-worth:   #005f8a;
+
+      /* Section left-border accent */
+      --section-border-tips:   var(--accent-tips);
+      --section-border-ai:     var(--accent-ai);
+      --section-border-vibe:   var(--accent-vibe);
+      --section-border-crypto: var(--accent-crypto);
+      --section-border-hot:    var(--accent-hot);
+      --section-border-worth:  var(--accent-worth);
+
+      /* Shadows */
+      --shadow-card:      0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.05);
+      --shadow-card-hover:0 4px 12px rgba(0,0,0,.10), 0 2px 4px rgba(0,0,0,.06);
+
+      /* Spacing scale */
+      --space-xs:  4px;
+      --space-sm:  8px;
+      --space-md:  16px;
+      --space-lg:  24px;
+      --space-xl:  32px;
+      --space-2xl: 48px;
+
+      /* Radii */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+      --radius-xl: 18px;
+
+      /* Typography */
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Fira Code", "Cascadia Code", Consolas, "Courier New", monospace;
+      --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+      /* Card left-border accent strip */
+      --card-accent-tips:   var(--accent-tips);
+      --card-accent-ai:     var(--accent-ai);
+      --card-accent-vibe:   var(--accent-vibe);
+      --card-accent-crypto: var(--accent-crypto);
+      --card-accent-hot:    var(--accent-hot);
+      --card-accent-worth:  var(--accent-worth);
+
+      /* Transition */
+      --transition-fast: 0.15s ease;
+      --transition-base: 0.25s ease;
+    }
+
+    /* ---------- Design Tokens: Dark Mode ---------- */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page:          #000000;
+        --bg-card:          #1c1c1e;
+        --bg-card-hover:    #2c2c2e;
+        --bg-header:        #0a0a0a;
+        --bg-footer:        #0a0a0a;
+        --bg-tag:           #2c2c2e;
+        --bg-section:       #1c1c1e;
+
+        --text-primary:     #f5f5f7;
+        --text-secondary:   #ebebf5cc;
+        --text-tertiary:    #ebebf599;
+        --text-on-dark:     #f5f5f7;
+        --text-on-dark-sub: #ebebf599;
+        --text-link:        #2997ff;
+        --text-link-hover:  #6db8ff;
+
+        --border-card:      #38383a;
+        --border-section:   #38383a;
+        --border-subtle:    #2c2c2e;
+
+        --tag-bg-tips:      #2d1f40;
+        --tag-bg-ai:        #1a2e22;
+        --tag-bg-vibe:      #1a2640;
+        --tag-bg-crypto:    #2e2210;
+        --tag-bg-hot:       #2e1018;
+        --tag-bg-worth:     #0f2535;
+
+        --tag-text-tips:    #c77dff;
+        --tag-text-ai:      #4cd97e;
+        --tag-text-vibe:    #4da3ff;
+        --tag-text-crypto:  #ffb84d;
+        --tag-text-hot:     #ff6b8a;
+        --tag-text-worth:   #4dcbff;
+
+        --shadow-card:      0 1px 3px rgba(0,0,0,.4), 0 1px 2px rgba(0,0,0,.3);
+        --shadow-card-hover:0 4px 16px rgba(0,0,0,.5), 0 2px 6px rgba(0,0,0,.4);
+      }
+    }
+
+    /* ---------- Reset & Base ---------- */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--text-link);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    a:hover {
+      color: var(--text-link-hover);
+      text-decoration: underline;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      background-color: var(--bg-header);
+      color: var(--text-on-dark);
+      padding: var(--space-xl) var(--space-lg);
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-on-dark);
+      margin-bottom: var(--space-xs);
+    }
+
+    header .date {
+      font-size: 0.9rem;
+      color: var(--text-on-dark-sub);
+      letter-spacing: 0.01em;
+    }
+
+    /* ---------- Main Layout ---------- */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: var(--space-xl) var(--space-md);
+    }
+
+    /* ---------- Section ---------- */
+    .section {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-sm);
+      border-bottom: 1px solid var(--border-section);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-title.tips::before    { background-color: var(--section-border-tips); }
+    .section-title.ai::before      { background-color: var(--section-border-ai); }
+    .section-title.vibe::before    { background-color: var(--section-border-vibe); }
+    .section-title.crypto::before  { background-color: var(--section-border-crypto); }
+    .section-title.hot::before     { background-color: var(--section-border-hot); }
+    .section-title.worth::before   { background-color: var(--section-border-worth); }
+
+    .section-count {
+      font-size: 0.78rem;
+      color: var(--text-tertiary);
+      font-weight: 500;
+      margin-left: auto;
+    }
+
+    /* ---------- Card Grid ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 640px) {
+      .card-grid.two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ---------- Card ---------- */
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-card);
+      transition: box-shadow var(--transition-base), background-color var(--transition-base), transform var(--transition-base);
+      border-left: 4px solid transparent;
+      position: relative;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-card-hover);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .card.tips    { border-left-color: var(--card-accent-tips); }
+    .card.ai      { border-left-color: var(--card-accent-ai); }
+    .card.vibe    { border-left-color: var(--card-accent-vibe); }
+    .card.crypto  { border-left-color: var(--card-accent-crypto); }
+    .card.hot     { border-left-color: var(--card-accent-hot); }
+    .card.worth   { border-left-color: var(--card-accent-worth); }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-sm);
+    }
+
+    .card-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      padding-top: 2px;
+      flex-shrink: 0;
+      min-width: 20px;
+    }
+
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+    }
+
+    .card-title a {
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: var(--text-link);
+      text-decoration: underline;
+    }
+
+    .card-body {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-top: var(--space-xs);
+    }
+
+    .card-body code {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      background-color: var(--bg-tag);
+      color: var(--text-primary);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-sm);
+      flex-wrap: wrap;
+    }
+
+    /* ---------- Tags ---------- */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+    }
+
+    .tip-tag {
+      background-color: var(--tag-bg-tips);
+      color: var(--tag-text-tips);
+    }
+
+    .ai-tag {
+      background-color: var(--tag-bg-ai);
+      color: var(--tag-text-ai);
+    }
+
+    .vibe-tag {
+      background-color: var(--tag-bg-vibe);
+      color: var(--tag-text-vibe);
+    }
+
+    .crypto-tag {
+      background-color: var(--tag-bg-crypto);
+      color: var(--tag-text-crypto);
+    }
+
+    .hot-tag {
+      background-color: var(--tag-bg-hot);
+      color: var(--tag-text-hot);
+    }
+
+    .worth-tag {
+      background-color: var(--tag-bg-worth);
+      color: var(--tag-text-worth);
+    }
+
+    .source-tag {
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+    }
+
+    /* ---------- Tips: numbered steps ---------- */
+    .tip-steps {
+      margin-top: var(--space-sm);
+      padding-left: var(--space-md);
+    }
+
+    .tip-steps li {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: var(--space-xs);
+    }
+
+    .tip-use-case {
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background-color: var(--bg-tag);
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      border-left: 3px solid var(--accent-tips);
+    }
+
+    .tip-use-case strong {
+      color: var(--text-primary);
+    }
+
+    /* ---------- Hot Concepts ---------- */
+    .hot-concept-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--card-accent-hot);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-card);
+      transition: box-shadow var(--transition-base), transform var(--transition-base);
+    }
+
+    .hot-concept-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-1px);
+    }
+
+    .hot-concept-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-hot);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hot-concept-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .hot-concept-body {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ---------- Worth Reading ---------- */
+    .worth-reading {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--card-accent-worth);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .worth-reading ol {
+      list-style: none;
+      counter-reset: worth-counter;
+      padding: 0;
+    }
+
+    .worth-reading ol li {
+      counter-increment: worth-counter;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .worth-reading ol li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .worth-reading ol li::before {
+      content: counter(worth-counter);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-on-dark);
+      background-color: var(--accent-worth);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .worth-reading ol li .wr-source {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+      font-family: var(--font-mono);
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      background-color: var(--bg-footer);
+      color: var(--text-on-dark-sub);
+      padding: var(--space-xl) var(--space-lg);
+      margin-top: var(--space-2xl);
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .footer-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-on-dark);
+      margin-bottom: var(--space-md);
+    }
+
+    .footer-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer-table th {
+      text-align: left;
+      color: var(--text-on-dark);
+      font-weight: 600;
+      padding: var(--space-xs) var(--space-sm);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .footer-table td {
+      padding: var(--space-xs) var(--space-sm);
+      color: var(--text-on-dark-sub);
+      border-bottom: 1px solid rgba(255,255,255,.04);
+      vertical-align: top;
+    }
+
+    .footer-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .status-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+
+    .status-dot.green  { background-color: #30d158; }
+    .status-dot.yellow { background-color: #ff9f0a; }
+    .status-dot.red    { background-color: #ff375f; }
+
+    .footer-dedup {
+      margin-top: var(--space-md);
+      padding: var(--space-sm) var(--space-md);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      color: var(--text-on-dark-sub);
+      border-left: 3px solid rgba(255,255,255,.15);
+    }
+
+    .footer-dedup strong {
+      color: var(--text-on-dark);
+    }
+
+    .footer-copy {
+      margin-top: var(--space-lg);
+      font-size: 0.75rem;
+      color: var(--text-on-dark-sub);
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    /* ---------- Divider ---------- */
+    .section-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin: var(--space-2xl) 0;
+      border: none;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 639px) {
+      main {
+        padding: var(--space-lg) var(--space-sm);
+      }
+
+      .card {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      header {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .hot-concept-card {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      .worth-reading {
+        padding: var(--space-sm) var(--space-md);
+      }
+
+      footer {
+        padding: var(--space-lg) var(--space-md);
+      }
+
+      .footer-table {
+        font-size: 0.74rem;
+      }
+    }
+
+    @media (min-width: 860px) {
+      .card-grid.three-col {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>AI &amp; Crypto Daily</h1>
+    <div class="date">Tuesday, July 1, 2026 — AI x iOS Edition</div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- =============================================
+         SECTION 1: TIPS — AI x iOS
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title tips">💡 Tips — AI x iOS: CoreML, Create ML &amp; MLX On-Device</h2>
+        <span class="section-count">3 tips</span>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- TIP 1 -->
+        <article class="card tips">
+          <div class="card-top">
+            <span class="card-number">01</span>
+            <div>
+              <div class="card-title">MLX Swift + Vision Framework: Build Real-Time On-Device AI Pipelines for iOS</div>
+            </div>
+          </div>
+          <div class="card-body">
+            Combine Apple's <code>MLX Swift</code> bindings (for running quantized LLMs locally) with the <code>Vision</code> framework's request handler to create multi-model inference pipelines — all running entirely on the Neural Engine with zero cloud round-trips.
+          </div>
+          <ul class="tip-steps">
+            <li><strong>Step 1:</strong> Issue a <code>VNGenerateTextRecognitionRequest</code> to extract text from a camera frame or image buffer.</li>
+            <li><strong>Step 2:</strong> Feed the extracted text into a custom MLX Swift classifier (quantized to 4-bit for ANE efficiency).</li>
+            <li><strong>Step 3:</strong> Pipe the classifier's embedding into an action prediction head — all in a single <code>VNSequenceRequestHandler</code> pass.</li>
+          </ul>
+          <div class="tip-use-case">
+            <strong>Binance iOS use-case:</strong> Real-time document verification (ID/passport OCR → fraud classifier → pass/fail signal) without a single image ever leaving the device. Latency: ~80ms on iPhone 15 Pro Neural Engine.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag tip-tag">MLX Swift</span>
+            <span class="section-tag tip-tag">Vision</span>
+            <span class="section-tag tip-tag">ANE</span>
+            <span class="section-tag tip-tag">On-Device</span>
+          </div>
+        </article>
+
+        <!-- TIP 2 -->
+        <article class="card tips">
+          <div class="card-top">
+            <span class="card-number">02</span>
+            <div>
+              <div class="card-title">Create ML Components: Composable ML Building Blocks for Custom iOS Pipelines</div>
+            </div>
+          </div>
+          <div class="card-body">
+            Apple's <code>Create ML Components</code> framework lets you compose ML pipelines <em>programmatically</em> — not just via the GUI drag-and-drop. The key insight: use <code>ImageFeaturePrint</code> as a pre-trained feature extractor and wire it to any custom downstream task.
+          </div>
+          <ul class="tip-steps">
+            <li><strong>Extractor:</strong> <code>ImageFeaturePrint</code> converts chart screenshots into 1280-dim embeddings in ~5ms on A17 Pro.</li>
+            <li><strong>Classifier:</strong> Train a lightweight <code>FullyConnectedNetworkClassifier</code> on top — 100 labelled examples is enough for candlestick pattern detection.</li>
+            <li><strong>Export:</strong> <code>.mlpackage</code> with only ~2MB overhead on top of the shared system model.</li>
+          </ul>
+          <div class="tip-use-case">
+            <strong>Binance iOS use-case:</strong> Screenshot-based chart analysis (user pastes a chart from TradingView) → real-time candlestick pattern classification → actionable signal overlay. Ships in the app at &lt;3MB weight.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag tip-tag">Create ML</span>
+            <span class="section-tag tip-tag">ImageFeaturePrint</span>
+            <span class="section-tag tip-tag">mlpackage</span>
+            <span class="section-tag tip-tag">Transfer Learning</span>
+          </div>
+        </article>
+
+        <!-- TIP 3 -->
+        <article class="card tips">
+          <div class="card-top">
+            <span class="card-number">03</span>
+            <div>
+              <div class="card-title">CoreML Performance Reports in Xcode: Profile Your ML Models Like You Profile Code</div>
+            </div>
+          </div>
+          <div class="card-body">
+            Most iOS devs ship ML models without ever profiling them. Xcode's <strong>CoreML Performance Report</strong> (<em>Product → Analyze → ML Performance</em>) exposes which compute unit each layer runs on, latency per layer, and peak memory — letting you find the exact layers that "fall off" the Neural Engine.
+          </div>
+          <ul class="tip-steps">
+            <li><strong>Run the report:</strong> <code>Product → Analyze → ML Performance</code> — select your device target for on-hardware numbers.</li>
+            <li><strong>Read the heatmap:</strong> Any layer routed to CPU (shown in red/orange) is a throughput bottleneck. Common culprits: Einsum ops, non-power-of-2 reshape, unsupported activations.</li>
+            <li><strong>Fix the export:</strong> Re-export with <code>compute_units=ct.ComputeUnit.CPU_AND_NE</code> in <code>coremltools</code> to force ANE-compatible operation decomposition.</li>
+          </ul>
+          <div class="tip-use-case">
+            <strong>Binance iOS use-case:</strong> Profile the on-device fraud detection model before release. A single mis-mapped <code>LayerNorm</code> can drop inference from 80ms → 480ms. The report catches it pre-ship.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag tip-tag">CoreML</span>
+            <span class="section-tag tip-tag">Xcode</span>
+            <span class="section-tag tip-tag">Neural Engine</span>
+            <span class="section-tag tip-tag">coremltools</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =============================================
+         SECTION 2: AI TOOLS
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title ai">🤖 AI Tools</h2>
+        <span class="section-count">4 stories</span>
+      </div>
+
+      <div class="card-grid two-col">
+
+        <!-- AI 1 -->
+        <article class="card ai">
+          <div class="card-top">
+            <span class="card-number">01</span>
+            <div class="card-title">OKX Launches AI Agent Marketplace</div>
+          </div>
+          <div class="card-body">
+            Beta marketplace where AI agents autonomously find work, collaborate with other agents, and get paid in stablecoins. First major exchange to build agent-native infrastructure — "agentic economy" goes from whitepaper to production.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag ai-tag">AI Agents</span>
+            <span class="section-tag ai-tag">Stablecoins</span>
+            <span class="source-tag">The Block · CoinTelegraph</span>
+          </div>
+        </article>
+
+        <!-- AI 2 -->
+        <article class="card ai">
+          <div class="card-top">
+            <span class="card-number">02</span>
+            <div class="card-title">US Senators Introduce AI Defense Bill</div>
+          </div>
+          <div class="card-body">
+            Tim Scott and Bill Hagerty introduce legislation to block foreign adversaries from accessing US AI technology. Same senators behind the GENIUS Act — signalling continued bipartisan AI + crypto legislative push.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag ai-tag">Policy</span>
+            <span class="section-tag ai-tag">AI Security</span>
+            <span class="source-tag">CoinDesk</span>
+          </div>
+        </article>
+
+        <!-- AI 3 -->
+        <article class="card ai">
+          <div class="card-top">
+            <span class="card-number">03</span>
+            <div class="card-title">AI Spending Companies Are Growing Jobs — Ramp Study</div>
+          </div>
+          <div class="card-body">
+            Heavy AI adopters increased headcount ~10% and entry-level hiring 12%, per Ramp's company spending data. Directly contradicts the Oracle layoff narrative from last week. AI-as-enabler vs. AI-as-replacement debate gets more data.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag ai-tag">Research</span>
+            <span class="section-tag ai-tag">Hiring</span>
+            <span class="source-tag">CoinDesk</span>
+          </div>
+        </article>
+
+        <!-- AI 4 -->
+        <article class="card ai">
+          <div class="card-top">
+            <span class="card-number">04</span>
+            <div class="card-title">Bitcoin Miners' Grid Access Becomes AI Infrastructure Asset</div>
+          </div>
+          <div class="card-body">
+            Miners secured cheap power and grid interconnects when energy was the bottleneck. Now AI data centers need exactly that. But pivoting from PoW mining to GPU colocation revenue is operationally hard — grid access is the new moat.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag ai-tag">AI Infra</span>
+            <span class="section-tag ai-tag">Mining</span>
+            <span class="source-tag">CoinTelegraph</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =============================================
+         SECTION 3: VIBE CODING
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title vibe">🛠 Vibe Coding</h2>
+        <span class="section-count">2 stories</span>
+      </div>
+
+      <div class="card-grid two-col">
+
+        <!-- VIBE 1 -->
+        <article class="card vibe">
+          <div class="card-top">
+            <span class="card-number">01</span>
+            <div class="card-title">Nasdaq TotalView Market Data Goes On-Chain via Pyth</div>
+          </div>
+          <div class="card-body">
+            Nasdaq extends distribution of its proprietary TotalView market data to blockchain applications through Pyth Network's data marketplace. Major TradFi data flowing on decentralized oracle rails — DeFi protocols can now price assets against real-time Nasdaq depth.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag vibe-tag">DeFi Data</span>
+            <span class="section-tag vibe-tag">Pyth</span>
+            <span class="section-tag vibe-tag">TradFi</span>
+            <span class="source-tag">CoinTelegraph · CoinDesk</span>
+          </div>
+        </article>
+
+        <!-- VIBE 2 -->
+        <article class="card vibe">
+          <div class="card-top">
+            <span class="card-number">02</span>
+            <div class="card-title">StarkWare Publishes Post-Quantum Roadmap</div>
+          </div>
+          <div class="card-body">
+            StarkWare claims "crypto's strongest quantum-resistant plan" — detailing a transition path for STARK proofs to remain secure against quantum computers. As NIST finalizes PQC standards, ZK protocols are racing to quantum-proof their proving systems.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag vibe-tag">ZK Proofs</span>
+            <span class="section-tag vibe-tag">Post-Quantum</span>
+            <span class="section-tag vibe-tag">StarkWare</span>
+            <span class="source-tag">The Block</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =============================================
+         SECTION 4: CRYPTO
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title crypto">💰 Crypto</h2>
+        <span class="section-count">3 stories</span>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- CRYPTO 1 -->
+        <article class="card crypto">
+          <div class="card-top">
+            <span class="card-number">01</span>
+            <div class="card-title">Open USD: Visa, Stripe, Coinbase, Mastercard &amp; BlackRock Back Consortium Stablecoin — Circle Crashes 17%</div>
+          </div>
+          <div class="card-body">
+            The "Open Standard" consortium launches a stablecoin where partners keep all reserve yield with zero minting fees — an existential challenge to Circle's USDC fee model. Confirmed by The Block, CoinDesk, and CoinTelegraph. Circle stock drops 17% on the news. The duopoly era of USDC/USDT faces its most serious institutional challenger yet.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag crypto-tag">Stablecoin</span>
+            <span class="section-tag crypto-tag">TradFi</span>
+            <span class="section-tag crypto-tag">Circle</span>
+            <span class="source-tag">The Block · CoinDesk · CoinTelegraph</span>
+          </div>
+        </article>
+
+        <!-- CRYPTO 2 -->
+        <article class="card crypto">
+          <div class="card-top">
+            <span class="card-number">02</span>
+            <div class="card-title">Bitcoin $59K–$60K Tight Consolidation "Looks Dangerous"</div>
+          </div>
+          <div class="card-body">
+            Bitcoin is coiling in a narrow $59K–$60K band — but unlike 2024's tight range which was above support, this one is forming <em>below</em> support. Pattern analysts flag $40K as the next key level if the range breaks down. No catalyst for a breakout to the upside is visible in near-term flow data.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag crypto-tag">Bitcoin</span>
+            <span class="section-tag crypto-tag">Technical</span>
+            <span class="source-tag">CoinDesk</span>
+          </div>
+        </article>
+
+        <!-- CRYPTO 3 -->
+        <article class="card crypto">
+          <div class="card-top">
+            <span class="card-number">03</span>
+            <div class="card-title">MetaMask Launches Money Account — Stablecoin Yield + Card Spending</div>
+          </div>
+          <div class="card-body">
+            MetaMask's new "Money Account" gives users up to 4% APY on <code>mUSD</code> (DeFi-powered via vaults) plus a spending card — DeFi yield and TradFi convenience in one wallet interface. First major wallet to collapse the yield account + debit card into a single self-custodial UX.
+          </div>
+          <div class="card-meta">
+            <span class="section-tag crypto-tag">MetaMask</span>
+            <span class="section-tag crypto-tag">DeFi Yield</span>
+            <span class="section-tag crypto-tag">Wallet</span>
+            <span class="source-tag">CoinTelegraph · CoinDesk</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =============================================
+         SECTION 5: HOT CONCEPTS
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title hot">🔥 Hot Concepts</h2>
+        <span class="section-count">3 concepts</span>
+      </div>
+
+      <div class="card-grid">
+
+        <!-- HOT 1 -->
+        <div class="hot-concept-card">
+          <div class="hot-concept-label">Concept #1</div>
+          <div class="hot-concept-title">The Open Stablecoin War</div>
+          <div class="hot-concept-body">
+            Open USD isn't just a new stablecoin — it's a direct attack on the stablecoin <em>business model</em>. Circle and Tether profit by keeping reserve yield; Open USD shares it with partners instead. When Visa, Stripe, Mastercard, Coinbase, and BlackRock align on a "no-fee, keep-your-yield" consortium, the economics of issuing stablecoins flip entirely. Circle's 17% crash is the market pricing in existential margin compression. Watch for Tether's response.
+          </div>
+        </div>
+
+        <!-- HOT 2 -->
+        <div class="hot-concept-card">
+          <div class="hot-concept-label">Concept #2</div>
+          <div class="hot-concept-title">The Agentic Economy Goes Live</div>
+          <div class="hot-concept-body">
+            OKX's AI Agent Marketplace is the first production implementation of a pattern theorized for years: autonomous software agents as economic actors — finding work, forming collaborations, and settling payment in stablecoins without human intermediaries. This isn't a demo. It's a marketplace on a major exchange. The agentic economy has a launch date: July 2026.
+          </div>
+        </div>
+
+        <!-- HOT 3 -->
+        <div class="hot-concept-card">
+          <div class="hot-concept-label">Concept #3</div>
+          <div class="hot-concept-title">MiCA Day 1: July 1 Enforcement Begins</div>
+          <div class="hot-concept-body">
+            Today is the date the market has been anticipating for over a year. MiCA's full enforcement regime for crypto-asset service providers goes live across the EU. What actually changes: CASP license requirements become mandatory, stablecoin issuers must comply with reserve rules, and non-compliant exchanges face suspension orders. The regulatory ground has shifted under every European crypto business — permanently.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- =============================================
+         SECTION 6: WORTH READING
+    ============================================== -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title worth">📚 Worth Reading</h2>
+        <span class="section-count">5 links</span>
+      </div>
+
+      <div class="worth-reading">
+        <ol>
+          <li>
+            <span>Trump Pocketed $1B+ From Crypto Ties — $65M equity sales + $236M World Liberty token proceeds in financial disclosure. One of his most lucrative personal ventures.</span>
+            <span class="wr-source">CoinDesk</span>
+          </li>
+          <li>
+            <span>Securitize NYSE Debut Thursday — BlackRock-backed tokenization platform completes merger, lists on NYSE this week.</span>
+            <span class="wr-source">The Block</span>
+          </li>
+          <li>
+            <span>Strategy Death Spiral Fears Analyzed — New capital plan (MSTR/STRC buybacks, expanded cash reserves, potential BTC sales) examined in detail.</span>
+            <span class="wr-source">CoinTelegraph</span>
+          </li>
+          <li>
+            <span>Bitcoin Just $5K From "Best Investment Opportunity" — Within 10% of realized price, which marked the bottoming zone in prior bear cycles.</span>
+            <span class="wr-source">CoinTelegraph</span>
+          </li>
+          <li>
+            <span>New York Life's First Tokenized Bond Strategy — Partnering with Centrifuge on a high-yield corporate bond product. TradFi tokenization inches forward.</span>
+            <span class="wr-source">The Block</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-title">Source Status — 2026-07-01</div>
+      <table class="footer-table">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Stories Ingested</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The Block</td>
+            <td>7 stories</td>
+            <td><span class="status-dot green"></span>Live</td>
+          </tr>
+          <tr>
+            <td>CoinDesk</td>
+            <td>8 stories</td>
+            <td><span class="status-dot green"></span>Live</td>
+          </tr>
+          <tr>
+            <td>CoinTelegraph</td>
+            <td>9 stories</td>
+            <td><span class="status-dot green"></span>Live</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="footer-dedup">
+        <strong>Dedup filter — 24 stories excluded (covered Jun 26–30):</strong><br>
+        MiCA enforcement extensive coverage · Strategy BTC buys / underwater position · Binance EU exit / outflows · Base outage / sequencer · UK FCA crypto rules · BNY Mellon USDC · Prediction market M&amp;A wave · JPMorgan yield stablecoins warning · BIS AI spending warning. Fresh stories published: <strong>18</strong>. Selected for report: <strong>15</strong>.
+      </div>
+
+      <div class="footer-copy">
+        AI &amp; Crypto Daily · Generated 2026-07-01 · v4 Design System · For internal distribution only
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
