@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-02</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, July 2, 2026 — Edge AI / On-Device ML Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI &amp; On-Device ML</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ONNX Runtime · iOS</span>
+    <strong>ONNX Runtime CoreML EP: Ship One Model to All Apple Devices</strong>
+    <p>The ONNX Runtime <code>CoreMLExecutionProvider</code> (stable since v1.18) lets you export any PyTorch/TensorFlow model once to ONNX format and deploy it across iPhone, iPad, Mac, and Apple Watch — with automatic Neural Engine acceleration. The killer workflow: (1) Train your model anywhere (cloud GPU, Colab, local). (2) Export via <code>torch.onnx.export()</code> with <code>opset_version=17</code>. (3) In your iOS app, load with <code>ORTSession</code> and specify <code>CoreMLExecutionProvider</code> — the runtime automatically maps supported ops to ANE and falls back to CPU for unsupported ops. (4) Ship a single <code>.onnx</code> file in your app bundle (no per-device compilation needed). For Binance iOS: maintain ONE model artifact for fraud detection, anomaly scoring, or price prediction across all device types — no separate CoreML conversion step per model update. Typical latency: 12-40ms for classification models on A17 Pro. <a href="https://onnxruntime.ai/docs/execution-providers/CoreML-ExecutionProvider.html">Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Quantization</span>
+    <strong>4-bit Quantized Inference on iPhone: Sub-1B Models That Actually Work</strong>
+    <p>Apple's MLX framework now supports <code>mlx_lm.convert --quantize 4bit</code> for any HuggingFace model under 1B parameters — making models like Phi-3.5-mini, Gemma-2B, and TinyLlama genuinely useful on-device. The practical pattern: (1) Pick a sub-1B model specialized for your domain (e.g., a fine-tuned Phi for financial text). (2) Quantize to 4-bit: model size drops from ~2GB to ~500MB, fits in iPhone's unified memory. (3) Run inference via MLX Swift bindings with <code>generate(prompt:maxTokens:)</code>. (4) Use as a local "first pass" for tasks like: summarizing notification text, classifying user intent before API call, generating suggested responses. The key insight: 4-bit quantized sub-1B models achieve 80-90% of GPT-4's accuracy on narrow, domain-specific tasks — at zero latency and zero API cost. Combine with <code>BGProcessingTask</code> to pre-compute outputs during idle time. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Neural Engine · Profiling</span>
+    <strong>ANE Utilization Monitoring: Know When Your Model Falls Off the Neural Engine</strong>
+    <p>Most iOS developers ship ML models without knowing if they actually run on the Neural Engine or silently fall back to CPU. The diagnostic pattern: (1) In Xcode Instruments, add the "Core ML" instrument to your profiling session. (2) Run your inference code — the timeline shows <em>per-layer</em> compute unit assignment (ANE vs GPU vs CPU). (3) Any layer that falls to CPU appears as a red bar — common culprits: dynamic shapes, unsupported activations (<code>GELU</code> approximation variants), and non-power-of-2 tensor dimensions. (4) Fix strategy: reshape tensors to power-of-2 dims, replace unsupported ops with ANE-friendly equivalents (e.g., <code>SiLU</code> → <code>sigmoid * x</code>), and set <code>MLComputeUnits.cpuAndNeuralEngine</code> to prevent GPU fallback entirely. Result: 3-8x inference speedup by ensuring 100% ANE execution. For Binance iOS: profile every model before shipping — a single CPU-fallback layer can turn a 15ms inference into 120ms. <a href="https://developer.apple.com/documentation/coreml/optimizing-performance">Apple Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Venice AI · Funding</span>
+    <h3><a href="https://www.theblock.co/post/406934/venice-ai-funding-equity-valuation-dragonfly">Venice AI Raises $65M Series A at $1B Valuation — Privacy-First Crypto-AI Platform</a></h3>
+    <p>Erik Voorhees' crypto-AI startup Venice raised $65M led by Dragonfly at a $1B equity valuation. Venice offers private, uncensored AI inference — no logs, no data retention — using decentralized compute. This is the first billion-dollar company built explicitly at the AI×crypto intersection. For developers: Venice's model (pay-per-inference with crypto, zero data collection) represents the counter-thesis to centralized AI APIs. If your app handles sensitive user data (financial, medical), privacy-preserving inference is becoming an investable category, not just a niche.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Fed · AI Economy</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/01/bitcoin-retakes-usd60-000-level-after-fed-chair-warsh-said-inflation-risks-has-come-down">Fed Chair Warsh: AI Could Reshape Economy and Monetary Policy</a></h3>
+    <p>New Fed Chair Kevin Warsh explicitly stated that artificial intelligence could reshape the economy and monetary policy — the first time a sitting Fed Chair has framed AI as a macro-economic variable that affects rate decisions. He noted AI's deflationary potential (productivity gains suppressing prices) could allow easier monetary policy sooner. For the AI-crypto intersection: if the Fed factors AI productivity into its inflation framework, rate cuts could arrive faster — historically bullish for risk assets including crypto and AI growth stocks.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Robinhood · Agentic</span>
+    <h3><a href="https://www.theblock.co/post/406918/robinhood-chain-goes-live-mainnet-alongside-24-7-tokenized-stocks-lighter-perps-planned-crypto-agentic-trading">Robinhood Chain Goes Live — Plans "Agentic Trading" Feature</a></h3>
+    <p>Robinhood's Layer 2 (built on Arbitrum) launched on mainnet with Uniswap integration, 24/7 tokenized stock trading, and — notably — announced plans for "crypto agentic trading" where AI agents can execute strategies autonomously on behalf of users. This is the largest consumer fintech company to commit to AI-agent-native trading infrastructure. For developers: Robinhood building agentic trading into a regulated L2 validates the pattern that AI agents need on-chain execution rails with compliance built in — not bolted on after.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Tradeweb · RWA</span>
+    <h3><a href="https://cointelegraph.com/news/tradeweb-executes-real-time-tokenized-us-treasury-transaction-on-canton-network">Tradeweb Executes First Real-Time Tokenized US Treasury Settlement</a></h3>
+    <p>Franklin Templeton transferred a tokenized US Treasury to Virtu Financial via Tradeweb in the first-ever real-time institutional settlement using USDCx on Canton Network. This isn't a proof-of-concept — it's a production trade between two major financial institutions using tokenized assets for instant settlement (vs. T+1 traditional). For developers building tokenization infrastructure: Canton Network's privacy-preserving architecture for institutional assets is now in production with real counterparties and real capital.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Robinhood Chain · L2</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/01/robinhood-rolls-out-public-blockchain-as-it-expands-deeper-into-crypto">Robinhood's Arbitrum L2: What Developers Need to Know</a></h3>
+    <p>Robinhood Chain launched with unique developer-facing features: built-in gas sponsorship (users never pay gas), native Uniswap V4 hooks integration, and a tokenized equities bridge from Robinhood's brokerage. The tech stack: Arbitrum Nitro with custom sequencer, ERC-20 wrapped stocks tradeable 24/7, and a planned SDK for third-party app integration. For DeFi developers: this is the first L2 where traditional equities and crypto assets share the same liquidity layer — enabling novel products like collateralized loans against tokenized stock positions.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Phantom · Prediction Markets</span>
+    <h3><a href="https://www.theblock.co/post/406900/solana-based-prediction-market-app-on-phantom-wallet-launches">Solana Prediction Market Launches Natively in Phantom Wallet</a></h3>
+    <p>A Solana-based prediction market app launched directly inside Phantom wallet — making prediction markets accessible to Phantom's 15M+ users without leaving their wallet. Solana Foundation called prediction markets "one of the most powerful applications on high-performance blockchains." For developers: wallet-native apps (vs. standalone dApps) are becoming the distribution model for DeFi products. Building inside wallet ecosystems gives you instant distribution without user acquisition costs — the App Store model comes to Web3.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">EthLabs · Governance</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/07/01/ethlabs-launches-as-ethereum-undergoes-its-biggest-leadership-transition-in-years">EthLabs Launches — Ethereum's Biggest Leadership Transition in Years</a></h3>
+    <p>EthLabs officially launched as Ethereum undergoes its most significant governance restructuring since inception. Backed by Bitmine, Sharplink, and Joe Lubin, the new "Ethereum Institutional" non-profit positions itself as a "neutral counterpart" for enterprises evaluating Ethereum. Meanwhile, the Ethereum Foundation published its first government policy guide, distinguishing decentralized public chains from corporate-controlled networks. For developers: Ethereum's support ecosystem is bifurcating into research (EF), commercial (EthLabs), and institutional (Ethereum Institutional) — choose your integration partner based on your use case.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Reversal</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-tests-claims-price-is-dead-with-first-td9-reversal-signal-since-july-2022">Bitcoin Reclaims $60K — TD9 Reversal Signal Fires for First Time Since July 2022</a></h3>
+    <p>Bitcoin bounced from a 21-month low of $57K back above $60,000 after Fed Chair Warsh's dovish inflation comments. The TD Sequential indicator fired a TD9 buy signal on the weekly chart — the same signal that marked the exact bottom in July 2022 before BTC's subsequent 4x rally. However, leverage data remains elevated and ETF outflows haven't reversed. The bull case: if history rhymes, this is the capitulation bottom. The bear case: macro conditions (AI capital rotation, elevated rates) are structurally different from 2022.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Crédit Agricole · Stablecoin</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/01/french-banking-giant-credit-agricole-rolls-out-euro-stablecoin-eurxt">Crédit Agricole Launches EURXT — Major European Bank Enters Stablecoin Race</a></h3>
+    <p>France's largest retail bank launched EURXT, a MiCA-compliant euro stablecoin backed 1:1 by reserves at Caceis Bank. Debuted with 20M tokens in circulation, competing directly with Circle's EURC and SocGen's EURCV. This is the third major European bank to launch a stablecoin within weeks of MiCA enforcement. For the industry: the euro stablecoin market is fragmenting rapidly among bank issuers — unlike the USD market's USDT/USDC duopoly, Europe may see 5-10 bank-issued stablecoins competing on yield, compliance, and distribution.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Cantor Fitzgerald · Cycle</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/01/cantor-says-bitcoin-bear-market-may-be-entering-final-stretch">Cantor Fitzgerald: Bitcoin Bear Market Entering Final Stretch</a></h3>
+    <p>Investment bank Cantor Fitzgerald issued a note stating Bitcoin's cyclical indicators point to a market bottom forming in the coming months. They urged investors to "focus on networks with durable value accrual" rather than speculative tokens. Combined with yesterday's TD9 signal and the UTXO capitulation indicators from last week, institutional research is increasingly convergent on a Q3-Q4 2026 bottom thesis — though Cantor notes the AI capital rotation remains a headwind without historical precedent.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The European Stablecoin Fragmentation</strong>
+    <p>Within 48 hours of MiCA enforcement, three distinct stablecoin narratives are playing out simultaneously: (1) Crédit Agricole's EURXT joins SocGen's EURCV and banking-consortium stablecoins — Europe will have 5+ bank-issued euro stablecoins by year-end. (2) Open USD's consortium model (Visa, Stripe, Coinbase) threatens Circle's USD dominance from the US side. (3) Jefferies downgrades Circle citing "structural margin compression." The meta-pattern: stablecoins are becoming a utility layer where issuers compete on distribution and compliance, not technology. The winner won't be the best protocol — it'll be whoever is embedded in the most payment rails. <a href="https://www.coindesk.com/markets/2026/07/01/jefferies-warns-against-buying-the-dip-in-circle-as-open-usd-raises-new-competition-fears">Deep dive →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agentic Finance Goes Mainnet</strong>
+    <p>Three signals in one week confirm "agentic finance" has moved from concept to production: (1) Robinhood announced agentic trading on its new L2 — AI agents executing strategies for retail users on a regulated chain. (2) OKX's AI Agent Marketplace launched (covered Jul 1) with agents earning stablecoins autonomously. (3) Anchorage Digital's off-exchange settlement for Binance enables institutional agents to trade without exchange custody risk. The pattern: every major financial platform is building agent-native infrastructure. The implication for developers: if your app doesn't expose an agent-compatible API (tool-use, structured responses, programmatic auth), it will be invisible to the fastest-growing user segment — autonomous software. <a href="https://www.theblock.co/post/406918/robinhood-chain-goes-live-mainnet-alongside-24-7-tokenized-stocks-lighter-perps-planned-crypto-agentic-trading">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Fed's AI Variable — Monetary Policy Meets Machine Intelligence</strong>
+    <p>Fed Chair Warsh explicitly naming AI as a factor that could "reshape the economy and monetary policy" is a paradigm shift in central banking thinking. The logic chain: AI drives productivity → productivity suppresses inflation → lower inflation allows rate cuts sooner → cheaper capital flows to risk assets (crypto, AI stocks). If the Fed formally incorporates AI productivity into its inflation framework, it creates a structural tailwind for both AI companies AND crypto assets — a positive-sum dynamic that breaks the "AI rotation hurts crypto" narrative from the past 12 months. This is the first concrete signal that AI and crypto might become macro-correlated rather than competing for the same capital pool. <a href="https://www.coindesk.com/markets/2026/07/01/bitcoin-retakes-usd60-000-level-after-fed-chair-warsh-said-inflation-risks-has-come-down">Analysis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/opinion/2026/07/01/europe-is-closing-the-door-on-offshore-crypto-but-it-s-leaving-the-riskiest-window-open">MiCA's Blind Spot: Europe Ignores the $1T Crypto Derivatives Market</a>
+        <span class="desc">Op-ed argues MiCA was never designed to address crypto derivatives — leaving the riskiest market segment entirely unregulated while focusing on spot trading compliance.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/07/01/europe-s-mica-rollout-sparks-debate-over-who-wins-under-new-crypto-rules">MiCA Day 2: Who Actually Wins Under the New Rules?</a>
+        <span class="desc">Industry leaders agree regulation is permanent but disagree sharply on whether MiCA protects consumers or simply entrenches the largest firms.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/406888/bullish-on-morpho-standard-chartered-sees-token-at-60-by-2030-outperforming-bitcoin-ether">Standard Chartered: Morpho Could Outperform BTC and ETH by 2030</a>
+        <span class="desc">The bank models a 37x DeFi expansion thesis, with Morpho's vault infrastructure as the "AWS of DeFi lending" — $60 target from ~$1.60 today.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/07/01/ethereum-foundation-lays-out-use-cases-for-governments-institutions-in-new-policy-guide">Ethereum Foundation Publishes Government Policy Guide</a>
+        <span class="desc">The EF makes its case to policymakers: decentralized public blockchains are fundamentally different from corporate chains, and governance structure should determine regulation.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/anchorage-digital-expands-binance-access-with-off-exchange-settlement-for-institutions">Anchorage Digital Solves Institutional Counterparty Risk for Binance</a>
+        <span class="desc">Off-exchange settlement lets institutions trade on Binance without holding assets on the exchange — removing the #1 blocker for institutional crypto participation post-FTX.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-02T09:00:00Z</p>
+  <p>Thursday Edition — Edge AI / On-Device ML (Apple Neural Engine, MLX, ONNX Mobile)</p>
+  <p>Dedup: 500+ stories filtered from past 5 days (Jun 27–Jul 1) · 26 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>9 items</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>9 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>11 items</td></tr>
+    <tr><td>RSS — Hacker News</td><td>⚠️ 502 Gateway</td><td>0 items</td></tr>
+    <tr><td>Web Search API</td><td>⚠️ API Error (400)</td><td>0 items</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
