@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-04</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, July 4, 2026 — Best of Week Edition 🇺🇸</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week Recap</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · On-Device RAG</span>
+    <strong>Local RAG on iOS: Embed a Vector Store in Your App Bundle</strong>
+    <p>This week's most impactful iOS/AI tip: build fully offline RAG (Retrieval-Augmented Generation) on iPhone using <code>NLEmbedding</code> + <code>sqlite-vss</code>. The architecture: pre-compute sentence embeddings with Apple's Natural Language framework, store them in a lightweight SQLite vector database (~200KB overhead), and at query time run cosine-similarity search against your local store in &lt;5ms. Feed top-K results as context to an on-device LLM (MLX Swift) or remote API. For Binance iOS: embed your FAQ corpus, help documentation, and error messages as vectors in the app bundle. When users ask questions in support chat, retrieve relevant docs locally — even offline. Bundle overhead: ~15MB for 10K document chunks. The key insight: RAG doesn't require a cloud backend. On-device retrieval gives you zero-latency context injection for any LLM interaction. <a href="https://developer.apple.com/documentation/naturallanguage/nlembedding">NLEmbedding Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Agent Architecture</span>
+    <strong>The Supervisor-Worker Pattern: Scale AI Agents Without Losing Quality</strong>
+    <p>The dominant architecture pattern across Claude Code, Codex, and Cursor's background agents this week: <strong>supervisor-worker separation</strong>. The supervisor (Opus/o3) plans, decomposes, and validates; workers (Sonnet/4o-mini) execute atomic subtasks with narrow file-scoped context. The handoff protocol uses structured task objects: <code>{"files": [...], "objective": "...", "constraints": [...]}</code> — never full conversation history. Quality gate: supervisor runs lint + typecheck + test before accepting. This gives 3-5x throughput on large refactoring while maintaining quality. The key insight: verification is cheaper than generation — use your best model for validation, fast models for production. Pair with <code>CLAUDE.md</code> or <code>.cursor/rules</code> to keep all agents following team conventions. <a href="https://docs.anthropic.com/en/docs/build-with-claude/agent-patterns">Agent Patterns →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Edge AI</span>
+    <strong>4-Bit Quantized Inference on iPhone: Sub-1B Models That Actually Work</strong>
+    <p>Apple's MLX framework + <code>mlx_lm.convert --quantize 4bit</code> makes sub-1B models genuinely useful on-device. The practical pattern: (1) Pick a domain-specialized sub-1B model (Phi-3.5-mini for financial text). (2) Quantize to 4-bit: model size drops from ~2GB to ~500MB, fits in unified memory. (3) Run inference via MLX Swift with <code>generate(prompt:maxTokens:)</code>. (4) Use as local "first pass" for summarizing notifications, classifying intent, or generating suggested responses. The key insight: 4-bit quantized sub-1B models hit 80-90% of GPT-4 accuracy on narrow domain-specific tasks — at zero latency, zero API cost. Combine with <code>BGProcessingTask</code> to pre-compute outputs during idle time. For Binance: classify transaction categories and generate smart alerts — all running privately on-device. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift Examples →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · AI Agents</span>
+    <h3><a href="https://cointelegraph.com/news/ai-agent-development-hasnt-accelerated-as-expected-says-zuckerberg">Zuckerberg: AI Agent Development Hasn't Accelerated as Expected</a></h3>
+    <p>Mark Zuckerberg publicly admitted that AI agent development hasn't accelerated as quickly as Meta expected — even as the company expanded its Meta Business Agent globally for Instagram, Messenger, and WhatsApp the same day. The disconnect between Meta's bullish product launches and Zuckerberg's candid assessment reveals the gap between "AI agents as marketing automation" (shipping now) and "AI agents as autonomous actors" (still struggling). For developers: the agentic future is coming slower than 2024 hype suggested. Build for human-in-the-loop agent workflows rather than fully autonomous ones — that's where the practical value lives today.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Semiconductor · Rotation</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/03/memory-and-semiconductor-stocks-lose-momentum-bitcoin-rebounds-in-sign-of-changing-investor-focus">Semiconductor Stocks Lose Momentum — Capital Shifting Back to Bitcoin</a></h3>
+    <p>After dominating markets through H1 2026, AI-tied memory and semiconductor stocks are losing momentum. CoinDesk reports that the "red hot semiconductor trade" is fading as Bitcoin rebounds above $62K — raising the question of whether the AI-to-crypto capital rotation is finally reversing. The mechanism: weaker jobs data + semiconductor earnings concerns → AI growth projections tempered → freed capital seeks alternative assets. This is the strongest data point yet that the 12-month AI capital drain on crypto markets may be ending. Watch NVIDIA and Micron Q2 earnings for confirmation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OUSD · Controversy</span>
+    <h3><a href="https://www.theblock.co/post/407147/samsung-dunamu-say-they-were-listed-as-ousd-stablecoin-consortium-members-without-official-consultation-report">Samsung, Dunamu Listed as OUSD Members Without Consent</a></h3>
+    <p>In a dramatic twist to the Open USD stablecoin story from this week, Samsung and Dunamu (Korea's largest crypto exchange operator) say they were listed as OUSD consortium members <em>without official consultation</em>. Upbit separately clarified it only "expressed interest" — not commitment. This undermines the narrative that OUSD has already assembled an unbeatable coalition. For the stablecoin market: the initial shock to Circle's stock may have been premature. If major listed partners are distancing themselves days after announcement, OUSD's path to market is more uncertain than the launch PR suggested.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">eToro · DeFi</span>
+    <h3><a href="https://www.theblock.co/post/407093/etoro-leads-12-5-million-round-in-onchain-perps-exchange-extended">eToro Leads $12.5M Round in On-Chain Perps Exchange Extended</a></h3>
+    <p>Retail broker eToro invested $12.5M in on-chain perpetual futures exchange Extended, planning to bring perps into its Zengo wallet and expand DeFi products to its core platform. This follows Robinhood's L2 launch by days — the pattern is unmistakable: consumer fintech brokers are racing to integrate native DeFi infrastructure rather than just listing crypto tokens. For developers: the convergence of CeFi and DeFi is happening at the broker level, not the protocol level. Build perps infrastructure that brokers can white-label.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Spotify · Prediction Markets</span>
+    <h3><a href="https://www.theblock.co/post/407134/spotify-asks-kalshi-polymarket-to-remove-branding-after-manipulated-streams-used-to-settle-music-bets-bloomberg">Spotify Demands Kalshi/Polymarket Remove Branding After Stream Manipulation</a></h3>
+    <p>Spotify asked prediction markets Kalshi and Polymarket to remove its branding after 500,000 fake streams were used to rig a $3M music betting market. This is the first major IP/brand conflict between prediction markets and the platforms whose data they use for resolution. For developers building prediction market infrastructure: resolution oracle design is now a trust AND legal problem. If your market resolves against third-party data (streams, views, prices), you need manipulation detection AND consent from data providers. The "oracle problem" just gained a legal dimension.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">ESMA · Regulation</span>
+    <h3><a href="https://cointelegraph.com/news/esma-warns-many-prediction-market-contracts-may-be-prohibited-eu-retail-investors">ESMA: Prediction Market Contracts May Already Be Banned for EU Retail</a></h3>
+    <p>Europe's securities regulator ESMA warned that many prediction market event contracts already fall under existing EU retail investment bans — companies "cannot circumvent EU financial rules by marketing binary-style products as event contracts rather than derivatives." This is a direct shot at the Kalshi/Polymarket model in Europe. For prediction market builders: the EU regulatory position is forming rapidly. Event contracts ≈ derivatives under MiFID II means full licensing requirements, capital buffers, and suitability assessments. The US-first strategy for prediction markets just became mandatory — EU expansion requires licensed derivatives infrastructure.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Bitget · Stock Options</span>
+    <h3><a href="https://www.theblock.co/post/407017/bitget-expands-stock-platform-with-us-stock-options-trading">Bitget Adds US Stock Options to Crypto Platform — TradFi/DeFi Convergence Deepens</a></h3>
+    <p>Bitget expanded its Stock+ platform with US stock options trading, adding equity derivatives alongside crypto and tokenized stocks. With Robinhood going on-chain, eToro investing in perps DEXes, and Bitget adding stock options — every major platform is converging toward the same product: a unified interface for crypto, equities, and derivatives. For developers: the future isn't "crypto exchange" or "stock broker" — it's "everything exchange." Build for multi-asset-class infrastructure from the start.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · ETF Reversal</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/03/finally-usd221-million-flow-into-bitcoin-etfs-ending-a-painful-10-day-outflow-streak">Bitcoin ETFs Break 10-Day Outflow Streak — $222M Flows In</a></h3>
+    <p>US spot Bitcoin ETFs posted $221.7M in inflows — the strongest day since early May — ending a painful 10-day outflow streak that drained $4B. Notably, BlackRock's IBIT continued bleeding ($40.4M out) while smaller funds absorbed aggressively. Combined with bitcoin whales buying $16.7B in BTC over two weeks during the ETF exodus, the divergence between institutional ETF flows and large on-chain holders is the widest since the 2022 bottom. The bull case: retail ETF investors panic-sold into whale accumulation — a classic distribution pattern that precedes rallies.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Supply Signal</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-supply-metric-prints-first-buy-signal-since-late-2022-as-bear-market-continues">Bitcoin Supply Metric Prints First "Buy" Signal Since Late 2022</a></h3>
+    <p>A key Bitcoin supply distribution metric just flashed its first "buy" signal since November 2022 — the month that marked the absolute bottom of the last bear market. More BTC is now held at a loss than at a profit, indicating broad capitulation. However, CoinTelegraph cautions that BTC could still go lower before a sustained recovery begins. Combined with yesterday's TD9 reversal signal, ETF inflow reversal, and whale accumulation, the confluence of bullish technical signals is the densest since the 2022 bottom. The missing catalyst: macro clarity (Fed policy direction post weak jobs data).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Solana · Momentum</span>
+    <h3><a href="https://cointelegraph.com/markets/sol-rallies-as-solana-memecoins-prediction-market-activity-surge-are-bulls-back">SOL Rallies on Memecoin + Prediction Market Surge — Outperforming BTC</a></h3>
+    <p>Solana surged nearly 19% on the week as memecoin activity and prediction market volume exploded on the network. SOL's outperformance vs BTC (+19% vs +4%) demonstrates that Solana is becoming the "risk-on crypto trade" — when market sentiment improves, capital rotates into SOL first due to its ecosystem activity metrics. The broader pattern: networks with real on-chain activity (prediction markets, tokenized stocks, DEX volume) are decoupling from the broader crypto malaise. Activity-driven valuation is replacing narrative-driven valuation.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Great Convergence: Every Platform Becomes an "Everything Exchange"</strong>
+    <p>This week delivered the clearest signal yet that crypto exchanges, stock brokers, and DeFi protocols are converging into a single product category. The evidence: Robinhood launched an L2 with tokenized stocks + agentic trading (Jul 1). eToro invested in on-chain perps (Jul 3). Bitget added US stock options (Jul 3). Securitize dual-listed on NYSE + blockchain (Jul 2). The pattern: every platform wants to be a unified interface for all tradeable assets. The developer implication: if you're building financial infrastructure, design for multi-asset from day one. The winning architecture isn't "crypto app" or "stock app" — it's composable rails that support any asset class. The losers will be platforms that can only do one thing. <a href="https://www.theblock.co/post/407047/robinhood-ceo-says-future-of-crypto-is-in-real-world-assets-not-memecoins">Robinhood CEO: Future is RWA →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Bottom Signal Confluence — Densest Since November 2022</strong>
+    <p>Five independent bottom indicators fired simultaneously this week: (1) Bitcoin supply metric "buy" signal — first since Nov 2022. (2) TD9 weekly reversal — first since Jul 2022. (3) ETF outflow streak broken with $222M inflow. (4) Whale accumulation of $16.7B during retail exodus. (5) Semiconductor trade fading → capital rotation back to BTC. Each individually is noisy; together they form the strongest bottom signal confluence since the exact month Bitcoin bottomed in the last cycle. The counterargument remains: macro conditions (AI capital competition, uncertain Fed path) have no historical precedent. But with weak jobs data now removing the rate-hike threat, the macro headwind is weakening at the same time technicals are screaming "buy." <a href="https://cointelegraph.com/markets/bitcoin-supply-metric-prints-first-buy-signal-since-late-2022-as-bear-market-continues">Analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Prediction Markets Hit Their First IP/Legal Crisis</strong>
+    <p>Prediction markets had an extraordinary week — but not all positive. Spotify demanded Kalshi and Polymarket remove its branding after stream manipulation rigged a $3M market. ESMA warned that prediction contracts may already be banned for EU retail under existing derivatives rules. Meanwhile, US Polymarket political betting continues to grow despite geoblocks. The meta-pattern: prediction markets are hitting the "Napster moment" — the product-market fit is undeniable ($45B+ combined volume in June), but the legal framework is hostile. The companies that survive will be those that solve two problems simultaneously: manipulation-resistant resolution oracles AND regulatory compliance across jurisdictions. This is an infrastructure buildout, not just a product play. <a href="https://www.theblock.co/post/407134/spotify-asks-kalshi-polymarket-to-remove-branding-after-manipulated-streams-used-to-settle-music-bets-bloomberg">Spotify vs Prediction Markets →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/07/03/bitcoin-whales-bought-270-000-btc-in-two-weeks-even-as-etfs-bled-a-record-usd4-billion">Bitcoin Whales Bought $16.7B While ETFs Bled a Record $4B</a>
+        <span class="desc">The largest divergence between whale accumulation and ETF flows since 2024 — detailed on-chain breakdown of who's buying and who's selling.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/crypto-biz-bitcoin-maximalism-meets-capital-markets">Crypto Biz: Bitcoin Maximalism Meets Capital Markets Reality</a>
+        <span class="desc">Strategy authorizes Bitcoin sales, Open USD challenges USDT/USDC, and crypto ramps up political spending for 2026 midterms — weekly business roundup.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/eu-crypto-rulebook-enforcement-challenge-mica-transition-end">MiCA Enforcement Challenge: How Will Regulators Actually Police It?</a>
+        <span class="desc">Lawyers and executives expect wildly different enforcement across EU member states — a practical guide to what the post-deadline landscape looks like.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/07/03/binance-says-mica-should-be-judged-by-who-it-licenses-not-who-it-excludes">Binance: MiCA Should Be Judged by Who It Licenses, Not Who It Excludes</a>
+        <span class="desc">Binance's Europe head reveals the company met Greece's requirements and remains committed to EU re-entry — inside perspective on the regulatory chess match.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/us-senator-ban-elected-officials-memecoins">US Senator Proposes Ban on Elected Officials Issuing Memecoins</a>
+        <span class="desc">Senator Gillibrand's bill would bar Congress members, the president, and spouses from "issuing or sponsoring digital assets" — crypto meets political ethics.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-04T09:00:00Z</p>
+  <p>Saturday "Best of Week" Edition — Revisiting the most impactful tips from Jun 29–Jul 3</p>
+  <p>Dedup: 600+ stories filtered from past 5 days (Jun 29–Jul 3) · 28 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>20 items</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>19 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>22 items</td></tr>
+    <tr><td>RSS — Hacker News</td><td>⚠️ Not attempted</td><td>0 items</td></tr>
+    <tr><td>Web Search API</td><td>⚠️ API Error (400)</td><td>0 items</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
