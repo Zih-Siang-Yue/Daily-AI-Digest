@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-06</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, July 6, 2026 — Weekend Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week Replay</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MCP · iOS Integration</span>
+    <strong>Build an On-Device MCP Server for Your iOS App</strong>
+    <p>The Model Context Protocol (MCP) isn't just for desktop IDEs — you can embed an MCP server directly inside your iOS app to expose native capabilities to AI agents. The architecture: (1) Define tools as Swift functions conforming to a <code>MCPTool</code> protocol with JSON Schema parameter descriptions. (2) Run a lightweight JSON-RPC server on <code>localhost</code> using <code>NWListener</code> (Network.framework) — zero external dependencies. (3) AI agents connect via <code>stdio</code> transport when running locally or via SSE for remote access. (4) Each tool call is sandboxed via iOS entitlements — the agent can only access what you explicitly expose. For Binance iOS: expose tools like <code>get_portfolio_value()</code>, <code>list_recent_trades(limit:)</code>, and <code>explain_transaction(id:)</code>. An AI assistant on Mac can then query your running app directly, enabling cross-device agent workflows where your phone serves as a live data source. <a href="https://modelcontextprotocol.io/docs/concepts/transports">MCP Transports →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Rules for AI</span>
+    <strong>Project-Level AI Rules: Make Every Agent Follow Your Team's Conventions</strong>
+    <p>The most impactful productivity hack across Claude Code, Cursor, and Codex this week: <strong>project-level instruction files</strong>. Each tool reads a specific file at the repo root to enforce team conventions automatically: <code>CLAUDE.md</code> for Claude Code, <code>.cursor/rules/*.mdc</code> for Cursor, <code>.codex</code> for Codex CLI. The pattern that gets 95% compliance: (1) Start with a "Never" section — hard constraints the agent must respect (e.g., "Never use force unwrap in Swift", "Never commit directly to main"). (2) Add a "Prefer" section for soft guidance ("Prefer async/await over completion handlers"). (3) Include a "Verify" section with commands to run before completing: <code>swiftlint lint</code>, <code>swift build</code>, <code>swift test --filter UnitTests</code>. (4) End with project-specific context: "This is a Binance iOS app using MVVM-C architecture with RxSwift." The file costs nothing to maintain and pays dividends on every agent interaction — human developers benefit too by reading it as onboarding documentation. <a href="https://docs.anthropic.com/en/docs/claude-code/memory">CLAUDE.md Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Swift · Structured Concurrency</span>
+    <strong>TaskGroup + AsyncStream: The Pattern for Parallel AI Inference in Swift</strong>
+    <p>When running multiple ML models in sequence (e.g., OCR → classifier → summarizer), the temptation is serial <code>await</code> calls. But Swift's <code>TaskGroup</code> lets you parallelize independent inference steps while <code>AsyncStream</code> feeds results to the UI incrementally. The pattern: (1) Create a <code>withTaskGroup(of: InferenceResult.self)</code> that spawns parallel model calls for independent inputs. (2) As each task completes, yield results into an <code>AsyncStream</code> that the SwiftUI view observes via <code>for await</code>. (3) Use <code>Task.priority = .userInitiated</code> for latency-sensitive inference and <code>.utility</code> for background pre-computation. (4) Cancel the group on view disappearance via <code>.task</code> modifier's automatic cancellation. For Binance iOS: when a user opens the portfolio screen, run price prediction, risk scoring, and news relevance classification in parallel across 3 models — display results as they arrive rather than waiting for all three. Total latency drops from 240ms (serial) to ~90ms (parallel). <a href="https://developer.apple.com/documentation/swift/taskgroup">TaskGroup Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Ethereum · Rebuild</span>
+    <h3><a href="https://cointelegraph.com/news/vitalik-buterin-shares-top-priorities-for-new-lean-ethereum-roadmap">Vitalik: "Lean Ethereum" Rebuild Will Rival the Merge — 3-4 Year Timeline</a></h3>
+    <p>Vitalik Buterin published his "Lean Ethereum" strawmap — the most ambitious protocol overhaul since the Merge. Key priorities: a new virtual machine (leanISA or RISC-V replacing the EVM), quantum safety "shifted up a LOT in priority," and radical protocol simplification. The Hegota hard fork (late 2026) will be the last "pre-Lean" upgrade. For developers: this signals Ethereum is preparing a breaking change in its execution layer. If you're building long-lived smart contracts, start designing for VM migration now. The RISC-V option would make Ethereum tooling compatible with the broader systems programming ecosystem — a massive developer experience upgrade.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Binance · Flows</span>
+    <h3><a href="https://cointelegraph.com/news/binance-outflows-1-23-billion-eth-withdrawals-3-year-high">Binance Outflows Triple to $1.2B — ETH Withdrawals Hit 3-Year High</a></h3>
+    <p>Binance recorded $1.23 billion in weekly net outflows — up 207% from the prior week — with Ethereum withdrawals surging to their highest level in three years. The pattern typically signals either (a) institutional repositioning to self-custody or (b) large holders moving assets to DeFi protocols for yield. Combined with CryptoQuant's warning that exchange deposits spiked to 49,000 BTC (a "rare extreme" seen only 4 times this year), volatility is building in both directions. For the market: large outflows historically precede rallies (supply removed from sell-side), but the simultaneous deposit spike creates a tug-of-war between accumulation and distribution forces.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Polymarket · Compliance</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/07/03/americans-traded-usd571-million-on-polymarket-politic-bets-despite-u-s-ban">Americans Traded $571M on Polymarket Political Bets Despite US Ban</a></h3>
+    <p>US-linked wallets traded $571 million in political contracts on Polymarket over the past year — more than any other country — despite the platform legally being unable to serve them. The money skews toward foreign-conflict markets that US venues don't list. Meanwhile, Kalshi posted $9B in June volume (record month driven by World Cup). For the prediction market ecosystem: the regulatory arbitrage problem is reaching critical mass. The EU's ESMA already warned these contracts may face retail bans. The infrastructure gap: compliant geo-fencing solutions that actually work without killing UX. First company to solve on-chain KYC + geographic restriction elegantly wins the regulatory moat.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Stablecoins · Banks</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/05/banks-have-stopped-asking-if-stablecoins-belong-in-finance-now-they-re-considering-how">Banks No Longer Ask "If" Stablecoins Belong — Now Asking "How"</a></h3>
+    <p>CoinDesk reports that financial institutions have crossed the Rubicon on stablecoins: the question shifted from "should we participate?" to "how do we become the secure gateways?" Digital asset volume is projected to explode by 2030, and banks are racing to position as compliant on/off-ramps. This follows Crédit Agricole's EURXT, Standard Chartered's USDC minting rails, and now a CoinDesk op-ed arguing "collateral quality, not yield, will decide which stablecoins win." For developers: the stablecoin infrastructure layer (KYC-gated minting, reserve attestation APIs, cross-border settlement) is where the next wave of fintech jobs will be created.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Clarity Act · US Policy</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/07/05/clarity-and-congress-s-summer-break-state-of-crypto">CLARITY Act Race: Congress's Summer Break Creates Midterm Deadline Pressure</a></h3>
+    <p>CoinDesk's "State of Crypto" newsletter reports that all parties remain optimistic the CLARITY Act can pass before midterms — but Congress's summer recess is consuming precious legislative days. US law enforcement groups dropped opposition this week (a key blocker removed), but the bill still needs floor time in both chambers. For crypto developers in the US: CLARITY would establish clear jurisdiction boundaries between SEC and CFTC for digital assets. If it passes, the "is this token a security?" ambiguity that has frozen US crypto development for years finally resolves. Build accordingly — design token mechanics that work under either outcome.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">UK · Regulation</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/07/04/uk-s-bold-new-crypto-rules-promise-to-unlock-global-trading-but-huge-compliance-hurdles-still-threaten-the-rollout">UK's New Crypto Rules: Global Trading Unlocked, Compliance Hurdles Remain</a></h3>
+    <p>The UK published bold new crypto regulations that promise to unlock global trading access for British firms — positioning London as a post-MiCA alternative for companies finding EU compliance too restrictive. However, CoinDesk notes "huge compliance hurdles" still threaten the rollout, particularly around cross-border equivalence recognition. For developers choosing jurisdictions: the UK is explicitly competing with the EU on crypto-friendliness. If your product serves both markets, you'll need dual compliance architectures — but the UK framework is deliberately lighter-touch than MiCA on DeFi and staking.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Kalshi · Volume</span>
+    <h3><a href="https://cointelegraph.com/news/world-cup-drives-prediction-markets-to-record-june-trading-volumes">Kalshi Hits $9B June Volume — World Cup Proves Prediction Market Mass Appeal</a></h3>
+    <p>Kalshi posted record-breaking $9 billion in June trading volume, fueled by FIFA World Cup betting. Combined with Polymarket's continued growth (despite regulatory headwinds), the prediction market category hit $45B+ combined monthly volume. The sports catalyst is critical: it proves prediction markets aren't just for political junkies — they have genuine mainstream consumer appeal. For developers building prediction market infrastructure: sports is the gateway drug. Resolution oracles for live sports (real-time score feeds, instant settlement) are the most immediate infrastructure need. The market is growing faster than the tooling.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Weekly Close</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-nears-635k-into-weekly-close-as-trader-warns-of-terrible-monday">Bitcoin Nears $63.5K Weekly Close — But Monday Track Record Is "Terrible"</a></h3>
+    <p>Bitcoin reached its highest level in nearly two weeks over the weekend, approaching $63,500 into the weekly close. However, veteran traders warn that Monday has an "absolutely terrible" track record for BTC price action — thin weekend rallies often get faded when US institutional traders return. The key level: if BTC holds above $62K through Monday's US session open, the W-bottom pattern (identified by Bollinger himself on Friday) confirms. If it doesn't, expect a retest of $60K support. The options market isn't fully buying the bounce — put/call ratios remain elevated, suggesting hedging activity persists even as spot rallies.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Capital Needs</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/04/bitcoin-s-next-parabolic-run-may-need-usd1-trillion-in-fresh-capital">Bitcoin Needs $1 Trillion Fresh Capital for Next Parabolic Run</a></h3>
+    <p>CoinDesk analysis reveals diminishing returns are real: this cycle, ~$697B in new money generated a ~689% gain, compared to earlier cycles where far less capital drove 50,000%+ returns. The next parabolic leg requires approximately $1T in fresh inflows. The bull case: ETFs, corporate treasuries, sovereign wealth funds, and retail now all have regulated on-ramps that didn't exist before. The bear case: $1T is enormous when AI infrastructure competes for the same institutional allocations. The timeline question: can crypto attract $1T before the next halving (2028) makes the supply shock narrative obsolete?</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Exchange · Volatility</span>
+    <h3><a href="https://www.theblock.co/post/407160/cryptoquant-bitcoin-ether-altcoin-exchange-deposits-volatility">CryptoQuant: Exchange Deposits Spike to 49,000 BTC — Volatility Incoming</a></h3>
+    <p>Bitcoin deposits to exchanges climbed to nearly 49,000 BTC — a "rare extreme" seen only four other times this year, according to CryptoQuant. Simultaneously, altcoin exchange deposits also spiked. This indicator historically precedes major volatility events (in either direction). The context: whale outflows ($1.2B from Binance alone) + exchange deposit spikes = large players are repositioning. Whether that's distribution (selling) or basis trading (hedging) determines direction. Combined with Monday's "terrible" track record and options market skepticism, the setup is for a decisive move in the first half of next week.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Lean Protocol" Movement — From Ethereum to Everywhere</strong>
+    <p>Vitalik's "Lean Ethereum" strawmap isn't just an Ethereum story — it represents a broader industry shift toward protocol simplification. The thesis: blockchains accumulated too much technical debt by shipping features quickly during the 2020-2024 bull market. Now the winning strategy is radical simplification: fewer opcodes, smaller attack surfaces, quantum-resistant from the ground up. Solana's Alpenglow, Ethereum's Lean roadmap, and even Bitcoin's long-running simplicity debates all converge on the same insight: <em>protocols that survive decades are simple protocols</em>. For developers: the next 3-4 years will see breaking changes across major chains. Design your applications with migration layers and abstraction boundaries — the VMs underneath are about to change. <a href="https://www.theblock.co/post/407176/vitalik-buterin-says-ethereums-next-rebuild-will-rival-the-merge-and-take-three-to-four-years">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Stablecoin Collateral Quality as Competitive Moat</strong>
+    <p>A CoinDesk op-ed this weekend argues the stablecoin industry is "optimizing for the wrong metric" — yield-bearing stablecoins are racing toward $50B market cap, but collateral quality (not yield) will determine long-term winners. The logic: in a crisis, the stablecoin that maintains its peg is the one backed by the highest-quality, most-liquid collateral (short-duration US Treasuries, central bank deposits). Yield comes from taking credit risk — which is exactly what users DON'T want in a stablecoin. This reframes the competitive landscape: USDC (backed by Treasuries + cash) has a structural advantage over yield-bearing alternatives in a flight-to-quality event. For builders: design your stablecoin integrations to support failover between multiple issuers based on real-time collateral quality metrics, not just yield. <a href="https://www.coindesk.com/opinion/2026/07/05/collateral-not-yield-will-decide-which-stablecoins-win">Deep dive →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Monday Volatility Trap: Weekend Rallies vs. Institutional Reality</strong>
+    <p>This week crystallizes a pattern that's repeated throughout 2026: Bitcoin rallies on weekends (thin liquidity amplifies moves), then faces reality on Monday when US institutional traders return. The data: 7 of the last 10 Mondays saw BTC give back weekend gains within 4 hours of the NYSE open. The mechanism: weekend retail FOMO → leveraged longs build up → Monday institutional flow (which currently leans net-short via options) overwhelms the rally. The practical implication: if you're a trader, weekend rallies are noise until confirmed by Monday's US session. If you're a developer building trading bots or alerts: build Monday-open confirmation logic into your signals. The pattern breaks when ETF flows turn sustainably positive — which hasn't happened yet (8th straight negative week despite Thursday's $222M inflow). <a href="https://cointelegraph.com/markets/bitcoin-nears-635k-into-weekly-close-as-trader-warns-of-terrible-monday">Analysis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/opinion/2026/07/05/collateral-not-yield-will-decide-which-stablecoins-win">Collateral, Not Yield, Will Decide Which Stablecoins Win</a>
+        <span class="desc">Falcon Finance's CRO argues the $50B yield-stablecoin market is optimizing for the wrong metric — collateral quality determines survival in a crisis.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/407176/vitalik-buterin-says-ethereums-next-rebuild-will-rival-the-merge-and-take-three-to-four-years">Vitalik's Complete "Lean Ethereum" Strawmap — RISC-V, Quantum Safety, Protocol Simplification</a>
+        <span class="desc">The full roadmap for Ethereum's most ambitious overhaul since the Merge, including VM replacement and why quantum safety "shifted up a LOT."</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/07/03/americans-traded-usd571-million-on-polymarket-politic-bets-despite-u-s-ban">$571M Traded by Americans on Polymarket Despite Ban — Wallet Analysis</a>
+        <span class="desc">Deep forensic analysis of US-linked wallet activity on a geoblocked platform — reveals how political prediction markets bypass enforcement.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/news-analysis/2026/07/02/kalshi-and-prediction-market-sector-embroiled-in-mixed-bag-of-legal-fights-across-u-s">Kalshi's Multi-Front Legal Battles — State Gaming Regulators Push Back</a>
+        <span class="desc">Comprehensive overview of the prediction market sector's regulatory challenges across US states — some fights going well, others not.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/07/05/clarity-and-congress-s-summer-break-state-of-crypto">State of Crypto: Can CLARITY Beat the Midterm Clock?</a>
+        <span class="desc">Nikhilesh De's weekly policy newsletter on whether the landmark crypto legislation can pass before Congress's summer break kills momentum.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-06T09:00:00Z</p>
+  <p>Sunday Weekend Edition — Best of week tips recap + fresh weekend market analysis</p>
+  <p>Dedup: 700+ stories filtered from past 5 days (Jul 1–Jul 5) · 38 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>8 items</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>28 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>24 items</td></tr>
+    <tr><td>RSS — Hacker News</td><td>⚠️ Not attempted</td><td>0 items</td></tr>
+    <tr><td>Web Search API</td><td>⚠️ API Error (400)</td><td>0 items</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
