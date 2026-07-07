@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-07</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, July 7, 2026 — AI x iOS Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Create ML · Tabular</span>
+    <strong>Create ML for Financial Anomaly Detection: Train Custom Models Without Python</strong>
+    <p>Create ML (Xcode's built-in ML training tool) now supports <strong>Tabular Classification and Regression</strong> — perfect for building on-device financial anomaly detectors without leaving the Apple ecosystem. The workflow: (1) Export your transaction dataset as CSV with features like <code>amount</code>, <code>time_of_day</code>, <code>merchant_category</code>, <code>device_location_delta</code>. (2) Open Create ML in Xcode, create a Tabular Classifier project, drag in the CSV. (3) Select "Boosted Tree" algorithm (best for tabular financial data — handles class imbalance well). (4) Train takes 2-5 minutes for 100K rows on M-series Mac. (5) Export as <code>.mlmodel</code> — typically 200KB-2MB, runs inference in &lt;1ms on device. For Binance iOS: train a classifier on historical transaction patterns to flag suspicious activity locally — no server round-trip required. The model updates via App Store or on-device fine-tuning with <code>MLUpdateTask</code>. The killer advantage over cloud ML: zero data leaves the device, satisfying even the strictest privacy requirements. <a href="https://developer.apple.com/documentation/createml/creating-a-tabular-classifier">Create ML Tabular Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">CoreML · Multimodal</span>
+    <strong>Vision + NLP Pipeline: Chain CoreML Models for Smart Document Understanding</strong>
+    <p>iOS 18's CoreML supports <strong>model chaining</strong> via <code>MLLinkedModel</code> — connect a Vision model's output directly to an NLP model's input without intermediate data serialization. The practical pattern for document understanding: (1) <code>VNRecognizeTextRequest</code> extracts text regions from a camera/screenshot image. (2) Feed extracted text blocks into a CoreML text classifier (trained to detect: invoice, receipt, contract, ID document). (3) Route to a domain-specific NLP model: receipts go to an expense parser, invoices to a payment extractor. (4) All three steps execute as a single <code>MLTask</code> pipeline — the framework handles memory management and Neural Engine scheduling. Total latency: ~45ms for a full-page document on A17 Pro. For Binance iOS: build an on-device "smart scan" that photographs a bank transfer receipt, classifies it, extracts the amount/recipient/reference, and pre-fills a deposit confirmation form — entirely offline. Combine with <code>VNDocumentCameraViewController</code> for automatic page detection. <a href="https://developer.apple.com/documentation/coreml">CoreML Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX Swift · Fine-tuning</span>
+    <strong>On-Device LoRA Fine-Tuning: Personalize Models Without Cloud Dependency</strong>
+    <p>MLX Swift now supports <strong>LoRA (Low-Rank Adaptation) fine-tuning directly on Apple Silicon</strong> — meaning you can personalize a base model to a user's behavior patterns without sending data anywhere. The architecture: (1) Start with a pre-trained sub-1B model (e.g., Phi-3.5-mini quantized to 4-bit via MLX). (2) Define LoRA adapters — small trainable matrices (~4MB) that modify model behavior without touching base weights. (3) Fine-tune on user-specific data: their trading patterns, preferred notification style, frequently asked questions. (4) Store the adapter alongside the base model — at inference time, load base + adapter in &lt;200ms. The practical application for Binance iOS: personalize the app's AI assistant to each user's portfolio. After 50+ interactions, the on-device model learns to prioritize alerts about coins the user actually holds, summarize news in their preferred detail level, and predict which features they'll need next. Privacy guarantee: user data never leaves the device. Training time: ~30 seconds for 100 examples on M-series chip, ~2 minutes on A17 Pro. <a href="https://github.com/ml-explore/mlx-swift-examples/tree/main/Libraries/MLXLLM">MLX Swift LoRA →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Infrastructure</span>
+    <h3><a href="https://cointelegraph.com/news/terawulf-shares-rise-after-19b-anthropic-ai-lease-jv-sale">TeraWulf Signs $19B Anthropic AI Lease — Crypto Miners Become AI Infrastructure</a></h3>
+    <p>Bitcoin miner TeraWulf signed a 20-year, $19 billion AI infrastructure lease with Anthropic and sold its majority stake in a separate AI data center joint venture. This is the largest single AI compute deal by a former crypto miner, confirming the structural shift: mining companies' core competency (cheap power + cooling + real estate) is worth more to AI labs than to mining operations. For developers: Anthropic securing $19B in dedicated compute signals aggressive scaling of Claude's capabilities. Expect significantly larger context windows, faster inference, and new model sizes in the coming quarters — build your architectures assuming model capabilities will leap, not creep.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Coinbase AI · Failure</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/06/coinbase-ai-draws-backlash-after-erroneously-publishing-world-cup-result-before-kickoff">Coinbase AI Publishes World Cup Result Before Kickoff — Hallucination Goes Public</a></h3>
+    <p>Coinbase's AI-powered content system erroneously published a World Cup match result before the game even started, triggering backlash across crypto and sports communities. The incident highlights the critical difference between AI for internal tooling (where humans catch errors) and AI for public-facing content (where hallucinations become reputational liabilities). For AI developers: this is a cautionary tale about deploying generative AI in time-sensitive contexts without deterministic verification gates. The fix pattern: never let AI systems publish predictions about future events without a timestamp-comparison guard (<code>if event_time > now(): block_publish()</code>). Simple rule-based guardrails prevent catastrophic AI failures.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">FCA · Agentic Finance</span>
+    <h3><a href="https://cointelegraph.com/news/fca-warns-of-major-shakeup-as-ai-agents-meet-tokenized-money">FCA Warns of "Major Shakeup" as AI Agents Meet Tokenized Money</a></h3>
+    <p>The UK's Financial Conduct Authority issued a stark warning about the convergence of AI agents and tokenized assets, saying it could trigger a "major shakeup" in financial regulation. The concern: autonomous AI agents making financial decisions with tokenized money could operate faster than human oversight can detect manipulation or errors. For developers building agentic financial systems: the FCA is explicitly watching this space. Design your agent architectures with explainability (why did the agent make this trade?), rate limiting (maximum value per autonomous decision), and human-in-the-loop escalation for high-value actions. Regulation is coming — build compliance into your agent frameworks now.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Central Banks · Risk</span>
+    <h3><a href="https://cointelegraph.com/news/central-bankers-sound-alarms-over-agentic-ai-finance-risks">Central Bankers Sound Alarms Over Agentic AI Finance Risks</a></h3>
+    <p>Multiple central banks simultaneously raised concerns about agentic AI in financial markets — warning that autonomous AI systems executing trades, managing portfolios, and making lending decisions could amplify systemic risks faster than human regulators can respond. The specific fear: correlated AI agents using similar training data make identical decisions simultaneously, creating flash-crash dynamics that circuit breakers can't prevent. For iOS developers building AI-powered trading features: expect new regulatory requirements around AI agent disclosure, position limits for autonomous systems, and mandatory "kill switches" that halt AI-driven activity during market stress.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Paradigm · Tokenized Debt</span>
+    <h3><a href="https://www.theblock.co/post/407341/paradigm-m1x-global-funding-tokenized-sovereign-debt">Paradigm Leads $5.5M Round in M1X Global for Tokenized Sovereign Debt</a></h3>
+    <p>Crypto VC giant Paradigm led a $5.5M seed round in M1X Global, which helped the Republic of the Marshall Islands issue USDM1 — an on-chain sovereign bond. This represents the next frontier beyond tokenized corporate assets: sovereign debt on-chain. For developers: sovereign bond tokenization requires fundamentally different infrastructure than corporate tokens — think international law compliance, multi-government settlement layers, and sovereign immunity considerations. The tooling opportunity: build cross-border settlement protocols specifically designed for government-issued digital instruments.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Securitize · Growth</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/06/securitize-eyes-acquisitions-with-usd400-million-war-chest-after-going-public-ceo-says">Securitize Eyes Acquisitions with $400M War Chest Post-NYSE Debut</a></h3>
+    <p>Following its landmark dual-listing (NYSE + blockchain), Securitize CEO Carlos Domingo revealed the firm has a $400M acquisition war chest and plans to expand its institutional tokenization platform rather than buy competitors. The strategy: use post-IPO capital to become the "one-stop shop" for institutional asset tokenization. For developers in the RWA (Real-World Assets) space: Securitize's aggressive expansion means the middleware layer for tokenized securities is consolidating. Either build on their platform or compete — but the window for independent tokenization infrastructure startups is narrowing fast.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">UN · Blockchain</span>
+    <h3><a href="https://cointelegraph.com/news/undp-moves-stellar-blockchain-payment-initiative-beyond-pilot-stage">UN Moves Stellar Blockchain Payments Beyond Pilot to Production</a></h3>
+    <p>The UN Development Programme (UNDP) graduated its Stellar blockchain payment initiative from pilot to production across five countries, reporting that blockchain payments "cut costs, improved resilience" for humanitarian and development programs. This is the first major UN agency to move blockchain payments past the proof-of-concept stage. For developers: the humanitarian/development sector is a massive underserved market for blockchain infrastructure. The requirements differ from DeFi: extreme reliability, very low fees, offline-first design for areas with spotty connectivity, and integration with existing banking rails in developing economies.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Strategy · BTC Sales</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/06/michael-saylor-s-strategy-dramatically-ups-pace-of-bitcoin-sales-raising-usd216-million">Strategy Sells 3,588 BTC ($216M) — But Bulls Absorb the Blow</a></h3>
+    <p>Michael Saylor's Strategy dramatically accelerated its Bitcoin sales, unloading 3,588 BTC worth $216M last week to fund preferred stock dividends — while maintaining a $2.55B BTC reserve. Bitcoin initially dropped 4% on the news but recovered within hours, with funding rates hitting 9% — suggesting aggressive bullish positioning despite the overhang. Grayscale noted that Strategy's sales should "restore confidence in its financing structure" by proving the company can service debt without destabilizing markets. The bull interpretation: if the market can absorb 3,588 BTC of concentrated selling without breaking key support, the demand floor is genuinely strong.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">USDC · Volume</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/06/circle-s-usdc-is-leaving-tether-behind-in-the-stablecoin-volume-race">USDC Surpasses Tether in Volume — Stablecoins Hit $1.79T Monthly Record</a></h3>
+    <p>Visa's new stablecoin dashboard reveals USDC has overtaken USDT in transaction volume as Wall Street banks adopt digital currencies for faster settlements — overall stablecoin volume spiked 63% in a single month to a record $1.79 trillion in June. The shift is structural: regulated institutions prefer USDC's compliance posture over USDT's opacity. Combined with Revolut delisting USDT (last week) and Crédit Agricole's EURXT launch, the stablecoin market is rapidly bifurcating into "regulated" (USDC, bank-issued) and "legacy" (USDT) tiers. For developers: build your stablecoin integrations to support USDC as the primary rail, with multi-stablecoin fallback.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ripple · MiCA</span>
+    <h3><a href="https://cointelegraph.com/news/ripple-secures-full-mica-license-for-crypto-services-across-europe">Ripple Secures Full MiCA License — EU-Wide Crypto Services Unlocked</a></h3>
+    <p>Ripple's Luxembourg approval completes its MiCA licensing process, enabling regulated crypto-asset services across the entire European Economic Area. This positions Ripple as one of the first non-European crypto firms with full MiCA compliance — a significant moat against competitors still navigating the regulatory process. For the cross-border payments space: Ripple can now offer institutional-grade crypto services (custody, transfers, on/off-ramps) across all 27 EU member states from a single license. The first-mover advantage in MiCA compliance is real — it takes 6-12 months to obtain, and customers will default to already-licensed providers.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Agentic AI Risk" Regulatory Wave — Three Regulators, One Week</strong>
+    <p>In a single week, the UK's FCA, multiple central banks, and the EU's ongoing MiCA 2.0 consultation all raised alarms about AI agents in financial markets. The convergence is unmistakable: regulators globally are preparing frameworks specifically for autonomous AI systems that handle money. The common thread: AI agents making financial decisions faster than human oversight can function creates systemic risk that existing regulations weren't designed to address. For developers: the next 12-18 months will see mandatory requirements emerge around agent explainability, rate limiting, kill switches, and human-in-the-loop escalation for high-value decisions. The companies that build these guardrails into their agent architectures TODAY will have a massive compliance advantage when regulation crystallizes. Think of it like GDPR for AI agents — painful for those who retrofit, trivial for those who designed for it. <a href="https://cointelegraph.com/news/central-bankers-sound-alarms-over-agentic-ai-finance-risks">Analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Bitcoin Miner → AI Compute: The $19B Infrastructure Pivot Crystallizes</strong>
+    <p>TeraWulf's $19 billion Anthropic lease is the definitive signal that Bitcoin mining companies are transforming into AI infrastructure providers. The logic is irrefutable: these companies already control the three scarcest resources in AI (cheap electricity, industrial cooling, permitted real estate) — and AI labs will pay 5-10x more per megawatt than Bitcoin mining ever could. This week's data points: TeraWulf ($19B Anthropic lease), Keel (former miner hires data center veteran, stock jumps 10%), and the broader trend of mining companies converting GPU capacity to AI workloads. For the Bitcoin network: hash rate concentration risk increases as smaller miners can't compete with AI-lab revenue offers. For AI developers: this infrastructure buildout means compute costs will decrease as dedicated facilities come online — plan for cheaper inference, not just expensive GPU scarcity. <a href="https://cointelegraph.com/news/terawulf-shares-rise-after-19b-anthropic-ai-lease-jv-sale">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Strategy Stress Test: Can a Concentrated BTC Holder Sell Without Breaking Markets?</strong>
+    <p>Strategy selling 3,588 BTC ($216M) in a single week — and the market absorbing it with a quick 4% dip followed by full recovery — is the most important stress test Bitcoin has passed in 2026. The implications: (1) Market depth is sufficient to handle large institutional sells without cascade liquidations. (2) Buyer-of-last-resort behavior is functioning (funding rates hit 9%, indicating strong long demand). (3) The "Strategy as systemic risk" thesis (JPMorgan's concern from last week) is partially disproven — the market CAN handle their selling. The bull case: if Strategy's 3,588 BTC sell is the "worst case" and the market recovered in hours, the remaining downside risk from their sales is bounded. Cantor Fitzgerald noted that restoring STRC preferred shares to par value is key to restarting the capital engine — and the market's resilience makes that more achievable. <a href="https://www.coindesk.com/markets/2026/07/06/one-month-that-shook-the-market-saylor-s-struggles-over-bitcoin-strategy-yields-big-loss">Deep dive →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/07/06/bitcoin-s-u-s-reserve-still-a-work-in-progress-as-federal-agencies-hash-it-out">Bitcoin's U.S. Reserve Still a Work-in-Progress as Federal Agencies Hash It Out</a>
+        <span class="desc">The White House reveals multiple agencies are debating the "best structure" for a federal Bitcoin reserve — legal and jurisdictional complexity is slowing implementation.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/07/06/circle-s-usdc-is-leaving-tether-behind-in-the-stablecoin-volume-race">USDC Overtakes Tether in Volume — Visa's New Stablecoin Dashboard</a>
+        <span class="desc">Wall Street bank adoption of stablecoins drove a 63% monthly volume spike. Visa's data shows the regulated vs. unregulated stablecoin bifurcation accelerating.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/407319/vitalik-buterin-extremely-lean-ethereum-shrinking-chain-to-near-zero-state-zk-proofs">Vitalik's "Extremely Lean" Ethereum: Shrinking to Near-Zero State with ZK Proofs</a>
+        <span class="desc">A more radical vision than last week's "Lean" strawmap — Buterin proposes shifting state management entirely to validators and replacing per-epoch updates with ZK proofs.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/stablecoin-transaction-volume-hits-record-1-79t-in-june">Stablecoin Transaction Volume Hits Record $1.79T in June</a>
+        <span class="desc">Monthly stablecoin volume surpasses the GDP of most nations — institutional adoption is driving usage far beyond crypto trading into real-world settlement.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/crypto-hacks-fell-47-in-h1-but-ecosystem-is-no-safer-certik">Crypto Hacks Fell 47% in H1 But Ecosystem Is No Safer: CertiK</a>
+        <span class="desc">Fewer attacks but same underlying vulnerabilities — CertiK argues the decline is due to less capital at risk (bear market), not better security practices.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-07T09:00:00Z</p>
+  <p>Tuesday Edition — AI x iOS (CoreML, Create ML, MLX on-device inference)</p>
+  <p>Dedup: 750+ stories filtered from past 5 days (Jul 2–Jul 6) · 42 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>10 items</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>24 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>18 items</td></tr>
+    <tr><td>RSS — Hacker News</td><td>⚠️ Empty Response</td><td>0 items</td></tr>
+    <tr><td>Web Search API</td><td>⚠️ API Error (400)</td><td>0 items</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
