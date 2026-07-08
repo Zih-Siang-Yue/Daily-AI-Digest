@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-08</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, July 8, 2026 — AI Dev Tools Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools (Cursor, Windsurf, Copilot)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Parallel Agents</span>
+    <strong>Run 8 Agents Simultaneously: Cursor's Multi-Task Architecture</strong>
+    <p>Cursor 3's <strong>Agents Window</strong> lets you run up to 8 independent agent sessions in parallel — each with its own sandbox, terminal, and file scope. The power workflow: (1) Open the Agents panel, spawn Agent A with <code>"Refactor all networking code to async/await"</code>. (2) Spawn Agent B: <code>"Write unit tests for ViewModels/"</code>. (3) Spawn Agent C: <code>"Update all deprecated API calls in Sources/Legacy/"</code>. Each agent works in isolation with its own 200K-token context window indexing your full repo. When done, review diffs side-by-side in Cursor's built-in merge view. The <strong>Bug Finder</strong> tool automatically scans each agent's proposed changes against your main branch, categorizing issues by severity. For iOS teams at scale: assign different modules to different agents — one handles Core Data migration while another modernizes UIKit views to SwiftUI. Total refactoring time drops from days to hours. <a href="https://docs.cursor.com/agent">Cursor Agent Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf · Arena Mode</span>
+    <strong>Arena Mode: A/B Test AI Models on YOUR Codebase Before Committing</strong>
+    <p>Windsurf's <strong>Arena Mode</strong> solves the "which model is best for my code?" question empirically. The workflow: (1) Select a task (e.g., <code>"Implement caching layer for API responses"</code>). (2) Choose two models to compare (Claude Sonnet vs GPT-5.4, or any combination). (3) Both models receive identical context from Windsurf's <strong>Riptide</strong> indexer (millions of lines, structural understanding). (4) Results appear side-by-side — you see the actual code diff each model would produce. (5) Pick the winner, or cherry-pick parts from both. For iOS developers: test whether Claude or GPT handles SwiftUI state management better for YOUR specific architecture patterns. The <strong>Cascade</strong> engine goes further — it autonomously reads docs, runs terminal commands, and iterates until tests pass. Combine with <code>megaplan</code> mode (type it in chat) to force the AI to produce a spec document before writing code — dramatically reduces rework. <a href="https://docs.windsurf.com/features/arena">Windsurf Arena Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot · Agent Mode</span>
+    <strong>Assign GitHub Issues Directly to Copilot Agent — End-to-End Automation</strong>
+    <p>GitHub Copilot's <strong>Agent Mode</strong> now handles the full issue-to-PR lifecycle autonomously. The pattern: (1) Open a GitHub issue (e.g., "Add dark mode support to Settings screen"). (2) Assign it to <code>@copilot</code> in the assignees field. (3) Copilot reads the issue, related conversation, linked PRs, and your repo's <code>.github/copilot-instructions.md</code>. (4) It creates a branch, writes the implementation across multiple files, runs your CI test suite, and opens a PR with a detailed description. (5) If tests fail, it reads the CI output and iterates automatically (up to 3 attempts). The key insight: Copilot's deep GitHub ecosystem integration (issues, PRs, CI, code review comments) makes it uniquely powerful for teams already on GitHub. For Binance iOS: create template issues for routine tasks ("Add analytics event for X screen", "Localize Y component") and batch-assign them to Copilot on Friday afternoons — review clean PRs on Monday. <a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-coding-agent">Copilot Agent Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Government</span>
+    <h3><a href="https://www.anthropic.com/news/claude-for-government">Claude Code Launches for Government — FedRAMP High, 466M Lines Scanned in 20 Hours</a></h3>
+    <p>Anthropic launched Claude Code and Claude Cowork for government clients in a FedRAMP High authorized environment, targeting software modernization for public services. The headline case study: the Government of Alberta used Claude Code to scan 466 million lines of legacy code in just 20 hours, identifying and remediating security vulnerabilities at a scale impossible for human teams. The government offering includes department-level administration, spending controls, and audit logs. For developers: this validates Claude Code's capability at extreme scale (466M lines!) and signals that enterprise governance features (SSO, spending caps, audit trails) are production-ready — expect these to trickle down to commercial tiers.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">SpaceXAI · Cursor</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/07/analysts-see-more-upside-for-spacex-as-post-ipo-research-begins">SpaceXAI × Cursor Prep First Joint AI Model — Release Imminent</a></h3>
+    <p>Following SpaceX's $60 billion acquisition of Cursor in June, an internal memo suggests their first jointly trained coding model launches as early as today (July 8). The model will be integrated into both Cursor's IDE and SpaceXAI's Grok Build platform. Separately, Cursor formed a CFO Council to create shared benchmarks for measuring AI productivity ROI — addressing the enterprise adoption blocker of "how do we prove AI coding tools save money?" For iOS developers: if the SpaceXAI-Cursor model is optimized for systems programming (SpaceX's core competency), expect exceptional performance on Swift/low-level code. Watch for benchmark comparisons against Claude Sonnet and GPT-5.4 in coding evaluations.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">JetBrains · Teams</span>
+    <h3><a href="https://blog.jetbrains.com/ai/2026/07/jetbrains-ai-for-teams">JetBrains AI for Teams: Vendor-Agnostic AI with Shared Context &amp; Governance</a></h3>
+    <p>JetBrains announced AI for Teams and Organizations — a platform that unifies fragmented AI tool usage within development teams. Key features: vendor-agnostic model selection (use Claude, GPT, or Gemini within the same interface), shared agentic workflows that team members can reuse, and centralized cost governance. The rollout begins throughout July. For teams using IntelliJ/AppCode for iOS development: this means you can standardize on one AI platform while letting individual developers choose their preferred model — solving the "everyone uses a different AI tool" coordination problem without forcing a single vendor.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">AWS · DevOps Agent</span>
+    <h3><a href="https://aws.amazon.com/blogs/devops/devops-agent-release-management">AWS DevOps Agent Gets AI Release Management — Reviews Code Before Merge</a></h3>
+    <p>AWS expanded its DevOps Agent with "Release Readiness Review" and "Autonomous Release Testing" — AI capabilities that evaluate code changes, enforce organizational standards, and generate tests before code is merged. Now in preview, this directly addresses the volume problem: as AI coding assistants generate more code faster, the bottleneck shifts to review and release. For iOS teams with CI/CD on AWS: the agent can gate deployments by running your SwiftLint rules, checking for common iOS anti-patterns (force unwraps, main-thread violations), and generating edge-case tests automatically. Think of it as an always-on senior reviewer that never gets PR fatigue.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">SEC · Reg Crypto</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/07/07/u-s-sec-to-propose-crypto-rule-as-soon-as-this-month-to-ease-startups-fundraising">SEC to Propose "Reg Crypto" This Month — Easing Startup Fundraising</a></h3>
+    <p>The SEC's updated regulatory agenda reveals "Reg Crypto" — a proposed rule specifically designed to ease crypto startup fundraising and clarify exchange/broker-dealer requirements — is coming as soon as this month. The agenda also includes proposed rule changes for digital assets on national securities exchanges and potential safe harbors. For crypto developers in the US: this is the most concrete signal yet that the SEC is shifting from enforcement-only to rulemaking. "Reg Crypto" could finally provide the legal clarity needed for compliant token launches without expensive Reg D/Reg S workarounds. Build your fundraising infrastructure now — the regulatory framework is crystallizing.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Coinbase · UK License</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/07/coinbase-secures-uk-authorization-to-offer-traditional-investments-alongside-crypto">Coinbase Secures UK License for Traditional Investments + Crypto</a></h3>
+    <p>Coinbase obtained UK FCA authorization to offer traditional investments alongside crypto — institutional traders get perpetual futures access while retail UK customers can now trade equities on Coinbase. This is the "everything exchange" convergence in action: a crypto-native company becoming a full-service broker. Combined with Kraken's European banking license pursuit (also announced this week), the pattern is clear: crypto exchanges are becoming banks/brokers faster than banks are becoming crypto exchanges. For developers: the unified API surface (equities + crypto + derivatives in one platform) creates new arbitrage and portfolio automation opportunities.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Tokenized Equities · Record</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/07/spacex-ipo-powers-record-usd3-86-billion-in-tokenized-equities-trading-in-june">SpaceX IPO Powers $3.86B Record Month for Tokenized Equities</a></h3>
+    <p>Tokenized equities hit $3.86 billion in June trading volume — a new all-time record — driven primarily by SpaceX token demand ($1.19B, or 31% of total). Backpack's SPCX token alone captured $1.08B in volume. This validates the thesis from last week's Securitize/Ondo coverage: tokenized equities have escaped the "experiment" phase and are now generating real volume comparable to small traditional exchanges. For developers: the infrastructure needs are clear — better price oracles for tokenized stocks, cross-venue settlement, and regulatory-compliant automated market makers for 24/7 equity trading.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Critical Point</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-bulls-battle-for-63k-as-micron-stock-eyes-10-drop-in-us-chip-sell-off">Bitcoin Battles $63K as Chip Stocks Crash — Bollinger: "Critical Point"</a></h3>
+    <p>Bitcoin retreated from a two-week high of $64,500 as a massive US semiconductor sell-off (Micron -10%) sent shockwaves through markets. John Bollinger himself described BTC price action as "at a critical point" — the W-bottom he identified last week is either completing or failing right here. Open interest is declining even as price rose, suggesting the rally lacks leveraged conviction. The bull case: BTC decoupling from chip stocks (which fell hard) while holding above $63K demonstrates relative strength. The bear case: declining open interest + weak US spot demand = the rally is purely short-covering with no fresh buying. Resolution expected within 48 hours.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">ETH · Recovery</span>
+    <h3><a href="https://cointelegraph.com/markets/ether-climbs-toward-2k-as-bitmine-buys-eth-robinhood-l2-boost">Ether Climbs Toward $2K — Bitmine Buys ETH, Robinhood L2 Boosts Network</a></h3>
+    <p>ETH charted a path toward $2,000 as multiple catalysts converged: Bitcoin miner Bitmine announced ETH treasury purchases (a DAT — Digital Asset Treasury — strategy), Robinhood's L2 driving network activity, and the upcoming network upgrade boosting investor sentiment. ETH has underperformed BTC for months, making this the first meaningful reversal. For the market: when miners (traditionally BTC-only) start buying ETH for treasury diversification, it signals that institutional perception of Ethereum has fundamentally shifted. Combined with Vanguard hiring a digital assets chief focused on tokenization/blockchain infrastructure, ETH's investment thesis is strengthening on multiple fronts.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">K33 · Cycle Bottom</span>
+    <h3><a href="https://cointelegraph.com/news/half-bitcoins-supply-at-loss-cycle-bottom-k33">K33: Over Half of BTC Supply Held at Loss — Historically Signals Cycle Bottom</a></h3>
+    <p>Research firm K33 published analysis showing more than 50% of Bitcoin's circulating supply is now held at a loss — a rare condition that has historically preceded cycle bottoms within weeks. In previous cycles, this metric crossing 50% was followed by strong one-year returns. However, other analysts disagree on timing, with some pointing to deeper downside risk before a sustained recovery begins. The key difference from previous cycles: institutional infrastructure (ETFs, regulated custody) didn't exist before, meaning the recovery mechanism could be faster OR the floor could be lower if institutional selling cascades. Watch for the next ETF flow data as the deciding factor.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The AI Trade Unwind: Infrastructure Boom Faces Reality Check</strong>
+    <p>CoinDesk published a landmark analysis declaring the AI trade is "losing steam" — record earnings, rising competition, and concerns over slowing AI capital expenditure are forcing investors to reassess the biggest trade of 2025-2026. Micron crashed 10% in a single day. The mechanism: AI companies reported strong revenue but guided lower on future capex, suggesting the infrastructure buildout is approaching a plateau. For the crypto-AI dynamic: this is the reverse rotation accelerating. Capital leaving AI stocks needs a home — and with BTC holding $63K during the chip crash, crypto is benefiting from the same capital reallocation that hurt it for 12 months. The "AI vs crypto" zero-sum narrative is definitively breaking. <a href="https://www.coindesk.com/markets/2026/07/07/ai-trade-loses-steam-as-infrastructure-boom-faces-reality-check">Analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Vanguard Goes Crypto: The Last TradFi Holdout Capitulates</strong>
+    <p>Vanguard — the $9 trillion asset manager that famously refused to offer Bitcoin ETFs and blocked crypto purchases — is now hiring a Head of Digital Assets to lead strategy for tokenization, stablecoins, and blockchain infrastructure. This is arguably the most significant institutional signal of 2026: when the most conservative, index-fund-purist asset manager in the world creates a digital assets leadership role, the "if" question is permanently settled. For the industry: Vanguard's entry means every single top-10 US asset manager now has active crypto/digital asset initiatives. The institutional adoption thesis has moved from "some institutions" to "all institutions." Build for institutional-grade requirements (custody, compliance, audit) as the default, not the exception. <a href="https://www.coindesk.com/markets/2026/07/07/vanguard-opens-search-for-digital-assets-leader-in-sign-of-evolving-crypto-strategy">Read more →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Platform Engineering: The AI-Era Developer Experience Layer</strong>
+    <p>As AI coding assistants generate 3-5x more code, the bottleneck has shifted from writing code to managing, reviewing, and deploying it. Platform engineering — building Internal Developer Platforms (IDPs) that abstract infrastructure complexity — has emerged as the solution. JetBrains AI for Teams (this week), AWS DevOps Agent, and the growing Cursor/Copilot enterprise tiers all converge on this pattern: give developers self-service AI workflows with organizational guardrails. The practical impact for iOS teams: instead of each developer configuring their own AI tools, platform engineers create standardized AI workflows (code generation → lint → test → review → deploy) that the whole team shares. This reduces the "AI tool sprawl" problem while maintaining governance over what AI-generated code enters production. <a href="https://blog.jetbrains.com/ai/2026/07/jetbrains-ai-for-teams">JetBrains announcement →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/07/07/ai-trade-loses-steam-as-infrastructure-boom-faces-reality-check">AI Trade Loses Steam as Infrastructure Boom Faces Reality Check</a>
+        <span class="desc">CoinDesk's deep analysis of why the biggest market trade of 2025-2026 is showing cracks — and what it means for crypto capital flows.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/usdt-wins-payments-usdc-wins-defi-as-stablecoins-diverge-dune">USDT Wins Payments, USDC Wins DeFi — Stablecoins Diverge (Dune Data)</a>
+        <span class="desc">New Dune Analytics dashboard reveals USDT and USDC are evolving into distinct products with different use cases — blockchain choice drives stablecoin usage patterns.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/07/07/crypto-exchange-kraken-is-trying-to-become-a-bank-in-europe">Kraken Seeks European Banking License in Lithuania</a>
+        <span class="desc">Exclusive: Kraken is pursuing a full banking license in the EU, joining Coinbase's UK authorization in the "crypto exchanges become banks" trend.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/eu-parliament-digital-assets-policy-mica-transition">EU Parliament Adopts Post-MiCA Digital Assets Policy Stance</a>
+        <span class="desc">The European Parliament officially calls for further assessment of DeFi, staking, crypto lending, and NFTs — the MiCA 2.0 legislative process begins formally.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/features/how-much-longer-until-bitcoin-finds-cycle-bottom-analysts-disagree">Has Bitcoin Bottomed? Analysts Sharply Disagree on Timing</a>
+        <span class="desc">Comprehensive feature comparing bullish (K33 supply metric, Bollinger W-bottom) and bearish (declining OI, weak US demand) cases for where BTC goes next.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-08T09:00:00Z</p>
+  <p>Wednesday Edition — AI Dev Tools (Cursor parallel agents, Windsurf Arena, Copilot Agent Mode)</p>
+  <p>Dedup: 800+ stories filtered from past 5 days (Jul 3–Jul 7) · 46 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — The Block</td><td>✅ OK</td><td>12 items</td></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>26 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>22 items</td></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (3/6 queries)</td><td>45+ results</td></tr>
+    <tr><td>Web Search — Crypto fallback</td><td>⏭ Not needed</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
