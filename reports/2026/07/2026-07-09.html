@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-09</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, July 9, 2026 — AI Dev Tools Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools (Cursor, Windsurf, Copilot)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Security · HalluSquatting</span>
+    <strong>Defend Against HalluSquatting: AI Coding Assistants Can Install Malware</strong>
+    <p>A newly identified attack vector called <strong>HalluSquatting</strong> exploits AI coding assistants' tendency to "hallucinate" plausible but non-existent package names. Attackers register these fake packages on npm/PyPI with malicious payloads — and when an AI suggests <code>npm install totally-real-utils</code>, you get compromised. The defense pattern for your Cursor/Claude Code/Copilot workflow: (1) Add to your project rules file (<code>.cursor/rules</code> or <code>CLAUDE.md</code>): <code>"Before suggesting any package install, verify the package exists on the registry and has >1000 weekly downloads."</code> (2) Use <code>npm info &lt;package&gt;</code> or <code>pip show &lt;package&gt;</code> as a verification gate before accepting AI-suggested dependencies. (3) Pin exact versions in lockfiles — never accept <code>"latest"</code> from AI suggestions. (4) For iOS/Swift: use Swift Package Manager's URL-based resolution (GitHub repos only) which is inherently resistant since package names map to verified URLs. The broader lesson: treat AI-suggested dependencies with the same skepticism as user input — validate before trusting. <a href="https://docs.cursor.com/context/rules">Cursor Rules Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Varonis Security</span>
+    <strong>Varonis + Cursor Integration: Agentic Coding with Enterprise Security Guardrails</strong>
+    <p>Varonis announced a direct integration with Cursor that adds <strong>data security context</strong> to AI-generated code suggestions. The workflow: (1) Varonis monitors your codebase for sensitive data patterns (API keys, PII, credentials in config files). (2) When Cursor's agent proposes file edits, Varonis flags if the change would expose or mishandle sensitive data. (3) The integration adds a <code>.varonis/policy.yaml</code> that Cursor reads as a rules file — automatically preventing the AI from writing secrets to logs, hardcoding tokens, or accessing restricted directories. For iOS teams at Binance: configure policies like <code>"never read from Keychain in debug builds"</code>, <code>"all network requests must use certificate pinning"</code>, and <code>"no PII fields in analytics events."</code> The AI agent respects these as hard constraints — not suggestions. This solves the fundamental problem with agentic coding: AI moves fast, but fast code that leaks secrets is worse than no code at all. Think of it as AppSec-as-a-Rules-File.</p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Grok 4.5 Model</span>
+    <strong>SpaceXAI Grok 4.5 Now Available in Cursor — Optimized for Systems Programming</strong>
+    <p>Following the SpaceXAI acquisition of Cursor, <strong>Grok 4.5</strong> is now available as a model option inside Cursor's agent and autocomplete systems. Early benchmarks suggest it excels at low-level systems code (C, Rust, Swift's unsafe patterns) — consistent with SpaceX's embedded systems DNA. The practical workflow: (1) Open Cursor Settings → Models → Add Grok 4.5 as your agent model. (2) For Swift/iOS work, test it on performance-critical paths: <code>"Optimize this image processing pipeline to minimize allocations"</code> or <code>"Rewrite this networking layer using Swift Concurrency with zero retain cycles."</code> (3) Compare output quality against Claude Sonnet or GPT-5.4 using Cursor's diff view. The key insight: model specialization is real. Use Grok 4.5 for systems/performance code, Claude for architecture/refactoring, GPT-5.4 for broad feature work. Cursor's model-switching per-chat makes this trivial — different tasks, different models, same IDE. <a href="https://docs.cursor.com/settings/models">Cursor Model Settings →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · GPT-5.6</span>
+    <h3><a href="https://openai.com/index/gpt-5-6">OpenAI Launches GPT-5.6 Series: Sol, Terra, and Luna Tiers</a></h3>
+    <p>OpenAI publicly released GPT-5.6 in three tiers — Sol (flagship reasoning/agent), Terra (balanced), and Luna (fast/cheap) — following government safety previews. Sol is designed specifically for complex multi-step agent tasks, making it a direct competitor to Claude Opus for agentic coding workflows. Separately, Sam Altman proposed giving the US government a 5% equity stake ahead of a September IPO. For developers: GPT-5.6 Sol's agent-optimized architecture means Codex CLI and Copilot will get a major capability boost. Test it in your IDE alongside Claude to find which model handles your specific Swift/iOS patterns better — competition means better tools for everyone.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Revenue</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Crosses $30B Annualized Revenue — Surpasses OpenAI</a></h3>
+    <p>Anthropic has reportedly overtaken OpenAI in annualized revenue run rate, crossing $30 billion. The company also launched Claude Cowork (its agentic multi-agent workspace) on mobile and web for Max plan subscribers. Combined with last week's $19B TeraWulf infrastructure deal, Anthropic is scaling on all fronts simultaneously. For developers relying on Claude Code: revenue dominance means sustained R&D investment. Expect faster model iteration, larger context windows, and cheaper API pricing as Anthropic scales its infrastructure. The mobile Cowork launch signals that AI agent workflows are going mobile-first — relevant for iOS developers building companion experiences.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Paradigm · AI Fund</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/07/08/crypto-vc-paradigm-launches-usd1-2-billion-ai-fund-as-it-broadens-beyond-digital-assets-bbg">Paradigm Launches $1.2B AI Fund — Crypto VC Goes Cross-Sector</a></h3>
+    <p>Crypto venture giant Paradigm launched a $1.2 billion fund backing AI and robotics startups while maintaining its crypto investing mandate. This follows Paradigm's $5.5M seed in tokenized sovereign debt (last week) and signals the firm sees AI and crypto as complementary, not competing, investment theses. For the industry: the smartest crypto-native capital is now flowing into AI infrastructure — not because crypto is dead, but because the intersection (AI agents + on-chain execution + tokenized assets) is where the next $100B companies will emerge. Build at the intersection.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">BNB Chain · HFT L1</span>
+    <h3><a href="https://www.coindesk.com/web3/2026/07/08/bnb-chain-is-building-a-new-layer-1-for-high-frequency-trading-and-ai-agents">BNB Chain Building New L1 for High-Frequency Trading &amp; AI Agents</a></h3>
+    <p>BNB Chain announced a new layer-1 network purpose-built for high-frequency trading and autonomous AI agents, targeting 100,000+ TPS by streaming transactions directly and eliminating public mempools. This eliminates MEV (Miner Extractable Value) by design — trades execute in order without frontrunning. For developers at Binance: this is a direct infrastructure play for the "AI agents trading autonomously" future that regulators are worried about (FCA/central bank warnings from last week). The no-mempool architecture makes it ideal for latency-sensitive DeFi applications where fairness matters more than decentralization theater.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">WeAreDevelopers · Berlin</span>
+    <h3><a href="https://www.wearedevelopers.com/world-congress">WeAreDevelopers World Congress 2026 — 15K Devs Converge on Agentic AI</a></h3>
+    <p>The WeAreDevelopers World Congress (July 8-10, Berlin) brings together 15,000+ developers with a dominant theme: agentic AI in the software lifecycle. Key sessions cover the shift from "vibe coding" (rapid AI-assisted prototyping) to "agentic engineering" (structured AI workflows with human oversight, specs, and testing gates). For iOS developers: the conference signals the industry consensus is moving toward disciplined AI-assisted development — not replacing developers but upgrading their role to "creative director + QA lead." The practical takeaway: invest in learning how to write effective AI specifications and verification gates, not just prompts.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Dinari · tZERO</span>
+    <h3><a href="https://www.coindesk.com/business/2026/07/08/dinari-tzero-join-forces-on-turnkey-platform-for-tokenized-u-s-equities">Dinari × tZERO: Turnkey Platform for Tokenized US Equities Launches</a></h3>
+    <p>Dinari and tZERO joined forces to create a turnkey infrastructure platform for tokenized US equities — making it easier for any exchange or fintech to offer blockchain-based stocks without building from scratch. This is the "Stripe for tokenized stocks" moment: instead of each platform building its own tokenization stack, they can plug into a shared infrastructure layer. For developers: the race to tokenize traditional equities is moving from custom builds to platform-as-a-service. If you're building trading interfaces, integrate with these turnkey APIs rather than reinventing the tokenization wheel.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Tokenized Stocks · Growth</span>
+    <h3><a href="https://cointelegraph.com/news/tokenized-stock-transfers-surge-105-in-a-month-to-84b">Tokenized Stock Transfers Surge 105% to $8.4B in a Single Month</a></h3>
+    <p>Tokenized stock transfer volumes doubled in one month, reaching $8.4 billion — up from $4.1B in May and the $3.86B record set in June. The acceleration is coming from both crypto-native platforms (Backpack, Bitget) and traditional finance entrants (Dinari, tZERO, Securitize). For iOS developers building trading apps: tokenized equities are no longer a niche — they're growing faster than any other RWA category. The infrastructure needs: real-time price feeds from both traditional and tokenized venues, unified portfolio views across asset types, and fractional share UIs that feel native to mobile.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Geopolitics</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-slides-as-iran-ceasefire-collapse-brings-back-hormuz-blockade-threat">Bitcoin Slides to $60K as US-Iran Ceasefire Collapses — Oil Spikes to $75</a></h3>
+    <p>Bitcoin tumbled from $64K to the $60,000 support level after Trump declared the US-Iran ceasefire "over" following airstrikes, sending oil prices surging to $75 on Strait of Hormuz blockade threats. The total crypto market cap dropped 3% to $2.13T. The mechanism: geopolitical risk → oil spike → inflation fears → risk-off across all assets including crypto. However, institutional ETF demand remained resilient with steady inflows despite the drop. The key level: $60K is the line in the sand — if it holds through this week's Fed statement, the W-bottom pattern from last week (Bollinger's call) remains intact. If it breaks, expect a retest of $57K.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Supply · Exchange Low</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-tumbles-back-to-key-60k-support-level-whats-behind-the-sell-pressure">BTC Exchange Supply at 2017 Lows, ETH at 2015 Lows — Supply Squeeze Building</a></h3>
+    <p>Despite the price drop, on-chain data reveals Bitcoin's exchange supply has fallen to its lowest level since 2017, while Ethereum's exchange supply hit 2015 lows. This creates an asymmetric setup: even modest demand increases could trigger a supply squeeze since sellable supply is historically depleted. Multiple analysts note this divergence between falling prices and falling exchange reserves — the market is being sold down on futures/derivatives, not spot. The implication: when the geopolitical dust settles, the supply dynamics favor an aggressive bounce. The "textbook Bitcoin bottom" thesis from CoinTelegraph's analysis gains further support.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Fed · Backstop</span>
+    <h3><a href="https://cointelegraph.com/news/crypto-could-benefit-if-fed-steps-in-to-backstop-us-stock-market-analysts">Crypto Could Benefit if Fed Steps In to Backstop Stock Market: Analysts</a></h3>
+    <p>As geopolitical tensions hammer both stocks and crypto, analysts at Bitget note that the size of the US stock market "gives policymakers a strong incentive to backstop major drawdowns." If the Fed intervenes (emergency rate cuts, repo facilities, or QE), crypto would be a major beneficiary due to increased liquidity. The historical pattern: every Fed intervention since 2020 has led to crypto rallying within 2-4 weeks. The current setup: oil spike → inflation risk → Fed trapped between supporting markets and fighting inflation. Resolution of this tension will define crypto's direction for the rest of Q3.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>From "Vibe Coding" to "Agentic Engineering" — The Maturity Shift</strong>
+    <p>The industry is rapidly evolving past the initial "vibe coding" phase (throw prompts at AI, hope for the best) into <strong>Agentic Engineering</strong> — a disciplined methodology with formal specs, structured agent workflows, and robust verification gates. The WeAreDevelopers Congress this week crystallized the consensus: AI handles 80% of code generation, but the 20% that matters (architecture decisions, security review, performance verification) requires experienced human oversight. The practical shift: teams are moving from "one developer + AI" to "one developer directing multiple specialized AI agents" with explicit quality contracts between them. The companies seeing the best results use spec-driven development: write the requirement → AI generates implementation → automated tests verify → human reviews diffs. This is where the demand for senior developers is actually <em>increasing</em> — someone needs to architect the agent workflows and catch what AI gets wrong. <a href="https://www.wearedevelopers.com/world-congress">WeAreDevelopers sessions →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Modular Monolith Revival — Right-Sizing Your Architecture for AI</strong>
+    <p>As AI coding assistants generate code 3-5x faster, a counterintuitive trend is emerging: teams are moving <em>away</em> from microservices back toward <strong>modular monoliths</strong>. The logic: microservices add operational complexity that AI can't easily manage (distributed tracing, service mesh configuration, cross-service transactions). A modular monolith — a single deployable unit with well-defined internal modules — gives you the organizational benefits of service boundaries without the ops overhead. AI agents work better within a monolith because they can reason about the full dependency graph in a single context window. For iOS teams: this validates SwiftUI's module-oriented architecture (Swift packages within one Xcode project) over splitting into multiple microframeworks. Let AI refactor within clear module boundaries rather than across network boundaries. The architecture that AI can reason about most effectively is the architecture that will win. <a href="https://blog.jetbrains.com/blog/2026/06/modular-monolith-guide/">JetBrains Guide →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Stablecoin-Settled TradFi Perpetuals Hit $1.1T — A New Financial Primitive</strong>
+    <p>Binance Research published data showing stablecoin-settled traditional finance perpetual contracts have crossed $1.1 trillion in 2026 trading volume. This represents a fundamental new financial primitive: 24/7 access to equity/commodity/forex exposure settled entirely in stablecoins, no traditional broker required. Combined with tokenized stock transfers surging to $8.4B monthly, the "everything settled on-chain" thesis is proving out faster than even bulls expected. The developer opportunity: the middleware layer connecting TradFi data feeds → perpetual pricing engines → stablecoin settlement is where the next generation of fintech infrastructure will be built. The winners need deep expertise in both traditional market microstructure AND blockchain settlement mechanics — a rare combination that commands premium compensation. <a href="https://cointelegraph.com/news/tradfi-perpetual-trading-surpasses-11t-in-2026-binance-research-says">Binance Research →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://cointelegraph.com/news/officials-revise-mica-non-eu-issuers">EU Officials Set to Revise MiCA for Non-EU Stablecoin Issuers ("MiCA 2.0")</a>
+        <span class="desc">European regulators plan changes to MiCA in response to US stablecoin legislation — targeting rules on tokenized payments, deposits, and non-EU issuers like Tether.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/kazakhstan-president-decree-accelerate-crypto-adoption">Kazakhstan President Signs Decree to Accelerate Crypto Adoption</a>
+        <span class="desc">Tax exemptions for regulated crypto, gas-powered mining electricity, and cross-border stablecoin payments — Kazakhstan goes all-in on digital assets.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/07/08/polymarket-bets-on-u-s-marketing-blitz-to-win-back-trust-after-4-year-ban-report">Polymarket Bets on US Marketing Blitz to Rebuild Trust After 4-Year Ban</a>
+        <span class="desc">The prediction market's head of US operations details legitimization steps after years of legal scrutiny — from CFTC compliance to mainstream advertising.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/07/08/spacex-s-first-bitcoin-wallet-movements-in-six-months-likely-don-t-signal-sales">SpaceX's First Bitcoin Wallet Movement in 6 Months — Not a Sale Signal</a>
+        <span class="desc">On-chain trackers found the newly public company shifted BTC between its own addresses. Analysis suggests internal treasury management, not selling.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/features/as-real-world-asset-tokenization-accelerates-heres-whats-been-put-onchain">The 5 Types of Real World Assets Being Tokenized Fastest On-Chain</a>
+        <span class="desc">Comprehensive CoinTelegraph feature covering treasuries, real estate, stocks, commodities, and private credit — the tokenization landscape mapped.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-09T09:00:00Z</p>
+  <p>Wednesday Edition — AI Dev Tools (HalluSquatting defense, Varonis×Cursor security, Grok 4.5 in Cursor)</p>
+  <p>Dedup: 850+ stories filtered from past 5 days (Jul 4–Jul 8) · 52 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>RSS — CoinTelegraph</td><td>✅ OK</td><td>28 items</td></tr>
+    <tr><td>RSS — CoinDesk</td><td>✅ OK</td><td>24 items</td></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (6/7 queries)</td><td>50+ results</td></tr>
+    <tr><td>Web Search — Crypto</td><td>✅ OK (2 queries)</td><td>30+ results</td></tr>
+    <tr><td>RSS — The Block</td><td>⏭ Not attempted</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
