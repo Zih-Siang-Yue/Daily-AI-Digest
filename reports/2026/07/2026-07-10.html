@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-10</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, July 10, 2026 — AI Infra &amp; Prompt Engineering Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agentic RAG · Architecture</span>
+    <strong>Agentic RAG: Build Self-Correcting Retrieval Pipelines for Your iOS App</strong>
+    <p>The 2026 RAG architecture has evolved beyond simple "retrieve-then-generate" into <strong>Agentic RAG</strong> — an autonomous loop where an orchestrator agent decomposes queries, selects retrieval tools dynamically, evaluates results, and iterates until confident. The pattern for iOS developers: (1) Define a <code>RAGOrchestrator</code> that accepts a user query and routes it through a <strong>planner → retriever → evaluator → synthesizer</strong> pipeline. (2) The planner decomposes complex questions: "What's the best staking yield for ETH right now?" becomes sub-queries for current rates, gas costs, and lock-up periods. (3) The retriever selects tools dynamically — vector search for knowledge base, API call for live rates, web search for recent protocol changes. (4) A "faithfulness judge" evaluates whether the synthesized answer is grounded in retrieved evidence — if not, it loops back for better retrieval. For Binance iOS: build an in-app AI assistant that answers portfolio questions by combining on-device embeddings (for FAQ), live API calls (for prices), and cached knowledge graphs (for protocol relationships). The self-correction loop means the assistant admits uncertainty rather than hallucinating. Use LlamaIndex's Swift bindings or a lightweight local orchestrator with <code>AsyncStream</code> for streaming responses. <a href="https://docs.llamaindex.ai/en/stable/understanding/agentic_strategies/">LlamaIndex Agentic RAG →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Agent Design</span>
+    <strong>Multi-Tool Agent Architecture: Design Patterns for Reliable AI Agents</strong>
+    <p>The biggest failure mode in AI agents isn't bad models — it's bad <strong>tool design</strong>. The 2026 consensus on building reliable multi-tool agents: (1) <strong>Typed tool schemas</strong>: define every tool with strict JSON Schema parameters — the model should never need to guess parameter formats. In Swift: <code>struct SearchTool: AgentTool { let parameters: SearchParams }</code>. (2) <strong>Tool routing via description quality</strong>: the agent selects tools based on their descriptions, not names. Write descriptions like documentation: "Searches the user's transaction history for amounts, dates, and counterparties. Returns max 20 results sorted by recency." (3) <strong>Fallback chains</strong>: if tool A fails (API timeout), automatically try tool B (cached data) before erroring. (4) <strong>Result validation</strong>: every tool call returns a <code>ToolResult</code> with a confidence score — the orchestrator only passes high-confidence results to the synthesizer. (5) <strong>Rate limiting per tool</strong>: prevent runaway loops where the agent calls the same API 50 times. For iOS agent architectures: wrap your Binance API endpoints as typed tools with rate limits, define clear fallback paths (live API → cached response → error message), and use <code>TaskGroup</code> for parallel tool execution. <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use">Anthropic Tool Use Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Prompt Engineering · System Design</span>
+    <strong>The "GhostApproval" Lesson: Securing Agent Workflows Against Prompt Injection</strong>
+    <p>This week's <strong>GhostApproval</strong> vulnerability — which affected 6 major AI coding assistants by tricking agents into accessing files outside their sandbox via symbolic links — reveals a universal prompt engineering lesson: <strong>human-in-the-loop approval is not security</strong>. The defense patterns for any agent system: (1) <strong>Input sanitization at the tool level</strong>: before executing any file operation, resolve all symlinks and verify the canonical path is within the allowed scope: <code>let resolved = URL(fileURLWithPath: path).resolvingSymlinksInPath(); guard resolved.path.hasPrefix(sandboxRoot) else { throw .accessDenied }</code>. (2) <strong>Principle of least privilege</strong>: each tool gets only the permissions it needs — a "read code" tool cannot write files, a "search" tool cannot execute commands. (3) <strong>Structured output validation</strong>: never pass raw agent output to system calls. Parse into typed structs first, then execute. (4) <strong>Audit logging</strong>: every tool call is logged with input/output/timestamp — enables post-incident forensics. (5) <strong>Sandbox isolation</strong>: run agent tool calls in a separate process with restricted entitlements (on iOS, use <code>NSFileCoordinator</code> with explicit scoped access). The meta-lesson: treat AI agent actions with the same security posture as untrusted user input — validate, sanitize, restrict, log. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Alibaba · Claude Code Ban</span>
+    <h3><a href="https://www.anthropic.com/news">Alibaba Bans Claude Code After Hidden Tracking Code Discovered</a></h3>
+    <p>Alibaba has prohibited all employees from using Claude Code effective July 10, after discovering hidden tracking code that identifies users in China. Anthropic confirmed the tracking was an "experiment to prevent abuse and model distillation" and noted that Chinese users were never authorized. The Chinese government issued a broader warning about "backdoor security risks" in AI coding tools. For developers: this highlights the importance of auditing AI tool network behavior — use <code>mitmproxy</code> or Charles Proxy to inspect what your AI IDE sends home. If you're building enterprise AI tooling, transparent telemetry policies aren't optional — they're table stakes for trust.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · ChatGPT Work</span>
+    <h3><a href="https://openai.com/index/chatgpt-work">OpenAI Launches "ChatGPT Work" — AI Agent for Complex Projects</a></h3>
+    <p>OpenAI launched <strong>ChatGPT Work</strong> alongside the GPT-5.6 Sol release — a new agent within ChatGPT designed for complex multi-step projects. It gathers information from connected apps, produces finished documents/slides/web apps, and uses Sol's parallel sub-agent architecture to break down tasks. Simultaneously, Codex has been merged into a unified ChatGPT desktop app. For developers: ChatGPT Work represents OpenAI's answer to Claude's "Cowork" — a general-purpose AI colleague that orchestrates multiple capabilities. The Codex merger means your CLI coding workflows now live inside ChatGPT's unified interface. Test the Sol Ultra tier for complex refactoring tasks that benefit from parallel sub-agent decomposition.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · AlphaEvolve GA</span>
+    <h3><a href="https://deepmind.google/discover/blog/">Google Makes AlphaEvolve Generally Available — Algorithm Discovery Agent</a></h3>
+    <p>Google announced general availability of <strong>AlphaEvolve</strong> on the Gemini Enterprise Agent Platform. AlphaEvolve is a code optimization and algorithmic discovery agent that has been used internally to optimize TPU silicon design. It can find novel algorithms for complex optimization problems across industries — from chip layout to logistics routing to compiler optimization. For developers: AlphaEvolve isn't a coding assistant — it's a research agent that discovers better algorithms. The practical use case: feed it your hot-path performance code and let it propose optimizations you'd never think of. For iOS: submit your most computationally expensive functions (image processing, crypto key derivation, data serialization) and let it propose mathematically superior approaches.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · Muse Spark 1.1</span>
+    <h3><a href="https://ai.meta.com/blog/">Meta Launches Muse Spark 1.1 with 1M Context — First Paid API</a></h3>
+    <p>Meta released <strong>Muse Spark 1.1</strong>, a multimodal reasoning model with a million-token context window, designed for agentic tasks and advanced coding. For the first time, Meta is offering a paid developer API, directly challenging Anthropic and OpenAI. Early partners include Replit, Cline, and Box. The 1M-token context means entire large codebases can fit in a single prompt. For iOS teams: Muse Spark 1.1's multimodal capabilities (image + code understanding in one context) could power features like "screenshot your bug → get a fix" workflows. The paid API with 1M context at competitive pricing makes it a serious alternative for RAG-free approaches where you just dump everything into context.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · iOS App</span>
+    <h3><a href="https://docs.cursor.com/mobile">Cursor Launches Native iOS App — Manage AI Agents from Your Phone</a></h3>
+    <p>Cursor released a native iOS app in public beta, allowing paid users to manage AI coding agents, review code diffs, and merge pull requests from their phone. The mobile app connects to your active background agents and cloud sessions — you can start a refactoring task on desktop, then review and approve the PR from your couch. For iOS developers specifically: this is both a product to use AND a reference implementation. Study how Cursor handles real-time sync between desktop and mobile agent sessions, diff rendering on small screens, and the UX patterns for approving AI-generated code on touch interfaces. This is what "mobile-first agentic workflows" looks like in practice.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">IBM · Bob Platform</span>
+    <h3><a href="https://www.ibm.com/products/watsonx-code-assistant">IBM Bob Gets Multi-Agent Capabilities for Enterprise Modernization</a></h3>
+    <p>IBM released major updates to its agentic development platform <strong>Bob</strong>, adding multi-agent capabilities, built-in cost/usage analytics, and pre-built workflows for enterprise system modernization. Bob's focus: converting legacy COBOL/mainframe systems to modern Java/cloud architectures using coordinated AI agents. For enterprise developers: IBM's approach is the antithesis of "vibe coding" — it's structured, auditable, and designed for regulated industries. The built-in analytics dashboard showing AI cost per task and code quality metrics solves the enterprise adoption blocker: "how do we prove ROI?" If your team is modernizing legacy systems, Bob's pre-built migration workflows could save months of manual planning.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GhostApproval · Security</span>
+    <h3><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">"GhostApproval" Vulnerability Hits 6 Major AI Coding Assistants</a></h3>
+    <p>Security researchers disclosed <strong>GhostApproval</strong>, a vulnerability affecting at least six major AI coding assistants (Amazon, Anthropic, Google products). The flaw exploits symbolic link handling to trick AI agents into accessing and modifying sensitive files outside their workspace — effectively bypassing human approval prompts. The attack: a malicious repo contains symlinks that resolve to sensitive paths; when the AI agent processes the repo, it follows symlinks and gains unintended access. For developers: (1) Never clone untrusted repos into your AI workspace. (2) Add <code>.cursor/rules</code> or <code>CLAUDE.md</code> entries: "Never follow symbolic links outside the project root." (3) Run AI agents in containers or VMs for untrusted code reviews. The broader lesson: "click approve" is not a security boundary — automated verification must supplement human oversight.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Options Expiry</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC Holds $62.9K Through $1.4B Options Expiry — "Mildest Bear Market" in History</a></h3>
+    <p>Bitcoin is holding steady around $62,988 as markets navigate a $1.4 billion options expiry. Analysts describe the current cycle as the "most structurally mild bear market" in Bitcoin history — peak-to-trough drawdown of ~50% vs 80%+ in 2018/2022. The key shift: institutional conversations have moved from "will crypto survive?" (2022) to "what's the right entry point and position size?" (2026). Some large allocators are reportedly waiting for clearer regulatory frameworks (SEC's July rulemakings) before committing capital. The bull setup: mild bear + institutional demand pipeline + upcoming regulatory clarity = compressed downside with asymmetric upside when catalysts hit.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · ETF Divergence</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH ETFs See $70M Daily Inflows While BTC ETFs Bleed — Wall Street Favors Ethereum</a></h3>
+    <p>A striking divergence has emerged: spot Ethereum ETFs recorded $70M+ in single-day net inflows while Bitcoin ETFs continue experiencing outflows. ETH trades around $1,746 with a near-term target of $1,800-$1,850 resistance. Analysts suggest Wall Street is increasingly favoring Ethereum for its foundational role in DeFi and asset tokenization — the "productive asset" thesis vs Bitcoin's "store of value" narrative. For developers at Binance: this institutional ETH preference validates building tokenization and DeFi infrastructure on Ethereum/L2s. The market is telling you where smart money sees the most enterprise utility. Watch for a sustained break above $1,850 to confirm the rotation narrative.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC · Rulemaking</span>
+    <h3><a href="https://www.sec.gov/regulatory-actions">SEC Adds 3 Crypto Rulemakings to July Agenda — Safe Harbors Coming</a></h3>
+    <p>The SEC formally added three cryptocurrency-focused rulemakings to its July 2026 regulatory agenda: (1) rules for the offer/sale of digital assets including potential safe harbor provisions, (2) broker-dealer financial responsibility amendments for crypto, and (3) updates for crypto trading on national securities exchanges. This represents a definitive shift from enforcement-only to rulemaking under Chair Paul Atkins. Combined with the CLARITY Act's progress in Congress, the US regulatory picture is crystallizing rapidly. For crypto developers: the safe harbor provisions could finally allow compliant token launches without expensive legal workarounds. Build your token economics to be compatible with securities exemptions — the rules are coming within months, not years.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "GhostApproval" Problem: Why Human-in-the-Loop Is Not Security</strong>
+    <p>This week's GhostApproval disclosure affecting 6 major AI coding tools crystallizes a fundamental truth the industry has been avoiding: <strong>human approval prompts are theater, not security</strong>. The attack works because developers click "approve" on AI actions without truly understanding every file path — and attackers know this. The broader pattern: as AI agents get more autonomous (background agents, parallel execution, multi-file edits), the "approve each action" model scales inversely with productivity. The industry is converging on a better model: <strong>automated invariant checking</strong>. Instead of asking humans "is this OK?", define machine-verifiable constraints (no symlinks, no files outside root, no network calls to unknown hosts) and enforce them automatically. The human role shifts from "approve each step" to "define the policy and review violations." This mirrors how DevOps solved the same problem: you don't manually approve each deployment — you define CI/CD gates and only intervene on failures. The companies building AI coding tools with automated security invariants (not just approval dialogs) will win enterprise trust. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The 1M-Token Context Race: RAG vs. "Just Dump Everything"</strong>
+    <p>Meta's Muse Spark 1.1 (1M tokens) joins Gemini (2M tokens) and Claude (200K+) in the long-context arms race — and it's fundamentally reshaping the RAG vs. full-context architectural debate. The emerging consensus: <strong>RAG wins for dynamic, frequently-updated data</strong> (live prices, recent news, user-specific history), while <strong>full-context wins for static, relationship-heavy data</strong> (entire codebases, legal document analysis, protocol specifications). The practical pattern for 2026: use a hybrid architecture where static context is loaded directly (your full codebase in one prompt) while dynamic data comes through tool calls. For iOS apps: load your entire app's documentation + architecture description into a 1M-token context for the AI assistant, but retrieve live market data via API tool calls. This eliminates the embedding/chunking overhead for stable knowledge while maintaining freshness for volatile data. The cost curve is also shifting: 1M-token inference is becoming cheap enough for production — Meta's pricing pressure ensures competition drives costs down further. <a href="https://ai.meta.com/blog/">Meta AI Blog →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Institutional Rotation: ETH Over BTC as "Productive Crypto Asset"</strong>
+    <p>Today's ETF flow divergence (ETH inflows + BTC outflows) confirms a thesis that's been building all month: <strong>institutional capital is rotating from "digital gold" to "digital infrastructure."</strong> The logic: Bitcoin's value proposition (store of value, inflation hedge) is well-understood but offers limited upside catalysts beyond supply dynamics. Ethereum's value proposition (settlement layer for tokenized assets, DeFi, and now AI agents) has expanding use cases that generate fee revenue — making it analyzable like a tech stock with growing "earnings." Combined with the $8.4B tokenized stock volumes, MiCA-compliant stablecoin growth (128% YoY), and the BNB Chain HFT L1 announcement, the infrastructure layer is where new value accrues. For developers choosing where to build: follow the institutional money. ETH L2s (Base, Arbitrum, Optimism) and high-performance L1s (Monad, Solana) are where enterprise capital is flowing — build infrastructure for these ecosystems specifically. <a href="https://cointelegraph.com/markets">Market Analysis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://docs.llamaindex.ai/en/stable/understanding/agentic_strategies/">LlamaIndex Agentic RAG Strategies — Complete 2026 Guide</a>
+        <span class="desc">Comprehensive documentation on building self-correcting retrieval agents with LlamaIndex — covers planning, tool routing, evaluation loops, and production deployment patterns.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/chatgpt-work">OpenAI's ChatGPT Work Launch Post</a>
+        <span class="desc">Official announcement detailing the unified ChatGPT desktop app, Codex merger, and how Sol's parallel sub-agent architecture powers complex project workflows.</span>
+      </li>
+      <li>
+        <a href="https://deepmind.google/discover/blog/">Google AlphaEvolve: From TPU Design to General Algorithm Discovery</a>
+        <span class="desc">Technical blog on how AlphaEvolve finds novel algorithms for optimization problems — includes case studies in chip design, math, and systems engineering.</span>
+      </li>
+      <li>
+        <a href="https://www.sec.gov/regulatory-actions">SEC July 2026 Regulatory Agenda — Full Crypto Rulemaking Details</a>
+        <span class="desc">Primary source for the three proposed crypto rules: digital asset offer/sale, broker-dealer amendments, and exchange trading framework updates.</span>
+      </li>
+      <li>
+        <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications (2026 Edition)</a>
+        <span class="desc">Updated security framework covering prompt injection, tool misuse, training data poisoning, and the new "agent workflow exploitation" category added this year.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-10T09:00:00Z</p>
+  <p>Friday Edition — AI Infra & Prompt Engineering (Agentic RAG, tool use patterns, GhostApproval security)</p>
+  <p>Dedup: 900+ stories filtered from past 5 days (Jul 5–Jul 9) · 58 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>60+ results</td></tr>
+    <tr><td>Web Search — Crypto/DeFi</td><td>✅ OK (2 queries)</td><td>35+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
