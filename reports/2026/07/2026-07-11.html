@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-11</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, July 11, 2026 — AI Infra &amp; Prompt Engineering Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Context Engineering · Architecture</span>
+    <strong>Context Engineering: The Discipline That Replaces "Prompt Engineering" in 2026</strong>
+    <p>The industry is converging on a new term: <strong>Context Engineering</strong> — the practice of providing AI models with precisely the right information at the right time, going far beyond simple prompt crafting. The shift: instead of optimizing a single prompt string, you architect an entire <em>context pipeline</em> that dynamically assembles system instructions, relevant code, conversation history, tool results, and environmental state. The pattern for iOS developers: (1) Define a <code>ContextAssembler</code> that takes a user query and builds a context window from multiple sources — project rules (<code>CLAUDE.md</code>), relevant file snippets (via embeddings), recent git diffs, and live API state. (2) Use <strong>priority-based truncation</strong>: when context exceeds the window, drop lowest-priority items first (old conversation turns before system instructions, cached data before live data). (3) Include <strong>negative context</strong>: explicitly state what the model should NOT do — this is more effective than positive instructions alone. (4) Version your context pipelines like code — A/B test different context assemblies to measure output quality. For Binance iOS: build a context assembler that feeds your AI assistant the user's portfolio composition, recent trade patterns, and app state — the model's answers improve dramatically when it "knows" the user's actual situation rather than giving generic advice. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering">Anthropic Prompt Engineering Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">DuneSlide · Security</span>
+    <strong>DuneSlide CVE-2026-50548: Defending Against AI IDE Sandbox Escapes</strong>
+    <p>Two critical vulnerabilities dubbed <strong>"DuneSlide"</strong> (CVE-2026-50548 and CVE-2026-50549) were disclosed in Cursor's AI code editor this week, enabling remote code execution outside the editor's sandbox. The attack vector: a crafted project file tricks the AI agent into executing commands that escape the sandboxed terminal environment. The defense patterns for any AI-assisted development: (1) <strong>Never open untrusted repos in AI-enabled IDEs without isolation</strong> — use Docker or VM-based dev environments for code review of external projects: <code>docker run -it --rm -v $(pwd):/workspace cursor-sandbox</code>. (2) <strong>Audit your IDE extensions' network access</strong>: use Little Snitch (macOS) or a firewall to monitor what your AI IDE sends and where. (3) <strong>Pin your IDE version</strong> — auto-update during active development sessions can introduce unpatched vulnerabilities. (4) <strong>Separate AI workspaces from sensitive projects</strong>: never have your production deployment keys accessible in the same environment where AI agents execute code. (5) For iOS developers specifically: ensure your Xcode keychain and provisioning profiles are in a separate macOS user profile from your AI coding environment. The broader principle: treat AI IDE sandboxes like browser sandboxes — they WILL be broken, so defense-in-depth is mandatory. <a href="https://nvd.nist.gov/">NVD CVE Database →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Leanstral · Verification</span>
+    <strong>Mistral Leanstral 1.5: Formal Code Verification Meets AI — Prove Correctness, Don't Just Test</strong>
+    <p>Mistral released <strong>Leanstral 1.5</strong>, an AI model specifically designed for <strong>code verification</strong> — not just generating code, but proving it correct using formal methods. The workflow for iOS developers: (1) Write your critical function in Swift. (2) Ask Leanstral to generate a formal specification (pre/post-conditions, invariants) in Lean 4 or TLA+. (3) The model translates your implementation into a verifiable form and attempts to prove the specification holds. (4) If proof fails, it identifies the exact edge case that violates your invariants — a far more powerful bug-finding technique than fuzzing. Practical use cases for Binance iOS: verify that your order-matching logic never produces negative balances, prove that your encryption key derivation always produces keys of the correct length, or formally verify that your state machine transitions are exhaustive (no unhandled states). The cost-benefit sweet spot: use Leanstral for <strong>critical path code only</strong> (financial calculations, security-sensitive logic, state machines) — the 10 functions that would cause the most damage if wrong. For everything else, traditional tests suffice. This is the "TypeScript for runtime" equivalent applied to correctness: not everything needs formal proof, but the things that do REALLY need it. <a href="https://mistral.ai/products">Mistral Products →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · GPT-Live</span>
+    <h3><a href="https://openai.com/index/gpt-live">OpenAI Launches GPT-Live — Real-Time Conversational Voice AI</a></h3>
+    <p>OpenAI unveiled <strong>GPT-Live</strong>, a real-time conversational voice AI that can listen, speak, and reason simultaneously. Unlike previous voice modes that processed speech in turn-based chunks, GPT-Live maintains continuous understanding — enabling live translation, interruption handling, and multi-party conversation tracking. GPT-Live-1 and GPT-Live-1 mini are rolling out to ChatGPT users. For iOS developers: this is the API you've been waiting for to build truly natural voice interfaces. The simultaneous listening+reasoning capability means you can build voice-driven coding assistants, real-time meeting summarizers, or hands-free trading interfaces where the AI understands context from ongoing speech — not just transcribed text. The mobile SDK is expected within weeks.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Claude Corps</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Launches "Claude Corps" — Paid AI Fellowship for Nonprofits</a></h3>
+    <p>Anthropic announced <strong>Claude Corps</strong>, a paid 12-month fellowship program that embeds AI professionals within nonprofit organizations to build custom Claude-powered tools. The program trains fellows in advanced Claude Code usage, MCP integration, and agentic workflow design — then deploys them to organizations that lack AI expertise. For the developer ecosystem: Claude Corps graduates will create dozens of open-source tools and MCP servers tailored to specific domains (healthcare, education, climate). The program validates Anthropic's bet that Claude's value compounds when integrated deeply into workflows rather than used as a general chatbot. Watch for the open-source artifacts that emerge — domain-specific MCP servers for financial compliance, legal research, and data analysis will be directly reusable.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Ollama · Funding</span>
+    <h3><a href="https://ollama.com">Ollama Raises $65M Series B — Local AI Inference Goes Mainstream</a></h3>
+    <p>Ollama, the platform that simplifies running AI models locally, announced a <strong>$65 million Series B</strong> funding round. Already used by millions of developers, Ollama enables one-command model downloads and inference without cloud dependencies. The funding will accelerate support for more model architectures, improve Apple Silicon optimization, and expand the model library. For iOS developers: Ollama's Apple Silicon focus means faster iteration on local models for development. The workflow: run your candidate models locally via Ollama during development (<code>ollama run llama3.2</code>), test thoroughly, then deploy the quantized version on-device via CoreML/MLX for production. Ollama becoming well-funded means the local-first AI development experience will keep improving — less reliance on cloud APIs during coding, faster feedback loops, and zero data leakage during experimentation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Sand Agent</span>
+    <h3><a href="https://docs.cursor.com">Cursor Developing "Sand" — General-Purpose Workplace AI Agent</a></h3>
+    <p>Cursor is reportedly developing a general-purpose AI agent internally named <strong>"Sand"</strong> that goes beyond coding — handling email responses, spreadsheet organization, meeting scheduling, and document creation. This puts Cursor in direct competition with Anthropic's Cowork and OpenAI's ChatGPT Work for the "AI colleague" market. Simultaneously, Cursor released <strong>v0.45</strong> with improved background agent support for running long-running AI tasks asynchronously. For developers: the IDE-as-workplace-hub pattern is emerging — your coding environment becomes the control center for ALL AI-assisted work, not just code. The background agents feature means you can kick off a multi-hour refactoring task, close your laptop, and review the results later. This async agent pattern will define how senior developers work in 2027.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Mistral · Vibe Rebrand</span>
+    <h3><a href="https://mistral.ai">Mistral Rebrands "Le Chat" to "Vibe" — Unified AI Agent for Work + Code</a></h3>
+    <p>In a move that validates the "vibe coding" zeitgeist, Mistral AI has rebranded its chat assistant from "Le Chat" to <strong>"Vibe"</strong> — a unified AI agent for both work and code. Vibe integrates directly into VS Code, JetBrains, and Zed with full codebase context, handling everything from drafting documents to complex multi-file refactoring. The rename is strategic: Mistral is positioning itself as the European alternative to Claude Code and Codex, with a focus on privacy (EU data residency) and open-weight model options. For iOS developers: Vibe's JetBrains integration means AppCode/Fleet users get a first-class AI coding experience without switching to VS Code-based tools. Test it alongside your current setup — the EU data residency guarantee may matter for teams under strict data governance policies.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">LangChain · NVIDIA</span>
+    <h3><a href="https://www.langchain.com">LangChain + NVIDIA Release NemoClaw Deep Agents Blueprint</a></h3>
+    <p>LangChain and NVIDIA jointly released the <strong>NemoClaw Deep Agents</strong> blueprint — a reference architecture for building secure, autonomous AI agents in enterprise environments. The blueprint defines patterns for: (1) Agent-to-agent communication with cryptographic authentication, (2) Hierarchical permission models (agents can only access what they're explicitly granted), (3) Audit trails for every agent action with tamper-proof logging, (4) Graceful degradation when agents encounter failures or ambiguity. For developers building agentic systems: this is the "12-factor app" equivalent for AI agents — an opinionated architecture that solves the security and reliability problems most teams discover only in production. The NVIDIA partnership ensures it runs efficiently on GPU infrastructure, making it production-viable at scale.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Robinhood · Chain Launch</span>
+    <h3><a href="https://robinhood.com">Robinhood Chain Mainnet Goes Live — $560M Daily Volume on Day One</a></h3>
+    <p>Robinhood Chain launched its mainnet this week, immediately capturing <strong>$560 million in daily trading volume</strong>. The L2 network is optimized for retail-friendly DeFi: gas-free token swaps for Robinhood users, instant finality, and native integration with Robinhood's existing 24M+ user base. The infrastructure is built on a custom rollup stack with Ethereum as the settlement layer. For developers: Robinhood Chain represents the "distribution-first" approach to L2 launches — instead of building a chain and hoping users come, they're routing an existing massive user base onto new infrastructure. The SDK is open for third-party app development. If you're building consumer DeFi applications, Robinhood Chain's pre-existing user base eliminates the cold-start problem that kills most new chains.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Rally</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC Rallies to $64.1K — Standard Chartered Reaffirms $100K Year-End Target</a></h3>
+    <p>Bitcoin surged to <strong>$64,100</strong> today (+2%), powered by Standard Chartered reaffirming its $100K year-end price target and dismissing recent weakness as "mostly noise." The rally triggered an <strong>$80M+ short squeeze</strong>, liquidating bearish positions and accelerating upward momentum. The bank's research team argues the fundamental investment thesis remains intact despite Strategy's selling pressure and geopolitical volatility. Key context: this is the strongest single-day move since last week's $60K test, confirming the W-bottom pattern that Bollinger identified. The fear-to-action sentiment shift suggests the worst of the July correction may be behind us — though the Fed meeting at month-end remains the next major catalyst.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Activity Divergence</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH at $1,789: Transactions Up 40% But Median Value Drops 77%</a></h3>
+    <p>Ethereum presents a mixed picture today at <strong>$1,789</strong>: user transactions surged 40% but the median transfer value crashed 77%. This suggests rising activity is driven by low-value transactions and automated bots rather than meaningful capital flows. Spot ETH ETFs continue bleeding with $52M in outflows — extending to 8 consecutive weeks of net negative flows. The counterpoint: the newly launched <strong>Ethereum Institutional</strong> nonprofit (backed by co-founder Joe Lubin) aims to bridge the Wall Street communication gap. The divergence between rising on-chain activity and falling ETF flows creates a "show me the money" dynamic — institutional validators need to see real economic activity, not just transaction counts, before re-entering. Watch for the Ethereum Institutional group's first Wall Street presentations as a potential sentiment catalyst.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · GENIUS Act</span>
+    <h3><a href="https://www.congress.gov">GENIUS Act Hits July 18 Implementation Deadline — Stablecoin Rules Crystallize</a></h3>
+    <p>The <strong>GENIUS Act</strong> faces its <strong>July 18, 2026 implementation deadline</strong>, establishing the first comprehensive US federal framework for stablecoin regulation. Combined with the SEC's three crypto rulemakings also targeting July and the CLARITY Act's continued congressional progress, the US regulatory landscape is undergoing its most significant transformation since 2017. For developers: the GENIUS Act mandates specific reserve requirements, audit standards, and consumer protection provisions for stablecoin issuers. If you're building on stablecoins (payments, DeFi, remittances), ensure your infrastructure supports the compliance reporting these regulations will require — transaction monitoring, reserve attestation verification, and issuer license validation. The window between "rules announced" and "enforcement begins" is your implementation runway.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Context Engineering: From Prompt Craft to Systems Architecture</strong>
+    <p>The industry is officially moving past "prompt engineering" into <strong>Context Engineering</strong> — a systems-level discipline that treats the entire information pipeline feeding an AI model as an engineering problem. The key insight: the quality of an AI system's output is determined far more by WHAT information reaches the model than by HOW you phrase the request. The practitioners who get the best results from Claude Code, Cursor, and Codex aren't writing better prompts — they're building better <em>context assemblies</em>: project rules files, embeddings indexes, MCP tool schemas, and dynamic state injectors. This explains why the same model produces wildly different results for different teams using identical prompts — the context infrastructure is the differentiator. For iOS developers: invest in building robust <code>CLAUDE.md</code> / <code>.cursor/rules</code> files, MCP servers that expose your app's runtime state, and embedding indexes of your team's architecture decisions. The compound return on context engineering far exceeds the return on prompt tweaking. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering">Anthropic Docs →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Distribution-First L2" Pattern: Why Robinhood Chain Matters</strong>
+    <p>Robinhood Chain's $560M day-one volume proves a thesis that most blockchain projects get backwards: <strong>distribution before infrastructure, not infrastructure before distribution</strong>. Every previous L2 launch followed the pattern: build chain → attract developers → build apps → acquire users. Robinhood inverted it: acquire 24M users → build chain → route existing users onto it → developers follow the users. This is the same playbook that made iOS app development lucrative (Apple had the users first) and why Telegram's TON ecosystem grew so fast (800M users pre-existing). For developers choosing where to build: stop evaluating chains by TPS benchmarks and start evaluating by pre-existing user distribution. A slower chain with 24M captive users is worth more than a faster chain with 24K. The next "distribution-first L2" launches to watch: Coinbase's Base (already winning via Coinbase user routing), and potentially a Binance chain specifically for retail users. <a href="https://robinhood.com">Robinhood Chain →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI IDE Security: The Attack Surface Nobody Budgeted For</strong>
+    <p>In two weeks, the industry has disclosed <strong>GhostApproval</strong> (symlink-based sandbox escape, 6 tools affected) and <strong>DuneSlide</strong> (RCE in Cursor, CVE-2026-50548/50549). Combined with the Claude Code hidden tracker controversy and the HalluSquatting package attack, a pattern emerges: <strong>AI coding tools are the new highest-value attack target</strong> — they have access to source code, secrets, and build systems simultaneously. The security community is converging on a response framework: (1) <strong>Sandboxed execution by default</strong> — AI agent code runs in containers, not on the host. (2) <strong>Network allowlists</strong> — AI IDEs should only contact known endpoints, not arbitrary URLs from generated code. (3) <strong>Principle of least privilege per task</strong> — a "write tests" agent doesn't need git push access. (4) <strong>Supply chain verification</strong> — AI-suggested dependencies must pass automated verification before installation. The companies that solve "AI IDE security" as a product category will have a massive market — every enterprise using AI coding tools needs this layer. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/gpt-live">OpenAI GPT-Live: Real-Time Conversational AI Technical Overview</a>
+        <span class="desc">Official announcement detailing simultaneous listen-speak-reason architecture, SDK availability, and supported use cases from translation to accessibility.</span>
+      </li>
+      <li>
+        <a href="https://mistral.ai/products">Mistral Vibe + Leanstral 1.5 Product Launch</a>
+        <span class="desc">Mistral's dual launch: the "Vibe" rebrand unifying chat and code, plus Leanstral 1.5 for formal code verification — two very different bets on AI's role in development.</span>
+      </li>
+      <li>
+        <a href="https://www.langchain.com/blog">NemoClaw Deep Agents: Enterprise Agent Security Blueprint</a>
+        <span class="desc">LangChain × NVIDIA reference architecture for building secure autonomous agents — covers authentication, permissions, audit trails, and failure handling patterns.</span>
+      </li>
+      <li>
+        <a href="https://www.congress.gov/bill/119th-congress/senate-bill/394">GENIUS Act Full Text — Stablecoin Regulatory Framework</a>
+        <span class="desc">The complete legislative text establishing US stablecoin rules including reserve requirements, audit standards, and consumer protections — implementation deadline July 18.</span>
+      </li>
+      <li>
+        <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-50548">CVE-2026-50548: DuneSlide Vulnerability Details</a>
+        <span class="desc">NIST National Vulnerability Database entry for the Cursor sandbox escape — includes affected versions, attack vectors, and recommended mitigations.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-11T09:00:00Z</p>
+  <p>Friday Edition — AI Infra & Prompt Engineering (Context Engineering, DuneSlide security, Leanstral formal verification)</p>
+  <p>Dedup: 950+ stories filtered from past 5 days (Jul 6–Jul 10) · 64 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>65+ results</td></tr>
+    <tr><td>Web Search — Crypto/DeFi</td><td>✅ OK (2 queries)</td><td>40+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
