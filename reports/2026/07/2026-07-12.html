@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-12</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, July 12, 2026 — Best of Week Edition</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Apple Core AI &amp; On-Device Intelligence</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · WWDC 2026</span>
+    <strong>Apple Core AI Framework: The New Foundation for On-Device Intelligence</strong>
+    <p>Apple's WWDC 2026 introduced <strong>Core AI</strong>, the successor to Core ML specifically architected for generative AI and LLM workloads on-device. The framework provides a unified Swift API across CPU, GPU, and Neural Engine with heterogeneous compute scheduling — the runtime automatically selects the optimal hardware for each operation. The migration path for iOS developers: (1) Replace <code>MLModel</code> inference calls with <code>CoreAI.InferenceSession</code> for transformer-based models — you get 2-3x faster inference on A17+ chips via fused attention kernels. (2) Use the new <code>CoreAI.Pipeline</code> API to chain vision → language → action models in a single memory-managed graph (no intermediate serialization). (3) Leverage <code>CoreAI.Streaming</code> for token-by-token output — critical for chat-style AI interfaces that feel responsive. For Binance iOS: this means your on-device AI assistant can now run real LLM inference locally (not just classification) with sub-100ms first-token latency. Build a privacy-first portfolio Q&A that never sends user data to servers. <a href="https://developer.apple.com/documentation/coreml">Apple Developer Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Foundation Models · Guided Generation</span>
+    <strong>Apple Foundation Models Framework: Type-Safe AI Output in 3 Lines of Swift</strong>
+    <p>The <strong>Foundation Models framework</strong> (iOS 26+) gives you access to Apple's on-device LLMs — the same models powering Apple Intelligence — with zero server cost and complete privacy. The killer feature for developers: <strong>Guided Generation</strong> ensures the model produces structured, type-safe output that conforms to your Swift types. The pattern: (1) Define a <code>Codable</code> struct representing your desired output shape: <code>struct TradeAnalysis: Codable { let sentiment: String; let confidence: Double; let reasoning: String }</code>. (2) Call <code>FoundationModel.generate(prompt: "Analyze this trade...", outputType: TradeAnalysis.self)</code>. (3) Receive a fully-typed Swift struct — no JSON parsing, no hallucinated field names, no runtime crashes from malformed output. The model is constrained to produce valid instances of your type. For Binance iOS: build smart notifications that classify incoming price alerts by urgency, generate contextual one-line summaries, and tag them with user-specific relevance scores — all on-device, all typed, all instant. The multimodal support in iOS 27 beta adds image reasoning: screenshot a chart → get structured technical analysis output. <a href="https://developer.apple.com/documentation/foundationmodels">Foundation Models Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">App Intents · Agentic Workflows</span>
+    <strong>Agentic Workflows via App Intents: Let Siri's AI Orchestrate Your App</strong>
+    <p>The convergence of Core AI + Foundation Models + <strong>App Intents</strong> in iOS 26/27 enables a new paradigm: <strong>Agentic Workflows</strong> where Apple's on-device AI orchestrates multi-step actions across your app and the system. The architecture: (1) Expose your app's capabilities as <code>AppIntent</code> structs — each represents an atomic action (e.g., <code>GetPortfolioBalance</code>, <code>PlaceMarketOrder</code>, <code>ShowPriceChart</code>). (2) Apple's AI agent (Siri) plans and chains these intents based on user natural language: "Show me how my BTC position changed this week, and set an alert if it drops below $60K." (3) The agent calls <code>GetPortfolioBalance → ShowPriceChart → CreatePriceAlert</code> in sequence, passing data between steps. Your app doesn't need its own orchestration logic — Apple's system-level agent handles planning. For Binance iOS: expose 10-15 key trading intents and you instantly get voice-driven multi-step workflows, Shortcuts integration, and proactive suggestions — with zero additional UI development. The on-device execution means even complex multi-step financial actions work offline on-device without cloud latency. <a href="https://developer.apple.com/documentation/appintents">App Intents Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Governance</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Appoints Ben Bernanke to Long-Term Benefit Trust</a></h3>
+    <p>Anthropic named <strong>former Federal Reserve Chair Ben Bernanke</strong> to its Long-Term Benefit Trust — the independent body that holds the company accountable to its responsible AI mission. This isn't a ceremonial role: Bernanke's expertise in financial system stability, labor economics, and institutional governance signals Anthropic's focus on how AI will reshape economic structures. For the industry: having a former central bank chair involved in AI safety governance adds significant credibility to Anthropic's approach. The Trust can now credibly evaluate AI's macroeconomic impact — job displacement, productivity gains, wealth distribution — with someone who actually managed monetary policy for a decade. For developers: this strengthens the case that Claude will maintain strong safety and alignment properties long-term, making it a safer bet for production systems in regulated industries.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Search Transformation</span>
+    <h3><a href="https://blog.google/technology/ai/">Google Search Now Fully Powered by Gemini 3.5 Flash — Blue Links Era Ends</a></h3>
+    <p>Google confirmed that search results are now <strong>entirely generated by Gemini 3.5 Flash</strong>, replacing the traditional "ten blue links" format that defined the web for 25 years. Source links are embedded within AI-generated summaries rather than presented as standalone results. Simultaneously, a leaked launch plan reveals <strong>Gemini 3.5 Pro</strong> will reach general availability on July 17 with a 2-million-token context window. For iOS developers building search-dependent features: the era of scraping Google results for structured data is effectively over. Your app's search integration must now parse AI-generated summaries (or use Google's API directly). The Gemini 3.5 Pro GA with 2M tokens means you can load your entire codebase + documentation into a single context for architectural questions — no chunking required.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Government</span>
+    <h3><a href="https://openai.com/blog">OpenAI Proposes 5% US Government Equity Stake Ahead of September IPO</a></h3>
+    <p>In a move that blurs the line between Big Tech and government, <strong>OpenAI proposed giving the US government a 5% equity stake</strong> valued at approximately $42.6 billion ahead of its planned September IPO. The proposal is reportedly under discussion with the Trump administration. This is unprecedented: no major tech company has voluntarily offered government ownership as a condition of operating. For the AI ecosystem: this signals that frontier AI labs believe government alignment is existential — not optional. If accepted, it could set a precedent for all frontier labs (Anthropic, Google DeepMind) being partially government-owned. For developers: the commercial implications are unclear, but OpenAI's API pricing and availability are unlikely to change near-term. Watch for whether this accelerates US government adoption of GPT-5.6 Sol across agencies.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Africa AI</span>
+    <h3><a href="https://blog.google/technology/ai/">Google Launches Africa Applied AI Lab — Early Access to Gemini for Researchers</a></h3>
+    <p>Google DeepMind launched the <strong>Google Africa Applied AI Lab</strong>, providing African researchers and entrepreneurs with early access to Gemini models, compute credits, and mentorship. The initiative targets agricultural optimization, healthcare diagnostics, and financial inclusion — sectors where AI's potential impact per dollar invested is highest. For developers globally: Google's investment in African AI research means a new wave of domain-specific models (multilingual NLP for 2000+ African languages, agriculture-specific vision models, mobile-first inference architectures) will become open-source within 12-18 months. These lightweight, constraint-optimized models often outperform general-purpose models in mobile/edge deployments — directly relevant for iOS apps targeting emerging markets.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Claude Code · Memory</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Code "Dreaming": Scheduled Memory Review for Persistent Agent Intelligence</a></h3>
+    <p>Anthropic's "Code with Claude" event revealed <strong>"Dreaming"</strong> — a scheduled memory review process where Claude Code autonomously reviews its accumulated session memories, extracts patterns, and consolidates learnings during idle periods. Combined with <strong>"Outcomes"</strong> (defining success criteria for autonomous iteration), this transforms Claude Code from a reactive assistant into a proactive engineering partner. The workflow: (1) Throughout the day, Claude Code accumulates observations about your codebase (common patterns, recurring bugs, architectural decisions). (2) During configured idle windows (overnight, lunch break), it "dreams" — reviewing observations, identifying cross-session patterns, and updating its <code>CLAUDE.md</code> memory file with refined rules. (3) Next session, it starts with deeper contextual understanding without re-learning. For iOS developers: after a week of using Claude Code on your Binance project, it will autonomously learn your team's naming conventions, common SwiftUI patterns, and preferred architecture — reducing per-prompt context requirements significantly.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google Play · Crypto Policy</span>
+    <h3><a href="https://play.google.com/console/about/policy/">Google Reinstates Non-Custodial Crypto Wallets on Play Store</a></h3>
+    <p>Google reversed its restrictive stance on crypto apps, <strong>reinstating non-custodial wallets</strong> on the Play Store after the EU's MiCA regulation provided clear licensing frameworks. Developers of authorized CASPs (Crypto-Asset Service Providers) in the EEA can now target all EU member states from a single listing. Non-custodial wallets are explicitly exempt from CASP licensing requirements. For mobile developers: this is a green light for building self-custody wallet features on Android without fear of arbitrary delisting. The iOS App Store never had the same restrictions (Apple's approach was less prescriptive), but Google's policy alignment means cross-platform crypto apps can now launch simultaneously without platform-specific feature gating. If you're building a DeFi interface or wallet SDK, the Android distribution bottleneck just disappeared.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Polymarket · Revenue</span>
+    <h3><a href="https://polymarket.com">Polymarket Hits $1.88M Daily Revenue — Third-Highest Earning Crypto Protocol</a></h3>
+    <p>Prediction market platform <strong>Polymarket</strong> reached $1.88 million in 24-hour revenue, making it the third-highest earning protocol in crypto — behind only Ethereum and Tron in fee generation. The platform is simultaneously launching a US marketing campaign after resolving its 4-year regulatory ban. For developers: Polymarket's revenue model (fees on prediction market trades) proves that "information markets" are a viable crypto primitive beyond speculation. The technical architecture — atomic order matching, binary outcome resolution, and on-chain settlement — offers a template for building any app where users stake on future outcomes (sports, elections, product launches, bug bounty predictions). The API is open and well-documented for building custom frontends.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Weekend Hold</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC Steady at $63.8K — CPI Report and Fed Chair Testimony Loom as Next Catalysts</a></h3>
+    <p>Bitcoin is holding the <strong>$63,800</strong> level over the weekend, consolidating after Friday's rally to $64.1K. Market attention shifts to next week's <strong>US CPI report</strong> and <strong>Fed Chair Kevin Warsh's testimony</strong> — both expected to define Q3 direction. After eight consecutive weeks of ETF outflows, a single-session inflow reversal on Thursday gave bulls hope but hasn't yet confirmed a trend. The setup: if CPI comes in below expectations, the rate hike speculation (September) fades and crypto rallies on the "soft landing" narrative. If CPI is hot, the $60K support tested earlier this week gets retested. For traders: the weekend consolidation in a tight range ($63.2K-$64.2K) after a volatile week typically resolves in the direction of the next major catalyst — position sizing ahead of CPI is key.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · July Surge</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH Outperforms With 11% July Gain — Whale Accumulation and Robinhood Bridge Fuel Rally</a></h3>
+    <p>Ethereum has surged <strong>~11% in July</strong> to trade near $1,840, significantly outperforming Bitcoin's flat month. Multiple catalysts converged: a whale purchased a massive ETH position, <strong>BlackRock moved substantial ETH to Coinbase Prime</strong> (interpreted as institutional positioning, not selling), and significant ETH bridging to <strong>Robinhood Chain</strong> drove network activity. ETF inflows totaled $29M in a single session, the strongest day in weeks. The narrative shift: ETH is transitioning from "underperforming BTC" to "catch-up trade with fundamental catalysts." For iOS developers tracking ETH: the Robinhood Chain bridge activity is measurable on-chain — consider building dashboards or alerts that track L2 bridge volumes as a leading indicator of retail interest.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">MiCA · Full Force</span>
+    <h3><a href="https://cointelegraph.com/regulation">MiCA Fully Operational Since July 1 — EU Crypto Market Consolidation Begins</a></h3>
+    <p>The EU's <strong>Markets in Crypto-Assets (MiCA) regulation</strong> is now fully enforced as of July 1, 2026, requiring all crypto-asset service providers to obtain CASP authorization to serve EU clients. The European Parliament has already signaled intent to extend regulation to DeFi, staking, lending, and NFTs in "MiCA 2.0." A large percentage of existing platforms are expected to fail licensing requirements, triggering significant market consolidation. For developers: the compliance requirements are now live — transaction monitoring, reserve reporting, and consumer protection disclosures are mandatory. If you're building for EU users, integrate compliance SDKs (Chainalysis, Elliptic) now rather than retrofitting. The window between "regulation announced" and "enforcement begins" is closed — this is enforcement mode.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Apple Core AI: The Platform Shift iOS Developers Can't Ignore</strong>
+    <p>WWDC 2026's Core AI framework isn't an incremental update — it's a <strong>platform-level paradigm shift</strong> comparable to the introduction of Core Data or SwiftUI. The key insight: Apple is making on-device generative AI a first-class platform capability, not a third-party integration. This means every iOS app will be expected to have AI features within 2-3 years, the same way every app was expected to support Dark Mode after iOS 13. The compound effect: Core AI + Foundation Models + App Intents creates a stack where your app's intelligence is limited only by your imagination, not by API costs or privacy concerns. The developers who master this stack first will build the next generation of "magic" iOS experiences. The competitive moat: unlike cloud AI features (which any competitor can replicate by calling the same API), on-device AI features are deeply integrated with Apple's silicon optimization — creating performance advantages that are architecturally defensible. Start prototyping with the iOS 27 beta today. <a href="https://developer.apple.com/wwdc26/">WWDC 2026 Sessions →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Event-Driven Architecture Goes Mainstream — The AI Agent Communication Layer</strong>
+    <p>As AI agents proliferate (Claude Code spawning sub-agents, Cursor's 8 parallel agents, Copilot's issue-to-PR automation), the industry is converging on <strong>Event-Driven Architecture (EDA)</strong> as the communication backbone for multi-agent systems. The pattern: agents communicate via typed events rather than direct function calls or shared state. This enables: (1) <strong>Loose coupling</strong> — agents can be added/removed without breaking others. (2) <strong>Auditability</strong> — every agent action is an event in an immutable log (satisfying the regulatory requirements from FCA/central bank warnings). (3) <strong>Replay and debugging</strong> — reproduce any agent behavior by replaying its input events. (4) <strong>Rate limiting at the bus level</strong> — prevent runaway agents without modifying agent code. For iOS: if you're building an agent-powered feature (AI assistant → API calls → notifications → trade execution), model it as an event stream rather than imperative method calls. Use Swift's <code>AsyncStream</code> + Combine for the event bus. This architecture scales from 1 agent to 100 without refactoring. <a href="https://martinfowler.com/articles/201701-event-driven.html">Martin Fowler: Event-Driven →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Governance as First-Class Architecture: Beyond "Add Guardrails Later"</strong>
+    <p>This week's convergence of Bernanke joining Anthropic's Trust, OpenAI offering government equity, MiCA enforcement going live, and Google Search replacing blue links crystallizes a thesis: <strong>AI governance is no longer a compliance afterthought — it's a first-class architectural requirement</strong>. The pattern emerging across the industry: (1) <strong>Identity for AI agents</strong> — every agent action must be attributable (who authorized it, which model version, what context it had). (2) <strong>Bounded autonomy</strong> — agents operate within explicitly defined capability envelopes (max spend, allowed actions, escalation thresholds). (3) <strong>Observability by default</strong> — every inference, tool call, and decision is logged in a queryable format. (4) <strong>Kill switches at every layer</strong> — system-level, agent-level, and action-level circuit breakers. The companies building these properties into v1 of their agent architectures will sail through upcoming regulation. Those retrofitting will spend 6-12 months in compliance hell while competitors ship features. For iOS apps with AI: design your agent architecture with governance from day one — it's cheaper now than ever later. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://developer.apple.com/documentation/foundationmodels">Apple Foundation Models Framework — Official Documentation</a>
+        <span class="desc">Complete API reference for accessing Apple's on-device LLMs, including guided generation, multimodal prompts, and integration with App Intents for agentic workflows.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic's Long-Term Benefit Trust: Bernanke Appointment and Governance Structure</a>
+        <span class="desc">Details on how Anthropic's independent governance body works, Bernanke's role, and what it means for Claude's development trajectory and safety commitments.</span>
+      </li>
+      <li>
+        <a href="https://blog.google/technology/ai/">Google: How Gemini 3.5 Flash Powers Every Search Result</a>
+        <span class="desc">Technical blog on the architecture behind replacing blue links with AI summaries at Google scale — covers latency requirements, citation accuracy, and the new Search API.</span>
+      </li>
+      <li>
+        <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114">MiCA Regulation Full Text (EUR-Lex)</a>
+        <span class="desc">The complete Markets in Crypto-Assets regulation now in force — essential reading for any developer building crypto services targeting EU users.</span>
+      </li>
+      <li>
+        <a href="https://martinfowler.com/articles/201701-event-driven.html">Martin Fowler: What Do You Mean by "Event-Driven"?</a>
+        <span class="desc">The foundational article on EDA patterns — timely as multi-agent architectures adopt event-driven communication as the default coordination mechanism.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-12T09:00:00Z</p>
+  <p>Sunday Edition — Best of Week (Apple Core AI, Foundation Models, Agentic Workflows via App Intents)</p>
+  <p>Dedup: 1000+ stories filtered from past 5 days (Jul 7–Jul 11) · 72 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>70+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>45+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
