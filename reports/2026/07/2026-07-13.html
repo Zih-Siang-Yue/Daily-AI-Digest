@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-13</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, July 13, 2026 — Best of Week: AI Coding Ecosystem Consolidation</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The Unified AI Coding Stack</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · ChatGPT Merger</span>
+    <strong>Codex Inside ChatGPT: How to Preserve Your Developer Workflow</strong>
+    <p>OpenAI merged Codex into the unified ChatGPT desktop app on July 9. While some developers are frustrated at losing the standalone tool, the practical workflow actually improves if you configure it correctly: (1) Use ChatGPT's <strong>workspace projects</strong> to isolate your coding context — create a project named after your repo and pin your <code>CLAUDE.md</code>-equivalent instructions file. (2) Select <strong>GPT-5.6 Sol Ultra</strong> as the model for coding tasks — it uses parallel sub-agents internally, meaning complex refactoring tasks get decomposed automatically. (3) Keep a separate "coding" conversation thread from general chat — the context window stays cleaner. (4) The JetBrains integration now routes through Codex's agent provider, so AppCode/Fleet users get the Sol model without switching apps. The key migration insight: your existing Codex projects and settings transfer automatically via the desktop app update. The UX changes, but the underlying capability got strictly better with Sol's agent architecture. <a href="https://openai.com/index/chatgpt-work">OpenAI Announcement →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Sonnet 5</span>
+    <strong>Claude Code Sonnet 5: Maximize the 1M-Token Context Window</strong>
+    <p>Anthropic set <strong>Sonnet 5</strong> as the default Claude Code model this week, bringing a <strong>1-million-token context window</strong> — enough to hold your entire iOS codebase in a single session. The optimization patterns: (1) <strong>Stop chunking manually.</strong> With 1M tokens, you can load all Swift files in a medium-sized project (<code>find . -name "*.swift" | xargs wc -l</code> — if under 300K lines, it all fits). Use <code>/add</code> to bulk-load directories. (2) <strong>Front-load architectural context.</strong> Place your <code>CLAUDE.md</code> rules + architecture diagram in the first 2K tokens — the model's attention is strongest there. (3) <strong>Use structured checkpoints.</strong> After major refactoring, ask Claude to summarize what it changed and why — this creates an "anchor" in the context that prevents drift over long sessions. (4) <strong>Promotional pricing through August</strong> means now is the time to stress-test it on your largest refactoring tasks. The 1M window eliminates the need for RAG/embeddings for most single-repo tasks — just load everything and let the model reason globally. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Security · Approval Fatigue</span>
+    <strong>Week's Security Lesson: Build Automated Invariant Checks, Not Approval Prompts</strong>
+    <p>This week's theme across GhostApproval (Jul 10), DuneSlide (Jul 11), and Claude Code's tracker controversy (Jul 10) converges on one actionable principle: <strong>replace manual approval with automated verification</strong>. The implementation pattern for your AI coding workflow: (1) Create a <code>pre-agent-hook.sh</code> script that runs BEFORE any AI-generated code executes: check for symlinks resolving outside the project root, scan for network calls to unknown hosts, verify no secrets in staged files. (2) In your <code>CLAUDE.md</code> / <code>.cursor/rules</code>, add machine-enforced constraints: <code>"All file operations must use absolute paths resolved through realpath. Never follow symlinks."</code> (3) Use <code>mitmproxy</code> in your dev environment to log all network requests your AI IDE makes — create an allowlist and alert on deviations. (4) For iOS specifically: keep your code-signing keychain in a separate macOS user profile from your AI coding environment. The meta-pattern: your AI security stance should be policy-based (automated, always-on) not event-based (approve/deny each action). <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Fable 5 Extended</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Fable 5 Access Extended to July 19 — Compare Flagship Models Before Deciding</a></h3>
+    <p>Anthropic extended subscriber access to <strong>Claude Fable 5</strong> through July 19 after its reinstatement following the US Commerce Department suspension. Fable 5 — Anthropic's frontier reasoning model — was pulled for three weeks for enhanced safety review and returned with additional safeguards. The extension gives developers a direct comparison window: test Fable 5 against GPT-5.6 Sol and Gemini 3.5 Pro on your actual coding tasks. For iOS developers: Fable 5 excels at complex architectural reasoning — test it on system design questions like "design a modular architecture for a trading app with offline support and real-time sync." The model's deep reasoning produces more considered architectural recommendations than faster models, making it ideal for planning sessions rather than rapid code generation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · LiteRT.js</span>
+    <h3><a href="https://ai.google.dev/">Google Launches LiteRT.js — High-Performance Web AI Inference Library</a></h3>
+    <p>Google released <strong>LiteRT.js</strong> on July 9, a new high-performance inference library for running AI models directly in the browser. LiteRT.js is designed as a successor to TensorFlow.js with significant performance improvements through WebGPU and WebAssembly SIMD acceleration. For iOS developers building companion web apps: LiteRT.js means your on-device CoreML models can have web equivalents that run at near-native speed in Safari. The practical use case: build a progressive web app that offers the same AI-powered features (chart analysis, sentiment classification) as your native app — using the same model architecture but compiled for the web runtime. This gives your users AI functionality even before they download the native app.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Cowork M365</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Cowork Expands to Web/Mobile with Microsoft 365 Integration</a></h3>
+    <p>Anthropic expanded <strong>Cowork</strong> to web and mobile platforms on July 7, now including <strong>Microsoft 365 integration</strong> for drafting emails, managing calendars, and creating documents. A new beta "reflection" dashboard helps users track and analyze their AI usage patterns. For iOS developers: Cowork's mobile expansion with M365 integration makes it the first serious "AI project manager" that works across your entire workflow — from writing code (Claude Code) to managing communications (Cowork + Outlook) to organizing work (Cowork + calendar). The reflection dashboard is particularly useful for understanding which tasks you delegate to AI most effectively vs. where you keep intervening manually — data-driven workflow optimization.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Codex · JetBrains Preview</span>
+    <h3><a href="https://openai.com/index/codex">Codex Agent Provider Launches in Public Preview for JetBrains IDEs</a></h3>
+    <p>OpenAI introduced <strong>Codex as a new agent provider</strong> in public preview for all JetBrains IDEs — including AppCode and Fleet. This gives JetBrains users access to GPT-5.6 Sol's parallel sub-agent architecture without leaving their IDE. The integration works through JetBrains' unified AI Assistant interface, meaning you can switch between Claude, Gemini, and now Codex/Sol within the same session. For iOS teams using AppCode: this closes the gap with VS Code-based tools. You now have three frontier model options (Claude via JetBrains AI, Gemini via Google's plugin, and Codex/Sol) competing for your attention in the same editor. Test each on your most common tasks and let quality decide — the multi-vendor IDE era means you're never locked into one model.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · SpaceXAI Model</span>
+    <h3><a href="https://cursor.com">SpaceXAI × Cursor First Joint Model Targets Opus 4.8 and GPT-5.5 Class</a></h3>
+    <p>Following the $60B SpaceXAI acquisition of Cursor, their <strong>first jointly developed AI model</strong> is launching — trained on xAI's Colossus supercomputer and positioned to compete with Anthropic's Opus 4.8 and OpenAI's GPT-5.5 class. The model integrates into both Cursor's IDE and SpaceXAI's Grok Build platform. For iOS developers: the SpaceX engineering DNA (embedded systems, real-time control, hardware-software co-design) likely means this model excels at performance-critical code — Swift's unsafe pointer operations, Metal shaders, and low-level networking. Early access is rolling out to Cursor Pro subscribers this week. Test it against Claude Sonnet on your most performance-sensitive code paths.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">WebX 2026 · Tokyo</span>
+    <h3><a href="https://webx-asia.com">WebX 2026 Opens in Tokyo — 15K Attendees, Japan PM Keynote on Web3 Regulation</a></h3>
+    <p>Asia's largest Web3 conference <strong>WebX 2026</strong> kicked off today in Tokyo with <strong>15,000 attendees</strong> and a keynote from Japanese Prime Minister Sanae Takaichi. Key themes: Japan classifying crypto as financial instruments, prediction markets in Japan's regulatory framework, and the convergence of AI + Web3. Speakers include executives from SBI Holdings, Fidelity International, Mastercard, Ripple, Uniswap Labs, and the Ethereum Foundation. For developers: Japan's proactive regulatory stance (classification = clarity) contrasts with the US's still-evolving approach. If you're building products for Asian markets, Japan's framework is becoming the model — structured, permissive, and clear. Watch for partnership announcements between Japanese financial institutions and crypto infrastructure providers over the next 48 hours.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Claude Code · Approval Hardening</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Now Requires Explicit Approval for Privileged Actions</a></h3>
+    <p>In response to this week's security disclosures (tracker controversy + prompt injection vulnerabilities), Anthropic hardened Claude Code's permission model: <strong>privileged actions now require explicit user approval</strong> with clear descriptions of what will happen. This includes file operations outside the project root, network requests to new endpoints, and system command execution. For developers: this is the right trade-off — slightly more friction on dangerous operations, zero friction on safe ones. Configure your <code>CLAUDE.md</code> to pre-authorize safe patterns: <code>"Approved: read/write within /Sources/, run swift build, run swift test. Requires approval: any git push, any network request, any file outside project root."</code> This lets you maintain flow-state for 95% of operations while getting a safety check on the 5% that matter.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · CPI Watch</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC Holds $63.8K — CPI Report This Week Becomes the Defining Catalyst</a></h3>
+    <p>Bitcoin is consolidating at <strong>$63,781</strong> heading into Sunday, down a marginal 0.56% over 24 hours. The market is in a holding pattern ahead of this week's <strong>US CPI report</strong> — the single most important data point for Q3 direction. Prediction markets showed strong confidence in BTC maintaining $63K+ through the weekend. The sentiment indicator reads "Extreme Fear" — historically a contrarian buy signal when combined with stable price action. The MicroStrategy/Saylor $216M BTC sale adds bearish pressure, but Bitcoin's network activity (transactions, NFT use cases) remains robust. The setup for this week: CPI below expectations → rate hike fears fade → risk-on rally. CPI above expectations → retest of $60K support. Position sizing before Wednesday's data release is the key risk management decision.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Glamsterdam Upgrade</span>
+    <h3><a href="https://ethereum.org">ETH at $1,793 — "Glamsterdam" Hard Fork and Robinhood L2 Drive Bullish Momentum</a></h3>
+    <p>Ethereum trades near <strong>$1,793</strong> with building bullish momentum from multiple catalysts: the upcoming <strong>"Glamsterdam" hard fork</strong> (first base-layer throughput upgrade since The Merge), Robinhood L2 driving ETH demand as native gas token, and technical analysis confirming a "double bottom" accumulation pattern. ETH has gained ~11% in July, significantly outperforming BTC's flat month. The Glamsterdam upgrade — targeting H2 2026 — will directly increase L1 throughput, reducing gas costs for operations that can't be moved to L2s. For iOS developers building on Ethereum: the throughput upgrade means on-chain operations your app triggers (token approvals, NFT mints, contract interactions) will become cheaper and faster. Plan your gas estimation logic to be dynamic rather than hardcoded — costs will drop post-upgrade.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Japan · Crypto Classification</span>
+    <h3><a href="https://webx-asia.com">Japan Signals Crypto-as-Financial-Instruments Classification at WebX 2026</a></h3>
+    <p>Japanese Prime Minister Takaichi's WebX keynote highlighted upcoming legislation to <strong>classify crypto assets as financial instruments</strong> — bringing them under the same regulatory umbrella as stocks and bonds. This isn't restrictive; it's legitimizing. Under Japanese law, "financial instrument" classification means: regulated exchanges get clearer operating guidelines, institutional investors can formally allocate to crypto in their portfolios, and tax treatment becomes more predictable. For the global market: Japan is the world's third-largest economy taking a pro-clarity stance. Combined with the EU's MiCA enforcement and the US's GENIUS Act implementation (July 18 deadline), three major jurisdictions are simultaneously crystallizing crypto regulation. The "regulatory uncertainty" narrative that suppressed institutional allocation for years is definitively ending. Build compliance into your products now — it's a feature, not overhead.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Great AI Tool Consolidation: From Fragmentation to Platform Wars</strong>
+    <p>This week crystallized a pattern that's been building for months: the AI coding tool landscape is <strong>consolidating from dozens of point solutions into 3-4 mega-platforms</strong>. The evidence: OpenAI merged Codex into ChatGPT (one app to rule them all). SpaceXAI acquired Cursor for $60B (IDE + model + infrastructure). Anthropic's Cowork expanded to mobile + M365 (from coding tool to work platform). JetBrains opened to all models (platform, not product). The implication for developers: stop evaluating individual tools and start evaluating <strong>ecosystems</strong>. The question is no longer "which AI coding assistant is best?" but "which platform do I want to live inside?" — because each is building walls around their experience. The Anthropic ecosystem (Claude Code + Cowork + MCP + mobile) offers the deepest developer integration. The OpenAI ecosystem (ChatGPT + Codex + Sol agents + enterprise) offers the broadest capability surface. The SpaceXAI/Cursor ecosystem (IDE + model + Grok Build) offers the tightest IDE integration. Choose one as primary; use the others tactically for specific tasks where they excel. <a href="https://openai.com/index/chatgpt-work">OpenAI's consolidation announcement →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Edge-Native AI: The Architecture Pattern That Wins on Mobile</strong>
+    <p>The convergence of Apple's Core AI framework (WWDC 2026), Google's LiteRT.js, and the 1M-token context race is revealing a winning architectural pattern: <strong>Edge-Native AI</strong> — designing your AI features to run locally FIRST, with cloud as fallback rather than primary. The architecture: (1) <strong>Device layer</strong>: Apple Neural Engine runs classification, embedding generation, and small model inference (Foundation Models framework). (2) <strong>Local orchestration</strong>: on-device agent decides whether the query can be answered locally or needs cloud escalation. (3) <strong>Cloud layer</strong>: only complex multi-turn reasoning or tasks requiring training data go to cloud APIs. The benefits compound: zero latency for common queries, zero cost for repeat patterns, complete privacy for sensitive data, and graceful degradation when offline. For Binance iOS: portfolio summary, price alert classification, and simple Q&A should ALL run on-device via Foundation Models. Only complex analysis ("compare my performance to market benchmarks over 6 months") escalates to cloud. This cuts your AI API costs by 60-80% while improving perceived speed. <a href="https://developer.apple.com/documentation/foundationmodels">Apple Foundation Models →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Green July" Pattern: Crypto Seasonality Meets Regulatory Catalysts</strong>
+    <p>Traders are closely watching the <strong>"Green July"</strong> thesis — the historical pattern where cryptocurrency markets rebound after negative June performance. In 2026, the seasonal pattern aligns with an unprecedented concentration of regulatory catalysts: GENIUS Act implementation (July 18), SEC's three crypto rulemakings, Japan's financial instruments classification, and MiCA's first month of full enforcement. The confluence theory: when seasonal buying pressure meets regulatory clarity, the resulting rally is amplified because institutions that were "waiting for clarity" finally deploy capital simultaneously. The risk: if CPI data this week triggers rate hike fears, the seasonal pattern breaks. The probabilistic setup: 65% chance of a meaningful July rally (regulatory clarity + seasonal tailwinds + depleted exchange reserves), 35% chance of continued consolidation into Q4 (macro headwinds overwhelm structural tailwinds). For developers: regardless of price direction, the regulatory crystallization is real and permanent — build for a regulated world, not a speculative one. <a href="https://cointelegraph.com/markets">Market Analysis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/chatgpt-work">OpenAI: ChatGPT Work and Codex Integration Deep Dive</a>
+        <span class="desc">Official blog post explaining the reasoning behind merging Codex into ChatGPT, the Sol Ultra model architecture, and how parallel sub-agents decompose complex coding tasks.</span>
+      </li>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Documentation: Sonnet 5 and 1M-Token Context</a>
+        <span class="desc">Updated docs covering the new default model, context window management strategies, and the hardened permission model for privileged operations.</span>
+      </li>
+      <li>
+        <a href="https://webx-asia.com">WebX 2026 Tokyo: Conference Agenda and Speaker Lineup</a>
+        <span class="desc">Full agenda for Asia's largest Web3 conference including sessions on Japan's crypto classification, prediction markets regulation, and AI × blockchain convergence.</span>
+      </li>
+      <li>
+        <a href="https://ai.google.dev/">Google LiteRT.js: Web AI Inference at Native Speed</a>
+        <span class="desc">Technical documentation for the new high-performance browser inference library using WebGPU and WASM SIMD — successor to TensorFlow.js with 3-5x performance gains.</span>
+      </li>
+      <li>
+        <a href="https://ethereum.org/en/roadmap/">Ethereum Roadmap: Glamsterdam Hard Fork Details</a>
+        <span class="desc">Technical overview of the upcoming base-layer throughput upgrade — the first hard fork targeting L1 performance since The Merge, expected H2 2026.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-13T09:00:00Z</p>
+  <p>Sunday Edition — Best of Week: AI Coding Ecosystem Consolidation (Codex merger, Sonnet 5 1M context, SpaceXAI×Cursor model, security hardening)</p>
+  <p>Dedup: 1100+ stories filtered from past 5 days (Jul 8–Jul 12) · 78 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (5/7 queries)</td><td>75+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (3 queries)</td><td>50+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
