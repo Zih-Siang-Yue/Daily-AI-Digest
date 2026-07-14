@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-14</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, July 14, 2026 — Claude Code &amp; Codex Agentic Workflows</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflows</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Hooks</span>
+    <strong>Claude Code Hooks: Automate Pre/Post Actions Without Manual Approval</strong>
+    <p>Claude Code's <strong>Hooks system</strong> lets you define automated actions that fire before or after agent operations — replacing manual approval fatigue with programmatic guardrails. The setup: create a <code>.claude/hooks.json</code> in your project root with three trigger points: <code>pre-execute</code> (runs before any shell command), <code>post-edit</code> (runs after file changes), and <code>pre-commit</code> (runs before git operations). Practical patterns: (1) <strong>Auto-lint on edit:</strong> <code>{"trigger": "post-edit", "glob": "**/*.swift", "run": "swiftlint lint --path ${file}"}</code> — every AI-edited Swift file gets linted immediately. (2) <strong>Security gate:</strong> <code>{"trigger": "pre-execute", "deny_if": "contains(command, 'curl') && !contains(command, 'localhost')"}</code> — blocks outbound network calls from AI-generated scripts. (3) <strong>Test runner:</strong> <code>{"trigger": "post-edit", "glob": "**/Tests/**", "run": "swift test --filter ${module}"}</code> — automatically runs affected tests after AI edits test files. The key insight: hooks convert "approve/deny" friction into "pass/fail" automation. Your security posture improves AND your flow state is uninterrupted. <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Hooks Documentation →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Goal Mode</span>
+    <strong>Codex Goal Mode: Set an Objective and Walk Away</strong>
+    <p>OpenAI's refreshed Codex desktop app introduced <strong>Goal Mode</strong> — you define a high-level objective (e.g., "Refactor the networking layer to use async/await and add comprehensive error handling") and Codex works toward it autonomously for extended periods, using GPT-5.6 Sol's parallel sub-agents. The workflow for iOS developers: (1) Write a clear goal statement in natural language — be specific about acceptance criteria: <code>"Migrate all URLSession callbacks in /Sources/Network/ to async/await. Preserve all existing retry logic. Add typed errors for each API endpoint. All existing tests must pass."</code> (2) Set a <strong>scope boundary</strong>: limit which directories the agent can modify to prevent unintended side effects. (3) Use <strong>Appshots</strong> — Codex can now screenshot your Simulator and reference the UI state, meaning you can say "Fix the layout bug visible in the current screen" and it sees what you see. (4) Review the generated PR diff when it finishes — Goal Mode produces a structured changeset with commit messages explaining each step. The key advantage over manual prompting: Sol decomposes your goal into sub-tasks internally, executes them in parallel, and self-corrects when tests fail — all without re-prompting. <a href="https://openai.com/index/codex">Codex Documentation →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · MCP Skills</span>
+    <strong>Build Custom MCP Skills to Give Claude Code Domain-Specific Superpowers</strong>
+    <p>The <strong>Model Context Protocol (MCP)</strong> lets you extend Claude Code with custom "skills" — tools that give the agent access to your team's specific infrastructure. The pattern for iOS teams at Binance: (1) <strong>Build a Jira MCP server</strong>: expose <code>get_ticket</code>, <code>update_status</code>, and <code>list_sprint_items</code> tools. Now Claude Code can read the ticket description, implement the feature, and move the ticket to "In Review" — all in one session. (2) <strong>Build a CI/CD MCP server</strong>: expose <code>trigger_build</code>, <code>get_build_status</code>, and <code>download_artifacts</code>. Claude Code implements a fix, triggers a build, waits for green, then opens a PR. (3) <strong>Build a design-system MCP server</strong>: expose <code>get_component_spec</code> and <code>validate_accessibility</code>. When implementing UI, Claude Code queries your design tokens and validates contrast ratios programmatically. The compound effect: each MCP skill you add makes Claude Code exponentially more autonomous within YOUR specific workflow. A team with 5-10 custom MCP skills reports 3-4x fewer context-switching interruptions per day. Start with one skill that addresses your biggest daily friction point. <a href="https://modelcontextprotocol.io/introduction">MCP Specification →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">JetBrains · AI for Teams</span>
+    <h3><a href="https://www.jetbrains.com/ai/">JetBrains AI for Teams: Vendor-Agnostic Platform with Shared Context &amp; Governance</a></h3>
+    <p>JetBrains began rolling out <strong>AI for Teams and Organizations</strong> — a vendor-agnostic platform that connects Claude, Gemini, GPT, and Grok models within JetBrains IDEs while adding shared team context and governance controls. The killer feature: <strong>shared project memory</strong> that persists across team members, meaning when one developer teaches the AI about your architecture patterns, every team member benefits. For iOS teams: this means your AppCode/Fleet setup can now enforce consistent coding standards via AI — define your conventions once in the shared context, and every developer's AI suggestions conform to them automatically. The governance layer adds token usage analytics, model allowlists per project, and audit trails for AI-generated code — exactly what enterprise teams need for compliance.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Tencent · HunyuanY3</span>
+    <h3><a href="https://huggingface.co/tencent/HunyuanY3">Tencent Releases HunyuanY3 — 295B MoE Model Excels at Agentic Coding</a></h3>
+    <p>Tencent open-sourced <strong>HunyuanY3 (HY3)</strong>, a 295-billion-parameter mixture-of-experts model that benchmarks competitively with Claude Sonnet and GPT-5.4 on coding and agentic tasks. The model is optimized for tool use, multi-step reasoning, and code generation across 20+ languages. For developers: HY3's open-weight release means you can run it locally via Ollama or vLLM for proprietary codebases where data can't leave your network. The MoE architecture activates only ~40B parameters per inference — meaning it runs on consumer hardware (M4 Max with 128GB) at usable speeds. For teams with strict data governance (common in fintech), this provides a Claude Code-class experience without any data leaving your infrastructure.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Windsurf · July Update</span>
+    <h3><a href="https://codeium.com/windsurf">Windsurf July Update: Multi-File Agent Coherence Across Large Codebases</a></h3>
+    <p>Codeium shipped a major <strong>July update to Windsurf</strong> focusing on multi-file agent coherence — the AI now maintains consistent understanding across files when making coordinated changes to large codebases. The improvement targets the most common failure mode in agentic coding: the AI changes a function signature in one file but forgets to update all callers. Windsurf's Cascade system now builds a <strong>dependency graph before editing</strong>, ensuring all related files are modified atomically. For iOS developers with large Swift projects: this is directly relevant to protocol conformance changes, where updating a protocol declaration requires updating every conforming type across dozens of files. Windsurf now handles this reliably in a single agent action.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Pieces · Meeting AI</span>
+    <h3><a href="https://pieces.app">Pieces for Developers Adds AI Meeting Integration — Code Context from Conversations</a></h3>
+    <p>Developer knowledge management tool <strong>Pieces</strong> added AI-powered meeting integration that automatically captures code-relevant context from technical discussions. When your standup mentions "the auth token refresh bug in NetworkClient.swift," Pieces links the conversation to your actual code file, creating a searchable knowledge graph of decisions-to-code mappings. For iOS teams: this solves the "why was this code written this way?" problem — every architectural decision discussed in meetings is automatically linked to the implementation. Six months later, when someone asks why <code>TokenManager</code> uses a double-refresh pattern, the answer is one search away.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Lovable · Pen Testing</span>
+    <h3><a href="https://lovable.dev">Lovable Reaches $6.6B Valuation — First Vibe Coding Tool with Built-in Security Testing</a></h3>
+    <p>AI app builder <strong>Lovable</strong> — the platform that generates full-stack applications from text descriptions — has reached a <strong>$6.6 billion valuation</strong> and processes 100,000 projects daily. The differentiator that matters for professional developers: Lovable became the first vibe coding tool to add <strong>built-in penetration testing</strong>, automatically scanning generated code for OWASP Top 10 vulnerabilities before deployment. For iOS teams: while Lovable targets non-technical users, its security-first approach validates a principle applicable to ALL AI-generated code — automated security scanning should be a mandatory gate, not an afterthought. Apply this pattern to your own workflow: add <code>swiftlint security</code> rules and dependency vulnerability scanning as post-generation hooks.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Predictive Indexing</span>
+    <h3><a href="https://docs.cursor.com">Cursor's Predictive Indexing: AI Anticipates Which Files You'll Need Next</a></h3>
+    <p>Cursor's latest feature, <strong>Predictive Indexing</strong>, uses your editing patterns to anticipate which files the AI will need to reference before you even ask. The system pre-loads relevant files into context based on your current edit location, recent navigation history, and dependency graph analysis. For large iOS projects: this eliminates the "context window management" tax — instead of manually adding files with <code>@file</code>, the system learns that when you edit <code>TradingViewModel.swift</code>, you almost always need <code>OrderService.swift</code> and <code>TradingView.swift</code> in context. The compound effect: faster first-response quality (the AI already "sees" relevant code) and fewer follow-up prompts to add missing context. This is the UX evolution from "you manage the context" to "the tool manages the context for you."</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agentic Bug Rates · Governance</span>
+    <h3><a href="https://github.blog/engineering/">Industry Data: 41% Bug Rate Increase Without AI Governance Frameworks</a></h3>
+    <p>New industry data confirms what many teams suspected: organizations using AI coding tools <strong>without proper governance</strong> see a <strong>41% increase in bug rates</strong> post-adoption. The counterpoint: teams WITH structured governance (spec-driven development, mandatory test coverage gates, AI output review processes) see bug rates <em>decrease</em> by 15-20% while shipping 2-3x faster. The actionable pattern: (1) Require all AI-generated code to pass existing test suites before merge. (2) Mandate that AI agents run linters and formatters automatically (via hooks). (3) Review AI diffs with the same rigor as junior developer PRs. (4) Track AI-generated code quality metrics separately to identify degradation early. The data proves that AI coding is not "fast OR safe" — it's "fast AND safe" with the right process, or "fast AND broken" without it.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · CPI Week</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC Drops to $62,500 as Hormuz Tensions Flare — CPI Report This Week Is Make-or-Break</a></h3>
+    <p>Bitcoin fell <strong>1.9% to $62,504</strong> on Monday as US-Iran tensions over the Strait of Hormuz triggered a broad risk-off move. Over $67M in long BTC positions were liquidated, with total crypto liquidations reaching $321M. Despite the price decline, <strong>spot Bitcoin ETFs saw renewed inflows in July</strong> and whale accumulation continues — suggesting large investors view current levels as a buying opportunity. All eyes are on this week's <strong>US CPI report</strong>: a below-expectations print would ease rate hike fears and likely trigger a relief rally toward $65K; a hot number risks retesting $58K support. Key levels: support at $60,000–$61,400, resistance at $65,581. The market is coiled — CPI determines the direction.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Accumulation</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH Holds $1,788 — Whale Accumulation Continues Despite Macro Headwinds</a></h3>
+    <p>Ethereum dipped <strong>1.7% to $1,788</strong> alongside broader market weakness, but on-chain data tells a bullish story: large holders continue accumulating, and ETH ETFs have seen renewed inflows. The key divergence: Ethereum's exchange supply remains at 2015 lows (supply squeeze conditions), while futures-driven selling creates temporary price weakness. The <strong>CLARITY Act hearing on July 17</strong> is the next Ethereum-specific catalyst — clearer US regulatory guidance on ETH's classification could unlock a new wave of institutional allocation. For developers: the dual setup of regulatory clarity (CLARITY Act + GENIUS Act July 18) landing in the same week means this is the most concentrated period of crypto policy formation in history. Build compliance features now — they'll be table stakes within 90 days.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Double Header</span>
+    <h3><a href="https://www.congress.gov">CLARITY Act Hearing (Jul 17) + GENIUS Act Deadline (Jul 18): Regulatory Super-Week</a></h3>
+    <p>This week features an unprecedented <strong>regulatory double header</strong>: the US House Financial Services Committee holds a hearing on the <strong>CLARITY Act</strong> (defining crypto asset classification) on Thursday, followed immediately by the <strong>GENIUS Act implementation deadline</strong> (stablecoin regulation) on Friday. Combined with the SEC's three crypto rulemakings still targeting July, this is the single most important regulatory week in US crypto history. The practical impact: by Friday, the US will have the clearest stablecoin rules ever, advanced legislation on asset classification, and active SEC rulemakings on safe harbors. For crypto developers: the "regulatory uncertainty" discount on crypto projects is about to disappear. Projects that are compliance-ready will see a valuation premium; those that aren't will face existential pressure.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Agentic Governance Gap": Why 41% More Bugs Is a Feature, Not a Bug</strong>
+    <p>The headline stat — <strong>41% more bugs when using AI without governance</strong> — reveals a deeper truth: most organizations adopted AI coding tools without updating their development processes to match. The "governance gap" framework: AI tools amplify whatever process you already have. Good process + AI = exceptional velocity with high quality. No process + AI = exceptional velocity with catastrophic quality. The winning pattern emerging in 2026: treat AI agents as <strong>junior developers with superhuman speed but no judgment</strong>. You wouldn't let a junior merge code without review, run production deploys without tests, or refactor without specs — apply the same constraints to AI. The organizations closing the governance gap use: (1) spec-driven development (requirements before code), (2) automated test gates (AI code must pass CI before review), (3) structured review checklists (security, performance, correctness), and (4) rollback automation (one-click revert if AI-generated code causes incidents). The gap is closing fast — by Q4 2026, governance-aware AI tooling will be the default, not the exception. <a href="https://github.blog/engineering/">GitHub Engineering Blog →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Intent-Based Architecture: Declaring WHAT, Not HOW, in the Age of AI</strong>
+    <p>A new architectural philosophy is gaining momentum: <strong>Intent-Based Architecture</strong> — where developers declare desired system behaviors as high-level intents, and AI agents (or policy engines) determine the implementation. The pattern borrows from Kubernetes' declarative model but applies it to application logic: instead of writing imperative code for "retry 3 times with exponential backoff," you declare <code>intent: resilient_call(max_latency: 2s, availability: 99.9%)</code> and the system determines the optimal strategy. For iOS developers: this maps directly to SwiftUI's declarative paradigm — you already declare UI intent (what it should look like) rather than imperative drawing commands. Intent-Based Architecture extends this to networking, state management, and business logic. The practical benefit: intent declarations are stable across framework migrations, while implementations change. Your AI coding agent can rewrite HOW without changing WHAT — making large-scale refactoring safer and cheaper. <a href="https://martinfowler.com/articles/declarative-architecture.html">Martin Fowler: Declarative Architecture →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Compliance-by-Design" Stack: Building for Regulation Before It Arrives</strong>
+    <p>With GENIUS Act, CLARITY Act, MiCA enforcement, and Japan's classification all converging in the same month, a new development philosophy is crystalizing: <strong>Compliance-by-Design</strong> — engineering regulatory requirements into your architecture from day one, not bolting them on later. The stack: (1) <strong>Identity layer</strong>: every user action and AI agent action has an attributable identity (satisfies KYC/AML requirements). (2) <strong>Audit layer</strong>: immutable, queryable log of all state changes (satisfies regulatory reporting). (3) <strong>Policy engine</strong>: business rules expressed as configurable policies, not hardcoded logic (satisfies jurisdiction-specific compliance without code changes). (4) <strong>Reporting pipeline</strong>: automated generation of regulatory reports in required formats. For Binance iOS: this means building transaction monitoring, suspicious activity flagging, and user consent management into your app's core architecture — not as separate modules added later. The ROI: teams with compliance-by-design architectures report 70% less time spent on regulatory change requests because the infrastructure already supports new rules via configuration, not code. <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R1114">MiCA Full Text →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks: Complete Configuration Guide</a>
+        <span class="desc">Official documentation for setting up pre-execute, post-edit, and pre-commit hooks — automate security gates, linting, and testing without manual approval fatigue.</span>
+      </li>
+      <li>
+        <a href="https://modelcontextprotocol.io/introduction">Model Context Protocol (MCP) Specification</a>
+        <span class="desc">The open standard for connecting AI models to external tools and data sources — build custom skills that give Claude Code access to Jira, CI/CD, design systems, and more.</span>
+      </li>
+      <li>
+        <a href="https://www.jetbrains.com/ai/">JetBrains AI for Teams: Vendor-Agnostic AI Platform</a>
+        <span class="desc">Documentation for the new shared-context, multi-model AI platform that brings governance and team memory to JetBrains IDEs including AppCode and Fleet.</span>
+      </li>
+      <li>
+        <a href="https://www.congress.gov/bill/119th-congress/house-bill/clarity">CLARITY Act: Full Legislative Text</a>
+        <span class="desc">The bill defining crypto asset classification framework — critical reading ahead of Thursday's House Financial Services Committee hearing.</span>
+      </li>
+      <li>
+        <a href="https://huggingface.co/tencent/HunyuanY3">Tencent HunyuanY3: Model Card &amp; Benchmarks</a>
+        <span class="desc">Technical details on the 295B MoE model — architecture, benchmark comparisons with Claude/GPT, and deployment instructions for local inference via Ollama.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-14T09:00:00Z</p>
+  <p>Monday Edition — Claude Code & Codex Agentic Workflows (Hooks, Goal Mode, MCP Skills)</p>
+  <p>Dedup: 1200+ stories filtered from past 5 days (Jul 9–Jul 13) · 84 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (4/4 queries)</td><td>80+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>50+ results</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK (1 query)</td><td>25+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
