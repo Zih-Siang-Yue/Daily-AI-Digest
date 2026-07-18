@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-18</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, July 18, 2026 — Best of Week: The Week AI Got Certified &amp; Crypto Got Regulated</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Most Impactful Workflows</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Certification · Context Engineer</span>
+    <strong>Databricks Launches First "Context Engineer" Certification — Exam July 29</strong>
+    <p>The industry's first formal <strong>Context Engineer certification</strong> launches July 29, 2026, created by Databricks. This certifies the emerging role responsible for designing <em>what information AI agents see before they act</em> — retrieval strategies, context window architecture, tool schemas, and memory systems. The exam covers: (1) <strong>Context architecture design</strong> — structuring system prompts, retrieved documents, and conversation history for optimal model attention patterns. (2) <strong>Retrieval pipeline engineering</strong> — hybrid search (semantic + keyword), contextual compression, and freshness signals. (3) <strong>Agent tool design</strong> — JSON Schema best practices for function calling, error envelopes, and idempotency. (4) <strong>Evaluation and observability</strong> — measuring context quality, detecting drift, and A/B testing retrieval strategies. For iOS developers: this certification validates the skills you've been building with <code>CLAUDE.md</code>, <code>.cursor/rules</code>, and MCP server design. If you've been configuring AI coding tools effectively, you're already practicing context engineering — now you can formalize it. The exam is online, 90 minutes, and costs $200. Early registration is open. <a href="https://www.databricks.com/learn/certification">Databricks Certification →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · New Commands</span>
+    <strong>Claude Code /doctor and /fork: Two Commands That Save Hours of Debugging</strong>
+    <p>Two underappreciated commands shipped in Claude Code's July updates: <code>/doctor</code> and <code>/fork</code>. (1) <strong><code>/doctor</code></strong> diagnoses your Claude Code setup — checks MCP server connections, validates your <code>CLAUDE.md</code> syntax, tests permission configurations, verifies model access, and reports any API connectivity issues. Instead of wondering why your agent isn't using your custom tools, <code>/doctor</code> pinpoints exactly which component is misconfigured. Run it whenever you notice unexpected behavior — it's the equivalent of <code>xcode-select --install</code> for your AI coding environment. (2) <strong><code>/fork</code></strong> duplicates your current conversation into a new session, preserving all context. The use case: you're deep into a refactoring session and want to explore an alternative approach without losing your current progress. Fork the conversation, try the risky approach in the fork, and if it fails, your original session is untouched. For iOS developers: <code>/fork</code> is perfect for A/B testing architectural decisions — fork before trying "should I use actors or a serial queue?" and compare both outcomes. Combined with the extended usage limits (through July 19), you can afford to explore multiple paths simultaneously. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">GitHub · Agentic Workflows</span>
+    <strong>GitHub Agentic Workflows: Define AI Agents in Markdown, Run as GitHub Actions</strong>
+    <p>Now in public preview, <strong>GitHub Agentic Workflows</strong> let you define multi-step AI agent tasks using natural language within markdown files in your repo, then execute them as GitHub Actions. The pattern: create a <code>.github/agents/</code> directory, write a markdown file describing what the agent should do (including success criteria and constraints), and the system converts it into an executable workflow. Example for iOS teams: <code>### Update Localizations\nScan all .swift files for new user-facing strings. For each string not in Localizable.strings, add it with a placeholder translation. Run swift build to verify no compilation errors. Open a PR with the changes.</code> — this runs as a scheduled Action every Monday morning. The key insight: these agent definitions are <strong>version-controlled alongside your code</strong>, meaning your automation evolves with your codebase. Unlike hardcoded CI scripts, agent workflows adapt to codebase changes because they reason about intent, not specific file paths. Combine with the Copilot Coding Agent (assign issues to <code>@copilot</code>) for a two-tier system: agentic workflows for recurring maintenance, Copilot Agent for ad-hoc tickets. <a href="https://github.blog/changelog/">GitHub Agentic Workflows →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Runway · Dev API</span>
+    <h3><a href="https://runwayml.com/api">Runway Dev: Single API for Video, Image &amp; Audio AI Generation</a></h3>
+    <p><strong>Runway</strong> launched <strong>Runway Dev</strong> — a unified developer API providing access to its frontier video generation models (Gen-4), plus third-party image generators, audio models, and real-time avatar tools through a single integration point. Previously, building AI-powered media features required integrating 5-6 different APIs with different auth systems, rate limits, and output formats. Runway Dev consolidates this into one SDK with consistent endpoints. For iOS developers: if you're building any feature involving AI-generated media (marketing asset creation, dynamic content for trading dashboards, or even auto-generated chart annotations), Runway Dev means one dependency instead of many. The real-time avatar API is particularly interesting for building AI-powered customer support or educational content within your app — generate personalized video explanations of trading concepts on-demand.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Alation · AIOS</span>
+    <h3><a href="https://www.alation.com/aios">Alation AIOS: Intelligence Operating System for Enterprise AI Coordination</a></h3>
+    <p>Alation released <strong>AIOS</strong> (AI Operating System) — a layer that sits atop your company's data catalog and coordinates multiple AI models and agents across your infrastructure. The problem it solves: in large organizations, different teams deploy different AI agents that access the same data with inconsistent understanding of schemas, permissions, and business logic. AIOS provides a <strong>unified semantic layer</strong> that all AI agents query before accessing data — ensuring every agent understands that "revenue" means the same thing, respects the same access controls, and uses the same freshness guarantees. For engineering teams at Binance: as you deploy more internal AI agents (code review bots, data analysis agents, compliance monitors), they all need consistent access to your data catalog. AIOS-style coordination prevents the "AI agent sprawl" problem where each team's agent has slightly different (and sometimes wrong) understanding of your data.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code · In-App Browser</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Gets In-App Browser &amp; Live Data Artifacts</a></h3>
+    <p>Anthropic's July updates to Claude Code include two powerful features: an <strong>in-app browser</strong> for the desktop version and <strong>live data artifacts</strong>. The browser lets Claude interact with websites directly during coding sessions — test your deployed API endpoints, check documentation without switching apps, or verify that your frontend changes render correctly. Live data artifacts mean published outputs (dashboards, reports, data views) can now pull real-time data through user connectors rather than showing static snapshots. For iOS developers: the in-app browser transforms your debugging workflow. Ask Claude to "check if the staging API returns the expected response for this endpoint" and it literally navigates to your API, makes the request, and reports the result — all within the same session where it's writing your networking code. No more context-switching between terminal, browser, and IDE.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Model Retirement</span>
+    <h3><a href="https://openai.com/docs/deprecations">Codex Legacy Model Retirement July 23: Migrate to GPT-5.6 Before Deadline</a></h3>
+    <p>OpenAI is <strong>retiring 13 legacy Codex model snapshots on July 23, 2026</strong> — all variants prior to GPT-5.3 will stop responding to API calls. This affects teams still using pinned model versions for reproducible CI pipelines or automated code review. The migration path: replace any hardcoded model references (e.g., <code>gpt-4-turbo-2024-04-09</code> or <code>codex-2025-*</code>) with the new GPT-5.6 family — <strong>Luna</strong> for high-volume/low-cost tasks (autocomplete, simple completions), <strong>Terra</strong> for balanced daily use, or <strong>Sol</strong> for complex reasoning. For iOS teams with CI integrations: audit your GitHub Actions, Fastlane scripts, and custom tooling for any OpenAI API calls using deprecated model names. The behavior of GPT-5.6 differs meaningfully from older models on structured output — test your prompt templates before the cutoff. A 5-day window is tight; prioritize migration this weekend.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Canva · Code 2.0</span>
+    <h3><a href="https://www.canva.com/code">Canva Code 2.0: Vibe Code Websites with Visual Brand Controls</a></h3>
+    <p><strong>Canva Code 2.0</strong> launched in July 2026, allowing users to "vibe code" websites and interactive applications with a strong emphasis on <strong>visual editing and brand customization</strong>. Unlike purely text-based vibe coding tools (Lovable, Bolt.new), Canva Code integrates with your existing Canva Brand Kit — meaning generated websites automatically use your brand colors, fonts, and design tokens. The visual editor lets you drag elements post-generation while maintaining code cleanliness. For iOS developers: this is your fastest path to building <strong>marketing pages, landing pages, and web dashboards</strong> that match your app's visual identity without involving a web designer. Describe your app's companion website, Canva generates it with your brand kit applied, and you have a live URL in minutes. The deeper signal: "vibe coding" is fragmenting by audience — developers get Cursor/Claude Code, designers get Canva Code, PMs get Lovable. Each optimizes for different "vibes."</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">H2LooP · Firmware AI</span>
+    <h3><a href="https://h2loop.ai">H2LooP: Hardware-Aware AI Coding for Firmware &amp; Embedded Systems ($2M Raise)</a></h3>
+    <p>Startup <strong>H2LooP</strong> raised $2 million to develop AI models specifically trained on firmware, RTOS code, and hardware-software co-design patterns. Unlike general-purpose coding assistants that struggle with register manipulation, interrupt handlers, and memory-mapped I/O, H2LooP's models understand hardware constraints natively. The agent can read a chip's datasheet, generate driver code, and validate against timing constraints — all in one workflow. For iOS developers: while this targets embedded systems, the <strong>principle matters for your work with Apple Silicon</strong>. As AI coding tools evolve, expect specialized variants that understand Metal shader optimization, Neural Engine dispatch patterns, and ARM64 NEON intrinsics at a level general models can't match. H2LooP proves the market for <strong>domain-specific AI coding assistants</strong> that go deeper than general-purpose models. Watch for Apple-specific variants in 2027.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Zapier · AI Agents GA</span>
+    <h3><a href="https://zapier.com/agents">Zapier AI Agents Go GA: Multi-Step Automations via Natural Language</a></h3>
+    <p><strong>Zapier AI Agents</strong> graduated from beta to general availability in July 2026 — enabling anyone to create multi-step AI agents using natural language that connect to Zapier's 7,000+ app integrations. The pattern: describe a workflow in English (e.g., "When a GitHub issue is labeled 'bug', analyze the stack trace, search our docs for related fixes, draft a response comment, and notify the on-call engineer on Slack"), and Zapier converts it into an executable agent with approval gates at each step. For iOS teams: this bridges the gap between your development tools and business operations without custom code. Create agents that monitor App Store reviews, detect negative sentiment, file Jira tickets with sentiment analysis, and notify the product team — all described in plain English. The 7,000+ integrations mean you can connect TestFlight → Slack → Jira → Linear → Notion in a single agent without writing a single API integration.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · GENIUS Act D-Day</span>
+    <h3><a href="https://www.congress.gov/bill/119th-congress/house-bill/genius-act">GENIUS Act Deadline TODAY: Six Agencies Must Finalize Stablecoin Rules</a></h3>
+    <p>Today, July 18, 2026, marks the <strong>one-year statutory deadline</strong> for six federal agencies — OCC, FDIC, NCUA, Treasury, FinCEN, and OFAC — to finalize implementing regulations for the GENIUS Act. The rules taking shape mandate: <strong>100% reserve backing</strong> with high-quality liquid assets (USD, short-term Treasuries), monthly public reserve disclosures, $5 million minimum capital for federally approved issuers, full BSA/AML compliance including freeze/seize/burn capabilities, and priority claims for holders in insolvency. The stablecoin market now exceeds <strong>$314 billion</strong>. Offshore issuers not compliant face enforcement action. For Binance developers: this is the moment stablecoin compliance moves from "best practice" to "legal requirement." Your reserve attestation systems, transaction monitoring for stablecoin transfers, and programmatic compliance controls (freeze/burn APIs) must be production-ready. The rules create massive demand for compliance infrastructure — teams that built early now have a competitive moat.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Regulatory Caution</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $64,026 — Fear &amp; Greed at 26 Despite Post-CPI Recovery</a></h3>
+    <p>Bitcoin trades at <strong>$64,026</strong> on Saturday, consolidating in a tight range as markets digest the concentrated regulatory week. The Fear &amp; Greed Index reads 26 ("Fear") — a historically contrarian buy signal when combined with stable price action and rising institutional flows. The week's story: CPI-driven rally to $64.4K on Tuesday, followed by consolidation as markets await the regulatory triple-punch outcomes (CLARITY Act hearing Thursday, GENIUS Act deadline today, SEC Regulation Crypto proposal advancing). <strong>Spot Bitcoin ETFs</strong> continue positive inflow streaks, with $180M entering on July 15 alone. Despite Citi cutting its 12-month target to $82K, the on-chain setup remains constructive: exchange reserves near historic lows, whale accumulation continuing, and the "regulatory clarity premium" about to materialize. Technical levels: support at $63,200 (CPI breakout level), resistance at $66,500. A break above triggers a move toward $70K.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Cardano · Van Rossem Fork</span>
+    <h3><a href="https://cardano.org">Cardano "Van Rossem" Hard Fork Live Today — Faster, Cheaper Smart Contracts</a></h3>
+    <p>Cardano's <strong>"Van Rossem" hard fork</strong> activates today (July 18, 21:45 UTC) — a major network upgrade making smart contracts significantly faster and cheaper to execute. The upgrade optimizes Plutus script execution with improved reference inputs, inline datums v2, and a new cost model that reduces transaction fees by an estimated 30-40% for complex DApp interactions. All node operators must upgrade to compatible versions before activation. ADA is currently trading at $0.42, down 1.39% ahead of the fork, but large holders ("whales") have been accumulating — a pattern that historically precedes post-upgrade rallies. For developers building on Cardano: the cheaper execution costs make previously gas-prohibitive operations viable — batch processing, complex DeFi composability, and on-chain governance with rich voting logic. If you've been waiting for "Cardano to get cheap enough," this fork is the trigger. Test your contracts against the new cost model on the preview testnet immediately.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Context Engineer" Role: From Ad-Hoc Prompting to Formal Discipline</strong>
+    <p>The formalization of <strong>Context Engineering</strong> as a certified professional role (Databricks exam July 29) marks a significant shift: what was informal "prompt hacking" in 2024 is now a <strong>recognized engineering discipline</strong> with defined competencies, career paths, and hiring criteria. The role encompasses: designing retrieval architectures, structuring agent context windows, building evaluation pipelines for context quality, and optimizing the information environment around AI models. Companies are posting "Senior Context Engineer" roles at $180-250K, sitting between ML Engineering and Product. The key insight: as AI models commoditize (GPT-5.6 ≈ Claude Sonnet 5 ≈ Gemini 3.5 Pro for most tasks), the differentiator shifts from <em>which model</em> to <em>what context you provide</em>. The engineer who designs perfect context makes any model perform brilliantly; the one who provides poor context gets poor results from every model. For iOS developers: your <code>CLAUDE.md</code> files, MCP server designs, and <code>.cursor/rules</code> configurations are context engineering artifacts. Formalizing this skill makes you more valuable — consider the certification if you're already practicing these patterns daily. <a href="https://www.databricks.com/learn/certification">Databricks Context Engineer Cert →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Security-First Development: Zero-Trust Becomes Regulatory Mandate in 2026</strong>
+    <p>The convergence of multiple 2026 forces is transforming <strong>security-first development</strong> from best practice to <strong>regulatory mandate</strong>: the EU's Cyber Resilience Act (enforcement begins this month), the GENIUS Act's BSA/AML requirements for stablecoin apps, and the industry's own data (41% more bugs without AI governance) all point the same direction. The "shift-left security" pattern now means: (1) <strong>Threat modeling as architecture input</strong> — before writing code, enumerate attack surfaces and design mitigations into the architecture (not bolted on later). (2) <strong>AI-generated code scanning as CI gate</strong> — every PR from an AI agent runs through SAST/DAST automatically. Tools like Snyk, Semgrep, and GitHub Advanced Security now have "AI-aware" rules that catch patterns AI agents commonly generate incorrectly (e.g., improper input validation, hardcoded secrets in test files). (3) <strong>Zero-trust for AI agents</strong> — treat every AI coding agent as an untrusted actor. Sandbox file access, require approval for network calls, and log all actions for audit. (4) <strong>Supply chain verification</strong> — AI agents love suggesting new dependencies; automated SBOM generation + vulnerability scanning on every new import. For iOS teams: add <code>swiftlint security</code> rules as a mandatory CI step, sandbox AI agent file access to your project root, and scan every AI-suggested dependency against known vulnerability databases before accepting. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI-Native Architecture: Designing Systems Where AI Is Infrastructure, Not Feature</strong>
+    <p>A fundamental architectural shift is crystallizing in 2026: the most effective teams aren't "adding AI features" to existing systems — they're designing <strong>AI-native architectures</strong> where AI is a core infrastructure layer, not a bolt-on capability. The pattern: (1) <strong>AI as middleware</strong> — every request passes through an AI classification/routing layer before reaching business logic. User inputs are analyzed for intent, context is assembled from multiple sources, and the optimal handler (human-coded function OR AI-generated response) is selected dynamically. (2) <strong>Inference as a primitive</strong> — treat model inference like you treat database queries: with connection pools, caching layers, retry policies, and observability. Build an "AI Client" with the same engineering rigor as your "Database Client." (3) <strong>Feedback loops as architecture</strong> — every AI output has a quality signal path back to improve future outputs. This isn't ML training; it's runtime adaptation via retrieval, few-shot examples, and dynamic system prompts that evolve based on measured outcomes. (4) <strong>Graceful AI degradation</strong> — design every AI-powered feature to function (perhaps less optimally) when the AI layer is unavailable, slow, or producing low-confidence results. For iOS developers: build your on-device AI features with the same architectural rigor as your networking stack — with failure modes, fallbacks, monitoring, and clear abstraction boundaries. AI should be behind a protocol/interface, never directly coupled to your view layer. <a href="https://martinfowler.com/articles/ai-architecture-patterns.html">AI Architecture Patterns →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.databricks.com/learn/certification">Databricks Context Engineer Certification: Exam Guide &amp; Study Materials</a>
+        <span class="desc">The industry's first formal certification for AI context engineering — covers retrieval design, agent architecture, evaluation pipelines, and tool schema optimization. Exam opens July 29.</span>
+      </li>
+      <li>
+        <a href="https://github.blog/changelog/">GitHub Agentic Workflows: Public Preview Documentation</a>
+        <span class="desc">Define multi-step AI agent tasks in markdown files, version-control them alongside code, and execute them as GitHub Actions — bridging natural language intent with CI/CD automation.</span>
+      </li>
+      <li>
+        <a href="https://runwayml.com/api">Runway Dev API: Unified Media Generation for Developers</a>
+        <span class="desc">Single integration point for video (Gen-4), image, audio generation, and real-time avatars — replace 5-6 separate AI media APIs with one consistent SDK.</span>
+      </li>
+      <li>
+        <a href="https://cardano.org/research/">Cardano Van Rossem Hard Fork: Technical Specifications</a>
+        <span class="desc">Full technical details on today's network upgrade — new Plutus cost model, reference inputs v2, inline datums improvements, and smart contract execution benchmarks.</span>
+      </li>
+      <li>
+        <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP Top 10 for LLM Applications (2026 Update)</a>
+        <span class="desc">Updated threat landscape for AI-integrated applications — covers prompt injection, insecure output handling, training data poisoning, and the new "AI agent privilege escalation" category.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-18T09:00:00Z</p>
+  <p>Saturday Edition — Best of Week: Context Engineer certification, regulatory D-day, AI-native architecture</p>
+  <p>Dedup: 1600+ stories filtered from past 5 days (Jul 13–Jul 17) · 112 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (5/7 queries)</td><td>100+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>50+ results</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK (1 query)</td><td>35+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
