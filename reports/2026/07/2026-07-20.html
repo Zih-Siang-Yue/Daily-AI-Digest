@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-20</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, July 20, 2026 — Weekend Edition: Unified AI Workspaces, CLARITY Act Countdown &amp; LLM-Agnostic Design</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The AI Coding Tool Convergence</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Limits Extended</span>
+    <strong>Claude Code 50% Limit Boost Extended to August 19 — Plan Your Big Projects Now</strong>
+    <p>Good news for the weekend: Anthropic quietly extended the <strong>50% weekly usage limit boost to August 19</strong> (previously set to expire July 19). This gives you a full month of elevated capacity across Pro, Max, and Team plans. The strategic move: use this extended runway for projects too large for normal limits. <strong>Action items for this week:</strong> (1) <strong>Queue a full-codebase migration:</strong> load your entire module into Claude Code's 1M-token context and execute migrations you've been deferring — async/await conversions, dependency version bumps, or architecture layer refactors. (2) <strong>Documentation sprint:</strong> point Claude Code at your undocumented internal frameworks and generate comprehensive DocC-compatible documentation for every public API. (3) <strong>Test coverage expansion:</strong> target your lowest-coverage modules with comprehensive unit test generation including edge cases. (4) <strong>Architecture consultation:</strong> paste your full dependency graph and have multi-turn architecture discussions about structural improvements. The limit extension means you can batch these tasks across the week without worrying about hitting caps mid-session. Note: the 5-hour rolling limit still applies — spread large tasks across multiple sessions. <a href="https://www.anthropic.com/news">Anthropic Announcement →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Unified Desktop App</span>
+    <strong>Codex Merges into ChatGPT Desktop: Three Modes in One App (Chat/Work/Codex)</strong>
+    <p>OpenAI consolidated Codex into the <strong>unified ChatGPT desktop application</strong> this month — the former standalone Codex app is now a mode within ChatGPT alongside "Chat" and "Work." Here's how to optimize your workflow with the new layout: (1) <strong>Chat mode</strong> for quick questions and brainstorming — low-cost Luna model for fast responses. (2) <strong>Work mode</strong> for persistent task management — assign multi-step projects that run asynchronously (draft release notes, compile sprint retrospectives, summarize PR activity). (3) <strong>Codex mode</strong> for dedicated development — inline diff editing, multi-repo project support, and the full GPT-5.6 context window. <strong>Pro tip:</strong> the unified app means you can start in Chat mode to discuss architecture, then seamlessly switch to Codex mode to implement — all context carries over. The context window is now <strong>1.05M tokens standard</strong> (1.5M for Enterprise), up from the initial 372K announcement. Configure your default mode in Settings → General → Default View. If you're a Codex power user, set it to default to Codex view so the app opens ready to code. <a href="https://openai.com/index/codex">OpenAI Codex →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Week's Best · AI Tool Selection</span>
+    <strong>The 2026 AI Coding Tool Decision Matrix: When to Use What</strong>
+    <p>This week's biggest lesson: with tool convergence accelerating (Codex → ChatGPT, Windsurf → Devin, SpaceXAI → Cursor), developers need a clear decision framework. Here's the <strong>optimal tool routing</strong> for different task types in July 2026: <strong>Quick edits + autocomplete:</strong> Cursor (fastest inline suggestions, local inference via Tab model). <strong>Large refactors + migrations:</strong> Claude Code (1M context window, extended limits through Aug 19, best at multi-file coordination). <strong>Fire-and-forget tasks:</strong> Codex Work mode or GitHub Copilot Agent (@copilot issue assignment) — both run asynchronously without blocking your IDE. <strong>Long-running overnight jobs:</strong> Windsurf/Devin cloud agents (8-hour execution in isolated sandboxes). <strong>Architecture planning + design:</strong> ChatGPT Sol or Claude Opus — maximum reasoning capability for strategic decisions. <strong>Prototyping + deployment:</strong> Codex Sites or Google Antigravity for instant live URLs. The meta-insight: no single tool wins at everything. The most productive developers in 2026 <em>route tasks to the right tool</em> rather than forcing one tool to handle all workloads. Build your personal routing rules this weekend. <a href="https://docs.cursor.com">Cursor Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Unified App Architecture</span>
+    <h3><a href="https://openai.com/index/codex">ChatGPT Desktop Unification: Chat, Work &amp; Codex in a Single 1.5M-Token App</a></h3>
+    <p>OpenAI completed its most significant UX overhaul: the standalone Codex desktop app is now <strong>a mode within ChatGPT</strong>, alongside Chat and the new Work mode. The former ChatGPT app is renamed "ChatGPT Classic." For developers, this means one app handles everything — quick questions (Chat/Luna), persistent async tasks (Work/Terra), and dedicated coding (Codex/Sol) — all with shared context. The <strong>GPT-5.6 context window</strong> landed at 1.05M tokens standard and 1.5M for Enterprise, a massive leap from GPT-5.5's 400K ceiling. Combined with Codex's new inline diff editing and multi-repository support, this makes the unified app a serious competitor to standalone IDEs for code review and cross-repo refactoring. The signal: OpenAI is consolidating the "many apps" problem into a single surface — expect more modes (Design? Data?) to follow.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Extended Limits + Rust Port</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Code Extended Through August 19: 50% More Capacity for the Summer</a></h3>
+    <p>Anthropic extended the promotional <strong>50% weekly usage limit increase to August 19</strong> — a full month beyond the original July 19 expiry. This applies to Pro, Max, and Team plans across CLI, IDE, desktop, and web. The extension comes alongside a technical upgrade: Claude Code's runtime now uses a <strong>Rust port of Bun</strong>, delivering faster startup times and reduced memory consumption. The competitive context is clear — with Codex hitting 8M users and Cursor's enterprise penetration growing, Anthropic is using extended capacity as a retention tool. For power users, this means the "ration your usage" mindset can relax for another month — execute those large-scope projects (full codebase migrations, comprehensive test suites, multi-module refactors) without fear of mid-week limit exhaustion.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · DuneSlide Security Vulnerabilities</span>
+    <h3><a href="https://cursor.com/security">DuneSlide CVEs Disclosed: Two Critical Cursor Vulnerabilities Beyond the July 0-Day</a></h3>
+    <p>Security researchers disclosed two additional critical vulnerabilities in Cursor, tracked as <strong>CVE-2026-50548 and CVE-2026-50549</strong> (collectively "DuneSlide"), separate from the zero-day reported earlier this month. These flaws could enable remote code execution through Cursor's file processing pipeline. Combined with the earlier unpatched 0-day, Cursor now has <strong>three known critical vulnerabilities</strong> in July alone — a concerning pattern for a tool used by 1M+ paying developers and 64% of Fortune 500 companies. <strong>Immediate actions:</strong> (1) Update to the latest Cursor version immediately — patches for DuneSlide are available. (2) Audit which repositories you've opened recently in Cursor. (3) Enable OS-level application sandboxing (macOS: System Settings → Privacy → App Sandbox). (4) Consider running Cursor in a container for untrusted repos. The broader lesson: AI IDEs process files more aggressively than traditional editors — their attack surface scales with their intelligence.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">IBM · Bob Agentic Platform</span>
+    <h3><a href="https://www.ibm.com/products/watsonx">IBM Bob: Enterprise Agentic Platform for Full-Lifecycle Software Development</a></h3>
+    <p>IBM announced major updates to <strong>"Bob"</strong>, its agentic software development platform, in July 2026. Unlike coding assistants focused on greenfield development, Bob targets the enterprise pain point of <strong>legacy system modernization</strong> — understanding complex existing codebases (COBOL, mainframe, legacy Java) and systematically migrating them to modern architectures. The platform uses specialized agents for: code comprehension (building semantic maps of legacy systems), migration planning (identifying incremental refactoring paths), and automated transformation (rewriting critical paths with human review gates). For Binance teams: if you maintain legacy services or are planning migrations of older infrastructure, Bob's approach — agents that <em>understand existing systems deeply before touching them</em> — is the correct pattern. The alternative (AI agents that rewrite without understanding) creates subtle regression bugs.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GLM-5.2 · Chinese AI Model</span>
+    <h3><a href="https://open.bigmodel.cn">GLM-5.2: China's Competitive AI Model Gaining Developer Traction</a></h3>
+    <p><strong>GLM-5.2</strong>, the flagship model from Zhipu AI, is gaining popularity among developers globally for its competitive performance at significantly lower cost than Western alternatives. The model excels at structured code generation, multilingual support (particularly strong in CJK languages), and tool-use patterns. For Binance's globally distributed teams: GLM-5.2 offers a compelling option for <strong>cost-sensitive AI features</strong> — internal tooling, documentation generation, and code review assistants where you need good-enough quality at 1/3 the token cost. The model supports function calling with a schema format compatible with OpenAI's, making migration straightforward. Consider it as your "Luna equivalent" for high-volume, lower-stakes tasks where cost efficiency matters more than frontier capability. The model is available via API with no geographic restrictions.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Pieces · Meeting Context Integration</span>
+    <h3><a href="https://pieces.app">Pieces for Developers: AI-Powered Technical Meeting Context</a></h3>
+    <p><strong>Pieces for Developers</strong> added a noteworthy capability this month: <strong>technical meeting context integration</strong>. The tool now captures code snippets, decisions, and action items from your video calls (Zoom, Meet, Teams) and makes them available as context for your AI coding assistant. The workflow: join a meeting where architecture decisions are discussed → Pieces captures key technical decisions, code references, and TODOs → when you open your IDE, those decisions are automatically available as context for Claude Code, Cursor, or Copilot. For iOS teams: this solves the "we decided this in a meeting but nobody documented it" problem. Technical decisions made during sprint planning or architecture reviews become machine-readable context that your AI assistant can reference when implementing the discussed changes. No more "wait, did we agree to use actors or a serial queue for that?" — the meeting context provides the answer.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Trend · AI Tool Consolidation Wave</span>
+    <h3><a href="https://github.blog/engineering/">The Great AI IDE Consolidation: Why Standalone Tools Can't Survive Alone</a></h3>
+    <p>July 2026 crystallized a market reality: <strong>standalone AI coding tools are being absorbed</strong> into larger ecosystems. SpaceXAI acquired Cursor ($60B), Cognition acquired Windsurf, and OpenAI merged Codex into ChatGPT. The pattern is clear — AI coding tools need either a model company (Anthropic → Claude Code), a platform (GitHub → Copilot), or an agent company (Cognition → Windsurf) as a parent. For developers choosing their stack: <strong>bet on ecosystems, not individual tools.</strong> Ask: "If this tool's company gets acquired tomorrow, does my workflow survive?" Tools backed by model providers (Claude Code, Copilot) have the most stable futures because the parent controls both the model and the tool. Tools backed by acquisitions (Cursor/SpaceXAI, Windsurf/Cognition) face integration uncertainty. Plan accordingly — ensure your workflow configurations (<code>.cursor/rules</code>, <code>CLAUDE.md</code>) are portable across tools.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Geopolitical Headwinds</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $64,300 — Geopolitical Tensions Cap Upside as CLARITY Vote Looms</a></h3>
+    <p>Bitcoin holds at <strong>$64,300</strong> (+3.3% weekly) on Sunday, consolidating after briefly touching $65,000 on the CPI relief rally. However, escalating <strong>US-Iran geopolitical tensions</strong> are dampening risk appetite and capping further upside. The market is now in a holding pattern ahead of the <strong>CLARITY Act Senate vote</strong>, which must happen before the August 7-11 recess to avoid being shelved until next session. Prediction markets have <strong>dropped odds of passage significantly</strong> due to disagreements over stablecoin yield regulations and official crypto holding ethics rules. The bill needs 60 Senate votes — securing bipartisan support remains the key challenge. Technical setup: support at $63,200 (CPI breakout level), resistance at $66,500. A CLARITY passage with ETH commodity classification targets $70K; a failure could trigger a retest of $60K. Spot ETF inflows remain positive but more muted than last week's $180M peak.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · YTD Outperformance</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH at $1,860 — Up 40% YTD, Massively Outperforming BTC's -27%</a></h3>
+    <p>Ethereum continues its remarkable 2026 narrative: <strong>+40% year-to-date</strong> while Bitcoin sits at -27%. ETH trades at $1,860, holding above the psychologically important support established after the double-bottom confirmation at $1,875. The divergence is driven by: (1) <strong>RWA tokenization growth</strong> — 60% of $15B+ in tokenized real-world assets live on Ethereum, creating persistent demand. (2) <strong>Morgan Stanley's spot ETH ETF filing</strong> signaling institutional conviction ahead of commodity classification. (3) <strong>DeFi composability improvements</strong> post-Dencun making L2 transactions dramatically cheaper. The risk: if CLARITY stalls or classifies ETH ambiguously, the "regulatory clarity premium" unwinds — expect a retest of $1,750. For developers: ETH's strength regardless of classification outcome reflects genuine infrastructure demand. L2 ecosystem budgets, grant programs, and job opportunities continue expanding throughout the summer.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Events · Canada Crypto Week</span>
+    <h3><a href="https://canadacryptoweek.com">Canada Crypto Week Kicks Off Today — Web3, AI &amp; Digital Assets Converge in Toronto</a></h3>
+    <p><strong>Canada Crypto Week</strong> (July 20-26) launches today in Toronto, bringing together the Web3, digital assets, and AI communities for a week of conferences, hackathons, and networking. The event's focus on <strong>AI × Crypto convergence</strong> reflects the industry's most active frontier: on-chain AI agents, decentralized compute networks, and token-incentivized model training. Key sessions to watch: "Regulatory Arbitrage in a Post-GENIUS World" (implications of US stablecoin rules on Canadian markets), "DePIN for AI Inference" (using decentralized physical infrastructure for model serving), and "Tokenized AI Models" (fractional ownership of trained models via NFTs). For developers: the hackathon track specifically targets <strong>AI agents with crypto wallets</strong> — autonomous agents that can transact on-chain, manage DeFi positions, and participate in governance. This is the pattern to watch for 2027: AI agents as first-class economic participants on blockchain networks.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>LLM-Agnostic Architecture: Decoupling AI Logic from Business Rules</strong>
+    <p>A critical architectural pattern gaining momentum in July 2026: designing your AI integration layer to be <strong>completely model-agnostic</strong>. With OpenAI merging products, Anthropic extending limits, and models leapfrogging each other monthly, teams that hardcode a specific provider's API face constant migration pain. The pattern: (1) <strong>Define an AI Client protocol/interface</strong> that abstracts model-specific details — your business logic calls <code>aiClient.complete(prompt:)</code> without knowing if it's hitting Claude, GPT, or Gemini underneath. (2) <strong>Configuration-driven model routing:</strong> a JSON/YAML config maps task types to models: <code>{"code_review": "claude-sonnet-5", "autocomplete": "gpt-5.6-luna", "translation": "glm-5.2"}</code>. Swap providers without code changes. (3) <strong>Response normalization:</strong> each provider returns slightly different formats — your adapter layer normalizes to a single internal format before it reaches business logic. (4) <strong>Fallback chains:</strong> if your primary model is down or rate-limited, automatically route to the secondary. For iOS developers: build your on-device AI features behind a <code>ModelProvider</code> protocol today. When Apple ships new Foundation Models or MLX gets faster, you swap the implementation — not the feature code. <a href="https://martinfowler.com/articles/ai-architecture-patterns.html">AI Architecture Patterns →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Regulatory Countdown: Why August 7 Is Crypto's Real Deadline</strong>
+    <p>The crypto industry is focused on the wrong date. Everyone watches for a CLARITY Act "vote this week" — but the <strong>real deadline is August 7-11</strong> (Senate recess). If the bill doesn't pass before recess, it's shelved until at least September, potentially killing momentum entirely. The math: 60 votes needed, bipartisan disputes over stablecoin yield treatment and official holdings ethics remain unresolved. Prediction markets reflect this uncertainty with passage odds dropping sharply. <strong>What this means architecturally:</strong> plan for <em>two futures simultaneously</em>. Future A (CLARITY passes): ETH = commodity, lighter regulatory burden, institutional flood, build for scale. Future B (CLARITY stalls): status quo, continued SEC ambiguity, enforcement-driven regulation, build for compliance optionality. The engineering pattern for both futures: <strong>feature flags on compliance rules</strong>. Ship your asset classification logic behind toggles that can switch between "commodity treatment" and "security treatment" based on a configuration update — not a code deploy. The team that ships both code paths wins regardless of the political outcome. <a href="https://www.congress.gov">Congressional Calendar →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Agents as Economic Actors: The Crypto × AI Convergence Pattern</strong>
+    <p>Canada Crypto Week's hackathon theme reveals the next frontier: <strong>AI agents that participate autonomously in economic systems</strong>. This isn't theoretical — the building blocks exist today: (1) <strong>Agent wallets:</strong> AI agents with their own crypto wallets, able to pay for compute, purchase data, and receive payments for services. (2) <strong>On-chain identity:</strong> verifiable credentials for AI agents (is this agent authorized? what's its reputation score?). (3) <strong>Autonomous DeFi:</strong> agents that manage liquidity positions, rebalance portfolios, and execute arbitrage without human intervention. (4) <strong>Decentralized compute markets:</strong> DePIN networks where AI agents bid for GPU time on a marketplace. The convergence logic: blockchains provide the trust/settlement/identity layer that AI agents need to transact safely without human intermediaries. For iOS/Binance developers: this pattern means your next "AI feature" might not be a chatbot — it might be an <strong>autonomous agent that manages a user's DeFi positions</strong>, paying gas fees from the user's wallet and executing strategies 24/7. The interface is a monitoring dashboard, not a chat input. Build the observability layer (what is my agent doing? what did it spend?) before building the agent itself. <a href="https://ethereum.org/en/developers/">Ethereum Developer Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/codex">OpenAI: Unified ChatGPT Desktop — Chat, Work &amp; Codex Modes Explained</a>
+        <span class="desc">Complete guide to the new three-mode ChatGPT desktop app, including context sharing between modes, default view configuration, and the 1.05M/1.5M token context windows.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic: Claude Code Limit Extension Through August 19 — Full Details</a>
+        <span class="desc">Official announcement on the extended 50% weekly capacity boost, eligibility requirements, and how it interacts with the 5-hour rolling limit. Plan your large projects accordingly.</span>
+      </li>
+      <li>
+        <a href="https://open.bigmodel.cn">GLM-5.2 Model Card &amp; API Documentation</a>
+        <span class="desc">Technical specifications for Zhipu AI's competitive model — function calling schemas, context window sizes, pricing tiers, and migration guide from OpenAI's API format.</span>
+      </li>
+      <li>
+        <a href="https://martinfowler.com/articles/ai-architecture-patterns.html">Martin Fowler: AI Architecture Patterns for Production Systems</a>
+        <span class="desc">Authoritative guide on LLM-agnostic design, model routing, fallback chains, and the adapter pattern for AI integrations — essential reading for building resilient AI features.</span>
+      </li>
+      <li>
+        <a href="https://canadacryptoweek.com">Canada Crypto Week 2026: Schedule, Speakers &amp; Hackathon Tracks</a>
+        <span class="desc">Full event schedule for July 20-26 including the AI × Crypto convergence track, DePIN sessions, and the "Agents with Wallets" hackathon targeting autonomous economic AI agents.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-20T09:00:00Z</p>
+  <p>Sunday Weekend Edition — Best of Week: AI tool convergence, CLARITY countdown, LLM-agnostic architecture</p>
+  <p>Dedup: 1800+ stories filtered from past 5 days (Jul 15–Jul 19) · 134 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>120+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>50+ results</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK (2 queries)</td><td>45+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
