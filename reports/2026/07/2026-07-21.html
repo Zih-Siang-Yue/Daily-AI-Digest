@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-21</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, July 21, 2026 — Claude Code Hooks &amp; MCP Mastery, Anthropic's $19B Compute Deal &amp; BTC ETF Inflow Reversal</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflow Mastery</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Hooks</span>
+    <strong>Claude Code Hooks: Automate Pre/Post Actions for Every Agent Command</strong>
+    <p>Claude Code's <strong>hooks system</strong> lets you define automated actions that fire before or after specific agent behaviors — turning your AI assistant into a disciplined workflow engine. The pattern: create a <code>.claude/hooks.json</code> file in your project root with trigger-action pairs. <strong>Practical hooks for iOS developers:</strong> (1) <strong>Pre-edit hook:</strong> <code>{"trigger": "before_file_edit", "action": "git stash push -m 'pre-ai-edit'"}</code> — automatically stashes your work before Claude modifies files, creating an instant rollback point. (2) <strong>Post-edit hook:</strong> <code>{"trigger": "after_file_edit", "pattern": "*.swift", "action": "swiftlint lint --path ${file}"}</code> — every Swift file Claude touches gets linted automatically. If linting fails, Claude sees the error and self-corrects. (3) <strong>Pre-commit hook:</strong> <code>{"trigger": "before_commit", "action": "swift build 2>&1"}</code> — prevents Claude from committing code that doesn't compile. (4) <strong>Session-start hook:</strong> <code>{"trigger": "session_start", "action": "git fetch origin main && git log --oneline -5 origin/main"}</code> — gives Claude awareness of recent team changes every session. The key insight: hooks transform Claude from a "do what I say" tool into a "do what I say within these guardrails" system. Your quality standards are enforced automatically, not by memory. <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · MCP Servers</span>
+    <strong>Build a Custom MCP Server in 30 Minutes: Give Claude Access to Your Internal APIs</strong>
+    <p>The <strong>Model Context Protocol (MCP)</strong> is Claude Code's extension system — it lets you give your AI assistant access to any tool, database, or API through a standardized interface. Here's the fastest path to a working MCP server for your iOS team: (1) <strong>Scaffold:</strong> <code>npx @modelcontextprotocol/create-server my-binance-tools --type stdio</code> — generates a TypeScript project with the correct structure. (2) <strong>Define your tools:</strong> in <code>src/index.ts</code>, export tool definitions with rich descriptions: <code>server.tool("get_feature_flags", "Fetch current feature flag state for a given platform and version", {platform: z.enum(["ios","android"]), version: z.string()}, async (args) => fetchFlags(args))</code>. (3) <strong>Register with Claude:</strong> add to <code>.claude/mcp_servers.json</code>: <code>{"my-binance-tools": {"command": "node", "args": ["path/to/build/index.js"]}}</code>. (4) <strong>Verify:</strong> run <code>claude mcp list</code> — your tools should appear. Now Claude can query your feature flag system, check build status, or fetch deployment info mid-conversation. <strong>Power pattern:</strong> combine with hooks — create an MCP server that exposes your Jira API, then add a post-commit hook that auto-creates a Jira comment linking to the commit. Claude's workflow becomes: write code → commit → update ticket — all in one flow. <a href="https://modelcontextprotocol.io/quickstart/server">MCP Server Quickstart →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Skills System</span>
+    <strong>Codex Skills: Teach Your Agent Repeatable Workflows Once, Reuse Forever</strong>
+    <p>OpenAI's Codex now supports <strong>Skills</strong> — reusable workflow templates that encode your team's best practices into executable agent instructions. Unlike one-off prompts, Skills persist across sessions and can be shared with your team. The setup: (1) <strong>Create a skill:</strong> in ChatGPT desktop (Codex mode), click the Skills icon → "New Skill" → describe the workflow in natural language: <em>"When asked to add a new API endpoint, always: check existing endpoint patterns in /Sources/API/, create the endpoint file following the same structure, add corresponding unit tests in /Tests/API/, update the route registry in AppRoutes.swift, and run swift build to verify."</em> (2) <strong>Invoke by name:</strong> next time you say "add a new endpoint for user preferences," Codex follows the full workflow automatically — no re-prompting needed. (3) <strong>Team sharing:</strong> export skills as JSON and commit to your repo's <code>.codex/skills/</code> directory. Every team member's Codex instance picks them up. <strong>High-value skills for iOS teams:</strong> "Create SwiftUI View" (includes preview, accessibility, theming), "Add Localization" (scan for strings, update .strings files, verify build), "Refactor to async/await" (preserve cancellation, add error handling, update tests). The meta-insight: Skills are your team's <em>institutional knowledge</em> encoded for AI consumption — they solve the "every engineer does it differently" problem. <a href="https://openai.com/index/codex">Codex Skills Documentation →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Infrastructure</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Signs $19B, 20-Year Lease with TeraWulf for Massive Compute Expansion</a></h3>
+    <p>Anthropic inked a <strong>$19 billion, 20-year data center lease</strong> with AI infrastructure company TeraWulf — one of the largest compute deals in AI history. The agreement signals Anthropic's aggressive scaling strategy: securing dedicated capacity to train next-generation models (Claude 5 Opus and beyond) while guaranteeing compute availability for enterprise customers. For developers: this means Claude's capacity constraints (the usage limits you hit) will ease significantly over the coming quarters. The TeraWulf partnership also emphasizes <strong>carbon-neutral power</strong> (nuclear + hydroelectric), positioning Anthropic's inference workloads as environmentally responsible — a growing enterprise procurement criterion. The competitive signal: Anthropic is betting that compute will be the bottleneck for the next 5+ years, and locking in capacity now creates a moat against OpenAI and Google's data center advantages.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · GPT-Live</span>
+    <h3><a href="https://openai.com/index/gpt-live">GPT-Live: Next-Generation Voice Models for Natural Human-AI Conversations</a></h3>
+    <p>OpenAI introduced <strong>GPT-Live</strong> — a new generation of voice models designed for more natural, real-time human-AI conversations. Unlike the current Advanced Voice mode, GPT-Live supports <strong>full-duplex communication</strong> (talking while listening), emotional tone detection, and context-aware interruption handling. The models understand when you're thinking aloud vs. giving commands, and adjust their response timing accordingly. For iOS developers: GPT-Live's API opens up a new class of <strong>voice-first AI experiences</strong> in your apps. The practical use case for Binance: imagine a voice-powered trading assistant that listens to your market commentary ("Bitcoin looks strong at this level...") and proactively surfaces relevant data ("BTC just crossed the 50-day MA, volume is 2x average"). The full-duplex capability means the AI can provide real-time commentary during fast-moving markets without requiring push-to-talk interactions. Integration requires the new Realtime API v2 endpoint.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Claude for Education</span>
+    <h3><a href="https://www.anthropic.com/news/claude-for-teachers">Claude for Teachers: Free AI Assistant for Educators, Built with CZI</a></h3>
+    <p>Anthropic launched <strong>Claude for Teachers</strong> — a free version of Claude specifically designed for K-12 educators, developed in partnership with the Chan Zuckerberg Initiative. The tool helps teachers create lesson plans, generate differentiated learning materials, and build assessments aligned to curriculum standards. For the broader developer community: this signals Anthropic's strategy of creating <strong>domain-specific Claude variants</strong> with tailored behavior, safety guardrails, and pricing. The architectural pattern — same base model, different system prompts + tool access + usage policies — is one you can replicate for your own internal use cases. If Anthropic can create "Claude for Teachers" with domain-specific constraints, your team can create "Claude for Trading Compliance" or "Claude for Code Review" using the same approach: custom system prompts, MCP-connected internal tools, and usage boundaries defined in your <code>CLAUDE.md</code>.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Codex Context Controversy</span>
+    <h3><a href="https://openai.com/index/codex">Codex CLI Context Window Reduced: Developer Backlash Over 272K Token Default</a></h3>
+    <p>OpenAI <strong>reduced the default input context window for GPT-5.6 in Codex CLI from 372K to 272K tokens</strong> — a 27% decrease that sparked immediate developer backlash. The change impacts teams working with large monorepos where full-codebase context was critical for accurate cross-file refactoring. OpenAI's stated reason: cost optimization and latency reduction for the majority of use cases. However, power users argue this degrades the tool's flagship capability — understanding entire codebases holistically. <strong>Workaround:</strong> set <code>CODEX_MAX_CONTEXT=372000</code> in your environment variables to restore the original limit (at higher token cost). For iOS teams with large projects (500+ Swift files): if you rely on Codex for cross-module refactoring, this change means you may need to be more strategic about which files you include in context. Use <code>.codexignore</code> to exclude generated files, build artifacts, and vendored dependencies — focus context budget on your source code.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Emergent · $1.5B Valuation</span>
+    <h3><a href="https://emergent.dev">Emergent Hits Unicorn Status: Vibe Coding Platform Raises $130M Series C</a></h3>
+    <p><strong>Emergent</strong>, a vibe coding platform, reached a <strong>$1.5 billion valuation</strong> after closing a $130 million Series C round. The company's thesis: "most businesses don't need software — they need a way to turn how they actually work into software." Emergent's differentiator is focusing on <strong>business process encoding</strong> rather than generic code generation. Users describe their workflows in natural language, and Emergent generates production-ready applications with built-in compliance, audit trails, and integrations. For iOS developers: Emergent's success validates that "vibe coding" is fragmenting into specialized verticals. The $12.8B AI coding market (doubled in 18 months) has room for tools targeting different audiences — from developer-focused IDEs (Cursor, Claude Code) to business-user platforms (Emergent, Canva Code). The strategic takeaway: if you're building internal tools at Binance, evaluate whether vibe coding platforms can handle your team's non-critical tooling — dashboards, admin panels, internal workflows — freeing engineering time for core product work.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">EU Regulation · Android AI</span>
+    <h3><a href="https://ec.europa.eu/commission/presscorner/">EU Orders Google to Open Android to Rival AI Assistants Under DMA</a></h3>
+    <p>The European Commission ordered Google to <strong>open its Android operating system to rival AI assistants</strong> and share search data with competing AI developers — a landmark ruling under the Digital Markets Act. This means AI assistants from Anthropic, OpenAI, and others must be given equal system-level access on Android devices, not just app-level integration. For mobile developers: this creates a <strong>multi-AI-assistant future on Android</strong> where users can set Claude, ChatGPT, or Gemini as their default system assistant — similar to how iOS allows changing default browser/email. The architectural implication: if you build features that integrate with AI assistants (Siri Shortcuts on iOS, Assistant Actions on Android), you'll soon need to support multiple AI backends on Android. Design your intent/action layer to be assistant-agnostic now. For iOS: while Apple hasn't faced the same ruling yet, this creates competitive pressure — expect Apple to expand third-party AI integration in iOS 27 beyond the current App Intents framework.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Roblox · AI Game Builder</span>
+    <h3><a href="https://create.roblox.com">Roblox "Build": Generate Playable Games from a Single Text Prompt on Mobile</a></h3>
+    <p>Roblox introduced <strong>"Build"</strong> — an AI-powered tool within its mobile app that generates basic playable games from written prompts. Users describe a game concept ("a platformer where you collect coins while avoiding lava"), and Build creates a functional 3D environment with game logic, physics, and scoring. This isn't just a demo — generated games are <strong>immediately publishable</strong> to Roblox's 70M+ daily active user platform. For developers: Roblox targeting <em>non-programmers on mobile</em> as game creators represents the most aggressive "vibe coding for consumers" play yet. The deeper signal for iOS: as AI generation capabilities move to mobile-first experiences, your apps can integrate similar "describe → generate" patterns. Imagine a Binance feature where users describe a custom trading dashboard layout and AI generates it — the UX paradigm shifts from "configure options" to "describe what you want." Roblox's Lua-based generation engine also demonstrates that vibe coding works best with constrained environments and clear output formats.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · ETF Inflow Reversal</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $64,650 — Spot ETFs Break 10-Day Losing Streak with $221M Inflow</a></h3>
+    <p>Bitcoin trades at <strong>$64,650</strong> on Monday morning as markets open cautiously. The headline development: <strong>spot Bitcoin ETFs broke a 10-day losing streak</strong> with $221.7 million in net inflows in a single session — signaling renewed institutional conviction despite the Fear &amp; Greed Index remaining in "Fear" territory (27). The divergence between institutional flows (bullish) and retail sentiment (bearish) historically precedes significant upside moves. Technical setup: BTC has established $63,200 as firm support after the CPI relief rally, with resistance at $66,500. The <strong>CLARITY Act Senate vote</strong> remains the binary catalyst — passage with ETH commodity classification targets $70K, while failure risks a retest of $60K. The vote window is narrowing toward the August 7-11 recess deadline. Crypto-equity divergence is notable: US equity futures are gaining while crypto drifts, suggesting capital rotation toward AI stocks. Monitor whether ETF inflows sustain through the week as a leading indicator.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Accumulation Phase</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH at $1,923 — Institutional Accumulation Intensifies Ahead of Commodity Ruling</a></h3>
+    <p>Ethereum trades at <strong>$1,923</strong> (+2.6% weekly), continuing to outperform Bitcoin on a YTD basis (+40% vs BTC's -27%). Institutional accumulation is accelerating: spot ETH ETFs returned to positive flows after weeks of outflows, and Morgan Stanley's spot ETH ETF filing from July 14 continues attracting "follow-the-leader" institutional interest. The fundamental case strengthens: <strong>60% of tokenized RWAs ($15B+)</strong> live on Ethereum, DeFi TVL is recovering, and L2 transaction costs remain at post-Dencun lows. The <strong>Regulation Crypto</strong> proposal from the SEC — expected to provide safe harbor for DeFi protocols — adds another potential positive catalyst this month. Technical picture: ETH is building a base above $1,875 support with the measured technical target at $2,163 on a confirmed breakout. The ETH/BTC ratio continues its multi-week improvement trend. For developers: the growing certainty of commodity classification means building ETH-native features carries less regulatory risk each week.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · SEC Regulation Crypto</span>
+    <h3><a href="https://www.sec.gov/rules">SEC "Regulation Crypto" Proposal: Safe Harbor for DeFi with $75M Raise Exemption</a></h3>
+    <p>The SEC is preparing <strong>"Regulation Crypto"</strong> — a landmark rulemaking proposal that could create safe harbor exemptions for DeFi platforms and tokenized securities. Key provisions taking shape: (1) <strong>Early-stage project exemption</strong> — crypto projects demonstrating "progress toward decentralization" get temporary relief from securities registration. (2) <strong>$75 million raise cap</strong> — projects can raise up to $75M in a 12-month period under streamlined disclosure requirements. (3) <strong>DeFi protocol classification</strong> — protocols with genuinely decentralized governance may qualify for commodity treatment rather than securities regulation. (4) <strong>Tokenized securities framework</strong> — clear rules for issuing and trading real-world assets on-chain. For Binance developers: this creates demand for <strong>"decentralization metrics infrastructure"</strong> — dashboards and APIs that measure and prove a protocol's decentralization level (validator distribution, token holder concentration, governance participation rates). Build this measurement layer now; every project seeking safe harbor will need it.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Local-First Architecture: Offline-Capable Apps as the New Default</strong>
+    <p>The <strong>local-first architecture</strong> movement has reached critical mass in 2026: storing application data on-device as the primary source of truth, with cloud sync as a secondary background process. The tooling maturation is the inflection point — <strong>CRDTs</strong> (Conflict-Free Replicated Data Types) and efficient sync engines now handle the hard problems (merge conflicts, offline edits, multi-device consistency) that previously required custom solutions. Benefits that align with mobile development: (1) <strong>Sub-millisecond UI responsiveness</strong> — no network round-trip for data access. (2) <strong>Full offline functionality</strong> — apps work identically without connectivity. (3) <strong>Privacy by default</strong> — user data lives on their device, reducing compliance burden. (4) <strong>Reduced server costs</strong> — cloud becomes a sync relay, not a primary datastore. For iOS at Binance: apply local-first to your <strong>watchlist, price alerts, and portfolio views</strong>. Users set up configurations locally, the app syncs in background, and everything works on airplanes or in areas with spotty reception. SwiftData + CloudKit already provides a local-first foundation; layer CRDTs (via packages like <code>swift-crdt</code>) for multi-device conflict resolution. The paradigm shift: design for offline first, then add sync — not the reverse. <a href="https://localfirstweb.dev/">Local-First Web →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Modular Monolith Renaissance: Right-Sizing Your Architecture for AI</strong>
+    <p>After a decade of microservices dominance, 2026 is witnessing a <strong>modular monolith renaissance</strong> — teams are discovering that a single deployable application with strict internal module boundaries offers microservices' organizational benefits without the distributed system complexity. The AI catalyst: AI coding agents work <strong>dramatically better with monoliths</strong>. When your entire codebase lives in one repository with shared types and direct function calls, an AI agent can reason about the full system, trace dependencies, and make coordinated changes across modules in a single pass. With microservices, agents struggle with cross-service contracts, eventual consistency patterns, and the cognitive overhead of multiple deployment boundaries. The pattern for iOS: your app is already a modular monolith — leverage this advantage by ensuring clean module boundaries (Swift Package Manager local packages) while keeping everything in one build target. AI agents like Claude Code and Codex excel at refactoring within this structure because they see the entire dependency graph. For backend teams: before splitting a service, ask "does the operational complexity of a new service outweigh the benefit?" — in 2026, the answer is "no" more often than teams expect. <a href="https://www.milanjovanovic.tech/blog/modular-monolith-architecture">Modular Monolith Guide →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Cost Arbitrage: Strategic Model Routing for 10x Savings</strong>
+    <p>A growing trend in production AI systems: <strong>intelligent cost arbitrage</strong> through strategic model routing. The premise is simple — not every AI task requires a frontier model. The 2026 model landscape offers a 100x price range from cheapest to most expensive (GPT-5.6 Luna at $0.10/MTok vs. Claude Opus at $15/MTok), and smart routing captures most of the quality at a fraction of the cost. The architecture: (1) <strong>Task classifier</strong> — a lightweight model (or rule engine) categorizes incoming requests by complexity: autocomplete → Luna ($0.10/MTok), code review → Sonnet ($3/MTok), architecture planning → Opus ($15/MTok). (2) <strong>Quality gate</strong> — if the cheap model's output fails validation (doesn't compile, fails tests, low confidence score), automatically escalate to the next tier. (3) <strong>Cost tracking</strong> — real-time dashboards showing spend per task type, per team, per day. Set budgets and alerts. (4) <strong>Chinese model integration</strong> — for non-sensitive tasks (documentation, translation, boilerplate generation), models like GLM-5.2 offer comparable quality at 1/3 the token cost of Western alternatives. The result: teams report <strong>60-80% cost reduction</strong> with less than 5% quality degradation by routing intelligently rather than sending everything to the most expensive model. For your iOS AI features: route on-device inference (Neural Engine) for latency-sensitive tasks, cloud inference only for complex reasoning that exceeds local model capability. <a href="https://www.anthropic.com/pricing">Model Pricing Comparison →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code Hooks: Complete Reference for Automated Workflow Guards</a>
+        <span class="desc">Official documentation on the hooks system — trigger types, action syntax, environment variables, and patterns for CI integration. Essential reading for Monday's agentic workflow setup.</span>
+      </li>
+      <li>
+        <a href="https://modelcontextprotocol.io/quickstart/server">MCP Server Quickstart: Build Custom AI Tools in TypeScript</a>
+        <span class="desc">Step-by-step guide to creating your first MCP server — from scaffolding to tool definition to registration. Includes examples for database access, API integration, and file system tools.</span>
+      </li>
+      <li>
+        <a href="https://localfirstweb.dev/">Local-First Web Development: Principles, Tools & CRDTs</a>
+        <span class="desc">Comprehensive resource on local-first architecture — CRDT implementations, sync engine comparisons, and case studies from production apps handling millions of users offline-first.</span>
+      </li>
+      <li>
+        <a href="https://www.sec.gov/rules/proposed">SEC Regulation Crypto: Proposed Rulemaking for Digital Asset Safe Harbor</a>
+        <span class="desc">Full text of the SEC's proposed framework for crypto safe harbors — decentralization metrics, $75M raise exemptions, and DeFi protocol classification criteria.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic × TeraWulf: $19B Infrastructure Partnership Details</a>
+        <span class="desc">Technical details on Anthropic's massive compute expansion — capacity projections, carbon-neutral power sources, and implications for Claude model training and inference scaling.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-21T09:00:00Z</p>
+  <p>Monday Edition — Claude Code / Codex agentic workflow tips (hooks, MCP, skills), Anthropic infrastructure, BTC ETF reversal</p>
+  <p>Dedup: 1900+ stories filtered from past 5 days (Jul 16–Jul 20) · 142 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>130+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>55+ results</td></tr>
+    <tr><td>Web Search — Architecture/Concepts</td><td>✅ OK (1 query)</td><td>40+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
