@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-23</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, July 23, 2026 — Cursor Router, Anthropic × AMD $5B Deal &amp; On-Device AI Goes Mainstream</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-Device ML: Apple Neural Engine, MLX &amp; ONNX Mobile</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">NVIDIA · Cosmos 3 Edge</span>
+    <strong>NVIDIA Cosmos 3 Edge: Deploy a 4B-Parameter Omnimodel On-Device for iOS</strong>
+    <p>NVIDIA released <strong>Cosmos 3 Edge</strong> — a 4-billion-parameter "omnimodel" optimized specifically for on-device deployment on mobile and edge hardware. Unlike cloud-only multimodal models, Cosmos 3 Edge runs entirely on-device, handling vision, language, and spatial reasoning in a single model binary. <strong>Why this matters for iOS developers:</strong> at 4B parameters with aggressive 4-bit quantization, Cosmos 3 Edge fits within 2-3GB of memory — well within iPhone 15 Pro and newer's unified memory budget. The practical workflow: (1) <strong>Export to CoreML</strong> using NVIDIA's conversion toolkit — Cosmos 3 Edge ships with official CoreML export support targeting Apple Neural Engine dispatch. (2) <strong>Use cases on-device:</strong> real-time image understanding (scan a QR code AND understand what's around it), multimodal search (describe what you're looking for with text + partial image), and on-device document parsing without uploading sensitive data. (3) <strong>Benchmark baseline:</strong> on M5 Max hardware (614 GB/s bandwidth), expect ~45 tokens/sec generation; on iPhone 16 Pro's Neural Engine, approximately 12-15 tokens/sec for text and 3-4 frames/sec for vision tasks. (4) <strong>Integration pattern:</strong> wrap Cosmos 3 Edge behind your existing <code>ModelProvider</code> protocol as a local-first inference option, with cloud fallback for queries exceeding its capability. The 4B parameter sweet spot is intentional — large enough for useful reasoning, small enough for consumer hardware. <a href="https://developer.nvidia.com/cosmos">NVIDIA Cosmos →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Quantization · 4-Bit Standard</span>
+    <strong>The 2026 On-Device Deployment Recipe: Quantize to 4-Bit, Target Neural Engine, Ship</strong>
+    <p>On-device model deployment has settled into a clear <strong>standard recipe in 2026</strong> — and if you're not following it, you're leaving performance on the table. The steps: (1) <strong>Start with a 7B or smaller model</strong> — MLX community has proven that 7B models (Llama 3.3, Mistral 7B, Phi-4) quantized to 4-bit deliver GPT-4-level quality for domain-specific tasks after fine-tuning. (2) <strong>Quantize with GPTQ or AWQ to 4-bit:</strong> use <code>mlx-lm quantize --model your-finetuned-model --bits 4</code> — this reduces memory footprint 4× and memory traffic 4× per generated token. A 7B model goes from 14GB (FP16) to 3.5GB (4-bit). (3) <strong>Convert to CoreML with <code>coremltools</code>:</strong> target the Neural Engine compute unit — this is critical. If you leave the default (CPU/GPU), you waste the most efficient accelerator on Apple Silicon. Use <code>ct.convert(model, compute_units=ct.ComputeUnit.ALL)</code> and let the runtime dispatch optimally. (4) <strong>Fine-tune with QLoRA for your domain:</strong> instead of deploying a generic model, fine-tune a LoRA adapter (typically 50-100MB) on your specific use case (trading terminology, Binance-specific patterns) and deploy the adapter separately. This means OTA updates are tiny — you're updating a 50MB adapter, not a 3.5GB base model. (5) <strong>Measure memory bandwidth, not TOPS:</strong> the key insight of 2026 — for autoregressive generation, memory bandwidth is the bottleneck. Profile with Instruments → Metal System Trace to verify your model is bandwidth-bound on Neural Engine, not compute-bound on CPU. <a href="https://developer.apple.com/documentation/coreml">CoreML Documentation →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ExecuTorch · Cross-Platform Edge</span>
+    <strong>ExecuTorch 2.0: Meta's Cross-Platform Edge AI Framework Hits Production Maturity</strong>
+    <p><strong>ExecuTorch 2.0</strong> (Meta's successor to PyTorch Mobile) has reached production maturity in 2026, offering the most complete cross-platform edge AI deployment story outside Apple's ecosystem. <strong>When to use ExecuTorch vs CoreML:</strong> CoreML is optimal when targeting Apple hardware exclusively (best Neural Engine utilization). ExecuTorch wins when you need (a) cross-platform deployment (iOS + Android from a single model pipeline), (b) custom operator support beyond what CoreML handles, or (c) models trained in PyTorch that don't convert cleanly to CoreML. <strong>Practical setup for iOS:</strong> (1) Install via SPM: <code>.package(url: "https://github.com/pytorch/executorch", from: "2.0.0")</code>. (2) Export your model: <code>torch.export.export(model, args) | to_edge() | to_executorch()</code> — the pipeline automatically applies quantization and delegates operations to Apple's Neural Engine via CoreML backend or Metal backend. (3) <strong>Key feature — dynamic shapes:</strong> ExecuTorch 2.0 supports dynamic input shapes natively, meaning your model can handle variable-length sequences (chat history, varying document lengths) without padding tricks. CoreML requires fixed shapes or enumerated shape sets. (4) <strong>Benchmark tip:</strong> compare ExecuTorch's Metal delegate vs CoreML export for your specific model — in many cases CoreML still wins by 15-20% on Apple Silicon due to tighter hardware integration, but ExecuTorch offers more deployment flexibility. <a href="https://pytorch.org/executorch/">ExecuTorch Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · AMD Partnership</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic × AMD: $5B Strategic Investment with 2GW of MI450 GPUs Deployed</a></h3>
+    <p>Anthropic announced a landmark partnership with <strong>AMD</strong> this week — AMD will deploy up to <strong>2 gigawatts of Instinct MI450 Series GPUs</strong> for Anthropic's infrastructure, with the first phase beginning H1 2027. As part of the deal, AMD committed a <strong>$5 billion strategic equity investment</strong> in Anthropic plus a multi-year engineering collaboration to optimize AI workloads for AMD hardware. <strong>Why this matters for developers:</strong> this diversifies Anthropic's compute away from NVIDIA dependency, which historically caused capacity constraints during peak usage. The practical implication: Claude's infamous rate limits should ease substantially as AMD capacity comes online. Combined with last week's $19B TeraWulf lease, Anthropic is now securing compute from three independent sources (NVIDIA via TeraWulf, AMD direct, and existing Google Cloud TPU access). For teams budgeting Claude API usage: the supply expansion signals that Claude pricing may stabilize or decrease over the next 12 months as compute scarcity eases. Plan your AI feature roadmaps assuming more generous rate limits by Q1 2027.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Presence Platform</span>
+    <h3><a href="https://openai.com/index/presence">OpenAI Launches "Presence": Connect AI Agents to Enterprise Internal Systems</a></h3>
+    <p>OpenAI unveiled <strong>Presence</strong> — a new enterprise platform designed to connect AI agents to a company's internal systems with consistent behavior across channels. Unlike standalone API integrations, Presence provides a unified framework where AI agents maintain <strong>context and personality consistency</strong> whether they're responding via Slack, email, internal dashboards, or customer-facing interfaces. Early adopters include BBVA, SoftBank, and IAG. <strong>For engineering teams:</strong> Presence addresses the "AI agent fragmentation" problem — when you deploy Claude for code review, GPT for customer support, and Gemini for data analysis, each operates in isolation with different context and behavior standards. Presence creates a <strong>shared agent identity layer</strong> that ensures all AI touchpoints follow the same policies, access the same knowledge base, and maintain conversation continuity across platforms. The architecture: a central "presence server" that manages agent state, tool registrations, and policy enforcement — similar to MCP but at the organization level rather than the developer workstation level. For Binance: this pattern is exactly what's needed for consistent AI behavior across trading, compliance, and customer support interfaces.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Smart Router</span>
+    <h3><a href="https://docs.cursor.com">Cursor Router: AI-Powered Model Selection Cuts Enterprise Costs 30-50%</a></h3>
+    <p>Cursor announced <strong>Cursor Router</strong> on July 22 — an intelligent model routing system that analyzes each user request and automatically dispatches it to the optimal model. The router offers three modes: <strong>"Intelligence"</strong> (always routes to the most capable model), <strong>"Balance"</strong> (optimizes quality-to-cost ratio), and <strong>"Cost"</strong> (minimizes spend while maintaining acceptable quality). Enterprise early adopters report <strong>30-50% cost reduction</strong> without perceived quality degradation. <strong>How it works technically:</strong> the router classifies each request by task complexity (autocomplete vs. refactoring vs. architecture), required context depth (single-file vs. multi-file vs. full-codebase), and confidence threshold. Simple autocomplete goes to a fast, cheap model; multi-file refactoring goes to Claude Sonnet or GPT-5.6 Sol. The key innovation: the router <em>learns from your acceptance rate</em> — if you consistently reject suggestions from cheaper models for certain task types, it automatically upgrades those task types to a higher tier. Available on Teams and Enterprise plans across all platforms. <strong>For individual developers:</strong> this validates the "multi-model routing" architecture pattern we've been tracking — Cursor is now building it at the IDE level so you don't have to.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · GPT-5.4 Retired Today</span>
+    <h3><a href="https://openai.com/docs/deprecations">GPT-5.4 Model Retirement Effective Today — Verify Your CI Pipelines</a></h3>
+    <p>Today, July 23, 2026, is the <strong>official retirement date for GPT-5.4 and all legacy Codex model snapshots</strong> prior to GPT-5.5. API calls to retired model endpoints will return errors starting today. <strong>Action items if you haven't migrated:</strong> (1) Search your codebase for any hardcoded model strings: <code>grep -r "gpt-5.4\|gpt-4-turbo\|codex-2025" .github/ fastlane/ scripts/</code>. (2) Replace with GPT-5.6 family endpoints — Luna for high-volume (autocomplete, CI checks), Terra for balanced daily use, Sol for complex reasoning. (3) Test your prompt templates — GPT-5.6 handles structured output differently from older models; JSON mode and function calling schemas may need adjustment. (4) Update any pinned model versions in <code>.cursorrules</code> or <code>.windsurf/settings</code> that reference deprecated endpoints. The silver lining: GPT-5.5 remains available as a stable fallback, and the new Codex CLI (updated July 21) now supports <strong>Amazon Bedrock</strong> as an alternative backend — useful if you want vendor redundancy in your AI tooling.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Antigravity IDE</span>
+    <h3><a href="https://developers.google.com/antigravity">Google Antigravity: Agent-First IDE Enters Free Public Preview</a></h3>
+    <p>Google's <strong>Antigravity</strong> IDE — an agent-first development environment that coordinates multiple AI agents across a codebase — is now in <strong>free public preview</strong> as of July 2026. Unlike Cursor or Windsurf which add AI to an existing editor paradigm, Antigravity is built from scratch around the premise that <strong>AI agents are the primary actors</strong> and humans are reviewers/orchestrators. The architecture: you describe a project goal, Antigravity spawns specialized agents (architecture agent, implementation agent, test agent, review agent) that collaborate in a shared workspace with dependency awareness. <strong>Why developers should try it this week:</strong> (1) It's free during preview — compare against your Cursor/Claude Code workflow on a real project. (2) The multi-agent coordination solves a genuine pain point: single-agent tools struggle with tasks that require both breadth (understanding the full system) and depth (implementing one component correctly). (3) Google's Gemini models power it natively, meaning deep integration with Gemini's 2M-token context and code understanding. (4) For iOS developers: Antigravity supports Xcode project structures and can reason about Info.plist, entitlements, and framework dependencies — areas where other AI IDEs often hallucinate.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Rider 2026.2</span>
+    <h3><a href="https://www.jetbrains.com/rider/whatsnew/">JetBrains Rider 2026.2: Native AI Agent Integration with IDE Intelligence</a></h3>
+    <p>JetBrains released <strong>Rider 2026.2</strong> in July with a significant paradigm shift: AI coding agents now <strong>integrate directly with the IDE's own intelligence</strong> rather than working from raw text files. This means agents like GitHub Copilot (now natively integrated) can leverage Rider's semantic understanding — type system knowledge, refactoring capabilities, test runner integration, and code inspection results — producing dramatically more accurate suggestions. <strong>The broader signal for all JetBrains users:</strong> this pattern will propagate to IntelliJ IDEA, AppCode (for iOS developers), and other JetBrains IDEs in subsequent releases. The architectural insight: AI agents working with IDE-level semantic understanding produce fewer errors than agents reading raw source files. When the agent knows that a method signature changed and <em>all callers</em> need updating (via IDE's type system), it doesn't miss edge cases the way text-based agents do. <strong>For your workflow decision:</strong> if you use JetBrains IDEs, this narrows the gap with Cursor significantly. The trade-off shifts from "Cursor has better AI" to "JetBrains has better code intelligence + decent AI" — evaluate based on which bottleneck matters more for your codebase.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Codex CLI · Bedrock + Settings Import</span>
+    <h3><a href="https://openai.com/index/codex">Codex CLI Update: Amazon Bedrock Support &amp; Import Settings from Cursor/Claude Code</a></h3>
+    <p>OpenAI's Codex CLI received a notable update on July 21, 2026, adding two features that reduce vendor lock-in: <strong>experimental Amazon Bedrock support</strong> and <strong>settings import from Cursor and Claude Code</strong>. The Bedrock integration means Codex CLI can route to any model available on AWS Bedrock (Anthropic Claude, Meta Llama, Mistral) while maintaining Codex's UI and workflow. The settings import reads your <code>.cursor/rules</code> or <code>CLAUDE.md</code> files and converts them to Codex-compatible configuration — reducing the friction of trying Codex as an alternative without reconfiguring your entire workflow from scratch. <strong>Why this matters:</strong> the AI coding tool market is consolidating around interoperability. If you can import your context engineering artifacts (rules, system prompts, tool configurations) between tools, switching costs drop to near-zero. The strategic implication: invest time in writing <em>great</em> context documents (CLAUDE.md, .cursorrules) because they're becoming portable across the ecosystem — your context engineering is tool-agnostic intellectual property.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Consolidation</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $65,882 — Consolidating Below $66.5K Resistance After Weekly Rally</a></h3>
+    <p>Bitcoin dipped <strong>0.82% to $65,882</strong> on July 23 as the market enters a consolidation phase following last week's rally to $66,600. The price action suggests profit-taking near the $66,500 resistance level that capped gains yesterday. The macro backdrop is mixed: <strong>UK CPI cooling to 2.6%</strong> (supportive for risk assets globally) versus the <strong>US Federal Reserve hinting at a potential September rate hike</strong> due to persistent inflation — a headwind for speculative assets. The Fear &amp; Greed Index sits at <strong>40 (Neutral)</strong>, significantly improved from last week's "Fear" reading of 27, reflecting the sentiment reset from the ETF inflow streak. <strong>Technical picture:</strong> BTC is building a new support base at $65,000 (previous resistance now flipped to support). The $66,500-$67,000 zone remains the key barrier — a clean break targets the psychologically important $70K level. Downside risk: if the Fed's hawkish tone firms up before the September meeting, expect a retest of $64,000 support. For the technically-minded: the MVRV ratio confirms BTC is not in overvalued territory, and exchange reserves continue declining — constructive for a breakout when a catalyst arrives.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Holding $1,900</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH Holds $1,928 — July Rally Intact as EU Sanctions Create New Compliance Layer</a></h3>
+    <p>Ethereum trades at <strong>$1,928</strong> (-0.31%), holding firmly above the $1,900 level reclaimed earlier this week. The July rally remains intact with ETH up over 20% month-to-date. New development: the <strong>European Union is finalizing sanctions targeting Russian banks and crypto platforms</strong>, introducing new cross-border compliance requirements for exchanges and DeFi protocols operating in or serving EU users. <strong>For Binance developers:</strong> this creates immediate infrastructure demand for (1) <strong>geo-fencing at the smart contract level</strong> — programmatic enforcement of sanctions compliance within DeFi interactions, not just at the exchange UI layer. (2) <strong>Real-time sanctions list screening</strong> — integrating OFAC/EU sanctions lists into transaction validation pipelines with sub-second latency. (3) <strong>Cross-jurisdictional compliance routing</strong> — different compliance rules for EU vs. US vs. APAC users interacting with the same liquidity pools. The technical challenge: implementing sanctions compliance that doesn't break DeFi composability or create prohibitive gas costs. Solutions using off-chain attestations with on-chain verification (similar to Worldcoin's approach) are emerging as the architectural pattern.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Market · Macro Crosswinds</span>
+    <h3><a href="https://www.theblock.co">Crypto Markets Navigate Dual Macro Signals: UK Easing vs. US Hawkishness</a></h3>
+    <p>The crypto market is caught between <strong>conflicting macro signals</strong> on July 23: the UK's cooling CPI (2.6%) eases global rate pressure and supports risk-on positioning, while the US Fed's increasingly hawkish rhetoric about a potential September rate hike creates headwinds. Total crypto market cap sits at <strong>$2.25 trillion</strong> (-0.67% today). The divergence creates an interesting trading environment — markets are no longer moving in lockstep with a single narrative. <strong>Key calendar events this week:</strong> Hey ANON DAO vote opens today, Chia Toronto 2026 community gathering, and Web3 Investor Day 2026 in Chicago (focusing on digital asset tokenization). The tokenization theme continues gaining momentum — institutional interest in RWAs on Ethereum remains the strongest fundamental driver for ETH's outperformance. <strong>For developers tracking market structure:</strong> the "dual signal" environment means your trading analytics need to weight regional macro data independently rather than using a single "risk-on/risk-off" binary. Build separate signal channels for US monetary policy, EU/UK policy, and Asia liquidity conditions.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Intelligent Model Routing: The Infrastructure Pattern Every AI App Needs Now</strong>
+    <p>Cursor Router's launch this week crystallizes a pattern that's becoming <strong>mandatory infrastructure for any AI-powered application</strong>: intelligent model routing as a first-class architectural component. The concept: instead of hardcoding a single model for all AI tasks, build a routing layer that classifies each request and dispatches to the optimal model based on complexity, latency requirements, cost constraints, and quality thresholds. <strong>The 2026 routing taxonomy:</strong> (1) <strong>Tier 0 — Rule engine:</strong> no AI needed, use deterministic logic (regex, simple lookups). $0 cost. (2) <strong>Tier 1 — Edge models:</strong> on-device inference via CoreML/MLX for latency-critical, privacy-sensitive tasks. ~$0 marginal cost. (3) <strong>Tier 2 — Fast cloud:</strong> GPT-5.6 Luna, Gemini Flash, GLM-5.2 for high-volume tasks ($0.10-0.30/MTok). (4) <strong>Tier 3 — Balanced:</strong> Claude Sonnet 5, GPT-5.6 Terra for complex tasks requiring quality ($3-5/MTok). (5) <strong>Tier 4 — Frontier:</strong> Claude Opus, GPT-5.6 Sol for architecture-level reasoning ($15/MTok). <strong>Implementation for iOS:</strong> create a <code>RequestClassifier</code> that scores incoming tasks on a complexity axis (0-100) and routes accordingly. The classifier itself can be a cheap Tier 2 model call or even a local heuristic. Cursor proves the ROI: 30-50% cost reduction with maintained quality. Every AI app shipping in 2027 will have this layer — build yours now. <a href="https://docs.cursor.com/router">Cursor Router Docs →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Agent Interoperability: Context Engineering as Portable IP</strong>
+    <p>This week's Codex CLI update (importing settings from Cursor and Claude Code) signals a <strong>paradigm shift in AI tool ownership</strong>: your context engineering artifacts — <code>CLAUDE.md</code>, <code>.cursorrules</code>, MCP server configurations, system prompts — are becoming <strong>portable intellectual property</strong> that transcends any single tool. The emerging pattern: invest heavily in writing excellent context documents because they work across the entire ecosystem. <strong>What this means architecturally:</strong> (1) <strong>Context documents are the new "dotfiles"</strong> — just as developers maintain portable shell configurations, AI developers will maintain portable context configurations that make any AI tool perform optimally for their specific codebase. (2) <strong>MCP as the universal tool protocol</strong> — MCP servers you build for Claude Code already work in Cursor, Windsurf, and now Codex. Your tool investment is tool-agnostic. (3) <strong>Context quality = competitive advantage</strong> — two developers using the same model with different context documents get vastly different output quality. The developer with superior context engineering produces 3-5x better results from identical models. (4) <strong>Team-level context libraries</strong> — organizations building shared context repositories (coding standards, architecture patterns, domain knowledge) create compounding advantages as AI tools improve. <strong>Action item:</strong> audit your context documents this week. Are they portable? Would they make sense to an AI tool you've never used? If yes, you've built durable IP. <a href="https://modelcontextprotocol.io">MCP Specification →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Memory Bandwidth Wall: Why On-Device AI Performance Is Actually About RAM, Not Chips</strong>
+    <p>A critical insight crystallizing in 2026's edge AI discourse: <strong>memory bandwidth is the true bottleneck for on-device generative AI</strong>, not compute power (TOPS/TFLOPS). Here's why this matters for your architectural decisions: autoregressive token generation requires reading the full model weights for every single token produced. At 4-bit quantization, a 7B model is ~3.5GB. Generating one token means reading 3.5GB from memory. At iPhone 16 Pro's ~100 GB/s memory bandwidth, that's ~35ms per token read — setting a hard ceiling of ~28 tokens/sec regardless of Neural Engine compute power. <strong>The implication for iOS developers:</strong> (1) <strong>Model selection should prioritize parameter efficiency over capability</strong> — a well-fine-tuned 3B model that fits in L2 cache will outperform a 7B model that's bandwidth-limited, for your specific task. (2) <strong>Speculative decoding becomes essential</strong> — use a tiny draft model (300M params, cached in SRAM) to predict likely next tokens, then verify batches against the larger model. This amortizes the bandwidth cost across multiple tokens. (3) <strong>Apple's unified memory architecture is the edge AI advantage</strong> — ARM CPUs with separate CPU/GPU memory can't compete with Apple Silicon's unified pool because every data copy between memory spaces adds latency. (4) <strong>Prompt caching is non-negotiable</strong> — for repeated inference patterns (same system prompt, similar user queries), cache the KV state to avoid recomputing from scratch. This single optimization can 3-4x your apparent throughput for conversational interfaces. Profile with Metal System Trace to find your specific bottleneck before optimizing. <a href="https://developer.apple.com/metal/">Apple Metal Documentation →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://developer.nvidia.com/cosmos">NVIDIA Cosmos 3 Edge: On-Device Omnimodel Deployment Guide</a>
+        <span class="desc">Technical documentation for deploying the 4B-parameter multimodal model on mobile hardware — CoreML export, quantization options, and benchmark results across Apple Silicon generations.</span>
+      </li>
+      <li>
+        <a href="https://docs.cursor.com/router">Cursor Router: Intelligent Model Selection Architecture</a>
+        <span class="desc">How Cursor's routing system classifies requests, learns from user acceptance rates, and achieves 30-50% cost reduction — the reference implementation for multi-model routing.</span>
+      </li>
+      <li>
+        <a href="https://pytorch.org/executorch/">ExecuTorch 2.0: Cross-Platform Edge AI Deployment</a>
+        <span class="desc">Meta's production-ready framework for deploying PyTorch models to mobile and edge devices — dynamic shape support, Metal delegate optimization, and comparison with CoreML for Apple hardware.</span>
+      </li>
+      <li>
+        <a href="https://developers.google.com/antigravity">Google Antigravity: Agent-First IDE Documentation</a>
+        <span class="desc">Architecture overview of Google's multi-agent IDE approach — how specialized agents coordinate on shared codebases, with native Xcode project support and 2M-token Gemini context.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic × AMD Partnership: Infrastructure Expansion Details</a>
+        <span class="desc">Full details on the $5B AMD investment, MI450 GPU deployment timeline, multi-year engineering collaboration, and what it means for Claude capacity and pricing trajectory.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-23T09:00:00Z</p>
+  <p>Thursday Edition — Edge AI/On-Device ML tips (Cosmos 3 Edge, 4-bit quantization, ExecuTorch), Anthropic×AMD $5B deal, Cursor Router, BTC consolidation at $65.8K</p>
+  <p>Dedup: 2100+ stories filtered from past 5 days (Jul 18–Jul 22) · 168 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (6/7 queries)</td><td>150+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (1 query)</td><td>55+ results</td></tr>
+    <tr><td>Web Search — Edge AI/Concepts</td><td>✅ OK (2 queries)</td><td>60+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
