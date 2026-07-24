@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-24</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, July 24, 2026 — Agentic RAG Matures, Codex Micro Hardware &amp; BitMEX Shutdown</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering: RAG, Tool Use &amp; Agent Architecture</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agentic RAG · Architecture</span>
+    <strong>Agentic RAG: Move Beyond Naive Retrieval with Self-Correcting Multi-Step Pipelines</strong>
+    <p>The "naive RAG" pattern (embed → retrieve → generate) is now considered a prototype-only approach in 2026. Production systems demand <strong>Agentic RAG</strong> — a multi-stage pipeline where an LLM agent orchestrates retrieval, evaluates quality, and self-corrects before generating output. Here's the architecture for your iOS app's knowledge features: (1) <strong>Query Transformation:</strong> before hitting your vector DB, route the user query through a lightweight model that rewrites it for optimal retrieval — expanding abbreviations, resolving pronouns, and generating sub-queries for complex questions. Use <code>claude-haiku</code> or <code>gpt-5.6-luna</code> for this step ($0.10/MTok). (2) <strong>Adaptive Retrieval Router:</strong> a classifier decides the retrieval strategy per query — simple factual lookups go to keyword search (BM25), semantic questions use vector similarity, and multi-hop reasoning triggers GraphRAG across your knowledge graph. (3) <strong>Re-ranking with Cross-Encoders:</strong> after initial retrieval returns 20-50 chunks, a cross-encoder model (like Cohere Rerank or a fine-tuned BERT) re-scores and selects the top 5-8 most relevant passages. This single step improves answer quality by 30-40% in benchmarks. (4) <strong>Self-Correction Loop (CRAG):</strong> the generator produces an answer, then a verifier checks it against the retrieved context. If confidence is below threshold, the agent triggers a second retrieval pass with a refined query. Implement this as a <code>while confidence < 0.85 && attempts < 3</code> loop. (5) <strong>For iOS integration:</strong> run the query transformer and re-ranker on-device using CoreML models (both are small enough at ~100MB), with only the generation step hitting a cloud API. This gives you sub-200ms retrieval with cloud-quality generation. <a href="https://docs.anthropic.com/en/docs/build-with-claude/retrieval-augmented-generation">Anthropic RAG Guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Best Practices</span>
+    <strong>Tool Use Prompt Engineering: Make Your Agent's Function Calls 3x More Reliable</strong>
+    <p>If your AI agent's tool calls are unreliable (wrong parameters, calling the wrong tool, or not calling tools when it should), the problem is almost always in your <strong>tool descriptions</strong>, not the model. Here's the 2026 best-practice framework for tool-use prompt engineering: (1) <strong>Rich descriptions with examples:</strong> don't just write <code>"Fetches user data"</code> — write <code>"Fetches a user's profile data including name, email, and preferences. Call this when the user asks about their account, settings, or personal information. Example: user says 'what's my email?' → call get_user_profile(user_id=current_user)"</code>. Models route to tools based on description similarity to the user's intent. (2) <strong>Enum parameters over free-text:</strong> wherever possible, use <code>z.enum(["buy", "sell", "hold"])</code> instead of <code>z.string()</code>. Constrained parameter spaces eliminate entire categories of errors. (3) <strong>Required vs. optional clarity:</strong> mark parameters as required only when the tool genuinely fails without them. Over-constraining causes the agent to hallucinate values rather than ask the user. (4) <strong>Negative examples in system prompt:</strong> add a section like <code>"NEVER call place_order without explicit user confirmation. NEVER call delete_account from a general query about settings."</code> Negative constraints prevent the most dangerous failure modes. (5) <strong>Tool grouping by domain:</strong> organize your MCP server's tools into logical groups (market_data, portfolio, account) — models handle 30+ tools well when they're semantically grouped, but struggle with 30 flat unrelated tools. (6) <strong>Test with adversarial prompts:</strong> specifically test ambiguous queries that could trigger multiple tools ("show me my balance" — wallet balance or account balance?) and ensure the agent asks for clarification rather than guessing. <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use">Claude Tool Use Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · Multi-Agent Patterns</span>
+    <strong>The Supervisor-Worker Pattern: Build Reliable Multi-Agent Systems for Production</strong>
+    <p>Multi-agent systems (like Codex's new Multi-Agent V2, Cursor's parallel agents, or your own custom setups) need a reliable coordination pattern. The <strong>Supervisor-Worker architecture</strong> has emerged as the production standard in 2026: (1) <strong>Supervisor Agent:</strong> a single orchestrator that receives the user's high-level goal, decomposes it into tasks, assigns each task to a specialized worker, and aggregates results. The supervisor uses a frontier model (Sonnet 5, GPT-5.6 Terra) for its planning capability. (2) <strong>Worker Agents:</strong> specialized, narrow agents — each handles one task type (code generation, test writing, documentation, code review). Workers use cheaper models (Luna, Flash) since their scope is constrained. (3) <strong>Shared Memory:</strong> a central state store (Redis, or even a shared file in simpler setups) where workers read task assignments and write results. The supervisor polls this store to track progress. (4) <strong>Human-in-the-Loop Gates:</strong> the supervisor pauses for human approval at defined checkpoints — after the plan is generated (before execution), after critical file modifications, and before any destructive operations. (5) <strong>Error Recovery:</strong> if a worker fails, the supervisor can (a) retry with a different model, (b) decompose the task further, or (c) escalate to the human. Never let a failed worker block the entire pipeline. <strong>Implementation for iOS teams:</strong> use this pattern for your CI/CD AI pipeline — a supervisor agent receives "prepare release 3.2.1" and orchestrates: Worker A runs tests, Worker B generates changelog from git log, Worker C updates version strings, Worker D creates the release branch. Each worker is a simple, testable unit; the supervisor handles coordination. <a href="https://langchain-ai.github.io/langgraph/">LangGraph Multi-Agent Guide →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude · Security Plugin Beta</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Security Plugin: Multi-Agent Vulnerability Scanning from Your Terminal</a></h3>
+    <p>Anthropic released the <strong>Claude Security Plugin</strong> in beta this week — a tool that runs multi-agent vulnerability scans on your codebase directly from within a Claude Code session. The plugin spawns specialized security agents that analyze different attack surfaces in parallel: one agent scans for injection vulnerabilities, another checks dependency versions against CVE databases, a third evaluates authentication/authorization patterns, and a fourth analyzes data flow for potential leaks. <strong>For iOS developers:</strong> run <code>claude security scan --target Sources/</code> to get a comprehensive security audit of your Swift codebase. The plugin understands iOS-specific patterns — it flags hardcoded API keys in Info.plist, insecure Keychain access patterns, missing App Transport Security exceptions, and certificate pinning gaps. Unlike generic SAST tools, the Claude Security Plugin reasons about your code's <em>intent</em> and can distinguish between a test fixture with a fake API key and a production file with a real one. The beta is available on Pro and Team plans — add it via <code>claude plugin install security</code>. Combined with Monday's hooks tip: set a pre-commit hook that runs the security scan on changed files before any commit.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Codex Micro Hardware</span>
+    <h3><a href="https://openai.com/index/codex">Codex Micro: OpenAI's $230 Hardware Keyboard for Agentic Workflows</a></h3>
+    <p>OpenAI released its first hardware product: the <strong>Codex Micro</strong> — a $230, 13-key programmable keyboard designed as a "command center for agentic work." Each key maps to a Codex agent action: approve change, reject change, request explanation, run tests, spawn new agent, switch context, and more. The device connects via USB-C or Bluetooth and integrates with Codex CLI, the ChatGPT desktop app, and VS Code. <strong>Why this matters beyond the novelty:</strong> physical input devices for AI workflows signal that agentic coding has graduated from "experimental" to "daily driver." The key insight: when you're reviewing 50+ AI-generated changes per session, the friction of mouse-clicking "Accept" vs. pressing a dedicated physical key compounds dramatically. Early reviewers report 40% faster code review throughput with muscle-memory key bindings. <strong>For your workflow:</strong> even without the Codex Micro hardware, you can replicate the concept — map keyboard shortcuts in your IDE to common AI agent actions (accept diff, reject diff, ask for explanation). The hardware is nice but the UX pattern is what matters: <em>reduce AI review to single-keystroke decisions</em>.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Health in ChatGPT</span>
+    <h3><a href="https://openai.com/index/health-chatgpt">OpenAI Launches "Health in ChatGPT" — Domain-Specific AI Goes Mainstream</a></h3>
+    <p>OpenAI launched <strong>Health in ChatGPT</strong> on July 23 — a dedicated health assistant within ChatGPT that connects to Apple Health, Oura, Whoop, and other health data sources to provide personalized wellness insights. The feature uses GPT-5.6 with domain-specific safety guardrails (never provides diagnoses, always recommends professional consultation for concerning patterns). <strong>Why this matters for developers (beyond health):</strong> this validates the <strong>"domain-specific AI mode"</strong> product pattern. Just as Anthropic created "Claude for Teachers" and OpenAI launched "ChatGPT Work," every AI provider is now building vertical-specific modes with tailored guardrails, connected data sources, and specialized prompting. <strong>The pattern for your apps:</strong> if you're building AI features for a specific domain (trading, fitness, education), don't just wrap a generic model — create a domain mode with: (a) connected first-party data, (b) domain-specific safety rules, (c) tailored response formatting, and (d) explicit scope boundaries. Users trust domain-specific AI more than general-purpose AI because the constraints signal intentional design. Expect Binance to eventually offer a "Trading AI" mode following this exact pattern.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Codex Multi-Agent V2</span>
+    <h3><a href="https://openai.com/index/codex">Codex Multi-Agent V2: Powerful But Raises Transparency Concerns</a></h3>
+    <p>OpenAI shipped <strong>Codex Multi-Agent V2</strong> this week — an upgraded system where multiple Codex agents collaborate on complex tasks, sharing context and coordinating file edits. The V2 architecture introduces "agent handoffs" where one agent can delegate sub-tasks to another, creating emergent workflows for large refactoring projects. However, developers are raising <strong>transparency concerns:</strong> it's difficult to observe how agents communicate with each other, what context they share, and why specific decisions are made. The "black box" nature of inter-agent communication means you might approve a final result without understanding the reasoning chain that produced it. <strong>Practical guidance:</strong> (1) Enable verbose logging: set <code>CODEX_AGENT_LOG=verbose</code> to see inter-agent messages in your terminal. (2) Use the new <code>--explain</code> flag on any Codex command to get a post-hoc explanation of agent coordination decisions. (3) For critical codebases: require that multi-agent results pass through your existing CI pipeline before merge — don't trust multi-agent coordination for security-sensitive changes without automated verification. The broader lesson: as AI systems become more autonomous (multi-agent > single-agent > autocomplete), your verification infrastructure must scale proportionally.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">SpaceXAI · Grok 4.5</span>
+    <h3><a href="https://x.ai/grok">Grok 4.5: SpaceXAI × Cursor's First Joint Model for Long-Running Tasks</a></h3>
+    <p>SpaceXAI and Cursor (now a SpaceX subsidiary after the $60B acquisition) released <strong>Grok 4.5</strong> — their first jointly developed AI model, designed specifically for complex, long-running agentic tasks. Unlike models optimized for chat or autocomplete, Grok 4.5 is architected for <strong>multi-hour autonomous execution</strong> with self-monitoring, checkpoint creation, and graceful failure recovery. The model excels at tasks that require sustained context over thousands of reasoning steps — full-codebase migrations, multi-day refactoring projects, and cross-system integration work. <strong>Why this matters for the IDE landscape:</strong> Cursor now has a proprietary model optimized for its specific use case (background agents running for hours), rather than relying solely on third-party models. This creates a competitive moat — Grok 4.5's long-running capabilities aren't available to competing IDEs. <strong>For your tool strategy:</strong> if you use Cursor for background agents and overnight tasks, Grok 4.5 is likely your best option for those workflows. For interactive coding (chat, quick edits), Claude Sonnet and GPT-5.6 Terra remain strong. The market is specializing — no single model dominates all use cases.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Junie Agent Preview</span>
+    <h3><a href="https://www.jetbrains.com/resharper/whatsnew/">ReSharper 2026.2: "Junie" AI Agent with Open Model Ecosystem</a></h3>
+    <p>JetBrains released <strong>ReSharper 2026.2</strong> on July 22 with a preview of "Junie" — an AI agent built for the JetBrains ecosystem that takes a radically different approach to model integration. Instead of locking developers into a single AI provider, Junie implements an <strong>open protocol for connecting any AI model or agent</strong> through a unified interface. You can connect Claude, GPT, Gemini, or local models — and Junie routes tasks to whichever model you've configured for each task type. <strong>The signal for all developers:</strong> this confirms the "model-agnostic IDE" future where your choice of AI model is decoupled from your choice of editor. The practical benefit: configure your expensive model (Opus) for architecture decisions, your mid-tier model (Sonnet) for code generation, and your cheap model (Flash) for autocomplete — all within one IDE experience. While this launched for .NET developers first, expect the pattern to propagate to IntelliJ IDEA and other JetBrains IDEs (including AppCode for iOS) in subsequent releases. JetBrains is betting that IDE intelligence + model choice freedom beats "better AI, locked ecosystem."</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">AWS · CloudWatch Agent Insights</span>
+    <h3><a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch "Coding Agent Insights": Track AI Agent ROI Across Teams</a></h3>
+    <p>Amazon launched <strong>Coding Agent Insights</strong> in CloudWatch — a new observability feature specifically for measuring the impact of AI coding agents across your engineering organization. The dashboard tracks: (1) <strong>Agent utilization rate</strong> — what percentage of developer hours involve AI agent assistance. (2) <strong>Acceptance rate by task type</strong> — which categories of AI-generated code get merged vs. rejected. (3) <strong>Time-to-merge comparison</strong> — PRs with agent assistance vs. purely human-authored PRs. (4) <strong>Cost per accepted suggestion</strong> — total AI spend divided by suggestions that actually shipped to production. <strong>Why this matters NOW:</strong> as AI coding tool budgets grow (teams spending $50-200/developer/month), leadership increasingly demands ROI metrics. CloudWatch Agent Insights provides the instrumentation layer that transforms "we feel more productive" into "agent-assisted PRs merge 2.3x faster with 15% fewer post-merge bugs at $4.20/accepted suggestion." <strong>For Binance teams:</strong> even if you don't use AWS, the metrics framework is the right one to adopt internally. Build a simple dashboard tracking the same four metrics — it's the strongest argument for expanding AI tool budgets.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Range-Bound</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $65,000 — Consolidating as CLARITY Act Confidence Fades</a></h3>
+    <p>Bitcoin trades at <strong>$65,000</strong> on Friday, July 24, holding within the $64,500-$66,000 range established this week. The dominant narrative has shifted: <strong>decreasing confidence that the CLARITY Act will pass before August recess</strong> is dampening speculative positioning. Prediction market odds for pre-recess passage have dropped significantly, with bipartisan disagreements over stablecoin yield treatment and ethics rules still unresolved. The total crypto market cap sits at <strong>$2.30 trillion</strong> (-1.2% on Thursday). <strong>Technical picture:</strong> BTC has built solid support at $64,500-$65,000 (the former resistance from last week's breakout, now confirmed as support). Upside resistance remains at $66,500-$67,000. The setup is constructive but lacks a near-term catalyst — expect range-bound trading until either CLARITY progresses or macro data shifts (next FOMC hints on August rate decisions). For position traders: the range compression (tightening between $64.5K and $66.5K) typically precedes a directional move — prepare entries for both breakout above $67K and breakdown below $64K scenarios. ETF inflows remain positive but have moderated from last week's $727M weekly peak to approximately $300M this week.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · EMA Resistance</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH at $1,880 — Falters at 100-Day EMA, Bulls Need $1,937 Reclaim</a></h3>
+    <p>Ethereum trades at <strong>$1,880</strong> on Friday after failing to sustain above the <strong>100-day Exponential Moving Average at $1,937</strong> — a critical technical level that separated this week's rally attempt from a confirmed trend change. The rejection at the 100-day EMA suggests that while ETH's July rally (+20% month-to-date) is intact, <strong>the easy gains are over</strong> and a clear breakout requires fresh catalysts. <strong>Key levels to watch:</strong> resistance at $1,937 (100-day EMA) → $2,000 (psychological) → $2,163 (double-bottom completion target). Support at $1,860 → $1,800 → $1,750. <strong>Fundamental backdrop:</strong> the EU sanctions targeting Russian crypto platforms (announced this week) add a new compliance complexity layer for exchanges, but ETH's core narrative — 60% of tokenized RWAs, growing DeFi TVL, pending commodity classification — remains constructive. For developers: regardless of short-term price action, institutional infrastructure building on Ethereum continues accelerating. BNY Mellon's tokenized Treasuries pilot (announced this week) represents exactly the type of institutional adoption that drives long-term ETH demand.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">BitMEX · Exchange Shutdown</span>
+    <h3><a href="https://www.theblock.co">BitMEX Announces September Shutdown — End of an Era for Crypto Derivatives Pioneer</a></h3>
+    <p><strong>BitMEX</strong>, the cryptocurrency derivatives exchange that pioneered perpetual futures contracts and was once the highest-volume crypto trading venue, announced it will <strong>shut down operations in September 2026</strong>. The company cited a "strategic review of its business and the broader crypto industry" — a diplomatic way of acknowledging that regulatory pressures (the 2020 DOJ indictments, subsequent $100M fine) and competitive losses to Binance, Bybit, and dYdX made the business unviable at current scale. <strong>Market impact:</strong> minimal — BitMEX's market share had already declined to sub-1% of crypto derivatives volume. However, the historical significance is notable: BitMEX invented the perpetual swap contract in 2016, which now accounts for the majority of crypto trading volume globally. <strong>For Binance developers:</strong> BitMEX's shutdown creates a small migration opportunity — some traders with BitMEX-specific automation (bots, API integrations) will need new homes. Ensure your API documentation and onboarding flow are optimized for traders migrating from competitor platforms. The broader signal: the crypto exchange market continues consolidating toward a few dominant players, with compliance costs creating insurmountable barriers for smaller platforms.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Adaptive RAG: The Query-Aware Architecture Replacing Static Retrieval Pipelines</strong>
+    <p>The hottest infrastructure pattern in July 2026 is <strong>Adaptive RAG</strong> — systems that dynamically choose their retrieval strategy based on query complexity, rather than running every question through the same pipeline. The architecture: a lightweight classifier (can be rule-based or a small model) evaluates each incoming query and routes it to one of several retrieval paths: (1) <strong>No-retrieval path:</strong> for questions the model can answer from parametric knowledge (common knowledge, simple reasoning). Skip retrieval entirely — saves latency and cost. (2) <strong>Single-hop retrieval:</strong> standard vector search for factual lookups ("what's our API rate limit?" → search docs → answer). (3) <strong>Multi-hop retrieval:</strong> for questions requiring information synthesis across multiple documents ("how does our auth system interact with rate limiting during peak load?"). Uses iterative retrieval with query reformulation between hops. (4) <strong>GraphRAG path:</strong> for relationship queries ("which services depend on the user service?") — leverages a knowledge graph rather than flat document search. <strong>Why this outperforms static RAG:</strong> benchmarks show 25-35% improvement in answer quality AND 40-60% reduction in retrieval latency because simple queries skip expensive retrieval entirely. For iOS apps with AI features: implement this pattern by adding a <code>QueryRouter</code> that inspects the question before choosing a retrieval strategy. Even a heuristic router (check if the query contains entity names → use retrieval, otherwise → use parametric) dramatically improves both speed and quality. <a href="https://arxiv.org/abs/2403.14403">Adaptive RAG Paper →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Platform Engineering: The DevOps Successor That Treats Developer Experience as Product</strong>
+    <p><strong>Platform Engineering</strong> has definitively overtaken "DevOps" as the dominant operational paradigm in 2026 — and the shift has profound implications for how AI tools integrate into your development workflow. The core philosophy: instead of every team managing their own CI/CD, deployment, monitoring, and AI tool configurations, a dedicated platform team builds an <strong>Internal Developer Platform (IDP)</strong> that provides "paved paths" — opinionated, tested, and optimized workflows that individual teams consume as products. <strong>How this connects to AI tools:</strong> (1) <strong>AI tool provisioning becomes a platform responsibility:</strong> the platform team manages Claude Code licenses, Cursor seat allocation, MCP server infrastructure, and model routing configurations — individual developers just consume them. (2) <strong>Standardized AI guardrails:</strong> security policies, allowed tools, model access levels, and usage budgets are defined once at the platform level, not per-developer. (3) <strong>"Golden paths" for AI-assisted development:</strong> the platform provides pre-configured workflows like "AI-assisted PR review" or "agent-generated test suite" that any team can adopt without setup friction. (4) <strong>Observability built-in:</strong> CloudWatch Agent Insights (announced this week) integrates naturally as a platform capability — measuring AI tool ROI across all teams simultaneously. <strong>For iOS teams at Binance:</strong> advocate for your platform team to provide a standardized AI development environment — pre-configured Claude Code with approved MCP servers, shared team context documents, and consistent security policies. The ROI of AI tools multiplies when friction is removed at the platform level rather than each developer configuring independently. <a href="https://platformengineering.org/">Platform Engineering Hub →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Domain-Specific AI Modes: The Product Pattern Every App Will Adopt by 2027</strong>
+    <p>This week's launches — OpenAI Health in ChatGPT, Claude for Teachers, ChatGPT Work — crystallize a <strong>product pattern that will define the next generation of AI-powered apps:</strong> domain-specific AI modes with tailored behavior, connected data sources, and explicit safety boundaries. The pattern deconstructs into four components: (1) <strong>Connected first-party data:</strong> the AI mode has read access to domain-relevant user data (Health connects to Apple Health, Work connects to Slack/Jira, a trading mode would connect to portfolio/watchlist). (2) <strong>Domain-specific system prompt + guardrails:</strong> the underlying model is the same, but behavior is constrained — Health never diagnoses, Work never accesses personal conversations, Trading never provides financial advice. (3) <strong>Tailored output formatting:</strong> responses use domain-appropriate structure (Health uses metric ranges and trends, Work uses action items and timelines, Trading would use price levels and risk indicators). (4) <strong>Explicit scope boundaries:</strong> the mode clearly communicates what it can and cannot do, building trust through transparency. <strong>For Binance iOS developers:</strong> this is your roadmap for integrating AI into the trading app. Don't build a "generic chatbot" — build a <strong>Trading Intelligence Mode</strong> that connects to the user's portfolio, understands their risk tolerance (from settings), formats responses with relevant price data, and explicitly states "I don't provide financial advice — here's the data for your decision." The constrained, domain-aware AI is what users actually trust and use daily. <a href="https://openai.com/index/health-chatgpt">OpenAI Health Announcement →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/build-with-claude/retrieval-augmented-generation">Anthropic: Building Production RAG Systems with Claude</a>
+        <span class="desc">Official guide covering Agentic RAG architecture, contextual retrieval, re-ranking strategies, and self-correction loops — the definitive reference for 2026 RAG implementations.</span>
+      </li>
+      <li>
+        <a href="https://x.ai/grok">Grok 4.5 Model Card: Architecture for Long-Running Agentic Tasks</a>
+        <span class="desc">Technical specifications for SpaceXAI's new model — checkpoint creation, failure recovery, context sustainability over thousands of reasoning steps, and benchmark comparisons.</span>
+      </li>
+      <li>
+        <a href="https://langchain-ai.github.io/langgraph/">LangGraph: Multi-Agent Orchestration Framework</a>
+        <span class="desc">The reference implementation for Supervisor-Worker agent architectures — state management, human-in-the-loop gates, error recovery patterns, and production deployment guides.</span>
+      </li>
+      <li>
+        <a href="https://platformengineering.org/">Platform Engineering: Building Internal Developer Platforms</a>
+        <span class="desc">Comprehensive resource on the DevOps successor — golden paths, developer experience as product, and how AI tools integrate into platform team responsibilities.</span>
+      </li>
+      <li>
+        <a href="https://aws.amazon.com/cloudwatch/">Amazon CloudWatch Coding Agent Insights Documentation</a>
+        <span class="desc">Setup guide for measuring AI coding agent ROI — utilization metrics, acceptance rates, time-to-merge comparisons, and cost-per-suggestion dashboards.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-24T09:00:00Z</p>
+  <p>Friday Edition — AI Infra &amp; Prompt Engineering tips (Agentic RAG, tool use, multi-agent architecture), Claude Security Plugin, Codex Micro hardware, BTC $65K range-bound</p>
+  <p>Dedup: 2200+ stories filtered from past 5 days (Jul 19–Jul 23) · 182 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>160+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (1 query)</td><td>50+ results</td></tr>
+    <tr><td>Web Search — RAG/Concepts</td><td>✅ OK (2 queries)</td><td>55+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
