@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-25</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, July 25, 2026 — Claude Opus 5 Drops, BTC ETF Outflows &amp; LLM Observability Goes Mainstream</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering: Observability, Evaluation &amp; Prompt Caching</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">LLM Observability · Production</span>
+    <strong>LLM Observability: Instrument Your AI Features Like You Instrument Your Backend</strong>
+    <p>If your AI features don't have observability, you're flying blind. In 2026, production AI systems require the same tracing discipline as your microservices — but with AI-specific dimensions. Here's your implementation checklist: (1) <strong>Agent-native tracing with OpenTelemetry:</strong> every LLM call, tool invocation, and retrieval step should emit a span. Use <code>opentelemetry-instrumentation-langchain</code> or <code>opentelemetry-instrumentation-openai</code> to auto-instrument your SDK calls. Each trace captures: model used, token count, latency, prompt hash, and response quality score. (2) <strong>Pick your platform:</strong> <strong>Langfuse</strong> (open-source, self-hosted) for teams wanting control; <strong>LangSmith</strong> for LangChain-heavy stacks; <strong>Arize Phoenix</strong> for real-time drift detection; <strong>Galileo</strong> for enterprise-grade evaluation-to-guardrail pipelines. All support the emerging OpenTelemetry LLM semantic conventions. (3) <strong>The four metrics that matter:</strong> latency P50/P95 per model tier, hallucination rate (via automated factuality checks), tool-call accuracy (did the agent call the right tool with correct params?), and cost per successful interaction (not per API call — per <em>user-satisfying</em> interaction). (4) <strong>Runtime intervention:</strong> the best platforms now support real-time guardrails — if a response fails a quality check mid-generation, the system can halt and retry with a different model or fallback prompt. This is the "circuit breaker" pattern for AI. (5) <strong>For iOS apps with AI features:</strong> emit traces from your client-side AI calls too. When a CoreML inference fails or a cloud API returns low-confidence results, that telemetry feeds the same observability pipeline. Build a unified view: client inference → API call → model response → user action. <a href="https://langfuse.com">Langfuse →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG Evaluation · Beyond Vibes</span>
+    <strong>RAG Evaluation in Production: Stop Guessing, Start Measuring Retrieval Quality</strong>
+    <p>Yesterday we covered Agentic RAG architecture — today's companion tip: how to <strong>evaluate whether your RAG pipeline actually works</strong>. The 2026 evaluation stack has matured beyond "looks right to me" into automated, continuous quality measurement: (1) <strong>The RAG Triad metrics:</strong> every RAG response should be scored on three dimensions — <strong>Context Relevance</strong> (did retrieval return relevant chunks?), <strong>Groundedness</strong> (is the answer supported by the retrieved context?), and <strong>Answer Relevance</strong> (does the response actually address the user's question?). Tools like DeepEval and Truesight compute all three automatically. (2) <strong>LLM-as-a-Judge:</strong> use a powerful model (Claude Opus 5, GPT-5.6 Sol) to evaluate outputs from your cheaper production model. The judge scores each response on a rubric you define. Cost: ~$0.01 per evaluation — run it on 5-10% of production traffic continuously. (3) <strong>Golden dataset testing:</strong> maintain a curated set of 50-100 question-answer pairs with verified correct answers. Run your RAG pipeline against this set on every deployment — if scores drop below threshold, block the deploy. (4) <strong>Retrieval-specific debugging:</strong> when groundedness drops, the failure is in generation (model ignoring context). When context relevance drops, the failure is in retrieval (wrong chunks). When answer relevance drops, the failure is in query understanding. Each failure mode has a different fix. (5) <strong>For iOS integration:</strong> if your app has a knowledge feature (help center, docs search), set up a weekly automated eval run. Use Braintrust or Arize Phoenix to track quality over time and catch degradation before users complain. <a href="https://docs.confident-ai.com">DeepEval Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Prompt Caching · Cost Optimization</span>
+    <strong>Prompt Caching Strategies: Cut Your AI Inference Costs 60-80% in Production</strong>
+    <p><strong>Prompt caching</strong> is the single highest-ROI optimization for production AI systems — and most teams aren't using it properly. Here's the complete strategy for 2026: (1) <strong>Provider-level caching (Anthropic/OpenAI):</strong> both providers now cache prompt prefixes automatically. Structure your prompts so the <em>system prompt + static context</em> comes first (cached across calls), and the <em>user-specific dynamic content</em> comes last. For Claude: identical prompt prefixes get a 90% discount on input tokens after the first call. For GPT-5.6: the "Predicted Outputs" feature achieves similar savings for structured outputs. (2) <strong>Application-level semantic caching:</strong> before sending a query to the LLM, hash the normalized query and check your cache (Redis/DynamoDB). If a semantically similar query was answered recently, serve the cached response. Use embedding similarity with a 0.95+ threshold to catch near-duplicates ("what's BTC price?" ≈ "bitcoin current price"). This alone cuts 30-40% of redundant API calls in production. (3) <strong>KV-cache persistence for conversations:</strong> for chat interfaces, persist the key-value cache between turns. Instead of re-processing the full conversation history on each message, resume from the cached state. Anthropic's API supports this natively with the <code>cache_control</code> parameter. (4) <strong>Tiered caching by freshness requirements:</strong> cache market data responses for 60 seconds, documentation answers for 24 hours, and static knowledge (API references) for 7 days. Match cache TTL to data freshness needs. (5) <strong>For iOS:</strong> implement a local response cache using SwiftData for offline-capable AI features. Cache the last N responses per feature, serve them instantly while fetching fresh responses in background. Users perceive zero latency. <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching">Anthropic Prompt Caching →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Claude Opus 5</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Opus 5 Launches: Near-Fable Intelligence at Half the Cost</a></h3>
+    <p>Anthropic released <strong>Claude Opus 5</strong> on July 24 — their most significant model upgrade since Sonnet 5. Opus 5 is positioned as approaching Fable 5 (Anthropic's frontier model) in capability while costing half as much ($5/MTok input, $25/MTok output). The model is described as "thoughtful and proactive," excelling at scientific research, complex coding, and multi-step reasoning. <strong>What's new vs. Opus 4.8:</strong> meaningful gains in agentic task completion (self-correction loops, tool use chains), significantly better at maintaining coherence over extended conversations (50K+ token contexts), and improved code architecture reasoning. Opus 5 is now the default on Claude Max plans and the most powerful option available on Pro plans. <strong>For your workflow:</strong> use Opus 5 as your "architecture tier" model — route complex refactoring decisions, system design questions, and security review tasks to it. At $5/MTok input, it's 3x cheaper than GPT-5.6 Sol for comparable reasoning quality. Update your model routing config: <code>{"architecture_review": "claude-opus-5", "daily_coding": "claude-sonnet-5", "autocomplete": "claude-haiku-5"}</code>. The practical impact: tasks that previously required Fable 5 (at $15/MTok) can now use Opus 5 — a 3x cost reduction for your most complex AI interactions.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Gemini Spark Agent</span>
+    <h3><a href="https://blog.google/technology/ai/">Gemini Spark: Google's Personal AI Agent Rolls Out for Autonomous Task Execution</a></h3>
+    <p>Google began rolling out <strong>Gemini Spark</strong> on July 23 to AI Pro subscribers in the US — a personal AI agent designed to autonomously execute complex, multi-step tasks across Google's ecosystem. Unlike a chatbot that responds to prompts, Spark operates as a <strong>persistent background agent</strong> that can: browse the web and synthesize research, manage your calendar and email based on preferences, execute multi-step workflows (book travel, compile reports, manage projects), and interact with third-party services via API integrations. <strong>Why this matters for the AI agent landscape:</strong> Spark represents Google's answer to OpenAI's "Work" mode and Anthropic's Claude Code background agents — but with a crucial advantage: native integration with the world's most-used productivity suite (Gmail, Calendar, Drive, Docs). The agent can read your emails, understand your schedule, and take actions across all Google services without additional setup. <strong>For developers:</strong> Spark's architecture validates the "always-on agent" pattern that's different from "prompt-and-respond" AI. Monitor how Google handles the trust/verification UX — users need to approve consequential actions while letting routine ones execute autonomously. This approval pattern is exactly what your own AI features need.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · NTT DATA Case Study</span>
+    <h3><a href="https://openai.com/index/codex">Codex at Enterprise Scale: NTT DATA Deploys to 9,000 Employees, Cuts Analysis from 3 Days to 30 Minutes</a></h3>
+    <p>NTT DATA Group published a case study this week showing how they expanded <strong>Codex access to approximately 9,000 employees</strong>, using it to transform a complex incident analysis process from three days to just 30 minutes — a 144x speedup. The deployment covers both engineering (code generation, debugging) and non-engineering (data analysis, report generation, incident investigation) use cases. <strong>Key lessons from enterprise-scale AI tool deployment:</strong> (1) <strong>Non-obvious ROI wins:</strong> the biggest productivity gains weren't in code generation but in incident analysis — understanding complex system failures across multiple services. Codex's ability to synthesize logs, code paths, and documentation simultaneously is the differentiator. (2) <strong>Adoption curve:</strong> engineers adopted in weeks; non-engineering staff (PMs, analysts) took 2-3 months but eventually showed higher satisfaction scores — they had no alternative tool for their use cases. (3) <strong>Governance at scale:</strong> NTT DATA implemented a tiered access model — different employee groups get different model tiers and tool permissions based on data sensitivity. <strong>For Binance teams:</strong> this validates expanding AI tool access beyond engineering. Your QA, compliance, and operations teams have manual analysis tasks that AI agents handle well. The 3-day-to-30-minute incident analysis pattern maps directly to post-mortem and root-cause-analysis workflows.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · ChatGPT/Codex Partial Outage</span>
+    <h3><a href="https://status.openai.com">ChatGPT &amp; Codex Partial Outage July 23: Elevated Error Rates After GPT-5.6 Demand Surge</a></h3>
+    <p>OpenAI experienced a <strong>partial outage affecting both ChatGPT and Codex on July 23</strong> due to elevated error rates — likely related to the demand spike from the GPT-5.6 Sol general availability rollout and the concurrent Claude Opus 5 launch driving comparison traffic. Users reported intermittent failures, degraded response quality, and increased latency during the incident. <strong>The reliability lesson for developers:</strong> this is the third OpenAI service disruption in July alone, reinforcing the architectural pattern we've been tracking: <strong>never depend on a single AI provider for critical features.</strong> If your app's core functionality breaks when OpenAI goes down, your architecture is fragile. The production-grade pattern: (1) implement automatic failover to a secondary provider (Claude, Gemini) when your primary returns errors. (2) Use a circuit breaker that triggers after 3 consecutive failures — don't send users into a broken queue. (3) For iOS: cache the last successful AI response per feature so users see stale-but-useful data during outages rather than error screens. <strong>The positive signal:</strong> OpenAI's transparency about outages has improved — detailed incident reports with root causes now appear within hours, helping dependent teams plan their retry strategies.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security · Vibe Coding Risk</span>
+    <h3><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">62% of AI-Generated Code Contains Vulnerabilities: The Vibe Coding Security Gap</a></h3>
+    <p>New research published this week quantifies what security teams have been warning about: <strong>62% of AI-generated code contains at least one vulnerability</strong>, and AI-assisted commits are twice as likely to leak hardcoded credentials compared to human-only commits. A separate analysis found 434 exploitable issues in a sample of vibe-coded applications. <strong>Why the gap exists:</strong> AI models are trained on public code — including the vast majority of open-source code that itself contains security flaws. When you ask for "a login endpoint," the model generates what's statistically common, not what's security-optimal. The most frequent vulnerability classes: SQL injection (models generate string concatenation by default), hardcoded secrets (models copy patterns from training data), missing input validation, and insecure deserialization. <strong>Mandatory workflow additions for AI-assisted development:</strong> (1) <strong>SAST on every AI-generated diff:</strong> run Semgrep or CodeQL specifically on agent-modified files before commit. (2) <strong>Secrets scanning:</strong> enable <code>git-secrets</code> or TruffleHog as a pre-commit hook — catch credentials the model hallucinated from training data. (3) <strong>Security-focused system prompts:</strong> add to your CLAUDE.md or .cursorrules: <code>"Always use parameterized queries. Never hardcode API keys. Always validate and sanitize user input."</code> (4) <strong>For iOS:</strong> specifically scan for hardcoded bundle IDs, provisioning profile references, and Keychain access patterns that models frequently get wrong.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Context Intelligence</span>
+    <h3><a href="https://www.jetbrains.com/help/idea/ai-assistant.html">JetBrains Context: Repository Intelligence Layer Makes AI Agents Aware of Your Full Codebase</a></h3>
+    <p>Alongside the Rider/ReSharper 2026.2 releases, JetBrains introduced <strong>JetBrains Context</strong> — a new intelligence layer that provides deep repository understanding to any connected AI agent. Unlike simple file-level context (what Cursor and Claude Code do), JetBrains Context builds a <strong>semantic graph of your entire codebase</strong>: type hierarchies, call graphs, dependency flows, test coverage maps, and architectural boundaries. This graph is then provided to AI agents as structured context, enabling significantly more accurate suggestions. <strong>The competitive insight:</strong> JetBrains is betting that the quality bottleneck in AI coding isn't the model — it's the context. A mediocre model with perfect codebase understanding beats a frontier model with naive file-level context. This is provably true for tasks like "rename this interface and update all implementations" where understanding the full dependency graph is essential. <strong>Practical impact:</strong> AI agents connected via JetBrains' Agent Client Protocol (ACP) can now ask questions like "what classes implement this protocol?" and get precise, IDE-verified answers — not grep-based guesses. For iOS teams considering JetBrains (AppCode or Fleet): the Context layer makes their AI assistance competitive with Cursor for projects where deep type system understanding matters more than raw model speed.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Alterion · Draco Governance</span>
+    <h3><a href="https://alterion.ai">Alterion Draco: Runtime Governance Platform for AI Agents Across Multi-Vendor Environments</a></h3>
+    <p>Alterion launched <strong>Draco</strong> in July — a runtime control platform that provides governance and visibility over AI agents regardless of which cloud, vendor, or framework they run on. The key innovation: Draco operates at the <strong>runtime level without requiring code changes</strong> to your existing agents. It intercepts agent actions, applies policy rules, and provides audit trails — think of it as a "service mesh for AI agents." <strong>Why this matters NOW:</strong> as teams deploy multiple AI agents (Codex for coding, Claude Code for architecture, Copilot for reviews, custom agents for testing), the governance gap grows exponentially. Who can approve what? What data can each agent access? How do you audit cross-agent interactions? Draco addresses this with: (1) <strong>Policy-as-code:</strong> define rules like "no agent can modify production configs without human approval" or "agents can read but not write to the billing database." (2) <strong>Cross-vendor visibility:</strong> a single dashboard showing all agent actions across OpenAI, Anthropic, and self-hosted models. (3) <strong>Compliance automation:</strong> automatic audit trail generation for SOC2 and ISO 27001 — every agent action is logged with timestamp, context, and approval chain. <strong>For enterprise AI teams:</strong> as your agent fleet grows, Draco-style governance becomes mandatory. Evaluate it now while your agent count is manageable — retrofitting governance after deployment is 10x harder.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · ETF Outflow Reversal</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $64,900 — ETF Outflows Break 7-Day Inflow Streak, Signal Caution</a></h3>
+    <p>Bitcoin trades at approximately <strong>$64,900</strong> on Friday, July 25, pulling back from this week's $66,600 high as institutional sentiment shifts. The headline: <strong>US spot Bitcoin ETFs recorded $225 million in net outflows on July 23</strong>, breaking a seven-day inflow streak that had totaled over $700M. This reversal is a significant warning sign — the transition from consistent inflows to outflows historically precedes 5-10% corrections. <strong>What's driving the shift:</strong> (1) Profit-taking after BTC's run from $63K to $66.6K in 10 days. (2) Fading confidence in CLARITY Act pre-recess passage — prediction market odds continue dropping. (3) Broader risk-off rotation as tech earnings season creates uncertainty. <strong>Technical picture:</strong> BTC faces strong support at $64,000-$64,500 (the breakout zone from last week). A break below $64K targets $62,000 — the lower boundary of the current range. Resistance remains at $66,500. The setup has shifted from "bullish breakout" to "cautious consolidation." <strong>For position management:</strong> the ETF outflow signal suggests reducing short-term exposure until inflows resume. The medium-term thesis (institutional adoption, supply scarcity) remains intact — this is a tactical pause, not a structural reversal. Watch Monday's ETF flow data as the next directional signal.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · ETF Divergence</span>
+    <h3><a href="https://cointelegraph.com/markets">ETH at $1,880 — Ether ETFs Attract Inflows While BTC ETFs Bleed, Marking Institutional Divergence</a></h3>
+    <p>Ethereum trades at <strong>$1,880</strong> on Friday, showing relative strength versus Bitcoin's pullback. The standout data: <strong>Ether ETFs attracted $26.3M in inflows on July 23</strong> — the same day BTC ETFs saw $225M in outflows. This marks a <strong>five-day streak of positive ETH ETF inflows</strong>, coinciding with the second anniversary of ETH ETFs' market debut. The BTC-negative / ETH-positive flow divergence is notable — it suggests institutions are actively rotating from BTC to ETH positioning, not exiting crypto entirely. <strong>Why institutions favor ETH here:</strong> (1) ETH's YTD performance (+40%) dramatically outperforms BTC (-27%), creating momentum-driven allocation. (2) The commodity classification thesis strengthens with each passing week — the risk/reward favors ETH if CLARITY passes. (3) RWA tokenization growth (60% on Ethereum) provides a fundamental demand narrative beyond speculation. <strong>Technical levels:</strong> ETH holding $1,860 support is constructive. The 100-day EMA at $1,937 remains the key resistance — a weekly close above it would confirm the trend change from July's low. <strong>For developers:</strong> institutional flows into ETH signal continued infrastructure investment. Expect L2 grant programs, DeFi protocol incentives, and ecosystem hiring to accelerate through Q3.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Market · CLARITY Deadline Pressure</span>
+    <h3><a href="https://www.congress.gov">CLARITY Act: Two Weeks Until Recess Deadline, Passage Odds Fade Further</a></h3>
+    <p>With the <strong>Senate August recess (August 7-11) now just two weeks away</strong>, the window for CLARITY Act passage is closing rapidly. Prediction market odds have dropped significantly from their June peak. The remaining sticking points: (1) <strong>Stablecoin yield treatment:</strong> disagreement over whether stablecoin interest constitutes a "security" feature requiring SEC oversight. (2) <strong>Government official crypto holdings:</strong> proposed ethics rules restricting elected officials from holding crypto assets face pushback from crypto-friendly senators. (3) <strong>DeFi classification scope:</strong> how broadly "decentralized" must a protocol be to qualify for commodity treatment? <strong>The market pricing this in:</strong> BTC's inability to sustain above $66.5K and the ETF outflow reversal both reflect fading CLARITY optimism. If the bill doesn't pass before recess, it faces a September return with election-year dynamics that may further complicate passage. <strong>Engineering implications:</strong> maintain your "dual futures" architecture — compliance feature flags that can toggle between commodity and security treatment based on regulatory outcome. The teams that ship both code paths win regardless. If CLARITY stalls, expect renewed SEC enforcement actions in September, creating demand for more sophisticated on-chain compliance tooling.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>LLM Observability: The Monitoring Stack Every AI Feature Needs in Production</strong>
+    <p>2026's most critical infrastructure gap: <strong>fewer than 10% of organizations have successfully scaled AI agents</strong>, and the primary blocker is inadequate observability. The LLM observability space has matured from "nice to have" into mission-critical infrastructure, with platforms like <strong>Galileo</strong>, <strong>LangSmith</strong>, <strong>Arize AI</strong>, <strong>Langfuse</strong>, and <strong>MLflow</strong> leading the charge. What makes LLM observability different from traditional monitoring: (1) <strong>Non-deterministic outputs:</strong> the same input can produce different responses — you can't use simple assertion testing. You need statistical quality tracking over time. (2) <strong>Multi-step trace complexity:</strong> an AI agent making 15 tool calls with branching logic creates traces that traditional APM tools can't visualize meaningfully. (3) <strong>Quality ≠ Correctness:</strong> a response can be syntactically valid but factually wrong — detecting this requires automated evaluation, not just error-rate monitoring. (4) <strong>The emerging standard:</strong> OpenTelemetry is becoming the vendor-neutral instrumentation layer for LLM applications. The <code>gen_ai.*</code> semantic conventions now cover model calls, embeddings, and retrieval operations. Instrument once, observe everywhere. <strong>For iOS teams shipping AI features:</strong> start with Langfuse (open-source, deployable on your infrastructure) and the four key metrics: latency, hallucination rate, tool-call accuracy, and cost per successful interaction. Build dashboards before you ship the feature — not after users complain. <a href="https://langfuse.com">Langfuse →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Agent Governance: The Missing Enterprise Layer Between "Deploy" and "Trust"</strong>
+    <p>As organizations deploy 5-15+ AI agents across different teams and use cases (coding, support, analysis, compliance), a critical gap has emerged: <strong>who governs the agents?</strong> Alterion's Draco launch this week, combined with Harness's AI Agent DLC (last week) and AWS CloudWatch Agent Insights, crystallize a new infrastructure category: <strong>AI Agent Governance Platforms.</strong> The pattern has four pillars: (1) <strong>Identity &amp; Authorization:</strong> every AI agent needs an identity — what can it access, what actions can it take, what data can it read/write? Treat agents like service accounts with least-privilege principles. (2) <strong>Audit &amp; Compliance:</strong> every agent action must be logged with enough context for post-hoc review. When an agent modifies production configs at 3 AM, you need a complete trail of why. (3) <strong>Policy Enforcement:</strong> declarative rules that constrain agent behavior at runtime — not in the prompt (which can be jailbroken) but at the infrastructure level (which cannot be bypassed). (4) <strong>Cost &amp; Quality Controls:</strong> budget caps per agent, quality gates that prevent low-confidence outputs from reaching users, and escalation paths when agents hit their capability boundaries. <strong>For Binance:</strong> as your AI tool fleet grows (Codex, Claude Code, Copilot, custom MCP agents, internal automation bots), governance becomes a compliance requirement, not a nice-to-have. Build the governance layer now while you have 5 agents, not when you have 50. <a href="https://alterion.ai">Alterion Draco →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Evaluation-First" Development Pattern: Write Tests for Your AI Before Writing the AI</strong>
+    <p>A methodology shift gaining rapid traction among production AI teams: <strong>evaluation-first development</strong> — the AI equivalent of test-driven development (TDD). The practice: before writing any AI feature code, first build the evaluation pipeline that will measure whether the feature works correctly. The rationale: AI features are the only category of software where you literally cannot predict the output from the input. Traditional TDD works because functions are deterministic — assert(add(2,3) == 5). AI features are non-deterministic — you need statistical evaluation over many test cases. <strong>The evaluation-first workflow:</strong> (1) <strong>Define golden test set:</strong> curate 50-100 input/output pairs representing your feature's expected behavior. Include edge cases, adversarial inputs, and the boundary conditions most likely to fail. (2) <strong>Build automated scoring:</strong> implement LLM-as-a-Judge scoring that evaluates each response on your defined rubric (accuracy, relevance, safety, formatting). (3) <strong>Set quality thresholds:</strong> "this feature ships when golden set score exceeds 0.85 on all dimensions." (4) <strong>Iterate the AI implementation:</strong> now start building — try different prompts, models, RAG configurations, and measure each against your evaluation pipeline. (5) <strong>CI integration:</strong> run the evaluation suite on every PR that touches AI code — just like unit tests. <strong>The insight:</strong> teams that adopt evaluation-first ship higher-quality AI features in <em>less</em> time because they eliminate the "prompt tweaking loop" — they know exactly when they've succeeded. <a href="https://docs.confident-ai.com">DeepEval Documentation →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.anthropic.com/news/claude-opus-5">Anthropic: Claude Opus 5 Model Card &amp; Capabilities</a>
+        <span class="desc">Full technical details on the new Opus 5 model — benchmark comparisons vs. Opus 4.8 and Fable 5, pricing structure, and recommended use cases for daily coding vs. architecture work.</span>
+      </li>
+      <li>
+        <a href="https://langfuse.com/docs">Langfuse: Open-Source LLM Observability Platform</a>
+        <span class="desc">Setup guide for self-hosted LLM observability — OpenTelemetry integration, trace visualization, evaluation pipelines, and cost tracking dashboards for production AI features.</span>
+      </li>
+      <li>
+        <a href="https://docs.confident-ai.com">DeepEval: RAG Evaluation Framework &amp; LLM Testing</a>
+        <span class="desc">Comprehensive framework for evaluating RAG pipelines — the RAG Triad metrics, LLM-as-a-Judge implementation, golden dataset management, and CI/CD integration guides.</span>
+      </li>
+      <li>
+        <a href="https://blog.google/technology/ai/gemini-spark/">Google Gemini Spark: Personal AI Agent Architecture</a>
+        <span class="desc">How Google built a persistent background agent with cross-service integration — task planning, approval flows, and the trust/verification UX patterns for autonomous actions.</span>
+      </li>
+      <li>
+        <a href="https://alterion.ai/docs/draco">Alterion Draco: AI Agent Governance at Runtime</a>
+        <span class="desc">Architecture documentation for the agent governance platform — policy-as-code syntax, cross-vendor interceptors, audit trail generation, and SOC2 compliance automation.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-25T09:00:00Z</p>
+  <p>Friday Edition — AI Infra tips (LLM observability, RAG evaluation, prompt caching), Claude Opus 5 launch, Gemini Spark agent, BTC ETF outflow reversal at $64.9K</p>
+  <p>Dedup: 2300+ stories filtered from past 5 days (Jul 20–Jul 24) · 196 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (7/7 queries)</td><td>170+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (1 query)</td><td>55+ results</td></tr>
+    <tr><td>Web Search — Observability/Concepts</td><td>✅ OK (2 queries)</td><td>65+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
