@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-26</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, July 26, 2026 — Sandbox Escapes Hit AI IDEs, BTC Slides to $64K &amp; FATF Targets DeFi Enforcement</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Context Engineering as Your Durable Competitive Advantage</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Context Engineering · Week Recap</span>
+    <strong>The Context Engineering Stack: Your Week's Most Impactful Workflow Upgrade</strong>
+    <p>This week's most impactful tip category was <strong>Context Engineering</strong> — the practice of building portable, tool-agnostic configuration that makes any AI coding assistant dramatically more effective on your codebase. Here's the consolidated playbook from this week's tips: (1) <strong>Layer 1 — Project Identity (<code>CLAUDE.md</code> / <code>.cursorrules</code>):</strong> document your architecture patterns, naming conventions, error handling approach, and "never do this" rules. This single file turns a generic model into a codebase-aware specialist. Keep it under 2000 tokens — concise rules outperform lengthy documentation. (2) <strong>Layer 2 — Automated Guardrails (Hooks):</strong> use Claude Code hooks or Codex pre/post actions to enforce quality automatically. The killer combo: pre-edit git stash (instant rollback), post-edit linting (self-correction), pre-commit build verification (never commit broken code). (3) <strong>Layer 3 — Tool Extensions (MCP Servers):</strong> give your AI access to internal APIs, feature flags, and CI status via custom MCP servers. A 30-minute TypeScript project creates permanent workflow leverage. (4) <strong>Layer 4 — Reusable Workflows (Skills/Templates):</strong> encode repeatable processes ("add new API endpoint", "create SwiftUI view with tests") as Codex Skills or prompt templates. Your institutional knowledge becomes AI-executable. (5) <strong>The portability insight:</strong> all four layers are now transferable between Claude Code, Cursor, Codex, and Windsurf. Your context engineering investment is tool-agnostic intellectual property — it compounds regardless of which AI tool wins the market. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Security · Agent Sandboxing</span>
+    <strong>Agent Sandbox Hardening: The Security Checklist After This Week's Escape Vulnerabilities</strong>
+    <p>This week's disclosure of <strong>sandbox escape vulnerabilities across Cursor, Codex, and Gemini CLI</strong> makes agent security the week's most urgent action item. The attack vector: AI agents write to files that are later consumed by trusted systems outside the sandbox (CI pipelines, package managers, build scripts). Here's your weekend hardening checklist: (1) <strong>Audit your <code>.gitignore</code> vs. agent access:</strong> ensure your agent cannot modify <code>.github/workflows/</code>, <code>Makefile</code>, <code>Podfile</code>, <code>Package.swift</code>, or <code>fastlane/</code> without explicit approval. In Claude Code, use <code>permissions.deny_patterns</code> in your config. In Cursor, configure file-level restrictions in settings. (2) <strong>Pre-commit scanning:</strong> add <code>git-secrets</code> and a custom hook that flags suspicious patterns in agent-modified files — new shell commands, unfamiliar URLs, base64 strings, or modified CI configs. (3) <strong>Dependency lockfile protection:</strong> any change to <code>Package.resolved</code>, <code>Podfile.lock</code>, or <code>package-lock.json</code> should trigger mandatory human review, regardless of who made the change. (4) <strong>Network egress monitoring:</strong> if your agent environment allows network access, log all outbound connections and alert on unexpected domains. (5) <strong>Principle of least privilege:</strong> your AI agent should have read access to most of your codebase but write access only to source files and test files — never infrastructure configs. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Top 10 →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Workflow · FOMC Week Prep</span>
+    <strong>Developer Productivity During Market Volatility: Prepare Your Infra for FOMC Week</strong>
+    <p>The <strong>FOMC meeting on July 28-29</strong> will likely create significant market volatility. For developers at crypto companies, this means your systems face load spikes. Here's the pre-FOMC engineering checklist: (1) <strong>Load test your WebSocket infrastructure:</strong> FOMC announcements trigger 5-10x normal connection counts within seconds. Run a stress test today simulating 10x concurrent WebSocket connections on your price feed servers. (2) <strong>Pre-warm your caches:</strong> ensure Redis/Memcached instances for order book data, price tickers, and user portfolio calculations have sufficient memory headroom. A cache eviction during peak traffic is catastrophic. (3) <strong>Review your circuit breakers:</strong> verify that rate limiters and circuit breakers on downstream services (matching engine, risk management) are configured for burst traffic, not just sustained load. (4) <strong>Alert threshold adjustment:</strong> temporarily widen your latency P95 alert thresholds by 2x for FOMC day — you want real alerts, not noise from expected load. (5) <strong>For iOS:</strong> ensure your app gracefully handles rapid price updates — if your UI renders every tick, you'll drop frames during volatile moments. Implement a <code>throttle(for: 0.1)</code> on price display updates to maintain 60fps while showing meaningful price movement. Pre-download market sentiment data and analyst summaries to reduce API calls during peak. <a href="https://developer.apple.com/documentation/combine/publishers/throttle">Apple Throttle Docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Ode Enterprise JV</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Launches "Ode" — $1.5B Joint Venture with Blackstone for Enterprise AI Deployment</a></h3>
+    <p>Anthropic unveiled <strong>Ode</strong>, a $1.5 billion joint venture with Blackstone and other investors, focused exclusively on <strong>enterprise AI implementation</strong>. Unlike API access (which gives you the model), Ode provides dedicated engineering teams that deploy and optimize Claude within your organization's specific workflows, data pipelines, and compliance requirements. The thesis: the value of AI lies not in model access (increasingly commoditized) but in <strong>expert deployment by specialized teams</strong>. <strong>Why this matters for engineering leaders:</strong> Ode signals that even Anthropic recognizes a gap between "having Claude access" and "getting production value from Claude." The implication: if your team has Claude API access but hasn't seen transformative results, the bottleneck is integration engineering, not model capability. <strong>For Binance teams:</strong> Ode's model — dedicated AI engineers embedded with your team — is the right approach for high-stakes deployments (compliance automation, risk modeling). Evaluate whether your current Claude integration extracts 10% or 80% of available value; the gap is the Ode opportunity.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Security · Multi-IDE Sandbox Escape</span>
+    <h3><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">Critical Sandbox Escape Vulnerability Disclosed Across Cursor, Codex &amp; Gemini CLI</a></h3>
+    <p>Security researchers disclosed a <strong>sandbox escape vulnerability affecting multiple major AI coding tools</strong> — Cursor, Codex, and Gemini CLI — in late July. The attack exploits a fundamental design gap: AI agents can write to files that are subsequently consumed by <strong>trusted processes with elevated privileges</strong> (CI pipelines, package managers, build systems). An agent modifying a GitHub Actions workflow file, for example, could inject arbitrary commands that execute with repository secrets. <strong>The industry response:</strong> all three vendors have acknowledged the issue. Cursor released a patch enabling file-level write restrictions; Codex added a <code>--sandbox-strict</code> mode that blocks writes to infrastructure files; Gemini CLI introduced an allowlist system. <strong>The deeper architectural lesson:</strong> AI agent sandboxing cannot rely solely on process isolation — it must also consider the <em>trust relationships between files</em>. A file written by an untrusted agent should not be implicitly trusted by CI/CD systems, package managers, or build tools. Expect "agent-aware trust boundaries" to become a standard security pattern in 2027. <strong>Action required:</strong> update all three tools to latest versions this weekend. Review the hardening checklist in today's Tech Tips section.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Codex Sites</span>
+    <h3><a href="https://openai.com/index/codex">Codex "Sites": Turn Text Descriptions into Hosted Web Apps with Shareable URLs</a></h3>
+    <p>OpenAI shipped <strong>Codex Sites</strong> — a feature that generates working web applications from plain text descriptions and immediately hosts them with a shareable URL. No build step, no deployment config, no hosting setup. Describe what you want ("a dashboard showing BTC price history with 7-day and 30-day moving averages"), and Sites produces a live, interactive web app in under 60 seconds. <strong>Why this matters beyond demos:</strong> Sites eliminates the entire deployment friction for internal tools, quick prototypes, and one-off utilities. For iOS teams: use Sites to rapidly prototype web-based admin dashboards, feature flag management UIs, or A/B test result viewers without bothering your backend team. The generated apps are full-stack (HTML/CSS/JS + serverless functions for data fetching) and can be password-protected. <strong>Limitation awareness:</strong> Sites-generated apps are hosted on OpenAI's infrastructure — do not use for anything requiring data privacy or SOC2 compliance. Use it for internal-only tools where convenience outweighs infrastructure control. Think of it as the "Google Forms" of web apps — good enough for 80% of internal tooling needs.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Gemini 4 Pre-Training</span>
+    <h3><a href="https://blog.google/technology/ai/">Google Confirms Gemini 4 Pre-Training Has Begun — Next-Gen Foundation Model Expected Q4 2026</a></h3>
+    <p>Alongside the Gemini 3.6 Flash release, Google disclosed that <strong>pre-training for Gemini 4 has begun</strong>. While details are sparse, the announcement signals Google's frontier model cadence: 3.5 Pro (currently in partner testing) bridges to Gemini 4 (expected Q4 2026 or Q1 2027). The Gemini 4 project reportedly targets a significant leap in <strong>agentic reasoning</strong> — multi-hour task execution, self-correction over extended workflows, and native tool orchestration without explicit prompting. <strong>For your planning horizon:</strong> if you're architecting AI features that ship in Q1 2027, design them to be model-agnostic. The Q4 2026 model landscape will look radically different: Claude Opus 5 is already here, GPT-5.6 Sol is mature, and Gemini 4 adds another frontier option. The winning architecture: a routing layer that can swap models without touching feature code. <strong>For iOS:</strong> Gemini 4's emphasis on agentic reasoning suggests better performance for on-device agent orchestration — keep your <code>ModelProvider</code> protocol flexible for when Gemini 4 APIs become available.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Double Usage Limits</span>
+    <h3><a href="https://docs.cursor.com">Cursor Permanently Doubles Usage Limits for First-Party Models Including Grok 4.5</a></h3>
+    <p>After a week of user confusion, Cursor <strong>confirmed a permanent doubling of usage limits</strong> for all first-party models — including Grok 4.5 and Composer — on Individual and Team plans. This isn't a promotional period; it's a structural change reflecting lower per-inference costs from the SpaceX/xAI integration. <strong>What this means practically:</strong> if you previously hit rate limits during intensive refactoring sessions (common with 8 parallel agents running), you now have 2x headroom before throttling kicks in. For teams: the doubled limits make Cursor viable for all-day agent-driven development without the "save my requests for important tasks" mentality. <strong>The strategic signal:</strong> usage limit increases always precede market share plays. Cursor is betting that generous limits create habit formation — once developers build Cursor into their daily workflow at 2x capacity, switching costs become prohibitive. If you've been rationing Cursor usage, this is the week to go all-in on parallel agent workflows and see if the productivity gains justify full adoption.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Codex · Computer Use Windows</span>
+    <h3><a href="https://openai.com/index/codex">Codex "Computer Use on Windows": AI Agent Controls Any Desktop App for Testing &amp; Debugging</a></h3>
+    <p>Following the macOS release earlier this year, OpenAI shipped <strong>Codex Computer Use for Windows</strong> — enabling the AI agent to interact with any Windows application's GUI to test, debug, and refine code. The agent can open applications, click buttons, read screen content, fill forms, and verify visual outputs autonomously. <strong>Why this matters for cross-platform teams:</strong> if your iOS app has a web admin panel or Windows-based tooling (many fintech companies do), Codex can now <em>autonomously test your entire stack</em> by interacting with real applications rather than just APIs. The pattern: "open our admin dashboard, create a test user, verify the portfolio display shows correct data, then run the iOS simulator and check the same data appears on mobile." <strong>The broader trend:</strong> AI agents are moving from "code-only" to "full system" interaction. Claude's computer use, Codex's desktop control, and Gemini's multimodal capabilities all point toward agents that test entire user journeys, not just individual functions. For iOS: this means your E2E testing pipeline could be augmented by an AI agent that visually verifies your app's UI matches Figma designs — no XCUITest maintenance required.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · $40M AI for Science</span>
+    <h3><a href="https://blog.google/technology/ai/">Google Commits $40M in AI Credits to Genesis Mission — National Labs Get Gemini Access</a></h3>
+    <p>Google committed <strong>$40 million in AI tokens and cloud credits</strong> to the Genesis Mission — a national initiative providing all 17 Department of Energy National Laboratories with access to Gemini models for scientific discovery. <strong>Why developers should care:</strong> when frontier AI models are deployed in scientific research environments with extreme precision requirements (particle physics, climate modeling, materials science), the reliability and factuality improvements that result flow back into the commercial models everyone uses. Every model safety improvement driven by scientific use cases makes your production AI features more reliable. <strong>The infrastructure insight:</strong> Google is positioning Gemini as the "scientific computing" AI layer — a deliberate contrast to OpenAI's consumer focus and Anthropic's enterprise focus. For teams evaluating long-term AI partnerships: Google's research credibility and scientific validation pipeline is a unique advantage for applications requiring high factuality (financial data, compliance, medical).</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Pre-FOMC Drift</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $63,965 — Slides Below $64K as FOMC Uncertainty Caps Momentum</a></h3>
+    <p>Bitcoin trades at approximately <strong>$63,965</strong> on Saturday, July 26, continuing its decline from Friday's $64,900 and this week's high of $66,600. The dominant theme: <strong>pre-FOMC positioning</strong> ahead of the July 28-29 meeting has drained speculative capital. Leverage has been supporting the price at current levels, but spot buying remains anemic. <strong>Key data points:</strong> the $64,850 resistance level has proven impenetrable on multiple tests. Support sits at $63,200 (the post-CPI relief rally base). The Fear &amp; Greed Index has retreated from last week's "Neutral" reading back toward "Fear" territory. <strong>The pattern:</strong> BTC's current price action mirrors classic pre-FOMC consolidation — markets compress into tight ranges, then expand violently on the announcement. The risk is asymmetric: a dovish surprise (rate cut signal) could send BTC to $67K+ within hours, while a hawkish surprise (September hike confirmed) targets $60K. <strong>Position sizing:</strong> reduce leverage ahead of Wednesday's announcement. The most profitable pre-FOMC strategy historically: stay small, keep powder dry, and add on the post-announcement dip (which occurs regardless of direction due to volatility sellers).</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Bridge Exploits</span>
+    <h3><a href="https://www.theblock.co">Two Ethereum Bridge Exploits This Week — $31M Combined Losses Reignite Infrastructure Debate</a></h3>
+    <p>Two separate <strong>Ethereum bridge exploits</strong> occurred this week, resulting in a combined loss exceeding <strong>$31 million</strong>. The incidents reignite the long-running debate about cross-chain bridge security — bridges remain crypto's most exploited infrastructure category, with cumulative losses exceeding $3 billion since 2022. <strong>Why bridges keep breaking:</strong> bridges are inherently complex — they maintain consensus across two independent chains with different security models, creating attack surfaces that don't exist in single-chain applications. The common failure modes: oracle manipulation, signature verification bugs, and admin key compromises. <strong>For Binance developers:</strong> (1) if your app integrates cross-chain transfers, implement <strong>withdrawal delay patterns</strong> — large transfers should face a time-lock that allows monitoring systems to flag suspicious activity before funds are released. (2) Monitor bridge TVL concentration — if a single bridge holds >30% of a token's cross-chain liquidity, that's a systemic risk to your users' assets. (3) <strong>For iOS:</strong> surface bridge health indicators in your app's transfer UI — show users the security status, TVL, and recent audit date of the bridge they're about to use. Informed users make safer choices.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · FATF DeFi Enforcement</span>
+    <h3><a href="https://www.fatf-gafi.org">FATF 7th VA Update: Global Watchdog Declares End of "Paper-Only Compliance" for DeFi</a></h3>
+    <p>The Financial Action Task Force released its <strong>7th targeted update on virtual assets</strong>, sending a clear message: the era of <strong>"paper-only compliance" is over</strong> for DeFi platforms. The FATF report advocates for a "functional and risk-based approach" to DeFi regulation and calls out three emerging threats: (1) <strong>"Freeze-resistant" stablecoins</strong> — tokens specifically designed to evade blacklisting and sanctions enforcement. (2) <strong>AI-scaled illicit operations</strong> — criminal networks using AI to automate money laundering at industrial scale. (3) <strong>Industrialized fraud operations</strong> — sophisticated, multi-chain fraud infrastructure that exploits regulatory arbitrage across jurisdictions. <strong>The compliance engineering impact:</strong> DeFi protocols serving users in FATF-compliant jurisdictions (virtually all major markets) must now demonstrate not just having compliance policies, but <em>actively enforcing them</em>. This creates demand for: real-time transaction monitoring at the smart contract level, automated sanctions screening with sub-second latency, and provable compliance audit trails that regulators can verify independently. <strong>For Binance:</strong> the FATF report validates your existing compliance infrastructure while raising the bar for DeFi integrations — expect stricter due diligence requirements for any DeFi protocol partnerships.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Agent Trust Boundaries: The Security Architecture Pattern for 2027</strong>
+    <p>This week's sandbox escape disclosures crystallize a new security architecture requirement: <strong>AI Agent Trust Boundaries</strong> — explicit, infrastructure-enforced limits on what AI agents can influence, even indirectly. The traditional sandbox model (process isolation) is insufficient because agents operate through <em>file writes</em> that cross trust boundaries when consumed by other systems. The emerging architecture has three layers: (1) <strong>Write Boundary:</strong> which files/directories the agent can modify (enforced by filesystem permissions, not just prompt instructions). (2) <strong>Influence Boundary:</strong> which downstream systems are affected by agent-writable files. Map the "blast radius" — if the agent writes to <code>Package.swift</code>, it influences every build; if it writes to <code>Sources/Feature/</code>, it only influences that module. (3) <strong>Approval Boundary:</strong> which file categories require human sign-off before downstream systems consume them. Infrastructure configs, dependency manifests, and CI definitions should always require approval regardless of author (human or AI). <strong>Implementation for iOS teams:</strong> create a <code>.agent-permissions.yaml</code> that maps: <code>allow_write: ["Sources/**", "Tests/**"]</code>, <code>require_approval: ["*.xcconfig", "Package.swift", ".github/**", "fastlane/**"]</code>, <code>deny_write: ["Certificates/", "*.p12", ".env*"]</code>. This file becomes your agent security policy — enforced by pre-commit hooks that reject unauthorized changes. <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP LLM Security →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Freeze-Resistant Stablecoins: The Arms Race Between Compliance Tech and Evasion Design</strong>
+    <p>The FATF's explicit callout of <strong>"freeze-resistant" stablecoins</strong> this week names a trend that's been growing quietly: stablecoin protocols specifically designed to resist centralized blacklisting and sanctions enforcement. Traditional stablecoins (USDT, USDC) have admin functions that allow issuers to freeze addresses — compliance tools that regulators now expect. Freeze-resistant alternatives use (1) <strong>fully decentralized governance</strong> with no admin keys (no single entity can freeze), (2) <strong>algorithmic mechanisms</strong> that make freezing technically impossible at the protocol level, or (3) <strong>privacy-preserving designs</strong> that make address identification difficult. <strong>The arms race:</strong> as compliance-capable stablecoins become the norm for regulated activity, non-compliant alternatives attract a disproportionate share of illicit flows — making them regulatory targets. <strong>For developers building compliance infrastructure:</strong> (1) maintain a classification system for stablecoins by freeze-capability — <code>fully_compliant</code> (USDC/USDT), <code>partially_compliant</code> (governance-controlled freeze), <code>non_compliant</code> (no freeze mechanism). (2) Risk-score transactions based on stablecoin type — transfers involving non-compliant stablecoins should trigger enhanced due diligence automatically. (3) Build detection for "compliance laundering" — the pattern where users convert non-compliant stablecoins to compliant ones before interacting with regulated platforms. This is the on-chain equivalent of structuring and deserves the same monitoring attention.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The "Expert Deployment" Gap: Why AI Access ≠ AI Value (Anthropic's Ode Thesis)</strong>
+    <p>Anthropic's Ode launch this week articulates a thesis that's becoming undeniable: <strong>access to frontier AI models is no longer the bottleneck for organizational value creation</strong>. The bottleneck is expert deployment — the engineering work of connecting models to your specific data, workflows, approval processes, and quality requirements. Evidence: (1) Most organizations with Claude/GPT API access extract less than 20% of available value. (2) NTT DATA's Codex case study (covered Thursday) showed that the same tool delivers 144x speedup for teams with proper integration vs. modest gains for teams with basic access. (3) The AI coding tool market is $12.8B (doubled in 18 months) but productivity surveys show developer satisfaction with AI tools <em>declining</em> — suggesting poor integration, not poor models. <strong>The deployment expertise stack:</strong> context engineering (your rules files), workflow integration (hooks, MCP, CI connections), quality assurance (evaluation pipelines, golden tests), and organizational adoption (training, governance, escalation paths). <strong>For your team:</strong> if you're spending budget on model access but not on deployment engineering, you're buying a Ferrari and parking it in first gear. Reallocate: for every $1 spent on API credits, spend $2 on integration engineering. The ROI inversion is real — a well-integrated $3/MTok model outperforms a poorly-integrated $15/MTok model in production value delivered. <a href="https://www.anthropic.com/news">Anthropic Ode →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/">OWASP: Top 10 for LLM Applications — Agent Sandbox Security</a>
+        <span class="desc">Updated guidelines covering AI agent security patterns — sandbox escape vectors, file-level trust boundaries, and infrastructure-enforced permission models for coding agents.</span>
+      </li>
+      <li>
+        <a href="https://www.fatf-gafi.org/en/publications/fatfrecommendations/targeted-update-virtual-assets-vasps-2026.html">FATF: 7th Targeted Update on Virtual Assets and VASPs</a>
+        <span class="desc">Full report on global enforcement expectations for DeFi platforms — freeze-resistant stablecoin risks, AI-scaled illicit operations, and the "functional approach" to DeFi regulation.</span>
+      </li>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code: Complete Context Engineering Guide</a>
+        <span class="desc">Official documentation covering hooks, MCP server creation, permission management, and CLAUDE.md best practices — the reference for building your context engineering stack.</span>
+      </li>
+      <li>
+        <a href="https://docs.cursor.com">Cursor: Security Configuration &amp; File-Level Permissions</a>
+        <span class="desc">New documentation on Cursor's file restriction system released in response to sandbox escape disclosures — configure write permissions, approval requirements, and sensitive file protection.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic Ode: Enterprise AI Deployment Joint Venture</a>
+        <span class="desc">Details on the $1.5B Blackstone partnership — the "expert deployment" thesis, team structure, engagement model, and how Ode differs from standard API access or consulting.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-26T09:00:00Z</p>
+  <p>Sunday Edition — Best-of-week tips (context engineering, agent sandbox hardening, FOMC prep), Anthropic Ode JV, sandbox escape disclosure, BTC pre-FOMC at $64K</p>
+  <p>Dedup: 2500+ stories filtered from past 5 days (Jul 21–Jul 25) · 210 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (4/4 queries)</td><td>180+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>60+ results</td></tr>
+    <tr><td>Web Search — Concepts/Trends</td><td>✅ OK (1 query)</td><td>45+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
