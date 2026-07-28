@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-28</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, July 28, 2026 — FOMC Day 1 Begins, Codex Hits 10M Users &amp; ETH Staking Ratio Reaches Record 34%</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflows, Hooks &amp; MCP</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Sub-Agents</span>
+    <strong>Claude Code Sub-Agents: Parallelize Complex Tasks with Spawned Workers</strong>
+    <p>Claude Code's <strong>sub-agent spawning</strong> is the most underused power feature for Monday morning productivity. Instead of sequentially handling a complex task, spawn parallel workers that each handle a piece — dramatically reducing wall-clock time for multi-file operations. The pattern: (1) <strong>Use <code>/spawn</code> for independent subtasks:</strong> when refactoring a feature that touches 5 files, spawn a sub-agent for each file with clear instructions: <code>"Refactor UserRepository to use async/await, keep existing interface, add error handling"</code>. Each sub-agent works in isolation, then you review all diffs together. (2) <strong>The Supervisor pattern in practice:</strong> your main session acts as supervisor — describe the high-level goal, let Claude decompose it, then spawn workers for each component. Example workflow: <code>claude "Migrate our networking layer from URLSession to async/await" → spawns: (a) update protocol definitions, (b) refactor each service file, (c) update tests, (d) update documentation</code>. (3) <strong>Combine with hooks for quality gates:</strong> set a <code>post-tool</code> hook that runs <code>swiftc</code> type-checking after each sub-agent completes its file edit. If compilation fails, the sub-agent self-corrects before reporting success. (4) <strong>For iOS teams:</strong> the killer workflow is "add new feature module" — spawn sub-agents for: View (SwiftUI), ViewModel (ObservableObject), Repository (protocol + implementation), Tests (unit + snapshot), and Navigation (coordinator wiring). Each follows your team's patterns from CLAUDE.md. Total time: ~2 minutes for what manually takes 30+ minutes of boilerplate. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Skills System</span>
+    <strong>Codex Skills: Turn Repeatable Workflows into One-Command Automations</strong>
+    <p>OpenAI's <strong>Codex Skills</strong> system — now available to all 10M+ users — lets you package multi-step agent workflows into reusable, parameterized commands that execute with a single invocation. Unlike simple prompt templates, Skills maintain state across steps, handle errors with retry logic, and can invoke external tools. Here's how to build your first killer Skill: (1) <strong>Define the Skill manifest:</strong> create <code>.codex/skills/add-api-endpoint.yaml</code> with: name, description, parameters (endpoint path, HTTP method, request/response schemas), and step definitions. (2) <strong>Each step is an agent instruction:</strong> Step 1 — "Create the route handler in <code>Sources/Routes/{endpoint}.swift</code> following existing patterns." Step 2 — "Add request/response Codable models." Step 3 — "Write unit tests covering happy path and error cases." Step 4 — "Update OpenAPI spec." Step 5 — "Run tests and fix any failures." (3) <strong>Parameterize for reuse:</strong> <code>codex skill run add-api-endpoint --path /v1/users/preferences --method PUT --auth required</code> — the Skill fills in all parameters and executes the full 5-step workflow autonomously. (4) <strong>Share across your team:</strong> Skills are YAML files in your repo — commit them, and every team member gets the same high-quality automation. New hires produce production-grade code on day one. (5) <strong>For iOS:</strong> build Skills for: "add new screen" (View + VM + tests + navigation), "add analytics event" (event model + tracking call + unit test), "prepare hotfix" (branch + cherry-pick + version bump + changelog). Each encodes your team's best practices as executable automation. <a href="https://openai.com/index/codex">Codex Skills Docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MCP · Workflow Orchestration</span>
+    <strong>MCP Servers as Workflow Orchestrators: Connect Your CI, Feature Flags &amp; Deployments</strong>
+    <p>Monday tip for the week: build the <strong>MCP workflow server</strong> that connects your AI agents to your team's actual operational state — turning passive code assistants into aware collaborators that know what's deployed, what's flagged, and what's broken. The high-ROI MCP server for this week: (1) <strong>CI/CD Status Server:</strong> expose endpoints like <code>get_pipeline_status(branch)</code>, <code>get_last_deployment(env)</code>, <code>get_failing_tests()</code>. Now when you ask Claude Code "fix the failing test," it already knows which test is failing and on which branch — no copy-pasting CI output. Build time: 1 hour with Node.js + your CI API. (2) <strong>Feature Flag Server:</strong> expose <code>get_flag_state(flag_name, env)</code>, <code>list_flags_for_feature(feature_id)</code>. Your AI agent can now reason about conditional code paths — "this code only executes when <code>new_checkout_flow</code> is enabled in production" — and generate tests for both flag states. Build time: 45 minutes. (3) <strong>Incident Context Server:</strong> for FOMC week especially — expose <code>get_active_incidents()</code>, <code>get_on_call_schedule()</code>, <code>get_system_health(service)</code>. When you're debugging under pressure, your AI agent has full situational awareness without you manually providing context. (4) <strong>Composing multiple servers:</strong> Claude Code and Codex both support multiple MCP servers simultaneously. Configure all three in your <code>.claude/mcp_servers.json</code> and your agent seamlessly accesses CI status, feature flags, AND incident data in a single conversation. The compound effect: an agent that knows your code AND your operational context produces dramatically more relevant suggestions. <a href="https://modelcontextprotocol.io">MCP Specification →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · 10M Users</span>
+    <h3><a href="https://openai.com/index/codex">Codex + ChatGPT Work Surpass 10 Million Users — Agentic Coding Goes Mainstream</a></h3>
+    <p>OpenAI's integration of <strong>Codex into the ChatGPT desktop app via ChatGPT Work</strong> (July 9) has pushed the combined user base to approximately <strong>10 million active users</strong> — a milestone that transforms agentic coding from early-adopter tool to mainstream development practice. The GPT-5.6 model family powers both products, with the <strong>Codex Summer Studio</strong> (a four-week virtual program for faculty and researchers) extending reach into academia. <strong>Why this matters for your workflow:</strong> (1) At 10M users, Codex's training feedback loop accelerates — expect model quality to improve faster from the volume of acceptance/rejection signals. (2) The ChatGPT Work integration means non-engineering colleagues now have access to agentic capabilities — PMs can generate specs, designers can prototype, QA can write test scenarios. (3) <strong>For teams:</strong> the "Codex is integrated into ChatGPT" framing lowers adoption barriers — team members who already use ChatGPT daily now discover agentic coding naturally, without switching tools. If you've been advocating for AI tool adoption on your team, this integration removes the "yet another tool" objection entirely.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · Muse Spark 1.1</span>
+    <h3><a href="https://ai.meta.com">Meta Muse Spark 1.1: Multimodal Reasoning Model Optimized for Agentic Tool Use</a></h3>
+    <p>Meta AI released <strong>Muse Spark 1.1</strong> on July 9 — a multimodal reasoning model specifically designed for <strong>agentic tasks involving tool use, computer interaction, and coding</strong>. Unlike general-purpose models, Muse Spark 1.1 is architecturally optimized for the agent loop: observe → reason → act → verify. Available through the new Meta Model API public preview. <strong>What differentiates Muse Spark 1.1:</strong> (1) <strong>Native computer use:</strong> the model can interact with desktop applications, read screen content, and execute multi-step GUI workflows — similar to Claude's computer use but with Meta's emphasis on open weights. (2) <strong>Tool-use precision:</strong> benchmarks show significant improvements over Spark 1.0 in correct parameter selection and tool sequencing — the two failure modes that plague agent reliability. (3) <strong>Multimodal input:</strong> screenshot + text → structured action plan. Show it your app's UI and ask "add a dark mode toggle here" and it generates the implementation with correct positioning. <strong>For iOS developers:</strong> Muse Spark 1.1's computer use capabilities make it a candidate for automated UI testing — feed it screenshots of your app and test scenarios, and it navigates the interface verifying behavior. The open API model means you can run it on your own infrastructure for sensitive testing environments.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Oracle · AI Agent Studio</span>
+    <h3><a href="https://developer.oracle.com">Oracle AI Agent Studio Centers on VS Code — Enterprise AI Workflows Meet Familiar Tooling</a></h3>
+    <p>Oracle announced on July 27 that its <strong>Fusion AI Agent Studio and APEX development workflows</strong> are now centered around Visual Studio Code, allowing enterprise developers to build AI agent workflows locally with familiar tools and AI coding agents. <strong>Why this matters beyond the Oracle ecosystem:</strong> (1) <strong>The "enterprise AI in your IDE" pattern solidifies:</strong> Oracle joins Salesforce (Einstein Studio), ServiceNow (Now Assist), and SAP (Joule) in bringing enterprise AI agent development into developer IDEs rather than proprietary web consoles. The pattern is clear — enterprise AI is being democratized through familiar developer tooling. (2) <strong>AI agent builder accessibility:</strong> developers who already use VS Code + Copilot/Claude can now build Oracle AI agents without learning a separate platform. The workspace metaphor (local files, version control, familiar shortcuts) reduces the cognitive overhead of enterprise AI development. (3) <strong>For your career:</strong> "AI agent development" is rapidly becoming a standard skill requirement, not a specialization. When Oracle — the most enterprise-conservative tech company — ships AI agent builders in VS Code, it signals that every developer will be expected to build and maintain AI agents within 2-3 years.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude · Artifacts Live Data</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Artifacts Now Call Live Data via Connectors — Interactive Dashboards in Seconds</a></h3>
+    <p>Anthropic's latest Claude update enables <strong>Artifacts to call live data through user connectors</strong> — transforming static code previews into dynamic, data-connected applications. Previously, Artifacts were sandboxed demos; now they can pull real-time data from your connected services (Google Sheets, databases, APIs). <strong>Practical applications:</strong> (1) <strong>Instant dashboards:</strong> "Create a dashboard showing our sprint velocity from this Jira board" — Claude generates a live Artifact that queries your actual Jira data and renders charts, updating in real-time. (2) <strong>Data exploration tools:</strong> connect to your analytics database and say "build an explorer for our user engagement metrics" — get a working interactive tool, not a static mockup. (3) <strong>For iOS teams:</strong> use live Artifacts to prototype data visualizations before implementing them in Swift. Connect to your actual API endpoints, validate the data transformations work correctly, then use the Artifact as a specification for your iOS implementation. The "live data" capability also means you can build quick admin tools without touching your backend — useful for FOMC week when you need to monitor specific metrics without deploying new code.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Agent Swarm</span>
+    <h3><a href="https://docs.cursor.com">Cursor 3 "Agent Swarm": Frontier Models Plan, Fast Models Execute at Scale</a></h3>
+    <p>Cursor shipped <strong>Cursor 3</strong> with a groundbreaking "Agent Swarm" architecture — a system that uses powerful frontier models (Opus, Sol) to <strong>plan complex multi-file tasks</strong>, then deploys faster, cheaper models (Flash, Luna) to execute each individual subtask in parallel. The result: large-scale refactoring that previously took 30 minutes of sequential agent work now completes in under 5 minutes. <strong>How Agent Swarm works:</strong> (1) <strong>Planning phase:</strong> a frontier model analyzes your codebase, understands the dependency graph, and decomposes the task into atomic, parallelizable units. (2) <strong>Execution phase:</strong> each unit is dispatched to a fast execution model that handles it independently — file renames, import updates, type signature changes, test updates. (3) <strong>Verification phase:</strong> the planner model reviews all changes holistically, checking for conflicts or missed dependencies between the parallel edits. <strong>Why this matters:</strong> Agent Swarm is the first production implementation of "hierarchical multi-agent coding" at IDE scale. For large codebases (1000+ files), this architecture makes previously impractical refactoring tasks feasible — like migrating an entire codebase from one framework to another in a single session. <strong>For iOS:</strong> Agent Swarm excels at the tasks iOS developers dread most — updating all views for a design system change, migrating from UIKit delegates to Combine publishers across 50+ view controllers, or renaming a core protocol and updating all conformances.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Codex · Summer Studio</span>
+    <h3><a href="https://openai.com/index/codex">Codex Summer Studio: OpenAI's 4-Week Program Bridges AI Coding to Academia</a></h3>
+    <p>OpenAI launched <strong>Codex Summer Studio</strong> — a four-week virtual program inviting faculty and researchers to build practical examples using Codex in their academic work. The program targets computational science, digital humanities, and engineering education. <strong>Why developers should care about an academic program:</strong> (1) <strong>New use case patterns:</strong> academics push AI coding tools into non-traditional domains — bioinformatics pipelines, climate simulations, literary text analysis. The patterns they discover often transfer back to production software (yesterday's "research hack" becomes tomorrow's best practice). (2) <strong>Curriculum signal:</strong> when AI coding tools enter university curricula, the incoming generation of developers expects these tools as baseline. Teams not adopting agentic workflows will struggle to attract junior talent within 2-3 years. (3) <strong>For your learning:</strong> follow the Summer Studio outputs (published on OpenAI's blog) for novel Codex usage patterns you haven't considered. Researchers often discover non-obvious prompt engineering techniques because they approach the tool without preconceptions about what it "should" do. <strong>Broader signal:</strong> OpenAI investing in academic adoption is a long-term market play — students who learn on Codex become lifelong users. Similar to how JetBrains offers free IDE licenses to students, this creates sticky early adoption.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Claude · Telegram Notifications</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Telegram Notifications: Never Miss a Background Agent Completion</a></h3>
+    <p>Anthropic added <strong>Telegram notification support</strong> to Claude Code — when a background agent completes a long-running task, you receive a push notification on your phone with a summary and link to review the results. Previously, you had to keep checking the terminal or web UI to know when background tasks finished. <strong>Why this matters for agentic workflows:</strong> (1) <strong>True "fire and forget" agent tasks:</strong> kick off a complex migration, go to lunch, get notified when it's done. The psychological friction of "I need to babysit this agent" disappears entirely. (2) <strong>Batch workflow orchestration:</strong> queue up 5 background tasks Monday morning (refactor module A, add tests to module B, update docs for module C, etc.), receive notifications as each completes, review diffs on your phone during coffee breaks. (3) <strong>For iOS developers:</strong> the workflow becomes: start a background agent to "implement the new settings screen per this Figma spec," switch to reviewing PRs or attending standup, get Telegram ping when it's ready for review. Your productive hours expand because agent supervision becomes asynchronous. (4) <strong>Setup:</strong> configure via <code>claude config set notifications.telegram.bot_token YOUR_TOKEN</code> — takes 2 minutes with BotFather. Optionally filter notifications by task type (only notify on completions, not on errors that auto-retry). <a href="https://docs.anthropic.com/en/docs/claude-code">Setup Guide →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · FOMC Day 1</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $63,626 — FOMC Day 1 Begins as Bitcoin Tests Key Support Level</a></h3>
+    <p>Bitcoin opens the FOMC week at <strong>$63,626</strong> on Monday, July 28 — testing the critical $63,500-$64,000 support zone that has held since mid-July. The price represents a -4.5% decline from last Monday's $66,600 high, with the sell-off accelerating as the Fed meeting approaches. Prediction markets show contracts actively trading at the $64,750 and $65,000 strike levels for today's close. <strong>FOMC Day 1 dynamics:</strong> historically, the first day of a two-day FOMC meeting sees compressed volatility as traders reduce positions ahead of the announcement (Wednesday 2:00 PM ET). Expect range-bound trading between $63,000-$64,500 today with the real move coming post-announcement. <strong>The rate hike probability:</strong> futures markets now price approximately 33% probability of a rate increase — significantly higher than earlier in July. Fed Chair Kevin Warsh's second meeting as chair adds uncertainty, as his policy stance remains less predictable than his predecessor's. <strong>Key scenarios for this week:</strong> (1) <em>Hold + dovish guidance:</em> BTC rallies to $66K-$67K within 48 hours. (2) <em>Hold + neutral:</em> BTC consolidates $63K-$65K range. (3) <em>Hike (25bps):</em> BTC tests $60K-$61K support — the most violent downside scenario. <strong>For position management:</strong> today is about capital preservation, not new entries. Reduce leverage to minimum and wait for Wednesday's clarity.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Record Staking</span>
+    <h3><a href="https://www.theblock.co">ETH Approaching $2,000 — Staking Ratio Hits Record 34%, Supply Squeeze Intensifies</a></h3>
+    <p>Ethereum trades near <strong>$2,000</strong> on Monday with a quietly powerful fundamental backdrop: the <strong>ETH staking ratio has reached a record 34%</strong>, locking approximately 40 million ETH out of circulating supply. Combined with ETH burned via EIP-1559 and growing institutional demand, the available float is at its lowest point since the Merge. <strong>Why 34% staking matters NOW:</strong> (1) <strong>Supply-side mechanics:</strong> with 34% staked + ~5% in DeFi protocols + ~3% in bridges, only ~58% of ETH supply is freely tradeable. Any demand catalyst (FOMC dovish surprise, ETF inflows resuming) hits a thinner order book — amplifying price moves. (2) <strong>The ETF divergence continues:</strong> US spot ETH ETFs have seen positive net inflows for 5+ consecutive days while BTC ETFs experienced outflows — institutional capital is actively rotating from BTC to ETH exposure. (3) <strong>$2,000 as the key level:</strong> ETH hasn't traded above $2,000 since early July. A daily close above this psychological level would confirm the trend reversal from June's $1,600 low. The 100-day EMA at $1,937 (rejected last week) now sits below current price — bullish if it holds as support. (4) <strong>Capital rotation thesis:</strong> macro investor Jordi Visser notes that capital may be rotating from AI stocks (whose explosive growth phase has matured) into ETH specifically, given the network's revenue-generating capabilities. <strong>For Binance developers:</strong> the staking ratio creates infrastructure demand — more staking = more validator clients, withdrawal queue management tools, and liquid staking protocol integrations.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · California DFAL</span>
+    <h3><a href="https://dfpi.ca.gov">California's Digital Financial Assets Law Now Active — State Licensing Era Begins</a></h3>
+    <p>As of July 1, 2026, <strong>California's Digital Financial Assets Law (DFAL)</strong> is officially in effect — requiring any business conducting digital asset activities for California residents to obtain a license from the Department of Financial Protection and Innovation (DFPI). This is the most significant state-level crypto regulation to take effect this month, covering the world's 5th-largest economy. <strong>What's covered:</strong> exchanging, transferring, or storing digital financial assets on behalf of others; issuing stablecoins; and facilitating digital asset transactions. <strong>What changed at the last minute:</strong> amendments narrowed scope by exempting certain in-game digital assets and providing transitional provisions for existing operators who applied for licenses before July 1. <strong>For Binance US operations:</strong> (1) Compliance teams must verify California licensing status is current and all required disclosures are in place. (2) The DFAL creates a "BitLicense for California" — similar reporting requirements, capital reserves, and consumer protection standards as New York's framework but for a 40-million-person market. (3) <strong>For developers:</strong> the licensing requirement means geo-specific compliance checks become more granular. Your app needs to distinguish between California residents and other US users for certain feature access and disclosure requirements. Consider building a compliance middleware layer that reads user state data and applies jurisdiction-specific rules — this pattern will repeat as more states adopt similar frameworks.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Architecture-as-Code: Define, Validate, and Enforce System Design in Version Control</strong>
+    <p>A methodology gaining serious traction in July 2026: <strong>Architecture-as-Code (AaC)</strong> — defining your system's architectural rules, constraints, and patterns in machine-readable, version-controlled formats (YAML, HCL, or DSLs) that can be automatically validated against your actual codebase. Unlike architecture diagrams that rot in Confluence, AaC rules are <em>living enforcement mechanisms</em> that break your build when violated. <strong>How it works in practice:</strong> (1) <strong>Define architectural rules:</strong> <code>rule: "no direct dependency from Presentation layer to Data layer"</code> — expressed as patterns matching import statements, module boundaries, or dependency graphs. (2) <strong>Fitness functions run in CI:</strong> on every PR, automated checks verify the code adheres to declared architecture. A developer adding a direct database call from a SwiftUI View gets an immediate CI failure with explanation. (3) <strong>Architecture drift detection:</strong> weekly reports show where the implemented architecture has diverged from the declared design — surfacing tech debt before it becomes structural. (4) <strong>AI agent awareness:</strong> your AaC rules file becomes context for AI coding agents. Add it to your CLAUDE.md: <code>"Architecture rules are defined in .architecture/rules.yaml — never generate code that violates these rules."</code> The agent now respects your architectural boundaries automatically. <strong>For iOS teams:</strong> define rules like: "ViewModels never import UIKit," "Repository protocols live in Domain module," "No Combine in SwiftUI views (use @Observable instead)." Enforce via SwiftLint custom rules or ArchUnit-style checks in your test suite. <a href="https://archunit.org">ArchUnit Reference →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The AI-to-Crypto Capital Rotation: Why Institutional Money May Flow from Tech Stocks to Digital Assets</strong>
+    <p>A compelling macro thesis gaining momentum this week: <strong>institutional capital rotating from AI/tech stocks into crypto assets</strong> — specifically Bitcoin and Ethereum — as the AI sector's growth rate normalizes. The argument, articulated by macro investor Jordi Visser and reinforced by ETF flow data: (1) <strong>AI stock growth is maturing:</strong> NVIDIA, Microsoft, Google, and Anthropic (pre-IPO) delivered explosive returns in 2024-2025. By mid-2026, valuations have absorbed most expected growth — the "easy money" phase is over. Institutional allocators seek the next asymmetric opportunity. (2) <strong>Crypto offers familiar risk/reward:</strong> for portfolio managers who made 5-10x on AI stocks, crypto's volatility profile is <em>comfortable</em>, not scary. BTC's 200% potential from current levels to all-time-high territory matches the upside profile that drew them to AI pre-breakout. (3) <strong>ETH as "revenue-generating crypto":</strong> Ethereum's staking yield (3.5-4%), fee burn mechanism, and RWA tokenization revenue give institutional analysts familiar valuation frameworks — unlike BTC which requires "digital gold" conviction. (4) <strong>The flow data confirms rotation:</strong> BTC ETF outflows coinciding with ETH ETF inflows, combined with AI stock profit-taking, suggest active rebalancing rather than risk-off behavior. <strong>For developers:</strong> if this rotation thesis plays out, expect increased institutional infrastructure demand — custody solutions, compliance tooling, and programmable asset management platforms. The builders who have these tools ready capture the next wave of institutional capital.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>State-Level Crypto Regulation: The New Compliance Patchwork Developers Must Navigate</strong>
+    <p>July 2026 marks the beginning of a <strong>state-by-state crypto regulatory patchwork</strong> that creates significant engineering complexity: California's DFAL (active July 1), Delaware's new bank digital asset custody laws (July 6), and various state-level enforcement actions are creating a compliance landscape where <em>US users in different states face different rules</em>. <strong>The engineering challenge:</strong> (1) <strong>Per-state feature access:</strong> California residents may need additional disclosures that New York users already see (BitLicense), while Wyoming residents face minimal restrictions. Your app needs a jurisdiction engine that maps user location → applicable regulations → feature availability. (2) <strong>Licensing status as API data:</strong> build an internal service that tracks your company's licensing status per jurisdiction and exposes it to feature-flag systems. When a new state license is obtained, features automatically unlock for that state's users. (3) <strong>The federal vs. state question:</strong> even if federal legislation (CLARITY, GENIUS Act) passes, state laws like DFAL may still impose additional requirements. Design your compliance layer to handle both federal baseline + state overlay rules. (4) <strong>Why this matters more than federal regulation:</strong> federal bills stall in committee; state laws take effect immediately. California alone represents 12% of US GDP — DFAL compliance isn't optional for any serious crypto business. <strong>For iOS:</strong> implement a <code>JurisdictionService</code> that determines applicable regulations based on user registration data and location, with real-time updates when regulations change. This service becomes a dependency for every feature that touches asset transfers. <a href="https://dfpi.ca.gov">CA DFPI →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/codex">OpenAI Codex: Skills System and Summer Studio Announcement</a>
+        <span class="desc">Official documentation on building reusable Codex Skills — parameterized multi-step workflows that encode team patterns as executable automation. Plus the Summer Studio program for academic AI coding.</span>
+      </li>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code: Sub-Agent Spawning and Notification Setup</a>
+        <span class="desc">Guide to parallelizing complex tasks with sub-agents, configuring Telegram notifications for background tasks, and building MCP servers that connect agents to operational context.</span>
+      </li>
+      <li>
+        <a href="https://docs.cursor.com">Cursor 3: Agent Swarm Architecture Documentation</a>
+        <span class="desc">Technical deep-dive into Cursor's hierarchical multi-agent system — how frontier models plan tasks and fast models execute them in parallel for large-scale codebase operations.</span>
+      </li>
+      <li>
+        <a href="https://dfpi.ca.gov/digital-financial-assets-law/">California DFAL: Full Regulatory Text and Licensing Requirements</a>
+        <span class="desc">Complete text of California's Digital Financial Assets Law — licensing requirements, exempt activities, compliance timelines, and what businesses need to do to operate legally in the state.</span>
+      </li>
+      <li>
+        <a href="https://archunit.org">ArchUnit: Architecture-as-Code Testing Framework</a>
+        <span class="desc">Reference implementation for enforcing architectural rules in CI — define layer boundaries, dependency rules, and naming conventions as executable tests that prevent architecture drift.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-28T09:00:00Z</p>
+  <p>Monday Edition — Agentic workflow tips (Claude sub-agents, Codex Skills, MCP orchestration), Codex 10M users, Muse Spark 1.1, BTC $63.6K FOMC Day 1, ETH record 34% staking</p>
+  <p>Dedup: 2800+ stories filtered from past 5 days (Jul 23–Jul 27) · 238 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (4/4 queries)</td><td>200+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (2 queries)</td><td>70+ results</td></tr>
+    <tr><td>Web Search — Concepts/Trends</td><td>✅ OK (1 query)</td><td>55+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+    <tr><td>RSS — Supplementary</td><td>⏭ Not attempted (web search sufficient)</td><td>—</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
