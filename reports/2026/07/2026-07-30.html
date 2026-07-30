@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-07-30</title>
+  <style>
+:root {
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 { font-size: 30px; font-weight: 800; letter-spacing: -0.6px; color: var(--text-primary); }
+header .date { font-size: 14px; color: var(--text-secondary); margin-top: 8px; font-weight: 500; letter-spacing: 0.2px; }
+.section { margin-bottom: 40px; }
+.section-title { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; gap: 10px; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 64px; height: 2px; background: currentColor; border-radius: 2px; }
+.section-title.tips { color: var(--accent-tips); }
+.section-title.ai { color: var(--accent-ai); }
+.section-title.vibe { color: var(--accent-vibe); }
+.section-title.crypto { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.card { background: var(--bg-card); border-radius: 12px; padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow); border-left: 4px solid transparent; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+.card:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.card.tips { border-left-color: var(--accent-tips); }
+.card.ai { border-left-color: var(--accent-ai); }
+.card.vibe { border-left-color: var(--accent-vibe); }
+.card.crypto { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+.card h3 { font-size: 17px; font-weight: 650; line-height: 1.4; margin-bottom: 8px; color: var(--text-primary); }
+.card h3 a { color: var(--text-primary); text-decoration: none; border-bottom: 1px dashed transparent; transition: border-color 0.15s ease; }
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong { display: block; font-size: 16px; font-weight: 650; color: var(--text-primary); margin-bottom: 6px; }
+.card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code { background: color-mix(in srgb, var(--text-primary) 8%, transparent); color: var(--text-primary); padding: 2px 6px; border-radius: 4px; font-size: 13px; font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace; font-weight: 500; }
+.section-tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; line-height: 1.4; }
+.tip-tag { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-tips); }
+.ai-tag { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-ai); }
+.vibe-tag { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-vibe); }
+.crypto-tag { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-crypto); }
+.concept-tag { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+.worth-reading { background: var(--bg-card); border-radius: 12px; padding: 22px 24px; margin-top: 8px; box-shadow: var(--shadow); }
+.worth-reading h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.worth-reading ul { list-style: none; }
+.worth-reading li { padding: 12px 0; border-bottom: 1px solid var(--border); }
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a { color: var(--link); text-decoration: none; font-weight: 600; font-size: 14.5px; }
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc { display: block; margin-top: 4px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55; }
+footer { margin-top: 48px; padding: 20px 22px; background: var(--bg-card); border-radius: 12px; color: var(--text-muted); font-size: 12.5px; box-shadow: var(--shadow); }
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 12.5px; background: var(--bg-elevated); border-radius: 8px; overflow: hidden; }
+footer th, footer td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+footer tr:last-child td { border-bottom: none; }
+footer th { font-weight: 700; color: var(--text-primary); background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+footer td { color: var(--text-secondary); }
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, July 30, 2026 — Claude Mythos Cracks Post-Quantum Crypto, Qualcomm Acquires Modular &amp; White House Crypto Report Expected Today</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI / On-Device ML: ONNX Mobile, ANE Profiling &amp; Model Quantization</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ONNX · Cross-Platform</span>
+    <strong>ONNX Runtime on iOS: Deploy One Model Across iPhone and Android via Core ML Execution Provider</strong>
+    <p>If your team ships AI features on both iOS and Android, maintaining separate model formats is expensive. The <strong>ONNX Runtime + Core ML Execution Provider</strong> pattern lets you train once, export to ONNX, and run on both platforms — with the iOS path routing directly through the Neural Engine. Here's the practical workflow: (1) <strong>Train in PyTorch/TensorFlow</strong>, export to <code>.onnx</code> format using standard ONNX export tools. (2) <strong>On iOS, use ONNX Runtime's CoreML EP:</strong> <code>let session = try ORTSession(env: env, modelPath: path, sessionOptions: options)</code> where options enable the Core ML provider. The runtime automatically routes compatible ops to the ANE. (3) <strong>The critical gotcha — operator coverage:</strong> if your model uses an op unsupported by the CoreML EP, it silently falls back to CPU — destroying your latency budget. Before shipping, run <code>onnxruntime_profile</code> to verify 100% of ops hit the ANE. Common offenders: custom attention patterns, GroupNorm, and certain reshape operations. Replace them with ANE-friendly equivalents. (4) <strong>Performance vs. native Core ML:</strong> expect 10-15% overhead vs. a hand-optimized <code>.mlpackage</code>. For most features, the cross-platform convenience outweighs this gap. Reserve native Core ML for your app's hottest inference path (e.g., real-time camera pipeline). (5) <strong>For Binance iOS:</strong> your fraud detection or price anomaly models likely already exist in PyTorch for the backend — with ONNX, the same model runs on-device for zero-latency client-side pre-screening before server confirmation. <a href="https://onnxruntime.ai/docs/execution-providers/CoreML-ExecutionProvider.html">ONNX Runtime CoreML EP →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Quantization · 4-bit Models</span>
+    <strong>4-bit Quantization for Mobile: Run 3B Parameter Models in Under 2GB RAM on iPhone</strong>
+    <p>The single most impactful optimization for on-device LLMs: <strong>4-bit quantization</strong> — reducing model weights from 16-bit floats to 4-bit integers with minimal quality loss. A 3B parameter model drops from 6GB (FP16) to ~1.5GB (INT4), making it feasible on any iPhone 15+ device. Here's your implementation guide: (1) <strong>Choose your quantization method:</strong> <code>GPTQ</code> (best quality, requires calibration data) or <code>AWQ</code> (activation-aware, better for decoder models). For MLX Swift models, Apple's built-in quantizer handles this: <code>mlx_lm.convert --model meta-llama/Llama-3.2-3B --quantize --q-bits 4</code>. (2) <strong>Quality validation:</strong> run your eval suite on both FP16 and INT4 versions. Expect <5% degradation on text generation, <2% on classification tasks. If degradation exceeds 8%, try mixed quantization — keep attention layers at 8-bit while compressing feed-forward layers to 4-bit. (3) <strong>Memory management on iOS:</strong> declare your model's memory budget in <code>Info.plist</code> using the new iOS 27 <code>CoreAIMemoryBudget</code> key. The OS pre-allocates memory during launch, preventing OOM during inference. (4) <strong>The latency trick — weight preloading:</strong> mmap the quantized weights file on app launch but don't decompress until first inference request. The file stays in the page cache between app uses, making subsequent launches near-instant. (5) <strong>For real-time features:</strong> 4-bit models on A18+ chips deliver 25-35 tokens/sec — fast enough for streaming text generation that feels instant to users. Combine with speculative decoding (draft with tiny model, verify with main model) for another 40% throughput boost. <a href="https://github.com/ml-explore/mlx-examples/tree/main/llms">MLX Quantization Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Instruments · ANE Profiling</span>
+    <strong>Xcode 18 Core AI Instrument: Find and Fix Neural Engine Pipeline Stalls</strong>
+    <p>Running a model "on the Neural Engine" doesn't mean it's running <em>efficiently</em> on the Neural Engine. Xcode 18's <strong>Core AI Instrument</strong> reveals exactly where your inference pipeline stalls — and the fix is usually a single operator replacement. The profiling workflow: (1) <strong>Attach the Core AI template:</strong> in Instruments, select the new "Core AI" profiling template. Run your app and trigger inference. You'll see a flame graph showing each layer's execution: green = ANE, blue = GPU, red = CPU. Any red layer is a pipeline break. (2) <strong>Identify the #1 stall pattern:</strong> a single unsupported op forces the entire subsequent pipeline off the ANE. The most common culprits in 2026: <code>LayerNorm</code> with non-standard epsilon, <code>GatherND</code> with dynamic indices, and custom <code>GELU</code> implementations. Replace with ANE-friendly equivalents during model conversion. (3) <strong>Memory transfer overhead:</strong> the instrument shows data copies between compute units. Each ANE→GPU→ANE transition costs 0.5-2ms. If your model ping-pongs between units, consolidate by restructuring layers or using <code>MLComputeUnits.cpuAndNeuralEngine</code> to avoid GPU involvement entirely. (4) <strong>Batch size optimization:</strong> the ANE handles batch=1 differently from batch=4+. Profile both — for non-interactive workloads (processing notifications in background), batch=4 often gives 3x throughput at only 1.5x latency. (5) <strong>The "golden path" checklist:</strong> Conv2D, MatMul, Softmax, standard GELU, LayerNorm (standard), Reshape (static shapes) = full ANE execution. Anything outside this set needs verification. A model with 100% ANE coverage runs 5-8x faster than one with 90% coverage (due to pipeline breaks). <a href="https://developer.apple.com/documentation/coreml/optimizing-model-performance">Apple ANE Optimization Guide →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Cryptanalysis</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Mythos Cracks HAWK Post-Quantum Signature &amp; Reduced-Round AES</a></h3>
+    <p>Anthropic announced on July 29 that its unreleased frontier model <strong>Claude Mythos</strong> has produced two significant cryptanalysis results — successfully attacking the <strong>HAWK post-quantum signature scheme</strong> and developing an improved attack on reduced-round AES encryption. <strong>Why this is extraordinary:</strong> HAWK is a candidate in the NIST post-quantum standardization process, meaning an AI model found a practical vulnerability in cryptography designed to resist quantum computers. This is the first public demonstration of an AI system discovering novel cryptographic weaknesses without human guidance. <strong>For developers:</strong> (1) If your systems rely on post-quantum candidates that haven't completed NIST standardization, monitor these results closely — the security assumptions may shift. (2) The broader signal: AI models are now capable of <em>original mathematical research</em>, not just pattern matching. Expect similar breakthroughs in code vulnerability discovery. (3) <strong>For Binance security:</strong> this validates investing in cryptographic agility — the ability to swap signature schemes and encryption algorithms without architecture changes. If HAWK is weakened, systems using it need rapid migration paths.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Qualcomm · Modular Acquisition</span>
+    <h3><a href="https://www.qualcomm.com/news">Qualcomm Acquires Modular (Mojo/MAX): Edge AI Infrastructure Gets Hardware-Native</a></h3>
+    <p>Qualcomm announced the <strong>acquisition of Modular</strong> on July 29 — the company behind the Mojo programming language and MAX AI inference platform. This combines Modular's software stack (designed for AI-native performance) with Qualcomm's Snapdragon NPUs, creating a vertically integrated edge AI development platform. <strong>Why this matters for mobile developers:</strong> (1) <strong>Mojo + Snapdragon NPU:</strong> Modular's MAX framework already outperforms ONNX Runtime on many benchmarks. With direct Qualcomm hardware optimization, expect Android edge AI inference to close the gap with Apple's ANE — forcing Apple to respond with Core AI improvements. (2) <strong>Cross-platform competition heats up:</strong> Apple has MLX + Core AI + ANE; Qualcomm now has Mojo + MAX + Snapdragon NPU. Developers building cross-platform AI features benefit from this competition driving performance improvements on both sides. (3) <strong>Open-source commitment:</strong> Qualcomm confirmed Mojo, MAX, and Modular Cloud remain open-source under new ownership — your existing Modular investments are safe. (4) <strong>For your architecture:</strong> if you target both iOS and Android, this acquisition means the "compile once, deploy everywhere" dream for AI models gets closer. Watch for MAX → Snapdragon direct deployment tools in Q4 2026.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · ARC-AGI-3 Breakthrough</span>
+    <h3><a href="https://openai.com/research">OpenAI Triples ARC-AGI-3 Score with Two Settings — Efficiency Meets Intelligence in GPT-5.6</a></h3>
+    <p>OpenAI published research on July 29 showing that enabling just <strong>two specific inference-time settings tripled their scores on the ARC-AGI-3 benchmark</strong> — a key measure of artificial general intelligence capabilities. The settings relate to extended reasoning chains and self-verification loops within GPT-5.6. <strong>What this means practically:</strong> (1) <strong>Inference-time compute scaling works:</strong> rather than training larger models, OpenAI is extracting dramatically more capability from existing models by letting them "think longer." This is the same pattern as Claude's extended thinking — the model quality you get depends heavily on how much inference-time compute you allocate. (2) <strong>For your AI features:</strong> if you're using GPT-5.6 or Claude and not enabling extended reasoning for complex tasks, you're leaving 3x performance on the table. The settings add latency (5-30 seconds) but produce qualitatively different outputs for reasoning-heavy tasks. (3) <strong>The cost/quality tradeoff:</strong> extended reasoning costs ~3x more tokens but produces vastly better results for architecture decisions, code review, and complex debugging. Route only high-complexity tasks through this mode — use fast inference for autocomplete and simple generation.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft · VS Code Copilot Agent</span>
+    <h3><a href="https://devblogs.microsoft.com/visualstudio/">Visual Studio July 2026: Copilot Agent Preview + Org-Level Custom Instructions</a></h3>
+    <p>Microsoft released the <strong>Visual Studio July 2026 update</strong> introducing a new Copilot agent preview with significantly improved consistency across VS Code, CLI, and web environments. The headline feature: <strong>organization-level custom instructions</strong> — teams can now define coding standards, architectural patterns, and security requirements that apply to every Copilot interaction across all team members. <strong>Why this matters:</strong> (1) <strong>Enterprise context engineering:</strong> this is Microsoft's answer to CLAUDE.md — but enforced at the organizational level via admin settings rather than per-repo files. Your team's Java naming conventions, error handling patterns, and forbidden anti-patterns apply automatically to every developer's Copilot suggestions. (2) <strong>Built-in .NET and Azure skills:</strong> Microsoft-authored skills for .NET patterns and Azure deployment — the first vendor to ship "official" skills alongside the AI tool. (3) <strong>Agent consistency:</strong> the new agent produces identical behavior whether invoked from VS Code, the terminal, or GitHub web editor — important for teams with diverse workflows. <strong>For your team:</strong> if you use GitHub Copilot Enterprise, this is the week to set up org-level instructions. The ROI is immediate: every developer gets context-aware suggestions aligned with your team's patterns without individual configuration.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Trend · Spec-Driven Development</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">From "Vibe Coding" to "Spec-Driven Agentic Engineering" — The Maturation Arc</a></h3>
+    <p>Industry consensus in late July 2026: the initial "vibe coding" wave (prompt → hope for good output) is being <strong>replaced by spec-driven agentic engineering</strong> — a more structured approach where developers provide detailed specifications, acceptance criteria, and architectural constraints before agents execute. The shift is driven by hard data: teams using spec-driven approaches report 3x fewer production bugs from AI-generated code versus unstructured prompting. <strong>The practical pattern:</strong> (1) Write a specification document (acceptance criteria, edge cases, integration points). (2) Feed it to your agent alongside relevant codebase context. (3) The agent produces an implementation plan for human review. (4) After approval, the agent executes autonomously — running tests, fixing failures, and iterating until specs pass. (5) Human reviews the final diff against the original spec. <strong>Why "vibe coding" fails at scale:</strong> with 41% of production code now AI-generated, the "prompt and pray" approach creates an accumulating quality debt. Spec-driven development provides the same guardrails that TDD provides for human-written code. <strong>For iOS teams:</strong> define your specs in markdown files that reference your design system, API contracts, and architecture rules — agents produce dramatically better code when they know the boundaries.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GitHub · Copilot Agent HQ</span>
+    <h3><a href="https://github.blog/changelog/">GitHub Copilot "Agent HQ": Run Multiple Agents Side-by-Side with Unified Dashboard</a></h3>
+    <p>GitHub's Copilot has evolved with <strong>Agent HQ</strong> — a multi-agent management interface where developers can spawn, monitor, and coordinate multiple Copilot agents working on different tasks simultaneously. Unlike single-agent workflows, Agent HQ provides a unified dashboard showing each agent's progress, files modified, tests run, and blocking issues. <strong>What differentiates this from Cursor's Agent Swarm:</strong> (1) <strong>Visibility-first design:</strong> while Cursor's Swarm optimizes for speed (frontier plans, fast models execute), Agent HQ optimizes for developer control — you see exactly what each agent is doing and can intervene mid-task. (2) <strong>GitHub-native integration:</strong> agents automatically create draft PRs, link to issues, and post status updates as PR comments. The agent's work lives in your existing review workflow, not a separate tool. (3) <strong>Cross-repo coordination:</strong> agents can work across multiple repositories simultaneously — essential for microservice architectures where a single feature touches 3-5 repos. <strong>For large teams:</strong> Agent HQ addresses the "agent chaos" problem — when 10 developers each spawn 3 agents, you need organizational visibility into what's happening. The admin dashboard shows aggregate agent activity, cost per team, and quality metrics.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">EU · AI Act Omnibus</span>
+    <h3><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act Omnibus Regulation Enters Into Force — Timeline for Developer Compliance Begins</a></h3>
+    <p>The <strong>EU AI Act Omnibus Regulation</strong> officially entered into force in July 2026, establishing the first comprehensive legal framework for AI systems globally. For AI coding tool vendors and teams deploying AI agents in production, the compliance clock is now ticking. <strong>Key developer-facing requirements:</strong> (1) <strong>"High-risk AI systems"</strong> (including AI used in critical infrastructure and financial services) must implement risk management systems, data governance, human oversight, and technical documentation by December 2027. (2) <strong>Transparency obligations:</strong> users must be informed when interacting with AI-generated content. For AI coding tools: generated code must be attributable (audit trail of which model produced which code). (3) <strong>General-purpose AI models:</strong> providers of frontier models must conduct adversarial testing, report serious incidents, and publish model cards with capability assessments. <strong>For Binance teams:</strong> financial services AI falls under "high-risk" classification. Any AI agent that influences trading decisions, risk assessments, or compliance screening requires the full documentation and oversight framework. Start building your AI system registry now — catalog every AI model, its purpose, risk classification, and oversight mechanism. <strong>The silver lining:</strong> teams that already practice good AI governance (observability, audit trails, human-in-the-loop gates) are largely compliant already.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Post-FOMC Consolidation</span>
+    <h3><a href="https://cointelegraph.com/markets">BTC at $64,200 — Post-FOMC Relief as Markets Digest Rate Hold + White House Report Expected Today</a></h3>
+    <p>Bitcoin trades at approximately <strong>$64,200</strong> on Thursday, July 30, showing modest relief after the <strong>FOMC held rates unchanged</strong> on Wednesday — the outcome markets had priced at ~70% probability. The decision removed the tail risk of a surprise hike, but Chair Warsh's press conference maintained hawkish rhetoric about "data dependency," preventing a full risk-on rally. <strong>Today's catalyst:</strong> the <strong>White House crypto policy report</strong> is expected to be released today, potentially providing clarity on the administration's strategic approach to digital assets, stablecoin regulation, and the government's Bitcoin reserve strategy. <strong>Market positioning:</strong> (1) The post-FOMC vol flush played out as expected — BTC briefly spiked to $65,100 before settling at $64,200. Options expiry dynamics are now unwinding. (2) The $63,000-$66,000 range from this week appears to be the new consolidation zone. (3) Spot ETF flows will be the key indicator tomorrow — if inflows resume after Wednesday's rate hold, the next leg up targets $66.5K. <strong>For today:</strong> the White House report is a binary catalyst. Bullish scenarios: Bitcoin reserve expansion, stablecoin framework clarity. Bearish scenarios: new reporting requirements, DeFi restrictions. Wait for the report before adding new positions.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Rotation Continues</span>
+    <h3><a href="https://www.theblock.co">ETH at $1,905 — BTC-to-ETH Rotation Accelerates as Institutional Preference Diverges</a></h3>
+    <p>Ethereum trades at <strong>$1,905</strong> on Thursday, continuing its relative outperformance versus Bitcoin. The BTC-to-ETH rotation that emerged this week is now the clearest institutional trend in crypto markets. <strong>The data:</strong> (1) <strong>ETH ETFs have posted 7+ consecutive days of positive inflows</strong> while BTC ETFs alternate between inflows and outflows. This sustained divergence hasn't occurred since ETH ETFs launched. (2) <strong>ETH/BTC ratio climbing:</strong> from 0.029 on Monday to 0.0297 today — a 2.4% relative gain in 4 days. Small in absolute terms but highly significant as a trend confirmation. (3) <strong>Fundamental drivers remain intact:</strong> 34%+ staking ratio (supply squeeze), $17B+ RWA on Ethereum (institutional demand), and consistent fee burn creating deflationary pressure. <strong>The institutional thesis:</strong> with rate hike risk removed by yesterday's FOMC decision, risk assets benefit — and ETH's "yield + deflation + institutional adoption" narrative is the strongest risk-adjusted bet in crypto for allocators rotating from tech stocks. <strong>For position management:</strong> ETH's outperformance likely continues through Q3 unless a systemic risk event (bridge hack, L2 failure) shakes institutional confidence. The $2,000 level remains the key resistance — a weekly close above it confirms the trend change.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Policy · White House Report</span>
+    <h3><a href="https://www.whitehouse.gov">White House Crypto Policy Report Due Today — Market Braces for Strategic Framework Clarity</a></h3>
+    <p>The White House is expected to release a <strong>comprehensive crypto policy report</strong> on July 30, 2026, potentially the most significant executive branch crypto communication since the 2022 Executive Order. The report is anticipated to cover: (1) <strong>Strategic Bitcoin Reserve:</strong> updates on the government's approach to holding seized Bitcoin and potentially expanding the reserve — a key market narrative that could drive institutional FOMO if confirmed. (2) <strong>Stablecoin framework:</strong> executive guidance on stablecoin regulation that could accelerate or complicate the GENIUS Act's path through Congress. (3) <strong>DeFi engagement posture:</strong> whether the administration views DeFi as infrastructure to regulate-and-support or as a risk to contain. <strong>Market impact scenarios:</strong> a supportive report (reserve expansion + clear framework) could push BTC above $65K and ETH above $2K within 24 hours as institutional uncertainty resolves. A restrictive report (new compliance burdens, DeFi restrictions) could trigger a 3-5% sell-off. <strong>For developers:</strong> regardless of direction, the report will generate specific engineering requirements — new compliance APIs, reporting endpoints, or reserve transparency tools. Read it as soon as it drops and identify the technical implications for your team.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Platform Engineering: The Internal Developer Platform as Competitive Advantage</strong>
+    <p>The hottest infrastructure concept of mid-2026: <strong>Platform Engineering</strong> — building internal developer platforms (IDPs) that provide self-service tools, golden paths, and automated infrastructure so product developers can ship faster without deep infrastructure expertise. Unlike DevOps (which asks developers to "own everything"), platform engineering <em>abstracts complexity</em> behind well-designed interfaces. <strong>Why it's trending NOW:</strong> (1) <strong>AI agent deployment complexity:</strong> deploying AI features requires model serving, vector databases, evaluation pipelines, and observability stacks. Without a platform team abstracting this, every product team reinvents the wheel. (2) <strong>The "cognitive load" crisis:</strong> developers in 2026 juggle AI tools, cloud infrastructure, security requirements, observability, and the actual product code. Platform engineering reduces this by providing pre-configured, compliant-by-default templates. (3) <strong>Measurable ROI:</strong> organizations with mature IDPs report 40-60% reduction in time-to-first-deploy for new services and 3x improvement in developer satisfaction scores. <strong>The IDP for AI teams specifically:</strong> model registry → deployment pipeline → A/B testing → observability → rollback. One command deploys a new model to production with all guardrails automatically configured. <strong>For iOS teams:</strong> your IDP should include: CI/CD templates for App Store submission, feature flag integration, analytics event validation, and now — AI model deployment for on-device features. <a href="https://platformengineering.org">Platform Engineering Community →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Cryptanalysis: When Models Discover Mathematical Vulnerabilities Humans Missed</strong>
+    <p>Claude Mythos's HAWK attack this week isn't an isolated event — it crystallizes a new reality: <strong>AI systems can now discover novel mathematical vulnerabilities in cryptographic systems</strong>. This has profound implications for every developer building secure systems: (1) <strong>The threat model changes:</strong> traditional cryptography assumes attacks come from mathematicians with decades of experience. AI models can explore attack vectors at machine speed, potentially finding weaknesses in days that would take human researchers years. (2) <strong>Cryptographic agility becomes mandatory:</strong> design your systems to swap algorithms without architecture changes. The pattern: abstract your crypto operations behind a <code>CryptoProvider</code> protocol. Today it uses X25519; tomorrow it might need ML-KEM-768 if X25519 is weakened. The swap should be a config change, not a rewrite. (3) <strong>Defense applications:</strong> the same AI capability that attacks crypto can defend it — using models to verify new cryptographic constructions before deployment. Expect "AI-audited cryptography" to become a standard before any new scheme gains adoption. (4) <strong>For iOS developers:</strong> Apple's CryptoKit abstracts most of this, but if you use custom cryptographic implementations (especially for blockchain interactions), verify your algorithms against the latest AI-discovered vulnerabilities. <strong>The meta-lesson:</strong> AI is now capable of <em>original research</em> in mathematics. This changes timelines for quantum computing readiness, zero-knowledge proof security, and blockchain protocol assumptions. <a href="https://www.anthropic.com/research">Anthropic Research →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Hardware-Software AI Stack War: Apple vs. Qualcomm's Vertical Integration Play</strong>
+    <p>Qualcomm's Modular acquisition this week completes a pattern: both major mobile silicon providers now own <strong>vertically integrated AI stacks</strong> from programming language to hardware execution. Apple has Swift → MLX → Core AI → ANE. Qualcomm now has Mojo → MAX → Qualcomm AI Engine → Snapdragon NPU. <strong>Why vertical integration matters for edge AI:</strong> (1) <strong>Performance ceiling:</strong> when software is designed for specific hardware (and vice versa), you eliminate abstraction overhead. Apple's ANE achieves 2-3x better perf/watt than generic GPU inference because Core AI speaks directly to the hardware's pipeline. Qualcomm + Modular will achieve similar optimization. (2) <strong>Developer lock-in risk:</strong> each stack optimizes for its own ecosystem. Code written for MLX doesn't run on Snapdragon; Mojo optimized for Qualcomm won't be optimal on ANE. Cross-platform developers must choose: optimize for one or accept 15-25% overhead via ONNX. (3) <strong>The opportunity:</strong> this competition drives rapid improvement. Every year both stacks get faster, more efficient, and easier to use. Developers who stay close to both ecosystems benefit from the fastest-moving AI hardware on Earth. (4) <strong>Architectural recommendation:</strong> define a <code>ModelRuntime</code> protocol that abstracts execution. On iOS, it uses Core AI/MLX. On Android, it uses MAX/Snapdragon AI Engine. Your model logic stays portable; only the execution layer is platform-specific. <a href="https://www.qualcomm.com/products/technology/artificial-intelligence">Qualcomm AI →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.anthropic.com/research/claude-mythos-cryptanalysis">Anthropic: Claude Mythos Cryptanalysis Results — HAWK and AES Attacks</a>
+        <span class="desc">Technical details on how an AI model discovered novel attacks on post-quantum cryptography and reduced-round AES — methodology, implications for NIST standardization, and what it means for cryptographic agility.</span>
+      </li>
+      <li>
+        <a href="https://www.qualcomm.com/news/releases/2026/07/qualcomm-acquires-modular">Qualcomm + Modular: The Edge AI Vertical Integration Thesis</a>
+        <span class="desc">Acquisition details, roadmap for Mojo/MAX on Snapdragon, and the open-source commitment — plus implications for the Android edge AI developer ecosystem.</span>
+      </li>
+      <li>
+        <a href="https://onnxruntime.ai/docs/execution-providers/CoreML-ExecutionProvider.html">ONNX Runtime: Core ML Execution Provider for iOS</a>
+        <span class="desc">Official documentation for deploying ONNX models via Apple's Neural Engine — operator support matrix, performance benchmarks, and troubleshooting silent CPU fallbacks.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/research/arc-agi-3">OpenAI: Tripling ARC-AGI-3 Scores with Inference-Time Compute</a>
+        <span class="desc">Research paper on how two inference settings unlock dramatically better reasoning in GPT-5.6 — the practical guide to extracting maximum capability from existing models.</span>
+      </li>
+      <li>
+        <a href="https://platformengineering.org/blog/state-of-platform-engineering-2026">State of Platform Engineering 2026</a>
+        <span class="desc">Industry report on IDP adoption, measured ROI, team structures, and the emerging pattern of AI-specific platform capabilities (model registries, eval pipelines, deployment automation).</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-07-30T09:00:00Z</p>
+  <p>Thursday Edition — Edge AI tips (ONNX CoreML EP, 4-bit quantization, ANE profiling), Claude Mythos cryptanalysis, Qualcomm acquires Modular, BTC $64.2K post-FOMC, White House crypto report</p>
+  <p>Dedup: 3200+ stories filtered from past 5 days (Jul 25–Jul 29) · 268 dedup exclusions applied</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (4/4 queries)</td><td>240+ results</td></tr>
+    <tr><td>Web Search — Edge AI/Mobile</td><td>✅ OK (1 query)</td><td>75+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets</td><td>✅ OK (1 query)</td><td>65+ results</td></tr>
+    <tr><td>Web Search — Concepts/Trends</td><td>✅ OK (1 query)</td><td>55+ results</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (5/5 reports)</td><td>5 reports loaded</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
