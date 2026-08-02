@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-08-02</title>
+  <style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, August 2, 2026 — SpaceX Closes Cursor Deal, OpenAI "Astra" Solves 10 Open Math Problems, Alibaba Bans Claude Code &amp; $89M Coldcard Bitcoin Wallet Drain</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The Local-First Agentic Stack, Secure Key Material &amp; Agent Evaluation</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Synthesis</span>
+    <strong>The Local-First Agentic Stack: Combining On-Device AI + the Agent Harness on iOS</strong>
+    <p>Synthesizing the week's two most impactful themes — Apple's on-device AI tiering (Core AI + MLX) and the "agent harness" infra pattern — into one shippable architecture for a Binance iOS feature. The idea: run a <em>guardian-gated mini-agent entirely on-device</em> for private, zero-latency, offline-capable tasks. (1) <strong>Stack:</strong> a 3B-4bit MLX model (Tier 2 from Tuesday's tiering) acts as the reasoning core; Core AI handles fast classification (Tier 1); a local SQLite+VECTOR store provides RAG context (Friday's local-RAG pattern). (2) <strong>The harness on-device:</strong> implement the agent as a Swift <code>AsyncStream</code> state machine (<code>Planning → ToolCall → Verify → Done</code>) with a hard 50-tool-call budget and 10s per-tool timeout — the same discipline a server harness enforces, now in your app's process. (3) <strong>Guardian gate on-device:</strong> a tiny rule layer classifies every tool call by blast radius; anything touching a network mutation or wallet action escalates to a SwiftUI confirmation sheet with biometrics. (4) <strong>Why this wins:</strong> a portfolio-summarization or help-center Q&amp;A agent runs with zero data egress, works offline, and costs $0 in API calls — while still being safe enough to touch user-facing actions via the gate. Start with a read-only "explain my recent trades" agent; full autonomy is a gated road. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Security · iOS Key Material</span>
+    <strong>Coldcard Lesson for iOS: Never Generate or Store Crypto Seed Material in App Memory</strong>
+    <p>This week's $89M Coldcard theft (see Crypto section) traces to one root cause: weak seed-phrase randomness generated on the device itself. The iOS lesson is direct and actionable for any Binance engineer touching wallet/key flows. (1) <strong>Use the Secure Enclave, always:</strong> never generate entropy via <code>arc4random</code> or a software PRNG for key material. Use <code>SecureEnclave.generateKey()</code> — the SEP's hardware RNG is physically isolated and the gold standard for key generation on Apple Silicon. (2) <strong>Non-extractable keys:</strong> for app-level signing (e.g., a session wallet), store the key in the Secure Enclave with <code>SecureEnclave.Key.CreationOptions(protection: .secureEnclave)</code> — the private key never leaves the hardware and cannot be extracted even by a compromised OS. (3) <strong>Mnemonic handling rule:</strong> if you must display or transcribe a recovery phrase, generate it from SEP entropy, show it once in a secure overlay, and zero the buffer immediately — never persist it to UserDefaults, Keychain (without SEP), or logs. (4) <strong>Migration path for users:</strong> build an in-app "wallet health check" that flags keys generated on old/unknown firmware and guides a re-derivation to a SEP-backed key. The Coldcard incident proves RNG weakness can stay latent for 5+ years before exploitation — proactive key hygiene is cheaper than post-incident recovery. <a href="https://developer.apple.com/documentation/cryptokit/secureenclave">CryptoKit SecureEnclave →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Eval · Supabase Evals</span>
+    <strong>Benchmark Your AI Coding Agents on YOUR Codebase with Supabase Evals</strong>
+    <p>With Claude Code, Codex, and Cursor all competing for your team's workflow, vendor benchmarks (Terminal-Bench, SWE-bench) tell you about the model — not about how it performs on <em>your</em> code. Supabase's newly released open-source <strong>Supabase Evals</strong> lets you run head-to-head agent benchmarks against your own real tasks. (1) <strong>Set up the harness:</strong> <code>git clone supabase/evals</code>, define a task set from your actual backlog ("add withdrawal whitelist UI," "fix the race in OrderBook throttling") with acceptance criteria + reference tests. (2) <strong>Run multi-agent:</strong> the harness invokes each agent (Claude Code, Codex, Cursor) with identical prompts and measures: task completion rate, tests-passed, tokens consumed, wall-clock time, and number of human interventions. (3) <strong>The metric that matters most — "first-attempt pass rate":</strong> what % of tasks complete correctly with zero human edits. This is the truest measure of agent autonomy for production work. (4) <strong>Practical finding pattern:</strong> most teams discover Claude Code wins on multi-file reasoning, Codex wins on speed/cost, Cursor wins on in-editor iteration — but YOUR codebase's patterns (SwiftUI vs UIKit, module boundaries) flip the ranking. Run it quarterly; the winner shifts as models update. (5) <strong>Wire it into CI:</strong> run a 5-task smoke eval on every agent config change so you catch regressions when a new model version drops. <a href="https://github.com/supabase/evals">Supabase Evals →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Astra</span>
+    <h3><a href="https://openai.com/index/ten-advances-in-mathematics">OpenAI Unveils "Astra" — Internal Model Solved 10 Open Problems in Math &amp; Theoretical CS</a></h3>
+    <p>OpenAI announced a new model family, <strong>Astra</strong>, revealing that an internal version has produced <strong>advances on ten previously open problems in mathematics and theoretical computer science</strong> — spanning geometry, cryptography, and complexity. This follows last week's Anthropic Claude Mythos cryptanalysis results, confirming a clear industry trend: frontier models are now doing <em>original mathematical research</em>, not just pattern-matching. <strong>Why it matters for developers:</strong> (1) <strong>Capability is migrating from "writes code" to "discovers vulnerabilities and proofs"</strong> — expect AI-discovered CVEs and protocol weaknesses to become a regular security vector. (2) <strong>Cryptographic agility (today's concept) moves from nice-to-have to mandatory</strong> — if Astra-class models can crack schemes in days, your systems need algorithm-swap paths now. (3) <strong>For Binance security:</strong> treat Astra/Mythos-class models as an adversarial tool in your threat model — run them against your own signature schemes and key-derivation before attackers do.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · SpaceX Acquisition</span>
+    <h3><a href="https://docs.cursor.com">SpaceX Completes Cursor Acquisition — Ships "Cursor Router" for Smart Model Routing</a></h3>
+    <p>The <strong>SpaceX acquisition of Cursor</strong> — previously expected to close in Q3 — has now landed, giving SpaceX's AI division direct distribution to Cursor's millions of professional developers. Alongside the deal, Cursor shipped <strong>Cursor Router</strong>, an intelligent model-routing layer for teams and enterprises that auto-selects the most capable model per task (frontier for planning, fast/cheap for execution) to deliver frontier-quality output at lower cost. <strong>Why this matters:</strong> (1) <strong>Distribution moat:</strong> SpaceX now owns a primary developer surface — expect deeper integration with SpaceX/Starlink engineering tooling and possible bundling. (2) <strong>Router is the real product:</strong> it operationalizes the "hierarchical multi-agent" pattern (frontier plans, fast executes) that Cursor 3's Agent Swarm pioneered — now as a managed team-wide setting rather than a per-task toggle. (3) <strong>For your team:</strong> model routing is becoming a baseline enterprise feature — if you're not routing between Opus 5 / GPT-5.6 Sol / Gemini 3.6 Flash by task complexity, you're overpaying. Cursor Router, Claude Code's model config, and Codex's tier defaults all converge here.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Alibaba Ban</span>
+    <h3><a href="https://www.anthropic.com/news">Alibaba Bans Claude Code Over "Hidden Backdoor" — Distillation War Goes Public</a></h3>
+    <p>Alibaba <strong>banned employees from using Claude Code</strong> after security researchers found hidden code that detected Chinese users (via timezone/proxy checks) and reported it back to Anthropic — classified internally as "high-risk backdoor." Anthropic stated the mechanism was an <strong>experiment to combat unauthorized account reselling and model distillation</strong>, and will be removed. <strong>Why this matters:</strong> (1) <strong>The distillation cold war is hot:</strong> weeks prior, Anthropic accused Alibaba's Qwen lab of a large-scale distillation attack on Claude — the ban is the escalation. Alibaba pushed staff to its in-house <strong>Qoder</strong> coding tool. (2) <strong>Supply-chain lesson for your agents:</strong> any AI tool your team runs locally can phone home with telemetry you didn't audit. For a Binance iOS team, this validates running a network-egress audit on every AI coding agent (allow-list only) — exactly the zero-trust pattern from last week's Security-First Architecture concept. (3) <strong>Geopolitical bifurcation:</strong> the China/West AI tooling stack is splitting. If you have cross-region teams, expect divergent approved-tool lists and plan for it.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Claude Code Upgrades</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code Gets Opus 5, +50% Usage Limits Through Aug 19 &amp; a Terminal Security Plugin</a></h3>
+    <p>Anthropic rolled out a cluster of Claude Code upgrades: it now runs on <strong>Claude Opus 5</strong> (near-flagship quality at reduced price), <strong>weekly usage limits raised 50% through August 19, 2026</strong>, and a new <strong>Claude Security Plugin</strong> that brings vulnerability scanning directly into the terminal. <strong>What to do with it:</strong> (1) <strong>Re-run heavy jobs:</strong> the +50% limit window is the moment to attempt large refactors that previously hit quota walls — pair with sub-agent spawning for parallelism. (2) <strong>Opus 5 + extended reasoning</strong> makes this the strongest Claude Code session quality to date for architecture review and multi-file reasoning; route your hardest tasks here while limits are generous. (3) <strong>The Security Plugin is the sleeper:</strong> it scans generated diffs for the OWASP LLM Top-10 patterns (hardcoded secrets, injection, unsafe deserialization) before you commit — wire it as a pre-commit gate so insecure AI code never reaches review. Combined with org-level rules in CLAUDE.md, this closes the "45% of AI code has vulnerabilities" gap materially.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">OpenAI · Codex Migration</span>
+    <h3><a href="https://openai.com/index/codex">OpenAI Retires GPT-5.4 from Codex on Aug 31 — Migrate to GPT-5.6 Terra/Luna</a></h3>
+    <p>OpenAI will <strong>retire GPT-5.4 and GPT-5.4 mini from Codex</strong> for ChatGPT-signed-in users on <strong>August 31, 2026</strong> (the models remain available via the OpenAI API). The recommended replacements are <strong>GPT-5.6 Terra and GPT-5.6 Luna</strong> — both freshly price-cut (Luna down 80%, Terra down 20%, covered last week). <strong>Action for your team:</strong> (1) <strong>Audit Codex config now:</strong> grep your <code>.codex/</code> configs and CI agent invocations for <code>gpt-5.4</code> references and update before Aug 31 to avoid a silent breakage. (2) <strong>Re-benchmark on Terra/Luna:</strong> the 5.6 family is meaningfully stronger (Codex still holds the Terminal-Bench record), so expect equal-or-better quality at lower cost — but verify on your eval set since tokenizer/behavior shifts. (3) <strong>Lock in the cheap Luna tier</strong> for high-volume background tasks (classification, draft generation) while the 80% cut holds — this is the window to make fan-out agent architectures economically viable.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Antigravity IDE</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/">Google Antigravity IDE: Parallel Agents + Built-In Browser for UI Testing</a></h3>
+    <p>Google's <strong>Antigravity</strong> is an ambitious AI-native IDE that runs <strong>parallel agents on different parts of a codebase simultaneously</strong> and ships a <strong>built-in browser for automated UI testing</strong> — letting an agent implement a feature, then immediately verify it renders and behaves correctly without leaving the editor. <strong>Why it's worth watching:</strong> (1) <strong>Closes the "AI can't verify UI" gap:</strong> the #1 failure mode of agentic front-end coding is the agent generating code it never visually validates. Antigravity's embedded browser turns "implement → render → screenshot → fix" into one autonomous loop. (2) <strong>Parallel agents = the Agent-Swarm pattern validated</strong> beyond Cursor — Google now joins Cursor and GitHub's Agent HQ in treating multi-agent orchestration as a first-class IDE feature. (3) <strong>For iOS:</strong> Antigravity targets web, but the "agent + visual verification" pattern is the template for what a future Xcode-integrated agent should do with SwiftUI previews. Expect Apple/Google to race on bringing this to native mobile. Track it as a leading indicator of where every IDE is heading.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Router for Teams</span>
+    <h3><a href="https://docs.cursor.com">Cursor Router: Enterprise Model Routing Goes Team-Wide</a></h3>
+    <p>Beyond the headline SpaceX acquisition, Cursor's <strong>Router</strong> is the quietly important shipping feature — a managed, team-wide model-routing config that automatically picks the right model per task type, aiming for frontier performance at managed cost. <strong>The practical impact:</strong> (1) <strong>Cost control without quality loss:</strong> teams report 30-50% spend reduction by letting the router send simple edits to Flash/Luna and reserving Opus/Sol for planning and hard reasoning — the routing decision happens per-request, invisibly. (2) <strong>Config-as-policy:</strong> admins set routing rules once (e.g., "any file touching <code>Payments/</code> must use a frontier model") and every developer inherits it — the same org-level discipline VS Code Copilot added with org instructions, now applied to model selection. (3) <strong>For your stack:</strong> if you're on Claude Code rather than Cursor, you can replicate this with a small routing shim in your <code>settings</code> that maps task tags → model IDs. The pattern is converging industry-wide; adopt it regardless of tool.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security · Coldcard</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/02/bitcoin-cold-wallet-attack-spreads-to-4-500-addresses-as-losses-near-usd89-million">$89M Bitcoin Drained from 4,585 Coldcard Wallets — Weak Seed RNG Blamed</a></h3>
+    <p>Galaxy Research reports a <strong>$89 million (1,367 BTC) theft across 4,585 addresses</strong> tied to a Coldcard firmware vulnerability from <strong>March 2021 that weakened seed-phrase randomness</strong> — letting attackers remotely derive private keys with no physical access. The first wave swept <strong>$70.2M in 41 minutes on July 30</strong>; subsequent waves target smaller balances with more complex on-chain patterns. Coinkite (Coldcard's maker) took full responsibility, issued emergency firmware for Mk3/Mk4/Mk5/Q, and warned that <strong>updating firmware does NOT secure already-vulnerable seeds</strong> — affected users must generate new seeds and migrate funds. <strong>Why this is the week's must-read for a Binance iOS engineer:</strong> (1) It's a textbook demonstration of why the iOS Secure Enclave tip in today's Tips section matters — software/firmware RNG weakness can stay latent for 5+ years before exploitation. (2) <strong>Product implication:</strong> build an in-app "wallet health check" that flags keys derived from known-vulnerable sources and guides migration. (3) <strong>User comms:</strong> if any Binance custodial flow integrates Coldcard-class hardware, surface the migration guidance now — the stolen BTC remains unspent, meaning affected users still have a narrow window to move funds before attackers cash out.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">RWA · Tokenized Stocks</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/08/01/tokenized-stock-trading-surged-288-in-july-but-one-qqq-token-drove-most-of-it">Tokenized Stock Volume Surged 288% to $11.3B in July — Binance QQQB Token = 82%</a></h3>
+    <p>Tokenized stock and ETF trading hit a record <strong>$11.3 billion in July, up 288% month-over-month</strong> — but <strong>Binance's QQQB token (tracking the Invesco QQQ ETF) alone drove $9.27B, or 82% of all volume</strong>, fueled by a zero maker-fee promotion. Strip out QQQB and the rest of the tokenized-equity market actually <em>declined ~30%</em> versus June. <strong>What this signals:</strong> (1) <strong>Demand is real but concentrated:</strong> the global tokenized-stock market cap reached a record $2.3B (up from $329M a year ago), yet liquidity is dangerously dependent on a single product — a cautionary note for anyone building RWA features. (2) <strong>24/7 trading is the genuine pull:</strong> the surge coincided with a volatile July (QQQ itself dropped 6.6%), suggesting users value round-the-clock access to hedge or speculate. (3) <strong>For Binance iOS:</strong> tokenized equities are a growing surface — ensure your app's trading UI, risk disclosures, and order-routing handle the nuances (corporate-action handling, market-hours vs 24/7, settlement differences) cleanly. The QQQB concentration also means monitoring single-product liquidity risk is now a first-class concern.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · August Open</span>
+    <h3><a href="https://www.theblock.co/data/crypto-markets/bitcoin">BTC ~$63.7K, ETH ~$1,867 to Open August — Seasonality Headwind &amp; ETF Flows End July Green</a></h3>
+    <p>Bitcoin trades near <strong>$63,753</strong> and Ethereum around <strong>$1,867</strong> as August opens, with total crypto market cap at ~<strong>$2.25T</strong> (down 1.6% on renewed institutional selling and spot-BTC-ETF redemptions over the weekend). The Fear &amp; Greed Index sits at a neutral <strong>45</strong>. <strong>The setup for August:</strong> (1) <strong>Seasonality is a real headwind:</strong> August has been negative for BTC for <strong>four straight years, averaging -10%</strong>; some models forecast a bottom in the $58K–$62K range mid-month before a potential rebound toward $80K+. (2) <strong>Support/resistance:</strong> immediate BTC support $61.4K then $59K; resistance $64.6K. ETH needs to reclaim $1,950–$2,000 to open a path to $2,200–$2,450; below $1,717 the structure weakens. (3) <strong>The bright spot — ETF flows ended July green</strong> ($233M inflow on the final day pushed the week positive), and ETH ETFs extended their multi-day inflow streak, sustaining the BTC→ETH rotation thesis. <strong>For builders:</strong> a seasonally soft August is a build window — ship infra and harden wallet security (see Coldcard) while volatility is subdued; the next leg rewards prepared systems.</p>
+  </div>
+</div>
+
+<!-- ===== HOT CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Context Engineering: The Discipline Beyond Prompt Engineering</strong>
+    <p>The breakout architectural concept of August 2026: <strong>context engineering</strong> — the deliberate, systematic design of <em>what information an AI agent accesses before it acts</em>, treated as a first-class engineering discipline rather than ad-hoc prompt tweaking. It's the natural escalation of this week's themes (CLAUDE.md, org-level Copilot instructions, Cursor Router). <strong>Why it's trending NOW:</strong> (1) <strong>Model quality is commoditized; context is the differentiator.</strong> With Opus 5, GPT-5.6, and Gemini 3.6 all frontier-grade, the agent that wins is the one fed the right context — codebase graph, design system, API contracts, incident state, team conventions. (2) <strong>The four context layers:</strong> <em>static</em> (CLAUDE.md, architecture rules), <em>session</em> (current task + relevant files), <em>operational</em> (CI status, feature flags — Monday's MCP tip), and <em>semantic</em> (RAG over docs/history). Mature context engineering manages all four explicitly. (3) <strong>Measurable:</strong> teams practicing formal context engineering report 2-3x fewer "agent did the wrong thing" incidents because the agent's decision boundary is engineered, not implied. <strong>For your iOS team:</strong> treat context like code — version it, review it, test it. A PR that changes <code>CLAUDE.md</code> should be reviewed as carefully as one changing <code>WalletService.swift</code>. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Cost-Aware Architecture: Treat Your AI Bill as an Architecture Problem</strong>
+    <p>A concept gaining rapid traction as agent token spend dwarfs per-message cost: <strong>cost-aware architecture</strong> — making cloud and AI bills a primary design constraint from day one, not a post-launch surprise. It's the financial mirror of this week's GPT-5.6 price cuts and the +50% Claude Code limit bump. <strong>What it means in practice:</strong> (1) <strong>Tag every request with cost</strong>: instrument each agent run with token count + $ cost, surfaced in your observability dashboard next to latency and error rate. You cannot optimize what you cannot see. (2) <strong>Architect for the cheap tier first:</strong> design features so the default path uses Luna/Flash (80% cheaper), escalating to Sol/Opus only when a quality gate fails. This inverts the usual "use the best model everywhere" default. (3) <strong>Cache aggressively</strong>: semantic caching of agent responses (same intent → cached result) cuts 30-60% of repeat cost in support/classification workloads. (4) <strong>Budget per user, per task</strong>: enforce hard dollar ceilings per session — the same budget-discipline pattern as Friday's agent guardian gates, applied to spend. <strong>For Binance iOS:</strong> a cost-aware on-device-first design (today's Best-of-Week tip) is the cheapest possible architecture — every task resolved locally is $0 forever. The teams that bake cost-awareness into architecture now will out-ship competitors who treat AI spend as an afterthought. <a href="https://www.anthropic.com/engineering/building-effective-agents">Agent Cost Patterns →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Modular Monolith Renaissance: Pragmatism Over Microservice Dogma</strong>
+    <p>After a decade of microservice enthusiasm, 2026's most quietly consequential architecture trend is the <strong>return of the modular monolith</strong> — a single deployable application with strict, well-defined internal boundaries, splitting services out only when scale genuinely demands it. <strong>Why it's resonating NOW:</strong> (1) <strong>Operational fatigue:</strong> distributed-system overhead (service mesh, cross-repo coordination, partial-failure debugging) has outlived its ROI for mid-scale products. (2) <strong>AI agents change the math:</strong> a single, well-bounded codebase is dramatically easier for an AI agent to reason about than 12 microservices with cross-repo contracts — the agent sees the whole system in one context window. The modular monolith is, almost accidentally, the AI-native deployment shape. (3) <strong>Extractability preserves optionality:</strong> clean module boundaries mean you can still extract a service later when a specific module needs independent scaling — you're not locked in, you're just not paying distributed-systems tax prematurely. <strong>For iOS:</strong> the analog is a modular app target with strict module boundaries (Domain, Data, UI as Swift packages) rather than a sprawling monolithic app — same philosophy, same payoff: easier testing, easier agent-assisted refactoring, and a clean extraction path when a module outgrows the app. <a href="https://martinfowler.com/articles/is-design-dead.html">Design &amp; Architecture in the AI Era →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/ten-advances-in-mathematics">OpenAI: Ten Advances in Mathematics &amp; Theoretical CS (Astra)</a>
+        <span class="desc">The announcement that an internal Astra model produced results on ten previously open problems — spanning geometry, cryptography, and complexity. The clearest signal yet that frontier models do original research.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/08/02/bitcoin-cold-wallet-attack-spreads-to-4-500-addresses-as-losses-near-usd89-million">CoinDesk/Galaxy Research: The $89M Coldcard Bitcoin Wallet Drain</a>
+        <span class="desc">On-chain analysis of the 3-wave attack exploiting weak March-2021 seed RNG — 1,367 BTC across 4,585 addresses, $70M swept in 41 minutes. Essential reading for anyone building wallet/key flows.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/08/01/tokenized-stock-trading-surged-288-in-july-but-one-qqq-token-drove-most-of-it">CoinDesk: Tokenized Stock Volume +288% in July, QQQB Drove 82%</a>
+        <span class="desc">The record $11.3B tokenized-equity month — and the concentration risk hidden beneath the headline number. What it means for RWA product strategy and single-product liquidity risk.</span>
+      </li>
+      <li>
+        <a href="https://github.com/supabase/evals">Supabase Evals: Open-Source Benchmark for AI Coding Agents</a>
+        <span class="desc">Run Claude Code, Codex, and Cursor head-to-head on your own real tasks — measuring first-attempt pass rate, tokens, and human interventions. Wire it into CI to catch agent regressions.</span>
+      </li>
+      <li>
+        <a href="https://developer.apple.com/documentation/cryptokit/secureenclave">Apple CryptoKit: Secure Enclave for Non-Extractable Keys</a>
+        <span class="desc">Official docs for generating and storing keys in the hardware SEP — the iOS-correct answer to the RNG weakness that sank Coldcard. Required reading for wallet/key engineers.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Generated: 2026-08-02T02:30:00Z</p>
+  <p>Saturday Edition — Best-of-week tips (local-first agentic stack, iOS Secure Enclave key hygiene, Supabase Evals), SpaceX × Cursor + Router, OpenAI Astra, Alibaba bans Claude Code, Coldcard $89M drain, tokenized stocks +288%, BTC ~$63.7K August open</p>
+  <p>Dedup: 4 reports loaded (Jul 28–Jul 31; Aug 1 not found on GHE — treated as no-report day) · ~214 dedup exclusions applied (GPT-5.6 price cuts, Claude Sonnet 5 tokenizer, Gemini Managed Agents, Claude 3-org breach, Codex quota reset, Cursor Benchmark Partners, Coinbase Q2, CLARITY Act, agent harness, vibe-coding hangover, Claude Mythos cryptanalysis, Qualcomm×Modular, ARC-AGI-3, MCP stateless, Core AI/MLX, Coldcard already-excluded duplicates, etc.)</p>
+  <table>
+    <tr><th>Source</th><th>Status</th><th>Items</th></tr>
+    <tr><td>Web Search — AI/Dev Tools</td><td>✅ OK (3/3 queries)</td><td>180+ results</td></tr>
+    <tr><td>Web Search — iOS/Edge AI</td><td>✅ OK (1 query; 1 returned zero, fallback used)</td><td>70+ results</td></tr>
+    <tr><td>Web Search — Concepts/Trends</td><td>✅ OK (1 query)</td><td>60+ results</td></tr>
+    <tr><td>Web Search — Crypto/Markets (fallback)</td><td>✅ OK (4 queries)</td><td>200+ results</td></tr>
+    <tr><td>RSS — The Block / Cointelegraph / CoinDesk</td><td>✅ OK (3/3 feeds)</td><td>50+ items</td></tr>
+    <tr><td>RSS — OpenAI / Google AI Blog</td><td>✅ OK (2/3 feeds; HN empty)</td><td>12 items</td></tr>
+    <tr><td>GHE Archive — Dedup</td><td>✅ OK (4/5 reports; Aug 1 = 404)</td><td>4 reports loaded</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
