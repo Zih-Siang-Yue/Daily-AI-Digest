@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI &amp; Crypto Daily — 2026-08-04</title>
+  <style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, August 4, 2026 · GPT Live Voice AI, Gemini Robotics 2, Cursor iPad App, BlackRock Tokenized MMFs &amp; DEXs Hit Record 24% Spot Share</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips</div>
+  <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:16px;">Tuesday focus: AI × iOS — Core AI, Create ML, MLX on-device inference</p>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">iOS 26 · Foundation Models</span>
+    <strong>Call Apple's On-Device AFM 3 Core From Your App via the Foundation Models Framework</strong>
+    <p>iOS 26 ships a native Swift <strong>Foundation Models framework</strong> that exposes the same on-device models powering Apple Intelligence — the 3B-parameter <strong>AFM 3 Core</strong> and the 20B sparse <strong>AFM 3 Core Advanced</strong> (iPhone 15 Pro+) — to third-party apps. (1) <strong>The API:</strong> <code>import FoundationModels</code>, open a <code>LanguageModelSession(model: .core)</code>, then <code>try await session.respond(to: "Summarize…")</code> — streaming, tool-calling, and structured output via <code>@Guide</code> schemas are built in. (2) <strong>Why it's a step-change:</strong> you get an on-device model with zero download size, zero API cost, and full privacy — no weights to bundle, no MLX shipping, no network. (3) <strong>The catch — hardware gating:</strong> full features need iPhone 15 Pro+, 12GB RAM, ~7GB free storage; gate your UI with <code>LanguageModelSession.availability</code> and fall back gracefully on older devices. (4) <strong>For Binance iOS:</strong> a private, offline "summarize my notifications" or "explain this support article" feature is now a one-import API — ship it behind a capability check. <a href="https://developer.apple.com/documentation/foundationmodels">Foundation Models docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">On-Device · Framework Selection</span>
+    <strong>Core AI vs CoreML vs MLX Swift in 2026: Picking the Right On-Device Runtime</strong>
+    <p>WWDC 2026's <strong>Core AI</strong> framework reshuffles the on-device stack, so the "which framework?" question has a fresh answer. (1) <strong>Core AI</strong> — Apple's new default for neural networks and generative LLMs; unified CPU/GPU/ANE access, PyTorch-model conversion, memory-safe Swift API. Use this for any new generative feature. (2) <strong>CoreML</strong> — now scoped to "classic, non-neural ML" (decision trees, tabular, fixed converted models) where it still has the best ANE tooling; keep existing vision/tabular models, don't migrate for the sake of it. (3) <strong>MLX Swift</strong> — the speed champion for custom/quantized LLMs (often fastest decode for Qwen/Llama-class), NumPy-like API, vibrant community; pick it when you bring your own weights or need max decode throughput. (4) <strong>Rule of thumb:</strong> Core AI for Apple-model generative features, CoreML for legacy/traditional ML, MLX when you ship a specific open model. Define a <code>ModelRuntime</code> protocol so the choice is a config swap, not a rewrite. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Architecture · Hybrid Inference</span>
+    <strong>The 3-Tier Hybrid Inference Pattern: On-Device → Private Cloud Compute → External LLM</strong>
+    <p>Apple Intelligence's own design is the best blueprint for app AI architecture in 2026: a <strong>three-tier fallback</strong> that routes by complexity and privacy, not by habit. (1) <strong>Tier 1 — On-device (AFM 3 Core):</strong> fast, private, offline; default for summarization, smart replies, classification, anything under ~2s of reasoning. (2) <strong>Tier 2 — Private Cloud Compute:</strong> Apple-silicon servers, stateless, no data retention — for heavier reasoning that exceeds the on-device budget but stays inside Apple's privacy perimeter. (3) <strong>Tier 3 — External LLM (e.g. GPT-5.6):</strong> only for broad world-knowledge or creative tasks the first two tiers can't handle, always with explicit user permission. (4) <strong>Routing rule:</strong> tag each AI task with a <code>complexity</code> + <code>privacy</code> requirement; low/private → Tier 1, high/private → Tier 2, high/open → Tier 3 with a permission sheet. (5) <strong>For Binance iOS:</strong> financial prompts are privacy-sensitive and often deterministic — most should stay on Tier 1/2 and never hit a third-party LLM. The pattern gives you capability <em>and</em> compliance by construction. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Voice AI</span>
+    <h3><a href="https://openai.com/index/continuous-voice-interaction-with-gpt-live">OpenAI Ships 'GPT Live' — Continuous, Responsive Voice Interaction</a></h3>
+    <p>OpenAI detailed how it built a <strong>realtime system for responsive voice AI in six months</strong>, enabling <strong>continuous voice interaction</strong> with GPT — full-duplex conversation with low latency, interruption handling, and natural turn-taking. <strong>Why it matters:</strong> (1) Voice is becoming a first-class app interface, the kind of "talk to the app" UX that redefines mobile interactions — directly relevant to any iOS team considering voice features. (2) <strong>The engineering signal:</strong> achieving responsiveness required re-architecting around streaming ASR/TTS plus a continuous inference loop, not bolting voice onto a text model; expect a wave of voice-native agent patterns. (3) <strong>For your stack:</strong> if you build in-app assistants, prototype with the Realtime API now — latency budgets and interruption UX are the hard parts, not the model. (4) <strong>Cost note:</strong> realtime voice is token-intensive; pair it with tiered routing (on-device for trivial, voice for complex). <a href="https://openai.com/index/continuous-voice-interaction-with-gpt-live">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Embodied AI</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/">DeepMind Unveils Gemini Robotics 2 — Embodied AI Takes Another Step</a></h3>
+    <p>Google DeepMind announced <strong>Gemini Robotics 2</strong>, the next generation of its foundation models for humanoid and general-purpose robots — signaling continued momentum in <strong>embodied AI</strong>, models that perceive and act in the physical world. <strong>Why it matters:</strong> (1) The capability frontier is expanding beyond text and code into physical control, with implications for manufacturing, logistics, and eventually consumer robotics. (2) <strong>The developer angle:</strong> the same agentic patterns (planning, tool use, evaluation) now apply to physical action spaces — expect "robotics-as-a-platform" APIs to emerge. (3) <strong>For an iOS/mobile dev:</strong> embodied AI is a leading indicator of where multimodal, real-world-grounded models go; Apple's Vision Pro + Visual Intelligence play is the consumer-facing analog. Track it as a 2–3 year horizon, not a quarterly bet. <a href="https://blog.google/innovation-and-ai/technology/ai/">DeepMind →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">EU · Compliance</span>
+    <h3><a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act Transparency Rules Now Active — Label Your AI-Generated Content</a></h3>
+    <p>The EU AI Act's <strong>transparency obligations for AI-generated content and deepfakes took effect August 2</strong>, requiring providers to mark AI-generated output (text, images, audio, video) as artificially generated in a machine-readable form. <strong>Why it matters for app developers:</strong> (1) <strong>If your app generates content</strong> (summaries, images, chat replies, Genmoji-style features) shown to EU users, you now need provenance labeling — typically a watermark or metadata tag. (2) <strong>Implementation:</strong> attach an <code>ai_generated</code> flag in your content model and surface a small "AI" badge in the UI; for images, embed C2PA-style provenance metadata. (3) <strong>The iOS angle:</strong> align with Apple's own Apple Intelligence disclosure patterns so your labeling feels native rather than bolted-on. (4) <strong>Risk:</strong> non-compliance carries significant fines; treat AI-output provenance as a first-class schema field from now on. <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Mobile IDE</span>
+    <h3><a href="https://docs.cursor.com">Cursor Launches iPad App for All Paid Plans — Agentic IDE Goes Tablet-Native</a></h3>
+    <p>Cursor shipped an <strong>iPad app for all paid plans</strong>, built for the larger screen with a <strong>persistent agent sidebar</strong>, <strong>split-screen views</strong>, and <strong>Apple Pencil markup</strong> for reviewing diffs. <strong>Why it matters:</strong> (1) It's the first credible <strong>tablet-native agentic IDE</strong> — you can monitor a long-running agent, review its plan, and annotate code with Pencil from anywhere. (2) <strong>The iOS-dev irony:</strong> you still can't build iOS apps <em>on</em> iPad (no Xcode), but you can now drive agent work on the cross-platform/back-end parts of your stack from a tablet. (3) <strong>Trend signal:</strong> agentic IDEs are racing onto every surface (desktop, web, mobile, tablet); the "review agent PRs from your phone/tablet" workflow is becoming standard. (4) <strong>Caveat:</strong> Cursor is simultaneously under scrutiny (outdated VSCode fork, patch cadence) — weigh mobile convenience against lock-in. <a href="https://docs.cursor.com">Cursor →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Hardware · Vibe Coding</span>
+    <h3><a href="https://openai.com/index/codex">Codex Micro: A $230 Programmable Keypad for Coordinating AI Workflows</a></h3>
+    <p>The <strong>Codex Micro</strong> — a $230 hardware keypad with programmable macro keys designed for "vibe coding" — launched to reviews, built to <strong>coordinate multiple AI workflows and agentic tools</strong> from physical buttons. <strong>Why it matters:</strong> (1) It's a signal that <strong>agentic workflows are complex enough to warrant dedicated hardware</strong> — orchestrating 3–5 concurrent agents (plan, execute, review, test) is genuinely cognitively heavy. (2) <strong>The practical pattern:</strong> map macros to repeatable agent ops ("spin up sub-agent," "run evals," "commit &amp; push," "open PR") so you stop re-typing the same prompts. (3) <strong>You don't need the device to steal the idea:</strong> a Stream Deck or even a keyboard-shortcut layer gives you the same macro-coordination benefit today. (4) <strong>Trend:</strong> as agents run longer and in parallel, the "human orchestration surface" (physical or on-screen) becomes a real product category. <a href="https://openai.com/index/codex">Codex →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Market · Consolidation</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Cognition (Devin) Acquires Windsurf — Agentic IDE Market Consolidates</a></h3>
+    <p><strong>Cognition</strong>, maker of the Devin autonomous software engineer, <strong>acquired Windsurf</strong> (the agentic, multi-step-build IDE), accelerating consolidation in the AI coding tool market. <strong>Why it matters:</strong> (1) The standalone "agentic IDE" category is <strong>compressing into a few platforms</strong> — Cognition/Devin + Windsurf, Cursor (post-SpaceX), GitHub Copilot/Agent HQ, plus Claude Code and Codex. (2) <strong>For buyers:</strong> consolidation means fewer, more capable suites but more lock-in; favor tools with portable config (CLAUDE.md, MCP servers, eval harnesses) so you can switch. (3) <strong>The Devin angle:</strong> Cognition is betting that autonomous end-to-end engineering — not just in-editor assist — is the winning surface; watch whether Windsurf's agentic build flow folds into Devin. (4) <strong>For your team:</strong> don't over-invest in any one tool's proprietary workflow; keep specs, evals, and context portable. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">RWA · BlackRock</span>
+    <h3><a href="https://www.coindesk.com/business/2026/08/03/blackrock-expands-tokenized-cash-with-new-blockchain-based-money-market-offerings">BlackRock Launches Tokenized Money Market Funds for Stablecoin Reserves</a></h3>
+    <p>BlackRock <strong>launched two tokenized money market funds designed to serve as stablecoin reserves</strong>, expanding its on-chain cash lineup (building on BUIDL) and giving stablecoin issuers a yield-bearing, institutional-grade backing asset. <strong>Why it matters:</strong> (1) <strong>The RWA thesis deepens:</strong> the world's largest asset manager is productizing tokenized cash specifically for the stablecoin supply side — a structural upgrade from "T-bills backing" to "tokenized MMF backing." (2) <strong>For markets:</strong> this could improve stablecoin yield transparency and reserve quality, while raising new questions about MMF redemption runs under crypto stress. (3) <strong>For builders:</strong> if you handle stablecoin settlement or treasury, expect reserve composition to shift toward tokenized MMFs — your dashboards and risk models need to price and display these instruments. (4) <strong>Competitive read:</strong> Coinbase, Circle, and now BlackRock are all building the "stablecoin reserve" layer — the rails beneath the rails. <a href="https://www.coindesk.com/business/2026/08/03/blackrock-expands-tokenized-cash-with-new-blockchain-based-money-market-offerings">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Market Structure · DEXs</span>
+    <h3><a href="https://www.theblock.co/post/410476/dexs-capture-record-spot-crypto-trading-as-cex-volumes-sink">DEXs Capture Record 24% of Spot Crypto Volume as CEX Volumes Sink</a></h3>
+    <p>DEXs hit a <strong>record 24% share of spot crypto trading</strong> while centralized exchange volumes declined, per The Block — a structural milestone in the long CEX-to-DEX migration. <strong>Why it matters:</strong> (1) <strong>The shift is real and accelerating:</strong> nearly a quarter of spot volume now happens on-chain, driven by better UX (account abstraction, cross-chain aggregation) and post-FTX trust dynamics. (2) <strong>For a CEX-native iOS engineer:</strong> the competitive frontier is "CEX speed/UX with DEX depth/transparency" — hybrid routing that fills orders across CEX and on-chain venues is becoming table stakes. (3) <strong>Risk angle:</strong> DEX growth increases on-chain MEV, slippage, and smart-contract-risk exposure in the spot path — your execution-quality monitoring must extend to DEX fills. (4) <strong>Product implication:</strong> self-custody swap features inside your app (via wallet-connect / embedded wallets) are now expected, not novel. <a href="https://www.theblock.co/post/410476/dexs-capture-record-spot-crypto-trading-as-cex-volumes-sink">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · Macro</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/08/03/u-s-japan-intervention-revives-yen-carry-trade-fears-for-bitcoin">Yen Carry-Trade Fears Revive on US-Japan Intervention — BTC Tests 2-Week Lows; Strategy Sells 1,638 BTC</a></h3>
+    <p>A <strong>US-Japan yen intervention</strong> revived <strong>carry-trade unwind fears</strong> for risk assets including bitcoin, with BTC sliding to <strong>two-week lows</strong>; separately, <strong>Strategy (Saylor's firm) sold another 1,638 BTC (~$105M)</strong>, trimming holdings to 842,138 BTC. <strong>Why it matters:</strong> (1) <strong>The macro link is live:</strong> the yen carry-trade (the same dynamic behind last August's crypto crash) is back as a BTC headwind — yen strength forces unwinds of risk-on positions. (2) <strong>Strategy selling is a sentiment signal:</strong> the highest-profile BTC accumulator turning net-seller (even for dividends/STRC repurchases) adds supply pressure in an already-soft August. (3) <strong>August seasonality confirmed:</strong> four straight negative Augusts averaging −10% remain the base case; treat the current drawdown as expected, not exceptional. (4) <strong>For builders:</strong> a quiet/volatile August is a build window — ship infra and harden compliance now; the next leg rewards prepared systems. <a href="https://www.coindesk.com/markets/2026/08/03/u-s-japan-intervention-revives-yen-carry-trade-fears-for-bitcoin">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>BYOC (Bring Your Own Cloud): AI Is Breaking the SaaS Deployment Model</strong>
+    <p>A breakout concept this week: <strong>BYOC (Bring Your Own Cloud)</strong> — the thesis that AI workloads (which touch sensitive enterprise data) are <strong>breaking the classic multi-tenant SaaS deployment model</strong>, pushing vendors to ship software that runs <em>inside the customer's own cloud</em> rather than a shared SaaS instance. A "10 Commandments for BYOC" manifesto is circulating on Hacker News. <strong>Why it matters NOW:</strong> (1) <strong>Data gravity + compliance:</strong> AI agents that ingest enterprise data can't easily live in a vendor's shared SaaS — the EU AI Act plus enterprise security policies demand data stays in the customer's perimeter. (2) <strong>The architectural shift:</strong> vendors move from "hosted SaaS" to "deployable stack + control plane" — your infra must be cloud-portable (Terraform modules, Helm charts, single-tenant deploy). (3) <strong>For Binance:</strong> if you build or buy AI tooling that touches trading or customer data, BYOC-style deployment (in your own VPC, egress-controlled) is increasingly the procurement default. (4) <strong>The takeaway:</strong> design every AI service as deployable-in-customer-cloud from day one; the multi-tenant SaaS moat is eroding wherever AI meets sensitive data. <a href="https://byocanywhere.org/">BYOC manifesto →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The 'AI Manifesto War': Open-Weight vs Closed-Frontier Bifurcation</strong>
+    <p>Axios's "AI's Manifesto War" piece (Aug 2) crystallizes a concept gaining real traction: the AI industry is splitting into <strong>open-weight evangelists and closed-frontier labs</strong>, each publishing competing "manifestos" on safety, access, and the right way to build advanced AI. <strong>Why it matters:</strong> (1) <strong>It's a strategy question for every builder:</strong> do you bet your stack on open-weight models (Llama/Qwen/DeepSeek — cheaper, self-hostable, BYOC-friendly) or closed frontier (GPT/Claude/Gemini — strongest capability, vendor lock-in)? (2) <strong>The bifurcation is regulatory:</strong> open-weight faces restriction pushes (export controls, "frontier" classification); closed labs push safety narratives that conveniently favor their moat. (3) <strong>The practical hedge:</strong> abstract your model layer behind a protocol (MCP + a model-agnostic router) so you can ride whichever side wins per-task — open for bulk, closed for frontier reasoning. (4) <strong>For your team:</strong> track both camps' manifestos as leading indicators of regulation and pricing, not just philosophy. <a href="https://www.axios.com/2026/08/02/ai-manifesto-open-weight-models">Axios →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>'Full-Stack AI': The Expanding Definition of the Engineering Stack</strong>
+    <p>Google's "Ask an AI expert: What exactly is the full stack?" explainer highlights a concept now going mainstream: <strong>"full-stack" has expanded</strong> from frontend + backend + database to a multi-layer AI stack — models, orchestration, tool use, evals, data pipelines, the agent harness, and safety/containment. <strong>Why it matters:</strong> (1) <strong>The skill bar rose:</strong> a "full-stack engineer" in 2026 is expected to wire an on-device model, a retrieval pipeline, a tool-calling agent, and an eval harness — not just React and Node. (2) <strong>Team structure shifts:</strong> the old frontend/backend split blurs into "AI experience" + "AI infra" + "AI evals" squads. (3) <strong>The iOS impact:</strong> mobile devs who add on-device inference (Core AI/MLX), RAG, and agent UX to their toolkit become the most valuable "full-stack AI" hires — the skill combo is rare. (4) <strong>Action:</strong> audit your own stack against the full AI stack; the layers you can't personally wire end-to-end are your learning roadmap. <a href="https://blog.google/innovation-and-ai/technology/ai/full-stack-ai-explainer/">Google →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://openai.com/index/continuous-voice-interaction-with-gpt-live">OpenAI — Continuous Voice Interaction with GPT Live</a>
+        <span class="desc">How OpenAI built a realtime, responsive voice-AI system in six months — the architecture behind full-duplex conversation, interruption handling, and natural turn-taking.</span>
+      </li>
+      <li>
+        <a href="https://developer.apple.com/documentation/foundationmodels">Apple Developer — Foundation Models Framework</a>
+        <span class="desc">Native Swift API to use AFM 3 Core (and Core Advanced) on-device in your app — the basis of today's lead tip on private, offline generative features.</span>
+      </li>
+      <li>
+        <a href="https://byocanywhere.org/">AI Is Breaking the SaaS Deployment Model: 10 Commandments for BYOC</a>
+        <span class="desc">The manifesto circulating on Hacker News behind today's BYOC concept — why AI workloads demand single-tenant, in-customer-cloud deployment.</span>
+      </li>
+      <li>
+        <a href="https://www.axios.com/2026/08/02/ai-manifesto-open-weight-models">Axios — AI's Manifesto War (Open-Weight vs Closed-Frontier)</a>
+        <span class="desc">The bifurcation splitting the AI industry into open-weight and closed-frontier camps, and what it means for model strategy, regulation, and pricing.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/post/410476/dexs-capture-record-spot-crypto-trading-as-cex-volumes-sink">The Block — DEXs Capture Record 24% of Spot Crypto Trading</a>
+        <span class="desc">Data and analysis behind the CEX→DEX market-structure shift — a structural milestone with direct implications for exchange competitive strategy.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-04 (Tuesday) · Generated 2026-08-04T02:11:48Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Tuesday edition — AI × iOS tips (Foundation Models framework, Core AI vs CoreML vs MLX, 3-tier hybrid inference), GPT Live voice AI, Gemini Robotics 2, EU AI Act transparency, Cursor iPad app, Codex Micro, Cognition×Windsurf, BlackRock tokenized MMFs, DEXs record 24%, yen carry-trade.</p>
+  <p>Dedup: 4 of 5 past reports loaded (Aug 03, Aug 02, Jul 31, Jul 30; Aug 01 = weekend, not found). ~30 candidate items rejected against the dedup set (Astra, Cursor Router/SpaceX, Coldcard $89M, GPT-5.6 price cuts, Claude Sonnet 5 tokenizer, Gemini Managed Agents 3.6 Flash, Claude 3-org breach, Codex quota reset, Cursor Benchmark Partners, Coinbase Q2, CLARITY Act, tokenized stocks QQQB, BTC August open, Context Engineering, Cost-Aware Architecture, Modular Monolith, Agent Harness, Vibe Coding Hangover, Autonomous Economic Agents, Event-Driven Architecture, AI Containment Architecture, Agentic/Orchestration Layer, Platform Engineering, AI Cryptanalysis, Hardware-Software AI Stack War, ONNX CoreML EP, 4-bit quant, ANE profiling, local RAG, tool-use schema, guardian gates, Claude Code hooks/skills/MCP, Secure Enclave key hygiene, Supabase Evals).</p>
+  <table>
+    <tr><th>Feed</th><th>Status</th><th>Role</th></tr>
+    <tr><td>The Block RSS</td><td>200 OK</td><td>Crypto (primary)</td></tr>
+    <tr><td>Cointelegraph RSS</td><td>200 OK</td><td>Crypto (primary)</td></tr>
+    <tr><td>CoinDesk RSS</td><td>200 OK</td><td>Crypto (primary)</td></tr>
+    <tr><td>OpenAI blog RSS</td><td>200 OK</td><td>AI (supplementary)</td></tr>
+    <tr><td>Google AI blog RSS</td><td>200 OK</td><td>AI (supplementary)</td></tr>
+    <tr><td>HN RSS</td><td>200 OK</td><td>AI (supplementary)</td></tr>
+    <tr><td>web_search</td><td>6 queries OK</td><td>AI / Vibe / iOS / Concepts (primary)</td></tr>
+    <tr><td>GHE archive (local git clone)</td><td>4/5 reports</td><td>Dedup lookback</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
