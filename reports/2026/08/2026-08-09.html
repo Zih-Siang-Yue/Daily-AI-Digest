@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-09</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, August 9, 2026 · Best-of-Week: Agent Security, DeepMind Shuffle, BIP-110 Chain Split</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Sunday: Best of Week — Agent Security Hardening) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Agent Security Hardening</div>
+  <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:16px;">Sunday edition: the week's through-line was agent security — from Monday's containment architecture to Friday's Astra "Critical" cyber eval, capped by Thursday's Claude Code CVE. Here's the synthesized playbook.</p>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Egress Hygiene</span>
+    <strong>Audit Your Agent's Pre-Approved Hostlists — The Claude Code CVE Is the Template</strong>
+    <p>The week closed with <strong>CVE-2026-54316</strong>: Claude Code's <code>WebFetch</code> tool had <code>huggingface.co</code> as a pre-approved hostname, so any request there bypassed permission prompts. An attacker who could inject untrusted content (a malicious repo, a poisoned doc) could steer the agent to fetch an attacker-controlled HF dataset URL, encoding your API key into the request — and the public HF download counter exfiltrated it one character at a time. <strong>The generalizable lesson:</strong> every "convenience allowlist" in your agent (pre-approved domains, auto-approved tool args, skipped confirmation gates) is a covert exfil channel. <strong>Action today:</strong> (1) enumerate every pre-approved host in your Claude Code / Codex / Cursor config; (2) treat each as untrusted and remove any you didn't explicitly vet; (3) rotate any API keys that flowed through agent contexts on affected versions (<code>0.2.54–2.1.162</code>); (4) pin to <code>2.1.163+</code>. This is the same blast-radius discipline as Monday's containment tip, applied to the network egress layer. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code security →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Containment · Budget Caps</span>
+    <strong>Per-Sub-Agent Blast-Radius Budgets: Tool-Call Ceilings + Egress Allow-Lists</strong>
+    <p>Friday's Astra disclosure (first model to hit the "Critical" cyber threshold) makes the containment pattern non-optional. The concrete implementation: every sub-agent you spawn gets a <strong>hard tool-call ceiling</strong> (e.g., 20 calls) AND a <strong>scoped egress allow-list</strong> (only the hosts that sub-agent needs — not the parent's full list). In Claude Code this is <code>PreToolUse</code> hooks that reject out-of-scope calls; in a custom harness it's a per-worker sandbox profile. The payoff: a compromised or hallucinating worker can't pivot to your production trading API or exfil through a broad allowlist. For a Binance iOS team, gate any agent that touches CI/CD or signing keys behind the tightest budget — and log every denial so you can see attempted escapes in your eval dashboards. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Provenance · Audit Trails</span>
+    <strong>Agent Output Provenance: Label, Trace, and Review Every Agent-Generated Artifact</strong>
+    <p>Two regulatory + architectural threads converged this week: the EU AI Act's transparency obligations (active since Aug 2) require labeling AI-generated content, and Anthropic's "Dreaming" concept means your agent session traces are becoming a training asset. The synthesis: treat every agent output as a <strong>first-class auditable artifact</strong> with (1) a machine-readable <code>ai_generated</code> provenance flag (for EU compliance), (2) a structured session trace (goal → plan → tool calls → outcome → user correction) persisted for offline eval, and (3) a human review gate before any "learned" behavior change is applied. For iOS, this means your AI-generated summaries/replies carry a metadata tag AND you can replay any agent session to debug a bad output. The teams that instrument this now will be the ones whose agents improve overnight (Dreaming) without silent regressions. <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai">EU AI Act →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Security</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Critical Claude Code Flaw (CVE-2026-54316) Leaked API Keys via HuggingFace Allowlist — Patch in v2.1.163</a></h3>
+    <p>A critical out-of-band data-exfiltration vulnerability in Claude Code was detailed at Black Hat USA 2026: the <code>WebFetch</code> tool's pre-approved <code>huggingface.co</code> hostname let an attacker who could inject untrusted content into a Claude Code context steer the agent to an attacker-controlled HF repo, encoding sensitive data (including the Anthropic API key) into the requests — with the public HF download counter usable to exfil a key one character at a time. The flaw affected <strong>v0.2.54 through 2.1.162</strong>; the patch shipped in <strong>v2.1.163</strong>. A second flaw, <strong>CVE-2026-21852</strong> (API-key exfil via a malicious <code>ANTHROPIC_BASE_URL</code> in a repo's settings), was patched earlier in January. <strong>Why it matters:</strong> this is the first widely-documented agent-tool exploit chain against a mainstream coding agent — it shows that "convenience" allowlists are attack surface, and that prompt-injection → tool-abuse is now a real, demonstrated path to credential theft. <strong>Action:</strong> upgrade to 2.1.163+, audit pre-approved hosts, rotate keys exposed on affected versions. <a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · DeepMind</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/">DeepMind Leadership Shakeup: Hassabis to Alphabet Chief Scientist, Kavukcuoglu Leads DeepMind; Jeff Dean Exits to Found Discovery Loop</a></h3>
+    <p>Google's AI division underwent its biggest restructuring in years: <strong>Demis Hassabis stepped down as DeepMind CEO</strong>, becoming Chair of DeepMind and <strong>Chief Scientist at Alphabet</strong> to focus on AGI strategy. <strong>Koray Kavukcuoglu</strong> (former CTO) is now SVP of DeepMind, overseeing the Gemini model, frontier research, and the Gemini app/dev teams. In parallel, veteran Google AI leader <strong>Jeff Dean and Sanjay Ghemawat departed</strong> to co-found <strong>Discovery Loop</strong>, a public benefit corporation aimed at automating ML, science, and engineering — with Google as a founding investor. <strong>Why it matters:</strong> (1) Hassabis moving "up" to Alphabet-level signals Google is treating AGI as a whole-company bet, not a division; (2) Dean's exit (the most senior ML engineer in the industry) to a mission-structured PBC is a leading indicator of senior-researcher brain drain from hyperscalers; (3) for builders, Gemini's roadmap now sits with Kavukcuoglu — expect continuity, but watch whether the Gemini app/dev experience (including Managed Agents) accelerates or stalls through the handover. <a href="https://blog.google/innovation-and-ai/technology/ai/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Platform</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Ships Inference Hooks Beta for Enterprise, Retires Opus 4.1, Hardens Fable 5 Biology Guardrails</a></h3>
+    <p>Anthropic rolled out a cluster of Claude platform updates: <strong>inference hooks entered beta for enterprise customers</strong> (programmable lifecycle intercepts on model calls — the same primitive that makes Claude Code's <code>PreToolUse</code> hooks powerful, now exposed at the API layer), <strong>Claude Opus 4.1 was retired</strong> (migrate any pinned calls to Opus 4.5/Sonnet 5), and the <strong>Fable 5 model's biology-related safeguards were strengthened</strong>. <strong>Why it matters:</strong> inference hooks at the API level are a big deal for teams building custom agent harnesses — you can now enforce structured-output validation, redaction, and blast-radius gates <em>outside</em> Claude Code, on raw API traffic, which is exactly the containment layer Monday's tip called for. The Opus 4.1 retirement is a forced migration; check your model pins. The Fable 5 bio-hardening is part of the same safety-escalation arc as Astra — frontier labs are pre-emptively tightening bio/cyber evals before the next capability jump. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Automations</span>
+    <h3><a href="https://docs.cursor.com">Cursor "Automations": Always-On Agents Triggered by Slack, GitHub &amp; PagerDuty Events</a></h3>
+    <p>Cursor's "Automations" feature has matured into a genuine event-driven agent surface: <strong>always-on agents that trigger on events from Slack, GitHub, and PagerDuty</strong>, executing tasks in cloud sandboxes without an open editor. Example flows: a PagerDuty incident auto-spawns an agent that reproduces the error, drafts a fix PR, and posts a Slack summary; a GitHub issue labeled "bug" triggers an agent that writes a failing test + patch. <strong>Why it matters:</strong> this is the first mainstream coding agent to move from "you prompt it" to "events prompt it" — the same shift that turned CI from manual runs into GitHub Actions. For an iOS team, the high-value pattern is incident-response (agent drafts the hotfix while you're still reading the alert). <strong>Caveats:</strong> (1) cloud-sandbox execution means your code leaves your machine — review Cursor's data terms before pointing it at private Binance repos; (2) event-triggered agents need the same blast-radius gates as manual ones (today's tips); (3) with the SpaceX acquisition pending, weigh lock-in before deep integration. <a href="https://docs.cursor.com">Cursor →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Anthropic · Report</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic's 2026 Agentic Coding Trends Report: From Assistants to Coordinated Agent Teams</a></h3>
+    <p>Anthropic published its "2026 Agentic Coding Trends Report," identifying a decisive shift from single AI assistants to <strong>coordinated teams of agents operating autonomously for extended periods</strong>, and coining the framing <strong>"intent-driven development"</strong> — where the developer's core skill becomes clearly communicating goals and constraints, not writing line-by-line code. The report argues the most effective 2026 developers are the clearest communicators of intent, not the fastest typists. <strong>Why it matters:</strong> (1) it's the clearest industry articulation yet that "vibe coding" is maturing into "intent-driven orchestration" — and that agent coordination is a first-class engineering skill; (2) for team leads, it's a hiring and onboarding signal: spec-writing and constraint-definition now rank above raw coding speed; (3) it validates the unified-harness thesis from Saturday's tip (hooks + skills + MCP + sub-agents as one reviewed boundary). Read it as the roadmap for how your team's dev workflow changes in the next 6-12 months. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Tooling</span>
+    <h3><a href="https://www.jetbrains.com/resharper/">JetBrains ReSharper 2026.2 Brings .NET Debugger Into AI-First Editors (Cursor, Antigravity, Devin, Kiro)</a></h3>
+    <p>JetBrains' <strong>ReSharper 2026.2</strong> now embeds its .NET debugger into AI-first editors — <strong>Cursor, Google's Antigravity IDE, Devin Desktop, and Kiro</strong> — giving developers a full .NET tooling experience inside the agentic IDEs they've already adopted. <strong>Why it matters:</strong> (1) it's the strongest signal yet that <strong>AI-first IDEs are becoming the primary editor surface</strong>, with traditional tooling vendors porting to them rather than competing; (2) for any team doing .NET (or watching the pattern for Swift/Xcode), it previews the future where Apple's own Instruments/LLDB-class tooling gets re-hosted inside agentic editors; (3) the competitive read: JetBrains is hedging by supporting every agentic IDE rather than betting on one — a smart posture during the Cursor/SpaceX acquisition uncertainty. For iOS devs, the lesson is to keep your build/debug toolchain portable so you're not locked to Xcode when an agentic IDE gains native Swift debugging. <a href="https://www.jetbrains.com/resharper/">JetBrains →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Bitcoin · Protocol</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">Bitcoin's BIP-110 Soft Fork Triggers Minority Chain Split With Under 3% Miner Support</a></h3>
+    <p>Bitcoin's contentious <strong>BIP-110</strong> ("Reduced Data Temporary Softfork," a one-year cap on non-financial data — aimed at Ordinals/BRC-20 "spam") entered its mandatory signaling window at <strong>block 961,632</strong> (Aug 9) with <strong>under 3% miner support</strong> — far below the 55% needed for smooth activation. Nodes enforcing BIP-110 began rejecting non-signaling blocks, <strong>forking onto a minority chain</strong> that's struggling to keep up with the main network. Proponents now float a <strong>user-activated soft fork (UASF)</strong> to force miner compliance via economic pressure, echoing the 2017 SegWit standoff; critics call it censorship that risks a damaging chain split and double-spend confusion. <strong>Why it matters:</strong> (1) this is the most serious Bitcoin consensus drama since the block-size wars — a live chain split is a tail-risk event for any wallet/exchange that handles BTC; (2) <strong>for builders:</strong> verify your BTC infra treats the minority chain as invalid, monitor for replay attacks across the split, and prepare comms for users who see "stuck" transactions; (3) the Ordinals-vs-purists culture war is now a protocol-level fault line — expect this to drag into September. <a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Clarity Act</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-08-08-majority-leader-thune-files-cloture-on-clarity-act-setting-up-sept-15-senate-vote-411211">Thune Files Cloture on Clarity Act — Setting Up Sept. 15 Senate Vote</a></h3>
+    <p>Senate Majority Leader <strong>Thune filed cloture</strong> on the Clarity Act, setting up a <strong>procedural vote on Tuesday, September 15</strong> (the day after the Senate returns from recess). To advance, at least <strong>seven non-Republicans</strong> must support the motion. This sharpens yesterday's vague "delayed to September" into a concrete date with a defined vote threshold. <strong>Why it matters:</strong> (1) the market-structure bill (security vs. commodity classification) now has a hard calendar catalyst — Sept 15 is the day to watch, not "sometime in September"; (2) the cloture filing means leadership is actively whipping votes, raising the odds of passage (but also the odds of a volatility spike on a failure); (3) <strong>for product teams:</strong> keep US-regulatory-boundary features flexible until Sept 16 — a yes vote accelerates the compliant-product roadmap, a no vote extends the ambiguity. Asian hubs (per First Digital's CEO) are treating the delay as "an opening." <a href="https://www.theblock.co/news/regulation/2026-08-08-majority-leader-thune-files-cloture-on-clarity-act-setting-up-sept-15-senate-vote-411211">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · Macro Roundup</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-08-08-bitcoin-ether-etfs-draw-1-1-billion-in-best-inflow-week-since-april-despite-low-volume-411204">BTC/ETH ETFs Draw $1.1B (Best Week Since April); US Sanctions 2 Iranian Exchanges; Russia Hardware-Wallet Sales 2x</a></h3>
+    <p>A dense macro/regulatory week: (1) <strong>US spot BTC + ETH ETFs pulled $1.1B in their best inflow week since April</strong> (Bloomberg's Balchunas ties the run to the Coldcard exploit driving flight-to-custody), despite low trading volume; (2) the <strong>US sanctioned two more Iranian crypto exchanges</strong> under the "Economic Fury" campaign (Treasury traced $3M+ between Shelbit and IRGC-linked wallets); (3) <strong>Russian hardware-wallet sales more than doubled</strong> as new domestic crypto rules near (Wildberries avg. price fell 13% to 7,900 rubles); (4) <strong>Brazil's central bank ordered exchanges to delay large crypto transfers abroad</strong> (&gt;$10K or flagged) — a capital-controls flavor of regulation. <strong>Why it matters:</strong> the macro picture is risk-on (ETF inflows, whale accumulation) while the regulatory picture fragments further (US sanctions + Brazil capital controls + Russia onshoring). For a global CEX, this means your compliance/routing layer must handle increasingly divergent per-jurisdiction transfer rules — design for policy-as-config, not hardcoded thresholds. <a href="https://www.theblock.co/news/markets/2026-08-08-bitcoin-ether-etfs-draw-1-1-billion-in-best-inflow-week-since-april-despite-low-volume-411204">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Intent-Driven Development: The Developer as Orchestrator, Not Typist</strong>
+    <p>A concept crystallizing from Anthropic's 2026 Agentic Coding Trends Report (and echoed across the week's tooling moves): <strong>"intent-driven development"</strong> — the developer's primary artifact becomes a clear statement of goals and constraints, and the implementation is delegated to coordinated agent teams. The skill shift is concrete: spec-writing, constraint-definition, and agent-orchestration now rank above raw coding speed; the most effective 2026 engineers are "the clearest communicators of intent, not the fastest coders." <strong>Why it matters NOW:</strong> (1) it reframes "vibe coding" from a meme into a disciplined practice — intent specs become the new source of truth; (2) for team leads, it's a hiring and review signal: evaluate engineers on spec quality and orchestration, not LOC; (3) for iOS, it previews a near future where you describe a SwiftUI feature's intent + constraints and an agent ships the view + tests + accessibility labels. Start versioning your intent specs (like <code>CLAUDE.md</code> for features) so they're reviewable artifacts. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Pre-Approved-Host Exploits: A New Class of Agent Vulnerability</strong>
+    <p>A vulnerability <em>class</em> emerged this week, named via the Claude Code CVE-2026-54316: <strong>pre-approved-host exploits</strong>, where an agent's convenience allowlist (domains that skip permission prompts) becomes a covert exfiltration channel. The pattern: (1) attacker injects untrusted content into the agent context (poisoned repo, doc, or web page); (2) injected instruction steers the agent to fetch a resource on a pre-approved host, encoding secrets in the request URL/headers; (3) the attacker reads the exfil via a side channel (download counters, logs, repo metadata). <strong>Why it matters:</strong> this is the agent-era analog of SSRF — and like SSRF, every "trusted host" list is latent attack surface. The defense pattern is a new discipline: <strong>allowlist minimization</strong> (remove any host you didn't explicitly vet), <strong>per-agent scoping</strong> (each sub-agent gets only the hosts it needs), and <strong>request-content inspection</strong> (flag requests whose URLs/params look like encoded secrets). Expect a wave of CVEs in this class against every coding agent — build the review process now. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code security →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI Lab Brain Drain → Mission-Structured Vehicles (Public Benefit Corps)</strong>
+    <p>A structural trend accelerating this week: senior AI researchers are <strong>exiting hyperscaler labs for mission-structured vehicles</strong> — public benefit corporations (PBCs) and non-profits — rather than joining rival for-profit labs. The data point: <strong>Jeff Dean and Sanjay Ghemawat left Google</strong> to co-found <strong>Discovery Loop</strong>, a PBC automating ML/science/engineering, with Google as a founding investor (not an acquirer). This mirrors earlier moves (Dario Amodei's Anthropic was originally a PBC; Mira Murati's Thinking Machines Lab; Character.AI's licensing-and-departure deal with Google). <strong>Why it matters:</strong> (1) the frontier-talent market is bifurcating — top researchers want mission governance + equity-like upside without the "big-co politics" or the pure-capitlist framing; (2) hyperscalers are adapting by funding departures (Google as Discovery Loop investor) to retain influence without retention; (3) for builders, it signals that the most capable open research may increasingly come from PBCs (which often open-weight faster) — track Discovery Loop, Thinking Machines, and Anthropic as the "open-leaning" tier, and adjust your model-procurement and recruiting posture accordingly. <a href="https://blog.google/innovation-and-ai/technology/ai/">Google →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://docs.anthropic.com/en/docs/claude-code">Anthropic — Claude Code Security &amp; CVE-2026-54316 Advisory</a>
+        <span class="desc">The patch notes and security guidance for the HuggingFace-allowlist exfil flaw — the template for auditing your own agent's pre-approved hostlists.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/08/07/frame-bitcoin-s-bip-110-enters-mandatory-signaling-with-less-than-3-miner-support">CoinDesk — Bitcoin's BIP-110 Enters Mandatory Signaling With Under 3% Miner Support</a>
+        <span class="desc">The definitive explainer of the BIP-110 soft fork, the minority chain split, and the UASF fallback debate — required reading for anyone handling BTC this week.</span>
+      </li>
+      <li>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/">Google — DeepMind Leadership Transition &amp; Discovery Loop Announcement</a>
+        <span class="desc">The official framing of Hassabis → Alphabet Chief Scientist, Kavukcuoglu → DeepMind lead, and Jeff Dean's departure to the Discovery Loop PBC.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/news/regulation/2026-08-08-majority-leader-thune-files-cloture-on-clarity-act-setting-up-sept-15-senate-vote-411211">The Block — Thune Files Cloture on Clarity Act, Setting Up Sept. 15 Senate Vote</a>
+        <span class="desc">The concrete procedural milestone for US crypto market-structure legislation — the date and vote threshold to plan your product roadmap around.</span>
+      </li>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic — 2026 Agentic Coding Trends Report</a>
+        <span class="desc">The "intent-driven development" framing and the shift from single assistants to coordinated agent teams — the strategic backdrop for the week's tooling moves.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-09 (Sunday) · Generated 2026-08-09T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Sunday best-of-week edition — synthesized the week's agent-security through-line (Claude Code CVE-2026-54316, Astra Critical eval, containment architecture) into a hardening playbook. AI: Claude Code API-key exfil flaw, DeepMind leadership shuffle (Hassabis→Alphabet CSO, Kavukcuoglu leads, Jeff Dean exits to Discovery Loop), Anthropic inference hooks beta + Opus 4.1 retirement, Cursor Automations. Vibe: Anthropic agentic coding report ("intent-driven development"), JetBrains ReSharper ports .NET debugger to AI-first editors. Crypto: BIP-110 minority chain split, Thune cloture → Sept 15 Clarity Act vote, BTC/ETH ETFs $1.1B best week since April. Concepts: intent-driven development, pre-approved-host exploits, AI lab brain drain → PBCs.</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 08, Aug 07, Aug 04; Aug 06 &amp; Aug 05 not generated — skipped silently). ~50 prior topics indexed across titles, concepts, and tips. ~14 duplicate candidates filtered in favor of fresh angles: Claude Code auto-mode default + Cowork (Aug 8), Astra Critical cyber eval (Aug 8), Qwen 3.8-Max (Aug 8), Liquid LFM2.5-2.6B (Aug 8), Agent Plugins 1.0.0 / MCP interop war (Aug 8), Copilot Workspace GA + Polaris (Aug 8), Codex Sites (Aug 8), GPT-5.6 Luna/Think/Sol (Aug 7), Anthropic custom chips (Aug 7), Multi-Agent Orchestration/Dreaming/Vercept (Aug 7), Meta Muse Code (Aug 7), Bitcoin Core 85 bugs (Aug 7), Wintermute broker-dealer (Aug 7), tokenized RWA $7.4B (Aug 7), BTC $65K on jobs miss (Aug 8), Clarity Act "delayed to September" (Aug 8 — superseded by today's specific Sept 15 cloture date), Bybit sues Lazarus (Aug 8), post-quantum Sui (Aug 8), crypto-banking convergence (Aug 8), Unified Agent Harness tip (Aug 8), on-device model decision tree (Aug 8), eval/observability tip (Aug 8), multi-agent orchestration/structured outputs/hybrid retrieval tips (Aug 7), Foundation Models/Core AI/MLX/3-tier hybrid tips (Aug 4), BYOC/AI Manifesto War/Full-Stack AI/EDA/Containment/Platform Engineering/Green Software concepts.</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$65K region holding post-jobs-miss rally · BTC+ETH ETFs $1.1B weekly inflows (best since April) · BIP-110 minority chain live at block 961,632 · Clarity Act cloture vote Sept 15 · US sanctions 2 Iranian exchanges; Brazil delays large crypto transfers; Russia hardware-wallet sales 2x.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries)</td><td>✅ 7 OK</td><td>AI / Vibe / iOS / Concepts (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>✅ ~9 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~4 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>❌ 502 Bad Gateway (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>3/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
