@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-11</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, August 11, 2026 · Core AI Migration, GPT-5.6-Cyber, Muse Glimmer, BTCPay AI Exploit</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Tuesday: AI x iOS — CoreML, Create ML, MLX on-device inference) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI x iOS: Core AI, Core ML &amp; MLX</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Migration</span>
+    <strong>Migrate From Core ML to Core AI &amp; the .aimodel Format — Without Regressing Inference Speed</strong>
+    <p>Apple's WWDC 2026 <strong>Core AI</strong> framework is now the recommended path for neural/transformer inference, and benchmarks show it hitting <strong>181 tok/s</strong> on an iPhone 17 Pro GPU — a 1.6x lift over MLX for warmed decode. The migration that preserves your investment: keep <strong>Core ML</strong> for classic non-neural ML (decision trees, tabular feature engineering) and move LLM/transformer workloads to Core AI's new <code>.aimodel</code> format (an evolution of the model compilation pipeline, with Xcode profiling/optimization tools). Concretely, re-export existing <code>.mlmodel</code> transformer weights via the Core AI converter, validate throughput on your <em>lowest</em> supported device (not your dev machine), and gate the swap behind a runtime flag so you can roll back if a specific model regresses. The payoff is faster decode + first-class Xcode tooling — but only if you benchmark before shipping. <a href="https://developer.apple.com/machine-learning/">Apple ML docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Pipeline</span>
+    <strong>The MLX-Train → Core-AI-Deploy Loop: Prototype on Mac, Ship on iPhone</strong>
+    <p>The cleanest 2026 on-device pipeline is: <strong>train/fine-tune with MLX</strong> (Python-first, NumPy-like API, runs on Apple Silicon Macs) → <strong>convert to Core AI <code>.aimodel</code></strong> → <strong>deploy on iOS</strong>. MLX remains a research/prototyping tool (it does <em>not</em> run on iOS), so the conversion step is the critical handoff. For a Binance iOS team, this means you can fine-tune a small model on internal support transcripts with MLX on a Mac Studio, then ship the quantized <code>.aimodel</code> inside the app for private, offline inference — no cloud round-trip, no per-token cost. Keep one MLX training script version-pinned per shipped model so retraining is reproducible, and add a CI step that re-runs the conversion + a Swift decoder smoke test on every model update. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Foundation Models · Swift</span>
+    <strong>Use @Guide Structured Outputs So Apple Foundation Models Return Codable Swift Types</strong>
+    <p>Apple's on-device <strong>Foundation Models</strong> framework supports <code>@Guide</code> annotations that constrain model output to a Swift struct shape — the on-device analog of OpenAI's <code>strict: true</code> and Anthropic's <code>input_schema</code>. This is the single highest-ROI change for agent reliability: instead of parsing freeform text, you decode the model's response directly with <code>JSONDecoder</code> + <code>Codable</code>, so malformed outputs fail at the type boundary instead of mid-execution. For an iOS feature that extracts a trade intent or classifies a support ticket on-device, define a <code>struct Intent: Codable</code> with <code>@Guide</code> fields, pass it to the Foundation Models session, and handle the <code>.failure</code> case as a prompt-tightening signal. Result: your on-device agent loop becomes as reliable as a network API, with zero data egress. <a href="https://developer.apple.com/apple-intelligence/">Apple Intelligence →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Security</span>
+    <h3><a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows">OpenAI Launches GPT-5.6-Cyber + Daybreak Red/Blue Tiers for Governed Vulnerability Research</a></h3>
+    <p>OpenAI expanded its "Daybreak" cybersecurity program into two tiers — <strong>Daybreak Blue</strong> (everyday security tasks) and <strong>Daybreak Red</strong> (authorized vulnerability research + exploit validation) — and shipped <strong>GPT-5.6-Cyber</strong>, a purpose-built cybersecurity model accessible only through Daybreak Red. This lands hard on the heels of last week's Astra "Critical" cyber-threshold disclosure: the frontier is now producing models with offensive capability exceeding existing containment norms, so OpenAI is gating the most capable cyber model behind a vetted-partner channel. <strong>Why it matters:</strong> for security teams, this is a usable tool for red-team automation and exploit validation under governance — but it also means threat actors will eventually get equivalent capability through open-weight diffusion. Build your egress allow-lists and blast-radius gates now (see Sunday's containment tip); the defensive window is narrowing by design. <a href="https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands">Daybreak partners →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · Open Weights</span>
+    <h3><a href="https://ai.meta.com/">Meta Ships Muse Glimmer: 30B Open-Weight Model for Local Agentic Workflows</a></h3>
+    <p>Meta released <strong>Muse Glimmer</strong>, a 30-billion-parameter open-weight model purpose-built to run agentic workflows on local hardware, available for download on Hugging Face. The key technique: Muse Glimmer was distilled by training it against Meta's larger <strong>Muse Spark</strong> model to learn complex tasks — converting a powerful cloud model into a smaller local agent that runs on a laptop. <strong>Why it matters:</strong> (1) it's a credible open-weight alternative to Liquid LFM2.5-2.6B (covered Aug 8) for teams that need more capability than a 2.6B model offers and can afford the 30B memory footprint; (2) the distillation pattern (large model teaches a smaller deployable agent) is a template you can replicate internally with your own frontier-model access; (3) caveat — review Meta's "contributor" tier data terms before running it on proprietary Binance code, as some tiers train on your prompts. <a href="https://ai.meta.com/">Meta AI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cloudflare · Runtime</span>
+    <h3><a href="https://www.cloudflare.com/">Cloudflare Closes 'Agents Week' with @cloudflare/computer — A Task-Aware Agent Runtime</a></h3>
+    <p>Cloudflare wrapped its "Agents Week" with a suite of agent-infrastructure releases, headlined by <strong><code>@cloudflare/computer</code></strong> — a new runtime that lets an agent select the appropriate execution environment for a given task. The week also added <strong>Python ↔ JavaScript Worker RPC</strong> communication and <strong>inbound TCP + gRPC support</strong> in Workers/Containers (directly useful for hosting real-time voice AI backends). <strong>Why it matters:</strong> the "agent picks its own runtime" primitive is a meaningful abstraction — instead of you hardcoding whether a task runs in a JS Worker, a Python container, or a browser sandbox, the agent routes based on task shape. For teams building voice or real-time AI features, the TCP/gRPC inbound support removes a major integration friction. Caveat: cloud-sandbox execution means reviewing Cloudflare's data terms before pointing it at private repos. <a href="https://www.cloudflare.com/">Cloudflare →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Pricing</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Holds Claude Sonnet 5 Pricing Steady Ahead of IPO</a></h3>
+    <p>Anthropic announced it will <strong>not proceed with a planned price increase</strong> for Claude Sonnet 5, providing pricing stability for enterprise clients as the company prepares for a potential initial public offering. <strong>Why it matters:</strong> (1) for teams building on the Claude API, this removes a cost-forecasting variable — Sonnet 5 stays at current per-token pricing through the IPO window; (2) it signals Anthropic is prioritizing enterprise retention (and IPO narrative) over near-term margin expansion, which is a buyer-friendly posture; (3) pair this with last week's inference-hooks beta and Opus 4.1 retirement — the platform is consolidating around Sonnet 5 as the production workhorse. If you have pinned Opus 4.1 calls, finish the migration to Sonnet 5 / Opus 4.5 now; the pricing hold buys you time. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Xsolla · Agent Skills</span>
+    <h3><a href="https://x.com/xsolla">Xsolla AI Toolkit: SKILL.md Agent Skills That Encode API Integration Paths</a></h3>
+    <p>Xsolla launched an <strong>AI Toolkit</strong> for game commerce that encodes correct API integration paths directly into AI coding tools, shipped as <strong>SKILL.md files in a public GitHub repo</strong> and as plugins for Claude Code, Cursor, GitHub Copilot, and Codex CLI. The goal: a developer can spin up a functional web shop with built-in validation in a single afternoon. <strong>Why it matters:</strong> the SKILL.md pattern is a reusable template for any platform team — instead of hoping the agent guesses your API's auth flow, error handling, and idempotency rules, you ship a versioned skill file that teaches the agent the correct path. For a Binance iOS team, this is a blueprint for exposing internal SDKs (trading, wallet, KYC) to coding agents safely: write the skill, version it, and let agents consume it across whichever IDE your engineers use. <a href="https://github.com/xsolla">Xsolla GitHub →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Strategy</span>
+    <h3><a href="https://cursor.com/">Cursor AI: SpaceX $60B Acquisition Talks, $1B ARR, Shift to Proprietary Models</a></h3>
+    <p>Cursor AI is reportedly in talks to be <strong>acquired by SpaceX for ~$60 billion</strong>, hitting <strong>$1 billion in annual recurring revenue</strong> (up from a $29.3B standalone valuation), with 90%+ of Salesforce devs and all 40,000 NVIDIA engineers using it as their primary editor. Strategically, Cursor is also <strong>moving toward proprietary in-house AI models</strong> to reduce reliance on third-party providers. <strong>Why it matters:</strong> (1) a SpaceX acquisition would vertically integrate the leading AI IDE into Musk's ecosystem — weigh lock-in before deep integration; (2) the shift to proprietary models mirrors GitHub's Project Polaris move (Aug 8) — every IDE platform is vertically integrating the model layer; (3) for your team, keep your build/debug toolchain portable so you're not locked to Cursor if the acquisition changes pricing or data terms. <a href="https://cursor.com/">Cursor →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cost Analysis</span>
+    <h3><a href="https://www.anthropic.com/news">The True Cost of AI Coding Tools: Token &amp; Credit Overages Are the New Bill</a></h3>
+    <p>An August 10 analysis highlights that the real cost of AI coding tools has shifted beyond monthly seat fees — <strong>agent-driven token and credit overages</strong> are making these tools significantly more expensive, with some organizations spending hundreds to thousands of dollars per developer per month on AI coding tokens alone. <strong>Why it matters:</strong> this is the operational counterpart to Sunday's "instrument agent runs with cost metrics" tip — if you're not tracking per-task token spend, you're flying blind on a budget line that can dwarf your seat licenses. For a team lead: (1) set per-developer monthly token budgets with alerts; (2) route trivial tasks to cheaper/faster models (Sonnet over Opus, Foundation Models on-device for trivial iOS work); (3) treat the eval/observability harness as a cost-control tool, not just a quality tool. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security · AI Crossover</span>
+    <h3><a href="https://www.theblock.co/news/ecosystems/2026-08-10-btcpay-server-supporters-offer-3-btc-recovery-bounty-critical-exploit-411353">BTCPay Server Critical Exploit — AI May Have Been Used to Find the Vulnerability</a></h3>
+    <p>BTCPay Server disclosed a <strong>critical exploit</strong> with supporters offering up to <strong>3 BTC</strong> as a recovery bounty; notably, BTCPay said <strong>AI may have been used to discover the vulnerability</strong>, and credited Craig Raw and the Bitcoin Red Team fund for reporting it. <strong>Why it matters:</strong> this is one of the first publicly-disclosed cases of AI being used (defensively or offensively) against Bitcoin payment infrastructure — a concrete data point that the AI × cyber capability curve (Astra, GPT-5.6-Cyber) is already landing on real crypto stacks. For your team: (1) treat AI-assisted vulnerability discovery as a baseline threat model for any self-custody or payment integration; (2) the 3-BTC bounty shows the incident-response playbook now includes community-funded recovery, not just patches; (3) pressure-test your BTC infra against the latest advisories and subscribe to Bitcoin Core CVE feeds. <a href="https://www.theblock.co/news/ecosystems/2026-08-10-btcpay-server-supporters-offer-3-btc-recovery-bounty-critical-exploit-411353">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Roadmap</span>
+    <h3><a href="https://www.theblock.co/news/ecosystems/2026-08-10-vitalik-buterin-privacy-quantum-resistance-front-and-center-ethereum-latest-roadmap-411298">Vitalik Puts Privacy &amp; Quantum Resistance Front-and-Center in Ethereum's 'Lean Ethereum' Roadmap</a></h3>
+    <p>Vitalik Buterin published Ethereum's latest roadmap putting <strong>privacy and quantum resistance</strong> as front-and-center priorities, with the upgrades forming the protocol's <strong>"third major iteration"</strong> under the "Lean Ethereum" banner. This extends the post-quantum theme Sui started (Aug 8) into the leading smart-contract L1. <strong>Why it matters:</strong> (1) post-quantum migration is now a multi-chain trend, not a single-chain feature — wallet/custody integrations across ETH and Sui will both need hybrid signature schemes; (2) "Lean Ethereum" suggests a simplification arc (the opposite of feature-creep), which is bullish for client correctness and reduces attack surface; (3) for builders, audit how your self-custody / signing UX would adopt a hybrid (classical + PQ) signature without doubling user friction — and track this roadmap as the reference implementation. <a href="https://www.theblock.co/news/ecosystems/2026-08-10-vitalik-buterin-privacy-quantum-resistance-front-and-center-ethereum-latest-roadmap-411298">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · Macro</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-wipes-weekend-gains-as-oil-nears-5-surge-on-hormuz-disappointment">BTC Wipes Weekend Gains on Oil Surge; XRP Dips to $1 — CPI Catalyst Looms Aug 12</a></h3>
+    <p>Crypto markets showed <strong>uneven performance</strong>: Bitcoin slipped (wiping weekend gains) as oil surged ~5% on Strait-of-Hormuz disappointment, while <strong>XRP fell to $1</strong> on institutional sell-off (Grayscale's XRP Trust reportedly sold heavily in H1 2026) and declining on-chain activity. Robinhood prediction markets priced BTC between $63.75K–$64.75K; Auspex showed a 14% probability of $66K–$68K. <strong>Why it matters:</strong> (1) the macro link is two-sided now — geopolitical risk (oil/Hormuz) is a headwind while dovish labor data (last week's jobs miss) is a tailwind, so BTC is choppy rather than directional; (2) <strong>tomorrow's US CPI report (Aug 12)</strong> is the next hard catalyst — a cool print revives rate-cut bets (bullish BTC), a hot one extends the oil-driven risk-off; (3) for infra teams, ensure your liquidity monitoring and margin-call logic handle choppy, range-bound volatility, not just trending moves. <a href="https://cointelegraph.com/markets/bitcoin-wipes-weekend-gains-as-oil-nears-5-surge-on-hormuz-disappointment">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Context Engineering: The Discipline Beyond Prompt Engineering</strong>
+    <p>A concept now first-class in 2026 architecture discussions: <strong>context engineering</strong> — designing what an AI agent "sees" before it acts, rather than just tuning the prompt. A recent report found <strong>82% of IT and data leaders believe prompt engineering alone is insufficient</strong> for production AI at scale. The shift: instead of optimizing a single prompt string, you engineer the <em>full context window</em> — system instructions, retrieved docs (RAG), tool schemas, conversation history, and redacted secrets — as a structured input. <strong>Why it matters NOW:</strong> for an iOS team shipping on-device agents, context engineering is exactly the discipline that determines whether Foundation Models gives a good answer or a hallucinated one — you control what's in the window (privacy-preserving local data) and what's kept out (PII, secrets). Treat your context window as a versioned, tested artifact, not an afterthought. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Modular Monolith Comeback: Pragmatic Middle Ground Over Microservices</strong>
+    <p>After years of microservices enthusiasm, the <strong>modular monolith</strong> is re-emerging as a pragmatic default — a single deployable application with strict internal boundaries, offering the structural benefits of services without the distributed-system overhead. Teams are increasingly <em>starting</em> with a modular monolith and only breaking out services when scale genuinely requires it. <strong>Why it matters NOW:</strong> the AI-agent era multiplies the number of "services" a team runs (agents, eval harnesses, MCP servers, skill plugins) — if each is a microservice from day one, operational complexity explodes. A modular monolith lets you iterate fast on agent orchestration internally, then extract a service boundary only when a component has a genuinely independent scale or deploy cadence. For your iOS backend services, default to modular-internal, extract-to-service-later. <a href="https://martinfowler.com/bliki/MonolithFirst.html">MonolithFirst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AgentSecOps: Governing AI Agents as a First-Class Security Surface</strong>
+    <p>Security experts are coalescing on <strong>AgentSecOps</strong> — an extension of DevSecOps designed to govern AI agents, prompts, and autonomous workflows as a first-class security surface. The thesis: agents with tool access introduce new vulnerabilities (prompt injection, tool abuse, exfiltration via pre-approved hosts — see Sunday's CVE-2026-54316) that traditional DevSecOps doesn't cover. <strong>Why it matters NOW:</strong> with GPT-5.6-Cyber and Astra pushing offensive capability past current containment norms, AgentSecOps is the framework name for everything this week's tips have been doing — egress allow-lists, per-sub-agent blast-radius budgets, structured-output validation, provenance/audit trails. For your team, the concrete move: add an "agent security review" gate to your CI/CD for any service that spawns agents, mirroring how you'd run a SAST/DAST scan on regular code. <a href="https://www.anthropic.com/engineering/building-effective-agents">Agent security →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows">OpenAI — Expanding Daybreak as the Cyber Defense Window Narrows (GPT-5.6-Cyber)</a>
+      <span class="desc">The launch post for OpenAI's cybersecurity-specific model and the two-tier Daybreak access program — the governance model for frontier cyber capability.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/ecosystems/2026-08-10-btcpay-server-supporters-offer-3-btc-recovery-bounty-critical-exploit-411353">The Block — BTCPay Server Critical Exploit, AI May Have Been Used</a>
+      <span class="desc">The first widely-reported case of AI-assisted vulnerability discovery against Bitcoin payment infrastructure — required reading for the AI × crypto security crossover.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/ecosystems/2026-08-10-vitalik-buterin-privacy-quantum-resistance-front-and-center-ethereum-latest-roadmap-411298">The Block — Vitalik's 'Lean Ethereum' Roadmap: Privacy &amp; Quantum Resistance</a>
+      <span class="desc">Ethereum's "third major iteration" — the protocol-level post-quantum migration plan that pairs with Sui's account-layer PQ signatures.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/defi/2026-08-10-standard-chartered-chainlink-tokenization-411252">The Block — Standard Chartered Sees LINK at $200 by 2030 as Chainlink 'Owns the Rails' for Tokenized Finance</a>
+      <span class="desc">The institutional thesis for Chainlink as the oracle layer underpinning the tokenized-RWA boom — directly relevant to the crypto-banking convergence theme.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/responsible-ai-infrastructure-texas">OpenAI — Letter to Governor Abbott on Responsible AI Infrastructure in Texas</a>
+      <span class="desc">OpenAI's policy posture on AI infrastructure siting and transparency — a signal of how labs are engaging state-level regulators as compute demand scales.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-11 (Tuesday) · Generated 2026-08-11T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Tuesday AI×iOS tip theme — Core AI migration (.aimodel format), MLX-train → Core-AI-deploy pipeline, Foundation Models @Guide structured outputs. AI: GPT-5.6-Cyber + Daybreak tiers, Meta Muse Glimmer 30B open-weight local agent, Cloudflare @cloudflare/computer agent runtime, Anthropic holds Sonnet 5 pricing pre-IPO. Vibe: Xsolla SKILL.md agent skills, Cursor SpaceX $60B talks + proprietary models, true cost of AI coding tools. Crypto: BTCPay AI-assisted exploit, Vitalik's Lean Ethereum roadmap (privacy + PQ), BTC uneven on oil surge + CPI catalyst Aug 12. Concepts: context engineering, modular monolith comeback, AgentSecOps.</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 09, 08, 07; Aug 10 &amp; Aug 06 not generated — skipped silently). ~55 prior topics indexed across titles, concepts, and tips. ~13 duplicate candidates filtered in favor of fresh angles: Claude Code CVE-2026-54316 / egress hygiene / blast-radius budgets / provenance tips (Aug 9), DeepMind leadership shuffle / inference hooks beta / Opus 4.1 retirement (Aug 9), BIP-110 chain split / Clarity Act Sept 15 cloture / BTC+ETH ETF $1.1B (Aug 9), intent-driven development / pre-approved-host exploits / brain-drain PBCs (Aug 9), Astra Critical cyber eval / Qwen 3.8-Max / Liquid LFM2.5-2.6B / Claude Code auto-mode / Agent Plugins 1.0.0 / Copilot Polaris / Codex Sites (Aug 8), GPT-5.6 Luna/Think/Sol / Anthropic chips / Multi-Agent Orchestration / Dreaming / Vercept / Meta Muse Code / Bitcoin Core 85 bugs / Wintermute broker-dealer / RWA $7.4B / BTC $65K jobs-miss / Bybit-Lazarus / post-quantum Sui / crypto-banking convergence / unified agent harness / on-device model decision tree / eval-observability / multi-agent orchestration / structured outputs / hybrid retrieval / Foundation Models / Core AI / MLX / 3-tier hybrid / BYOC / AI Manifesto War / Full-Stack AI / EDA / containment / platform engineering / green software (Aug 7–8).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$63.75–64.75K (Robinhood prediction markets), slipped on oil surge · ETH ~$1,900, forecast ~$1,906 · XRP dipped to $1 on institutional sell-off · CPI report Aug 12 = next macro catalyst · Senate Clarity Act cloture vote Sept 15 · Standard Chartered: LINK $200 by 2030 on tokenized-asset rails.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries) + 2 crypto fallback</td><td>✅ 9 OK</td><td>AI / Vibe / iOS / Crypto (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>✅ ~15 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~5 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>✅ ~20 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>3/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
