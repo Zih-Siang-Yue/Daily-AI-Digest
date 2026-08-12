@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-12</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, August 12, 2026 · Claude Watermarks, OpenAI Ads, Opencode 180K★, Ravencoin Exploit</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Wednesday: AI Dev Tools — Cursor, Windsurf, Copilot advanced usage) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Cursor, Windsurf &amp; Copilot: Advanced Usage</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Rules</span>
+    <strong>Version-Control Your <code>.cursor/rules/</code> as a Team Contract, Not a Personal Pref File</strong>
+    <p>Cursor's <code>.cursor/rules/*.mdc</code> files are the project-scoped equivalent of Claude Code's <code>CLAUDE.md</code> — they inject constraints (architecture, naming, forbidden APIs, test conventions) into every agent invocation. The advanced move is to treat them as a <strong>reviewed, versioned team artifact</strong>: one rule per concern (e.g., <code>swift-ui-conventions.mdc</code>, <code>no-force-unwrapping.mdc</code>), each with a <code>description</code> and <code>globs</code> so Cursor auto-activates the right context per file type. For a Binance iOS team, this means a new hire's first PR can enforce "use <code>weak self</code> in escaping closures" or "never call <code>UserDefaults</code> on the main thread" without a human reviewer catching it — the agent refuses to generate the violation. Audit the rules in CI by diffing them on every PR so a silent rule change can't weaken the contract. <a href="https://docs.cursor.com/context/rules">Cursor rules →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot · Agent Mode</span>
+    <strong>Use Copilot Agent Mode's <code>chat.mode.edit</code> With a Scoped File Set to Avoid Blast Radius</strong>
+    <p>GitHub Copilot's Agent Mode (now GA, defaulting to Project Polaris on Enterprise) can edit multiple files — but its default scope is "the whole workspace," which is a recipe for out-of-scope edits on a large iOS codebase. The disciplined workflow: (1) start the agent with an explicit file set via <code>#file:</code> mentions or the "Add Files" picker; (2) set <code>chat.mode.edit</code> so it only proposes edits, not chat; (3) require a <code>git stash</code> checkpoint before each agent run so a bad multi-file change is one command to revert. The payoff: agent-driven refactors that stay inside the intended module (e.g., "migrate this screen to the new <code>NavigationStack</code>") instead of touching 40 unrelated files. Pair this with Polaris's Rust/Zig tuning — expect faster, more surgical diffs than the OpenAI-backed default. <a href="https://docs.github.com/en/copilot/using-github-copilot/using-copilot-chat">Copilot Agent Mode →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf · Flow State</span>
+    <strong>Windsurf's Cascade: Use "Implicit Context" + Manual Checkpoints to Keep the Agent in Flow Without Losing Control</strong>
+    <p>Windsurf (now part of Devin/Cognition) differentiates on "flow" — its Cascade engine gathers context and edits in the background while you keep typing. The risk: the agent silently accumulates a stale context window and produces edits based on a file state that has since changed. The control pattern: (1) before any non-trivial Cascade run, drop a manual checkpoint (<code>Cmd+Shift+C</code>) so you have a known-good restore point; (2) use the "Implicit Context" setting but cap it to the current module, not the whole repo, so the agent doesn't drag in unrelated files; (3) when Cascade proposes a multi-file edit, review the diff per-file in the Cascade panel rather than accepting the batch. For iOS, Windsurf's strength is multi-file SwiftUI refactors (e.g., extracting a design system) where the agent needs to touch views, previews, and tests together — the flow-state model shines when the edits are genuinely interdependent. <a href="https://docs.windsurf.com/">Windsurf docs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Provenance</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Ships Invisible C2PA Watermarks Across All Claude Outputs — Text &amp; Images</a></h3>
+    <p>Anthropic began embedding <strong>invisible watermarks</strong> in text and images generated by Claude models launched on or after <strong>August 2, 2026</strong>, applied <strong>globally</strong> (not just EU) in response to the EU AI Act's transparency obligations. Text gets a signal embedded directly into the content that survives copy-paste and some editing; JPEGs/PNGs get <strong>C2PA-signed metadata</strong> attesting AI origin. Coverage spans the API, Claude.ai, Claude Code, Claude Cowork, and cloud platforms (AWS, GCP, Microsoft Foundry). <strong>Why it matters:</strong> (1) for any iOS feature surfacing Claude-generated summaries/replies, the watermark is now a <strong>machine-readable provenance signal</strong> you can detect client-side — wire it into your "AI-generated" labeling UX before regulators mandate it; (2) Anthropic is publishing detection tooling docs, so build a lightweight detector into your content pipeline now; (3) caveat — heavy paraphrasing, translation, or screenshots can strip the signal, so treat it as probabilistic provenance, not a guarantee. This operationalizes Sunday's "agent output provenance" tip at the platform layer. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Monetization</span>
+    <h3><a href="https://openai.com/index/testing-ads-in-chatgpt">OpenAI Begins Testing Ads in ChatGPT — Clear Labeling, Answer Independence, Privacy Controls</a></h3>
+    <p>OpenAI started <strong>testing advertisements within ChatGPT</strong>, framed as a way to "support free access." The stated guardrails: ads are clearly labeled, answers remain independent of ad content, and users retain privacy controls. This lands alongside other business-mode shifts this week: <strong>Daybreak cyber models arrived on AWS Bedrock</strong>, <strong>premium seats launched for ChatGPT Business</strong>, and the CFO published an "AI-native finance function" playbook. <strong>Why it matters:</strong> (1) if your iOS app embeds ChatGPT via the API, ad-injection changes the UX math — a free-tier user may now see ads where they previously saw none, so review your integration's content surfaces; (2) for product teams, it signals OpenAI is monetizing the consumer surface directly, which historically precedes API-tier changes (watch for whether ad-revenue subsidizes lower API pricing); (3) the "answer independence" claim is the key trust property — if you build on ChatGPT output for anything user-facing, document that you're relying on that property. <a href="https://openai.com/index/testing-ads-in-chatgpt">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google DeepMind · Health</span>
+    <h3><a href="https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/">Google's AMIE Medical AI Demonstrates Real-Time Clinical Video Consultations</a></h3>
+    <p>Google's research medical AI system <strong>AMIE</strong> demonstrated <strong>real-time clinical video consultation</strong> capabilities in a first-of-its-kind study — the system conducts simulated patient interviews via live video, reasoning over visual cues (skin, affect, movement) alongside verbal history-taking. This is the multimodal extension of AMIE's earlier text-based diagnostic results that matched or exceeded primary-care physicians. <strong>Why it matters:</strong> (1) for iOS/mobile teams in health-adjacent spaces, real-time multimodal consultation is a near-future feature category — the architectural pattern (streaming video → on-device frame sampling → cloud reasoning with strict PHI handling) is worth studying now; (2) it sharpens the "Foundation Models on-device + cloud reasoning for hard cases" hybrid pattern from Aug 8's tip, now with a video modality; (3) caveat — simulated settings aren't clinical deployment; treat this as a capability preview, not a shipping product. The privacy bar for any real deployment will be extreme. <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Government</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Launches "Claude for Government" Beta + Macquarie/GIC Data-Center Deal</a></h3>
+    <p>Two parallel Anthropic moves: a <strong>"Claude for Government" beta program</strong> launched (public-sector specialization, on the heels of Claude Code's auto-mode default hitting Pro/Max/Team on Aug 14), and a <strong>strategic data-center partnership with Macquarie Asset Management and GIC</strong> to build dedicated Claude inference infrastructure. <strong>Why it matters:</strong> (1) the government beta signals a new procurement surface — public-sector teams will soon be a Claude buyer segment with its own compliance regime (FedRAMP-class), which affects how you scope any gov-adjacent integration; (2) the Macquarie/GIC deal is the infrastructure counterpart to Anthropic's custom-chips play (Aug 7) — they're vertically integrating compute to hedge GPU supply and cut per-token cost; (3) for builders, this means Claude capacity and pricing stability should improve through 2026-2027, so architect for "more, cheaper Claude" rather than rationing. The Claude Code auto-mode default also lands Aug 14 — tighten your <code>PreToolUse</code> hooks before then (per Aug 8's tip). <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Opencode · OSS</span>
+    <h3><a href="https://opencode.ai">Opencode: Model-Agnostic Terminal Coding Agent Crosses 180K+ GitHub Stars</a></h3>
+    <p>Opencode — an <strong>MIT-licensed, terminal-first coding agent</strong> — has crossed <strong>180,000 GitHub stars</strong>, distinguishing itself as a full agent harness (not a chat wrapper): a tool loop, <strong>LSP integration</strong> for real code diagnostics, session management for long-running tasks, and a client-server architecture where multiple frontends connect to one backend engine. It supports <strong>75+ model providers</strong> (OpenAI, Gemini, Claude, plus local via Ollama), and ships a "Plan mode" → "Build mode" workflow where the agent drafts a plan, you approve, then it executes — plus <code>git</code>-based snapshots for one-command undo. <strong>Why it matters:</strong> (1) it's the credible open-source alternative for teams that can't send code to Cursor/Copilot clouds — run it with a local model on a Mac Studio and your proprietary Binance code never leaves the machine; (2) the Plan→Build gate is exactly the human-in-the-loop pattern Monday's containment tip called for, baked into the tool; (3) the LSP integration means diagnostics are real (the agent sees compiler errors, not just text), which is the missing piece in most terminal agents. <a href="https://opencode.ai">Opencode →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Spotify · Xirp</span>
+    <h3><a href="https://xirp.spotify.com/">Spotify Open-Sources Xirp: A macOS App for Running AI Coding Agents</a></h3>
+    <p>Spotify released <strong>Xirp</strong> — an open-source <strong>macOS application for running AI coding agents</strong> — surfaced on Hacker News this week. Rather than being yet another agent itself, Xirp is a <strong>host/runtime layer</strong> that manages the lifecycle of coding agents (Claude Code, Codex, local agents) on macOS, handling the orchestration, session state, and OS-level integration that running multiple agents concurrently requires. <strong>Why it matters:</strong> (1) for an iOS/macOS team, a native macOS agent host is a better fit than a terminal-only or Electron wrapper — it can integrate with Keychain, sandbox per-agent entitlements, and use macOS-native notification/spotlight surfaces; (2) it validates that the "agent host" is becoming a distinct product category from the "agent model" — the same unbundling Cursor/SpaceX is driving vertically, Xirp drives openly; (3) the open-source angle means you can audit and extend it for internal Binance workflows (e.g., pre-wire it to your internal model gateway) without vendor lock-in. <a href="https://xirp.spotify.com/">Spotify Xirp →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Models · Open Weights</span>
+    <h3><a href="https://www.alibabacloud.com/help/en/model-studio/">DeepSeek-V4-Flash, MiniMax-H3 &amp; Kimi-K3: New Open Models for Dev Pipelines</a></h3>
+    <p>A cluster of open-weight model releases landed this week that matter for self-hosting dev teams: <strong>DeepSeek-V4-Flash-0731</strong> (fast, efficient LLM for high-throughput inference), <strong>MiniMax-H3</strong> (multimodal diffusion model generating synchronized audio+video from text/image — rare in open releases), and <strong>Kimi-K3</strong> from Moonshot AI (high-capability multimodal, image-text-to-text, trending as one of the most-downloaded models this week). <strong>Why it matters:</strong> (1) for teams building internal dev-tooling agents on BYOC infrastructure (the Aug 4 concept), DeepSeek-V4-Flash is the "cheap, fast routing tier" model — pair it with a frontier model for hard cases; (2) MiniMax-H3's audio+video generation opens a new modality for in-app content (onboarding videos, accessibility audio descriptions) that previously required a paid API; (3) Kimi-K3's multimodal strength is directly useful for iOS features that need to reason over screenshots/UI mocks. Benchmark each against your real workload before committing — open-model quality varies sharply by task. <a href="https://www.alibabacloud.com/help/en/model-studio/">Model Studio →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ravencoin · Security</span>
+    <h3><a href="https://cointelegraph.com/news/ravencoin-rvn-record-low-consensus-exploit">Ravencoin (RVN) Hits Record Low as Mining-Pool Consensus Exploit Threatens 3-Day Reorg</a></h3>
+    <p>Ravencoin dropped to a <strong>record low</strong> after disclosure that <strong>mining pools controlling most of the network's hash rate are building a competing chain</strong> that could trigger a <strong>three-day reorganization</strong> — meaning transactions confirmed up to 72 hours ago could be unwound. This is a consensus-layer failure, not a smart-contract bug: it's the same class of risk as a 51% attack, but executed by dominant mining pools rather than an external attacker. <strong>Why it matters:</strong> (1) for any exchange/wallet listing RVN, a 3-day reorg means <strong>every RVN deposit in that window is potentially reversible</strong> — the standard "N-confirmation" safety assumption breaks; (2) it's a live reminder that smaller-cap PoW chains carry tail-risk that the BTC/ETH layer doesn't — review your listing risk framework for confirmation-depth requirements that scale with chain hash-rate concentration, not a flat number; (3) the broader pattern (after BIP-110's minority chain split on Aug 9 and Bitcoin Core's 85 bugs on Aug 7): protocol-layer integrity events are clustering this month — pressure-test your infra's reorg-handling and double-spend detection. <a href="https://cointelegraph.com/news/ravencoin-rvn-record-low-consensus-exploit">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · SEC</span>
+    <h3><a href="https://cointelegraph.com/news/sec-crypto-regulations-absence-clarity-act">SEC to Step Into the Void: Crypto Rulemaking Without Congressional CLARITY Passage</a></h3>
+    <p>With the Clarity Act vote punted to September (and The Block reporting a <strong>"tough road ahead"</strong> for passage), the <strong>US SEC scheduled a meeting this week</strong> to potentially advance digital-asset policy <strong>without congressional action</strong> — filling the regulatory vacuum via agency rulemaking rather than statute. Simultaneously, the CFTC flexed emergency authority to keep Kalshi operating amid a New York lawsuit, signaling inter-agency assertiveness. <strong>Why it matters:</strong> (1) if CLARITY stalls, the SEC+CFTC will likely define the de-facto rules via enforcement and rulemaking — which is <em>slower, more fragmented, and harder to plan against</em> than a clean statute; (2) for product teams, this extends the "policy-as-config" posture from Aug 9 — keep US-regulatory-boundary features flexible through Q4, because the rule shape is now agency-driven and could shift with political winds; (3) the CFTC's Kalshi move is a leading indicator that prediction-market and derivatives-adjacent crypto products will see more active CFTC engagement — relevant if you build anything touching event contracts. <a href="https://cointelegraph.com/news/sec-crypto-regulations-absence-clarity-act">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · CPI Day</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/08/11/bitcoin-stuck-as-etf-inflows-offset-selling-but-inflation-data-could-spark-a-move">Bitcoin Stuck as ETF Inflows Offset Selling — Today's US CPI Is the Catalyst</a></h3>
+    <p>Bitcoin is <strong>range-bound</strong> (roughly $63.75K–$65K per Robinhood prediction markets) as <strong>spot ETF inflows offset selling pressure</strong>, crushing volatility ahead of today's <strong>US CPI report (Aug 12)</strong> — the next hard macro catalyst. Analysts frame it as a coiled spring: a cool print revives Fed rate-cut bets (bullish BTC, extends last week's jobs-miss rally); a hot print extends Monday's oil-driven risk-off and could test the low end of the range. eToro also reported Q2 crypto revenue <strong>down 12% YoY</strong> even as total profit beat estimates — a sign retail trading volume softened even as institutional (ETF) flows strengthened. <strong>Why it matters:</strong> (1) the two-sided setup means your infra needs to handle a <strong>volatility breakout in either direction today</strong> — ensure margin-call logic, liquidation monitoring, and liquidity checks are warmed up; (2) the ETF-vs-retail divergence is structural: institutional demand is the bid, retail is absent — design market-data and onboarding flows for a re-emergence of retail if BTC breaks $68K; (3) Clarity Act's September road adds a second catalyst layer on top of macro. <a href="https://www.coindesk.com/markets/2026/08/11/bitcoin-stuck-as-etf-inflows-offset-selling-but-inflation-data-could-spark-a-move">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Content Provenance Standards: C2PA Becomes the Default AI-Origin Signal</strong>
+    <p>A concept moving from spec to deployment this week: <strong>C2PA (Coalition for Content Provenance and Authenticity)</strong> signed metadata is becoming the default <strong>machine-readable AI-origin signal</strong>, now embedded by Anthropic (Claude outputs), and explored by Google and OpenAI. Unlike watermarking, C2PA is cryptographically signed provenance — a chain of "who created this, with what tool, when" — that survives copy-paste better than pixel watermarks. <strong>Why it matters NOW:</strong> (1) for any iOS feature surfacing AI-generated text/images, detecting C2PA metadata client-side is now a real compliance primitive — the EU AI Act (active since Aug 2) requires AI-content labeling, and C2PA is the technical mechanism; (2) the limitation to design around: screenshots and format conversion strip C2PA, so your detection must degrade gracefully (treat "no signal" as "unknown," not "human"); (3) the strategic move — build a <code>ProvenanceChecker</code> Swift type that reads C2PA from <code>CGImageSource</code> metadata today, so when Apple exposes a first-party API it's a drop-in swap. <a href="https://c2pa.org/">C2PA spec →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI-Native Architecture: AI as a Structural Component, Not an Add-On Feature</strong>
+    <p>A concept crystallizing across this week's architecture discussions: <strong>AI-native architecture</strong> — where AI (RAG, agent orchestration, model serving) is a core structural component from the outset, not a feature bolted onto a traditional stack. This contrasts with "AI-enabled" architecture (traditional app + a chatbot). The distinguishing properties: an <strong>orchestration layer</strong> that manages model calls as first-class operations (with cost, latency, safety gates), <strong>context engineering</strong> as a versioned input artifact (per Aug 11's concept), and <strong>eval/observability</strong> as a continuous pipeline, not a post-launch audit. <strong>Why it matters NOW:</strong> (1) for a new Binance iOS service, starting AI-native means your agent loop, context window, and eval harness are designed together — retrofitting them onto a "feature-complete" app is 5-10x more expensive; (2) it pairs with the "modular monolith" pattern (Aug 11): keep the AI-native core as a single deployable, extract services only when scale demands; (3) the hiring signal: engineers who can design an AI orchestration layer are the scarce role now, not "ML engineers." <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agent Policy as Code: Linting &amp; Reviewing Agent Permissions Like Infrastructure</strong>
+    <p>A practice emerging from this week's security arc (Claude Code CVE, Astra, GPT-5.6-Cyber): treating <strong>agent permission policies as versioned, lintable, reviewed code</strong> — the AgentSecOps counterpart to Infrastructure-as-Code. The concrete artifacts: <code>.claude/settings.json</code> allowlists, Cursor rule globs, MCP server tool manifests, and per-sub-agent tool budgets — all checked into git, diffed on PR, and linted by tools like <strong>polycheck</strong> (a least-privilege linter for Claude Code agent policies, surfaced on HN this week). <strong>Why it matters NOW:</strong> (1) the Claude Code CVE-2026-54316 was, at root, a policy bug — <code>huggingface.co</code> was on an allowlist it shouldn't have been; a policy linter would have flagged it; (2) for any team running agents against production (CI/CD, trading APIs, signing keys), policy-as-code means a permission change goes through the same review as a code change — no silent allowlist expansion; (3) the action: add a <code>policy-lint</code> step to your CI that fails on overly-broad allowlists, missing blast-radius caps, or tools without scoped egress. This is the concrete implementation of Sunday's "AgentSecOps" concept. <a href="https://www.npmjs.com/package/@cognitive-fab/polycheck">polycheck linter →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic — Invisible Watermarks &amp; C2PA Provenance for Claude Outputs</a>
+        <span class="desc">The launch post for Claude's global AI-origin watermarking — the technical mechanism, limitations, and how third parties can build detectors. The template for your own provenance UX.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/testing-ads-in-chatgpt">OpenAI — Testing Ads in ChatGPT</a>
+        <span class="desc">The monetization-shift announcement and its stated guardrails (labeling, answer independence, privacy) — read it to understand how the consumer ChatGPT surface is changing and what it means for API integrations.</span>
+      </li>
+      <li>
+        <a href="https://opencode.ai">Opencode — Open-Source Terminal Coding Agent</a>
+        <span class="desc">The model-agnostic, MIT-licensed agent harness with LSP integration, Plan→Build mode, and 75+ provider support — the credible open alternative for teams that can't send code to cloud agents.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/ravencoin-rvn-record-low-consensus-exploit">Cointelegraph — Ravencoin Consensus Exploit &amp; 3-Day Reorg Risk</a>
+        <span class="desc">The definitive explainer of the mining-pool-driven chain reorganization — required reading for anyone handling RVN or reviewing confirmation-depth policy for smaller PoW chains.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/sec-crypto-regulations-absence-clarity-act">Cointelegraph — SEC to Address Crypto Regulations in Absence of CLARITY Passage</a>
+        <span class="desc">The agency-rulemaking path that fills the congressional vacuum — the regulatory shape product teams must now plan around through Q4.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-12 (Wednesday) · Generated 2026-08-12T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Wednesday tip theme — Cursor rules, Copilot Agent Mode scoping, Windsurf Cascade flow-state control. AI: Anthropic C2PA watermarks globally, OpenAI testing ChatGPT ads + Daybreak on AWS, Google AMIE real-time medical video consults, Claude for Government beta + Macquarie/GIC data-center deal. Vibe: Opencode 180K★ model-agnostic terminal agent, Spotify Xirp macOS agent host, DeepSeek-V4-Flash / MiniMax-H3 / Kimi-K3 open models. Crypto: Ravencoin consensus exploit (3-day reorg risk), SEC steps into CLARITY void, BTC stuck ahead of today's CPI catalyst. Concepts: C2PA content provenance standard, AI-native architecture, agent policy-as-code (polycheck linter).</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Aug 11, 09, 08, 07; Aug 10 not generated — skipped silently). ~60 prior topics indexed across titles, concepts, and tips. ~12 duplicate candidates filtered in favor of fresh angles: GPT-5.6-Cyber/Daybreak tiers (Aug 11 — only the AWS-Bedrock channel expansion mentioned, not re-carded), Muse Glimmer 30B (Aug 11), Cloudflare @cloudflare/computer (Aug 11), Cursor SpaceX $60B talks (Aug 11 — only the "Grok Bot" sub-angle noted, not re-carded), Claude Code auto-mode default (Aug 8), Claude Code CVE-2026-54316 (Aug 9), DeepMind leadership shuffle / inference hooks / Opus 4.1 retirement (Aug 9), BIP-110 chain split / Clarity Act Sept 15 cloture / BTC+ETH ETF $1.1B (Aug 9), BTCPay AI exploit / Vitalik Lean Ethereum (Aug 11), Xsolla SKILL.md / Cursor SpaceX / true cost of AI tools (Aug 11), intent-driven development / pre-approved-host exploits / brain-drain PBCs (Aug 9), context engineering / modular monolith / AgentSecOps (Aug 11), MCP vs Agent Plugins / post-quantum Sui / crypto-banking convergence (Aug 8), Core AI migration / MLX-train→deploy / @Guide / unified harness / on-device model tree / eval-observability / multi-agent orchestration / structured outputs / hybrid retrieval / egress hygiene / blast-radius budgets / provenance tips (Aug 7–11).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$63.75–65K range-bound ahead of Aug 12 US CPI · ETF inflows offsetting selling pressure · RVN at record low on consensus exploit · Clarity Act punted to September; SEC stepping into the void · eToro Q2 crypto revenue −12% YoY (retail soft, institutional strong).</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries, 2 failed)</td><td>✅ 5 OK</td><td>AI / Vibe / iOS / Concepts (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>✅ ~15 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~5 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>✅ ~20 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>4/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
