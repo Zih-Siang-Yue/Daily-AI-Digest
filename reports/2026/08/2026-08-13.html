@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-13</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, August 13, 2026 · Anthropic–Decart $6B, Pixel 11 + Gemini Nano 4, GhostSplice MCP Attack, Goldman $2.25B NEOS</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Thursday: Edge AI / On-device ML — Apple Neural Engine, MLX, ONNX Mobile) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Edge AI &amp; On-Device ML</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Edge AI · Hardware</span>
+    <strong>Read the Pixel 11 Tensor G6 as the Edge-AI Hardware Benchmark for Your iOS Roadmap</strong>
+    <p>Google's <strong>Pixel 11 / Tensor G6</strong> (shipping Aug 20) is the clearest public reference for what 2026 on-device AI silicon looks like: a 2nm process, a <strong>dual-TPU design</strong> (a main TPU for heavy tasks + a "nano-TPU" for always-on functions), and Google's claim of <strong>3.5x faster on-device AI at 3.5x lower energy</strong>. The reason an iOS dev should care: Apple's M5/A19-class Neural Accelerators-per-GPU-core play (covered Aug 8) is the same architectural bet — distributed ML compute rather than a fixed-size NPU. Use the Pixel 11's published numbers as a <strong>lower bound for what "good" on-device inference looks like in late 2026</strong>, then benchmark your own Core AI / MLX model on an iPhone 15 Pro+ to confirm you're in the same ballpark. If your p50 decode is materially slower than Gemini Nano 4 on a Pixel 11, your model is the bottleneck, not the hardware. <a href="https://blog.google/products/pixel/pixel-11/">Pixel 11 →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ONNX · Cross-Platform</span>
+    <strong>Ship One ONNX Model, Run It on iOS, Android &amp; Server via the Core ML Execution Provider</strong>
+    <p>If you maintain inference across both iOS and Android, <strong>ONNX Runtime Mobile</strong> with the <strong>Core ML Execution Provider</strong> is the cross-platform escape hatch from writing the same model twice. The workflow: export your PyTorch/Torch model to ONNX once, then on iOS the Core ML EP routes compute to the Neural Engine/GPU automatically (falling back to the CPU EP), while on Android the NNAPI EP does the equivalent. For a Binance iOS team that also ships an Android app, this cuts model-maintenance cost in half — one weights file, one version, one eval suite. Caveat: the Core ML EP doesn't support every op, so run the ONNX <code>CoreMLOptions</code> compatibility check in CI and keep a Core ML-native fallback for unsupported subgraphs. Pair with Tuesday's Core AI tip: ONNX for cross-platform, Core AI for Apple-first transformer workloads. <a href="https://onnxruntime.ai/docs/tutorials/mobile/">ONNX Runtime Mobile →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">On-Device · Memory</span>
+    <strong>Give Your On-Device Agent Persistent Memory With a Local Vector Store + Episodic "Dream" Replay</strong>
+    <p>A pattern surfaced on Hacker News this week ("Use Dreams to create memories your AI agent can access") operationalizes Anthropic's "Dreaming" concept (Aug 7) <em>on-device</em>: persist episodic memory as structured (goal, action, outcome, user-correction) records in a local SQLite store, index them with a small on-device embedding model (MLX or Natural Language framework's <code>NLEmbedding</code>), and replay a curated slice offline to refine future behavior. For an iOS feature, this means a privacy-preserving agent that genuinely gets better the more you use it — with <strong>zero data egress</strong>, because the memory never leaves the device. The hard part is the review gate: don't let "learned" changes apply silently. Ship a read-only memory viewer in your debug menu so you can audit what the agent "remembers," and cap the replay set to the last N sessions to bound compute. This is the on-device analog of Friday's provenance/audit tip. <a href="https://davenporter.substack.com/p/give-an-agent-access-to-memories">Agent memory pattern →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · M&amp;A</span>
+    <h3><a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion">Anthropic in Talks to Buy World-Model Startup Decart for ~$6B</a></h3>
+    <p>Anthropic is reportedly in discussions to acquire Israeli startup <strong>Decart</strong> for roughly <strong>$6 billion</strong> — a real-time <strong>world-model</strong> company (its "Oasis" demo generates playable video in real time, ~100 employees, valued at $4B in May). SpaceX and Amazon are also circling; NVIDIA was in earlier talks. <strong>Why it matters:</strong> (1) this would be Anthropic's largest acquisition yet (after Stainless in May) and signals a push <em>beyond text</em> into simulated-environment / video-generation capabilities ahead of its fall IPO; (2) world models are the architectural underpinning for agents that can plan over physical/simulated scenes — relevant to any robotics, autonomous-UI, or game-like iOS feature; (3) the bidding war (Anthropic vs. SpaceX vs. Amazon) shows world-model capability is now a strategic must-have for frontier labs. For builders, start tracking the "world model" primitive — it's the next modality after text+image. <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion">Bloomberg →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · On-Device</span>
+    <h3><a href="https://blog.google/products/pixel/pixel-11/">Pixel 11 + Tensor G6 + Gemini Nano 4: 3.5x Faster On-Device AI, 12GB+ RAM Floor</a></h3>
+    <p>Google unveiled the <strong>Pixel 11 series</strong> (Aug 20 ship date) powered by the <strong>Tensor G6</strong> — a 2nm chip with a dual-TPU architecture (main + nano-TPU) and a MediaTek M90 modem — running the latest <strong>Gemini Nano 4</strong> on-device under the "Gemini Intelligence" banner. Headline AI claims: <strong>3.5x faster on-device AI at 3.5x lower energy</strong>, on-device summarization of docs up to 3,000 words, cross-app multi-step proactive suggestions, and an ASL-expanding Live Transcribe. Gemini Nano 4 requires <strong>≥12GB RAM</strong> (base Pixel 11 has 12GB; Pros hit 16GB). <strong>Why it matters:</strong> (1) this is the new competitive floor for on-device LLMs — if you're shipping an on-device model on iOS, expect users to compare your latency/quality to Gemini Nano 4 on a Pixel; (2) the 12GB RAM floor signals that flagship-tier on-device LLMs now demand real memory budget — size your model and your app's resident footprint accordingly; (3) Google's "nano-TPU for always-on" split mirrors Apple's NPU+ANE approach — design your inference to route heavy work to the main accelerator and trickle tasks to the low-power one. <a href="https://blog.google/products/pixel/pixel-11/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Design</span>
+    <h3><a href="https://cursor.com/blog/design-mode">Cursor Launches "Design Mode": Visual Design-to-Code Generation</a></h3>
+    <p>Cursor shipped <strong>"Design Mode"</strong>, a new workflow that generates front-end code directly from visual design input — closing the loop between mock and implementation inside the agentic IDE. Rather than the agent only consuming text prompts, Design Mode lets it reason over a visual layout and emit the matching UI code (views, constraints, styling) in one pass. <strong>Why it matters:</strong> (1) for iOS, this previews the near-future where you drop a Figma/SwiftUI Preview into Cursor and it emits the <code>View</code> + modifiers + accessibility labels — the "design → SwiftUI" gap is exactly the kind of multi-file, interdependent edit that agentic IDEs are built for; (2) it's the latest vertical-integration move from Cursor (alongside last week's SpaceX/Grok Bot talks), bundling more of the design→build pipeline into one surface; (3) caveat: generated UI still needs your design-system rules enforced — wire today's <code>.cursor/rules/</code> (Wednesday's tip) so Design Mode can't emit off-system components. <a href="https://cursor.com/blog/design-mode">Cursor →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Enterprise</span>
+    <h3><a href="https://openai.com/index/how-enterprises-put-ai-to-work">OpenAI's Enterprise Report: "From Assistance to Execution" — How Frontier Firms Pull Ahead</a></h3>
+    <p>OpenAI published <strong>"From assistance to execution: How enterprises put AI to work"</strong>, research on how enterprises are adopting <strong>agentic AI</strong> via ChatGPT and Codex — with the thesis that "frontier firms" (the top tier of adopters) are pulling ahead by moving from Q&amp;A-style assistance to execution-style agentic workflows. Companion case studies (RingCentral, Circles) show agentic coding + AI-native ops centralizing engineering intelligence. <strong>Why it matters:</strong> (1) it's the enterprise-data counterpart to Anthropic's "intent-driven development" report (Aug 9) — both labs agree the winning pattern is <em>execution</em>, not chat; (2) for a Binance team, the actionable read is the org-structure signal: firms pulling ahead are centralizing their agentic tooling (one harness, one eval suite) rather than letting each team pick its own; (3) the Circles case (ARPU +22%, churn −9% via AI-native telco) is a concrete template for measuring AI ROI on a consumer product surface — useful framing for justifying your own iOS AI-feature investment. <a href="https://openai.com/index/how-enterprises-put-ai-to-work">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">MCP · Security</span>
+    <h3><a href="https://agentic.tracebit.com/context-bombs/">"GhostSplice" Attack Splits Malicious Instructions Across MCP Tools to Steal Secrets</a></h3>
+    <p>The <strong>ASSET Research Group</strong> disclosed <strong>"GhostSplice,"</strong> a new attack against AI coding assistants using the Model Context Protocol: instead of one obviously-malicious instruction, the attacker <strong>splits the harmful request into multiple benign-looking fragments placed in different MCP channels</strong> the agent already uses. The agent stitches the fragments together in its normal operation and inadvertently executes the command — exfiltrating SSH keys, env secrets, source, and customer data. Disclosed via controlled tests with fake credentials (no CVE yet, pending coordinated disclosure). <strong>Why it matters:</strong> (1) this is a new <em>class</em> of prompt-injection that defeats per-tool sanitization — each fragment looks harmless in isolation; (2) it directly extends the "pre-approved-host exploit" pattern from Aug 9 and the Claude Code CVE from Aug 9, but attacks the <em>tool-output-to-tool-input</em> boundary rather than the egress allowlist; (3) the defense is the ASSET group's recommendation: <strong>treat MCP server output as data, not instructions</strong>, and prevent one tool's output from flowing unchecked into another tool's arguments — wire this into your <code>PreToolUse</code> hooks today. <a href="https://agentic.tracebit.com/context-bombs/">GhostSplice writeup →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agents · Marketplace</span>
+    <h3><a href="https://aaas-marketplace-1089237826218.asia-northeast1.run.app">"AAAS" Marketplace: Where AI Agents Buy Services From Other AI Agents</a></h3>
+    <p>A <strong>"Show HN"</strong> project this week — <strong>AAAS (Agents-as-a-Service)</strong> — demoed a marketplace where an AI agent can discover, contract, and pay for services offered by <em>other</em> AI agents, with no human in the transaction loop. The pattern: an agent with a goal ("translate this contract to Japanese") finds a registered provider-agent, negotiates terms, calls it, and settles payment programmatically. <strong>Why it matters:</strong> (1) it's a working preview of <strong>agent-to-agent commerce</strong> — the economy where the buyer and seller are both software, which is the logical endpoint of MCP + tool-use + payment primitives; (2) for a Binance iOS team, this previews a future where your app's agent shops for sub-services (KYC, price feeds, translation) from other agents rather than hardcoded API integrations — design your service layer to be <em>callable by agents</em>, not just by your own app; (3) caveat: an agent-to-agent payment loop with no human review is a blast-radius nightmare — pair it with the policy-as-code gates from Aug 12 before any production use. <a href="https://aaas-marketplace-1089237826218.asia-northeast1.run.app">AAAS demo →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Tooling · Agent Host</span>
+    <h3><a href="https://github.com/Lukeesec/mux-beacon">Mux Beacon: A macOS Menu-Bar Inbox for Claude Code &amp; Codex Agents in tmux</a></h3>
+    <p>A small but useful open-source tool surfaced on Hacker News: <strong>Mux Beacon</strong>, a macOS menu-bar app that surfaces <strong>Claude Code and Codex agents running in tmux sessions</strong> as a unified inbox — so you can monitor long-running agent tasks, get notified on completion or when input is needed, and switch between sessions without keeping a terminal visible. <strong>Why it matters:</strong> (1) it's the missing "agent ops" layer for terminal-native workflows — as agent runs get longer (Cursor Automations, Claude Code background tasks), you need a notification surface that isn't "stare at the terminal"; (2) for an iOS dev running parallel agent tasks (one refactoring, one writing tests, one updating docs), a menu-bar inbox lets you context-switch without losing track of which agent needs review; (3) it complements last week's Spotify Xirp (a full macOS agent host) — Mux Beacon is the lightweight, tmux-native alternative if you don't want a full host layer. <a href="https://github.com/Lukeesec/mux-beacon">Mux Beacon →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">TradFi · M&amp;A</span>
+    <h3><a href="https://www.coindesk.com/business/2026/08/12/goldman-sachs-leaps-into-bitcoin-income-etfs-with-usd2-25-billion-neos-buyout">Goldman Sachs Leaps Into BTC &amp; ETH Income ETFs With $2.25B NEOS Buyout</a></h3>
+    <p><strong>Goldman Sachs agreed to acquire ETF manager NEOS for $2.25 billion</strong>, adding NEOS's $30B ETF business — including the <strong>Bitcoin High Income ETF, Boosted Bitcoin High Income ETF, and Ethereum High Income ETF</strong> — to Goldman Sachs Asset Management. The deal expands Goldman's derivative-ETF platform to ~$130B in total ETF assets and is seen as a direct challenge to BlackRock's rival BITA fund. <strong>Why it matters:</strong> (1) this is the strongest post-Clarity-Act-delay signal that <strong>TradFi is consolidating crypto-derivatives ETF infrastructure</strong> regardless of congressional gridlock — Goldman is buying the income-ETF rails, not waiting for a statute; (2) it extends the "crypto's biggest business is starting to look like banking" thesis (Aug 8) into the regulated-ETF lane — the competitive moat is now derivatives expertise + distribution, not crypto-native tech; (3) for a CEX, expect Goldman/BlackRock-grade income-ETF products to compete for the same yield-seeking capital your earn product targets — differentiate on UX and on-chain settlement speed, not just APY. <a href="https://www.coindesk.com/business/2026/08/12/goldman-sachs-leaps-into-bitcoin-income-etfs-with-usd2-25-billion-neos-buyout">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Tokenization · SEC</span>
+    <h3><a href="https://www.theblock.co/news/defi/2026-08-12-sec-clears-franklin-templeton-funds-use-onchain-benji-system-cash-management-411654">SEC Clears Franklin Templeton Funds to Use On-Chain BENJI for Cash Management</a></h3>
+    <p>The <strong>SEC issued a no-action letter</strong> enabling Franklin Templeton's traditional registered funds to use its <strong>on-chain BENJI system (FOBXX)</strong> for cash management — meaning a legacy asset manager can now park fund cash in a tokenized money-market instrument under explicit SEC cover. This lands the same day Ethereum staking hit 34% and an EIP-8361 "tapered issuance burn" proposal targeted validator rewards. <strong>Why it matters:</strong> (1) a no-action letter is the SEC filling the regulatory void (per Aug 12's "SEC steps into the CLARITY void" story) with case-by-case clarity — tokenized cash management for registered funds is now greenlit; (2) it's a major institutional milestone for the tokenized-RWA thesis (Aug 7's $7.4B RWA figure) — Franklin is putting <em>registered fund cash</em> on-chain, not just launching a crypto product; (3) for builders, the architectural signal is that <strong>on-chain treasury / cash-management rails</strong> are becoming a procurement-grade feature for TradFi — if you build treasury or yield features, the BENJI pattern (tokenized T-bill-equivalent, SEC-covered) is the reference design. <a href="https://www.theblock.co/news/defi/2026-08-12-sec-clears-franklin-templeton-funds-use-onchain-benji-system-cash-management-411654">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · CPI Aftermath</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/08/12/u-s-cpi-inflation-edges-lower-to-3-4-as-expected">BTC Holds ~$63K After July CPI Hits 3.4% — Fed Pause Odds at 60%, Perp Volume 3-Year Low</a></h3>
+    <p>July <strong>US CPI came in at 3.4% (in-line with expectations)</strong>, and Bitcoin held near <strong>$63–64K</strong> — dipping under $64K intraday before recovering. The in-line print pushed <strong>September Fed rate-pause odds to ~60%</strong> (per Cointelegraph) and left the market in what K33 called "<strong>hibernation</strong>," with perp trading activity sinking to a <strong>three-year low</strong> ahead of the release. Elevated open interest leaves the market exposed to sharper liquidation-driven moves. <strong>Why it matters:</strong> (1) the CPI catalyst (flagged Aug 11–12) landed as a non-event — in-line data "buys the Fed time, not conviction," so BTC stays range-bound with no new directional signal; (2) the three-year-low perp volume + elevated open interest is a <strong>coiled-spring setup</strong> — your infra needs to handle a volatility breakout whenever the next real catalyst hits (Clarity Act Sept 15, Jackson Hole, or a surprise Fed move); (3) Russia's move to restrict retail trading to BTC/ETH/USDT (300K-ruble annual cap) adds another per-jurisdiction policy fragment to your compliance config. <a href="https://www.coindesk.com/markets/2026/08/12/u-s-cpi-inflation-edges-lower-to-3-4-as-expected">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>World Models: AI That Simulates Environments in Real Time</strong>
+    <p>A concept that jumped from research to M&amp;A-tier strategic asset this week: <strong>world models</strong> — AI systems that <strong>simulate real-world environments and generate video/interaction in real time</strong>, as opposed to models that merely predict the next token. The trigger: Anthropic's $6B talks to acquire Decart (whose "Oasis" demo generates playable real-time video), with SpaceX and Amazon also bidding. <strong>Why it matters NOW:</strong> (1) world models are the architectural primitive for agents that need to <em>plan over physical or simulated scenes</em> — robotics, autonomous UI navigation, game-like experiences, and any iOS feature that reasons about a live camera feed or 3D scene; (2) the bidding war shows frontier labs treat world-model capability as a must-have alongside text and image — it's the next modality to budget for in your model-procurement and eval roadmap; (3) the practical near-term use: real-time generated UI/scene previews from a prompt (a richer cousin of Cursor's Design Mode), which is directly relevant to iOS prototyping. Track Decart, Oasis, and Google's Genie as the reference implementations. <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion">Decart / Oasis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>Cross-Tool Prompt-Stitching Attacks: The New Agent-Vulnerability Class</strong>
+    <p>A new vulnerability <em>class</em> crystallized this week via the <strong>GhostSplice</strong> disclosure: <strong>cross-tool prompt-stitching</strong>, where an attacker fragments a malicious instruction across multiple MCP tool outputs that are individually benign but combine into a harmful command when the agent stitches them in its working context. This is distinct from the pre-approved-host exploit (Aug 9, which attacked egress) and the Claude Code CVE (Aug 9, which attacked an allowlist) — GhostSplice attacks the <em>data-flow boundary between tools</em>. <strong>Why it matters NOW:</strong> (1) it defeats naive per-tool sanitization — each fragment passes validation, the combination doesn't; (2) it generalizes the "treat tool output as untrusted data, not instructions" principle into a hard requirement for any agent with multiple MCP servers; (3) the concrete defense pattern: enforce a <strong>data/instruction separation boundary</strong> in your harness (tool output is tagged as data, never re-executed as a prompt), and add a lint rule that flags when one tool's output flows into another tool's arguments unchecked. Expect a wave of CVEs in this class — build the review gate now. <a href="https://agentic.tracebit.com/context-bombs/">GhostSplice analysis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agent-to-Agent Commerce: The Economy Where Both Sides Are Software</strong>
+    <p>A concept moving from thought experiment to working demo this week (the <strong>AAAS marketplace</strong> on HN): <strong>agent-to-agent commerce</strong>, where an AI agent discovers, contracts with, and pays another AI agent for a service — no human in the transaction loop. The architectural pieces are all falling into place: MCP for tool discovery, structured outputs for contract negotiation, stablecoin rails for settlement, and policy-as-code for blast-radius control. <strong>Why it matters NOW:</strong> (1) it's the logical endpoint of the "agent-as-buyer" pattern — once agents can call tools and hold budgets, an agent economy is a composability consequence, not a new invention; (2) for a CEX-native iOS team, it previews a future where your app's agent shops for sub-services (KYC, price feeds, translation, custody) from other agents rather than from hardcoded API vendors — your service layer needs to be <em>callable by agents</em>, with machine-readable SLAs and pricing; (3) the hard problem isn't tech, it's <strong>trust and dispute resolution</strong> when both parties are software — expect "agent identity" and "agent attestation" to become first-class product categories. <a href="https://aaas-marketplace-1089237826218.asia-northeast1.run.app">AAAS marketplace →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.bloomberg.com/news/articles/2026-08-13/anthropic-said-in-talks-to-buy-ai-startup-decart-for-6-billion">Bloomberg — Anthropic Said in Talks to Buy AI Startup Decart for $6 Billion</a>
+        <span class="desc">The definitive report on the world-model acquisition battle (Anthropic vs. SpaceX vs. Amazon) — the strategic move that signals world models are the next frontier modality.</span>
+      </li>
+      <li>
+        <a href="https://blog.google/products/pixel/pixel-11/">Google — Pixel 11, Tensor G6 &amp; Gemini Nano 4: On-Device AI at 3.5x Speed</a>
+        <span class="desc">The hardware + on-device-LLM benchmark that sets the 2026 competitive floor for mobile AI — required reading for sizing your own iOS on-device inference against.</span>
+      </li>
+      <li>
+        <a href="https://agentic.tracebit.com/context-bombs/">Tracebit — GhostSplice: Cross-Tool Prompt-Stitching Attacks on MCP</a>
+        <span class="desc">The disclosure writeup for the new agent-vulnerability class — the technical detail on how fragments combine across tool boundaries, and the data-vs-instruction defense pattern.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/news/defi/2026-08-12-sec-clears-franklin-templeton-funds-use-onchain-benji-system-cash-management-411654">The Block — SEC Clears Franklin Templeton Funds to Use On-Chain BENJI for Cash Management</a>
+        <span class="desc">The no-action letter that greenlights tokenized cash management for registered funds — the institutional milestone for the tokenized-RWA thesis.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/how-enterprises-put-ai-to-work">OpenAI — From Assistance to Execution: How Enterprises Put AI to Work</a>
+        <span class="desc">The enterprise-agentic-AI adoption report with the "frontier firms pull ahead" thesis — the org-structure and ROI-framing counterpart to Anthropic's intent-driven-development report.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-13 (Thursday) · Generated 2026-08-13T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Thursday Edge-AI tip theme — Pixel 11 Tensor G6 as the on-device hardware benchmark, ONNX Runtime Mobile + Core ML EP for cross-platform model deployment, on-device agent memory via episodic "Dream" replay. AI: Anthropic–Decart $6B world-model talks, Pixel 11 + Gemini Nano 4, Cursor Design Mode, OpenAI enterprise "assistance to execution" report. Vibe: GhostSplice MCP cross-tool attack, AAAS agent-to-agent marketplace, Mux Beacon tmux agent inbox. Crypto: Goldman $2.25B NEOS (BTC/ETH income ETFs), SEC clears Franklin Templeton on-chain BENJI, BTC holds ~$63K post-CPI with perp volume at 3-year low. Concepts: world models, cross-tool prompt-stitching attacks, agent-to-agent commerce.</p>
+  <p><strong>Dedup:</strong> 5 of 5 past reports loaded (Aug 12, 11, 09, 08, 07; Aug 10 not generated — skipped silently). ~65 prior topics indexed across titles, concepts, and tips. ~14 duplicate candidates filtered in favor of fresh angles: Claude C2PA watermarks / OpenAI ChatGPT ads / Google AMIE medical video (Aug 12 — superseded by fresh Anthropic/Decart + Pixel 11 + enterprise report), Cursor SpaceX $60B / Grok Bot beta (Aug 11–12 — only the new Design Mode carded), Claude Code auto-mode default (Aug 8), Claude Code CVE-2026-54316 / pre-approved-host exploits (Aug 9 — extended by GhostSplice as a new class, not re-carded), DeepMind leadership shuffle / inference hooks / Opus 4.1 retirement (Aug 9), GPT-5.6-Cyber / Daybreak tiers / Daybreak-on-AWS (Aug 11–12), Muse Glimmer 30B (Aug 11), BIP-110 chain split / Clarity Act Sept 15 cloture (Aug 9 — only the post-CPI market aftermath carded), Ravencoin reorg / SEC CLARITY void (Aug 12), Vitalik Lean Ethereum / BTCPay AI exploit (Aug 11), context engineering / modular monolith / AgentSecOps / AI-native architecture / C2PA provenance / agent policy-as-code (Aug 11–12), MCP vs Agent Plugins / post-quantum Sui / crypto-banking convergence / intent-driven development / brain-drain PBCs (Aug 7–9), Core AI migration / MLX-train→deploy / @Guide / unified harness / on-device model tree / eval-observability / multi-agent orchestration / structured outputs / hybrid retrieval / egress hygiene / blast-radius budgets / provenance / Cursor rules / Copilot Agent Mode / Windsurf Cascade tips (Aug 7–12).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$63.3K holding post-CPI (3.4% in-line) · Sept Fed pause odds ~60% · perp trading volume at 3-year low, elevated OI = coiled-spring setup · ETH staking at 34% (EIP-8361 tapered-burn proposed) · Goldman $2.25B NEOS deal adds BTC/ETH income ETFs · SEC no-action letter greenlights Franklin Templeton on-chain BENJI · Russia restricts retail crypto to BTC/ETH/USDT (300K-ruble cap) · Clarity Act cloture vote still Sept 15.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries) + 4 follow-up</td><td>✅ 11 OK</td><td>AI / Vibe / iOS / Concepts (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>✅ ~15 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~5 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>✅ ~20 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>5/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
