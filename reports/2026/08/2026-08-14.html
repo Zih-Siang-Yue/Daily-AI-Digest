@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-14</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, August 14, 2026 · Tether KPMG Audit, OpenAI Ultrafast, SEC Cancels Reg Crypto, Meta Muse Code</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Friday: AI Infra & Prompt Engineering — RAG, tool use, agent arch) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Inference Routing · Infra</span>
+    <strong>Tier Your Inference by Latency Budget: Route Hot Paths to Ultrafast, Cold Paths to Cheaper Models</strong>
+    <p>OpenAI's new <strong>Ultrafast mode</strong> runs <code>GPT-5.6 Sol</code> at up to <strong>14× speed (≈750 output tok/s)</strong> via Cerebras silicon — fast enough that a full agent tool-call round-trip fits inside a single UI frame. The infra pattern this unlocks for an iOS team: stop pinning one model per feature and instead <strong>route by latency budget</strong>. Map every agent call to a tier — (1) <em>hot</em> interactive paths (reply suggestions, autocomplete, on-device fallback orchestration) → Ultrafast or Foundation Models on-device; (2) <em>warm</em> background tasks (summarization, classification) → standard GPT-5.6 Sol / Sonnet 5; (3) <em>cold</em> batch (eval runs, doc indexing) → cheapest capable tier. Gate the routing in a thin <code>InferenceRouter</code> so a tier swap is a config change, not a code change, and log per-tier token spend so cost stays observable (Aug 11's cost-overage lesson). <a href="https://openai.com/index/previewing-ultrafast">Ultrafast preview →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG · Data/Instr Separation</span>
+    <strong>Treat Retrieved RAG Chunks as Untrusted Data, Never as Instructions — Extend the GhostSplice Defense to Retrieval</strong>
+    <p>Thursday's <strong>GhostSplice</strong> disclosure (cross-tool prompt-stitching) generalizes directly into your RAG pipeline: a poisoned doc in your vector store is the same threat shape as a malicious MCP tool output. The hard rule: retrieved chunks must enter the context window tagged as <em>data</em>, and the system prompt must forbid acting on any instruction found inside them. Concretely — (1) wrap every retrieved passage in a delimiter the model is instructed to treat as read-only context; (2) add a <code>PostToolUse</code>-style guard that scans the assembled prompt for instruction-shaped strings inside retrieved chunks and quarantines them; (3) keep a separate "trusted instructions" channel (system + user turns only) that retrieved text can never write to. For a Binance iOS feature pulling from internal KB/support docs, this is the difference between a helpful retrieval-augmented reply and a prompt-injection-driven exfil. <a href="https://agentic.tracebit.com/context-bombs/">GhostSplice pattern →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · Spec-as-Source</span>
+    <strong>Version Your Agent Intent Specs Like Code — The Spec Becomes the Reviewed Boundary for Autonomous Runs</strong>
+    <p>The through-line from Anthropic's <em>intent-driven development</em> (Aug 9) and OpenAI's <em>"assistance to execution"</em> enterprise report (Aug 13) is now concrete: for any agent that runs autonomously (Cursor Automations, Claude Code background tasks, Codex long-running jobs), the <strong>intent spec — goal, constraints, allowed tools, success criteria — is the security and correctness boundary</strong>, not the prompt. Treat it as a reviewed artifact: one <code>spec.yaml</code> per agent workflow, checked into git, diffed on PR, with a CI lint that fails on missing blast-radius caps (tool-call ceiling, egress allowlist, max runtime). For iOS CI, this means an agent that "fixes a failing test" can only touch test files, can only call the test runner, and auto-aborts after N calls — all enforced by the spec, not by hoping the model behaves. Pair with Monday's <code>PreToolUse</code> hooks so spec violations are blocked at the harness layer. <a href="https://openai.com/index/builders-guide-to-gpt-5-6">GPT-5.6 builder's guide →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Inference</span>
+    <h3><a href="https://openai.com/index/previewing-ultrafast">OpenAI Ultrafast Mode: GPT-5.6 Sol at 14× Speed (750 tok/s) via Cerebras</a></h3>
+    <p>OpenAI previewed <strong>Ultrafast</strong>, a new API service tier running <strong>GPT-5.6 Sol at up to 14× the standard speed — roughly 750 output tokens per second</strong>, powered by <strong>Cerebras</strong> inference silicon. This is the first mainstream frontier-model tier to break the ~100 tok/s ceiling without trading down to a smaller model, and it shipped alongside a <strong>builder's guide to GPT-5.6</strong> (smarter model selection, new Responses API capabilities) and the appointment of <strong>Dali Rajic as Chief Revenue Officer</strong>. <strong>Why it matters:</strong> (1) for any latency-bound iOS feature (live reply suggestions, voice-agent turn-taking, on-device-fallback orchestration), 750 tok/s collapses the "wait for the model" step from seconds to a single frame — design your UX for sub-200ms agent round-trips; (2) the Cerebras partnership signals OpenAI is hedging its inference supply across non-NVIDIA silicon, which improves capacity stability; (3) the builder's guide's "model selection" framing formalizes the tiered-routing pattern — stop hardcoding one model per feature. <a href="https://openai.com/index/previewing-ultrafast">Ultrafast →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta · Coding Agent</span>
+    <h3><a href="https://ai.meta.com/">Meta Ships Muse Code: First AI Coding Agent on Muse Spark 1.2, Runs Concurrent Sub-Agents</a></h3>
+    <p>Meta released <strong>Muse Code</strong>, its first dedicated AI coding agent, powered by the new <strong>Muse Spark 1.2</strong> model. Unlike the open-weight <strong>Muse Glimmer 30B</strong> (covered Aug 11, the local/deployable tier), Muse Code is the agentic harness layer — a terminal-native system designed for complex software-engineering tasks that can <strong>run multiple sub-agents concurrently</strong> on different parts of a project, mimicking a human team's parallel workstreams. <strong>Why it matters:</strong> (1) it validates the multi-agent orchestration thesis (Aug 7's concept) at Meta scale — the credible open-ecosystem alternative to Cursor/Claude Code's single-agent-plus-sub-tasks model; (2) for teams that can't send code to OpenAI/Anthropic clouds, a Meta-built agent paired with the open Muse Glimmer weights is a self-hostable stack worth benchmarking; (3) caveat — review Meta's data terms per tier before pointing it at proprietary Binance repos, and apply the same blast-radius gates (Aug 9's containment playbook) to each sub-agent, since concurrent agents multiply the exfil surface. <a href="https://ai.meta.com/">Meta AI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Gemini</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/">Gemini 3.7 Flash Ships — Optimized for Coding &amp; Agent Workflows, Powers Gemini Spark</a></h3>
+    <p>Google released <strong>Gemini 3.7 Flash</strong> just three weeks after its predecessor, explicitly optimized for <strong>software engineering, knowledge work, and web development</strong>, and already integrated into <strong>Gemini Spark</strong> (Google's personal AI agent) to boost Workspace-app task efficiency. This lands the same week Google disclosed the Gemini app surpassed <strong>1 billion monthly active users</strong> (its fastest-growing product ever). <strong>Why it matters:</strong> (1) the 3-week cadence is the new normal — model selection for a production feature is now a moving target, so abstract your model calls behind a router rather than pinning a version; (2) the coding/agent specialization mirrors Claude Code and Codex's positioning — every frontier lab now ships a "coding-tuned" variant, which raises the quality floor for agent-driven iOS refactors; (3) for cross-platform work, Gemini 3.7 Flash is the natural cloud-tier pair to on-device Foundation Models — use Google's model for hard cloud reasoning, Apple's for privacy-preserving local inference. <a href="https://blog.google/innovation-and-ai/technology/ai/">Google AI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Ecosystem · Milestones</span>
+    <h3><a href="https://cursor.com/">SpaceX Finalizes Cursor $60B Acquisition; OpenAI Codex Crosses 15M Users</a></h3>
+    <p>Two ecosystem milestones landed together: <strong>SpaceX finalized its ~$60B all-stock acquisition of Anysphere (Cursor)</strong> — one of the largest tech acquisitions ever by a non-software enterprise — aimed at bolting Cursor's agentic IDE into SpaceX's internal software stack and enterprise AI compute services (the "Cursor" brand may not survive post-close); and <strong>OpenAI's Codex surpassed 15 million active users</strong> (confirmed Aug 12, with a user "reset" on Aug 13), having expanded beyond developers to knowledge workers. <strong>Why it matters:</strong> (1) the SpaceX–Cursor close turns the Aug 11 "talks" into a done deal — weigh lock-in before any new deep integration; keep your build/debug toolchain portable (Aug 9's JetBrains lesson); (2) Codex at 15M users + Cursor acquired means the two leading agentic IDEs are now both owned by non-pure-software parents (SpaceX, and OpenAI's hybrid structure) — expect data-terms and pricing shifts; (3) for hiring, "agentic IDE fluency" is now a baseline skill, not a differentiator — the differentiator is spec-writing and orchestration (Aug 9 intent-driven dev). <a href="https://cursor.com/">Cursor →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">NVIDIA · Always-On Agents</span>
+    <h3><a href="https://www.oracle.com/artificial-intelligence/">NVIDIA Nemotron 3.5 Lightning Lands on Oracle OCI — Tuned for Always-On Agents</a></h3>
+    <p>NVIDIA shipped <strong>day-zero support for Nemotron 3.5 Lightning</strong> in Oracle's OCI Enterprise AI — a customizable open model purpose-built for <strong>always-on AI agents</strong> (the persistent, event-driven agent class Cursor Automations and Claude Code background tasks exemplify). OCI also added a <strong>"Background Mode" for long-running AI tasks</strong> on its Responses API and IAM authentication for hosted endpoints. <strong>Why it matters:</strong> (1) "always-on agent" is now a first-class deployment target at the hyperscaler layer — your agent infra needs to handle hour-scale runs with checkpointing and resume, not just request/response; (2) Nemotron 3.5 Lightning as an open model gives BYOC teams (Aug 4 concept) a credible self-hostable routing tier for the "warm" latency band in today's inference-routing tip; (3) the OCI Background Mode is the infra primitive that makes event-driven agents (Slack/GitHub/PagerDuty-triggered, per Aug 9 Cursor Automations) viable on enterprise cloud — pair it with today's spec-as-source tip so long runs stay bounded. <a href="https://www.oracle.com/artificial-intelligence/">OCI Enterprise AI →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Unsloth · Local ML</span>
+    <h3><a href="https://github.com/unslothai/unsloth">Unsloth Desktop: First App to Train AND Run Models Locally — Inference, Diffusion, Fine-Tune, Agents in One</a></h3>
+    <p><strong>Unsloth Desktop</strong> launched as the first desktop application to <strong>both train and run AI models locally</strong>, combining inference, image diffusion, fine-tuning, and agent integrations in a single open-source app. It closes the gap between "I have a Mac Studio" and "I have a custom fine-tuned model running privately" without the Python-toolchain tax. <strong>Why it matters:</strong> (1) for a Binance iOS team, this is the missing on-ramp to Tuesday's MLX-train → Core-AI-deploy loop — Unsloth Desktop handles the training/fine-tune step on macOS, then you convert to Core AI <code>.aimodel</code> for on-device deploy; (2) it removes the "I can't fine-tune without a Python ML engineer" barrier, democratizing private model customization (fine-tune on internal support transcripts, ship the quantized model inside the app); (3) caveat — local training quality depends on your hardware; benchmark on your weakest target device before shipping, and keep a CI smoke test that re-runs the conversion on every model update (Aug 11's pipeline tip). <a href="https://github.com/unslothai/unsloth">Unsloth GitHub →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Port22 · Agent Ops</span>
+    <h3><a href="https://port22.dev/">Port22: Monitor Your AI Coding Agents From Your Phone, Untethered From the Terminal</a></h3>
+    <p><strong>Port22</strong> is a new tool that lets developers <strong>monitor their AI coding agents from a phone</strong> — surfacing agent status, progress, and "needs input" notifications to a mobile surface so you're not chained to the terminal during long-running agent tasks. It's the mobile-first cousin of last week's Mux Beacon (macOS menu-bar inbox for tmux agents) and Spotify Xirp (full macOS agent host). <strong>Why it matters:</strong> (1) for an iOS dev specifically, a <em>mobile</em> agent-ops surface is the most natural fit — you already live on your phone, and a "your agent finished the refactor, review the diff" push is the missing loop for after-hours agent runs; (2) it validates that "agent ops" is becoming a product category distinct from the agent itself (the same unbundling Cursor/SpaceX drive vertically, Port22 drives horizontally); (3) pair it with today's spec-as-source tip — Port22's "needs input" notifications should fire only when the agent hits a spec-defined decision gate, not on every ambiguity, or you'll drown in pings. <a href="https://port22.dev/">Port22 →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Tether · Audit</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-08-13-tether-kpmg-first-full-audit-usdt-clean-opinion-411760">Tether Completes First Full KPMG Audit — Clean Opinion, $6.8B Reserve Buffer, Gold Bars Physically Verified</a></h3>
+    <p>Tether announced <strong>KPMG U.S. issued an "unqualified" (clean) audit opinion</strong> on Tether International's full 2025 financial statements — the first complete Big Four audit of the $180B USDT issuer. Findings: reserves <strong>exceeded liabilities by $6.814 billion</strong>, <strong>$141 billion in US Treasury holdings</strong> verified, and KPMG <strong>physically inspected every gold bar</strong> in Tether's reserves. This is a step-change from the quarterly BDO <em>attestations</em> (point-in-time snapshots) Tether previously relied on. <strong>Why it matters:</strong> (1) it's the strongest transparency milestone yet for the stablecoin that underpins a huge share of CEX trading pairs — a clean audit reduces the "is USDT fully backed?" tail-risk that has haunted the market since 2018; (2) it aligns Tether with the GENIUS Act's annual-audit requirement for large stablecoin issuers, positioning USDT for a U.S. license path; (3) for builders, the reference design for a regulated stablecoin is now "full annual audit + quarterly attestation" — if you integrate or custody stablecoins, treat the audit-grade transparency tier as the new procurement baseline. <a href="https://www.theblock.co/news/business/2026-08-13-tether-kpmg-first-full-audit-usdt-clean-opinion-411760">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC · Regulation</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date">SEC Cancels Reg Crypto Meeting &amp; Delays Tokenization 'Innovation Exemption' Amid Wall Street Pushback</a></h3>
+    <p>The <strong>SEC canceled its long-awaited open meeting to propose "Reg Crypto"</strong> — the first major SEC crypto rulemaking — postponing without a new date, and separately <strong>delayed the "innovation exemption" for tokenization</strong> amid Wall Street and White House concerns. The exemption was meant to give registered firms a defined path to issue tokenized securities; its delay leaves tokenization projects in continued regulatory limbo. <strong>Why it matters:</strong> (1) this is the sharpest signal yet that the SEC's agency-rulemaking path (Aug 12's "filling the CLARITY void") is hitting internal friction — the void is being filled slower than the market hoped; (2) it directly tempers the optimism from Aug 12's Franklin Templeton BENJI no-action letter — tokenization cash-management use-cases are greenlit case-by-case, but the general framework is stalled; (3) for product teams, extend the "policy-as-config" posture from Aug 9 through Q4 — keep tokenization features behind a jurisdiction toggle, because the rule shape is now genuinely uncertain, not just slow. <a href="https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">CFTC · Regulation</span>
+    <h3><a href="https://cointelegraph.com/news/cftc-exploring-crypto-regulations-clarity-act">CFTC Joins SEC in Exploring Crypto Rules Without CLARITY — Aug 20 Innovation Committee Meeting</a></h3>
+    <p>The <strong>CFTC will join the SEC in exploring crypto regulation without congressional CLARITY passage</strong>, scheduling an <strong>Innovation Advisory Committee meeting for August 20</strong> to address crypto assets, AI, and prediction markets. The same day, Baltimore's mayor sued Kalshi and Polymarket (roping in Coinbase, Robinhood, and Webull as partners) over alleged illegal sports betting — adding local-level pressure on prediction markets to the federal rulemaking mix. <strong>Why it matters:</strong> (1) with the Clarity Act cloture vote still Sept 15 (Aug 9), both federal market regulators are now moving in parallel on agency rulemaking — expect a patchwork of SEC (securities) + CFTC (commodities/derivatives) + state-level (Baltimore) rules, not one clean statute; (2) the CFTC's explicit inclusion of "AI" in its Aug 20 agenda signals AI×crypto oversight is becoming a first-class regulatory topic — relevant if you build AI-driven trading or agent-handled custody; (3) for infra, design your compliance layer for multi-regime rules per jurisdiction and per product type, not a single national policy. <a href="https://cointelegraph.com/news/cftc-exploring-crypto-regulations-clarity-act">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Onchain Finance: "DeFi Doesn't Exist Anymore" — The Convergence of TradFi Rails and Tokenized Liquidity</strong>
+    <p>A concept crystallizing across this week's crypto headlines: <strong>onchain finance</strong> as the successor framing to "DeFi" — the thesis that the meaningful distinction is no longer "decentralized vs. traditional" but "onchain vs. offchain," with TradFi rails (MUFG JGB repo, Franklin Templeton BENJI, Goldman/NEOS ETFs) and crypto-native liquidity (Robinhood Chain nearing <strong>$1B TVL</strong> driven by Uniswap, Ether.fi adding tokenized stocks/metals/portfolio loans) converging onto the same settlement layer. Andre Cronje's blunt framing — <strong>"DeFi doesn't exist anymore, just onchain finance"</strong> — names the shift. <strong>Why it matters NOW:</strong> (1) for a CEX/iOS team, the product implication is that your "crypto" surface and your "TradFi" surface are merging — tokenized T-bills, onchain stocks, and stablecoin yield will sit in the same wallet UX; (2) the MUFG JGB-repo PoC shows even sovereign-debt settlement is prototyping onchain — the architectural primitive (atomic DvP, programmable settlement) is the same one your trading infra needs; (3) track Robinhood Chain, Ether.fi's neobank expansion, and MUFG's PoC as the reference implementations of the convergence. <a href="https://cointelegraph.com/news/cftc-exploring-crypto-regulations-clarity-act">Onchain finance roundup →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Institutional</span>
+    <strong>Stablecoin Audit Maturity: From Attestation to Full Audit as the Compliance Primitive</strong>
+    <p>A concept moving from aspiration to fact this week via Tether's KPMG audit: <strong>stablecoin audit maturity</strong> — the transition from quarterly point-in-time <em>attestations</em> (BDO snapshots) to full annual <em>audits</em> (Big Four, GAAP-compliant, with physical asset verification) as the baseline transparency tier for systemically-important stablecoins. The GENIUS Act's annual-audit requirement for large issuers is the regulatory force; Tether's clean KPMG opinion is the first major proof it's achievable. <strong>Why it matters NOW:</strong> (1) this re-grades the stablecoin trust hierarchy — issuers with full audits (Tether now, Circle's existing SOX-grade reports) separate from those with only attestations, and the market will price the difference; (2) for any team integrating stablecoins (payments, custody, earn), "is it audited?" becomes a procurement question as routine as "is it SOC 2?"; (3) the architectural signal: build your stablecoin-integration layer to consume machine-readable reserve/audit metadata, so swapping in a better-audited issuer is a config change, not a vendor lock-in. <a href="https://www.theblock.co/news/business/2026-08-13-tether-kpmg-first-full-audit-usdt-clean-opinion-411760">Tether KPMG audit →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI × Mining Hash-Rate Pivot: Bitcoin Miners Repurpose Compute Toward AI Infrastructure</strong>
+    <p>A structural crossover surfacing across this week's headlines: <strong>public Bitcoin miners cut hashrate 13.4% as AI-infrastructure revenue grows</strong> — mining firms are redirecting power and compute from BTC mining toward AI inference/training contracts, because AI compute pays better per MWh than block rewards at current BTC prices. The same week, "Bitcoin firms ask AI labs for same tools attackers already have" captured the defensive side: crypto teams want frontier AI cyber capability (the kind OpenAI gates behind Daybreak Red, Aug 11) to harden their own stacks. <strong>Why it matters NOW:</strong> (1) the hash-rate cut is a leading indicator that the AI-compute demand curve is now bending Bitcoin's economics — watch mining-stock disclosures for the AI-revenue mix, as it shifts the security-budget conversation around BTC; (2) for a CEX, the AI×crypto security crossover means threat models must now assume attackers have frontier cyber-model access (GPT-5.6-Cyber-class) — your red-team cadence and audit frequency should tighten accordingly; (3) the dual-use mining/AI compute pattern previews a future where energy+compute is the fungible asset, not BTC or GPU-hours separately. <a href="https://cointelegraph.com/news/cftc-exploring-crypto-regulations-clarity-act">Mining × AI roundup →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.theblock.co/news/business/2026-08-13-tether-kpmg-first-full-audit-usdt-clean-opinion-411760">The Block — Tether Says KPMG Issued 'Clean' Opinion in First Full Audit of USDT Issuer's Financials</a>
+        <span class="desc">The definitive report on the first Big Four audit of the $180B USDT issuer — the transparency milestone that re-grades the stablecoin trust hierarchy and aligns Tether with the GENIUS Act's annual-audit requirement.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/policy/2026/08/13/sec-cancels-long-awaited-proposal-of-reg-crypto-postponing-meeting-without-new-date">CoinDesk — SEC Cancels Long-Awaited Proposal of Reg Crypto, Postponing Meeting Without New Date</a>
+        <span class="desc">The sharpest signal yet that the SEC's agency-rulemaking path is hitting internal friction — required reading for any team planning tokenization features through Q4.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/previewing-ultrafast">OpenAI — Previewing Ultrafast Mode: GPT-5.6 Sol at Up to 14× the Speed</a>
+        <span class="desc">The launch post for the 750 tok/s Cerebras-backed inference tier — the infra primitive that makes sub-200ms agent round-trips viable and formalizes tiered model routing.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/builders-guide-to-gpt-5-6">OpenAI — The Builder's Guide to GPT-5.6</a>
+        <span class="desc">The practical guide to smarter model selection and the new Responses API capabilities — the canonical reference for implementing today's tiered inference-routing tip.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/cftc-exploring-crypto-regulations-clarity-act">Cointelegraph — CFTC to Join SEC in Exploring Crypto Regulations Without CLARITY Bill</a>
+        <span class="desc">The dual-regulator agency-rulemaking path and the Aug 20 Innovation Advisory Committee meeting — the regulatory shape product teams must now plan around, with AI explicitly on the agenda.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-14 (Friday) · Generated 2026-08-14T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Friday AI-infra tip theme — tiered inference routing (Ultrafast/hot vs cheap/cold), RAG data-vs-instruction separation (extending GhostSplice defense to retrieval), versioned intent specs as the agent security boundary. AI: OpenAI Ultrafast mode (GPT-5.6 Sol 14× via Cerebras, 750 tok/s) + builder's guide, Meta Muse Code (first coding agent on Muse Spark 1.2, concurrent sub-agents), Gemini 3.7 Flash (coding/agent-tuned, 1B MAU), SpaceX finalizes Cursor $60B + Codex 15M users. Vibe: NVIDIA Nemotron 3.5 Lightning on OCI (always-on agents), Unsloth Desktop (local train+run), Port22 (mobile agent-ops). Crypto: Tether first full KPMG audit (clean, $6.8B buffer, gold verified), SEC cancels Reg Crypto + delays tokenization exemption, CFTC joins SEC (Aug 20 meeting) + Baltimore sues Kalshi/Polymarket. Concepts: onchain finance absorbing DeFi, stablecoin audit maturity, AI×mining hash-rate pivot.</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Aug 13, 12, 11, 09; Aug 10 not generated — skipped silently). ~70 prior topics indexed across titles, concepts, and tips. ~13 duplicate candidates filtered in favor of fresh angles: Cursor SpaceX $60B talks (Aug 11 — only the finalized-close milestone carded, not the original talks), Muse Glimmer 30B (Aug 11 — only the new Muse Code agent layer carded), GPT-5.6-Cyber / Daybreak tiers (Aug 11 — only the AWS-Bedrock channel noted), Claude C2PA watermarks / OpenAI ChatGPT ads / Google AMIE medical video (Aug 12 — superseded by fresh Ultrafast/Muse Code/Gemini 3.7), Claude Code auto-mode default / CVE-2026-54316 / inference hooks / Opus 4.1 retirement (Aug 8–9), GhostSplice cross-tool attack / AAAS agent marketplace / Mux Beacon (Aug 13 — only extended as a RAG defense in today's tip, not re-carded), Goldman NEOS / Franklin BENJI / SEC CLARITY void (Aug 12–13 — only the new Reg Crypto cancellation + CFTC joining carded), BTC ~$63K post-CPI / perp 3-year low (Aug 12 — only referenced in markets snapshot), world models / cross-tool prompt-stitching / agent-to-agent commerce / intent-driven development / context engineering / modular monolith / AgentSecOps / AI-native architecture / agent policy-as-code / brain-drain PBCs (Aug 7–13), Core AI migration / MLX-train→deploy / @Guide / on-device model tree / eval-observability / multi-agent orchestration / structured outputs / hybrid retrieval / egress hygiene / blast-radius budgets / provenance / Cursor rules / Copilot Agent Mode / Windsurf Cascade / ONNX Core ML EP / Pixel 11 Tensor G6 tips (Aug 7–13).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$63.5–64K ranging ("quietest tape since 2019," crowded longs meet soft inflation) · July CPI 3.4% in-line, Fed pause odds ~60% · ETH ~$1,881, ETH staking at 34% (EIP-8361 tapered-burn proposed) · Tether KPMG clean audit ($6.8B reserve buffer, $141B T-bills) · SEC cancels Reg Crypto, delays tokenization innovation exemption · CFTC Innovation Advisory Committee Aug 20 (crypto + AI + prediction markets) · Baltimore sues Kalshi/Polymarket (Coinbase/Robinhood/Webull roped in) · Public BTC miners cut hashrate 13.4% as AI-infra revenue grows · Clarity Act cloture vote still Sept 15.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries + 1 retry + 2 follow-up)</td><td>✅ 9 OK</td><td>AI / Vibe / iOS / Concepts (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>✅ ~15 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~5 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>⚠️ empty payload (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>4/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
