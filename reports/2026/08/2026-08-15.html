@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-15</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, August 15, 2026 · Claude Code Auto-Continue + Utah, Cursor AIUC-1 Cert, Cboe 3x ETF, Solana SIMD-0553 Vote</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Saturday: Best of Week — Agent Containment Stack) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The Agent Containment Stack</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Security · Best of Week</span>
+    <strong>The Three-Layer Agent Containment Stack: PreToolUse Hooks + Spec-as-Source + Egress Allowlist</strong>
+    <p>Synthesizing the week's security arc (GhostSplice cross-tool stitching Aug 13, spec-as-source Aug 14, egress hygiene Aug 9) into one deployable pattern. Layer 1 — a <code>PreToolUse</code> hook that treats every MCP tool output as <em>data</em>, never re-executable as a prompt (defeats GhostSplice). Layer 2 — a versioned <code>spec.yaml</code> per agent workflow defining goal, allowed tools, blast-radius caps (max tool calls, max runtime), and egress allowlist; the spec is the reviewed boundary, not the prompt. Layer 3 — a CI <code>policy-lint</code> step that fails on overly-broad allowlists or missing caps (Aug 12's polycheck pattern). For a Binance iOS CI agent that "fixes a failing test," this means: it can only touch test files, can only call the test runner, auto-aborts after N calls, and can only egress to your internal artifact store. Ship the stack as a single <code>.agent-policy/</code> directory checked into git — one review surface for all three layers. <a href="https://agentic.tracebit.com/context-bombs/">GhostSplice defense →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">iOS · Inference Routing</span>
+    <strong>Tier Your iOS Inference With a Single <code>InferenceRouter</code> Swift Type — Hot/Warm/Cold by Latency Budget</strong>
+    <p>Extending Friday's Ultrafast tip into concrete Swift. Stop pinning one model per feature; instead route by latency budget behind one type. Hot paths (reply suggestions, autocomplete, on-device fallback orchestration) → Foundation Models on-device or Ultrafast (750 tok/s); warm (summarization, classification) → standard GPT-5.6 Sol / Sonnet 5; cold (eval runs, doc indexing) → cheapest capable tier. The payoff: a tier swap is a config change, not a code change, and per-tier token spend stays observable. Sketch: <code>enum InferenceTier { case hot, warm, cold }; struct InferenceRouter { func route(for intent: Intent, budget: LatencyBudget) -> InferenceTier }</code> — gate every <code>ModelSession</code> call through it. Log <code>tier, tokens, latencyMs, cost</code> per call so cost overages (Aug 11's lesson) surface in your dashboards before they surface in your invoice. <a href="https://openai.com/index/builders-guide-to-gpt-5-6">GPT-5.6 builder's guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Stablecoins · Procurement</span>
+    <strong>Make Audit-Grade Stablecoin Selection a Config-Driven Procurement Check, Not a Vendor Lock-In</strong>
+    <p>Turning Thursday's Tether KPMG audit into a builder-facing integration pattern. The stablecoin trust hierarchy is now re-graded: full annual audits (Tether now, Circle's SOX-grade reports) sit above quarterly attestations (BDO snapshots), and the market will price the difference. For any iOS feature that integrates stablecoins (payments, custody, earn), build the integration layer to consume machine-readable reserve/audit metadata, so swapping in a better-audited issuer is a config change. Concretely: a <code>StablecoinIssuer</code> protocol with a <code>var transparencyTier: AuditTier</code> property (`.fullAudit`, `.attestation`, `.none`), and a procurement gate that rejects <code>.none</code> for custody-touching flows. Pair with the GENIUS Act's annual-audit requirement as your regulatory floor. This is the stablecoin analog of "is it SOC 2?" — routine, config-driven, and never a vendor lock-in. <a href="https://www.theblock.co/news/business/2026-08-13-tether-kpmg-first-full-audit-usdt-clean-opinion-411760">Tether KPMG audit →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Claude Code</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Code Ships "Auto-Continue" + Utah Recommends Statewide Adoption After Pilot</a></h3>
+    <p>Anthropic rolled out <strong>"auto-continue"</strong> for the Claude Code desktop app (Aug 14) — sessions automatically resume once a usage-limit reset fires, eliminating the manual restart tax on long-running agent tasks. Same day, <strong>Utah's Division of Technology Services recommended statewide Claude Code adoption</strong> after a 4-week pilot: 34 developers across 10 agencies, <strong>80% had a working environment in &lt;30 min</strong>, <strong>77% hit a "magic moment" within the first hour</strong>. <strong>Why it matters:</strong> (1) auto-continue closes the last UX gap for background/overnight agent runs — pair it with Tuesday's Port22 mobile-ops surface for a genuinely untethered workflow; (2) the Utah pilot is the first statewide government adoption signal for an agentic IDE, and the setup-time metric (80% in &lt;30 min) is the benchmark to beat for any team's onboarding flow; (3) for a regulated team, government adoption de-risks internal procurement — if Utah's security review cleared Claude Code, your GRC team has a reference. <a href="https://www.anthropic.com/news">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Cursor · Assurance</span>
+    <h3><a href="https://cursor.com/">Cursor Earns AIUC-1: First-of-its-Kind AI Agent Security &amp; Reliability Certification</a></h3>
+    <p>Cursor was awarded <strong>AIUC-1 certification</strong> (Aug 13) — the first independent security-and-reliability standard for AI agents, developed by the Artificial Intelligence Underwriting Company with input from 100+ Fortune 500 CISOs, MITRE, the Cloud Security Alliance, and Stanford. The audit covers organizational controls + adversarial testing across 12 categories (secrets protection, secure code generation, agent identity/permissions), with <strong>quarterly re-testing and annual full audits</strong> to keep pace with evolving agent risks. <strong>Why it matters:</strong> (1) this is the first procurement-grade assurance primitive for agentic IDEs — enterprises can now require AIUC-1 (or equivalent) in vendor RFPs the way they require SOC 2; (2) it operationalizes the AgentSecOps concept (Aug 11) into a testable standard, translating NIST AI RMF and OWASP agentic threats into requirements for live systems; (3) for a Binance team evaluating Cursor vs. Claude Code vs. Codex, AIUC-1 is now a line item — and its absence in competitors is a gap to flag in vendor review. Cursor also landed Gartner MQ Leader status alongside the SpaceX close. <a href="https://cursor.com/">Cursor →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft · MAI-Thinking-1</span>
+    <h3><a href="https://www.microsoft.com/en-us/ai">Microsoft Ships MAI-Thinking-1: In-House 1T MoE Reasoning Model for Enterprise</a></h3>
+    <p>Microsoft released <strong>MAI-Thinking-1</strong> (Aug 13) — a medium-sized reasoning model built on a <strong>sparse Mixture-of-Experts architecture (~35B active params of ~1T total)</strong>, trained from scratch on licensed datasets (a deliberate enterprise-data-integrity signal). It targets complex reasoning, math, and software engineering with a <strong>256K context window</strong>, and reportedly <strong>matches Claude Opus 4.6 on SWE-Bench Pro</strong>. It's the flagship of a 7-model first-party MAI family (coding, image, transcription, voice), available via Microsoft Foundry private preview. <strong>Why it matters:</strong> (1) Microsoft is now a direct frontier-model developer, not just OpenAI's distribution arm — this gives Azure-locked enterprises a non-OpenAI first-party option for the "warm" tier of Friday's inference-routing pattern; (2) the licensed-data training corpus is the procurement hook for regulated teams (no scraped-content copyright tail-risk); (3) for iOS teams on Azure backends, MAI-Thinking-1 is a candidate for the cloud-reasoning tier paired with on-device Foundation Models — benchmark it against Sonnet 5 / Gemini 3.7 Flash before committing. <a href="https://www.microsoft.com/en-us/ai">Microsoft AI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Models · Open Weights</span>
+    <h3><a href="https://www.alibabacloud.com/help/en/model-studio/">DeepSeek-V4-Pro, Qwen3.8-27B &amp; Cohere North Micro Vision: New Open Models for Dev Pipelines</a></h3>
+    <p>A cluster of open-weight releases landed this week for self-hosting dev teams: <strong>DeepSeek-V4-Pro-0813</strong> (Aug 12, high-capability frontier-tier open model), <strong>Alibaba's Qwen3.8-27B</strong> (Aug 13, mid-size multimodal), and <strong>Cohere North Micro Vision Instruct</strong> (Aug 11, vision-text for enterprise RAG). These join the week's earlier Muse Glimmer 30B (Aug 11) and Nemotron 3.5 Lightning (Aug 10) as the open-ecosystem options for BYOC (bring-your-own-compute) agent stacks. <strong>Why it matters:</strong> (1) for teams that can't send code to OpenAI/Anthropic clouds, the open-weight quality floor rose sharply this week — DeepSeek-V4-Pro is the credible self-hostable "hard reasoning" tier, Qwen3.8-27B the "cheap routing" tier; (2) Cohere North Micro Vision fills the open multimodal gap for iOS features that reason over screenshots/UI mocks without egressing to a cloud vision API; (3) caveat — benchmark each against your real workload (Aug 11's lesson), and review data terms per tier before pointing at proprietary Binance repos. <a href="https://www.alibabacloud.com/help/en/model-studio/">Model Studio →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Blacksmith · CI Infra</span>
+    <h3><a href="https://www.blacksmith.dev/">Blacksmith Raises $45M for AI-Code Validation Infra + Ships <code>codesmith</code> Agent</a></h3>
+    <p><strong>Blacksmith</strong> (Aug 14) closed a <strong>$45M Series B at a $550M valuation</strong> (Peak XV-led, YC + GV), growing from ~800 to 6,000+ customers (Supabase, Clerk, Ashby, Mercury) in under a year. The thesis: AI coding agents have created a <strong>validation bottleneck</strong> — every AI-generated PR still needs CI, and CI is now the rate-limiter, not code generation. Blacksmith ships purpose-built CI compute plus a cloud coding agent <strong><code>codesmith</code></strong> that builds features, fixes bugs, and <strong>auto-diagnoses CI failures</strong>; a companion <strong><code>codesmith QA</code></strong> autonomously tests changes pre-merge. <strong>Why it matters:</strong> (1) it names a new product category — <em>AI-code validation infrastructure</em> — distinct from both the agent (Cursor/Claude Code) and the CI runner (GitHub Actions); (2) for an iOS team, the <code>codesmith</code> autofix loop is the missing piece between "agent opens a PR" and "PR merges" — it closes the gap without a human triaging red Xs; (3) the 10x compute expansion signals demand is outpacing capacity — if you're evaluating, lock in capacity now. <a href="https://www.blacksmith.dev/">Blacksmith →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Nutanix · MCP</span>
+    <h3><a href="https://www.nutanix.com/">Nutanix Ships MCP Server: Manage Hybrid Cloud Infra via Natural Language</a></h3>
+    <p>Nutanix announced a technical preview (Aug 14) of a <strong>Model Context Protocol (MCP) server</strong> that lets AI assistants — GitHub Copilot, Cursor, Claude Code — <strong>manage hybrid-cloud infrastructure via natural language</strong>. An engineer can ask the agent to provision, scale, or inspect Nutanix-hosted workloads, and the MCP server translates the request into the platform's API calls with the agent's existing tool-loop. <strong>Why it matters:</strong> (1) it extends MCP beyond code-editing into <em>ops</em> — the same agent that writes your iOS service can now deploy and tune its infrastructure, closing the dev→ops loop inside one conversation; (2) for a Binance team running hybrid cloud (on-prem + public), a single MCP server abstracting both surfaces means your agent's infra reasoning is portable across environments, not split per-cloud; (3) caveat — infra-modifying agents are the highest-blast-radius use case: apply the full containment stack from today's tip (spec-as-source + egress allowlist + tool-call caps) before enabling write operations, and start read-only. <a href="https://www.nutanix.com/">Nutanix →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Prime Intellect · OSS Agent</span>
+    <h3><a href="https://github.com/primeintellect-ai">Prime Agent: Open-Source Coding Agent With Persistent Memory for Long Tasks</a></h3>
+    <p><strong>Prime Intellect</strong> released <strong>Prime Agent</strong> (Aug 6, surfaced this week) — an open-source coding agent that gives the model <strong>persistent memory across long, complex tasks</strong>, addressing the context-window-amnesia problem that breaks most terminal agents on multi-hour refactors. It pairs with the week's other open agents (Opencode 180K★, Meta Muse Code) but differentiates on the memory layer specifically. <strong>Why it matters:</strong> (1) persistent memory is the missing primitive for agentic refactors that span days (e.g., "migrate this module to the new architecture") — without it, the agent loses the thread on session resume; (2) it's the open-source counter to Cursor's Cloud Agents and Claude Code's cross-session messaging, runnable on your own infra with a local model (Muse Glimmer 30B / DeepSeek-V4-Pro); (3) pair it with Tuesday's on-device "Dream" replay pattern — Prime Agent's memory is the server-side analog of the on-device episodic store, and the two patterns compose. <a href="https://github.com/primeintellect-ai">Prime Intellect →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · Weekly Close</span>
+    <h3><a href="https://cointelegraph.com/news/bitcoin-price-drops-62500-weekly-close">BTC at $62.5K, Weekly Close Pivotal — "Shakeout" Phase, Total MCap $2.24T</a></h3>
+    <p>Bitcoin slipped to <strong>~$62.5K</strong> (Aug 14-15), down ~0.86% on the day, with the total crypto market cap at <strong>$2.24T</strong> (-0.62%) in what analysts are calling an industry <strong>"shakeout"</strong> — lower prices, tighter speculative capital, declining volumes. Traders are watching the <strong>weekly close</strong> closely: a close below <strong>$63,220</strong> could signal further declines. Prediction markets price Aug 15 in the <strong>$62K–$63.75K</strong> band. BTC entered 2026 above $93K and has grinded lower on macro pressure and profit-taking. <strong>Why it matters:</strong> (1) the post-CPI range (Aug 13's $63K hold) is breaking down — the coiled-spring setup is unwinding to the downside, so ensure liquidation monitoring and liquidity checks are warm; (2) the "shakeout" framing means institutional flows (ETF inflows, Tether audit tailwind) are the bid keeping the floor, while retail stays absent — design onboarding for a re-emergence if BTC reclaims $65K; (3) Clarity Act cloture (Sept 15) + CFTC Innovation Committee (Aug 20) are the next policy catalysts layered on macro. <a href="https://cointelegraph.com/news/bitcoin-price-drops-62500-weekly-close">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Cboe · Leveraged ETFs</span>
+    <h3><a href="https://www.theblock.co/rss.xml">Cboe Files for First-Ever 3x Leveraged Bitcoin &amp; Ether ETFs</a></h3>
+    <p><strong>Cboe BZX filed with the SEC</strong> (submitted Aug 10, public Aug 14) to list the <strong>first 3x leveraged BTC and ETH ETFs</strong>, sponsored by Volatility Shares (which already runs 2x variants). The funds use CME/COMEX futures (not spot) and would be regulated as <strong>CFTC-overseen commodity pools</strong>, not 1940-Act investment companies — a structural distinction that requires a specific SEC rule-change approval. The filing also covers 3x gold, silver, crude, and natural gas. <strong>Why it matters:</strong> (1) 3x crypto ETFs would be the most volatile regulated crypto product yet — for a CEX, they reshape the retail risk surface (margin-call logic, suitability checks, and volatility-circuit-breakers all need re-calibration for a 3x-daily product); (2) the CFTC-commodity-pool structure sidesteps the SEC's 1940-Act friction and previews the dual-regulator patchwork (Aug 14's SEC+CFTC theme) — expect more products to route via CFTC if SEC rulemaking stays stalled; (3) for infra, a 3x ETF listing means the underlying CME futures curve gets more arb flow — your market-data and basis-monitoring pipelines should flag the launch date. <a href="https://www.theblock.co/data/crypto-markets/leveraged-etf">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Solana · Governance</span>
+    <h3><a href="https://cointelegraph.com/news/solana-fee-overhaul-simd-0553-burn-resource-hogs">Solana SIMD-0553 Fee Overhaul: Vote Closes Aug 18 — Burn Jumps 12x, Resource Hogs Pay More</a></h3>
+    <p>Solana is voting on <strong>SIMD-0553</strong> (vote closes <strong>Aug 18</strong>), a fee-structure overhaul that ties transaction costs to <strong>compute consumed</strong> rather than a flat rate — directly penalizing "resource hogs." Projected impact: daily SOL burn jumps from <strong>~648 SOL to 7,500–9,000 SOL</strong> (a ~12x increase), funded by making high-failure-rate traders pay their actual compute cost (one cited cluster: 929M compute units for 78 SOL → materially more under SIMD-0553). Simple stablecoin transfers could get <strong>~20% cheaper</strong>. A companion <strong>SIMD-0550</strong> accelerates Solana's inflation-rate reduction. <strong>Why it matters:</strong> (1) this is the most significant L1 fee-market redesign since EIP-1559 — resource-priced fees are the new template, and ETH/Solana now both burn base fees; (2) for any team building on Solana (payments, DeFi), re-model your unit economics — high-failure-rate MEV/trading strategies become uneconomic, while simple transfers get cheaper; (3) the validator-revenue cut is the political risk — watch the Aug 18 vote, as validator pushback could defer implementation past the Solana 4.3 release. <a href="https://cointelegraph.com/news/solana-fee-overhaul-simd-0553-burn-resource-hogs">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agent Assurance: AIUC-1 and the Rise of Procurement-Grade Security Standards for Agents</strong>
+    <p>A concept crystallizing this week via Cursor's <strong>AIUC-1</strong> certification: <strong>agent assurance</strong> — independent, testable security-and-reliability standards for AI agents, analogous to SOC 2 for SaaS or FedRAMP for cloud. AIUC-1 translates NIST AI RMF and OWASP agentic threat taxonomies into <em>live-system</em> requirements (secrets protection, secure code generation, agent identity/permissions) with quarterly re-testing. <strong>Why it matters NOW:</strong> (1) it turns the AgentSecOps concept (Aug 11) from an internal practice into an externally-verifiable procurement check — enterprises can now require AIUC-1 in vendor RFPs, creating market pressure on non-certified agents (Claude Code, Codex) to pursue equivalent attestation; (2) for a Binance iOS team, agent assurance is the gating layer for allowing any agentic IDE into the dev pipeline — make AIUC-1 (or equivalent) a hard requirement in your vendor-review checklist; (3) expect a wave of competing standards (ISO 42001, sector-specific variants) — design your procurement criteria to accept any accredited attestation, not just AIUC-1 specifically, to avoid vendor lock-in. <a href="https://cursor.com/">AIUC-1 details →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Resource-Priced Fee Markets: From EIP-1559 to SIMD-0553 — Compute-Weighted Burns as the L1 Template</strong>
+    <p>A concept consolidating across this week's L1 governance: <strong>resource-priced fee markets</strong> — transaction fees tied to actual compute/resources consumed, with the base fee burned rather than paid to validators. Ethereum's EIP-1559 established the pattern (burn base fee); Solana's SIMD-0553 (vote Aug 18) extends it to <em>compute-weighted</em> pricing (high-failure-rate transactions pay proportionally more), projecting a 12x burn increase. <strong>Why it matters NOW:</strong> (1) resource-priced burns are becoming the default L1 economic template — any new chain (or L2) launching without one is now the exception; (2) for builders, the unit-economics shift is real: strategies that worked under flat-fee regimes (high-volume MEV, spam-ish arbitrage) become uneconomic, while genuinely useful transactions get cheaper — re-model any Solana/ETH dApp's fee assumptions; (3) the political fault line is validator revenue (burned fees = lost validator income) — watch whether SIMD-0550's inflation cut + SIMD-0553's burn pass together, as the pair determines SOL's deflationary path. This is the economic-architecture concept to track through Q4. <a href="https://cointelegraph.com/news/solana-fee-overhaul-simd-0553-burn-resource-hogs">SIMD-0553 explainer →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>Post-Quantum Pragmatism: Ethereum Abandons Poseidon for SHA/BLAKE — Standard Hashes Win</strong>
+    <p>A concept materializing in Ethereum's Aug 15 decision: <strong>post-quantum pragmatism</strong> — the shift away from specialized "SNARK-friendly" cryptography (Poseidon hash) toward standard, battle-tested hashes (SHA-2, BLAKE2s) now that SNARK efficiency for standard hashes has caught up. The Ethereum Foundation (researcher Justin Drake) announced it will <strong>no longer use Poseidon for L1 post-quantum security</strong>, ending an 8-year research arc — not because Poseidon is broken, but because standard hashes now match its SNARK performance. Full PQ protection is targeted for 2029 via the "Lean Ethereum" roadmap. <strong>Why it matters NOW:</strong> (1) it's a concrete reversal of the "use specialized PQ crypto early" thesis — the lesson generalizes: prefer standard, widely-audited primitives until specialized ones offer a decisive, durable advantage; (2) for wallet/custody teams, the PQ migration path just simplified — you can plan around SHA/BLAKE (which your existing tooling already supports) rather than Poseidon (which required new libraries); (3) the 2029 full-PQ target is the planning horizon — any long-lived signing infrastructure (cold storage, multisig) designed today should be PQ-agile (hybrid classical+PQ) to avoid a 2028 retrofit. <a href="https://blog.ethereum.org/">Ethereum Foundation →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.anthropic.com/news">Anthropic — Claude Code "Auto-Continue" + Utah Statewide Adoption Recommendation</a>
+        <span class="desc">The launch post for auto-continue and the Utah pilot results (80% setup in &lt;30 min, 77% magic-moment in &lt;1 hr) — the first statewide government adoption signal for an agentic IDE.</span>
+      </li>
+      <li>
+        <a href="https://cursor.com/">Cursor — AIUC-1 Agent Security &amp; Reliability Certification</a>
+        <span class="desc">The first procurement-grade assurance standard for AI agents — the spec, the 12 test categories, and the quarterly re-test cadence. Required reading for any team evaluating agentic IDEs for regulated work.</span>
+      </li>
+      <li>
+        <a href="https://www.blacksmith.dev/">Blacksmith — $45M Series B + <code>codesmith</code> AI-Code Validation Agent</a>
+        <span class="desc">The funding announcement and product launch naming the new "AI-code validation infrastructure" category — the missing layer between agent-generated PRs and merge.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/solana-fee-overhaul-simd-0553-burn-resource-hogs">Cointelegraph — Solana SIMD-0553 Fee Overhaul: Compute-Weighted Burns, Vote Aug 18</a>
+        <span class="desc">The definitive explainer of the most significant L1 fee-market redesign since EIP-1559 — the economics, the validator pushback, and the 12x burn projection.</span>
+      </li>
+      <li>
+        <a href="https://blog.ethereum.org/">Ethereum Foundation — Abandoning Poseidon for SHA/BLAKE in Post-Quantum Plan</a>
+        <span class="desc">Justin Drake's announcement ending the 8-year Poseidon research arc — the post-quantum pragmatism decision and the 2029 full-PQ target under the Lean Ethereum roadmap.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-15 (Saturday) · Generated 2026-08-15T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Saturday best-of-week tip theme — the three-layer agent containment stack (PreToolUse hooks + spec-as-source + egress allowlist), tiered iOS inference routing in one Swift type, audit-grade stablecoin selection as a config-driven procurement check. AI: Claude Code auto-continue + Utah statewide adoption, Cursor AIUC-1 first agent security cert, Microsoft MAI-Thinking-1 (1T MoE, matches Opus 4.6 on SWE-Bench Pro), DeepSeek-V4-Pro / Qwen3.8-27B / Cohere North Micro Vision open models. Vibe: Blacksmith $45M + <code>codesmith</code> validation agent, Nutanix MCP server for hybrid-cloud ops, Prime Agent open-source persistent-memory agent. Crypto: BTC at $62.5K weekly-close pivotal ("shakeout," MCap $2.24T), Cboe files first 3x leveraged BTC/ETH ETFs (CFTC commodity-pool structure), Solana SIMD-0553 fee overhaul vote Aug 18 (12x burn). Concepts: agent assurance (AIUC-1), resource-priced fee markets (SIMD-0553), post-quantum pragmatism (Ethereon drops Poseidon).</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Aug 14, 13, 12, 11; Aug 10 not generated — skipped silently). ~75 prior topics indexed across titles, concepts, and tips. ~15 duplicate candidates filtered in favor of fresh angles: SpaceX–Cursor $60B close + Codex 15M users (Aug 14 — only referenced, not re-carded), OpenAI Ultrafast / Meta Muse Code / Gemini 3.7 Flash (Aug 14 — superseded by fresh Claude Code auto-continue + AIUC-1 + MAI-Thinking-1), Tether KPMG audit (Aug 14 — only extended as a procurement-check tip, not re-carded), SEC cancels Reg Crypto / CFTC joins (Aug 14 — only the new Cboe 3x ETF + Solana SIMD-0553 + ETH Poseidon carded), GhostSplice / spec-as-source / egress hygiene (Aug 9–14 — only consolidated into today's containment-stack tip, not re-carded), tiered inference routing (Aug 14 — only the iOS Swift-type extension carded), Ravencoin / SEC CLARITY void / BTC post-CPI $63K (Aug 12–13 — only the fresh $62.5K weekly-close + shakeout carded), world models / cross-tool prompt-stitching / agent-to-agent commerce / onchain finance / stablecoin audit maturity / AI×mining (Aug 13–14), context engineering / modular monolith / AgentSecOps / AI-native architecture / agent policy-as-code / C2PA provenance (Aug 11–12), Core AI migration / MLX pipeline / @Guide / Cursor rules / Copilot Agent Mode / Windsurf Cascade / ONNX Core ML EP / Pixel 11 Tensor G6 tips (Aug 7–13).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$62.5K (down ~0.86%, weekly close pivotal — below $63,220 signals further downside) · Total crypto MCap $2.24T (-0.62%, "shakeout" phase) · ETH staking ~34% (EIP-8361 tapered-burn proposed; EF abandons Poseidon for SHA/BLAKE PQ path, full PQ by 2029) · Cboe files first 3x leveraged BTC/ETH ETFs (CFTC commodity-pool structure, SEC review pending) · Solana SIMD-0553 fee overhaul vote Aug 18 (burn 648→7,500-9,000 SOL/day, ~12x) · Tether KPMG clean audit tailwind ($6.8B buffer) · SEC Reg Crypto still canceled, CFTC Innovation Committee Aug 20 · Clarity Act cloture vote Sept 15.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries) + 6 follow-up</td><td>✅ 13 OK</td><td>AI / Vibe / iOS / Concepts / Crypto (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~20 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>⚠️ empty payload (skipped)</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>⚠️ minimal output (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~8 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>❌ 502 Bad Gateway (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>4/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
