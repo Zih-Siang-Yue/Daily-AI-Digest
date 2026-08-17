@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-17</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, August 17, 2026 · Claude Outage, GitHub Spec Kit 120K★, Qwen3.8-Max 2.4T, World Liberty Bank Charter, CLARITY Odds Cut to 10%</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Monday: Claude Code / Codex — agentic workflow, hooks, MCP, skills) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Claude Code / Codex: Agentic Workflow</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Spec-Driven · Skills</span>
+    <strong>Adopt GitHub Spec Kit as the Reviewed Front-Door for Any Agent-Authored iOS Change</strong>
+    <p>GitHub's <strong>Spec Kit</strong> (open-source, now <strong>120K+ stars</strong>, 30+ agent support) operationalizes the spec-as-source pattern (Aug 14's tip) as a concrete <code>specify</code> CLI workflow: <code>constitution.md</code> (non-negotiables) → <code>spec.md</code> (what &amp; why) → <code>plan.md</code> (architecture) → <code>tasks.md</code> (atomic agent tasks) → <code>/speckit.implement</code>. For a Binance iOS team, the move is to wire this as the <strong>mandatory front-door</strong> for any Cursor/Claude Code change that touches more than N files: no spec, no agent run. The discipline kills two failure modes at once — (1) it bounds blast radius (the agent can only implement what <code>tasks.md</code> lists), and (2) it makes review tractable (a human reviews the spec once, not 40 generated diffs). Pair with Monday's <code>.cursor/rules/</code> (Aug 12) so the agent's <em>execution</em> stays on-system even when the spec is loose. <a href="https://github.com/github/spec-kit">Spec Kit →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">JetBrains · Skill Manager</span>
+    <strong>Treat Agent Skills as Installable, Reviewed Artifacts — Mirror JetBrains' Skill Repository Pattern</strong>
+    <p>JetBrains shipped an <strong>AI Assistant Skill Manager</strong> in IntelliJ/Rider with a <strong>default Skill Repository on GitHub</strong> where each skill is <strong>verified for security vulnerabilities</strong> before listing — and supports internal (private) repositories for org-curated skills. This is the model to copy for Claude Code/Codex skills: treat every <code>.claude/skills/*</code> or Cursor skill as a versioned, reviewed artifact with a manifest (name, scope, allowed tools, egress), installable per-project or globally. The security payoff is concrete — a bundled <code>dottrace-analyze</code> skill can read performance snapshots, which means a malicious skill could exfil profiling data; the repository + verification gate is what makes skills safe to compose. For a regulated team, stand up an <strong>internal skill registry</strong> (even a private GitHub repo with a CI lint) and forbid agents from loading skills from unverified sources — extend Aug 12's <code>polycheck</code> policy-lint to cover skill manifests, not just allowlists. <a href="https://blog.jetbrains.com/idea/2026/ai-assistant-skills/">JetBrains AI Skills →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Resilience · Outage Survival</span>
+    <strong>Design Agent Workflows to Survive a Provider Outage — Today's Claude Incident Is the Drill</strong>
+    <p>Claude (claude.ai, Claude Code, Claude Cowork, Claude API) went down for ~<strong>36 minutes on Aug 16</strong> (21:58–22:34 UTC, 15,000+ DownDetector reports, root cause undisclosed) — the third incident in a cluster of recent Claude disruptions. The lesson for any iOS feature or CI pipeline that calls Claude: a single-provider agent is an availability SPOF. The resilient pattern: (1) <strong>abstract the model call behind a router</strong> (Aug 14's <code>InferenceRouter</code>) with a documented fallback tier — Claude → Sonnet via a different region → Gemini 3.7 Flash → on-device Foundation Models; (2) for long-running agent tasks, checkpoint state to disk on every tool call so a mid-run outage resumes instead of restarts; (3) for CI agents, add a <code>provider-health</code> pre-check that skips the agent run (and pings on-call) when the provider's status page is degraded. Treat today's outage as the test case your harness should have passed automatically. <a href="https://status.anthropic.com/">Anthropic status →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Outage</span>
+    <h3><a href="https://status.anthropic.com/">Claude Suffers Major Outage Aug 16 — claude.ai, Claude Code &amp; API Down ~36 Minutes</a></h3>
+    <p>Anthropic's Claude services experienced a <strong>major outage beginning Aug 16, 21:58 UTC</strong>, spanning claude.ai, Claude Code, Claude Cowork, the Claude API, and Claude Console — initially an authentication issue that escalated to broad performance degradation. <strong>DownDetector logged 15,000+ reports</strong> by 6:15 p.m. EDT. Anthropic deployed a fix and confirmed all services (including Claude for Government) operational by <strong>22:34 UTC</strong>; the root cause was not disclosed. <strong>Why it matters:</strong> (1) this is the highest-impact Claude availability event since the platform's enterprise push (IBM partnership Aug 14, government beta) — for any team that built single-provider dependencies on Claude Code or the Claude API, today is the day to wire the fallback tier (see today's resilience tip); (2) the 36-minute window is short enough to be a warning rather than a crisis, but a longer outage during US trading hours would directly hit agent-driven CI and customer-facing features; (3) the timing (Saturday evening UTC) likely limited enterprise impact — model your own exposure for a weekday peak-hours equivalent. <a href="https://status.anthropic.com/">Status page →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Alibaba · Qwen3.8-Max</span>
+    <h3><a href="https://huggingface.co/Qwen">Alibaba Unveils Qwen3.8-Max: 2.4T-Param MoE, 16-Day Autonomous Coding Demo</a></h3>
+    <p>Alibaba's Qwen team released <strong>Qwen3.8-Max</strong> — a <strong>2.4 trillion-parameter Mixture-of-Experts model</strong> (~95B active params per token, built on Qwen3.5), with a <strong>1M-token context window</strong> and native multimodality (text, image, video). The headline demo: a <strong>16-day autonomous coding run</strong> where the agent built an open-source project from an empty repo with <strong>265 commits and zero human intervention</strong>, constructing its own coding harness end-to-end. Alibaba also signaled it will <strong>release Max-class weights for the first time</strong>, moving the open-weight frontier beyond Qwen3.8-27B. <strong>Why it matters:</strong> (1) the 16-day run is the new high-water mark for long-horizon agentic coding — it stress-tests exactly the persistence/checkpoint/resume problems (Aug 15's Prime Agent memory, Aug 16's context-as-artifact) at a scale no current IDE agent reaches; (2) for BYOC teams, a 2.4T MoE with only 95B active is the credible self-hostable frontier-tier once weights drop — pair with Aug 16's open-weight gravity shift; (3) caveat — the 16-day result is a <em>vendor showcase</em>, not an independent reproduction; benchmark against your own multi-day refactor before trusting it in production. <a href="https://huggingface.co/Qwen">Qwen →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub · Copilot Workspace</span>
+    <h3><a href="https://github.com/features/copilot">GitHub Copilot Workspace Reaches GA — "Autopilot" Mode for Autonomous Multi-File Edits</a></h3>
+    <p>GitHub's <strong>Copilot Workspace</strong> reached general availability, featuring an <strong>"Autopilot" mode for autonomous multi-file edits</strong> — the agent takes a task description, plans the cross-file changes, and executes them with minimal oversight, extending Copilot beyond inline completion into Cursor/Claude Code territory. This lands as the spec-driven counter-movement (today's Spec Kit tip) gains steam: GitHub is simultaneously shipping the most autonomous Copilot yet <em>and</em> the tooling to constrain it. <strong>Why it matters:</strong> (1) for iOS teams already on GitHub Enterprise, Copilot Workspace GA removes the procurement friction of adopting Cursor — Autopilot is now a toggle in a tool you already pay for; (2) the multi-file autonomous-edit capability is exactly the blast-radius scenario Aug 12's Copilot-Agent-Mode-scoping tip warned about — apply the same <code>#file:</code> scoping and <code>git stash</code> checkpoint discipline before enabling Autopilot on a large codebase; (3) pair it with Spec Kit so Autopilot executes a reviewed <code>tasks.md</code> rather than a free-form prompt. <a href="https://github.com/features/copilot">Copilot Workspace →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft · Intelligent Terminal</span>
+    <h3><a href="https://github.com/microsoft/intelligent-terminal">Microsoft Ships Intelligent Terminal 0.2 — AI Agents in the Shell, Local Model Support</a></h3>
+    <p>Microsoft released <strong>Intelligent Terminal 0.2</strong>, integrating AI agents <strong>directly into the shell</strong> — the terminal becomes an agent host that can inspect the filesystem, run commands, and edit files, with <strong>support for local models</strong> (so proprietary code never egresses to a cloud provider). It extends the terminal-native agent cluster (Opencode, Claude Code, Muse Code) with a Microsoft-backed, local-first option. <strong>Why it matters:</strong> (1) for a regulated Binance team, local-model shell agents close the "can't send code to the cloud" gap that Cursor/Copilot Workspace leave open — run Intelligent Terminal with a local Qwen3.8-27B or DeepSeek-V4-Pro for proprietary-code refactors; (2) the shell-native form factor is the right surface for ops-adjacent agent work (incident triage, log analysis, infra inspection) where an IDE is the wrong context; (3) caveat — shell agents have the highest blast radius of any agent class (full filesystem + command execution), so apply the full containment stack (Aug 15's PreToolUse + spec-as-source + egress allowlist) before enabling write operations, and start read-only. <a href="https://github.com/microsoft/intelligent-terminal">Intelligent Terminal →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Power Automate · Agent Ops</span>
+    <h3><a href="https://learn.microsoft.com/power-automate/">Microsoft Power Automate Ships Plugin for Claude Code &amp; Copilot CLI — Natural-Language Cloud Flows</a></h3>
+    <p>Microsoft's <strong>Power Automate</strong> now ships a plugin for AI coding agents — <strong>Github Copilot CLI and Claude Code</strong> — allowing developers to <strong>create and manage cloud flows through natural language</strong> from inside the agent's tool loop. An engineer can ask the agent to provision, inspect, or modify a Power Automate flow, and the plugin translates the request into the platform's API calls. <strong>Why it matters:</strong> (1) it extends the agent's reach from <em>code</em> to <em>ops automation</em> — the same agent that writes your iOS service can now wire up the deployment/monitoring flows around it, closing the dev→ops loop inside one conversation (the same thesis as Nutanix's MCP server, Aug 15, but via a different integration surface); (2) for a Binance iOS team, the natural-language flow-creation path is the on-ramp to agent-driven incident response (e.g., "create a flow that pages on-call when this alert fires"); (3) caveat — cloud-flow-modifying agents are high-blast-radius: start read-only, gate write operations behind a spec, and audit flow changes in version control, because a misconfigured flow can spam thousands of users or trigger unintended cost. <a href="https://learn.microsoft.com/power-automate/">Power Automate →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Spec-Driven · Maturation</span>
+    <h3><a href="https://github.com/github/spec-kit">"Vibe Coding" Meets Its Structured Counter-Movement — Spec-Driven Development Gains Traction</a></h3>
+    <p>A visible maturation is underway in AI-assisted development: the pure "vibe coding" approach (natural-language, high-level prompts, rapid prototyping) is being <strong>supplemented — not replaced — by spec-driven development (SDD)</strong>, where a detailed machine-readable spec is authored <em>before</em> the agent writes code. The catalysts: GitHub's Spec Kit (120K+ stars), the "review fatigue" naming (Aug 16), and growing concern over reliability/security gaps in unconstrained vibe-driven output. The emerging consensus is a <strong>hybrid</strong> — vibe for exploration and prototyping, SDD for anything shipping to production. <strong>Why it matters:</strong> (1) for a Binance iOS team, the practical split is clear: vibe-code the prototype, then re-author as a spec before the agent touches the production codebase — the spec becomes the review surface, not the generated diff; (2) it reframes the agent procurement question: the differentiator is no longer "which agent vibes best" but "which agent best supports the spec→plan→tasks→implement loop"; (3) expect SDD to absorb the AgentSecOps pattern (Aug 12) — the <code>constitution.md</code> is where the security non-negotiables live, enforced before code exists. <a href="https://github.com/github/spec-kit">Spec Kit →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Marlow · Platform Beta</span>
+    <h3><a href="https://marlow.ai">Marlow AI Launches Beta of AI Software-Creation Platform</a></h3>
+    <p><strong>Marlow AI</strong> launched the beta of its <strong>AI software-creation platform</strong>, joining a growing field of end-to-end "describe it, ship it" surfaces that aim to collapse the design→code→deploy pipeline into one agent-driven flow. The platform targets users who want a working application from a natural-language description without touching an IDE — a step beyond Cursor/Copilot Workspace toward fully no-code agentic delivery. <strong>Why it matters:</strong> (1) it's a leading indicator that the "agentic IDE" and the "no-code app builder" are converging — for an iOS team, the near-term question is whether internal-tool prototypes (admin dashboards, ops scripts) should be built in Marlow-class platforms rather than in Xcode; (2) for procurement, the category is fragmenting fast (Marlow, Cursor, Copilot Workspace, Lovable-class) — evaluate against your actual workflow, not vendor demos; (3) caveat — beta no-code agent platforms are the highest "vibe without spec" risk; apply today's Spec Kit discipline even here, or the generated app will be unmaintainable the moment it ships. <a href="https://marlow.ai">Marlow AI →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">OCC · Bank Charter</span>
+    <h3><a href="https://www.occ.treas.gov/">OCC Grants Conditional National Trust Bank Charter to Trump-Linked World Liberty Financial</a></h3>
+    <p>The <strong>Office of the Comptroller of the Currency (OCC) granted conditional approval</strong> (Aug 14) for a national trust bank charter to <strong>World Liberty Trust Company</strong> — a subsidiary of the Trump family's World Liberty Financial venture. Conditions include <strong>$20M+ capital</strong>, a qualified internal audit manager, and OCC notification of business-plan changes. The Bay Harbor Islands, FL-based trust bank will handle <strong>USD1 stablecoin issuance/redemption, digital-asset custody, and conversion services</strong> (no deposits or loans). Senator Elizabeth Warren introduced legislation to block officials from owning banks, calling it an "unprecedented conflict of interest"; the OCC stated the application was reviewed by career staff over <strong>221 days</strong>. <strong>Why it matters:</strong> (1) this is the first national trust charter for a politically-connected crypto venture — a signal that the US stablecoin/custody licensing path is now open to ideologically-aligned entrants, reshaping the competitive map for regulated stablecoins; (2) the USD1 stablecoin moving in-house (from BitGo) means a Trump-family-branded stablecoin could compete directly with USDT/USDC for institutional flows — re-model your stablecoin-integration layer (Aug 15's procurement-check tip) to handle a new issuer with distinct compliance posture; (3) for a CEX, the conflict-of-interest framing is a policy risk — a future administration could unwind such charters, so treat WLTC as a jurisdiction-scoped integration, not a core rail. <a href="https://www.occ.treas.gov/">OCC →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Galaxy · CLARITY Odds</span>
+    <h3><a href="https://www.galaxy.com/">Galaxy Lowers CLARITY Act Passage Odds to 10% — Sept 15 Cloture Vote the Key Test</a></h3>
+    <p><strong>Galaxy Research cut its odds of CLARITY Act enactment to 10%</strong>, ahead of the Senate's <strong>September 15 cloture vote</strong>. The downgrade reflects the Senate's summer recess leaving the bill without momentum, compounded by the SEC's Aug 14 cancellation of its Reg Crypto meeting (Aug 14's story) — both signals that the legislative+agency path is stalling in parallel. TheBlock data also shows Mizuho cutting BitGo's price target to $11 but framing the delay as potentially advantageous for incumbents. <strong>Why it matters:</strong> (1) the 10% odds quantify what was previously qualitative — product teams should now plan Q4 under the assumption CLARITY <em>does not pass</em>, with agency rulemaking (SEC, CFTC) as the de-facto regime; (2) this extends the "policy-as-config" posture (Aug 9) from "be flexible" to "assume no statute" — the dual-regulator patchwork (Aug 14) is the shape of the next two quarters, not a transitional phase; (3) the Sept 15 cloture vote is now the single highest-impact policy catalyst on the calendar — ensure your compliance config can toggle within hours of the vote outcome, not weeks. <a href="https://www.galaxy.com/">Galaxy →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional · Hapoalim</span>
+    <h3><a href="https://www.theblock.co/rss.xml">Israel's Largest Bank Hapoalim Taps Galaxy to Offer BTC, ETH &amp; SOL Trading</a></h3>
+    <p><strong>Bank Hapoalim</strong> (Israel's largest bank) partnered with <strong>Galaxy Digital</strong> to offer <strong>Bitcoin, Ether, and Solana trading</strong> to its retail clients — a landmark for a banking sector historically cautious on crypto, and a continuation of the institutional-absorption thesis (Aug 16's "permissionless era is over" framing). The deal puts Galaxy in the role of liquidity/custody provider behind a regulated bank surface, mirroring similar bank-crypto partnerships globally. <strong>Why it matters:</strong> (1) for a CEX, bank-launched crypto trading is direct competition for the retail on-ramp — the bank already owns the customer's primary financial relationship, so differentiate on depth, product range, and cross-border capability, not just availability; (2) the SOL inclusion (alongside BTC/ETH) signals which assets are clearing the "institutionally acceptable" bar — track bank listings as a leading indicator of which alts get retail-bank distribution; (3) the Galaxy-as-backend pattern (also seen in the WLTC charter's BitGo transition) suggests the institutional stack is consolidating around a small number of infrastructure providers — relevant if you build B2B custody/liquidity rails. <a href="https://www.theblock.co/rss.xml">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Spec-Driven Development (SDD): The Structured Counter-Movement to "Vibe Coding"</strong>
+    <p>A concept crystallizing this week via GitHub Spec Kit's 120K-star traction and Copilot Workspace's GA: <strong>Spec-Driven Development (SDD)</strong> — authoring a machine-readable specification <em>before</em> any agent-generated code, with the spec as the reviewed source of truth rather than the prompt. The artifacts (<code>constitution.md</code> → <code>spec.md</code> → <code>plan.md</code> → <code>tasks.md</code>) form a pipeline where each stage is reviewed before the next, bounding the agent's blast radius to the task list. <strong>Why it matters NOW:</strong> (1) it's the concrete operationalization of Aug 14's spec-as-source tip — no longer an internal practice but a tool-supported workflow with 30+ agent integrations; (2) it reframes the agent assurance debate (Aug 15's AIUC-1) — the reviewable boundary shifts from "the agent's output" to "the spec the agent executes," which is far easier to audit; (3) for any team scaling agent-driven dev, SDD is the answer to review fatigue (Aug 16) — a human reviews one spec, not 40 diffs. Expect SDD to absorb the containment stack (Aug 15) as the <code>constitution.md</code> layer. <a href="https://github.com/github/spec-kit">Spec Kit →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulation</span>
+    <strong>FATF "Control or Sufficient Influence" (COSI) Test: The New DeFi Regulation Trigger</strong>
+    <p>A concept materializing in the FATF's recent DeFi report: the <strong>"control or sufficient influence" (COSI) test</strong> — a framework for determining whether a DeFi protocol should be subject to AML/CFT regulation based on whether any party exerts practical control over it, rather than formal ownership. This sidesteps the "decentralized = unregulated" argument by focusing on <em>actual</em> control rather than legal structure. <strong>Why it matters NOW:</strong> (1) COSI is the regulatory mechanism that will define which DeFi protocols need compliance programs — for any team building DeFi-adjacent features, the question "do we have sufficient influence?" is now a compliance design constraint, not just a legal afterthought; (2) it pairs with the UK FCA's Sept 30 authorization gateway and Russia's new comprehensive crypto framework to form a <strong>global regulatory tightening wave</strong> in Q3-Q4 2026 — design for multi-jurisdiction compliance, not a single regime; (3) the practical iOS-team implication: features that touch DeFi protocols (wallet integrations, yield aggregation) need a COSI-aware compliance gate that flags protocols with identifiable controllers as requiring enhanced due diligence. <a href="https://www.fatf-gafi.org/">FATF →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Crypto's Permissionless Era Is Over: $11.2B in 2026 Funding Absorbs the Stack Into TradFi</strong>
+    <p>A thesis gaining ground across this week's headlines (and named explicitly in CoinDesk's "week in 5 stories"): the <strong>$11.2 billion in 2026 crypto funding</strong> has effectively ended crypto's "permissionless era" — institutional capital (Goldman/NEOS, Franklin/BENJI, World Liberty bank charter, Hapoalim/Galaxy, UBS's 24× Bitcoin ETF options surge) is absorbing the stack into regulated TradFi rails, displacing the open, permissionless ethos that defined crypto's first decade. The framing: "long bitcoin, short the bankers" is over; the bankers won. <strong>Why it matters NOW:</strong> (1) for a CEX/iOS team, the product implication is that the competitive frontier is no longer "decentralized vs. centralized" but "regulated-onchain vs. regulated-offchain" — Aug 14's onchain-finance thesis, now with the funding data behind it; (2) the $11.2B figure means the institutional build-out is funded through 2027 — expect a wave of regulated tokenized products (stocks, T-bills, yield) competing for the same wallet UX your crypto features target; (3) the cultural loss of "permissionless" is real but creates opportunity — the unregulated perimeter is shrinking, so compliance-grade UX (clear provenance, audit trails, suitability checks) is now a differentiator, not a tax. <a href="https://www.coindesk.com/arc/outboundfeeds/rss/">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/github/spec-kit">GitHub — Spec Kit: Specification-Driven AI Development Toolkit</a>
+        <span class="desc">The open-source toolkit (120K+ stars) operationalizing spec-as-source — the constitution/spec/plan/tasks pipeline that bounds agent blast radius and makes review tractable. The canonical reference for Monday's tip theme.</span>
+      </li>
+      <li>
+        <a href="https://status.anthropic.com/">Anthropic — Claude Major Outage Incident (Aug 16, 21:58–22:34 UTC)</a>
+        <span class="desc">The status page record for the 36-minute Claude/claude.ai/Claude Code/Claude API outage — the availability event that should trigger your agent-workflow resilience review.</span>
+      </li>
+      <li>
+        <a href="https://huggingface.co/Qwen">Hugging Face — Alibaba Qwen3.8-Max: 2.4T-Param MoE &amp; 16-Day Autonomous Coding</a>
+        <span class="desc">The model card and release notes for the new open-weight frontier — the 1M context, the 95B active params, and the (vendor-showcase) 16-day autonomous coding run that sets the new long-horizon benchmark.</span>
+      </li>
+      <li>
+        <a href="https://www.occ.treas.gov/">OCC — Conditional National Trust Bank Charter for World Liberty Trust Company</a>
+        <span class="desc">The OCC's conditional approval (Aug 14) for the Trump-linked stablecoin/custody trust bank — the $20M capital floor, the 221-day review, and the conflict-of-interest framing that reshapes the stablecoin competitive map.</span>
+      </li>
+      <li>
+        <a href="https://blog.jetbrains.com/idea/2026/ai-assistant-skills/">JetBrains — AI Assistant Skill Manager &amp; Skill Repository</a>
+        <span class="desc">The launch post for the security-verified skill repository pattern — the model for treating agent skills as installable, reviewed artifacts rather than ad-hoc prompt snippets.</span>
+      </li>
+      <li>
+        <a href="https://www.fatf-gafi.org/">FATF — DeFi Report &amp; the "Control or Sufficient Influence" (COSI) Test</a>
+        <span class="desc">The global AML watchdog's framework for determining when a DeFi protocol is subject to regulation — the conceptual trigger that will define which protocols need compliance programs through 2027.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-17 (Monday) · Generated 2026-08-17T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Monday tip theme — Claude Code/Codex agentic workflow: GitHub Spec Kit as the reviewed front-door for agent-authored changes, JetBrains Skill Manager's verified-skill-repository pattern, and designing agent workflows to survive provider outages (today's Claude outage as the drill). AI: Claude major outage Aug 16 (~36 min), Qwen3.8-Max 2.4T MoE + 16-day autonomous coding demo, GitHub Copilot Workspace GA with Autopilot, Microsoft Intelligent Terminal 0.2 (local-model shell agents). Vibe: Power Automate plugin for Claude Code/Copilot CLI, the spec-driven-vs-vibe-coding maturation, Marlow AI platform beta. Crypto: OCC conditional bank charter for Trump-linked World Liberty Financial, Galaxy cuts CLARITY Act odds to 10% (Sept 15 cloture the test), Israel's Hapoalim + Galaxy for BTC/ETH/SOL trading. Concepts: Spec-Driven Development (SDD), FATF COSI test for DeFi, crypto's permissionless era ending ($11.2B 2026 funding).</p>
+  <p><strong>Dedup:</strong> 5 of 5 past reports loaded (Aug 16, 15, 14, 13, 12). ~85 prior topics indexed across titles, concepts, and tips. ~15 duplicate candidates filtered in favor of fresh angles: SpaceX-Cursor $60B close / Codex 15M users / Gemini 3.7 Flash / Meta Muse Code (Aug 14 — only referenced, not re-carded), Qwen 3B-download milestone (Aug 16 — only the new Qwen3.8-Max 2.4T model carded), IBM×OpenAI partnership / ChatGPT Computer History / Anthropic Workbench sunset (Aug 16 — superseded by fresh Claude outage + Copilot Workspace GA + Intelligent Terminal), Claude Code auto-continue + Utah / Cursor AIUC-1 / Microsoft MAI-Thinking-1 (Aug 15 — only referenced in resilience tip), Blacksmith codesmith / Nutanix MCP / Prime Agent (Aug 15 — only Power Automate plugin carded as the fresh ops-integration angle), Tether KPMG / SEC cancels Reg Crypto / CFTC Aug 20 (Aug 14 — only the new CLARITY 10% odds + World Liberty charter carded), BTC $62.5K weekly close / Cboe 3x ETF / Solana SIMD-0553 (Aug 15 — only referenced in markets context), Binance restricts HTX / tokenized stocks 1.31M / Unitree pre-IPO perpetuals (Aug 16 — only the fresh Hapoalim/Galaxy institutional carded), context-as-artifact / model-agnostic harness / on-device memory / containment stack / tiered inference routing / stablecoin procurement / spec-as-source (Aug 13–16 — only Spec Kit as the concrete tool carded, not the pattern re-carded), onchain finance / stablecoin audit maturity / AI×mining / world models / cross-tool prompt-stitching / agent-to-agent commerce / agent assurance AIUC-1 / resource-priced fee markets / post-quantum pragmatism / agentic change management / crypto price discovery for private markets / open-weight gravity shift (Aug 11–16), context engineering / modular monolith / AgentSecOps / AI-native architecture / agent policy-as-code / C2PA provenance (Aug 11–12), Core AI migration / MLX pipeline / Cursor rules / Copilot Agent Mode / Windsurf Cascade / ONNX Core ML EP / Pixel 11 Tensor G6 / Dream replay tips (Aug 7–16).</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$62.8–63K consolidating (support $62.3–62.5K, resistance $63.4–64K; bearish-to-neutral, 3% weekly slide; dominance 56.14%) · ETH ~$1,876 struggling at $1,900 resistance (weekly −2.1%) · Total crypto MCap ~$2.25T · Galaxy cuts CLARITY Act odds to 10% (Sept 15 cloture vote) · OCC conditional charter for World Liberty Trust Co. (Trump-linked, $20M capital floor, 221-day review) · Hapoalim (Israel's largest bank) + Galaxy for BTC/ETH/SOL trading · UBS 24× surge in Bitcoin ETF call options (Q2 filing) · Kraken parent Payward $508M Q2 adjusted revenue · SafePal data breach (~40K customers) · JPMorgan cut Polymarket banking ties · FATF COSI test for DeFi; UK FCA authorization gateway opens Sept 30 · Clarity Act cloture vote Sept 15 · CFTC Innovation Advisory Committee Aug 20.</p>
+
+  <table>
+    <thead>
+      <tr><th>Source</th><th>Status</th><th>Role</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>web_search — Tier 1 (7 queries) + 4 follow-up</td><td>✅ 11 OK</td><td>AI / Vibe / iOS / Concepts / Crypto (primary)</td></tr>
+      <tr><td>theblock.co RSS</td><td>✅ ~22 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✅ ~30 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✅ ~25 items</td><td>Crypto (primary)</td></tr>
+      <tr><td>openai.com RSS</td><td>⚠️ minimal output (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>blog.google AI RSS</td><td>✅ ~8 items</td><td>AI (supplementary)</td></tr>
+      <tr><td>hnrss.org RSS</td><td>⚠️ empty payload (skipped)</td><td>AI (supplementary)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>5/5 reports</td><td>Dedup lookback</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
