@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-18</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, August 18, 2026</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Framework Split</span>
+    <strong>Use Apple Core AI — not Core ML — for any neural or transformer model shipped after WWDC 2026</strong>
+    <p>At WWDC 2026 Apple split its on-device ML stack: <strong>Core AI</strong> is now the framework for neural networks and transformers — it spreads work across CPU, GPU, and Neural Engine via one unified API and powers Apple Intelligence — while <strong>Core ML</strong> is demoted to "classic" ML like decision trees. Rule of thumb: if it has weights and attention, it goes in Core AI; only legacy non-neural ML stays in Core ML. Start new on-device features in Core AI and log migration of hot-path transformers as tech debt, not a rewrite. <a href="https://developer.apple.com/machine-learning/">Apple ML →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Foundation Models</span>
+    <strong>Run Hugging Face open-source models on-device via the Foundation Models + MLX bridge — no server</strong>
+    <p>Apple's <strong>Foundation Models</strong> framework now bridges directly to <strong>MLX</strong>, so you can load community models from Hugging Face and run them in-process with a Swift API, exploiting Apple Silicon's unified memory for near-zero-copy CPU↔GPU handoff. For an iOS feature this means private, offline, sub-frame inference with no backend — ideal for on-device summarization, classification, or a local reranker. Pin model + MLX versions in your bundle and gate the feature behind an A17 Pro+ / M-series check, since the unified-memory advantage collapses on older chips. <a href="https://github.com/ml-explore/mlx">MLX repo →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ANE · Profiling</span>
+    <strong>Quantize to ANE-preferred int8/int4 and profile in Instruments — or your "on-device" model silently falls back to CPU</strong>
+    <p>The Neural Engine is fast but picky: it runs a constrained op set and prefers <strong>int8/int4</strong> quantized tensors. Ship an fp16 model with one unsupported op and Core AI spills that layer to CPU — turning a 4ms decode into 40ms and draining battery. Convert with Core Tools' quantizer, target ANE-supported ops, then verify in <strong>Instruments' Neural Engine instrument</strong> that you're actually hitting the ANE (watch for "spill" events). "It runs" isn't the bar; "it runs on the ANE" is. <a href="https://developer.apple.com/xcode/">Instruments →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Gemini API</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/">Gemini API Managed Agents adds 3.6 Flash + hooks</a></h3>
+    <p>Google expanded <strong>Managed Agents</strong> in the Gemini API with the cheaper/faster <strong>3.6 Flash</strong> model and hook points (pre/post-tool, handoff) so you run multi-step agents server-side without owning the orchestration loop. For an iOS team it's the least-resistance agent backend: the device streams one request, Google's runtime handles tool dispatch and state, you pay per-agent. The hooks are the valuable part — they're where you inject auth, egress allowlists, and audit logging, mirroring the PreToolUse pattern you already use in Claude Code.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GPT-5.6</span>
+    <h3><a href="https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt">OpenAI improves GPT-5.6 Sol, opens GPT-5.6 Luna to free users</a></h3>
+    <p>OpenAI shipped a quality bump to <strong>GPT-5.6 Sol</strong> in ChatGPT and widened free-tier access to the smaller <strong>GPT-5.6 Luna</strong>. The dev-relevant signal: Luna's free-tier reach makes it a viable default for low-stakes features where you don't want to pay for Sol. Pair it with last week's <strong>Ultrafast mode</strong> (Sol at ~14× speed) for a latency-tiered stack — Luna-free for cold paths, Sol-Ultrafast for hot interactive ones (the tiering pattern from Aug 14).</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Code adds cross-session messaging, opens self-hosted beta</a></h3>
+    <p>Anthropic rolled out <strong>cross-session messaging</strong> (separate Claude Code sessions exchanging context) and a public beta of <strong>self-hosted environments</strong> for enterprise clients. Cross-session is the enabler for parallel agent workflows — a planner session handing scoped tasks to worker sessions without re-stuffing context. Self-hosted matters for regulated teams (Binance-shaped) that need model and data egress controlled; pair it with the agent-containment stack (Aug 15) so self-hosted doesn't widen your attack surface.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Infra · Compute</span>
+    <h3><a href="https://openai.com/news">OpenAI bets 20 years + 10 GW on an Ohio data-center campus</a></h3>
+    <p>OpenAI signed a 20-year lease on a large central-Ohio campus backed by SoftBank's SB Energy and Nvidia, with <strong>~10 GW</strong> of new power; first phase comes online in 2028, build-out runs through 2032. The strategic read for app developers: this is supply-side confirmation that <strong>inference cost keeps falling through the decade</strong>. Design your 2026 agents assuming 2028–2032 compute abundance, not today's per-token pricing — a feature that's "too expensive to run now" ships fine later.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">DeepSeek · OSS</span>
+    <h3><a href="https://github.com/deepseek-ai">DeepSeek open-sources "Harness" — a model-agnostic agent runtime</a></h3>
+    <p>DeepSeek shipped a dev preview of <strong>Harness</strong> (MIT-licensed), a swappable layer between a model and its environment — models, tools, and UIs all plug in as components. It's the open-source answer to the model-agnostic agent harness pattern (Aug 16): you host the loop and swap providers behind an interface instead of hard-coding one vendor's agent internals. For teams evaluating agent platforms it's the cheapest way to run internal coding agents over private repos without shipping code to a third party.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Origin</span>
+    <h3><a href="https://cursor.com/docs/origin">Cursor launches Origin, an AI-native code host</a></h3>
+    <p>Cursor's new <strong>Origin</strong> platform is code hosting built for agent-written code: rich metadata for AI commits, automated conflict resolution, and infra sized for the commit volume agentic workflows generate. Launched during a GitHub outage, it's a bet that git-as-we-know-it wasn't designed for machines pushing hundreds of PRs an hour. You won't migrate Binance repos tomorrow, but the metadata + auto-merge patterns are worth borrowing for your own agent-authored-change pipeline.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Vibe Coding</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Inside Google's 353,000-person vibe coding course</a></h3>
+    <p>Google published a recap of its GenAI intensive course that drew <strong>353,000 participants</strong>, with a dedicated vibe-coding track teaching natural-language-first development with agentic tools. The signal: vibe coding is now mainstream corporate curriculum, not a meme — incoming teammates will default to describing-then-reviewing rather than typing. Adjust your spec and review process (Aug 17's Spec Kit tip) for a generation that ships AI-authored diffs.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">CFTC · AI Compute</span>
+    <h3><a href="https://cointelegraph.com/news/cftc-ai-compute-futures-cme-october-launch">CFTC floats AI-compute futures; CME targets October</a></h3>
+    <p>The CFTC is seeking public input on <strong>AI-compute futures contracts</strong> as CME targets an October launch — a new derivative that would let market participants hedge (or speculate on) the price of GPU/inference compute. For a firm like Binance that sits at the AI×crypto intersection, it's worth tracking: if compute becomes a tradeable commodity like oil, the same market-making and risk tooling you build for crypto pairs applies, and the inputs to your AI-feature cost models get a real price curve. The comment window is your chance to shape the contract spec before it ships.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum · Hegotá</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/17/ethereum-s-next-big-upgrade-has-66-proposals-including-a-major-privacy-fix">Ethereum's Hegotá upgrade: 66 proposals narrowed, major privacy fix</a></h3>
+    <p>Ethereum devs narrowed <strong>66 proposals</strong> tied to the next major upgrade, Hegotá, including a significant <strong>privacy fix</strong> (likely a step toward shielded transfers without breaking compliance). For an iOS dev building wallet features, the privacy upgrade is the one to watch: it changes what "balance" and "history" queries can safely expose in a UI and may enable privacy-preserving on-chain features without a third-party mixer. Track the EIP set as it finalizes — Hegotá is a 2026 roadmap anchor.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">AI Security</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/17/kraken-parent-payward-joins-anthropic-s-project-glasswing-for-ai-security-push">Kraken joins Anthropic's Project Glasswing for AI security push</a></h3>
+    <p>Kraken's parent Payward joined Anthropic's <strong>Project Glasswing</strong>, a push to harden AI security across crypto workflows — essentially shared red-teaming and model-behavior standards for the agents increasingly embedded in exchange, custody, and ops tooling. The relevance: as you wire LLMs into Binance flows (support, compliance review, trading-assist), the threat model is adversarial prompt injection and exfiltration, not just bugs. Glasswing is a template for the "AI security review" your own team will need to run before shipping agent features.</p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>AI-Native Architecture</strong>
+    <p>The shift from "AI as a feature" to "AI as the architectural substrate" — systems where data pipelines, deployment, and UX are designed around model inference and agent loops from day one, not bolted on. In practice this means retrieval, memory, and tool-use become first-class system concerns (versioned, monitored, governed) alongside your existing services. For your iOS work, the question to ask of any new feature: is the model a core component (→ design the data flow around it) or a sidecar (→ keep it behind an interface)? <a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/">I/O 2026 context →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Sovereign AI Inference</strong>
+    <p>The enterprise push to own the AI stack — self-hosted models, private deployments, controlled egress — visible this week in Claude Code's self-hosted beta, DeepSeek's open Harness, and OpenAI's 20-year Ohio campus. For regulated firms (Binance-shaped) it's moving from "nice to have" to procurement mandate: data residency, auditability, and the ability to keep running if a vendor has a bad day (Aug 16's Claude outage). Concretely: add <strong>"self-hostable"</strong> as a vendor-selection criterion for any AI feature touching customer data.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Modular Monolith</strong>
+    <p>The pragmatic middle ground between microservices and monoliths trending in 2026 — a single deployable unit with strict internal module boundaries. It captures most of microservices' organizational benefits (clear ownership, easier onboarding) without the operational and observability tax of a distributed system. The takeaway for platform teams: default to a modular monolith unless you have a concrete scaling or team-boundary reason to split — the "always microservices" reflex is now considered an anti-pattern.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://cointelegraph.com/news/binance-uk-launch-plans-fca-license">Binance to plan UK relaunch with FCA license application</a>
+      <span class="desc">Binance is reportedly prepping a UK relaunch via an FCA license application — relevant if you build regional onboarding or compliance flows.</span>
+    </li>
+    <li>
+      <a href="https://daringfireball.net/2026/08/follow-up_thoughts_on_watermarking">Follow-up thoughts on Anthropic's Claude watermarking</a>
+      <span class="desc">Gruber's follow-up on machine-readable watermarks in Claude output for EU AI Act compliance — a constraint to factor into AI-generated UI text and asset pipelines.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/builders-guide-to-gpt-5-6">The builder's guide to GPT-5.6</a>
+      <span class="desc">OpenAI's developer reference for building with GPT-5.6 — model selection, tool use, and structured output. (Note: OpenAI's CDN returns 403 to bots; opens fine in a browser.)</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/ecosystems/2026-08-17-harmony-plans-pre-attack-rollback-after-exploiter-forged-3-trillion-one-tokens-411976">Harmony plans rollback after exploiter forged 3 trillion ONE tokens</a>
+      <span class="desc">An exploiter forged 3 trillion ONE tokens, forcing a rollback of 109k transactions — a live stress test of "code is law" under adversarial minting.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/08/17/how-a-bug-in-coldcard-s-code-went-unnoticed-for-years-leading-to-usd100-million-in-hacked-funds">How a Coldcard bug went unnoticed for years, leading to $100M in hacked funds</a>
+      <span class="desc">A years-old Coldcard bug led to $100M in stolen funds — security lesson: reputation isn't a security model, and "battle-tested" needs a formal audit, not time.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-18 (Tuesday). Curated for an iOS developer at Binance.</p>
+  <p>BTC traded near <strong>$64K (+8% on the week)</strong> as AI-compute deal flow and stablecoin-rule clarity lifted crypto sentiment. Tips theme: AI × iOS (Core AI / MLX / Neural Engine).</p>
+  <p><strong>Dedup:</strong> 5 prior reports indexed (Aug 13–17), ~70 titles + concepts + tips screened. Explicitly excluded as recently covered: SpaceX-Cursor acquisition (08-14), Ultrafast mode (08-14), Claude outage (08-16/17), OCC/World Liberty charter (08-17), Qwen3.8-Max (08-17), Copilot Workspace GA (08-17), tokenized-stock-holders-double (08-16), AI×mining hash-rate pivot (08-14). 0 irreplaceable candidates dropped — fresh supply was strong.</p>
+  <p><strong>Sources:</strong> The Block, Cointelegraph, CoinDesk (crypto RSS); OpenAI Blog, Google AI Blog (AI RSS); web_search (AI/Vibe/Tips).</p>
+
+  <table>
+    <tr><th>Source</th><th>Status</th></tr>
+    <tr><td>GHE dedup (5 reports)</td><td>5/5 OK (local read)</td></tr>
+    <tr><td>The Block RSS</td><td>OK</td></tr>
+    <tr><td>Cointelegraph RSS</td><td>OK (via &lt;guid&gt;)</td></tr>
+    <tr><td>CoinDesk RSS</td><td>OK</td></tr>
+    <tr><td>Hacker News (hnrss)</td><td>degraded (502 on title fetch; links partial)</td></tr>
+    <tr><td>OpenAI Blog RSS</td><td>OK</td></tr>
+    <tr><td>Google AI Blog RSS</td><td>OK</td></tr>
+    <tr><td>web_search (7 queries)</td><td>6/7 OK (1 timeout: Edge AI/ANE query — covered by Core ML/MLX search)</td></tr>
+  </table>
+</footer>
+
+</body>
+</html>
