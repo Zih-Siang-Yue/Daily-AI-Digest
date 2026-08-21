@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-21</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, August 21, 2026 · Stripe Buys OpenRouter · Binance Agent OS · BTC Past $75K · CFTC Backup Plan · Slack Vibe-Coding</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Friday: AI Infra & Prompt Engineering — RAG, tool use, agent arch) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG · Provenance</span>
+    <strong>Make Retrieval an Explicit, Cited Tool Call — Not a Silent Context Injection</strong>
+    <p>The default mobile-RAG failure mode is silent: you stuff retrieved chunks into the prompt, the model paraphrases them, and there's no way to audit which source backed which claim. The fix is to expose retrieval as a tool — <code>search_kb(query)</code> returns chunks wrapped in <code>&lt;source id="..."&gt;</code> blocks — and require the model to cite source IDs in its answer. Now the model decides <em>when</em> to retrieve (vs. always-pull), you can redact or cap per source, and every answer is provably traceable. For a Binance iOS help-center agent this is the difference between a defensible reply and an untraceable hallucination — and pair it with a late-interaction (multi-vector) embedder for retrieval quality. <a href="https://huggingface.co/blog/multi-vector-encoder">Multi-vector retrieval →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Authorization</span>
+    <strong>Authorize Agents Per-Tool With a Manifest + Least-Privilege Subaccount</strong>
+    <p>Binance's Agent OS (today's AI card) codifies the pattern every agent-to-production integration needs: never hand an agent full account credentials. Issue each agent a scoped identity — a subaccount or API key with allowlisted endpoints, a spend/size cap, and revocable access — declare the allowed tool set in a frozen manifest, and log every tool call. The containment boundary is the credential's <em>scope</em>, not a prompt instruction, which is exactly why a malicious retrieved doc can't talk the agent into exfiltrating funds. For any iOS feature that lets an agent touch exchange, payment, or internal APIs, this is the minimum viable safety surface — and it generalizes straight to Coinbase's x402 and Kraken's approval-gated assistant. <a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Agent OS pattern →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · Bounds</span>
+    <strong>Give Every Agent Loop a Budget: Max-Steps, Cost-Cap, and a Termination Condition</strong>
+    <p>Event-driven, goal-persisting agents (Cursor's <code>/goal</code>, an agent told to "keep going until CI is green") make unbounded loops the default failure mode — a stuck agent burns tokens and takes write actions forever. Wrap every run in four bounds: a max-tool-call ceiling, a token/cost cap, an explicit termination predicate (goal-met <em>or</em> human-approval gate for writes), and per-tool-call checkpointing so a killed run resumes instead of restarting. Treat the Claude outage (Aug 17) and Cursor's resilient "builds" warm-copies as the test cases your harness should already pass — the difference between a 36-minute blip and a runaway bill. <a href="https://cursor.com/changelog/08-13-26">Resilient agent runs →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Stripe · M&amp;A</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/982536/stripe-is-buying-the-ai-gateway-openrouter">Stripe to Acquire OpenRouter for $7.5B — Payments Giant Buys the Multi-Model AI Gateway</a></h3>
+    <p>Stripe agreed to acquire OpenRouter (Aug 19), the AI gateway that routes developers across many model providers and aggregates each one's cost, for roughly <strong>$7.5 billion</strong>. The deal fuses Stripe's payments + billing surface with the model-routing layer, signaling that multi-model routing is becoming infrastructure rather than a thin wrapper. <strong>Why it matters:</strong> (1) for any team building an agent harness, the gateway/routing layer (the InferenceRouter pattern from earlier this month) is now a procurement category Stripe will own — expect a single metered invoice across providers; (2) it tightens the payments×AI-gateway convergence that Coinbase's x402 and Binance's Agent OS (today) are approaching from the crypto side; (3) caveat — gateway consolidation is a lock-in vector, so keep your model calls behind your own interface so you can repoint. <a href="https://www.theverge.com/ai-artificial-intelligence/982536/stripe-is-buying-the-ai-gateway-openrouter">Verge →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Binance · Agent Platform</span>
+    <h3><a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Binance Launches Agent OS — AI Agents Trade Crypto With User-Set Controls</a></h3>
+    <p>Binance launched <strong>Agent OS</strong> (Aug 20), a developer platform letting AI agents — including <strong>ChatGPT, Claude Code, Codex, and Cursor</strong> — read market data, monitor accounts, execute trades, make payments, and touch onchain services within user-configured permissions and limits. Users assign agents to dedicated subaccounts, scope permissions, and can revoke at any time; Binance sees the trades but not the agent's external reasoning. <strong>Why it matters:</strong> (1) for a Binance iOS dev this is the most directly relevant agent platform of the week — it's the API surface an in-app agent feature would sit on, and the subaccount/permission model is the containment boundary to mirror client-side (today's tip); (2) it puts Binance alongside Coinbase (for Agents, x402) and OKX (agent marketplace) in the agent-to-exchange race; (3) caveat — agents that place trades and make payments are the highest-blast-radius config: ship read-only first, gate writes behind explicit approval. <a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · iOS/Mac</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/983059/now-chatgpt-connects-directly-to-apple-messages">ChatGPT Now Connects Directly to Apple Messages on Mac</a></h3>
+    <p>OpenAI shipped an <strong>Apple Messages plugin</strong> for ChatGPT on Mac (Aug 20): the agent can search iMessage history, catch up on conversations, and draft and send replies from inside the ChatGPT app. <strong>Why it matters:</strong> (1) it's the clearest signal yet that ChatGPT is treating Apple's per-app data surfaces as first-class agent context — and Apple Messages is the highest-personal-PII surface on iOS, so the privacy/authorization design is the template to study; (2) for an iOS team, the integration shape (plugin → scoped Apple-framework access → agent action) is exactly the pattern your own Binance-app agent integrations will take; (3) caveat — auto-sending iMessages via an agent is high-blast-radius; mirror the least-privilege subaccount pattern from today's tip rather than granting blanket send permission. <a href="https://www.theverge.com/ai-artificial-intelligence/983059/now-chatgpt-connects-directly-to-apple-messages">Verge →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Connectors</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/981739/claude-gmail-google-drive-connector-cowork-mobile-web">Claude Gets Gmail Send + Google Drive, and Cowork Expands to All Paid Accounts</a></h3>
+    <p>Anthropic (Aug 18) extended Claude's Google Workspace connectors to <strong>send Gmail and manage Drive files</strong>, and rolled <strong>Claude Cowork</strong> (its agent computer-use surface) to all paid accounts on mobile and web. <strong>Why it matters:</strong> (1) the Workspace connectors are Anthropic's tool-use/MCP-style integration layer — agents acting on real data stores, not just chatting — and the model that ships these safely (scoped OAuth, per-action review) is the one to copy for your own agent-to-internal-API integrations; (2) Cowork-on-mobile means a Claude agent can operate your accounts from a phone, which is the same UX vector your iOS agent features will face; (3) pair with today's authorization tip — connectors are only as safe as their credential scopes, so audit the OAuth grant list, not just the connector name. <a href="https://www.theverge.com/ai-artificial-intelligence/981739/claude-gmail-google-drive-connector-cowork-mobile-web">Verge →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Slack · Workflow</span>
+    <h3><a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch">Slack Launches Collaborative Vibe-Coding Channels</a></h3>
+    <p>Slack (Aug 20) is launching <strong>channels designed for collaborative vibe coding</strong> — bringing AI coding agents into shared, multi-person Slack channels where a team co-drives an agent's work in the open rather than in a solo IDE session. <strong>Why it matters:</strong> (1) it moves vibe coding from a single-developer IDE activity to a team-collaborative surface — the place where review fatigue (Aug 16) gets solved socially, in-channel, instead of at PR time; (2) for a Binance team, channel-native agent sessions fit existing incident/response workflows better than IDE-only agents; (3) caveat — shared agent context in a chat app is a prompt-injection surface (anyone in the channel can shape the agent's context), so scope the agent's channel reach and write actions explicitly. <a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch">Verge →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Replit · OpenAI</span>
+    <h3><a href="https://openai.com/index/replit">Replit Expands Software-Creation Access With GPT-5.6 Luna</a></h3>
+    <p>OpenAI (Aug 19) announced <strong>Replit is expanding access to software creation using GPT-5.6 Luna</strong> — a variant in the GPT-5.6 family (alongside <em>Sol</em>, the ultrafast preview) — extending the browser-IDE's "describe it, run it" agentic path to more creators. <strong>Why it matters:</strong> (1) it's more evidence the agentic IDE is splitting into a spectrum — frontier-reasoning (Claude Code, Cursor) vs. ultrafast (GPT-5.6 Sol) vs. accessible/browser-native (Replit + Luna) — so pick the tier by job, not by brand; (2) for prototyping internal Binance tools, a browser-native agentic IDE lowers the "spin up an environment" tax that slows throwaway prototypes; (3) caveat — vendor announcement; validate Luna's real latency and cost against your own workload before committing it to a production path. <a href="https://openai.com/index/replit">OpenAI →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GitHub · Copilot</span>
+    <h3><a href="https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/">GitHub Copilot's "My Work" Pane Tames Multi-Agent Session Sprawl</a></h3>
+    <p>GitHub (Aug 19) shipped a <strong>"My Work" pane</strong> for Copilot that tracks what's in flight, what's done, and what's next across multiple concurrent agent sessions — the first built-in answer to the "juggling five agent runs at once" problem that event-driven agents (Aug 20) created. <strong>Why it matters:</strong> (1) as agents become always-on and event-subscribed, session sprawl is the new cognitive load — a unified inbox/queue is the UX pattern that makes multi-agent work tractable; (2) for a team already on GitHub Enterprise, it's the no-procurement path to agent-work management versus adopting a new tool; (3) pair with today's agent-loop-budget tip — "My Work" is the <em>visibility</em> layer, the budget is the <em>safety</em> layer, and you need both before letting agents run unsupervised. <a href="https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-managing-your-work/">GitHub Blog →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · BTC Breakout</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/08/20/bitcoin-pushes-past-usd75-000-as-rally-continues">Bitcoin Pushes Past $75K — Golden Cross Forms as Record $3B in Shorts Get Wiped</a></h3>
+    <p>BTC pushed past <strong>$75,000</strong> (Aug 20–21), extending the rally that began with the Treasury's doubled long-end buybacks: a bullish <strong>golden cross</strong> set up above $71K, a record <strong>~$3B in short liquidations</strong> were wiped, spot ETFs pulled <strong>$517M</strong> (largest one-day inflow in 3.5 months), and ETH jumped ~18% toward $2,250. The macro tailwind hardened as US debt crossed <strong>$40T</strong>, with one strategist floating a <strong>$180K target</strong> on the Treasury-liquidity thesis. <strong>Why it matters:</strong> (1) this is the follow-through that turns Aug 20's "$70K relief bounce" into a technical breakout — your liquidation/liquidity monitoring should be warm for continuation, not just the breakdown case; (2) the $40T-debt + Treasury-buyback driver is a <em>fiscal</em>, not crypto-native, catalyst — re-rate your macro-signal weights accordingly; (3) caveat — VanEck still has 8 of 12 capitulation signals flashing, so treat $75K as a level to defend, not a launchpad. <a href="https://www.coindesk.com/markets/2026/08/20/bitcoin-pushes-past-usd75-000-as-rally-continues">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Policy · CFTC</span>
+    <h3><a href="https://cointelegraph.com/news/cftc-chair-crypto-regulation-without-clarity-act-congress">CFTC Chief Puts Staff on Notice: Regulate Crypto Now if the Clarity Act Fails</a></h3>
+    <p>The CFTC chair (Aug 20) <strong>put staff on notice to craft crypto regulations under the agency's existing authority if the Clarity Act doesn't pass Congress</strong> — effectively declaring a unilateral rulemaking backup plan alongside the Senate's Sept 15 cloture vote. <strong>Why it matters:</strong> (1) this is the operationalization of Aug 20's "agency-rulemaking regime" concept — the CFTC is signaling it will fill the void if the legislature stalls, so plan Q4 under the assumption CFTC rules land <em>with or without</em> Clarity; (2) it reframes last week's Hyperliquid-onshore signal as part of a broader "CFTC acts alone" posture, not a one-off; (3) for a CEX, a CFTC rulemaking track means derivatives/listing compliance config must be able to toggle on agency-rule timelines, not wait on a statute that's still at ~10% passage odds. <a href="https://cointelegraph.com/news/cftc-chair-crypto-regulation-without-clarity-act-congress">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional · Bank Charter</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-08-20-kraken-parent-payward-explores-becoming-a-full-bank-outside-us-412390">Kraken Explores Becoming a Full Bank Outside the US</a></h3>
+    <p>Kraken's parent Payward (Aug 20) is <strong>exploring becoming a full-service bank outside the US</strong> — extending the crypto-exchange-as-bank trajectory past the trust-charter model (cf. World Liberty's OCC trust charter, Aug 17) toward a fuller banking license offshore. <strong>Why it matters:</strong> (1) it's another instance of the "permissionless era is over / stack absorbed into TradFi" thesis (Aug 16–17) — exchanges are choosing regulated-bank status as a competitive moat, not a compliance tax; (2) an offshore full-bank license sidesteps the US charter-politics risk that attaches to the World Liberty OCC approval, which a future administration could unwind; (3) for a competitor like Binance, the implication is that the institutional-trust bar is rising — custody and payment rails will increasingly require a banking-grade license in major non-US jurisdictions, not just a VASP registration. <a href="https://www.theblock.co/news/business/2026-08-20-kraken-parent-payward-explores-becoming-a-full-bank-outside-us-412390">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Agent-to-Exchange: Crypto's First AI "Killer App" Crystallizes</strong>
+    <p>A thesis crystallizing across this week's launches: AI agents are getting direct, authorized access to exchange trading accounts and onchain rails — Binance's Agent OS (today), Coinbase for Agents + the x402 payment protocol (June), OKX's autonomous-agent marketplace (July), and OpenLedger's framing of <strong>"agentic payments as crypto's first AI killer app."</strong> The pattern: agents move from chatting <em>about</em> crypto to transacting it, scoped to user-set permissions. <strong>Why it matters NOW:</strong> (1) for a Binance iOS team, this is the product surface to design for — wallet and trading UX that assumes an agent, not just a human, is the actor, with per-agent permission caps and an audit trail; (2) it's the concrete realization of the AI×tokenized-markets convergence (Aug 20), but the <em>exchange-account-access</em> layer is the genuinely new primitive, distinct from agent-to-agent commerce; (3) the differentiator won't be the agent — it'll be the authorization/containment model (today's tip) and the audit trail behind it. <a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Agent-to-exchange →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Economics</span>
+    <strong>The AI-Mining Capex Divergence: $5.1B Spent, $341M Earned (15:1)</strong>
+    <p>A fresh, contrarian datapoint on the AI×mining thesis: BlocksBridge reports nine public Bitcoin miners spent <strong>$5.11B on capex in H1 2026</strong> but earned just <strong>$341M in AI/HPC revenue</strong> — a ~<strong>15:1 capex-to-revenue gap</strong> — even as AI revenue grew 52% QoQ ($205.8M in Q2). Across 15 miners and data-center companies, capex hit $30.7B, already 42.6% above all of 2025. <strong>Why it matters NOW:</strong> (1) it quantifies the unit-economics problem the bullish "miners pivot to AI" narrative (earlier this month) has been missing — the pivot is real but deeply front-loaded, with revenue lagging capex by an order of magnitude; (2) for infra/portfolio teams, the risk is over-built AI capacity outrunning demand, alongside Nvidia's "GPU-as-asset-class" financing (Aug 19); (3) the contrarian read: not every miner survives the gap — back the power/land-advantaged incumbents (Core Scientific, TeraWulf, Bitdeer), not the leveraged followers. <a href="https://cointelegraph.com/news/bitcoin-miners-ai-hpc-capex-revenue-2026">AI-mining divergence →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>Permission-Scoped Agent Identity: The Subaccount as the Containment Boundary</strong>
+    <p>A pattern gaining traction across every agent-to-service integration this week — Binance Agent OS (dedicated agent subaccounts), Coinbase for Agents (x402, scoped auth), and Kraken's approval-gated assistant: agents get <strong>scoped identities</strong> (subaccounts or per-agent API keys with allowlisted scopes, spend caps, and revocable access) rather than full account credentials. The credential's <em>scope</em> is the containment boundary, not a prompt instruction. <strong>Why it matters NOW:</strong> (1) it's the architectural answer to the "agent touches production" problem — and it's converging across exchanges, which means a de-facto standard you can design against rather than reinventing; (2) for an iOS team, the client-side implication is a per-agent permission UI (scopes, caps, revoke) that mirrors the server subaccount — the exact UX your Binance agent features will need; (3) it pairs directly with today's tool-use and RAG-provenance tips: scoped identity + cited retrieval + bounded loops = the minimum viable agent-safety stack. <a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Subaccount containment →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/982536/stripe-is-buying-the-ai-gateway-openrouter">The Verge — Stripe is buying the AI gateway OpenRouter ($7.5B)</a>
+      <span class="desc">The payments×AI-gateway convergence deal — what OpenRouter's multi-model routing becomes once Stripe owns the billing surface, and the lock-in caveat for teams routing through it.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/binance-opens-crypto-trading-to-ai-agents-with-user-set-controls">Cointelegraph — Binance opens crypto trading to AI agents with user-set controls</a>
+      <span class="desc">The Agent OS launch — supported tools (ChatGPT, Claude Code, Codex, Cursor), the subaccount/permission/revocation model, and how Binance sees trades but not the agent's reasoning.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/bitcoin-miners-ai-hpc-capex-revenue-2026">Cointelegraph — Bitcoin miners pour billions into AI as capex outpaces revenue 15-to-1</a>
+      <span class="desc">The BlocksBridge data behind the AI-mining divergence — $5.11B capex vs. $341M AI revenue in H1, the 52% QoQ growth, and which miners are actually earning.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/markets/2026/08/20/bitcoin-pushes-past-usd75-000-as-rally-continues">CoinDesk — Bitcoin pushes past $75,000 as rally continues</a>
+      <span class="desc">The $75K follow-through — golden cross, record short liquidations, $517M ETF inflows, and the Treasury-liquidity/$40T-debt macro driver with a $180K strategist target.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/cftc-chair-crypto-regulation-without-clarity-act-congress">Cointelegraph — CFTC chair: agency will move forward on crypto regulation if Clarity fails</a>
+      <span class="desc">The CFTC's unilateral-rulemaking backup plan — the operationalization of the agency-rulemaking regime ahead of the Sept 15 cloture vote.</span>
+    </li>
+    <li>
+      <a href="https://huggingface.co/blog/state-of-open-models-summer-2026">Hugging Face — State of Open Models: Summer 2026 Observations</a>
+      <span class="desc">A deep-dive landscape of the open-model ecosystem this summer — the reference for any self-hosting or open-weight procurement decision, complementing the Qwen-gravity shift earlier this month.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-21 (Friday) · Generated 2026-08-21T02:00:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Friday tip theme — AI Infra &amp; Prompt Engineering: RAG-as-an-explicit-cited-tool-call, least-privilege agent authorization via subaccount + tool manifest (mirroring Binance Agent OS), and the agent-loop budget (max-steps + cost-cap + termination condition). AI: Stripe acquiring OpenRouter for $7.5B (payments × multi-model gateway), Binance Agent OS (ChatGPT/Claude Code/Codex/Cursor trade crypto with user-set controls), ChatGPT Apple-Messages plugin on Mac, Claude Google-Workspace connectors + Cowork expansion to all paid accounts. Vibe: Slack collaborative vibe-coding channels, Replit × GPT-5.6 Luna, GitHub Copilot "My Work" pane for multi-agent session management. Crypto: BTC pushes past $75K (golden cross, record $3B short wipeout, $517M ETF inflows, $40T US debt, $180K target), CFTC chair puts staff on notice to regulate if Clarity Act fails (Sept 15 cloture; ~10% odds), Kraken explores full-bank status outside the US. Concepts: agent-to-exchange as crypto's first AI "killer app," the AI-mining 15:1 capex-revenue divergence, permission-scoped agent identity (subaccount as containment boundary).</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 16, 17, 20; Aug 18 &amp; 19 not generated — skipped silently). ~90 prior topics indexed across titles, concepts, and tips. ~14 duplicate candidates filtered in favor of fresh angles: OpenAI frontier-training pause / ZDR / Asana-Codex ROI (Aug 20 — superseded by fresh Stripe×OpenRouter + ChatGPT-iMessage + Claude connectors), Cursor Cloud Agents Subscriptions / /goal / subagents-on-VMs / Origin / Canvases / stacked PRs (Aug 20 — only Slack vibe-coding channels + GitHub "My Work" pane carded as fresh workflow angles), Claude outage / Spec Kit / Copilot Workspace GA / Intelligent Terminal (Aug 17 — only the agent-loop-budget tip references outage resilience), IBM×OpenAI / ChatGPT Computer History / Anthropic Workbench sunset / Qwen 3B downloads (Aug 16 — superseded by fresh Claude connectors + Replit×Luna), Trump White House / Clarity push / Hyperliquid-onshore / SEC crypto-offering rules / OCC GENIUS / FASB (Aug 20 — only the fresh CFTC-will-regulate-if-Clarity-fails carded), World Liberty OCC charter / Galaxy CLARITY 10% / Hapoalim-Galaxy (Aug 17 — only fresh Kraken-full-bank carded), Binance-HTX restrictions / tokenized-stocks 1.31M / Unitree pre-IPO perps (Aug 16 — only fresh BTC-$75K continuation + AI-mining-15:1 carded), event-driven-agents / AI×tokenized-convergence / agency-rulemaking-regime / SDD / FATF-COSI / permissionless-era-over / agentic-change-management / open-weight-gravity-shift concepts (Aug 16–20 — only fresh agent-to-exchange / AI-mining-capex-divergence / permission-scoped-agent-identity concepts carded), Edge-AI ANE/ONNX/ZDR-tier + context-as-artifact/model-agnostic-harness/on-device-memory + Spec-Kit/JetBrains-Skills/outage-resilience tips (Aug 16–20 — only fresh Friday RAG-as-tool-call / least-privilege-authorization / agent-loop-budget tips carded).</p>
+  <p><strong>Markets snapshot:</strong> BTC pushes past ~$75K (golden cross above $71K, record ~$3B short liquidations, $517M spot-ETF inflow largest in 3.5mo; Treasury doubled long-end buybacks, US debt &gt;$40T; strategist $180K target; ETH +18% to ~$2,250) · VanEck still 8/12 capitulation signals flashing · CFTC chair puts staff on notice to regulate crypto if Clarity Act fails (Sept 15 cloture vote; Galaxy ~10% odds) · Kraken/Payward explores full-bank status outside US · X (Musk) exploring stablecoins to pay influencers · MiCA cracks down on USDT in Europe (global demand holds) · Bitdeer signs $400M AI cloud-computing deal (Malaysia) · AI agents could make today's billion-dollar crypto hacks look like "pennies" (industry leaders) · Injective becomes SEC-registered transfer agent · GnosisDAO approves Gnosis Chain for Ethereum Economic Zone · Optimism moves 546.9M OP from future airdrops to ecosystem growth fund · BitGo secures South Korea VASP license.</p>
+  <p><strong>Sources:</strong> RSS (The Block, Cointelegraph, CoinDesk, OpenAI Blog, Google AI Blog) + WebFetch (Anthropic News, Cursor Changelog, GitHub Blog, The Verge AI, Hugging Face blog, Cointelegraph articles). HN RSS returned an empty payload — skipped. WebSearch API was unavailable (team model-access denied — 403); WebFetch used as fallback per the error-handling spec. Crypto RSS feeds all healthy; AI supplementary feeds (OpenAI/Google) healthy. OpenAI individual blog posts returned 403 — summarized from RSS titles + The Verge coverage.</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (18 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>HN RSS</td><td>RSS</td><td>FAIL (empty payload)</td></tr>
+      <tr><td>Anthropic News</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>Cursor Changelog</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>GitHub Blog</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>The Verge AI</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>Hugging Face blog</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>Cointelegraph articles</td><td>WebFetch</td><td>OK</td></tr>
+      <tr><td>CoinDesk CFTC article</td><td>WebFetch</td><td>FAIL (429)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>FAIL (403 model-access)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>3/5 reports</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
