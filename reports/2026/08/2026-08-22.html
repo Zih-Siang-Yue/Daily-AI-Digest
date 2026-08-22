@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-22</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, August 22, 2026 · OpenAI Cuts GPT-5.6 Sol Pricing · Nvidia $6B Poolside License · Linus × AI Kernel Debug · BTC Near $77K · Dalio Buys BTC · Coldcard AI Bug-Hunt</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Saturday: Best of Week — revisit the most impactful tip category) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: The Ship-Safe Agent Checklist</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week · Agent Safety</span>
+    <strong>The Minimum Viable Agent-Safety Stack: Identity, Budget, Provenance, Telemetry</strong>
+    <p>This week's tip thread — Monday's spec front-door, Thursday's on-device ZDR tier, and Friday's least-privilege subaccount + loop-budget + RAG-provenance — converges on one deployable stack. <strong>Layer 1, Identity:</strong> issue each agent a scoped subaccount or per-agent key (mirroring Binance Agent OS), never full account credentials. <strong>Layer 2, Budget:</strong> a max-tool-call ceiling, a token/cost cap, and an explicit termination predicate (goal-met <em>or</em> human-approval gate for writes). <strong>Layer 3, Provenance:</strong> retrieval as a cited tool call with source IDs in every answer. The <strong>new fourth layer — Telemetry:</strong> emit a structured span (OpenTelemetry) per tool call carrying <code>agent_id</code>, tool, args-hash, latency, cost, and a write/deny flag, so every agent action is queryable after the fact. The first three bound blast radius; the fourth makes the boundary auditable — which is what turns "we ran an agent" into a defensible claim for a regulated exchange. <a href="https://opentelemetry.io/docs/">OpenTelemetry docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">AI × iOS · Client-Side Containment</span>
+    <strong>Mirror the Server-Side Subaccount Boundary Client-Side: Per-Agent Keychain Scope + Scoped URLSession</strong>
+    <p>Binance Agent OS scopes agents server-side via subaccounts; the iOS client should mirror that boundary, not dissolve it. Concretely: give each agent a dedicated Keychain access group (or a <code>SecAccessControl</code>-guarded key) instead of the app's shared keychain, hand it a short-lived per-agent token via a scoped <code>URLSession</code> pinned to a base URL with an allowlisted path set, and route every agent-initiated network call through that session. A prompt-injected agent then can't reach arbitrary endpoints — if its session is scoped to a read-only market-data path and its keychain entry has no payment scope, a malicious retrieved doc can't exfil funds. Pair with the telemetry span from today's first tip so the client logs every scoped call. <a href="https://developer.apple.com/documentation/foundation/urlsession">URLSession docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Infra · Evals</span>
+    <strong>Add a Regression Eval Gate Before a Write-Capable Agent Touches Production</strong>
+    <p>Asana (2 weeks, ~$12K) and Stampli (68% launch-hour cut, today) show agents replacing months of engineering — but neither result is safe to ship without an eval gate. Stand up a small, frozen regression eval set (10–50 golden tasks with expected outcomes) and block agent-authored PRs that regress it; run it in CI before any merge and re-run on every model-version bump — today's GPT-5.6 Sol price cut is exactly the kind of quiet change that can shift behavior without a changelog. An eval gate is the difference between "the agent wrote it" and "the agent's change is provably non-regressive" — the latter is what a regulated team can merge at 2 a.m. Start with the riskiest surfaces (payment, signing, auth). <a href="https://github.com/openai/evals">OpenAI evals →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · API Pricing</span>
+    <h3><a href="https://www.reuters.com/technology/openai-cuts-developer-pricing-frontier-gpt-56-sol-model-by-more-than-20-2026-08-21/">OpenAI Cuts Developer Pricing for Frontier GPT-5.6 Sol by 20%+</a></h3>
+    <p>Reuters reports OpenAI cut developer pricing for GPT-5.6 Sol — its ultrafast frontier variant, the speed-tier sibling of Luna (which powers Replit's Free Mode) — by more than 20%, lowering the per-call cost of the model agentic harnesses reach for on latency-bound tasks. <strong>Why it matters:</strong> (1) Sol is the tier your agent router (the InferenceRouter pattern) should default to for hot-path, latency-sensitive calls — re-run your cost model; the cut materially shrinks the per-run bill for high-volume iOS-side features. (2) the same cycle as ChatGPT Ads expanding across Europe (below) suggests ad/subscription revenue is subsidizing API price drops — forecast model cost against the vendor's monetization mix, not token economics alone. (3) caveat — validate the latency and the new effective price against your own workload before re-tiering. <a href="https://www.reuters.com/technology/openai-cuts-developer-pricing-frontier-gpt-56-sol-model-by-more-than-20-2026-08-21/">Reuters →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Nvidia · AI Infra M&amp;A</span>
+    <h3><a href="https://www.bloomberg.com/news/articles/2026-08-20/nvidia-to-pay-ai-startup-poolside-a-6-billion-license-newcomer-says">Nvidia to Pay AI Coding Startup Poolside a $6B License</a></h3>
+    <p>Bloomberg (via The Information) reports Nvidia will pay Poolside — an AI coding startup — roughly $6B for a license, extending the "GPU-as-asset-class" financing thesis into outright model-license deals. <strong>Why it matters:</strong> (1) it's a new deal shape — a chipmaker paying a software firm billions for a model license rather than equity, signaling that frontier coding models are being valued as capital assets, not SaaS products; (2) for infra/portfolio teams, another data point that AI compute + model IP are consolidating under a few buyers — track how this reshapes which coding models are available to self-host vs. rent; (3) caveat — vendor-license deals can lock the buyer's stack; for a self-hosting team, treat it as a market signal, not a procurement template. <a href="https://www.bloomberg.com/news/articles/2026-08-20/nvidia-to-pay-ai-startup-poolside-a-6-billion-license-newcomer-says">Bloomberg →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Codex · ROI Case</span>
+    <h3><a href="https://openai.com/index/stampli">Stampli Cuts Launch Hours 68% Using Codex + ChatGPT Work</a></h3>
+    <p>OpenAI's Aug 20 customer story: Stampli, facing a fixed deadline with design resources committed elsewhere, used Codex and ChatGPT Work to compress weeks of launch production into days, cutting launch hours 68%. <strong>Why it matters:</strong> (1) it extends the agentic-ROI pattern (Asana's 5-years→2-weeks, Aug 20) with a second, differently-shaped datapoint — here the win is deadline-bound launch acceleration, not legacy replacement, which is the more common enterprise scenario; (2) the "ChatGPT Work" naming signals the enterprise/team tier is where these ROI stories are being staged — if your org is evaluating Codex, this is the procurement-grade reference; (3) caveat — pair with today's eval-gate tip before quoting 68% internally; validate the baseline. <a href="https://openai.com/index/stampli">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Monetization</span>
+    <h3><a href="https://openai.com/index/chatgpt-ads-expands-across-europe">ChatGPT Ads Expand Across 31 European Markets</a></h3>
+    <p>OpenAI expanded ChatGPT Ads to 31 European markets, letting advertisers reach users as they explore, compare options, and make decisions — the broadest ad-surface expansion yet. <strong>Why it matters:</strong> (1) read this as the subsidy engine behind the same-cycle GPT-5.6 Sol API price cut (above) — consumer ad revenue is increasingly cross-funding developer-facing pricing, which is why API cost can fall independent of token economics; (2) for a product team, it's a signal that ChatGPT's user base is being monetized as an intent surface (compare/options/decide), competing with search-ad intent — relevant if you build acquisition or comparison flows; (3) caveat — ad-driven subsidization is a model-vendor concentration risk; keep your model calls abstracted so a future pricing reversal doesn't bite. <a href="https://openai.com/index/chatgpt-ads-expands-across-europe">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Kernel · AI Debugging</span>
+    <h3><a href="https://github.com/torvalds/linux/commit/818bebeb63dd6bf5f4e07e145f6cdbace520a34c">Linus Torvalds: "A Debug Session From Hell, Enormously Helped by an AI"</a></h3>
+    <p>A Linux kernel commit (surfaced on Hacker News) carries Linus's note that a brutal debugging session was "enormously helped by an AI" — a striking credibility marker for AI-assisted debugging in the hardest, highest-stakes codebase in open source. <strong>Why it matters:</strong> (1) it reframes the "vibe coding" discourse — AI assistance is now credible at kernel/systems grade, not just CRUD and prototypes; the maturity isn't about app code, it's about brownfield debugging of code no human fully holds in head; (2) for an iOS team maintaining a large brownfield codebase, point your agent at the debug/reproduce loop (logs → repro → root-cause) rather than only at greenfield generation — that's where the leverage now demonstrably is; (3) caveat — kernel-grade debugging still shipped under human review; the AI helped, it didn't merge. <a href="https://github.com/torvalds/linux/commit/818bebeb63dd6bf5f4e07e145f6cdbace520a34c">Kernel commit →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Vibe Coding · Trend</span>
+    <h3><a href="https://www.flourish.org/2026/08/personal-apps/">"Vibe Coding Personal Apps in Mid-2026" — A Reflective State-of-the-Practice</a></h3>
+    <p>A widely-read essay (flourish.org, on Hacker News) reflects on the state of vibe-coding personal apps in mid-2026 — the experience of shipping small, single-user apps via natural language, and where it does and doesn't hold up. <strong>Why it matters:</strong> (1) it names the category your own throwaway internal tools live in — the clearest "what's actually changed for the solo builder" framing this cycle, distinct from the enterprise ROI stories; (2) for a Binance iOS dev building side-projects or internal prototypes, the practical read is where vibe-coding holds (rapid UI, glue, data munging) vs. where it still breaks (state, auth, anything shipped to others); (3) pair with Aug 17's spec-driven counter-movement — vibe for the personal prototype, a spec before it touches shared infra. <a href="https://www.flourish.org/2026/08/personal-apps/">flourish.org →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Vibe Coding · Case Study</span>
+    <h3><a href="https://benhoyt.com/writings/updating-gifty-with-ai/">Show HN: Updating a Wedding Registry Site With AI in 275 Commits</a></h3>
+    <p>A developer's writeup (benhoyt.com, on Hacker News) walks through updating an existing wedding-registry website with an AI coding agent across 275 commits — a concrete, commit-level case study of brownfield agent-driven maintenance rather than greenfield generation. <strong>Why it matters:</strong> (1) the 275-commit log is exactly the "reviewable stack" evidence (Aug 20's stacked-PR pattern) — small, atomic, agent-authored commits a human can review, not one giant diff; (2) it's the honest middle ground between the Asana/Stampli ROI headlines (weeks of engineering compressed) and the personal-app vibe essay — a real, file-by-file maintenance log; (3) caveat — the author retained full editorial control of every commit; the agent proposed, the human merged, which is the safe pattern to copy. <a href="https://benhoyt.com/writings/updating-gifty-with-ai/">benhoyt.com →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security · AI Bug-Hunt</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/21/coldcard-ships-firmware-after-usd114-million-bitcoin-theft-says-ai-helped-catch-more-bugs">Coldcard Ships Firmware After $114M Bitcoin Theft; Says AI Helped Catch More Bugs</a></h3>
+    <p>CoinDesk reports Coldcard shipped new firmware three weeks after a $114M bitcoin theft, with three weeks of review — aided by AI — turning up problems unrelated to the original flaw; the company notes updating still does not make an already-compromised wallet safe. <strong>Why it matters:</strong> (1) it's the second quantified datapoint (after Bybit's $700M AI-assisted recovery, Aug 20) that AI is becoming baseline crypto-security infrastructure — here as proactive bug-finding in firmware review, not just post-hack tracing; (2) for a wallet/exchange team, the operational move is to wire AI-assisted review into your release gate for security-critical code (signing, custody, key handling) as a standing step, not an incident response; (3) caveat — AI bug-finding is additive, not a fix for a compromised system; the security model still assumes the keys are burnt. <a href="https://www.coindesk.com/tech/2026/08/21/coldcard-ships-firmware-after-usd114-million-bitcoin-theft-says-ai-helped-catch-more-bugs">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · BTC &amp; Gold</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoin-seeks-support-near-77k-btc-gold-100-day-highs">Bitcoin Seeks Support Near $77K as BTC and Gold Near 100-Day Highs</a></h3>
+    <p>Cointelegraph reports BTC seeking support near $77K with both BTC and gold near 100-day highs — extending the rally that broke $75K (Aug 21) toward a fresh level, with the gold correlation, not a crypto-native catalyst, as the story. <strong>Why it matters:</strong> (1) the fresh angle vs. yesterday's $75K card is the BTC/gold 100-day-high tandem — the rally is a macro (debt/fiscal) trade expressed through both assets, so watch gold and long-end yields as co-signals, not on-chain flows alone; (2) the VanEck capitulation signals (8/12 flashing since Aug 21) are still unresolved — treat $77K as a level to defend, with continuation requiring follow-through past prior resistance; (3) for liquidation/liquidity monitoring, stay warm for both the continuation and the failed-breakout cases. <a href="https://cointelegraph.com/markets/bitcoin-seeks-support-near-77k-btc-gold-100-day-highs">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Macro · Allocation</span>
+    <h3><a href="https://cointelegraph.com/news/ray-dalio-buy-bitcoin-debt-crisis">Ray Dalio: Buy "A Bit" of Bitcoin Amid Potential Debt Crisis</a></h3>
+    <p>Cointelegraph reports Ray Dalio — hedge-fund founder, ~$15B net worth — recommended investors buy "a bit" of Bitcoin and overweight Bitcoin and gold rather than bonds amid a potential US debt crisis. <strong>Why it matters:</strong> (1) it's a macro-heavyweight allocation call that frames BTC (with gold) as a debt-crisis hedge rather than a growth/speculation bet — the same fiscal driver (US debt &gt;$40T, Treasury buybacks) behind the BTC/gold 100-day-high tandem (above); (2) for a trading desk, the signal is that the marginal BTC buyer this cycle is a macro/debt-hedge allocator, not a crypto-native — model flows accordingly; (3) caveat — Dalio's "a bit" is modest sizing, not a directional call; treat it as sentiment confirmation of the fiscal driver, not a price target. <a href="https://cointelegraph.com/news/ray-dalio-buy-bitcoin-debt-crisis">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Economics</span>
+    <strong>The Ad-Subsidized Pricing Loop: Why API Costs Can Fall Independent of Tokens</strong>
+    <p>A concept crystallizing across this cycle's OpenAI moves — the GPT-5.6 Sol 20%+ developer price cut landing the same week ChatGPT Ads expands across 31 European markets: frontier labs are cross-subsidizing developer API pricing with consumer ad revenue and enterprise subscriptions, decoupling model cost from token economics. <strong>Why it matters NOW:</strong> (1) for any team forecasting model spend, API price isn't a pure function of compute — it tracks the vendor's monetization mix, so a change in ad rollout or subscription uptake can move your bill before token costs do; (2) it reshapes the model-vendor risk — price drops that look competitive may be ad-subsidized and reversible, so keep calls abstracted behind your own interface (the InferenceRouter pattern); (3) the second-order effect is that the cheapest model tier may not be the open-weight one — it may be the ad-subsidized frontier one, which complicates the self-host vs. rent decision. <a href="https://www.reuters.com/technology/openai-cuts-developer-pricing-frontier-gpt-56-sol-model-by-more-than-20-2026-08-21/">Pricing source →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>AI-Assisted Security Review as a Release Gate: From Incident Response to Standing Step</strong>
+    <p>A pattern hardening across this cycle's crypto-security datapoints — Coldcard's AI-aided firmware review after the $114M theft (today) and Bybit's $700M AI-assisted post-hack recovery (Aug 20): AI is moving from a reactive incident tool to a standing, pre-release review step for security-critical code. <strong>Why it matters NOW:</strong> (1) it operationalizes the "AI as crypto-security infrastructure" thesis — not a marketing claim but a quantified, repeatable step (AI bug-finding in the review window) that caught bugs unrelated to the original flaw; (2) for an exchange/custody team, wire AI-assisted review into the release gate for signing, custody, and key-handling code the way you already wire unit tests — not as a one-off after an incident; (3) caveat — it's additive defense, not a substitute for the security model (a compromised key is still burnt), so pair with today's eval-gate tip. <a href="https://www.coindesk.com/tech/2026/08/21/coldcard-ships-firmware-after-usd114-million-bitcoin-theft-says-ai-helped-catch-more-bugs">Security datapoint →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Dev Practice</span>
+    <strong>The Kernel-AI Credibility Inflection: AI Debugging Crosses Into Systems Software</strong>
+    <p>A concept surfaced by Linus Torvalds's "enormously helped by an AI" kernel-commit note (today): AI-assisted development has crossed the credibility chasm from app/CRUD code into the Linux kernel and systems software — the hardest, highest-stakes, most-brownfield domain. <strong>Why it matters NOW:</strong> (1) it reframes the "vibe coding" maturation discourse — the frontier of credible AI use is no longer greenfield generation but brownfield debugging of code no single human fully holds; the personal-apps essay (today) and the wedding-registry 275-commits log (today) sit on the same credibility curve, just lower; (2) for an iOS team, aim your agent at the reproduce → root-cause loop on your largest brownfield modules, where the leverage is now demonstrable, rather than only at new-feature generation; (3) caveat — even at kernel grade the AI proposed and the human merged; credibility is for assistance, not autonomy. <a href="https://github.com/torvalds/linux/commit/818bebeb63dd6bf5f4e07e145f6cdbace520a34c">Kernel commit →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.reuters.com/technology/openai-cuts-developer-pricing-frontier-gpt-56-sol-model-by-more-than-20-2026-08-21/">Reuters — OpenAI cuts developer pricing for GPT-5.6 Sol by 20%+</a>
+      <span class="desc">The price-cut source — and the API-economics story behind today's ad-subsidized-pricing-loop concept.</span>
+    </li>
+    <li>
+      <a href="https://www.bloomberg.com/news/articles/2026-08-20/nvidia-to-pay-ai-startup-poolside-a-6-billion-license-newcomer-says">Bloomberg — Nvidia to pay AI startup Poolside a $6B license</a>
+      <span class="desc">The model-as-capital-asset deal shape — a chipmaker paying a software firm billions for a license rather than equity.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/08/21/coldcard-ships-firmware-after-usd114-million-bitcoin-theft-says-ai-helped-catch-more-bugs">CoinDesk — Coldcard ships firmware after $114M theft; AI helped catch bugs</a>
+      <span class="desc">The security datapoint behind today's AI-review-as-release-gate concept — proactive AI bug-finding in the firmware review window.</span>
+    </li>
+    <li>
+      <a href="https://www.flourish.org/2026/08/personal-apps/">flourish.org — Vibe coding personal apps in mid-2026</a>
+      <span class="desc">The reflective state-of-the-practice for solo builders — where vibe-coding holds and where it breaks for personal apps.</span>
+    </li>
+    <li>
+      <a href="https://github.com/torvalds/linux/commit/818bebeb63dd6bf5f4e07e145f6cdbace520a34c">GitHub (torvalds/linux) — Linus: a debug session from hell, enormously helped by an AI</a>
+      <span class="desc">The kernel-grade credibility marker — the commit note that reframes AI-assisted debugging from app code into systems software.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-22 (Saturday) · Generated 2026-08-22T02:05:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Saturday tip theme — Best of Week: the ship-safe agent checklist (a synthesized 4-layer agent-safety stack — identity + budget + provenance + a new telemetry layer; client-side subaccount mirroring on iOS via per-agent Keychain scope + scoped URLSession; and a regression eval gate before write-capable agents touch production). AI: OpenAI cuts GPT-5.6 Sol developer pricing 20%+ (Reuters), Nvidia pays Poolside a $6B license (Bloomberg), Stampli cuts launch hours 68% with Codex + ChatGPT Work, ChatGPT Ads expand across 31 European markets. Vibe: Linus Torvalds's kernel commit credits AI for a brutal debug, "vibe coding personal apps in mid-2026" essay, a wedding-registry rewrite in 275 AI-assisted commits. Crypto: Coldcard ships post-$114M-theft firmware with AI bug-finding, BTC seeks support near $77K as BTC &amp; gold hit 100-day highs, Ray Dalio says buy "a bit" of Bitcoin amid a debt crisis. Concepts: the ad-subsidized pricing loop, AI-assisted security review as a release gate, the kernel-AI credibility inflection.</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 21, 20, 17; Aug 18 &amp; 19 not generated — skipped silently). ~95 prior topics indexed across titles, concepts, and tips. ~14 duplicate candidates filtered in favor of fresh angles: Replit×GPT-5.6 Luna / OpenAI frontier-pause / ZDR / Asana-Codex ROI / pacing-model-development (Aug 20–21 — only the fresh GPT-5.6 Sol price cut + Stampli ROI + ChatGPT-Ads-Europe carded), Binance Agent OS / Stripe×OpenRouter / ChatGPT-iMessage / Claude connectors / Cursor Cloud Agents Subscriptions / Origin / Copilot Canvases / stacked PRs / "My Work" pane / Slack vibe channels (Aug 20–21 — only the fresh 4-layer agent-safety stack + client-side iOS subaccount mirroring + eval-gate tips carded as Saturday best-of-week synthesis), Edge-AI ANE/ONNX/ZDR-tier + RAG-cited-tool-call + least-privilege-subaccount + agent-loop-budget tips (Aug 20–21 — consolidated into today's best-of-week 4-layer stack, with telemetry as the new layer), BTC $75K golden-cross / CFTC-regulate-if-Clarity-fails / Trump-White-House-Clarity / SEC-OCC-FASB / Kraken-full-bank / World-Liberty-OCC / Galaxy-CLARITY-10% (Aug 17–21 — only the fresh BTC-$77K/gold-100-day-highs + Dalio-debt-crisis + Coldcard-AI-bug-hunt carded), agent-to-exchange / AI-mining-15:1 / permission-scoped-agent-identity / event-driven-agents / AI×tokenized-convergence / agency-rulemaking-regime / SDD / FATF-COSI / permissionless-era-over concepts (Aug 17–21 — only fresh ad-subsidized-pricing-loop + AI-review-as-release-gate + kernel-AI-credibility-inflection concepts carded), Qwen3.8-Max / Copilot Workspace GA / Intelligent Terminal / Spec Kit / Power Automate / Marlow / JetBrains-Skills / Claude outage (Aug 17 — only the fresh Linus-kernel-AI-debug + personal-apps-essay + 275-commits case study carded).</p>
+  <p><strong>Markets snapshot:</strong> BTC seeks support near ~$77K, BTC &amp; gold near 100-day highs (Cointelegraph) · Ray Dalio: buy "a bit" of BTC, overweight BTC + gold over bonds amid debt crisis (~$15B net worth; Cointelegraph) · Coldcard ships post-theft firmware; AI helped catch more bugs after $114M bitcoin theft (CoinDesk) · Ethena ENA +48% on a $1B FalconX deal; HYPE tests its record (CoinDesk) · Crypto Council for Innovation + Blockchain Association sue Illinois over its 0.2% digital-asset tax (CoinDesk) · Clarity Act op-eds split — "Pass the Clarity Act" vs "the hard truth is the Clarity Act is an anti-crypto bill" (CoinDesk; Sept 15 cloture still the test) · Bitget CEO Gracy Chen: BTC within $10–20K of current levels at year-end, doubts US buys BTC (Cointelegraph) · CFTC ordered a trading ban for former Alameda/FTX executives (Cointelegraph) · OpenAI cuts GPT-5.6 Sol developer pricing 20%+ (Reuters) · Nvidia pays AI coding startup Poolside a $6B license (Bloomberg) · Stampli cuts launch hours 68% with Codex + ChatGPT Work (OpenAI) · ChatGPT Ads expand to 31 European markets (OpenAI) · OpenAI launches "AI Futures" editorial blog on transformative AI (OpenAI).</p>
+  <p><strong>Sources:</strong> RSS (Cointelegraph, CoinDesk, OpenAI Blog, Google AI Blog, Hacker News) + GHE archive (sean-y/daily-digest, 3/5 past reports). WebSearch API was unavailable (team model-access denied — 403) across all 7 queries; RSS used as fallback per the error-handling spec. The Block RSS returned an empty payload — skipped. Crypto RSS feeds healthy (Cointelegraph, CoinDesk); AI supplementary feeds healthy (Hacker News, OpenAI, Google). No WebFetch enrichment this cycle — RSS titles + descriptions were sufficient; OpenAI per-post fetches historically return 403.</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>FAIL (empty payload)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~8 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~6 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~9 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~4 items)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>OK (~10 items)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>FAIL (403 model-access)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>3/5 reports (Aug 18, 19 missing)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
