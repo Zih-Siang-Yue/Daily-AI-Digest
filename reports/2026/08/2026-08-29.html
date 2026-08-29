@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-29</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, August 29, 2026 · OpenAI Winds Down Cursor Model Contract Post-SpaceX Deal · Anthropic Blacklist Ruled Illegal · Nvidia Buying Hugging Face ~$13B · Solana Disinflation Vote Passes · Bitwise Solana ETF Hits $1B · Apple Core AI On-Device Stack</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Saturday: Best of Week — revisit On-Device AI, the week's most impactful category, anchored on the freshly-documented Core AI framework) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Saturday: Best of Week (On-Device AI Stack, Anchored on Core AI)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Apple · Core AI</span>
+    <strong>The 2026 Apple On-Device Stack: Pick Core AI, Foundation Models, Core ML, or MLX by Intent</strong>
+    <p>Saturday's best-of-week revisits the category that dominated Tuesday (FoundationModels/MLX/Create ML) and Thursday (M6 Neural Engine/MLX/ONNX) — on-device AI — with a fresh keystone: Apple's own developer page now documents <strong>Core AI</strong> as "the best way to bring and run AI models on device," purpose-built for Apple Silicon with zero server dependencies and zero token costs. The decision rule, by intent: shipping your <em>own</em> generative model (LLM/vision) on-device &rarr; <strong>Core AI</strong>; want Apple's built-in intelligence without shipping a model &rarr; <strong>Foundation Models framework</strong> (Aug 25 tip); classic/bounded ML (tree ensembles, regression, a phishing classifier) &rarr; <strong>Core ML</strong> (Apple now explicitly points LLMs/gen-AI to Core AI, so Core ML is the "classic ML" lane, Aug 27 AOT tip still applies); need to train/fine-tune on Mac &rarr; <strong>MLX</strong> (Aug 25/27). The shift vs. a month ago: generative on-device is no longer "Core ML, awkwardly" — it has its own first-class framework. <a href="https://developer.apple.com/machine-learning/">Apple ML docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Debugger</span>
+    <strong>Profile With the Core AI Debugger Before You Ship — Side-by-Side Model Comparison + Op-Level Tensors</strong>
+    <p>Apple ships a <strong>Core AI Debugger</strong> app (visible on the ML page hero) that shows side-by-side model comparison, a node graph, per-operation similarity scores, and the selected op's tensor output. The deployable loop for a Binance iOS feature (a transaction classifier, a support-message triage model, an input-quality scorer): load two candidate models side-by-side, run the same inputs, and inspect op-level divergence to catch silent regressions before they ship — the on-device analog of Aug 22's eval-gate, now as a visual tool rather than a hand-rolled script. Add it to your ship checklist: no Core AI model merges without a debugger diff that shows bounded divergence. <a href="https://developer.apple.com/machine-learning/">Core AI Debugger →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Privacy</span>
+    <strong>Core AI's "Zero Server, Zero Token Cost" = the ZDR-Tier Default for Gen-AI Features</strong>
+    <p>The week's security posture (Aug 20/25/27's zero-data-retention / zero-egress tier) just got productized as a default, not a special effort: Core AI is explicitly marketed as <em>"zero server dependencies and zero token costs"</em> — meaning the zero-egress claim for generative features is defensible by construction, not by configuration discipline. For PII-adjacent Binance features (transaction summaries, support triage, in-chat classification), Core AI makes "no inference egress" the starting point. Pair it with Foundation Models' <strong>Dynamic Profiles</strong> (swap models, tools, and instructions within a continuous session) for adaptive behavior, and the <strong>Evaluations framework</strong> to verify reliability across dynamic conditions — sovereignty is no longer capability-constrained, only engineering-effort-constrained. <a href="https://developer.apple.com/machine-learning/">On-device sovereignty →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Cursor</span>
+    <h3><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI Winds Down Cursor Model Contract Following SpaceX Acquisition</a></h3>
+    <p>OpenAI announced (Aug 28) it will wind down the contract supplying OpenAI models to Cursor, following SpaceX's acquisition of Cursor's parent Anysphere (the acquisition was earlier reported at ~$60B; OpenAI's own post now confirms it — reconciling the Aug 27 report's caution that the deal was unverified). <strong>Why it matters:</strong> Cursor is a daily tool for many iOS devs, and GPT-model access inside it is ending — though Cursor remains model-agnostic, so Claude and Gemini models continue. <strong>How to use it:</strong> don't standardize on a single model behind a single IDE; keep a model-router abstraction (the InferenceRouter pattern) so a vendor pulling access doesn't break your workflow, and watch Cursor's changelog for the migration timeline.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Policy</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling">Anthropic Illegally Blacklisted by Trump Administration, Court Rules</a></h3>
+    <p>A court ruled (The Verge, Aug 28) the Trump administration's blacklisting of Anthropic was "unlawful retaliation in violation of the First Amendment." <strong>Why it matters:</strong> for teams that route agentic coding or in-app features onto Claude/Claude Code, model-vendor availability is now subject to political risk, not just capacity events (cf. Aug 25's Claude outage) — a second, distinct failure mode to plan for. <strong>How to use it:</strong> factor vendor political/legal risk into your model-router fallback posture alongside the capacity-outage case; the recovery from a politically-driven access cut is slower and less predictable than a 529. <a href="https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling">The Verge →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Agents</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/984875/chatgpt-work-can-now-work-more-autonomously">ChatGPT Work Can Now Work Autonomously — Signing Into Sites With Isolated Credentials</a></h3>
+    <p>ChatGPT Work's agent can now sign into websites to book a DMV appointment, cancel a reservation, or fill out a job application — without OpenAI ever seeing your login credentials (The Verge, Aug 26). <strong>Why it matters:</strong> credential-isolated delegation is the new agentic primitive — the agent acts on the web on your behalf, but the credential boundary is enforced, not hoped-for. <strong>How to use it:</strong> this is the UX/permission pattern to study for any agentic web-action feature you build; the "vendor-can't-see-credentials" boundary is exactly the trust model your own agent features should mirror (cf. Aug 21's least-privilege subaccount pattern extended to the login surface).</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">AI Infra · M&amp;A</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/985452/is-nvidia-buying-hugging-face">Nvidia Reportedly Buying Hugging Face for ~$13B</a></h3>
+    <p>Nvidia is reportedly buying Hugging Face — the central open-model hub — for almost $13B (The Verge, Aug 27, citing The Information; Business Insider reported talks were ongoing but not yet final). <strong>Why it matters:</strong> Hugging Face is where iOS devs pull MLX-format Llama/Phi/Qwen models for on-device/Edge work; if it consolidates under Nvidia — already the chip + data-center + GPU-backed-financing player — the open-weight model layer folds into the compute layer. <strong>How to use it:</strong> pin and mirror the model weights/versions your app depends on; don't assume the model-hosting home won't change licensing or access terms. <strong>Caveat:</strong> deal reported, not officially confirmed.</p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Anthropic · Workflow</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/984261/claude-cowork-can-now-remember-your-regular-chats">Claude Cowork Gains Persistent Memory Across Chats</a></h3>
+    <p>Anthropic added memory to Cowork — the same memory Claude's chatbot already uses — so you pick up tasks without re-explaining, with memory on by default (sensitive topics like health or beliefs excluded unless manually enabled) (The Verge, Aug 25). <strong>Why it matters:</strong> persistent, cross-session agent memory is becoming a first-class product feature (cf. Aug 24's MCP project-memory tip and Aug 25's context-engineering concept) — the context layer is moving from "re-onboard every session" to "remembered by default." <strong>How to use it:</strong> for agentic workflows, lean on the memory layer to cut re-onboarding cost, but mind the sensitive-topic defaults when the agent handles user PII — opt sensitive flows out of memory explicitly.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Industry · Trend</span>
+    <strong>Vibe-Coding Economics Shift From Per-Seat to a Usage-Based "Cloud Bill"</strong>
+    <p>The business model for AI coding assistants is shifting from predictable per-seat licenses to a volatile, usage-based "cloud bill" model — with teams facing unexpectedly high costs as promotional credits from various vendors expired over summer 2026 (industry reports). <strong>Why it matters:</strong> for a Binance team running parallel agents, the cost ceiling is no longer the seat — it's the usage meter (cf. Aug 22's agent-loop-budget tip), and the credit-expiry cliff turns "cheap in pilot" into "expensive in production." <strong>How to use it:</strong> re-run your per-agent cost model against usage-based pricing, not the old per-seat math; keep the loop-budget ceiling (max-steps + a cheap "abort and discard" path) as the cost-control primitive, and tag agent runs for cost attribution before the bill surprises you.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Solana · Governance</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/28/solana-vote-to-double-disinflation-passes-by-a-hair-in-dramatic-finish">Solana Validators Approve Doubling of Disinflation Rate — Reducing Future SOL Issuance</a></h3>
+    <p>Solana validators approved a proposal to double the network's annual disinflation rate from 15% to 30%, reducing future SOL issuance while leaving the long-term inflation target unchanged (The Block/Cointelegraph/CoinDesk, Aug 28); CoinDesk reports it passed "by a hair" in a dramatic finish, with Kraken- and Galaxy-linked validators switching sides before the vote. <strong>Why it matters:</strong> it's a structural, supply-side change to SOL's issuance curve — the kind of governance event that reshapes long-term supply expectations, distinct from a market-flow story. <strong>How to use it:</strong> re-model SOL's long-term supply schedule at the new disinflation rate; watch whether follow-on proposals further tighten issuance, and note the governance drama as a signal of how contested Solana's monetary policy is becoming.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · ETF</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-08-28-bitwise-fund-is-first-solana-etf-to-hit-1-billion-aum-413035">Bitwise Solana Staking ETF Becomes First Solana ETF to Hit $1B AUM</a></h3>
+    <p>The Bitwise Solana Staking ETF (ticker BSOL) crossed $1B AUM on Friday, the first Solana ETF to reach the mark, less than a year after its launch (The Block, Aug 28). <strong>Why it matters:</strong> it's the institutional-adoption datapoint for Solana — a Solana product crossing $1B signals real allocators, not just retail speculation, which is the demand-side complement to the supply-side disinflation vote above. <strong>How to use it:</strong> for liquidity/monitoring teams, a $1B Solana ETF raises the correlation between Solana ETF flows and SOL spot — track the flow-to-price channel, and expect the ETF flow signal to increasingly lead SOL's intraday moves.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Prediction Markets</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/08/28/kalshi-takes-legal-blow-in-court-ruling-confirming-state-powers-over-prediction-markets">Kalshi Takes a Legal Blow — Court Confirms State Powers Over Prediction Markets</a></h3>
+    <p>A U.S. appeals court dealt Kalshi a blow, confirming states' powers over prediction markets and challenging the CFTC's claim of exclusive jurisdiction over event contracts (The Block/CoinDesk, Aug 28); the ruling sets up a rift between federal courts that the Supreme Court may ultimately need to settle. <strong>Why it matters:</strong> prediction-market/event-contract regulation is a live frontier — the federal-vs-state jurisdictional question directly shapes what products can list where, which matters for any team tracking event-contract or perp-adjacent structures. <strong>How to use it:</strong> model the state-vs-federal jurisdictional split as an unresolved risk, not a settled rule; don't build product on the assumption of a single federal regulator owning the category.</p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>"AI-vs-AI Cyber Defense" — The Open-Letter Thesis That Defense Must Be AI-Powered</strong>
+    <p>A concept crystallizing across this week's cross-lab move: an open letter (Aug 27) signed by OpenAI, Anthropic, Google, and 100+ companies/organizations calls for a "global surge in cyber defense," arguing AI-enabled cyberattacks will become far more widespread and that defenders must get "cyber-capable AI" in their hands — fix the most dangerous weaknesses, verify the fixes, share what works. <strong>Why it matters NOW:</strong> (1) for a Binance security team, the thesis is that the only scalable defense against AI-powered attacks is AI-powered defense — design your SOC/red-team tooling around AI defenders, not just AI attackers; (2) a rare cross-lab consensus (OpenAI + Anthropic + Google agreeing publicly) signals the pattern is near-consensus, not one vendor's framing; (3) caveat — an open letter is a posture, not a product; the tooling to safely put cyber-capable AI in defenders' hands without creating new attack surface is the hard, unsolved part. <a href="https://openai.com/collective-cyberdefense/">OpenAI Collective Cyberdefense →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Economics</span>
+    <strong>Model + Compute Vertical Consolidation — Nvidia Owning Both the Chips and the Model Hub</strong>
+    <p>A thesis extending Aug 24's "compute-as-asset-class" concept into a new shape: Nvidia buying Hugging Face (the central open-model repository) on top of already owning the chips, the data-center build-out, and GPU-backed financing means the full AI stack — compute AND the model layer — is consolidating under one vendor. <strong>Why it matters NOW:</strong> (1) for an iOS dev pulling open-weight models for on-device/Edge work, the "home of open models" is now potentially inside a compute vendor — re-evaluate the supply-chain assumption that open-weight model access is neutral infrastructure; (2) it reframes self-host-vs-rent: vertical consolidation narrows the independent middle (independent model hubs, independent compute), so hedge by mirroring the weights you depend on; (3) caveat — deal reported, not confirmed, and regulators may push back on a chips+models combination. <a href="https://www.theverge.com/ai-artificial-intelligence/985452/is-nvidia-buying-hugging-face">The Verge →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Macro</span>
+    <strong>AI Valuation Mania — Sovereign-Scale TAM Claims (Anthropic's $30T)</strong>
+    <p>A concept surfaced by the WSJ report (via The Verge, Aug 25) that Anthropic is "likely to tell investors its potential revenue opportunities are above $30 trillion" — topping even SpaceX's $28.5T framing. <strong>Why it matters NOW:</strong> (1) it's a hype-filter — when an AI lab's TAM claim exceeds the GDP of a large economy, treat it as a fundraising narrative, not a forecast; size your own AI bets against grounded unit economics, not these numbers; (2) it signals the funding environment is still drinking the Kool-Aid, which extends the runway for AI-tool proliferation (good for tool availability, risky for discernment — cf. Aug 24's "internet of slop" quality problem); (3) caveat — investor-pitch TAM is a ceiling fantasy by design; the real signal is what they build and ship, not what they pitch. <a href="https://www.theverge.com/ai-artificial-intelligence/984434/anthropic-may-be-even-more-delusional-than-elon-musk">The Verge →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI — Our decision on Cursor following its acquisition by SpaceX (Aug 28)</a>
+      <span class="desc">The primary source behind today's top story — OpenAI's own reasoning for winding down model supply to Cursor post-SpaceX acquisition. (Direct fetch 403'd; confirmed via the OpenAI Blog RSS item — title, description, link, and Aug 28 date.)</span>
+    </li>
+    <li>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling">The Verge — Anthropic was illegally blacklisted by the Trump administration, court rules (Aug 28)</a>
+      <span class="desc">The First-Amendment-retaliation ruling — and what it means for the political-risk failure mode of a key model vendor.</span>
+    </li>
+    <li>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/985452/is-nvidia-buying-hugging-face">The Verge — Is Nvidia buying Hugging Face? (Aug 27)</a>
+      <span class="desc">The reported ~$13B deal behind today's "model + compute vertical consolidation" concept — and the open-model-ecosystem stakes for every dev pulling weights from HF.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/collective-cyberdefense/">OpenAI — Collective Cyberdefense open letter (Aug 27)</a>
+      <span class="desc">The "AI-vs-AI cyber defense" thesis signed by OpenAI, Anthropic, Google, and 100+ organizations — the source behind today's security concept.</span>
+    </li>
+    <li>
+      <a href="https://developer.apple.com/machine-learning/">Apple Developer — AI &amp; Machine Learning (Core AI)</a>
+      <span class="desc">The verified primary source for today's on-device tips — Core AI, the Core AI Debugger, Foundation Models, Core ML, and MLX positioning, all on Apple's own developer page.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-29 (Saturday) · Generated 2026-08-29T02:30:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Saturday tip theme — best of week, revisiting on-device AI (the week's most impactful category) with a fresh keystone: Apple's <strong>Core AI</strong> framework (now documented on developer.apple.com), via a Core AI/Foundation Models/Core ML/MLX decision tree, the Core AI Debugger for side-by-side model profiling, and Core AI's "zero server, zero token cost" as the productized ZDR-tier default for gen-AI features. AI: OpenAI winds down its Cursor model contract following SpaceX's acquisition of Cursor (Aug 28 — reconciling the Aug 27 caution that the deal was unverified; OpenAI's own blog now confirms it), Anthropic's Trump-admin blacklisting ruled illegal First-Amendment retaliation, ChatGPT Work goes autonomous with isolated-credential web sign-ins, Nvidia reportedly buying Hugging Face ~$13B. Vibe: Claude Cowork gains persistent cross-session memory, and vibe-coding economics shift from per-seat to a usage-based "cloud bill" as summer promo credits expire. Crypto: Solana validators approve doubling the disinflation rate (15%&rarr;30%, reducing future SOL issuance, passed "by a hair"), Bitwise's Solana Staking ETF becomes the first Solana ETF to hit $1B AUM, and Kalshi takes a legal blow as a court confirms state powers over prediction markets (CFTC exclusive-jurisdiction claim challenged, SCOTUS split possible). Concepts: "AI-vs-AI cyber defense" (the cross-lab open-letter thesis), model + compute vertical consolidation (Nvidia owning both chips and the model hub), and AI valuation mania (Anthropic's $30T sovereign-scale TAM claim as a hype-filter).</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 27, 25, 24; Aug 28 &amp; 26 not generated — skipped silently). ~95 prior topics indexed across titles, concepts, and tips. ~22 duplicate candidates filtered in favor of fresh angles: Apple M6/M5 Ultra + Jalapeño + rogue-AI/METR + Gemini Financial/Legal (Aug 27 — only the fresh Anthropic-blacklist + ChatGPT-Work-autonomous + Nvidia-Hugging-Face carded), Claude outage + GPT-5.6-in-Kiro + Wan3.0 + Apple-Music-labels (Aug 25 — only the fresh Claude-Cowork-memory carded), Copilot-in-Slack/Teams + OpenAI-HF-sandbox + Nvidia-server-prices + SpaceX-Cognition + compute-as-asset-class + KYA (Aug 24 — only the fresh OpenAI-Cursor-wind-down + usage-based-economics carded), FoundationModels/MLX/Create-ML tips (Aug 25) + M6-NE/MLX/ONNX tips (Aug 27) + hooks/Codex-subagent/MCP-memory tips (Aug 24 — only fresh Core-AI-decision-tree + Core-AI-Debugger + zero-server-ZDR-default tips carded as the Saturday best-of-week on-device synthesis), on-device-sovereignty + context-engineering + financial-repression + internet-of-slop/provenance + tokenized-rights-model concepts (Aug 24-27 — only fresh AI-vs-AI-cyber-defense + model+compute-consolidation + AI-valuation-mania concepts carded), CryptoQuant-$83K + SEC-custody + Nvidia-Q2-$108B (Aug 27 — only fresh Solana-disinflation + Solana-ETF-$1B + Kalshi-ruling carded). One prior-report reconciliation: the Aug 27 report flagged "SpaceX acquires Cursor $60B" as a likely hallucination after primary-source verification — OpenAI's Aug 28 blog post ("Our decision on Cursor following its acquisition by SpaceX") now confirms the acquisition, so today's top story is the verified follow-through; the $60B figure remains reports-attributed (not primary-sourced), so it's cited with a caveat.</p>
+  <p><strong>Markets snapshot:</strong> Solana disinflation vote passes — doubles annual rate 15%&rarr;30%, reduces future SOL issuance, Kraken/Galaxy validators switched sides, "by a hair" (The Block/Cointelegraph/CoinDesk, Aug 28) · Bitwise Solana Staking ETF (BSOL) first Solana ETF to hit $1B AUM, &lt;1 year (The Block, Aug 28) · Kalshi/Nevada Ninth Circuit ruling — state powers over prediction markets, CFTC exclusive-jurisdiction claim challenged, SCOTUS split possible (The Block/CoinDesk, Aug 28) · Bybit launches 24/7 options on stock perpetuals, SpaceX &amp; Nvidia first (The Block, Aug 28) · BitGo to buy NYDIG trading arm for $42.5M cash+stock + $15M earnout (CoinDesk, Aug 28) · OpenAI winds down Cursor model contract post-SpaceX acquisition (OpenAI Blog, Aug 28) · Anthropic illegally blacklisted by Trump admin, court rules First-Amendment retaliation (The Verge, Aug 28) · Trump EPA wants to let data centers hide air pollution (The Verge, Aug 28) · Nvidia reportedly buying Hugging Face ~$13B (The Verge/The Information, Aug 27; Business Insider: talks not final) · OpenAI/Anthropic/Google open letter: combat AI cyberattacks with AI, 100+ companies (The Verge, Aug 27) · ChatGPT Work autonomous — signs into websites with isolated credentials (The Verge, Aug 26) · Claude Cowork gains persistent memory across chats (The Verge, Aug 25) · Anthropic tells investors &gt;$30T potential revenue (WSJ via The Verge, Aug 25) · OpenAI head of data centers Chris Malone departed (The Verge, Aug 25) · ChatGPT adds option to save temporary chats (The Verge, Aug 27) · Google AI Mode hotel/flight booking in Search (The Verge, Aug 27) · Apple Core AI framework documented on developer.apple.com — on-device gen-AI, zero server/token cost, Core AI Debugger (primary source).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block, Cointelegraph, CoinDesk, OpenAI Blog, Google AI Blog; Hacker News RSS returned 502 Bad Gateway — skipped, consistent with prior runs) + WebFetch primary-source verification (theverge.com/ai-artificial-intelligence for late-Aug headlines + real URLs; developer.apple.com/machine-learning to verify Apple Core AI; openai.com/index/our-decision-on-cursor returned 403 — confirmed via the OpenAI Blog RSS item instead; github.blog/news 404'd, so the unverified "Copilot multi-model/Spark" WebSearch synthesis was EXCLUDED rather than carded, consistent with the prior reports' exclusion of uncorroborated syntheses). Crypto RSS feeds all healthy (The Block ~6, Cointelegraph ~5, CoinDesk ~5 items captured); AI supplementary feeds healthy (OpenAI ~9, Google AI ~4, low-signal consumer posts). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — the OpenAI-Cursor story is verified via OpenAI's own RSS/blog, Apple Core AI via developer.apple.com, and all AI news via The Verge's dated article URLs. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes no file-write tool).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~6 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~5 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~5 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~9 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~4 items, low-signal)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (The Verge AI, Apple developer ML); FAIL (openai.com/index 403, github.blog/news 404)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>3/5 reports (Aug 28, 26 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
