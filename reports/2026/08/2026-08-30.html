@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-08-30</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, August 30, 2026 · Sony/WMG Sue Anthropic · Anthropic Model Hardware Standard · Claude Code Hooks &amp; Restricted Mode · Fogo L1 Hack · Ripple XRP Quantum Prep · AI Agents Paying Each Other</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Sunday: Best of Week — revisit Claude Code / Codex agentic workflow, the Monday category, anchored on the freshly-shipped Claude Code 2.1.243–2.1.251 changelog) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Sunday: Best of Week (Claude Code Agentic Workflow, Anchored on the Aug 25–28 Changelog)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Hooks</span>
+    <strong>Gate Model Switches With PreModelSwitch / PostModelSwitch Hooks</strong>
+    <p>Claude Code <code>2.1.251</code> (Aug 28) added two new hook events — <code>PreModelSwitch</code> and <code>PostModelSwitch</code> — that let you <em>block</em>, <em>confirm</em>, or <em>annotate</em> a model switch mid-session. The deployable shape for a Binance iOS workflow: write a <code>PreModelSwitch</code> hook that blocks a mid-task downgrade to a cheaper/dumber model (so a long refactor doesn't silently drop to a weaker tier) and logs every switch to an audit file, then pair <code>PostModelSwitch</code> with a status-line script to surface the active model + effort level. It's the hooks primitive (cf. the Monday agentic-workflow thread) now applied to <em>model governance</em> — the agent's model choice becomes an auditable, gateable event instead of a hidden toggle. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Security</span>
+    <strong>Run Untrusted PRs in --restricted Mode — No Command/Code Tools, WebFetch Jailed, Files Locked to the Working Dir</strong>
+    <p>Claude Code <code>2.1.248</code> (Aug 27) added <code>--restricted</code> (or <code>CLAUDE_CODE_RESTRICTED=1</code>): it removes the built-in tools that run commands or code and <code>WebFetch</code> (unless named in <code>--tools</code>), keeps file tools inside the working directory, refuses <code>bypassPermissions</code>, and ignores user/project/local settings files. For reviewing an external contributor's PR or running Claude Code against an untrusted repo, this is the least-privilege posture (Aug 21/27's agent-safety thread) made the default — the agent can read and edit within the repo but can't shell out, fetch the web, or escalate permissions. Add it to your PR-review command as the safe baseline, then allow only the specific tools the review needs via <code>--tools</code>. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Restricted mode →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Cost</span>
+    <strong>Set a Hard Spend Ceiling + Spot Runaway /loop Tasks With the New /usage Loops Breakdown</strong>
+    <p>The Aug 25–28 changelog shipped the tooling behind the agent-loop-budget practice (Aug 22): a Spend limit bar in <code>/usage</code> and a <code>rate_limits.spend_limit</code> status-line field for accounts behind a Claude apps gateway, plus a per-loop breakdown in <code>/usage</code> (run count, total tokens, tokens/run, last run — <code>2.1.243</code>). The deployable loop for a team running parallel agents: set a <code>spend_limit</code> that caps a runaway <code>/loop</code> before it eats the weekly budget, then scan the Loops breakdown to find the chatty agent (high tokens/run = real workload or stuck retry) and either tighten its <code>maxTurns</code> or abort-and-discard. Cost control moves from "guess after the bill" to a hard ceiling plus per-loop telemetry — pair it with the new <code>/claude-api cost-optimize</code> (<code>2.1.247</code>) to walk the cost levers (caching, token hygiene, batch, effort, model choice) one measured change at a time. <a href="https://docs.claude.com/en/docs/claude-code/changelog">/usage + loops →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · IP</span>
+    <h3><a href="https://www.theverge.com/ai-artificial-intelligence/986438/sony-music-warner-chappell-anthropic-lawsuit-copyright">Sony Music &amp; Warner Chappell Sue Anthropic — "One of the Largest and Most Blatant Ongoing Thefts of IP in History"</a></h3>
+    <p>Sony Music and Warner Chappell (a big-three music publisher) sued Anthropic (The Verge, Aug 29), calling the training/use of copyrighted lyrics "one of the largest and most blatant ongoing thefts of intellectual property in history." <strong>Why it matters:</strong> training-data litigation is the live legal frontier for every model vendor you route onto (Claude/Claude Code) — a loss reshapes what training data, and thus what model behavior, is defensible, and a settlement could set the licensing pattern for the whole industry. <strong>How to use it:</strong> factor ongoing IP-litigation risk into your model-router fallback posture (cf. Aug 29's political-risk failure mode) — a vendor-facing injunction is a slower, less predictable capacity event than a 529. <a href="https://www.theverge.com/ai-artificial-intelligence/986438/sony-music-warner-chappell-anthropic-lawsuit-copyright">The Verge →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Embodied AI</span>
+    <h3><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic Opens a Research Preview of the "Model Hardware Standard" — a Shared Spec for AI Agents to Safely Operate Physical Devices</a></h3>
+    <p>Anthropic opened a research preview of the Model Hardware Standard (MHS) to a first group of scientific research labs and advanced manufacturers (Anthropic, Aug 27) — a shared specification for AI agents to safely operate physical devices like lab and manufacturing instruments, with the stated goal of cutting integration time from weeks to hours. <strong>Why it matters:</strong> it's the first concrete step toward "embodied AI agents" as an interoperable layer (agents + physical hardware under a shared safety spec), relevant if you build any IoT, companion-device, or robotics surface — and a datapoint that the agent-safety frontier is moving from software sandboxes to physical actuators. <strong>How to use it:</strong> track MHS as the emerging interoperability boundary for physical-world agents; the spec's safety model (what an agent may touch, with what fail-safes) is the template your own hardware-adjacent agent features should mirror. <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code · Changelog</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code's Aug 25–28 Batch: Model-Switch Hooks, --restricted Mode, Agent Teams Fix, /claude-api cost-optimize</a></h3>
+    <p>Claude Code shipped a large changelog batch (v2.1.243–2.1.251, Aug 25–28): <code>PreModelSwitch</code>/<code>PostModelSwitch</code> hook events (gate model switches), a <code>--restricted</code> locked-down mode (no command/code tools, <code>WebFetch</code> jailed, files locked to the working dir), an Agent Teams fix (a teammate's final answer now reaches the team lead), <code>/claude-api cost-optimize</code> (profile + reduce Claude API spend across caching, token hygiene, batch, effort, model choice), a Spend limit bar + per-loop token breakdown in <code>/usage</code>, plus dozens of security/sandbox hardening fixes (symlink and plugin path-traversal protections). <strong>Why it matters:</strong> the features most relevant to a daily Claude Code user — model governance, least-privilege runs, and cost control — all got first-class primitives this week. <strong>How to use it:</strong> update to <code>2.1.251</code> and see today's Tips section for the three most actionable (hooks, <code>--restricted</code>, spend-limit + loops). <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Cloud Agents</span>
+    <h3><a href="https://cursor.com/changelog/start-from-scratch">Cursor Cloud Agents Can Now "Start From Scratch, Without a Repo" — Prompt → Origin Repo → Vercel Publish</a></h3>
+    <p>Cursor's Cloud Agents no longer require a connected GitHub or third-party SCM provider to get started (Cursor changelog, Aug 27): select "Start from scratch" in the repo picker, prompt the agent, and Cursor creates an Origin repo in the background, port-forwards a live preview to your browser, and — with a Vercel account — publishes a live URL. <strong>Why it matters:</strong> the "prompt → working, shareable app" loop is now fully inside Cursor with no external SCM bootstrap — vibe coding's lowest-friction path yet (cf. Aug 25's Meta-Pocket "gizmos" and Aug 22's personal-apps thread), and another step in Cursor becoming a full code host (Origin) rather than just an editor. <strong>How to use it:</strong> prototype a throwaway feature or internal tool this way (prompt → Origin repo → Vercel URL) before wiring it into your real Binance repos — the throwaway surface lets you validate a design without polluting your main codebase. <a href="https://cursor.com/changelog/start-from-scratch">Cursor →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Hugging Face · Robotics</span>
+    <h3><a href="https://www.theverge.com/gadgets/985549/hugging-face-microduck-robot">Hugging Face's "Microduck" — an Open, Rollerskating Robot That Extends the Model Hub Into Hardware</a></h3>
+    <p>Hugging Face unveiled "Microduck," an open rollerskating robot (The Verge, Aug 27), extending the HF hub — where iOS devs pull MLX-format Llama/Phi/Qwen weights for on-device work — into physical robotics. <strong>Why it matters:</strong> it's the open-robotics datapoint that threads this week's embodied-AI cluster (Anthropic's Model Hardware Standard above + the Aug 27 Arduino+Qualcomm Ventuno Q edge board) — and, given Nvidia's reported ~$13B acquisition of Hugging Face (Aug 29), a robot from the hub whose ownership may shift under a compute vendor. <strong>How to use it:</strong> for an iOS dev, Microduck is less a build target than a signal — the open-model hub you depend on is expanding into open hardware, so the "where do my models + my robot platform come from" supply chain is consolidating; mirror the weights you depend on either way (cf. Aug 29's vertical-consolidation concept). <a href="https://www.theverge.com/gadgets/985549/hugging-face-microduck-robot">The Verge →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">OpenAI · Codex</span>
+    <h3><a href="https://openai.com/index/loveholidays">How loveholidays Is "Making Everyone a Builder" With Codex — Codex Crosses From Developers to the Whole Company</a></h3>
+    <p>OpenAI profiled loveholidays (OpenAI, Aug 26) as a case of "making everyone a builder with Codex" — the travel company's non-engineering staff use Codex for data analysis, research, and reports, extending Codex's "productivity tool for everyone" thesis (5M+ weekly users, ~20% knowledge-worker segment) from developers to the rest of the company. <strong>Why it matters:</strong> the "Codex beyond developers" adoption curve is the demand-side complement to the supply-side agentic-IDE proliferation (Cursor, Claude Code, Kiro) — at a Binance-scale org, it means your internal-tooling team's audience is now every team that wants to "build" without a codebase, not just engineers. <strong>How to use it:</strong> when designing internal agent platforms, plan UX + governance (Aug 21's least-privilege + Aug 27's Admin-plugin spend controls) for non-dev users from day one, not as a retrofit. <a href="https://openai.com/index/loveholidays">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Fogo · Security</span>
+    <h3><a href="https://www.theblock.co/news/defi/2026-08-29-layer-1-blockchain-fogo-halts-mainnet-after-attacker-receives-400-million-fogo-tokens-10-of-circulating-supply-413064">Layer-1 Fogo Halts Mainnet After Attacker Receives 400M FOGO Tokens — 10% of Circulating Supply</a></h3>
+    <p>The Layer-1 blockchain Fogo halted its mainnet (The Block, Aug 29) after an attacker received 400 million FOGO tokens — about 10% of circulating supply (~4% of genesis, worth ~$3M at the time). <strong>Why it matters:</strong> it's the week's starkest onchain-security incident — a genesis-allocation/minting failure large enough to force a mainnet halt, the kind of supply-shock event that reshapes a chain's credibility; for a Binance listing/monitoring team, the pattern (sudden large-token movement → mainnet halt → price dislocation) is the failure mode to detect early. <strong>How to use it:</strong> add "abnormal genesis/mint allocation velocity" to your listing-diligence and real-time monitoring signals, and treat a mainnet halt as the trigger for a trading-pause review, not just a price alert. <a href="https://www.theblock.co/news/defi/2026-08-29-layer-1-blockchain-fogo-halts-mainnet-after-attacker-receives-400-million-fogo-tokens-10-of-circulating-supply-413064">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ripple · Post-Quantum</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives">Ripple Preps XRP Ledger for Quantum "Q-Day" — an Anthropic Model Cut a Post-Quantum Signature Break by 67M×</a></h3>
+    <p>Ripple is preparing the XRP Ledger for quantum computers before "Q-Day" arrives (CoinDesk, Aug 28); notably, an Anthropic model recently cut the work needed to break a leading post-quantum signature candidate by a factor of 67 million, while Bitcoin and Ethereum published their own quantum-migration plans this week. <strong>Why it matters:</strong> it's a rare, concrete AI×crypto bridge — AI capability is directly accelerating the quantum-threat timeline against crypto's signature schemes, making post-quantum migration a live (not theoretical) engineering problem across L1s. <strong>How to use it:</strong> for wallet/infra teams, track the XRP/ETH/BTC post-quantum migration plans as the template; the AI-accelerated break-work means the migration runway may be shorter than the "decades away" framing assumes. <a href="https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Stablecoins · AI Agents</span>
+    <h3><a href="https://www.coindesk.com/business/2026/08/29/the-next-trillion-dollar-currency-may-not-be-a-stablecoin-it-might-not-even-have-a-name-yet">"The Next Trillion-Dollar Currency" — AI Agents Will Need to Pay Each Other, and the Solution Isn't Settled</a></h3>
+    <p>Crypto executives agree AI agents are coming and will need to pay each other, but disagree sharply on the solution — with one arguing the answer "has not been invented yet" and may not even be a stablecoin (CoinDesk, Aug 29); the same day, CoinDesk framed Swift's $1.5-quadrillion network facing a blockchain test as the legacy rail these agents would displace. <strong>Why it matters:</strong> it's the forward-looking AI×crypto thesis — machine-payable agents are a structural demand source for on-chain payment rails that didn't exist before, and the open question (stablecoin? new primitive? unnamed?) means the design space is still unmapped. <strong>How to use it:</strong> for a Binance payments/infra team, model "agent-to-agent settlement" as a greenfield rail to watch — don't assume today's stablecoin shape wins; the winning primitive may be purpose-built for machine-to-machine micropayments, not a re-purposed fiat peg. <a href="https://www.coindesk.com/business/2026/08/29/the-next-trillion-dollar-currency-may-not-be-a-stablecoin-it-might-not-even-have-a-name-yet">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>"Agentic Apps as the Default Architecture" — Agents Move From a Feature to the Skeleton</strong>
+    <p>A concept threading this week's verified datapoints — Claude Code's "Agent Teams" (a teammate's final answer now reaches the team lead, changelog Aug 28), Cursor's always-on Cloud Agents that monitor PRs/Slack and hold a <code>/goal</code> to completion (changelog), and OpenAI's workspace agents: the agent layer is moving from "a chatbot in the corner" to the core runtime of the app, with first-class primitives for multi-agent coordination, long-lived goals, and event-driven wake. <strong>Why it matters NOW:</strong> (1) for a Binance iOS team, the leverage is moving from "add an AI feature" to "architect the app around agent coordination" — invest in the agent-runtime primitives (hooks, subagents, <code>/goal</code>, cross-session messaging) as you would a new view layer; (2) the agent-runtime feature set is now standardizing across vendors (cf. Aug 25's Gemini Managed Agents convergence), so you can compare on a level field; (3) caveat — industry-analyst figures (Gartner's "40% of enterprise apps with task-specific agents by end-2026," the "$11.78B agents market") are estimates, not verified prints — treat as direction-of-travel, not a forecast. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code changelog →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Cost</span>
+    <strong>"Agent Cost Engineering" — Spend Visibility + Hard Ceilings Become First-Class Platform Features</strong>
+    <p>A concept crystallizing across this week's tooling: Claude Code shipped <code>/claude-api cost-optimize</code> (profile spend across caching, token hygiene, batch, effort, model choice), a Spend limit bar + <code>rate_limits.spend_limit</code>, and a per-loop token breakdown in <code>/usage</code> (changelog Aug 25–28); OpenAI's Admin plugin (Aug 25, covered Aug 27) added usage analytics + permission scoping + limit-setting; and vibe-coding economics shifted from per-seat to a usage-based "cloud bill" (Aug 29). <strong>Why it matters NOW:</strong> (1) cost control for agents is becoming a platform feature (hard spend ceilings + per-loop/per-agent telemetry), not a hand-rolled script — the same arc observability took a decade ago; (2) for a team running parallel agents, the cost ceiling is now the loop-budget primitive (max-steps + a cheap abort-and-discard path, cf. Aug 22) made enforceable by the platform; (3) caveat — the primitives exist but the org practice (cost attribution per agent run, budget ownership) is still nascent. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code changelog →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>"Post-Quantum Crypto Migration" — Now a Live Engineering Problem, Accelerated by AI</strong>
+    <p>A concept landing across this week's crypto+AI news: Ripple prepping the XRP Ledger for "Q-Day" (CoinDesk, Aug 28), Ethereum developers proposing a first step to protect ETH staking from quantum attacks (Aug 27 markets snapshot), Bitcoin's migration plan, and — critically — an Anthropic model cutting the work to break a leading post-quantum signature candidate by 67 million-fold. <strong>Why it matters NOW:</strong> (1) it's the AI×crypto security bridge — AI capability isn't a separate story from crypto; it's actively compressing the quantum-migration runway by weakening the post-quantum schemes chains are evaluating; (2) for a Binance wallet/infra team, post-quantum migration is shifting from a "decades away" line item to a roadmaped engineering project — track the XRP/ETH/BTC plans as the template and the AI-accelerated break-work as the schedule risk; (3) caveat — a 67M× speedup on a single candidate isn't "quantum computers broke crypto," but it's a leading indicator that the migration timeline has real downside variance. <a href="https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic — Previewing the Model Hardware Standard (Aug 27)</a>
+      <span class="desc">The primary source behind today's embodied-AI card and the physical-world-agents thread — a shared spec for AI agents to safely operate physical devices, cutting integration from weeks to hours.</span>
+    </li>
+    <li>
+      <a href="https://www.theverge.com/ai-artificial-intelligence/986438/sony-music-warner-chappell-anthropic-lawsuit-copyright">The Verge — Sony Music and Warner Chappell are suing Anthropic (Aug 29)</a>
+      <span class="desc">The IP/training-data lawsuit behind today's top AI story — "one of the largest and most blatant ongoing thefts of intellectual property in history," and the live legal frontier for every model vendor you route onto.</span>
+    </li>
+    <li>
+      <a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code changelog — v2.1.243–2.1.251 (Aug 25–28)</a>
+      <span class="desc">The verified primary source for today's Claude Code news card and all three Sunday tips (PreModelSwitch/PostModelSwitch hooks, --restricted mode, spend-limit + Loops breakdown), plus the Agent Teams fix and /claude-api cost-optimize.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/08/28/ripple-is-preparing-xrp-ledger-for-quantum-computers-before-q-day-arrives">CoinDesk — Ripple is preparing XRP Ledger for quantum computers before 'Q-Day' arrives (Aug 28)</a>
+      <span class="desc">The AI×crypto bridge behind today's Ripple card and the post-quantum-migration concept — an Anthropic model cut a post-quantum signature break by 67 million-fold, while BTC and ETH published their own migration plans.</span>
+    </li>
+    <li>
+      <a href="https://cursor.com/changelog/start-from-scratch">Cursor — Start from scratch, without a repo (Aug 27)</a>
+      <span class="desc">The verified Cursor changelog entry behind today's vibe-coding card — Cloud Agents that prompt → Origin repo → Vercel publish with no external SCM, vibe coding's lowest-friction path yet.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-08-30 (Sunday) · Generated 2026-08-30T02:45:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Sunday tip theme — best of week, revisiting the Monday category (Claude Code / Codex agentic workflow — hooks, MCP, skills) with fresh keystones from Claude Code's Aug 25–28 changelog: gate model switches with PreModelSwitch/PostModelSwitch hooks, run untrusted PRs in --restricted locked-down mode, and set a hard spend ceiling + spot runaway /loop tasks via the new /usage Loops breakdown. AI: Sony Music &amp; Warner Chappell sue Anthropic ("largest ongoing IP theft," Aug 29), Anthropic opens the Model Hardware Standard research preview (agents safely operate physical devices, Aug 27), and Claude Code ships a large batch (model-switch hooks, --restricted, Agent Teams fix, /claude-api cost-optimize, spend-limit + loops, security/sandbox hardening). Vibe: Cursor Cloud Agents "start from scratch" without a repo (prompt→Origin repo→Vercel), Hugging Face's open "Microduck" robot, and OpenAI's loveholidays case ("making everyone a builder" with Codex). Crypto: Fogo L1 halts mainnet after an attacker receives 400M FOGO (10% supply, ~$3M), Ripple preps XRP Ledger for quantum "Q-Day" (an Anthropic model cut a post-quantum break by 67M×, BTC/ETH published migration plans), and "the next trillion-dollar currency" — AI agents will need to pay each other and the solution isn't settled. Concepts: "agentic apps as the default architecture," "agent cost engineering" (spend visibility + hard ceilings as platform features), and "post-quantum crypto migration, accelerated by AI."</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded (Aug 29, 27, 25; Aug 28 &amp; 26 not generated — skipped silently). ~95 prior topics indexed across titles, concepts, and tips. ~24 duplicate candidates filtered in favor of fresh angles: OpenAI-Cursor wind-down + Nvidia-Hugging-Face + Anthropic-blacklist + ChatGPT-Work-autonomous + Claude-Cowork-memory + usage-based-economics + AI-vs-AI-cyber-defense + model+compute-consolidation + AI-valuation-mania (Aug 29 — filtered; the fresh Sony/WMG-lawsuit + Anthropic-MHS + Claude-Code-changelog-batch carded instead), Apple-M6/Jalapeño/rogue-AI-METR/Gemini-Financial-Legal + abundant-intelligence/on-device-sovereignty/tokenized-rights-model (Aug 27 — filtered), Claude-outage/GPT-5.6-Kiro/Wan3.0/Apple-Music-labels + context-engineering/financial-repression/internet-of-slop (Aug 25 — filtered), BTC-$78K/Coinbase-tokenized-stocks/Standard-Chartered-HKD (Aug 25 — filtered; fresh Fogo-hack + Ripple-quantum + AI-agents-pay carded instead), CryptoQuant-$83K/SEC-custody/Nvidia-Q2 (Aug 27 — filtered), Solana-disinflation/Solana-ETF-$1B/Kalshi-ruling (Aug 29 — filtered), and the FoundationModels/MLX/Create-ML + M6-NE/MLX/ONNX + Core-AI-decision-tree/Debugger/ZDR on-device tip set (Aug 25/27/29 — only fresh Claude-Code hooks/--restricted/spend-limit+loops tips carded as the Sunday best-of-week agentic-workflow synthesis, a different category from Saturday's on-device-AI best-of-week). EXCLUDED as unverified/secondary syntheses after primary-source checks (consistent with prior reports' methodology): GitHub Copilot multi-model/Spark (github.blog/news and github.com/changelog both 404 — not cardable, the same exclusion as the Aug 29 report), OpenAI Codex "Sites"/5M-weekly-users (OpenAI RSS shows these are June posts, not this week), "Codex App"/"GPT-5 Codex" standalone IDE (not present in OpenAI RSS), Claude Code "Sep 14 17% limit"/"GitLab MR integration"/"rate-limit doubling at Code w/ Claude conference" (not in the Claude Code changelog — the verified limits surface is rate_limits.spend_limit + the /usage Loops breakdown, which is carded instead), and Atoms/Cursor-Bugbot-as-launch/Devin-Desktop (not verifiable from primary sources this run).</p>
+  <p><strong>Markets snapshot:</strong> Sony Music &amp; Warner Chappell sue Anthropic — "largest ongoing IP theft" (The Verge, Aug 29) · Anthropic opens Model Hardware Standard research preview — agents safely operate physical devices, integration weeks→hours (Anthropic, Aug 27) · Claude Code Aug 25–28 batch: PreModelSwitch/PostModelSwitch hooks, --restricted mode, Agent Teams fix, /claude-api cost-optimize, spend-limit + Loops breakdown in /usage, security/sandbox hardening (Claude Code changelog) · Cursor Cloud Agents "start from scratch" without a repo; prompt→Origin repo→Vercel publish (Cursor, Aug 27) · Hugging Face "Microduck" open robot (The Verge, Aug 27) · OpenAI × loveholidays: "making everyone a builder" with Codex (OpenAI, Aug 26) · OpenAI brings ChatGPT for Teachers to more US school districts, supports Thailand AI startups, expands Brazil presence, "Introducing Intelligence Age" positioning (OpenAI, Aug 24–28) · OpenAI "The Hugging Face incident and the road ahead" (OpenAI, Aug 26) · Fogo L1 halts mainnet after attacker receives 400M FOGO (10% supply, ~$3M) (The Block, Aug 29) · Cosmos Labs wrongly cleared the bug behind a $5.7M six-chain hack (MANTRA Chain lost $3.6M) (The Block, Aug 29) · $1.1M crypto card hack crashed neobank AVICI token 49% (CoinDesk, Aug 29) · Ripple preps XRP Ledger for quantum "Q-Day"; Anthropic model cut post-quantum break-work 67M×; BTC/ETH published migration plans (CoinDesk, Aug 28) · "The next trillion-dollar currency" — AI agents paying each other, solution unsettled (CoinDesk, Aug 29) · Swift's $1.5-quadrillion network faces a blockchain test (CoinDesk, Aug 29) · Bybit launches 24/7 options on stock perpetuals, SpaceX &amp; Nvidia first, from Sept 17 (The Block, Aug 28) · Bitcoin wallets untouched 10 years moved $40M; dormant activity lowest since 2022 (CoinDesk, Aug 28) · SBI Holdings invests $270M in Ajaib, 20% stake, Asia digital-asset push (The Block, Aug 28) · IREN's $25–30B AI buildout "spooked" investors, Bernstein says (The Block, Aug 28) · Kalshi: former White House teleprompter operator fined $172K for Kalshi trades (The Block, Aug 29).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block, CoinDesk, OpenAI Blog, Google AI Blog; Cointelegraph returned an empty/non-XML payload — skipped; Hacker News RSS returned 502 Bad Gateway — skipped, consistent with prior runs) + WebFetch primary-source verification (anthropic.com/news → Model Hardware Standard verified; openai.com/blog/rss.xml → OpenAI-Cursor + Codex-Sites-dated-June + loveholidays + GPT-5.6-in-Kiro verified; theverge.com/ai-artificial-intelligence → Sony/WMG lawsuit + Hugging Face Microduck verified; docs.claude.com/en/docs/claude-code/changelog → Claude Code v2.1.243–2.1.251 verified; cursor.com/changelog → "Start from scratch" verified). FAILED fetches: github.blog/news (404) and github.com/changelog (404) — the "GitHub Copilot multi-model/Spark" WebSearch synthesis was EXCLUDED rather than carded (consistent with the Aug 29 report's exclusion of the same unverified synthesis). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — two uncorroborated syntheses (GitHub Copilot multi-model/Spark, "Codex App" standalone IDE) were excluded. Crypto RSS feeds healthy (The Block ~8, CoinDesk ~10 items captured); AI supplementary feeds healthy (OpenAI ~60 items, Google AI ~10 low-signal consumer posts). GITHUB_COM_TOKEN confirmed set for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes no file-write tool).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~8 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>FAIL (empty/non-XML payload)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~10 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~60 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~10 items, low-signal)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (Anthropic, OpenAI RSS, Verge, Claude Code changelog, Cursor changelog); FAIL (github.blog/news 404, github.com/changelog 404)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>3/5 reports (Aug 28, 26 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
