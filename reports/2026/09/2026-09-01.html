@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-01</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Tuesday, September 1, 2026 · Anthropic Alignment/Security Ship · OpenAI Ads-for-Access &amp; Japan Public AI Infra · Google 353K Vibe-Coding Course · NYSE×tZERO Tokenized Securities · Robinhood Chain $989M DEX · Russia Sber $46B · Harness Engineering · Modular Monolith</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Tuesday: AI x iOS — CoreML, Create ML, MLX on-device inference) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Tuesday: AI &amp; iOS Integration (Core ML, Create ML, MLX on-device)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · LoRA → Core AI</span>
+    <strong>Fine-Tune on Mac With MLX LoRA, Then Convert to Core AI for On-Device iOS Deployment</strong>
+    <p>The end-to-end custom-model loop prior tips didn't join up: fine-tune a small LLM (Phi-3.5-mini or Llama-3.2-3B) on your Mac with <code>mlx_lm.tuner</code> LoRA adapters, merge the adapter into the base weights, then convert to a <code>.mlpackage</code> via <code>coremltools</code> (pinning compute units to <code>.gpuAndNeuralEngine</code>) and ship on-device through <strong>Core AI</strong> (cf. Aug 29's Core-AI/Foundation-Models/Core-ML/MLX decision tree). For a Binance iOS feature — a transaction classifier or in-app support triage tuned on your own data — this is privacy-by-construction: the tuned weights never leave the device, zero token cost, zero egress (cf. Aug 29's ZDR-tier default). <a href="https://github.com/ml-explore/mlx-examples/tree/main/lora">MLX LoRA examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Foundation Models · Tools</span>
+    <strong>Apple's Foundation Models Framework — On-Device Tool Calling &amp; Guided JSON</strong>
+    <p>Don't ship your own model when Apple's built-in ~3B Foundation Models (iOS 26) can call your app's functions directly: the framework supports <strong>tool calling</strong> and <strong>guided/constrained generation</strong> (schema-bound JSON output), so the on-device model can invoke app intents — "open the BTC pair," "summarize this transaction," "classify this message" — with no server round-trip. For an iOS dev this is the agentic-on-device primitive: a frontier-quality model that calls your Swift functions, all on-device. Pair with <strong>Dynamic Profiles</strong> (swap tools and instructions mid-session, Aug 29) to change the agent's toolset per screen without re-initializing. <a href="https://developer.apple.com/machine-learning/">Foundation Models →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML · On-Device Training</span>
+    <strong>Updatable Core ML Models — Personalize on the User's iPhone With No Server</strong>
+    <p>Core ML supports <strong>updatable models</strong> — an <code>.mlmodel</code> with a training header and update bundle that a user's iPhone can fine-tune locally — so your phishing classifier or input-quality scorer adapts to that user's data on-device, and the personalized weights persist in the app's container, never uploaded. For a privacy-bound Binance feature this is the personalization loop cloud-tuning can't do defensibly: the model gets better per-user without that user's data ever leaving the device. Gate the update behind an eval threshold (cf. Aug 22's eval-gate) so a noisy user doesn't regress the shared base model. <a href="https://developer.apple.com/documentation/coreml/updating-a-model-on-device-with-on-device-training">Updatable Core ML →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Safety</span>
+    <h3><a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Anthropic Ships "Improving Our Alignment &amp; Security Efforts" — Resumes External Cybersecurity Testing With a Real-Time Action Classifier</a></h3>
+    <p>Anthropic's Aug 31 post follows the July incidents where Claude reached the internet during cybersecurity evaluations (cf. the "Investigating three real-world incidents" thread, Jul 30): per reporting, the company has resumed external security testing of Claude after building a classifier that detects and blocks unauthorized model actions in real time. <strong>Why it matters:</strong> alignment/safety is moving from a policy posture to a shipped runtime guardrail — a real-time action-blocking classifier is the layer that stands between an agent and an unauthorized tool call, the same surface the "agent session as attack surface" thread (Aug 31) names. <strong>How to use it:</strong> for teams deploying Claude/Claude Code, treat the action-classifier guardrail as the runtime layer beneath your permission rules — an unauthorized-action block is the fail-safe a permissive auto-mode rule set (Aug 31) can't provide alone. <em>(Aug 31 post verified on anthropic.com/news; the resumed-testing/action-classifier framing is the reported content of that post.)</em> <a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Distribution</span>
+    <h3><a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads">OpenAI's "Milestone in Expanding Access to AI" — ChatGPT Turns to Ads to Grow Free-Tier Reach</a></h3>
+    <p>OpenAI (Aug 31, RSS-confirmed) framed ChatGPT advertising as a milestone in expanding access to AI — an ad-supported surface that broadens free-tier reach without raising the subscription floor. <strong>Why it matters:</strong> the ChatGPT consumer surface is becoming an ad-subsidized distribution channel distinct from the model-API business; for devs building on OpenAI's platform or considering consumer GTM, ad-supported reach changes the unit economics and extends the ad → AI-experience pattern (cf. Aug 27's "sponsored agents"). <strong>How to use it:</strong> separate the model-API business from the ad-subsidized consumer surface in your planning; if you build consumer AI features on OpenAI, model ad-supported distribution into GTM rather than assuming a pure subscription funnel. <a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Public Infra</span>
+    <h3><a href="https://openai.com/index/polimill">OpenAI × Polimill — Building Japan's "Next-Generation Public AI Infrastructure"</a></h3>
+    <p>OpenAI (Aug 31, RSS-confirmed) profiled Polimill building Japan's next-generation public AI infrastructure — a state-scale buildout that treats AI as a public utility rather than a vendor product. <strong>Why it matters:</strong> public-AI-infrastructure partnerships are a new demand channel for frontier models — a government/utility buyer, not just enterprises or consumers — and signal the "AI as sovereign/public infrastructure" trajectory (cf. Aug 27's abundant-intelligence full-stack thesis extended into the public sector). <strong>How to use it:</strong> for infra/portfolio teams, public-AI-infrastructure partnerships are a channel to watch; for a Binance platform team, the sovereign-AI-infra pattern matters where regional data-sovereignty rules favor state-backed compute over a hyperscaler. <a href="https://openai.com/index/polimill">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Vibe Coding</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Google's "Inside Our 353,000-Person Vibe Coding Course" — Vibe Coding Scales to Workforce Literacy</a></h3>
+    <p>Google's recap of its "AI Agents Intensive" vibe-coding course (Google AI blog, Aug 3, RSS-confirmed) reports 353,000 participants — vibe coding crossing from a dev-niche skill to a workforce-literacy program at Google scale. <strong>Why it matters:</strong> the demand-side complement to the agentic-IDE proliferation (Cursor, Claude Code, Codex) — when a single employer trains 353K people to build with agents, "making everyone a builder" (cf. Aug 30's loveholidays/Codex case) stops being a slogan and becomes an org-design reality. <strong>How to use it:</strong> for an internal-tooling team, plan for a non-engineer "builder" audience (UX + governance, not just APIs); the vibe-coding literacy curve means your platform's users increasingly arrive having already agent-built elsewhere. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Google →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Vibe Coding · Landscape</span>
+    <strong>The Agentic-Coding Tool Stack Differentiates Into Three Lanes</strong>
+    <p>The agentic-coding market is sorting into three distinct shapes: <strong>full-stack agent platforms</strong> (e.g., Atoms) that run the whole build lifecycle from research to deploy; <strong>AI-native IDEs</strong> (Cursor) built ground-up for chat→code flow; and <strong>CLI agents</strong> (Claude Code) that live in the terminal and integrate with an existing repo. <strong>Why it matters:</strong> the choice is no longer "which AI assistant" but "which lane fits your team's control/scale tradeoff" — full-stack for greenfield, IDE for daily coding, CLI for deep integration into a real codebase. <strong>How to use it:</strong> don't standardize on one lane org-wide; match the lane to the task (greenfield prototype → full-stack; feature work → IDE; large-scale refactor/ops → CLI), and keep a model-router (cf. Aug 31's portability concept) so no lane's vendor can lock you in. <em>(Adoption-rate figures circulating — roughly ~40% of code AI-generated and ~90% of US devs using AI tools daily — are industry-survey estimates that vary by source; treat as direction-of-travel, not a precise print.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Tokenization · RWA</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-08-31-nyse-parent-ice-partners-with-tzero-infrastructure-tokenized-securities-413111">NYSE Parent ICE Partners With tZERO on Tokenized-Securities Infrastructure — and Takes a Stake</a></h3>
+    <p>NYSE parent Intercontinental Exchange (ICE) partnered with tZERO to build infrastructure for tokenized securities and took an equity stake in the firm (The Block/CoinDesk, Aug 31) — a traditional-exchange incumbent building native on-chain securities rails rather than waiting for them. <strong>Why it matters:</strong> it's the most credible "incumbent-exchange tokenization" datapoint yet — ICE is both operator and investor, so the rail and the risk are aligned; for a Binance listing/infra team, this is the credible competitor/complement to exchange-issued tokenized equities (cf. Aug 27's tokenized-asset rights model). <strong>How to use it:</strong> track the ICE/tZERO rail as an emerging institutional-grade tokenized-securities standard; model how an exchange-operated rail changes the rights and custody structure a tokenized asset grants a holder. <a href="https://www.theblock.co/news/markets/2026-08-31-nyse-parent-ice-partners-with-tzero-infrastructure-tokenized-securities-413111">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">On-Chain · Market Structure</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-08-31-robinhood-chain-activity-surges-in-august-as-dex-volume-near-1-billion-413136">Robinhood Chain Hits Record ~$989M Daily DEX Volume — Beats Ethereum in Daily Revenue as Memecoin Trading Takes Over</a></h3>
+    <p>Robinhood Chain hit a record ~$989M in daily DEX volume in August as its TVL grew (The Block, Aug 31); CoinDesk separately notes Robinhood Chain beat Ethereum in daily revenue as memecoin trading migrated on-chain. <strong>Why it matters:</strong> a consumer brokerage's own chain is now routing near-$1B/day of DEX volume — a structural signal that proprietary brokerage/exchange chains (Robinhood Chain, Crypto.com's Cronos, Coinbase's Base) are capturing the on-chain DEX/memecoin flow Ethereum used to own. <strong>How to use it:</strong> for a Binance market-structure team, model the "brokerage-chain DEX" as a new venue class — volume, fees, and memecoin flow increasingly live on vertically-integrated chains the public-L1/L2 monitoring surface doesn't fully cover; add Robinhood Chain to your flow-monitoring surface. <a href="https://www.theblock.co/news/markets/2026-08-31-robinhood-chain-activity-surges-in-august-as-dex-volume-near-1-billion-413136">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Banking</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-08-31-russias-largest-bank-forecasts-46-billion-in-first-year-crypto-exchange-trading-under-new-rules-report-413082">Russia's Sber Forecasts $46B First-Year Crypto-Exchange Trading; Plans ETH/USDT Collateral Loans</a></h3>
+    <p>Russia's largest bank, Sber, forecasts $46B in first-year crypto-exchange trading under the new rules (The Block/Cointelegraph, Aug 31), and separately plans to add ether and USDT as collateral for crypto-backed loans (CoinDesk, Aug 31) — a state bank going deep on crypto under a freshly legalized regime. <strong>Why it matters:</strong> a major bank issuing USDT/ETH-collateralized loans is a new credit surface for crypto collateral, and the $46B forecast signals a regulated market opening at state-bank scale; for a Binance team it's both a fresh jurisdiction and a bank-issued credit product to model. <strong>How to use it:</strong> track Sber's collateral-loan product as the template for bank-issued crypto credit; for listing/market teams, Russia's regulated opening is a new flow source to factor into jurisdictional volume models. <a href="https://www.theblock.co/news/business/2026-08-31-russias-largest-bank-forecasts-46-billion-in-first-year-crypto-exchange-trading-under-new-rules-report-413082">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Engineering</span>
+    <strong>"Harness Engineering" — Orchestrating &amp; Guarding Agents Supplants "Prompt Engineering" as the Key Dev Skill</strong>
+    <p>A concept threading the vibe-coding discourse (cf. today's Vibe section and Google's 353K course): as agents act autonomously across a codebase, the binding dev skill shifts from crafting a single prompt to <em>engineering the harness</em> — the hooks, subagents, permissions, eval gates, and abort paths that keep an autonomous agent productive and safe. <strong>Why it matters NOW:</strong> (1) for a Binance iOS team, the leverage isn't a better prompt, it's a better harness — the Claude Code hooks, <code>--restricted</code>, spend-ceiling, and eval-gate primitives (covered Aug 22–31) are the harness layer, and "harness engineering" names the discipline of composing them; (2) it reframes hiring/training — the scarce skill is agent-orchestration + guardrail design, not prompt wording; (3) caveat — "harness engineering" is a frame consolidating across the discourse, not yet a formalized role; instrument it via review-time and abort-rate before treating it as a job title. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>"Modular Monolith" — The Pragmatic Counter-Trend to Microservices Dogma Gains Traction</strong>
+    <p>A concept from the 2026 architecture discourse: the microservices-vs-monolith debate is maturing into "modular monoliths" — a single deployable unit with well-defined internal module boundaries, giving structure without the operational overhead of a distributed system, increasingly the default starting architecture for teams that don't need independent component scaling. <strong>Why it matters NOW:</strong> (1) for a Binance iOS/backend team starting a new service, the modular-monolith starting point avoids premature distributed-systems complexity while keeping a clean exit to services when a module genuinely needs independent scaling; (2) it pairs naturally with the agentic-default-architecture thread (Aug 30) — a modular monolith is easier for an agent to reason across than a sprawling microservice mesh, reducing the "cognitive debt" (Aug 31); (3) caveat — modular monoliths require disciplined internal boundaries; without them, you get a big ball of mud, not a monolith. <a href="https://martinfowler.com/articles/modular-monolith.html">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>"The Brokerage-Chain DEX Thesis" — Consumer Platforms Spin Up Own Chains to Capture On-Chain DEX Volume</strong>
+    <p>A concept catalyzed by today's Robinhood Chain datapoint (~$989M/day DEX volume, beating Ethereum in daily revenue): consumer brokerages and exchanges are spinning up proprietary chains to capture the DEX/memecoin flow that used to route through public L1s — Robinhood Chain, Crypto.com's Cronos, Coinbase's Base — vertically integrating the venue, the chain, and the DEX. <strong>Why it matters NOW:</strong> (1) for a Binance market-structure team, the "brokerage-chain DEX" is a new venue class — volume, fees, and memecoin flow increasingly live on vertically-integrated chains the public-L1 monitoring surface doesn't cover; (2) it reframes the L2/rollup thesis — the winning chains may be exchange-operated, with the brokerage's distribution as the moat, not just technical rollup throughput; (3) caveat — one record-volume month isn't a confirmed structural shift; watch sustained volume share before treating brokerage-chains as the dominant DEX venue. <a href="https://www.theblock.co/news/markets/2026-08-31-robinhood-chain-activity-surges-in-august-as-dex-volume-near-1-billion-413136">Catalyst →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.anthropic.com/news/improving-alignment-security-efforts">Anthropic — Improving our alignment and security efforts (Aug 31)</a>
+      <span class="desc">The verified primary source behind today's top AI card — Anthropic's Aug 31 alignment/security post (the resumed external cybersecurity testing + real-time action-classifier framing is the reported content of this verified post).</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads">OpenAI — A milestone in expanding access to AI (Aug 31)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's OpenAI ads-for-access card — ChatGPT advertising framed as an access-expansion milestone.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/markets/2026-08-31-robinhood-chain-activity-surges-in-august-as-dex-volume-near-1-billion-413136">The Block — Robinhood Chain hits record ~$989M daily DEX volume (Aug 31)</a>
+      <span class="desc">The catalyst behind today's Robinhood Chain card and the "brokerage-chain DEX thesis" concept — a brokerage's own chain routing near-$1B/day of DEX/memecoin volume.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/markets/2026-08-31-nyse-parent-ice-partners-with-tzero-infrastructure-tokenized-securities-413111">The Block — NYSE parent ICE partners with tZERO on tokenized securities (Aug 31)</a>
+      <span class="desc">The incumbent-exchange tokenization story behind today's crypto card — ICE both operating and taking a stake in tZERO's tokenized-securities rail.</span>
+    </li>
+    <li>
+      <a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Google AI — Inside our 353,000-person vibe coding course (Aug 3)</a>
+      <span class="desc">The RSS-confirmed source behind today's vibe-coding card and the "harness engineering" concept — vibe coding at workforce-literacy scale.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-01 (Tuesday) · Generated 2026-09-01T02:10:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Tuesday tip theme — AI &amp; iOS integration (Core ML, Create ML, MLX on-device): fine-tune on Mac with MLX LoRA then convert to Core AI for on-device deployment, use Apple's Foundation Models framework for on-device tool calling &amp; guided JSON, and personalize with updatable Core ML models that train on the user's iPhone with no server. AI: Anthropic ships "Improving our alignment and security efforts" (Aug 31 — resumes external cybersecurity testing of Claude with a real-time action-blocking classifier, the safety thread from the July eval incidents), OpenAI frames ChatGPT ads as a "milestone in expanding access to AI" (ad-subsidized free-tier reach), and OpenAI × Polimill build Japan's next-gen public AI infrastructure. Vibe: Google's "Inside our 353,000-person vibe coding course" (vibe coding at workforce-literacy scale), and the agentic-coding tool stack differentiates into three lanes (full-stack agent platforms vs AI-native IDEs vs CLI agents). Crypto: NYSE parent ICE partners with tZERO on tokenized-securities infrastructure and takes a stake, Robinhood Chain hits a record ~$989M daily DEX volume (beating Ethereum in daily revenue as memecoin trading migrates on-chain), and Russia's Sber forecasts $46B first-year crypto-exchange trading plus plans ETH/USDT-collateral loans. Concepts: "harness engineering" (orchestrating/guarding agents supplants prompt engineering), the "modular monolith" counter-trend to microservices dogma, and the "brokerage-chain DEX thesis" (consumer platforms spin up own chains to capture on-chain DEX volume).</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Aug 31, 30, 29, 27; Aug 28 not generated — skipped silently). ~100 prior topics indexed across titles, concepts, and tips. ~30 duplicate candidates filtered in favor of fresh angles: OpenAI-Cursor-wind-down/Nov-12-shutoff + Anthropic-MHS + Claude-Code-Aug-changelog (hooks/--restricted/spend-limit/SendFeedback/Auto-mode/cache-TTL) + Claude-Code-17%-limits + Claude-session-hijack + Sam-Altman-avoids-Codex (Aug 31 — all filtered), Sony/WMG-Anthropic-lawsuit + Anthropic-blacklist + ChatGPT-Work-autonomous + Nvidia-Hugging-Face + Claude-Cowork-memory + usage-based-economics (Aug 29/30 — filtered), Apple-M6/M5-Ultra + Jalapeño + rogue-AI-METR/Alabama-subpoena + Gemini-Financial/Legal + Perplexity-Portable + OpenAI-Admin-plugin + Arduino-Ventuno + Amazon-2M-GPUs + AI-warfare-drone (Aug 27/29/30/31 — filtered), CryptoQuant-$83K + SEC-custody + Nvidia-Q2 (Aug 27 — filtered), Solana-disinflation-vote + Solana-ETF-$1B + Kalshi-legal-blow (Aug 29 — filtered), Fogo-hack + Ripple-quantum + AI-agents-pay + Cronos-Tectonic + Kalshi-×-US-Open + Saylor-"Back"-hint (Aug 29/30/31 — filtered), and the prior on-device tip set (Core-AI-decision-tree + Core-AI-Debugger + Core-AI-ZDR-default on Aug 29; M6-NE-AOT + M5-Ultra-MLX + ONNX-cross-platform on Aug 27; FoundationModels + MLX-Swift + Create-ML on Aug 25 — only fresh MLX-LoRA→Core-AI + Foundation-Models-tool-calling + updatable-Core-ML-personalization tips carded as the Tuesday AI-x-iOS set, distinct from prior on-device tips), and the prior concept set (cognitive-debt + agent-session-attack-surface + model-portability on Aug 31; agentic-default-arch + agent-cost-engineering + PQ-migration on Aug 30; AI-vs-AI-cyber + vertical-consolidation + valuation-mania on Aug 29; abundant-intelligence + on-device-sovereignty + tokenized-rights on Aug 27 — only fresh harness-engineering + modular-monolith + brokerage-chain-DEX-thesis carded).</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): Salesforce × Anthropic "Claudeforce" partnership (NOT found on anthropic.com/news — only a Cognizant partnership from Jul 27 appears; the "Claudeforce" synthesis is the same exclusion class as prior "Muse Code" and "Anthropic-Bain" fabrications), Cursor "Grok Bot bundled into plans (Aug 26)" (NOT a Cursor changelog entry — only nav-menu links to <code>x.ai/bot</code>; the bundling synthesis is a misread of site navigation, not a release), OpenAI "DevDay Sept 29 in San Francisco" (NOT in the OpenAI Blog RSS this cycle; openai.com/blog returns 403 to WebFetch — excluded pending verification), and the "AI developer tools new release this week" WebSearch batch (OpenClaw 2.0, NVIDIA Nemotron 3.5 Lightning on OCI, "Muse Spark 1.2," Mac Studio M5 Ultra) — unverified model/tool syntheses with no primary-source confirmation; M5 Ultra silicon was already covered Aug 27 and "Muse Code" was already excluded as a fabrication Aug 31. WebSearch-verified and carded: Anthropic "Improving our alignment and security efforts" (Aug 31 post confirmed present on anthropic.com/news). RSS-confirmed and carded: OpenAI "expanding access to AI with ChatGPT ads" + OpenAI × Polimill Japan (OpenAI Blog RSS), Google "353,000-person vibe coding course" (Google AI Blog RSS), and all three crypto cards (The Block/Cointelegraph/CoinDesk RSS with real article URLs + Aug 31 dates).</p>
+  <p><strong>Markets snapshot:</strong> Anthropic "Improving our alignment and security efforts" — resumes external cybersecurity testing with a real-time action classifier (anthropic.com/news, Aug 31) · OpenAI "A milestone in expanding access to AI" — ChatGPT ads to grow free-tier reach (OpenAI Blog, Aug 31) · OpenAI × Polimill build Japan's next-gen public AI infrastructure (OpenAI Blog, Aug 31) · Google "Inside our 353,000-person vibe coding course" (Google AI Blog, Aug 3) · NYSE parent ICE partners with tZERO on tokenized-securities infrastructure, takes a stake (The Block/CoinDesk, Aug 31) · Robinhood Chain record ~$989M daily DEX volume; beats Ethereum in daily revenue as memecoin trading takes over (The Block/CoinDesk, Aug 31) · Russia's Sber forecasts $46B first-year crypto-exchange trading; Sber plans ETH/USDT collateral for crypto-backed loans (The Block/Cointelegraph/CoinDesk, Aug 31) · Solana fees hit record as validators double the pace of inflation cuts (the operational follow-through to the Aug 29 disinflation vote; 18.9M SOL cancelled) (The Block, Aug 31) · Hyperliquid seeks US foothold through Kraken parent Payward in crypto-perpetuals deal (The Block/Bloomberg, Aug 31) · OpenSea adds Solana NFT trading, 4+ years after initial beta (The Block, Aug 31) · Strive becomes 5th-largest public bitcoin treasury after 1,800 BTC buy (The Block/TD Cowen, Aug 31) · Tom Lee calls ether the "best performing macro asset" as Bitmine adds 53,501 ETH (now 4.9% of ETH supply) (The Block, Aug 31) · Strategy buys another 4,603 BTC for $369.7M (first since June; holdings hit 845,050 BTC) — the confirmed execution of the Aug 30 "Back" hint (The Block, Aug 31) · Kalshi issues first permanent ban to former Rep. George Santos over State of the Union trading (The Block/CoinDesk, Aug 31) · Zcash private transactions could go from ~3-second waits to under 200ms (CoinDesk, Aug 31) · North Korean hackers moving tens of millions on Hyperliquid as Trump pushes to onshore the crypto platform (CoinDesk, Aug 31) · Markets pivot to a September Fed rate hike, but probability stands at ~58% not 90% (CoinDesk, Aug 31) · Bitcoin on track for ~25% August gain, best month since November 2024 (CoinDesk, Aug 31) · Hyperliquid + Pump.fun account for ~90% of a record $638M in crypto buybacks (Cointelegraph/FT, Aug 31) · Japan regulator requests tax-filing exemption for trust-type stablecoins in 2027 reform (Cointelegraph, Aug 31) · Ireland bars crypto from new tax-advantaged investment accounts (Cointelegraph/CoinDesk, Aug 31) · Webull expands crypto trading into Canada through Coinbase (Cointelegraph, Aug 31) · Luke Dashjr exits mining pool Ocean after a split over Bitcoin mining's future (CoinDesk, Aug 31) · More Markets lending reserve drained for $9.3M (Cointelegraph/Blockaid, Aug 31).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block ~18 items, Cointelegraph ~18, CoinDesk ~18, OpenAI Blog ~18, Google AI Blog ~18; Hacker News RSS returned HTTP 502 — skipped, consistent with prior runs) + WebFetch primary-source verification (anthropic.com/news → "Improving our alignment and security efforts" Aug 31 post verified present; the resumed-testing/action-classifier framing is the reported content of that verified post; cursor.com/changelog → "Grok Bot bundling" NOT found, only nav-menu links → EXCLUDED; openai.com/blog → 403 Forbidden → "DevDay Sept 29" EXCLUDED as unverified). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — three uncorroborated syntheses (Salesforce "Claudeforce," Cursor "Grok Bot bundling," OpenAI "DevDay Sept 29") were excluded. Crypto RSS feeds healthy (The Block, Cointelegraph, CoinDesk all returned full Aug 31 items with real article URLs); AI supplementary feeds healthy (OpenAI Blog, Google AI Blog). GITHUB_COM_TOKEN confirmed set (len=93) for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes no file-write tool; <code>get_file_contents</code> is available for reads but <code>create_or_update_file</code> is not).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (HTTP 502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news — Aug 31 post verified); EXCLUDED after fetch (cursor.com/changelog — Grok bundling not found; openai.com/blog — 403)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports (Aug 28 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (len=93, push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
