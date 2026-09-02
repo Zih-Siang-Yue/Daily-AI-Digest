@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-02</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, September 2, 2026 · Anthropic Fable 5.1 &amp; Mythos 5.1 · $35B Anthropic AI Deal (Hut 8 Power) · OpenAI Path to Astra · 21-Bank Consortium Stablecoin · SEC Transfer-Agent Rules · Binance TradFi Options · Customer-Cloud Safeguards</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Wednesday: AI Dev Tools — Cursor, Windsurf, Copilot advanced usage, anchored on the Sep 1 Fable 5.1 launch) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Wednesday: AI Dev Tools (Cursor, Windsurf, Copilot Advanced Usage)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude · Model Choice</span>
+    <strong>Make Claude Fable 5.1 Your Coding Default — Re-Baseline via Your Eval Gate</strong>
+    <p>Anthropic shipped Claude Fable 5.1 today (Sep 1, verified on anthropic.com) as its most advanced model for coding and knowledge work — and made it dramatically cheaper: cache reads now cost 75% less ($0.25/M tokens), making typical workloads ~25% cheaper and highly-agentic work ~45% cheaper than Fable 5, plus ~60% fewer cyber-safeguard interruptions per Claude Code session (Fable 5.1 can now identify software vulnerabilities, not develop exploits). <strong>How to use it:</strong> switch to <code>claude-fable-5-1</code> on the API, re-run your model-selection eval (the Aug 22 eval-gate pattern) against it, and move Opus-tier spend on code review / long-horizon tasks to Fable 5.1 — Cognition is migrating Devin's Opus 5 traffic to it on launch day. <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Fable 5.1 →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Model Router</span>
+    <strong>Wire a Model-Router Into Cursor &amp; Claude Code Before the Nov 12 OpenAI Shutoff</strong>
+    <p>OpenAI confirmed (Aug 28) it will cut Cursor's direct OpenAI-model access on Nov 12 (post-SpaceX acquisition), so a single vendor behind your IDE is now a dated supply-chain risk — and with Fable 5.1 and Gemini Flash both viable, there's no reason to stay single-vendor. <strong>How to use it:</strong> in Cursor, pin defaults to Claude (Fable 5.1) + Gemini, demote GPT to optional; in Claude Code, curate <code>/model</code> via the <code>modelPicker</code> setting (Aug 25–28 changelog) so a vendor pulling access can't break your flow (cf. the Aug 31 model-portability concept). Keep prompts and evals pinned to a router, not a vendor. <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Gemini · Multi-Model</span>
+    <strong>Add Gemini 3.8 Flash ("Skimaki") to Your Multi-Model Rotation</strong>
+    <p>Google is releasing Gemini 3.8 Flash, codenamed "Skimaki," as early as Sep 2 (WSJ-reported via web search), specifically targeting prior coding shortcomings vs rivals, on a roughly three-week cadence from Gemini 3.7 Flash (Aug 13). <strong>How to use it:</strong> if you've built the model-router from today's tip above, add a coding-focused cheap tier (Flash-class) for high-volume edits alongside Fable 5.1 for hard tasks — keep the cheap model on boilerplate/lint-shaped work and route the gnarly debugging to Fable. <em>Caveat: 3.8 Flash is WSJ-reported, not yet confirmed on Google's August recap post — verify before prod.</em> <a href="https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/">Google AI recap →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Models</span>
+    <h3><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic Launches Claude Fable 5.1 &amp; Mythos 5.1 — 75% Cheaper Cache, ~60% Fewer Safeguard Interventions, New Enterprise Frontier Safeguards</a></h3>
+    <p>Anthropic shipped Claude Fable 5.1 and Mythos 5.1 on Sep 1 (verified verbatim on anthropic.com) — the same model with different safeguards: Fable 5.1 is generally available and Anthropic's most advanced for coding and knowledge work; Mythos 5.1 is gated to trusted-access programs (a Cyber Verification Program + a US-government-partnered Life Sciences Verification Program). The cost/safety moves are the headline: cache reads now cost 75% less ($0.25/M tokens) — ~25% cheaper typical, ~45% for agentic work — and Claude Code users see ~60% fewer cyber-safeguard interventions because Fable 5.1 can now identify software vulnerabilities (not develop exploits). New <strong>Enterprise Frontier Safeguards</strong> (EFS) reconcile zero-data-retention with misuse detection by storing data on the customer's own cloud (AWS/GCP/Azure); an anti-distillation change blocks new API accounts from editing prior context to preserve the thinking transcript. <strong>Why it matters:</strong> the coding-model default shifts to Fable 5.1 at lower cost, and the ZDR-vs-misuse-detection tension (Aug 20–29's ZDR thread) is now productized. <strong>How to use it:</strong> move to <code>claude-fable-5-1</code>, re-run evals, and shift Opus-tier code-review/long-task spend to Fable 5.1. <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · AI Infra</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/09/01/hut-8-s-texas-power-site-sits-inside-anthropic-s-usd35-billion-ai-deal">Anthropic's $35B AI Deal — Hut 8's Texas Power Site Sits Inside the Buildout</a></h3>
+    <p>A CoinDesk investigation (Sep 1, RSS-confirmed headline + URL) finds Hut 8's Texas power site sits inside Anthropic's $35 billion AI infrastructure deal (the deal partner is reported to be GPU-cloud firm Lambda; that partner name is web-search-attributed, not independently primary-verified this run). <strong>Why it matters:</strong> it's the AI×energy×crypto bridge — AI data-center demand is now literally wired into the same Texas power assets that bitcoin mining built, an unprecedented-scale buildout absorbing power and GPU supply. <strong>How to use it:</strong> for infra/cost teams, re-model GPU and power capacity against a $35B-scale absorber; for a Binance mining/market team, watch BTC-miner power repurposing as a structural signal (miners monetizing power via AI compute, not just hash). <em>Caveat: the $35B figure is CoinDesk-verified; the Lambda partner attribution is reported, not primary-confirmed.</em> <a href="https://www.coindesk.com/tech/2026/09/01/hut-8-s-texas-power-site-sits-inside-anthropic-s-usd35-billion-ai-deal">CoinDesk →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Frontier</span>
+    <h3><a href="https://openai.com/index/path-to-astra">OpenAI's "Path to Astra" — Frontier Model With Greater Security-Vuln Capacity, Released Under Frontier Safeguards</a></h3>
+    <p>OpenAI published "Path to Astra: critical capabilities and frontier safeguards" (Sep 1, RSS-confirmed) — Astra has a greater capacity for identifying security vulnerabilities than any of its publicly available models, so it will get a limited release under additional safety protocols before wider availability. <strong>Why it matters:</strong> it's the same "Astra" OpenAI is withholding from Cursor (Aug 31) — now formally framed as a safeguard-gated frontier release, the template for how the most capable models ship under restrictions. <strong>How to use it:</strong> track Astra's safeguard-gated release as the model for frontier deployments; for security teams, a model stronger at finding vulns than any public model is a defensive asset to plan access to (cf. Anthropic's Mythos 5.1 Cyber Verification Program). <a href="https://openai.com/index/path-to-astra">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Enterprise</span>
+    <h3><a href="https://openai.com/index/ai-native-company-workflows">OpenAI — "How AI-Native Companies Turn Workflows Into Operating Capability"</a></h3>
+    <p>OpenAI published "How AI-native companies turn workflows into operating capability" (Sep 1, RSS-confirmed), framing how AI-native companies operationalize multi-step workflows into durable, auditable operating capability rather than one-off automations. <strong>Why it matters:</strong> it's the demand-side counterpart to the agentic-default-architecture thread (Aug 30) — the unit of an AI-native company is a governed workflow, not a prompt, and the discipline (audit trails, human checkpoints, tool interfaces) maps onto the harness-engineering frame from Sep 1. <strong>How to use it:</strong> for an internal-tooling/platform team, design internal agent surfaces as governed workflows (permissions, eval gates, audit logs) from day one, not as chatbots retrofitted with controls. <a href="https://openai.com/index/ai-native-company-workflows">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security · Fake Client</span>
+    <h3><a href="https://cointelegraph.com/news/fake-claude-desktop-app-spreads-crypto-stealing-malware">Fake "Claude Desktop" App Spreads Crypto-Stealing Malware</a></h3>
+    <p>A fake "Claude Desktop" application is distributing info-stealing malware that drains crypto wallets (Cointelegraph, Sep 1, RSS-confirmed) — attackers exploit the Claude brand to get victims to install a trojaned desktop client. <strong>Why it matters:</strong> it's a new vector for the Aug 31 "agent session as attack surface" theme — now the attack isn't the session token, it's a fake client binary preying on Claude's brand trust, and it targets crypto holdings specifically (Binance-relevant). <strong>How to use it:</strong> only install Claude Desktop from <code>claude.ai/download</code>; treat any third-party "Claude" desktop installer as malicious; for a Binance team, add fake-client detection to your threat model and warn users about impersonator apps. <a href="https://cointelegraph.com/news/fake-claude-desktop-app-spreads-crypto-stealing-malware">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Coding Agents · Model Traffic</span>
+    <h3><a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Cognition (Devin) Migrates Opus 5 → Fable 5.1 Traffic on Launch Day</a></h3>
+    <p>From Anthropic's verified Fable 5.1 launch post: Cognition (the company behind the Devin coding agent) is "moving our Opus 5 traffic in Devin to Claude Fable 5.1 on launch day," per co-founder Walden Yan — it matched or edged out Fable 5 in their tests at lower cost-per-task, and the new cache-read pricing makes a Fable-class model finally economical for the workloads they'd kept on Opus (starting with code review). <strong>Why it matters:</strong> a major coding-agent vendor reshuffling model traffic on launch day is the strongest market signal that Fable 5.1 shifts the coding-agent cost/quality frontier — the Opus-tier premium for long coding work is eroding. <strong>How to use it:</strong> if you run coding agents on Opus-tier spend (Devin, Claude Code long tasks), re-benchmark against Fable 5.1 this week; the cache-read cut makes persistent/long-horizon agents the workload that benefits most. <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Stablecoins · Banks</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/01/citi-goldman-other-global-banks-and-asset-managers-team-up-on-stablecoin-venture">Citi, Goldman, and 21 Institutions Team Up on a Joint Stablecoin Venture</a></h3>
+    <p>Citi, Goldman Sachs, and other global banks and asset managers are teaming up on a joint stablecoin venture (Cointelegraph/CoinDesk, Sep 1, RSS-confirmed) — incumbents building their own stablecoin rather than ceding the rail to USDT/USDC. <strong>Why it matters:</strong> a bank-consortium stablecoin is a structural entrant on the demand side of "the next trillion-dollar currency" question (Aug 30) — it changes the competitive map for every stablecoin issuer and exchange. <strong>How to use it:</strong> for a Binance payments/market team, model the bank-consortium stablecoin as an emerging institutional rail that may capture regulated/enterprise flow; don't assume today's stablecoin shape wins institutional share. <a href="https://www.coindesk.com/business/2026/09/01/citi-goldman-other-global-banks-and-asset-managers-team-up-on-stablecoin-venture">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC · Regulation</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-01-sec-seeks-update-1970s-era-transfer-agent-rules-for-blockchain-age-413278">SEC Proposes Updating 1970s-Era Transfer-Agent Rules for the Blockchain Age</a></h3>
+    <p>The SEC proposed a broad update to its 1970s-era transfer-agent rules with a nod to blockchain (The Block/Cointelegraph/CoinDesk, Sep 1, RSS-confirmed), and set an event to figure out round-the-clock US trading — modernizing the legal plumbing that records securities ownership as assets move on-chain. <strong>Why it matters:</strong> transfer-agent rules are the settlement plumbing behind tokenized securities; updating them for blockchain is the legal pre-condition for the tokenized-TradFi stack (cf. the ICE/tZERO and Kraken/LSE tokenized-stock stories, Sep 1) to settle at scale. <strong>How to use it:</strong> for listing/market-structure teams, track the transfer-agent rule + 24-hour-trading roundtable as the regulatory unlocks that make tokenized equities settlement-ready; model 24/7 settlement as a coming product reality, not a far-off idea. <a href="https://www.theblock.co/news/regulation/2026-09-01-sec-seeks-update-1970s-era-transfer-agent-rules-for-blockchain-age-413278">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Binance · TradFi</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-09-01-binance-adds-options-1000-us-stocks-etfs-monthly-tradfi-perpetual-volume-surge-413213">Binance Adds Options on 1,000 US Stocks &amp; ETFs as Monthly TradFi Perpetual Volume Hits $433B</a></h3>
+    <p>Binance expanded its TradFi push with options on 1,000 US stocks and ETFs (The Block/Cointelegraph, Sep 1, RSS-confirmed), as monthly TradFi perpetual volume on the exchange hit $433 billion — Binance building out a regulated TradFi-derivatives surface alongside crypto. <strong>Why it matters:</strong> it's directly relevant to the reader's employer — Binance is treating TradFi derivatives (stock options/perps) as a growth surface, which means new product UI/flow surfaces for the iOS team. <strong>How to use it:</strong> for a Binance iOS team, expect options-on-stocks/ETFs and the broader TradFi-derivatives flow to be a coming feature surface; familiarize yourself with options/TradFi-perpetual product patterns now, and watch the $433B/mo volume as the demand signal justifying the build. <a href="https://www.theblock.co/news/business/2026-09-01-binance-adds-options-1000-us-stocks-etfs-monthly-tradfi-perpetual-volume-surge-413213">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Privacy × Safety</span>
+    <strong>"Customer-Cloud Safeguards" — Zero-Data-Retention and Misuse Detection Reconciled</strong>
+    <p>A concept crystallizing from Anthropic's verified Fable 5.1 launch: the <strong>Enterprise Frontier Safeguards</strong> (EFS) architecture stores customer data on the customer's own cloud (AWS/GCP/Azure), giving zero-data-retention-grade privacy while Anthropic still detects and responds to misuse — the long-standing tension between "the vendor can't see my data" and "the vendor must catch misuse" resolved by moving the data store to customer-controlled infrastructure. <strong>Why it matters NOW:</strong> (1) for a Binance team that needs both data sovereignty (cf. Aug 27 on-device-sovereignty) and misuse monitoring, EFS is the template — privacy and safety-monitoring stop being a trade-off; (2) it productizes the Aug 20–29 ZDR thread into a supported, multi-cloud feature; (3) caveat — EFS rolls out in phases starting this fall, so the reconciliation is coming, not yet generally available. <a href="https://www.anthropic.com/news/enterprise-frontier-safeguards">EFS →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>"The Tokenized-TradFi Stack Assembles" — Transfer-Agent Rules + Bank Stablecoins + Exchange Tokenization Converge</strong>
+    <p>A concept threading today's verified crypto items: the SEC modernizing transfer-agent rules for blockchain + 24-hour trading (Sep 1), Citi/Goldman/21-bank consortium stablecoin (Sep 1), Kraken/Payward tokenizing 100 LSE stocks + LSE24 trading (Sep 1), ICE/tZERO tokenized-securities infrastructure (Sep 1), and Binance's $433B/mo TradFi-perpetual volume — the regulatory, banking, exchange, and brokerage layers for tokenized TradFi are being built simultaneously. <strong>Why it matters NOW:</strong> (1) for a Binance market-structure team, tokenized equities/bonds are moving from one-off pilots to an assembled stack with settlement plumbing (transfer agents), a settlement asset (bank stablecoins), venues (LSE/Coinbase/Robinhood chains), and derivatives (Binance perps/options); (2) the competitive frontier is which layer captures the rail, not whether tokenization happens; (3) caveat — assembled ≠ live; the rules are proposed and the rails are in pilot, so watch for the go-live unlocks. <a href="https://www.theblock.co/news/regulation/2026-09-01-sec-seeks-update-1970s-era-transfer-agent-rules-for-blockchain-age-413278">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Energy × Compute</span>
+    <strong>"AI Compute Absorbs Mining Power" — BTC-Mining Energy Assets Repurpose for AI Data Centers</strong>
+    <p>A concept catalyzed by the verified Hut 8/Anthropic $35B-deal datapoint (CoinDesk, Sep 1): Hut 8's Texas power site — built for bitcoin mining — now sits inside Anthropic's $35 billion AI infrastructure deal, the concrete instance of a broader pattern where AI data-center demand is absorbing the energy assets BTC miners built. <strong>Why it matters NOW:</strong> (1) for a Binance mining/market team, BTC-miner power is becoming a dual-use asset (hashrate vs AI compute), which reshapes miner revenue models and the BTC-hashrate/security-budget thesis; (2) it extends Aug 24's "compute-as-asset-class" into energy — the scarce input is power + GPU, not just GPU; (3) caveat — one deal isn't a confirmed structural shift, but the magnitude ($35B) and the asset reuse (mining power → AI) make it a leading indicator worth tracking. <a href="https://www.coindesk.com/tech/2026/09/01/hut-8-s-texas-power-site-sits-inside-anthropic-s-usd35-billion-ai-deal">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1">Anthropic — Introducing Claude Fable 5.1 and Mythos 5.1 (Sep 1)</a>
+      <span class="desc">The verified primary source behind today's top story, two of the three tips, and the Customer-Cloud-Safeguards concept — exact pricing (cache reads 75% cheaper, $0.25/M), EFS, the Life Sciences Verification Program, anti-distillation change, benchmarks, and the protein-design/Venus-map/GPU-kernel science demos.</span>
+    </li>
+    <li>
+      <a href="https://www.anthropic.com/news/enterprise-frontier-safeguards">Anthropic — Developing Enterprise Frontier Safeguards with our customers (Sep 1)</a>
+      <span class="desc">The detail behind the Customer-Cloud-Safeguards concept — zero-data-retention-grade privacy plus misuse detection, with data stored on the customer's own cloud (AWS/GCP/Azure).</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/path-to-astra">OpenAI — Path to Astra: critical capabilities and frontier safeguards (Sep 1)</a>
+      <span class="desc">The RSS-verified source behind the Astra card — a frontier model with greater security-vulnerability-identification capacity than any public model, released under frontier safeguards (the template for safeguard-gated releases).</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/01/citi-goldman-other-global-banks-and-asset-managers-team-up-on-stablecoin-venture">CoinDesk — Citi, Goldman and other global banks team up on stablecoin venture (Sep 1)</a>
+      <span class="desc">The bank-consortium stablecoin behind today's crypto card and the "tokenized-TradFi stack assembles" concept — incumbents building their own settlement asset.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/business/2026-09-01-binance-adds-options-1000-us-stocks-etfs-monthly-tradfi-perpetual-volume-surge-413213">The Block — Binance adds options on 1,000 US stocks/ETFs; TradFi perpetual volume $433B (Sep 1)</a>
+      <span class="desc">The directly-Binance-relevant TradFi expansion behind today's crypto card — options on 1,000 US stocks/ETFs as monthly TradFi perpetual volume hits $433B.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-02 (Wednesday) · Generated 2026-09-02T02:40:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Wednesday tip theme — AI Dev Tools (Cursor, Windsurf, Copilot advanced usage), anchored on the Sep 1 Claude Fable 5.1 launch: make Fable 5.1 your coding default (cache reads 75% cheaper, ~60% fewer Claude Code safeguard interventions) via your eval gate, wire a model-router into Cursor &amp; Claude Code before the Nov 12 OpenAI shutoff, and add Gemini 3.8 Flash "Skimaki" to your multi-model rotation. AI: Anthropic launches Claude Fable 5.1 &amp; Mythos 5.1 (75% cheaper cache, EFS, Life Sciences Verification Program, anti-distillation), Hut 8's Texas power site sits inside Anthropic's $35B AI deal, OpenAI's "Path to Astra" (frontier model, safeguard-gated), and OpenAI's "AI-native company workflows." Vibe: a fake "Claude Desktop" app spreads crypto-stealing malware, and Cognition/Devin migrates Opus 5 → Fable 5.1 traffic on launch day. Crypto: Citi/Goldman/21 institutions team up on a joint stablecoin, the SEC proposes updating 1970s-era transfer-agent rules for blockchain + 24-hour trading, and Binance adds options on 1,000 US stocks/ETFs as TradFi perpetual volume hits $433B/mo. Concepts: "Customer-Cloud Safeguards" (ZDR + misuse detection reconciled), "the tokenized-TradFi stack assembles" (transfer-agent rules + bank stablecoins + exchange tokenization converge), and "AI compute absorbs mining power" (BTC-mining energy assets repurpose for AI data centers).</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Sep 1, Aug 31, 30, 29; Aug 28 not generated — skipped silently). ~100 prior topics indexed across titles, concepts, and tips. ~26 duplicate candidates filtered in favor of fresh angles: OpenAI-Cursor-Nov-12-shutoff + SpaceX-acquisition + Anthropic-MHS + Claude-Code-Aug-changelog (hooks/--restricted/spend-limit/SendFeedback/Auto-mode/promptCacheTtl) + Anthropic-alignment/security-post + ChatGPT-ads + Polimill-Japan (Sep 1/Aug 31 — all filtered; only the fresh Fable-5.1-default + model-router + Gemini-3.8-rotation tips carded as the Wednesday AI-dev-tools set, distinct from prior Claude-Code agentic-workflow tips), Sony/WMG-Anthropic-lawsuit + Apple-Core-AI/MLX/FoundationModels-on-device tips + Google-353K-vibe-course + Robinhood-Chain + Sber + ICE-tZERO (Sep 1 — all filtered; fresh bank-consortium-stablecoin + SEC-transfer-agent + Binance-TradFi-options carded instead), Claude-session-hijack + 17%-limit-cut + Sam-Altman-Codex + Cronos-Tectonic + Kalshi-×-US-Open + Saylor-BTC (Aug 31 — filtered), Fogo-hack + Ripple-quantum + AI-agents-pay + Solana-disinflation + Solana-ETF + Kalshi-legal-blow (Aug 29/30 — filtered), and the prior concept set (cognitive-debt + agent-session-attack-surface + model-portability + agentic-default-arch + agent-cost-engineering + post-quantum-migration + AI-vs-AI-cyber + model+compute-consolidation + AI-valuation-mania + harness-engineering + modular-monolith + brokerage-chain-DEX — only fresh Customer-Cloud-Safeguards + tokenized-TradFi-stack + AI-compute-absorbs-mining-power carded).</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): Perplexity "Hybrid Compute" / PII-TRACE / PII-Tracer (perplexity.ai/hub/blog returned HTTP 403 on WebFetch — not primary-verified, excluded per the same methodology that excluded "Muse Code," "Claudeforce," and the Aur0ra/Cursor-hack synthesis in prior reports); OpenAI "DevDay Sept 29 in San Francisco" (NOT present in the OpenAI Blog RSS this cycle — excluded pending verification, the same exclusion as the Aug 31 report); "Claude Code compliance API (Aug 11)" (a WebSearch synthesis, not primary-verified on docs.claude.com this run — excluded); Gemini 3.8 Flash "Skimaki" is carded only as a clearly-caveated tip (WSJ-reported, not yet confirmed on Google's August recap post). The $35B Anthropic-deal figure is CoinDesk-RSS-verified (headline + URL + Sep 1 date); the reported deal partner "Lambda" is web-search-attributed, not independently primary-verified this run (caveated inline). All other carded stories are primary-source-verified: Fable 5.1/Mythos 5.1 verbatim on anthropic.com; OpenAI items via the OpenAI Blog RSS; all crypto cards via The Block/Cointelegraph/CoinDesk RSS with real Sep 1 article URLs.</p>
+  <p><strong>Markets snapshot:</strong> Anthropic launches Claude Fable 5.1 &amp; Mythos 5.1 — cache reads 75% cheaper, ~60% fewer cyber-safeguard interventions, Enterprise Frontier Safeguards, Life Sciences Verification Program (anthropic.com, Sep 1) · Anthropic developing Enterprise Frontier Safeguards with customers — ZDR + misuse detection via customer cloud (anthropic.com, Sep 1) · OpenAI "Path to Astra" — frontier model with greater security-vuln capacity, safeguard-gated limited release (OpenAI Blog, Sep 1) · OpenAI "How AI-native companies turn workflows into operating capability" (OpenAI Blog, Sep 1) · OpenAI healthcare orgs can connect EHR + industry data to ChatGPT; Gilbert + Tobin law-firm governance case (OpenAI Blog, Sep 1) · Google AI August recap; Google Pics image creation in Workspace (Google AI Blog, Sep 1) · Hut 8's Texas power site sits inside Anthropic's $35B AI deal, reported partner Lambda (CoinDesk, Sep 1) · Binance adds options on 1,000 US stocks/ETFs; monthly TradFi perpetual volume $433B (The Block/Cointelegraph, Sep 1) · Citi, Goldman, 21 institutions plan joint stablecoin venture (Cointelegraph/CoinDesk, Sep 1) · Kraken parent Payward to tokenize 100 London-listed stocks, LSE24 trading; LSE partnership (The Block/Cointelegraph/CoinDesk, Sep 1) · SEC proposes transfer-agent rule update for blockchain; sets 24-hour US-trading event (The Block/Cointelegraph/CoinDesk, Sep 1) · Singapore proposes 100% reserves + yield ban for stablecoin issuers; weighs recognizing foreign stablecoins (CoinDesk/Cointelegraph, Sep 1) · Polymarket $1B raise at $21B valuation, led by Trump Jr-linked 1789 Capital (Cointelegraph/CoinDesk, Sep 1) · Ethena Pay app on Avalanche — 6% yield, 10% cashback, USDe payments (The Block/Cointelegraph/CoinDesk, Sep 1) · UK NCA froze $13.5M in Premier League crypto (Sorare) probe (Cointelegraph/CoinDesk, Sep 1) · Fake Claude desktop app spreads crypto-stealing malware (Cointelegraph, Sep 1) · Lazarus Group moves $30M through Hyperliquid (Cointelegraph, Sep 1) · Crypto treasury companies hit $340B market cap, altcoin DATs outperform (The Block, Sep 1) · Bitfinex Securities lists tokenized notes tied to Strategy/Metaplanet (Cointelegraph, Sep 1) · Silhouette debuts RFQ trading for xStocks on Hyperliquid (The Block, Sep 1) · Strategy spends $635M buying back STRC (CoinDesk, Sep 1) · Ark Invest buys $37M Block Inc (The Block, Sep 1) · Bitcoin enters "Rektember" — rate-hike risk + seasonality threaten rally; BTC near $78K (CoinDesk, Sep 1) · Bitcoin &amp; gold move in lockstep as debasement trade gains steam (The Block, Sep 1) · Musk's X hit by wave of unsolicited password reset emails (CoinDesk, Sep 1) · Asia digital-asset custody deals from Ripple/Coincheck (Cointelegraph, Sep 1) · Kalshi issues first lifetime ban for politician over insider bets (Cointelegraph, Sep 1) · Robinhood Chain printing cash, sends Arbitrum (ARB) soaring 30% (CoinDesk, Sep 1) · Cango shares plunge 20% after $81.6M Q2 loss (The Block, Sep 1) · Strategy hits back at MSCI proposal as "discriminatory" vs DATs (The Block, Sep 1).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block ~19 items, Cointelegraph ~30, CoinDesk ~25, OpenAI Blog ~7 fresh this cycle, Google AI Blog ~6 fresh; Hacker News RSS returned HTTP 502 Bad Gateway — skipped, consistent with prior runs) + WebFetch primary-source verification (anthropic.com/news → "Introducing Claude Fable 5.1 and Mythos 5.1" Sep 1 + "Developing Enterprise Frontier Safeguards" Sep 1 verified; anthropic.com/claude-fable-and-mythos-5-1 → exact pricing/LSVP/EFS/anti-distillation/benchmarks/science-demos verified verbatim; perplexity.ai/hub/blog → HTTP 403 → "Hybrid Compute" synthesis EXCLUDED per methodology; coindesk.com Hut-8/Anthropic article → HTTP 429 rate-limited, but the RSS headline + URL + Sep 1 date is a citable primary source). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — the Fable 5.1/Mythos 5.1 release and all details were verified verbatim on anthropic.com, the OpenAI items via the OpenAI Blog RSS, and all crypto cards via The Block/Cointelegraph/CoinDesk RSS with real Sep 1 article URLs. GITHUB_COM_TOKEN confirmed set (len=93) for the github.com Pages push. GHE archive: the mcp-ghe server exposes no file-write tool (<code>create_or_update_file</code> is not available), so the archive is written via the local git clone (sean-y/daily-digest, main branch) — the established mechanism used by prior reports; the <code>git push</code> to <code>main</code> is subject to the user's explicit confirmation per the push-to-main safety rule.</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~19 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~30 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~25 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~7 fresh this cycle)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~6 fresh, low-signal)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (HTTP 502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news, anthropic.com/claude-fable-and-mythos-5-1 — Fable 5.1 verified verbatim); EXCLUDED after fetch (perplexity.ai/hub/blog — 403); rate-limited but citable (coindesk.com Hut-8 — 429, RSS headline used)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports loaded (Aug 28 missing); today's report committed locally, push to main pending confirmation</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (len=93, push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
