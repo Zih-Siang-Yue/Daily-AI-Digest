@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-03</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Thursday, September 3, 2026 · Anthropic Fable/Mythos 5.1 · OpenAI Astra Hits Critical · Gemini Agentic Video · DOJ–OpenAI NYT Amicus · Claude Code OAuth Plaintext · Token Supercycle · BTC Demand Negative</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Thursday: Edge AI / On-device ML — Apple Neural Engine, MLX, ONNX Mobile) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Thursday: Edge AI &amp; On-Device ML (Neural Engine, MLX, ONNX)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core AI · Neural Engine</span>
+    <strong>Verify Ops Actually Land on the Neural Engine — Don't Let Them Silently Fall Back to CPU</strong>
+    <p>An on-device model only hits its latency/battery budget if its compute-heavy ops dispatch to the Apple Neural Engine (ANE) — but ops quietly fall back to CPU/GPU when a layer isn't ANE-supported, and your <em>profiler</em> won't shout about it. The deployable check: in <code>coremltools</code>, target <code>ComputeUnit.GPU_AND_NEURAL_ENGINE</code>, then open the <strong>Core AI Debugger</strong>'s op-level view (cf. Aug 29) and confirm each op's assigned compute unit — flag any op on CPU as a conversion rework. It matters more in 2026 because the silicon budget just grew: the M6 chip's dual 16-core Neural Engine doubles peak AI compute, and the A20 Pro (2nm, TSMC-exclusive) raises sustained on-device headroom — but only code that actually <em>dispatches</em> to the ANE cashes that dividend. <a href="https://developer.apple.com/machine-learning/">Apple ML docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Quantization</span>
+    <strong>Quantize to int4/int8 — the Gate Between "Runs on My Mac" and "Ships on an iPhone"</strong>
+    <p>On-device LLM deployment is gated by memory, not just speed: a 3B-parameter model at fp16 is ~6GB (uncomfortable on a mid-range iPhone with the app's own footprint); at int4 it's ~1.5GB (ships). The loop: quantize on your Mac with <code>mlx_lm.convert</code> (4-bit/8-bit), sanity-check quality on a held-out eval set (cf. Aug 22's eval gate), then convert the quantized weights to a <code>.mlpackage</code> and serve through <strong>Core AI</strong> (cf. Sep 1's MLX-LoRA→Core-AI path, now extended to the inference/compression step). For a Binance iOS feature — an on-device transaction-narration or support-triage LLM — int4 quantization is what turns a Mac demo into a ship-grade iPhone model; ship the int4 build, keep the fp16 build for debug. <a href="https://github.com/ml-explore/mlx-examples/tree/main/lora">MLX examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Hybrid · Routing</span>
+    <strong>On-Device-First With a Cloud Fallback — Route Only When the Local Model Is Out of Its Depth</strong>
+    <p>Apple's own 2026 trajectory is hybrid: Core AI/Foundation Models run the bulk on-device (zero token cost, zero egress — Aug 29's ZDR-tier default), while reasoning-heavy/long-context work escalates to a cloud model. Mirror that as a routing rule in your own app: classify the query on-device, serve locally unless it crosses a confidence or context-length threshold, and only then escalate to a cloud model through a model-router (cf. Aug 31's load-bearing router abstraction). For a Binance iOS feature, this is the cost/privacy frontier — most user queries (a balance lookup, a transaction classify) never leave the device; only the hard ones cost a token. Pin the routing threshold to your eval scores, not a guess, so the fallback fires on measured weakness. <a href="https://developer.apple.com/machine-learning/">On-device sovereignty →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Models</span>
+    <h3><a href="https://www.anthropic.com/news/claude-fable-and-mythos-5-1">Anthropic Launches Claude Fable 5.1 &amp; Claude Mythos 5.1 — Its Most Advanced Models for Coding &amp; Knowledge Work</a></h3>
+    <p>Anthropic introduced <strong>Claude Fable 5.1</strong> and <strong>Claude Mythos 5.1</strong> (Sep 1, verified on anthropic.com/news) as its most advanced models for coding and knowledge work, with research capabilities framed as an early glimpse of AI in scientific progress; Mythos 5.1 is the lower-restriction variant for sensitive applications. A same-day <strong>"Developing Enterprise Frontier Safeguards with our customers"</strong> post shipped alongside, and reporting ties the launch to a ~$35B cloud-computing deal with Lambda. <strong>Why it matters:</strong> the coding-model bar that Claude Code/Codex users benchmark against just moved; for teams routing agentic coding onto Claude, Fable 5.1 is the new default to re-bench against. <strong>How to use it:</strong> re-run your eval suite against Fable 5.1 before migrating Claude Code/agent workloads; keep Mythos 5.1 on your radar only if you have a vetted sensitive-use case. <em>(Launch verified; the $35B Lambda figure is reporting, not on the newsroom listing — cited with that caveat.)</em> <a href="https://www.anthropic.com/news/claude-fable-and-mythos-5-1">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Safety</span>
+    <h3><a href="https://openai.com/index/path-to-astra">OpenAI's "Path to Astra" — First Model to Hit the "Critical" Cybersecurity Capability Threshold</a></h3>
+    <p>OpenAI's Sep 1 "Path to Astra" post (confirmed via the OpenAI Blog RSS) names <strong>Astra</strong> as the first OpenAI model to meet the <strong>Critical cybersecurity capability threshold</strong> under its Preparedness Framework, with stronger safeguards for release; per reporting on the post, that tier means a model can autonomously identify and create security exploits, prompting OpenAI to pause reinforcement-learning training for deployment-bound models for roughly two weeks, with Astra still in development and access restricted. <strong>Why it matters:</strong> frontier-model release is now gated by a <em>measured</em> capability threshold — the first time a model crosses a formal "dangerous-capability" line, moving safety from policy posture to a graded gate. <strong>How to use it:</strong> for security teams, a Critical-capability model is double-edged — it's red-team tooling that can find your exploits before attackers do, but only deployable under the framework's safeguards; track the threshold taxonomy as the emerging standard for "when is a model too dangerous to ship." <em>(openai.com/index 403'd to WebFetch — confirmed via the OpenAI Blog RSS item; the exploit/RL-pause detail is reporting on the post.)</em> <a href="https://openai.com/index/path-to-astra">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Multimodal</span>
+    <h3><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google's "Agentic Video Understanding" — Gemini Agents Navigate Video, Cutting Tokens Up to 88%</a></h3>
+    <p>Google introduced <strong>agentic video understanding</strong> for Gemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite (Sep 1, verified on blog.google): instead of statically ingesting video at a fixed 1 FPS, the model runs an agentic loop that invokes an internal tool to fetch only the moments and modalities it needs — resampling visual frames at higher FPS for rapid motion, scanning audio, and loading transcript segments. The payoff: up to <strong>88% token reduction, 66% cost reduction, and 7% accuracy gain</strong> on long-form video (10-min how-tos to multi-hour recordings), enabling sub-second moment retrieval, anomaly detection, and needle-in-haystack search. <strong>Why it matters:</strong> video becomes an <em>agentic surface</em> the model reasons over rather than a bulk payload it ingests — and at 1/8 the token cost. <strong>How to use it:</strong> for any video-analysis feature, set the API's <code>processing</code> parameter to <code>"agentic"</code> (Gemini API in Google AI Studio / Gemini Enterprise Agent Platform) and let the model fetch only the segments it needs. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Legal · Copyright</span>
+    <h3><a href="https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/">DOJ Sides With OpenAI in NYT Copyright Suit — Fair-Use Defense Gets a Federal Backer</a></h3>
+    <p>The Trump administration's Justice Department filed a 20-page amicus brief siding with OpenAI in The New York Times's copyright lawsuit (SDNY, Sep 2, verified via TechCrunch), arguing that constraining LLM development under a "misunderstanding of fair use doctrine" would thwart creative/scientific progress and harm American competitiveness — citing Trump's Jan 2025 EO "Removing Barriers to American Leadership in Artificial Intelligence." The brief isn't a ruling (the government lacks jurisdiction) but could sway the court; the prior leaning is Judge Alsup's comparison of LLM training to a human reading a book, with Anthropic fined $1.5B only for illegal "shadow libraries," not for training on copyrighted material itself. <strong>Why it matters:</strong> the training-data litigation frontier (cf. Aug 30's Sony/WMG-v-Anthropic lyrics suit) now has the federal government weighing in on the fair-use side — turning a private dispute into a politically contested one. <strong>How to use it:</strong> factor government-amicus risk into your model-vendor legal posture; the fair-use-for-training question is no longer just private litigation, it's a national-competitiveness argument every vendor will cite. <a href="https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/">TechCrunch →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Claude Code · Security</span>
+    <h3><a href="https://secretspec.dev/blog/claude-code-stores-oauth-tokens-in-plaintext/">Claude Code Stores OAuth Tokens in Plaintext on Linux/Windows — Despite "Stored Securely" Docs</a></h3>
+    <p>A verified technical finding (Sep 2, secretspec.dev): Claude Code <code>2.1.257</code> stores MCP OAuth access tokens in plaintext at <code>~/.claude/.credentials.json</code> (mode <code>0600</code>) on Linux and Windows, despite documentation claiming tokens are "stored securely"; macOS uses the encrypted Keychain (falling back to plaintext only if unavailable). Notably, OpenAI's Codex <em>already</em> makes MCP OAuth storage configurable (<code>auto</code>/<code>file</code>/<code>keyring</code> backends) — a precedent for a fix. <strong>Why it matters:</strong> this extends Aug 31's "agent session as attack surface" thread — the session tokens that let an agent act on your behalf are stealable-and-replayable bearer credentials sitting in a plaintext file on dev machines. <strong>How to use it:</strong> on Linux/Windows, treat <code>~/.claude/.credentials.json</code> as a production secret — restrict file perms, run Claude Code under a dedicated OS user, rotate MCP OAuth tokens, and watch for a keyring-backed credential store. <em>(Caveat: the author is affiliated with SecretSpec and advocates for its SDK, but the plaintext-storage finding stands on direct inspection.)</em> <a href="https://secretspec.dev/blog/claude-code-stores-oauth-tokens-in-plaintext/">Source →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agentic Coding · Discourse</span>
+    <strong>"Are Coding Agents Too Cautious Because They Estimate Work in Human Time?"</strong>
+    <p>A resonant Ask-HN thread (Sep 2) names a friction every agent user hits: a model calls a task "several days of work," then finishes it in 20–30 minutes in auto mode — and worse, once it decides a task is large, it starts <em>reducing scope, splitting, or avoiding critical parts</em> that add real value. The diagnosis: agents import human-time heuristics that understate their own throughput, then self-curtail against a budget that doesn't apply to them. <strong>Why it matters:</strong> this is the scope-estimation sibling of Sep 1's "harness engineering" — the binding skill isn't a better prompt, it's overriding the agent's false human-time priors so it doesn't silently drop your highest-value work. <strong>How to use it:</strong> when prompting, give an explicit scope floor ("do not split or reduce; attempt the full implementation") and estimate in agent-steps, not human-hours; treat a model's "this is large" as a flag to scope-<em>up</em> the instruction, not scope-<em>down</em> the task. <a href="https://news.ycombinator.com/item?id=49543917">HN thread →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Databricks · Genie</span>
+    <h3><a href="https://www.databricks.com/blog">Databricks "Expanding Genie Agents" — Deep Analysis &amp; File Reasoning</a></h3>
+    <p>Databricks expanded its Genie Agents (Sep 2, verified on databricks.com/blog) with two new capabilities it labels <strong>"deep analysis"</strong> (multi-step analytical reasoning) and <strong>"file reasoning"</strong> (reasoning over files, not just structured tables) — moving the AI data assistant from single-shot Q&amp;A to multi-step reasoning over unstructured artifacts. <strong>Why it matters:</strong> the same agentic-capability arc (goal-directed, multi-step, tool-invoking) that hit coding agents is now hitting data tooling — your data assistant can own a multi-step analysis over a folder of files rather than just answering one SQL question. <strong>How to use it:</strong> for data/ML teams, re-scope what Genie can own end-to-end (multi-step file analysis) vs. what still needs a human analyst, and gate its outputs behind the same eval/review discipline (cf. Aug 31's cognitive-debt guardrail) since multi-step reasoning compounds errors. <a href="https://www.databricks.com/blog">Databricks blog →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">BTC · Onchain</span>
+    <h3><a href="https://cointelegraph.com/markets/bitcoins-apparent-demand-turns-negative-price-struggles-with-77k">Bitcoin's Apparent Demand Turns Negative as Price Slips Below $77K</a></h3>
+    <p>One of Bitcoin's onchain demand indicators turned negative again after a brief August rebound, as BTC price slipped below $77,000 amid a broader bond and equities sell-off (Cointelegraph, Sep 2). <strong>Why it matters:</strong> it's a fresh onchain signal (demand negative) paired with a fresh price level — down from the ~$79K Aug 30 / ~$83K Aug 27 prints, so the August demand rebound didn't hold; for a Binance market/monitoring team, "apparent demand turns negative" is a leading onchain indicator distinct from price. <strong>How to use it:</strong> add "apparent demand" to your demand-side signal set alongside exchange flows; a negative-demand print alongside a broad risk-off move is the macro-aligned signal to watch for whether the pullback extends. <a href="https://cointelegraph.com/markets/bitcoins-apparent-demand-turns-negative-price-struggles-with-77k">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Coinbase · Derivatives</span>
+    <h3><a href="https://cointelegraph.com/news/coinbase-launches-regulated-crypto-derivatives-in-canada">Coinbase Launches Regulated Crypto Derivatives in Canada — Perpetual &amp; Dated Futures, up to 10x</a></h3>
+    <p>Coinbase is offering eligible Canadian traders perpetual and dated futures with up to 10x leverage (Cointelegraph, Sep 2), as major US trading platforms expand their crypto presence in Canada under a regulated derivatives regime. <strong>Why it matters:</strong> a new regulated derivatives surface in Canada = a fresh venue and margin product class for a Binance market-structure team to model, and a datapoint that US-platform derivatives expansion is routing through jurisdictions with clear crypto-derivatives rules. <strong>How to use it:</strong> track Coinbase Canada's product surface as the template for regulated-derivatives expansion into new jurisdictions; compare margin tiers, product scope, and eligibility against your own jurisdictional roadmap. <a href="https://cointelegraph.com/news/coinbase-launches-regulated-crypto-derivatives-in-canada">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ondo · Regulation</span>
+    <h3><a href="https://cointelegraph.com/news/ondo-urges-sec-cftc-bring-us-stock-perpetuals-onshore">Ondo Urges SEC &amp; CFTC to Bring US-Stock Perpetuals Onshore</a></h3>
+    <p>Ondo argues existing US securities laws can accommodate perpetual futures tied to individual stocks, urging the SEC and CFTC to bring US-stock-perpetuals activity onshore as regulators look to pull derivatives back onshore (Cointelegraph, Sep 2). <strong>Why it matters:</strong> "US-stock perpetuals" — perps on individual equities — is an emerging product class that bridges crypto perp mechanics with US equities, directly relevant to a Binance derivatives/listings team; whether it lists in the US or stays offshore hinges on the SEC+CFTC pathway Ondo is pitching. <strong>How to use it:</strong> model onshore US-stock-perps as a greenfield product class to watch; the regulatory pathway (and which agency owns it) is the variable that decides venue and structure — don't assume today's offshore-only shape wins. <a href="https://cointelegraph.com/news/ondo-urges-sec-cftc-bring-us-stock-perpetuals-onshore">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>"The Token Supercycle" — Everything of Value Is Becoming Programmable</strong>
+    <p>A concept from Solana Foundation's Lily Liu (CoinDesk opinion, Sep 2): tokenization isn't just "more access to tokens" — it's a fundamental shift in how value is created, owned, financed, and moved, as "everything of value becomes programmable." <strong>Why it matters NOW:</strong> the datapoints are stacking across asset classes this week — ICE/tZERO tokenized securities (Sep 1), Securitize/Socios tokenizing pro-sports equity (Sep 2), Ondo pitching onshore US-stock perps (Sep 2) — so the "supercycle" framing has live fuel, not just theory; for a Binance team, it's the thesis under which tokenized equities, sports equity, and perps-on-stocks are all the same trend. <strong>How to use it:</strong> model programmable-value as a cross-asset thesis, not isolated products — the rail that lists one tokenized asset class can list the next. <em>(Caveat: it's an opinion piece by a Solana Foundation exec — an interested party; treat the frame as direction-of-travel, not a forecast.)</em> <a href="https://www.coindesk.com/opinion/2026/09/02/the-token-supercycle-everything-of-value-is-becoming-programmable">CoinDesk →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI Safety</span>
+    <strong>"Capability Thresholds &amp; Frontier Safeguards" — Release Gated by Measured Danger, Not Vibes</strong>
+    <p>A concept crystallizing across this week's safety moves: OpenAI's "Path to Astra" (Sep 1) names Astra as the first model to hit the <strong>Critical cybersecurity capability threshold</strong> under the Preparedness Framework, and Anthropic's same-day "Developing Enterprise Frontier Safeguards with our customers" (Sep 1) shows the safeguard co-development pattern — frontier-model release is now gated by a <em>measured, named capability tier</em>, with safeguards built before release, not after. <strong>Why it matters NOW:</strong> (1) for a Binance team deploying frontier models, "is this model too dangerous to deploy" is becoming a graded, vendor-published answer rather than a guess — track the Preparedness Framework's threshold taxonomy as the emerging standard; (2) the safeguard-collaboration pattern (vendors + customers co-developing guardrails) is the enterprise template for safe deployment; (3) caveat — thresholds are vendor-self-assessed today, and the DOJ's fair-use brief (Sep 2) shows governments are racing to set their own rules, so the governance layer is contested, not settled. <a href="https://openai.com/index/path-to-astra">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>"Context Engineering" — The Context Layer Becomes a Managed Discipline, Beyond Prompt Engineering</strong>
+    <p>A concept surfacing in the 2026 architecture discourse: as agents act across long horizons, the binding skill shifts from crafting a single prompt to <strong>engineering the context window</strong> — retrieval, compression, memory management, and tool-result curation as a managed architectural layer, not an afterthought. It's distinct from Sep 1's "harness engineering": the harness is the <em>control</em> loop (hooks, permissions, abort paths); context engineering is the <em>content</em> of what the model sees. <strong>Why it matters NOW:</strong> (1) for on-device iOS AI — where a 3B model's context budget is tiny (cf. today's int4-quantization tip) — context engineering isn't optional; the model can't reason over what wasn't retrieved/compressed into its window; (2) it reframes the "cognitive debt" thread (Aug 31) — the debt isn't only in unread code, it's in unmanaged context; (3) caveat — "context engineering" is a frame consolidating across the discourse, not yet a formalized role; instrument it via retrieval-precision and context-window-utilization metrics before treating it as a title. <a href="https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/">Synthesis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.anthropic.com/news/claude-fable-and-mythos-5-1">Anthropic — Introducing Claude Fable 5.1 and Claude Mythos 5.1 (Sep 1)</a>
+      <span class="desc">The verified primary source (anthropic.com/news) behind today's top AI card — Anthropic's most advanced models for coding and knowledge work, with a same-day Enterprise Frontier Safeguards post. The $35B Lambda figure is reporting, not on the listing.</span>
+    </li>
+    <li>
+      <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/">Google — Introducing agentic video understanding with Gemini (Sep 1)</a>
+      <span class="desc">The verified primary source behind the Gemini card — agents dynamically navigate video (frames/audio/transcripts) for up to 88% token / 66% cost reduction; enable via the API <code>processing: "agentic"</code> parameter.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/path-to-astra">OpenAI — Path to Astra: critical capabilities and frontier safeguards (Sep 1)</a>
+      <span class="desc">The RSS-confirmed primary source behind the Astra card — Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework. (openai.com/index 403'd to WebFetch — confirmed via the OpenAI Blog RSS.)</span>
+    </li>
+    <li>
+      <a href="https://techcrunch.com/2026/09/02/u-s-government-sides-with-openai-on-issue-of-training-llms-on-copyrighted-material/">TechCrunch — US government sides with OpenAI on training LLMs on copyrighted material (Sep 2)</a>
+      <span class="desc">The verified primary source behind the DOJ/NYT card — a 20-page amicus brief defending fair use for LLM training on national-competitiveness grounds.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/opinion/2026/09/02/the-token-supercycle-everything-of-value-is-becoming-programmable">CoinDesk — The token supercycle: everything of value is becoming programmable (Sep 2)</a>
+      <span class="desc">The Solana Foundation / Lily Liu opinion piece behind today's top crypto concept — tokenization as a fundamental shift in how value is created, owned, financed, and moved.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-03 (Thursday) · Generated 2026-09-03T02:20:00Z · v4 design</p>
+  <p>Curated for an iOS developer at Binance. Thursday tip theme — Edge AI &amp; on-device ML (Apple Neural Engine, MLX, ONNX): verify ops actually dispatch to the Neural Engine (don't let them silently fall back to CPU), quantize to int4/int8 to fit a 3B LLM on an iPhone, and route on-device-first with a cloud fallback only when the local model is out of its depth. AI: Anthropic launches Claude Fable 5.1 &amp; Mythos 5.1 (most advanced for coding &amp; knowledge work, Sep 1), OpenAI's "Path to Astra" — first model to hit the Critical cybersecurity capability threshold (Preparedness Framework, RL paused), Google's agentic video understanding for Gemini 3.7/3.6 Flash + 3.5 Flash-Lite (up to 88% token / 66% cost cut, enable via <code>processing:"agentic"</code>), and the DOJ sides with OpenAI in the NYT copyright suit (fair-use defense gets a federal backer). Vibe: Claude Code stores OAuth tokens in plaintext on Linux/Windows (despite "stored securely" docs), "are coding agents too cautious because they estimate work in human time?" (an HN discourse on agent scope self-curtailment), and Databricks expands Genie Agents with deep analysis + file reasoning. Crypto: Bitcoin's apparent demand turns negative as price slips below $77K, Coinbase launches regulated crypto derivatives in Canada (perps + dated futures, 10x), and Ondo urges the SEC/CFTC to bring US-stock perpetuals onshore. Concepts: "the token supercycle" (everything of value becoming programmable), "capability thresholds &amp; frontier safeguards" (release gated by measured danger), and "context engineering" (the context layer as a managed discipline beyond prompt engineering).</p>
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Sep 1, Aug 31, 30, 29; Sep 2 not generated — skipped silently). ~100 prior topics indexed across titles, concepts, and tips. ~26 duplicate candidates filtered in favor of fresh angles: OpenAI-Cursor-wind-down / Nov-12-shutoff / Astra-withheld / Russian-hackers-via-Cursor (Aug 29–31 — the entire SpaceX/Cursor saga is deduped, now in its 5th day; only the genuinely-new Astra capability milestone is carded, on its own merits, not the Cursor thread) (Aug 29/30/31 — filtered), Anthropic alignment/security action-classifier + Claude-Code changelog batch (hooks/--restricted/spend-limit/SendFeedback/Auto-mode/cache-TTL) + Claude-Code 17%-limit-cut + Claude-session-infostealer-hijack + Sam-Altman-avoids-Codex (Aug 30/31 — filtered), Sony/WMG-Anthropic-lawsuit + Anthropic-MHS + Nvidia-Hugging-Face + ChatGPT-Work-autonomous + Claude-Cowork-memory + usage-based-economics (Aug 29/30 — filtered), Google 353K-vibe-course + agentic-3-lanes + loveholidays-Codex + Cursor-start-from-scratch (Aug 30/Sep 1 — filtered), Fogo/Cronos/Tectonic hacks + Ripple-quantum-Q-Day + AI-agents-pay + Kalshi legal blows / US-Open / SCOTUS-petition + Robinhood-Chain-DEX + Solana-disinflation/ETF + Sber-$46B + BTC $79K/$83K (Aug 29–Sep 1 — only the fresh BTC-apparent-demand-negative + Coinbase-Canada-derivatives + Ondo-stock-perps carded, distinct price level + distinct venue + distinct product class), and the prior on-device tip set (Core-AI-decision-tree + Core-AI-Debugger + Core-AI-ZDR-default on Aug 29; MLX-LoRA→Core-AI + Foundation-Models-tool-calling + updatable-Core-ML on Sep 1; M6-NE/MLX/ONNX on Aug 27 — only fresh ANE-dispatch-verification + int4/int8-quantization + hybrid on-device/cloud-routing tips carded as the Thursday Edge-AI set, distinct from prior on-device tips), and the prior concept set (harness-engineering + cognitive-debt + agent-session-attack-surface + model-portability + brokerage-chain-DEX + post-quantum-migration + modular-monolith + agentic-default-arch + agent-cost-engineering + AI-vs-AI-cyber + vertical-consolidation + valuation-mania + abundant-intelligence + on-device-sovereignty — only fresh token-supercycle + capability-thresholds/frontier-safeguards + context-engineering carded; context-engineering is framed as distinct from harness-engineering — content of the context window vs. the control loop).</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): "Databricks Unity AI Gateway now supports Claude Fable 5.1; Genie One searches the public web + uses OpenAI-on-Databricks models" — a WebSearch synthesis NOT found on databricks.com/blog (the only Unity AI Gateway post is "Generally Available" Aug 4 with no Fable mention; the only Sep 2 Genie post is "Expanding Genie Agents: deep analysis, file reasoning" — web-search/OpenAI integration not present), so the synthesis was a conflation/fabrication and was EXCLUDED; the verified Genie-expansion post is carded instead. Qwen3.8-Max-0902 "takes 2nd on Code Arena beating Claude Opus 5 max" (HN, Sep 3) — Qwen3.8-Max was previously EXCLUDED Aug 31 as an unverified model synthesis; the Sep 3 arena.ai leaderboard snapshot was not independently verified this run, so excluded pending verification (consistent with prior methodology). METR "Report on OpenAI/Hugging Face Hacking Incident" (HN, Aug 26 resurfacing) — the HF-incident theme was covered Aug 24/27/31; deduped. OpenAI "DevDay Sept 29 in San Francisco" — NOT present in the OpenAI Blog RSS this cycle and openai.com 403s to WebFetch; excluded pending verification (same exclusion as Aug 31). The "AI developer tools new release this week" WebSearch batch (Gemini 3.8 Flash coding upgrade, NVIDIA Jetson Orin Nano 2 / physical AI, etc.) — unverified model/tool syntheses with no primary-source confirmation this cycle; the agentic-video-understanding feature WAS verified via its dedicated blog.google post and carded. WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — Anthropic Fable 5.1 via anthropic.com/news, Gemini agentic video via blog.google's dedicated post, Claude Code OAuth via secretspec.dev, DOJ/OpenAI via TechCrunch, and Astra via the OpenAI Blog RSS (openai.com/index 403'd).</p>
+  <p><strong>Markets snapshot:</strong> Anthropic launches Claude Fable 5.1 &amp; Mythos 5.1 — most advanced for coding &amp; knowledge work; same-day "Developing Enterprise Frontier Safeguards" (anthropic.com/news, Sep 1) · OpenAI "Path to Astra" — first model to meet Critical cybersecurity capability threshold, Preparedness Framework, RL paused ~2 weeks, still in development (OpenAI Blog RSS, Sep 1) · Google agentic video understanding for Gemini 3.7/3.6 Flash + 3.5 Flash-Lite — up to 88% token / 66% cost / 7% accuracy; enable <code>processing:"agentic"</code> (blog.google, Sep 1) · DOJ 20-page amicus brief sides with OpenAI in NYT copyright suit, fair-use/national-AI-leadership defense (TechCrunch, Sep 2) · Claude Code stores OAuth tokens in plaintext on Linux/Windows at ~/.claude/.credentials.json; macOS uses Keychain; Codex already configurable (secretspec.dev, Sep 2) · Databricks "Expanding Genie Agents" — deep analysis + file reasoning (databricks.com/blog, Sep 2) · Bitcoin apparent demand turns negative; price slips below $77K amid bond/equities sell-off (Cointelegraph, Sep 2) · Coinbase launches regulated crypto derivatives in Canada — perps + dated futures, up to 10x (Cointelegraph, Sep 2) · Ondo urges SEC/CFTC to bring US-stock perpetuals onshore (Cointelegraph, Sep 2) · Anthony Armstrong (ex-xAI/X CFO) joins Coinbase board (The Block, Sep 2) · World open-sources ProveKit, a ZK identity-proving toolkit (The Block, Sep 2) · Arbitrum DAO reports $6.2M H1 income; Robinhood Chain adds a new revenue stream (The Block, Sep 2) · Hyperscale Data flips Michigan BTC-mining site into AI, potential $1.2B+ deal (The Block, Sep 2) · Securitize &amp; Socios tokenize equity in pro sports teams (The Block, Sep 2) · CrowdStrike + US feds dismantle Russian "Sality" malware that stole crypto for 8 years (CoinDesk/Cointelegraph, Sep 2) · Kraken parent Payward delays IPO to Q2 2027 at earliest (CoinDesk, Sep 2) · New Jersey petitions US Supreme Court over prediction-market sports contracts (The Block/Cointelegraph/CoinDesk, Sep 2) · Wyoming adds Chainlink reserve verification to state-issued stable token (Cointelegraph, Sep 2) · DOJ says Hamas crypto seizures reached $560K; FBI took over fundraising sites (CoinDesk, Sep 2) · Google Fairwind Program — proactive cyber defense for governments/enterprises (Google AI Blog, Sep 2) · Google "The latest AI news we announced in August 2026" recap incl. Gemini 3.7 Flash (Google AI Blog, Sep 1) · Google Pics (Nano Banana image creation/editing) in Workspace (Google AI Blog, Sep 1) · OpenAI × Polimill Japan public AI infra + ChatGPT ads milestone + EHR/healthcare-data connections + Gilbert &amp; Tobin governance case (OpenAI Blog, Aug 31–Sep 1).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block ~7 items, Cointelegraph ~7, CoinDesk ~9, OpenAI Blog ~12, Google AI Blog ~4; Hacker News RSS returned a healthy payload this run — ~16 items, a change from prior runs' 502/empty failures) + WebFetch primary-source verification (anthropic.com/news → "Introducing Claude Fable 5.1 and Claude Mythos 5.1" Sep 1 verified present; blog.google → "Introducing agentic video understanding with Gemini" Sep 1 verified, with the 88%/66%/7% figures and the <code>processing:"agentic"</code> enablement; secretspec.dev → Claude Code OAuth-plaintext finding Sep 2 verified (v2.1.257, ~/.claude/.credentials.json, Codex already configurable); techcrunch.com → DOJ/OpenAI NYT amicus Sep 2 verified (20-page brief, fair-use/national-leadership); databricks.com/blog → "Expanding Genie Agents: deep analysis, file reasoning" Sep 2 verified as the listing entry; the "Unity AI Gateway hosts Fable 5.1 / Genie web-search + OpenAI" synthesis NOT found → EXCLUDED). FAILED fetches: openai.com/index/path-to-astra returned 403 Forbidden (consistent with prior runs' openai.com 403s) — Astra confirmed via the OpenAI Blog RSS item instead; the databricks.com/blog/expanding-genie-agents slug 404'd (exact slug unknown) — the listing entry on databricks.com/blog sufficed to verify title, date, and capabilities. GITHUB_COM_TOKEN confirmed set (len=93) for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes no file-write tool; <code>get_file_contents</code> is available for reads but <code>create_or_update_file</code> is not).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~7 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~7 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~9 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~12 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~4 items)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>OK (~16 items — recovered from prior 502/empty failures)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news, blog.google agentic-video, secretspec.dev, techcrunch, databricks.com/blog listing); EXCLUDED after fetch (Databricks Fable-5.1/Genie-web-search synthesis not found); FAIL (openai.com/index/path-to-astra 403 → RSS-confirmed)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports (Sep 2 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (len=93, push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
