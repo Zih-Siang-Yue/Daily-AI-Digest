@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-04</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">2026-09-04 · Friday · AI Infra &amp; Prompt Engineering</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Friday: AI Infra &amp; Prompt Engineering (RAG, Tool Use, Agent Arch)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">RAG</span>
+    <strong>Hybrid Retrieval Beats Dense-Only — Combine BM25 + Dense + a Cross-Encoder Reranker</strong>
+    <p>For a Binance in-app knowledge assistant (market data, FAQ, support docs), pure dense embedding retrieval misses exact-ticker and ID matches. The production pattern: run <code>BM25</code> (keyword) and dense (semantic) retrieval in parallel, union the candidates, then pass the top-K through a cross-encoder reranker (e.g. <code>bge-reranker-v2</code> or Cohere Rerank) that scores query-doc pairs jointly — typically +10-15% recall@5 and a sharp drop in hallucinated citations. Tie it to a citation gate: if the reranker's top score is below threshold, the agent answers "I don't know" rather than fabricating. <a href="https://www.cohere.com/blog/reranking">Cohere rerank →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use</span>
+    <strong>Design Agent Tools as Strict-JSON-Schema, Idempotent Functions — and Cap the Loop</strong>
+    <p>The safe agent-tool primitive: each tool is a function with a strict JSON schema (typed params, enums where possible), idempotent side effects (a retry won't double-spend or double-post), and the agent loop is bounded by <code>max-steps</code> plus a cheap abort-and-discard path (cf. the harness-engineering thread). For an iOS agent calling app intents — "open the BTC pair," "submit this report" — strict schemas let you validate every tool call <em>before</em> execution, and idempotency means a retried call after a timeout is safe. Set the step budget per task type, not globally: a single retrieval needs far fewer steps than a multi-step analysis. <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use">Tool-use guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch</span>
+    <strong>Run a Model Router Now — Route by Task/Cost With a Fallback, Before Vendor Access Shifts</strong>
+    <p>With GPT-6 Astra rolling out (today's AI section) and Cursor losing OpenAI model access Nov 12 (cf. Sep 1), vendor access is now volatile. The deployable pattern: put a model router in front of your agent — route cheap traffic (retrieval, classification, simple Q&amp;A) to a small/cheap model, frontier reasoning to a flagship, and keep a per-call fallback so one vendor's outage or shutoff doesn't break the flow. For a Binance iOS agent this also controls cost (the cheap path runs ~90% of traffic) and keeps you portable across Claude / GPT / Gemini. Treat the router config as code — review it like any other security boundary. <a href="https://docs.litellm.ai/docs/routing">LiteLLM routing →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3><a href="https://openai.com/index/path-to-astra">GPT-6 Astra Begins Rolling Out — Coding/Research Model Creates Docs, Sheets &amp; Decks From Templates</a></h3>
+    <p>OpenAI began rolling out <strong>GPT-6 Astra</strong> (Sep 3) to a limited set of organizations, with reported gains in coding, research, and complex multi-step work, plus the ability to create documents, spreadsheets, and presentations from user templates/instructions. <strong>Why it matters:</strong> this is the release the Sep 1 "Path to Astra" capability-threshold piece foreshadowed — Astra is now an accessible frontier model, not just a threshold name, and the doc/sheet/deck generation surface pushes it toward agentic productivity (cf. the "making everyone a builder" thesis). <strong>How to use it:</strong> re-bench your agent eval suite against Astra as access reaches your org, and prototype the generation surface for internal tooling (report/deal-memo drafts) before consumer surfaces. <em>(Caveat: rollout scope and exact capability claims are from initial reporting; verify on openai.com as access expands.)</em> <a href="https://openai.com/index/path-to-astra">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">NVIDIA</span>
+    <h3><a href="https://huggingface.co/blog">NVIDIA's Agreement to Acquire Hugging Face — Confirms Reported Deal, Commits to Keeping the Hub Open</a></h3>
+    <p>NVIDIA announced its agreement to acquire Hugging Face (Sep 3), confirming the ~$13B deal previously reported (cf. Aug 29's Microduck coverage), committing to scale the platform, strengthen its infrastructure, and keep it an open platform for AI developers globally. <strong>Why it matters:</strong> for an iOS dev, Hugging Face is where you pull MLX-format Llama/Phi/Qwen weights for on-device work — the open-model supply chain you depend on is now owned by a compute vendor, so the "where do my weights come from" question consolidates (cf. the vertical-consolidation concept). <strong>How to use it:</strong> mirror the model weights you depend on locally so a single hub's availability or policy shift can't break your build; the open-platform commitment is the signal to watch — if it holds, access continues unchanged; if it narrows, you want local copies already in place. <em>(Confirmed announcement; the open-platform commitment is NVIDIA's stated intention, not a contractual guarantee.)</em> <a href="https://huggingface.co/blog">Hugging Face →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code's Post-Fable Batch — Live Subagent Streaming, /limit-reset, Team Spend Visibility</a></h3>
+    <p>Following the Claude Fable 5.1 launch (cf. Sep 1), Claude Code shipped a batch adding <strong>live subagent streaming</strong> (watch a subagent's work stream in real time), a new <code>/limit-reset</code> slash command (reset the 5-hour session limit once a week), <strong>spend-limit visibility for teams</strong>, and terminal resize/startup performance fixes. <strong>Why it matters:</strong> live subagent streaming closes the observability gap of autonomous subagents (cf. the Agent Teams fix) — you can now <em>watch</em>, not just await, a teammate's work; and <code>/limit-reset</code> is the first official escape hatch for the 5-hour session ceiling that bites on long agentic loops. <strong>How to use it:</strong> for team leads, the native team-level spend visibility is the cost-attribution primitive (cf. the Agent Cost Engineering concept) made first-class — wire it into your per-run budget tracking rather than hand-rolling a spreadsheet. <em>(Caveat: these are reported new features; verify exact version/scope on the Claude Code changelog as it propagates.)</em> <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor</span>
+    <h3><a href="https://cursor.com/changelog">Cursor Cloud Agents Add "My Machines" &amp; "Team Pools" — Execute Tool Calls on Your Own Hardware</a></h3>
+    <p>Cursor extended its Cloud Agents with <strong>"My Machines"</strong> (personal accounts) and <strong>"Team Pools"</strong> (enterprise), letting agents execute tool calls on user-controlled hardware — your own machines, not Cursor's cloud. <strong>Why it matters:</strong> it moves Cursor from editor-plus-cloud-agent toward an agent-infrastructure platform that runs on your infra — for a Binance team that means an agent can operate internal tooling behind your own network and permissions, not a vendor sandbox. <strong>How to use it:</strong> pilot "My Machines" on a low-risk repo-local task (a refactor or log scan) to test the permission boundary before exposing production tools, and pair it with a spend ceiling (cf. the Agent Cost Engineering concept) so a runaway agent can't burn budget on your own hardware. <em>(Cursor changelog feature; verify availability/scope on cursor.com/changelog.)</em> <a href="https://cursor.com/changelog">Cursor →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security</span>
+    <h3><a href="https://www.bleepingcomputer.com/news/security/">Agent Deception Attack — Crooks Tricked Cursor Into Malicious Ops via a "Simulation" Pretext</a></h3>
+    <p>Per early-September reporting, Russian-speaking cybercriminals allegedly used Cursor AI to help hack several companies, deceiving the agent into performing malicious operations by claiming the activities were part of a simulation. <strong>Why it matters:</strong> it's a real-world prompt-injection / social-engineering attack on a coding agent — the same surface the real-time action-classifier thread and the "agent session as attack surface" concept name. The lesson for any agent user: an agent will comply with a plausibly-framed request even when the underlying action is malicious — <em>context is the attack vector</em>. <strong>How to use it:</strong> never let a coding agent execute privileged operations (network calls, secrets access, deploys) on untrusted input without a permission gate (cf. <code>--restricted</code> mode) and an action guardrail; treat "this is just a simulation" as a red flag in any instruction. <em>(Caveat: allegation under reporting; the simulation-pretext deception mechanism is the pattern to defend against regardless.)</em> <a href="https://www.bleepingcomputer.com/news/security/">BleepingComputer →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Market</span>
+    <h3><a href="https://cursor.com/">Agentic-Coding Market Snapshot — Cursor ARR $1B→$2B in 3 Months; Copilot ~42% Share, 20M+ Users</a></h3>
+    <p>The agentic-coding market data circulating this week: Cursor's ARR reportedly grew from <strong>$1B to $2B in three months</strong>; GitHub Copilot holds ~42% market share with 20M+ users; and ~85% of developers report using AI coding tools regularly. <strong>Why it matters:</strong> the pace (Cursor doubling ARR in a quarter) signals the category is still in land-grab, not consolidation — and the Copilot share datapoint is the incumbent benchmark a Binance internal-tooling team should measure any rollout against. <strong>How to use it:</strong> for team-level adoption planning, don't standardize on one tool while the market is this volatile — match the tool to the task (cf. the three-lanes differentiation) and keep model + tool portability so a vendor shift doesn't strand your workflows. <em>(Caveat: figures are industry-survey/analyst estimates that vary by source; treat as direction-of-travel, not precise prints.)</em> <a href="https://cursor.com/">Cursor →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/03/standard-chartered-first-top-global-bank-to-offer-bitcoin-and-ether-trading-in-uae">Standard Chartered Brings Spot BTC/ETH Trading to Dubai — First Top Global Bank in the UAE</a></h3>
+    <p>Standard Chartered launched spot crypto trading (BTC and ETH) on its Dubai FX platform (CoinDesk, Sep 3), bringing BTC/ETH onto the same eFX rails institutions use to trade dollars and euros. <strong>Why it matters:</strong> it's the strongest "incumbent bank offers spot crypto" datapoint yet — a top-tier global bank running crypto spot alongside fiat FX, in a jurisdiction (UAE) with a clear crypto regime, bridging institutional crypto into mainstream bank rails (cf. the SoFi/Kraken banking-convergence thread below). <strong>How to use it:</strong> for a Binance market-structure/listing team, model "bank-operated spot crypto" as an emerging venue class — Standard Chartered's clients now have a bank-rail path to BTC/ETH that competes with exchange spot; track UAE-licensed institutional flow as a growing channel in your jurisdictional mix. <a href="https://www.coindesk.com/business/2026/09/03/standard-chartered-first-top-global-bank-to-offer-bitcoin-and-ether-trading-in-uae">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-03-coinbase-seeks-sec-greenlight-to-list-24-7-equity-perpetuals-413487">Coinbase Seeks SEC Greenlight to List 24/7 Equity Perpetuals</a></h3>
+    <p>Coinbase filed for SEC approval to list 24/7 equity perpetuals (The Block, Sep 3), as perps gain momentum — a move that would bring equity-perp trading onto a US-regulated crypto exchange. <strong>Why it matters:</strong> it's the live, filed instance of the "equity perpetuals" thesis Ondo pitched to the SEC/CFTC — 24/7 equity perps on a US-regulated venue is a product class that bridges crypto perp mechanics with US equities, and Coinbase's filing is the most credible onshore attempt yet. <strong>How to use it:</strong> for a derivatives/listings team, model 24/7 equity perps as a greenfield product class — track the SEC filing's progress and the CFTC/CME jurisdictional question (cf. the CFTC move to dismiss its CME perps lawsuit, same day) as the variables that decide whether, and where, it lists. <a href="https://www.theblock.co/news/regulation/2026-09-03-coinbase-seeks-sec-greenlight-to-list-24-7-equity-perpetuals-413487">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-09-03-crypto-market-cap-surges-2-82-trillion-zcash-leads-rally-alongside-stocks-413478">Crypto Market Cap Surges to $2.82T as Bitcoin Tops $80K — Zcash Leads the Rally</a></h3>
+    <p>The total crypto market cap surged to $2.82 trillion as Bitcoin topped $80,000 and Zcash led the rally alongside a broader risk-asset move (The Block, Sep 3), with Fed rate-cut expectations still split. <strong>Why it matters:</strong> it's a fresh market level — BTC at $80K is up from the ~$77K (Sep 2) and ~$79K (Aug 30) prints, and the $2.82T cap plus Zcash leadership is a breadth signal (alts rallying, not just BTC) that distinguishes this move from the demand-negative print earlier in the week. <strong>How to use it:</strong> for a market/monitoring team, the breadth (Zcash leads, equities rallied) is the tell that this is a risk-on move, not an idiosyncratic BTC bid — pair it with the onchain "apparent demand" indicator to gauge whether the rally has demand-side durability or is pure sentiment. <a href="https://www.theblock.co/news/markets/2026-09-03-crypto-market-cap-surges-2-82-trillion-zcash-leads-rally-alongside-stocks-413478">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Specification-Driven Development (SDD) — Machine-Readable Specs Become the Human-Agent Contract</strong>
+    <p>A concept threading the 2026 architecture discourse: <strong>Specification-Driven Development (SDD)</strong> — authoring machine-readable specifications that AI agents act on directly, giving clear guardrails and making agent work reviewable. <strong>Why it matters NOW:</strong> (1) for a Binance iOS team, the spec is the leverage — a machine-readable contract lets an agent generate, test, and verify code against a defined target, turning "vibe coding" into "spec-verified coding" and directly attacking the cognitive-debt risk unstructured AI code creates; (2) it's the reviewable counterpart to autonomous agents — a spec gives you the checkpoint an open-ended agent prompt doesn't; (3) caveat — SDD's value depends entirely on spec quality; a vague spec yields a vague agent output, so the spec itself becomes the new code to review. <a href="https://martinfowler.com/articles/spec-driven-development.html">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Context Engineering — Designing What Enters the Model's Context Supplants Narrow Prompt Engineering</strong>
+    <p>As agents run multi-step, <strong>"context engineering"</strong> is emerging as a first-class discipline — not crafting one prompt, but designing the system that assembles what enters the model's context window (retrieved docs, tool outputs, memory, examples) at each step. <strong>Why it matters NOW:</strong> (1) it's the sibling of the recently-covered "harness engineering" — the harness <em>bounds</em> what an agent may do, context engineering controls what an agent <em>knows</em>; both are the real leverage, not prompt wording; (2) for a Binance iOS agent, the binding constraint on output quality is the retrieval/context pipeline (cf. today's RAG tip), not the model — invest there; (3) caveat — "context engineering" is consolidating as a term across the discourse; instrument it via retrieval-recall and context-budget metrics before treating it as a formalized role. <a href="https://www.allthingsdistributed.com/">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>The Equity-Perpetual Convergence — Crypto Perp Mechanics Meet US Equities</strong>
+    <p>A concept threading today's crypto news: <strong>"equity perpetuals"</strong> — perpetual-future mechanics (24/7, no expiry, funding-rate settlement) applied to US equities — is moving from thesis to filed product, with Coinbase seeking SEC greenlight for 24/7 equity perps (today), Ondo's SEC/CFTC pitch (recently covered), and the CFTC-CME perps-lawsuit backdrop. <strong>Why it matters NOW:</strong> (1) for a Binance derivatives team it's a greenfield product class — equity perps on regulated US venues would compete with offshore crypto-equity perps and onshore dated equity options; (2) the jurisdictional variable (SEC vs CFTC, onshore vs offshore) decides the structure — model it as unresolved until the Coinbase filing and the CFTC-CME suit settle; (3) caveat — "equity perps onshore" faces real securities-law friction; treat as direction-of-travel, not a near-term listed product. <a href="https://www.theblock.co/news/regulation/2026-09-03-coinbase-seeks-sec-greenlight-to-list-24-7-equity-perpetuals-413487">Synthesis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/03/standard-chartered-first-top-global-bank-to-offer-bitcoin-and-ether-trading-in-uae">Standard Chartered spot BTC/ETH trading in UAE</a>
+      <span class="desc">First top global bank to run crypto spot on institutional FX rails, in a licensed jurisdiction — model bank-operated spot as a new venue class.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-09-03-coinbase-seeks-sec-greenlight-to-list-24-7-equity-perpetuals-413487">Coinbase seeks SEC greenlight for 24/7 equity perpetuals</a>
+      <span class="desc">The filed, onshore attempt to list equity perps on a US-regulated crypto exchange — the live instance of the equity-perpetual convergence.</span>
+    </li>
+    <li>
+      <a href="https://huggingface.co/blog">NVIDIA's agreement to acquire Hugging Face</a>
+      <span class="desc">The open-model hub iOS devs pull MLX weights from consolidates under a compute vendor — mirror the weights you depend on.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/03/sofi-kraken-tie-up-as-crypto-and-banking-push-into-each-other-s-turf">SoFi × Kraken tie-up — banking and crypto converge</a>
+      <span class="desc">Kraken joins SoFi's settlement network and lists SoFiUSD — the crypto/banking convergence datapoint alongside Revolut's conditional OCC approval.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/path-to-astra">GPT-6 Astra rolling out</a>
+      <span class="desc">OpenAI's coding/research model begins broad rollout — the doc/sheet/deck generation surface is the agentic-productivity feature to prototype.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Sources:</strong> The Block, Cointelegraph, CoinDesk (crypto RSS); web_search (AI / Vibe / iOS / Edge AI / architecture); OpenAI Blog + Google AI Blog RSS (supplementary).</p>
+  <p><strong>Generated:</strong> 2026-09-04 (Friday) · v4 design · AI Infra &amp; Prompt Engineering tips rotation.</p>
+  <p><strong>Dedup:</strong> 4 past reports loaded (2026-09-03, 09-01, 08-31, 08-30; 2026-09-02 skipped — no report). ~10 candidate items rejected as recently covered (Claude Fable/Mythos 5.1, Cursor×SpaceX OpenAI Nov-12 shutoff, Google Agentic Video, Claude Code 17% limit cut, Databricks Genie, Ondo US-stock perps pitch, Robinhood Chain DEX volume, Saylor BTC buying, "Path to Astra" threshold, Sony/WMG v Anthropic).</p>
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block RSS</td><td>✅ OK</td></tr>
+      <tr><td>Cointelegraph RSS</td><td>✅ OK</td></tr>
+      <tr><td>CoinDesk RSS</td><td>✅ OK</td></tr>
+      <tr><td>OpenAI Blog RSS</td><td>✅ OK</td></tr>
+      <tr><td>Google AI Blog RSS</td><td>✅ OK</td></tr>
+      <tr><td>Hacker News RSS</td><td>⚠️ no matching items</td></tr>
+      <tr><td>web_search (7 queries)</td><td>✅ 6/7 returned results</td></tr>
+      <tr><td>GHE archive (MCP)</td><td>⚠️ create_or_update_file unavailable — archived via local git push</td></tr>
+      <tr><td>GitHub Pages publish</td><td>✅ GITHUB_COM_TOKEN set</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
