@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-05</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Saturday, September 5, 2026 · OpenAI $1B Daybreak Cyber Defense · Google Fairwind · Claude Code /diff Panel · GitSpawn Agent Vuln · AMC v Robinhood Tokenized Shares · South Korea Tokenization Roadmap · Crypto-Native Bank Charters</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Saturday: Best of Week — revisit on-device / Edge AI) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Saturday: Best of Week (Revisit On-Device / Edge AI)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML · Palettization</span>
+    <strong>Use Core ML Palettization for Native Weight Compression — Often More ANE-Friendly Than External int4</strong>
+    <p>Thursday's tip covered MLX int4 quantization on the Mac before conversion, but Core ML has its own native compression path: <code>ct.palettize</code> replaces weight tensors with a 6-bit or 4-bit palette (lookup table), typically cutting a model 2–4x with minimal accuracy loss — and crucially, the Apple Neural Engine runs palettized ops natively, so you don't hit the "quantized op falls back to CPU" trap external quant can trigger. The deployable loop: convert your trained model with <code>coremltools</code>, then call <code>ct.palettize</code> with <code>mode="kmeans"</code> on the weight tensors, sanity-check on your eval set (cf. the Aug 22 eval gate), and ship the <code>.mlpackage</code> through Core AI. For a Binance iOS feature this is the in-pipeline compression step that pairs with Sep 1's MLX-LoRA→Core-AI path — tune with MLX, compress with palettization, deploy on Core AI. <a href="https://apple.github.io/coremltools/docs-guides/source/2c-palettization-overview.html">Palettization guide →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Instruments · Profiling</span>
+    <strong>Profile On-Device Inference With os-signposts in Instruments — Catch p99 Latency Regressions Before Users Feel Jank</strong>
+    <p>Thursday's "verify ops land on the Neural Engine" tip answered <em>where</em> compute lands; this one answers <em>how long</em> it takes. Emit <code>os_signpost</code> intervals around each Core AI / Core ML inference call (begin/end around the predict), then open Instruments → "Points &amp; Tracks" / the os-signpost instrument to see per-op latency, the GPU/ANE/CPU compute-unit breakdown, and thermal-throttling events on a single timeline. For a Binance iOS feature — an on-device transaction classifier or support triage — a regression in p99 inference latency shows up as a stretched signpost long before it surfaces as user-perceived jank in crash logs. The deployable practice: gate a release on a signpost-instrumented benchmark run in CI so a latency regression blocks the merge, not the App Store review. <a href="https://developer.apple.com/documentation/foundation/logging/measure_performance_with_signposts">Signpost docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Background · Thermal</span>
+    <strong>Schedule Deferred On-Device ML Under BGTaskScheduler — and Gate on Thermal State So You Don't Cook the Device</strong>
+    <p>Not every on-device ML job is latency-critical — a nightly personalization retrain, a deferred model update, a batch embedding refresh can run when the device is idle and charging. The pattern: schedule it under <code>BGProcessingTask</code> with <code>requiresExternalPower: true</code> and <code>requiresNetworkConnectivity: false</code>, and at run-time check <code>ProcessInfo.processInfo.thermalState == .nominal</code> before kicking off heavy inference/training — if the device is already <code>.fair</code> or <code>.serious</code>, defer to the next window rather than adding thermal load. For a Binance iOS feature this is the "when, not how" complement to the week's on-device tips: the heavy updatable-Core-ML personalization (Sep 1) or the int4 inference (Sep 3) shouldn't run during a trading session on a hot device — defer it. Pair with a <code>.taskExpired</code> handler that checkpoints progress so a pre-empted update resumes cleanly. <a href="https://developer.apple.com/documentation/backgroundtasks">BackgroundTasks →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Cyber Defense</span>
+    <h3><a href="https://openai.com/index/daybreak-for-frontline-defenders">OpenAI's "Daybreak for Frontline Defenders" — $1B to Subsidize Frontier Cyber AI for Essential-Services Defenders</a></h3>
+    <p>OpenAI committed <strong>$1 billion</strong> to "Daybreak for Frontline Defenders" (Sep 3, RSS-confirmed), subsidizing access to its frontier cyber AI — including the just-released GPT-6 Astra, which OpenAI says can independently find previously unknown software flaws (zero-days) and turn them into working attacks — for the defenders of critical infrastructure (power, water, hospitals). <strong>Why it matters:</strong> a model that finds zero-days is dual-use offense; by subsidizing defender access, OpenAI is explicitly trying to close the offense-defense gap its own Critical-capability model creates — the first time a frontier vendor has paired an offensive-capability release with a billion-dollar defensive deployment program. <strong>How to use it:</strong> for security/infra teams, Daybreak is the channel to get frontier cyber-AI tooling into an essential-services deployment posture (apply via the program); for the wider takeaway, treat "frontier model + defender subsidy" as the new responsible-release pattern — a capability release without a defender-access plan is now incomplete. <em>(Daybreak confirmed on the OpenAI Blog RSS, Sep 3; the Astra zero-day-finding capability is per OpenAI's "Safety overview: GPT-6 Astra" post, same day.)</em> <a href="https://openai.com/index/daybreak-for-frontline-defenders">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Cyber Defense</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/">Google "Fairwind Program" — Proactive Cyber Defense Tools for Governments &amp; Enterprises</a></h3>
+    <p>Google introduced the <strong>Fairwind Program</strong> (Sep 2, Google AI Blog RSS-confirmed), a limited-access program giving governments and trusted enterprise partners access to Google's cyber-defense tooling — the defensive complement to the threat-intel and red-teaming surface Gemini already runs internally. <strong>Why it matters:</strong> paired with OpenAI's Daybreak (above), it confirms a this-week pattern: frontier-AI vendors are productizing <em>defensive</em> cyber AI as a deployable program, not just an internal capability — cyber-defense AI is becoming a category with distribution channels (government/enterprise access programs), not just research. <strong>How to use it:</strong> for security teams, Fairwind is the Google-side access program to evaluate alongside OpenAI's Daybreak; for platform teams, the pattern to internalize is "cyber-defense AI as a procured, access-gated program" — budget for it as a vendor category, and model the governance (who in your org gets access, what data it sees) before onboarding. <a href="https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code · v2.1.260</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code v2.1.260 — New <code>/diff</code> Panel Shows Uncommitted Changes as Claude Edits</a></h3>
+    <p>Claude Code <code>2.1.260</code> (Sep 3, changelog-verified) added a <strong>diff panel</strong> that opens beside the conversation in fullscreen mode and shows your uncommitted changes as Claude edits — toggle it with <code>/diff</code>. The same release hardened a git-config visibility bug on macOS where <code>permissions.blockReadsOutsideWorkingDirectories</code> was hiding the user's git config from sandboxed git (and hiding a worktree-isolated sub-agent's own checkout). <strong>Why it matters:</strong> the diff panel closes the review-loop gap that "cognitive debt" (Aug 31) and SDD (Sep 4) name — you can now watch, in real time, exactly what the agent changed without a separate <code>git diff</code> context switch, making the review checkpoint first-class inside the tool. <strong>How to use it:</strong> bind <code>/diff</code> into your review habit for every agentic edit — before accepting a change, eyeball the panel; and pull <code>2.1.260</code> to get the git-config sandboxing fix (relevant to today's GitSpawn Vibe card). <em>(Verified on docs.claude.com/en/docs/claude-code/changelog; the live-subagent-streaming / /limit-reset / team-spend-visibility batch was already covered Sep 4 — not re-carded.)</em> <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security · GitSpawn</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/changelog">"GitSpawn" — Malicious <code>.git/config</code> Can Hijack AI Coding Agents That Auto-Run Git Commands</a></h3>
+    <p>A disclosed class of vulnerabilities, reported under the name <strong>"GitSpawn,"</strong> exploits how AI coding agents (Claude Code, Codex, Cursor, plus Goose, Hermes Agent, Qwen Code) automatically run <code>git status</code> / <code>git diff</code> to gather project context: a malicious repository with a crafted <code>.git/config</code> can trick the agent into executing an attacker-specified command — deliverable via a ZIP, no clone required — running with the logged-in user's privileges (SSH keys, cloud creds, source code at risk). Claude Code fixed a <code>core.fsmonitor</code> issue (and the Sep 3 v2.1.260 release hardened git-config sandbox visibility on macOS, verified on the changelog); OpenAI published three CVEs for Codex (incl. CVE-2026-19592); Cursor and Goose (CVE-2026-72718) are patched; some agents remain unpatched. <strong>Why it matters:</strong> it's the concrete exploit of the "agent session as attack surface" thread (Aug 31) — the attack isn't the model, it's the <em>context-gathering commands</em> the agent runs on your behalf against untrusted repos. <strong>How to use it:</strong> update Claude Code/Codex/Cursor to the patched versions; never let an agent auto-run git against an untrusted repo without <code>--restricted</code> and a permission gate; and treat a cloned/extracted repo's <code>.git/config</code> as untrusted input. <em>(The broader GitSpawn disclosure and CVE list are web-search-reported; the Claude Code v2.1.260 git-config fix is independently verified on the changelog. Specific CVE numbers cited as reported pending a security-firm primary source.)</em> <a href="https://docs.claude.com/en/docs/claude-code/changelog">Source →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">OpenAI · Agentic Workflows</span>
+    <h3><a href="https://openai.com/index/ai-native-company-workflows">OpenAI "How AI-Native Companies Turn Workflows Into Operating Capability" — Basis, Clay, Exa Labs Patterns</a></h3>
+    <p>OpenAI profiled (Sep 1, RSS-confirmed) how AI-native companies <strong>Basis, Clay, and Exa Labs</strong> use AI agents to run onboarding, account management, and developer-integration workflows end-to-end — the enterprise takeaway: what used to be a human-run ops function is becoming an agent-run "operating capability" with humans supervising, not executing. <strong>Why it matters:</strong> it's the demand-side datapoint behind the "harness engineering" (Sep 1) and "context engineering" (Sep 3) concepts — the binding skill for an internal-tooling team isn't building one agent, it's composing the harness + context layer that lets agents own a multi-step workflow reliably. <strong>How to use it:</strong> for a Binance platform team, re-scope one internal-ops workflow (an onboarding step, a triage queue) as an agent-owned process with human-in-the-loop checkpoints (cf. the harness pattern) rather than a human process with an AI assistant bolted on — the leverage is in ownership, not assistance. <a href="https://openai.com/index/ai-native-company-workflows">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Tokenization · Issuer Rights</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-09-04-amc-ceo-slams-robinhood-413513">AMC CEO Slams Robinhood's "Synthetic" Tokenized Shares as "Outrageous" — Issuer Pushback Puts Tokenized Equities in Spotlight</a></h3>
+    <p>AMC CEO Adam Aron called Robinhood's tokenized AMC shares "synthetic equity," threatened legal action, and said AMC has no connection to the tokens (The Block/CoinDesk, Sep 4); Robinhood's Vlad Tenev says the brokerage stands behind the product. OpenAI had previously made the same criticism of Robinhood's tokenized equities, saying it did not approve the transfer of its shares. <strong>Why it matters:</strong> it's the first high-profile <em>issuer</em> pushback against brokerage-issued tokenized equities — distinct from the Coinbase equity-perpetuals filing (Sep 4, a derivatives listing) or ICE/tZERO (Sep 1, incumbent rail), this is the spot-tokenized-share rights contention: who authorizes a tokenized share, the issuer or the brokerage? <strong>How to use it:</strong> for a Binance listing/market-structure team, model "issuer consent" as the unresolved variable in tokenized-equity products — a brokerage can mint the token, but without issuer authorization the listing carries litigation risk that can pull it; track which tokenized equities have issuer backing before listing. <a href="https://www.theblock.co/news/business/2026-09-04-amc-ceo-slams-robinhood-413513">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Tokenization · Sovereign</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-04-south-korea-to-start-tokenizing-all-types-of-securities-in-three-stages-from-2027-413523">South Korea Lays Out 3-Stage Tokenized-Securities Roadmap — Full Onchain Market With Stablecoin Settlement by Feb 2027</a></h3>
+    <p>South Korea's financial regulator introduced a three-phase roadmap to tokenize "all types" of securities (The Block/CoinDesk/Cointelegraph, Sep 4), culminating in a full tokenized-securities market by <strong>February 2027</strong> that lets participants settle tokenized securities onchain with stablecoins — the most concrete sovereign tokenization plan to date. <strong>Why it matters:</strong> distinct from US incumbent tokenization (ICE/tZERO, Sep 1) and the Coinbase equity-perps filing (Sep 4), this is a <em>national government</em> committing to a phased migration of its entire capital market onto distributed ledgers with onchain settlement — the demand-side sovereign counterpart to the "token supercycle" thesis (Sep 3). <strong>How to use it:</strong> for a listing/market team, model a Feb-2027 Korea tokenized-securities venue as an emerging listing surface; the stablecoin-settlement leg means a Korean-issued stablecoin rail is the settlement layer to track alongside the securities. <a href="https://www.theblock.co/news/regulation/2026-09-04-south-korea-to-start-tokenizing-all-types-of-securities-in-three-stages-from-2027-413523">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Banking · Charters</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-04-andreessen-horowitz-backed-openreserve-secures-preliminary-occ-approval-for-national-bank-charter-413528">OpenReserve (a16z-Backed) &amp; Revolut Get Preliminary US National Bank Charters — Both With Crypto Plans</a></h3>
+    <p>The same day, two crypto-adjacent institutions received preliminary OCC approval for US national bank charters (The Block/CoinDesk/Cointelegraph, Sep 4): <strong>OpenReserve Holdings</strong> (a16z-backed, $25M seed) for a national bank focused on onchain settlement, and <strong>Revolut</strong> (conditional approval) for a US bank with crypto and stablecoin services planned. <strong>Why it matters:</strong> it's the freshest "crypto-native institution gets a national bank charter" datapoint — paired with the Standard Chartered spot-crypto-in-UAE launch (Sep 4) and SoFi×Kraken (Sep 4 worth-reading), the banking↔crypto convergence is now bidirectional (crypto firms becoming banks <em>and</em> banks offering crypto). <strong>How to use it:</strong> for a Binance market-structure team, model "OCC-chartered crypto-native banks" as an emerging institutional-counterparty class — onchain settlement at a nationally-chartered bank changes the custody/settlement topology; track OpenReserve's onchain-settlement product as the template. <a href="https://www.theblock.co/news/regulation/2026-09-04-andreessen-horowitz-backed-openreserve-secures-preliminary-occ-approval-for-national-bank-charter-413528">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">AI Safety</span>
+    <strong>"The Defender's Subsidy" — Frontier Cyber-AI Vendors Now Pair Offensive-Capability Releases With Billion-Dollar Defensive Deployment</strong>
+    <p>A concept crystallizing across this week's cyber-AI moves: OpenAI's Astra can find zero-days (offense), and OpenAI paired its release with the $1B "Daybreak for Frontline Defenders" subsidy (defense access); Google shipped the Fairwind Program (defense tooling for gov/enterprise). The pattern: a frontier model that creates offensive cyber capability now arrives <em>with a vendor-funded defensive deployment program</em> — because a Critical-capability model is only net-safe if the defenders have it too, vendors are internalizing the offense-defense balance as a release responsibility, not a market outcome. <strong>Why it matters NOW:</strong> (1) for a Binance security team, "does the frontier model's release include a defender-access plan" is becoming the responsible-release signal to track alongside the capability threshold (Sep 3); (2) it reframes cyber-AI procurement — you're not just buying a model, you're buying into a vendor-subsidized defense program (Daybreak/Fairwind); (3) caveat — the defender subsidy is vendor-self-funded and vendor-scoped today; whether it actually closes the offense-defense gap for non-vendor customers is unmeasured. <a href="https://openai.com/index/daybreak-for-frontline-defenders">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Market Structure</span>
+    <strong>"Synthetic Equity &amp; the Issuer-Rights Contention" — Brokerage-Chain Tokenized Shares Versus the Underlying Issuer</strong>
+    <p>A concept catalyzed by today's AMC/Robinhood fight: as consumer brokerages mint tokenized shares of public companies (Robinhood) and file to list equity perpetuals (Coinbase, Sep 4), a new contention surfaces — <em>who authorizes a tokenized share?</em> AMC's CEO calls Robinhood's tokens "synthetic equity" and threatens suit; OpenAI previously objected the same way. The token-supercycle thesis (Sep 3) assumed issuer acquiescence; the AMC pushback shows the issuer is a live veto point. <strong>Why it matters NOW:</strong> (1) for a Binance listings team, "issuer consent" is the gating variable for a tokenized-equity product — a brokerage can mint the token, but without issuer backing the listing carries litigation risk that can pull it; (2) it splits "tokenized equities" into two risk classes — issuer-authorized (ICE/tZERO, Sep 1) vs. brokerage-issued-without-issuer-consent (Robinhood/AMC) — model them separately; (3) caveat — the legal precedent is unresolved; one CEO's objection isn't a ruling, but the pattern of issuer objections (AMC, OpenAI) is the leading indicator that brokerage-chain tokenized equities face an issuer-rights choke point. <a href="https://www.theblock.co/news/business/2026-09-04-amc-ceo-slams-robinhood-413513">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>"The Agent Control Plane" — Org-Level Governance Layer Above the Per-Agent Harness</strong>
+    <p>A concept surfacing as agent fleets grow (cf. today's GitSpawn vuln, which shows a single agent's context-gathering as an attack surface): alongside the per-agent <em>harness</em> (hooks, permissions, abort paths — "harness engineering," Sep 1), an org-level <strong>agent control plane</strong> is emerging — a governance layer that enforces policy across all agents in real time (an AI Gateway for tool/permission/data-access enforcement), manages artifact provenance (policy-compliant dependencies, the JFrog pattern), and coordinates multi-agent fleets. <strong>Why it matters NOW:</strong> (1) it's the layer <em>above</em> harness engineering — the harness bounds one agent; the control plane bounds the fleet, and today's GitSpawn vuln is exactly the failure a control plane catches (a single agent running git against an untrusted repo); (2) for a Binance platform team, the control plane is the procurement/governance boundary — standardize one (an AI Gateway with real-time policy) before allowing agent fleets into prod; (3) caveat — "agent control plane" is a frame consolidating across vendor announcements (Boomi Agent Control Plane, JFrog agent security — both web-search-reported this week, not yet primary-source-verified); instrument it via policy-coverage and blocked-action-rate before treating it as a productized category. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Synthesis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/daybreak-for-frontline-defenders">OpenAI — Daybreak for Frontline Defenders: $1B to protect essential services (Sep 3)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's top AI card — OpenAI's billion-dollar commitment to subsidize frontier cyber AI for essential-services defenders, paired with the Astra zero-day-finding capability.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/safety-overview-gpt-6-astra">OpenAI — Safety overview: GPT-6 Astra (Sep 3)</a>
+      <span class="desc">The RSS-confirmed companion to the Astra rollout — Astra is OpenAI's first model to reach the Critical level of cybersecurity capability under the Preparedness Framework (the capability Daybreak subsidizes defenders against).</span>
+    </li>
+    <li>
+      <a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code changelog — v2.1.260 (Sep 3)</a>
+      <span class="desc">The verified primary source for both the <code>/diff</code> panel (today's AI card) and the macOS git-config sandboxing fix (the GitSpawn Vibe card's verified anchor).</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/business/2026-09-04-amc-ceo-slams-robinhood-413513">The Block — AMC CEO slams Robinhood over "outrageous" tokenized shares (Sep 4)</a>
+      <span class="desc">The primary source behind the issuer-rights crypto card and the "synthetic equity" concept — the first high-profile issuer pushback against brokerage-issued tokenized equities.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-09-04-south-korea-to-start-tokenizing-all-types-of-securities-in-three-stages-from-2027-413523">The Block — South Korea to tokenize "all types" of securities in three stages from 2027 (Sep 4)</a>
+      <span class="desc">The sovereign tokenization roadmap behind today's South Korea crypto card — a three-phase plan culminating in a full onchain tokenized-securities market with stablecoin settlement by Feb 2027.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-05 (Saturday) · Generated 2026-09-05T02:00:00Z · v4 design</p>
+
+  <p>Curated for an iOS developer at Binance. Saturday tip theme — Best of Week: revisit the on-device / Edge AI thread (the week's most iOS-impactful category, covered Tue + Thu) with fresh angles not previously carded: Core ML palettization (native weight compression, often more ANE-friendly than external int4), os-signpost profiling in Instruments (catch p99 latency regressions before users feel jank), and deferred on-device ML under BGTaskScheduler gated on thermal state (the "when, not how" complement to the week's inference tips). AI: OpenAI commits $1B "Daybreak for Frontline Defenders" to subsidize frontier cyber AI (incl. Astra's zero-day-finding) for essential-services defenders, Google ships the Fairwind Program (proactive cyber defense for gov/enterprise), and Claude Code v2.1.260 adds a <code>/diff</code> panel showing uncommitted changes as Claude edits. Vibe: "GitSpawn" — a malicious <code>.git/config</code> can hijack AI coding agents that auto-run git commands (Claude Code/Codex/Cursor patched; broader disclosure web-search-reported), and OpenAI profiles how AI-native companies (Basis, Clay, Exa Labs) turn workflows into agent-run operating capability. Crypto: AMC's CEO slams Robinhood's "synthetic" tokenized shares as "outrageous" (issuer pushback), South Korea lays out a 3-stage tokenized-securities roadmap to a full onchain market by Feb 2027, and OpenReserve (a16z-backed) + Revolut get preliminary US national bank charters with crypto plans. Concepts: "the defender's subsidy" (vendors pair offensive-capability releases with billion-dollar defensive deployment), "synthetic equity &amp; the issuer-rights contention" (brokerage-chain tokenized shares vs. the underlying issuer), and "the agent control plane" (org-level governance layer above the per-agent harness).</p>
+
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Sep 4, 3, 1, Aug 31; Sep 2 returned 404 — not generated). ~100 prior topics indexed across titles, concepts, and tips. ~32 duplicate candidates filtered in favor of fresh angles: GPT-6 Astra rollout / Path-to-Astra threshold (Sep 3–4 — only the fresh $1B Daybreak defender-subsidy + Fairwind carded, the rollout/threshold themselves deduped), Claude Fable/Mythos 5.1 + Enterprise Frontier Safeguards (Sep 3 — filtered; only fresh /diff-panel v2.1.260 carded), NVIDIA-acquires-Hugging-Face (Sep 4 — filtered), Claude Code subagent-streaming / /limit-reset / team-spend / OAuth-plaintext (Sep 3–4 — filtered; only fresh GitSpawn + /diff carded), Google Agentic Video (Sep 3 — filtered), DOJ/OpenAI NYT copyright (Sep 3 — filtered), Databricks Genie (Sep 3 — filtered), Standard-Chartered BTC/ETH UAE (Sep 4 — filtered), Coinbase equity-perps SEC filing (Sep 4 — filtered, but the AMC/Robinhood issuer-rights card is a distinct spot-tokenized-shares angle), crypto-cap-$2.82T / Zcash-leads-rally (Sep 4 — filtered; the South Korea + bank-charter cards are distinct sovereign/banking angles), BTC apparent-demand-negative / $77K + Coinbase Canada derivatives + Ondo US-stock-perps (Sep 3 — filtered), Anthropic alignment action-classifier + ChatGPT ads + Polimill Japan + Google 353K-vibe-course (Sep 1 — filtered), ICE/tZERO + Robinhood-Chain + Sber $46B (Sep 1 — filtered), the on-device tip set (MLX-LoRA→Core-AI + Foundation-Models-tool-calling + updatable-Core-ML on Sep 1; ANE-dispatch + int4-quant + on-device-cloud-fallback on Sep 3 — only fresh palettization + os-signpost-profiling + BGTask/thermal tips carded as the Saturday best-of-week set, distinct from prior on-device tips), and the prior concept set (cognitive-debt + agent-session-attack-surface + model-portability on Aug 31; harness-engineering + modular-monolith + brokerage-chain-DEX on Sep 1; token-supercycle + capability-thresholds + context-engineering on Sep 3; SDD + equity-perpetual-convergence on Sep 4 — only fresh defender-subsidy + synthetic-equity-issuer-rights + agent-control-plane carded; the agent-control-plane is framed as the org-level layer above the per-agent harness, distinct from harness/context engineering).</p>
+
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): Anthropic "75% cache-read price reduction" — NOT found on anthropic.com/news (the newsroom shows Fable/Mythos 5.1, Enterprise Frontier Safeguards, and the Aug 31 alignment post, but no cache-pricing post); "Claude completed the first fully formalized, machine-checked proof of Fermat's Last Theorem" — NOT found on anthropic.com/news (a web-search synthesis, excluded pending verification); "Anthropic IPO talks at $300B+ valuation" — NOT found on anthropic.com/news (financial-reporting synthesis, excluded); Claude Code "/dream" command — NOT found on the docs.claude.com changelog (memory features exist via <code>/memory</code> since v2.1.59, but no <code>/dream</code> command — the synthesis conflated/fabricated it); Coder × "SpaceXAI" "Coder Agent Relay" — unverified synthesis (SpaceXAI is not a confirmed entity distinct from the SpaceX/Cursor acquisition; excluded pending a primary source); Meta "Muse Spark 1.3" agentic coding model — excluded (prior reports established ai.meta.com/blog shows only "Muse Spark 1.1" July 9; the 1.3 claim is the same fabrication class as the previously-excluded "Muse Code"/"Muse Spark 1.2"); the "AI developer tools new release this week" WebSearch batch (Microsoft Project Zenith on AMD Ryzen AI Halo, Android Studio "Quail 4" with Gemma 4 + MCP Marketplace, Boomi Agent Control Plane, Oracle OCI NL2SQL, NVIDIA RTX Spark PCs, VOIDTRACE multi-agent) — unverified vendor syntheses with no primary-source confirmation this cycle (the Boomi/JFrog "agent control plane" pattern is referenced in today's concept card with an explicit caveat as web-search-reported); and OpenAI "DevDay Sept 29 in San Francisco" — NOT present in the OpenAI Blog RSS this cycle and openai.com 403s to WebFetch; excluded pending verification (same exclusion as Aug 31 / Sep 3). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — OpenAI Daybreak + Astra safety overview + AI-native-workflows via the OpenAI Blog RSS, Fairwind via the Google AI Blog RSS, Claude Code /diff + GitSpawn via docs.claude.com/en/docs/claude-code/changelog, and all crypto cards via The Block / CoinDesk / Cointelegraph RSS with real Sep 4 article URLs.</p>
+
+  <p><strong>Markets snapshot:</strong> OpenAI "Daybreak for Frontline Defenders" — $1B to subsidize frontier cyber AI for essential-services defenders (OpenAI Blog, Sep 3) · OpenAI "Safety overview: GPT-6 Astra" — first model at Critical cybersecurity capability, can find zero-days (OpenAI Blog, Sep 3) · Google Fairwind Program — proactive cyber defense for governments/enterprises (Google AI Blog, Sep 2) · Claude Code v2.1.260 — /diff panel + macOS git-config sandboxing fix (docs.claude.com changelog, Sep 3) · "GitSpawn" — malicious .git/config hijacks AI coding agents (Claude Code/Codex/Cursor/Goose/Hermes/Qwen Code; Codex 3 CVEs; web-search-reported, changelog-corroborated) (Sep) · OpenAI "AI-native company workflows" — Basis/Clay/Exa Labs agent-run operating capability (OpenAI Blog, Sep 1) · OpenAI Astra customer cases — Playco game prototyping (50% fewer manual fixes), Legora financial-doc review (41 docs, 4 planted errors, ~40% perf gain) (OpenAI Blog, Sep 3) · AMC CEO slams Robinhood tokenized shares as "synthetic equity" (The Block/CoinDesk, Sep 4) · South Korea 3-stage tokenized-securities roadmap, full onchain market by Feb 2027 with stablecoin settlement (The Block/CoinDesk/Cointelegraph, Sep 4) · OpenReserve (a16z-backed) + Revolut get preliminary US national bank charters with crypto plans (The Block/CoinDesk/Cointelegraph, Sep 4) · US bitcoin ETFs largest inflow day since January — $731M; spot BTC ETF net assets cross $103B (BlackRock IBIT &gt; half) (The Block/CoinDesk, Sep 4) · Zcash tops $1,000 as ETF inflows ramp up &amp; miners pile in; short sellers lose $34M (The Block/CoinDesk, Sep 4) · Surprise August NFP (162K jobs, stronger than expected) sends Bitcoin back below $80K, then back above $81K as hike odds fade to a coin flip (Cointelegraph/CoinDesk, Sep 4) · Trump says he wants Hyperliquid to enter the US (The Block, Sep 4) · Crypto firms urge SEC to speed ETF reviews &amp; allow confidential draft filings (The Block, Sep 4) · IMF confirms El Salvador used no public funds for bitcoin since June 2025 (private donations) (The Block/CoinDesk, Sep 4) · Kalshi US visits soar 1,500% as regulatory pressure mounts (Cointelegraph, Sep 4) · Pineapple Financial puts $1B in mortgage records on Injective (Cointelegraph, Sep 4) · UK's largest retail investment platform (Hargreaves Lansdown) opens access to crypto ETNs (CoinDesk, Sep 4) · US Sheriffs' Association shifts CLARITY Act stance to "neutral" (CoinDesk/Cointelegraph, Sep 4) · QuFi launches post-quantum verification platform with Bitcoin testnet proof (Cointelegraph, Sep 4) · FinCEN ties $13B in crypto scams to non-US operations (Cointelegraph, Sep 4) · One full bitcoin now buys ~18 oz of gold, the most since January (CoinDesk, Sep 4).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block ~13 items, Cointelegraph ~16, CoinDesk ~18, OpenAI Blog ~13, Google AI Blog ~5; Hacker News RSS returned HTTP 502 Bad Gateway — skipped, consistent with prior runs) + WebFetch primary-source verification (anthropic.com/news → Fable/Mythos 5.1 + Enterprise Frontier Safeguards verified present, but the "75% cache price cut," "Fermat's Last Theorem proof," and "$300B IPO" syntheses NOT found → EXCLUDED; docs.claude.com/en/docs/claude-code/changelog → v2.1.260 /diff panel + git-config fix verified, /dream command NOT found → EXCLUDED; a targeted WebSearch for the .git-config agent vulnerability returned a detailed "GitSpawn" synthesis corroborated by the changelog's v2.1.260 git-config entry — carded with the broader disclosure noted as web-search-reported pending a security-firm primary source). FAILED fetches: none blocking; openai.com/index/* pages 403 to WebFetch (consistent with prior runs) — Daybreak + Astra safety overview confirmed via the OpenAI Blog RSS items instead. GITHUB_COM_TOKEN confirmed set for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes <code>get_file_contents</code> for reads but <code>create_or_update_file</code> is not available, so the local-clone push is the archive path).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~13 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~16 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~13 items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~5 items)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (HTTP 502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news — Fable/EFS verified, cache-cut/Fermat/IPO NOT found → EXCLUDED; docs.claude.com changelog — /diff verified, /dream NOT found → EXCLUDED); FAIL (openai.com/index/* 403 → RSS-confirmed)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports (Sep 2 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
