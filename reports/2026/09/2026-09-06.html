@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-06</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, September 6, 2026 · Claude Code v2.1.261 /skill-doctor · Anthropic Model Hardware Standard · GitHub HydraFusion Multi-Model Orchestration · Bank of Korea Stablecoin FX Study · UBS/Jane Street Hyperliquid ETF · Poland Crypto Veto</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Sunday: Best of Week — revisit on-device / Edge AI) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Sunday: Best of Week (Revisit On-Device / Edge AI)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">On-Device · Private Retrieval</span>
+    <strong>Run a Small Embedding Model On-Device With a Local Vector Index — Retrieval That Never Leaves the Phone</strong>
+    <p>Friday's RAG tip (BM25 + dense + a cross-encoder reranker) assumed a cloud reranker; the on-device complement is to ship a small embedding model (e.g. a ~30M-parameter MiniLM or <code>bge-small-en</code>) converted to a <code>.mlpackage</code> via <code>coremltools</code>, embed the corpus locally, and index the vectors in a bundled on-device store (sqlite-vec or an in-memory approximate-nearest-neighbor index) so the query-embed-then-retrieve loop runs entirely on the phone. For a Binance iOS feature — on-device FAQ or in-app-doc semantic search — the corpus and the queries never leave the device, the privacy-by-construction counterpart to Friday's cloud rerank (and the local instance of the "context engineering" thread, Sep 3). Rebuild the index when the corpus changes and gate recall on your eval set (cf. Aug 22's eval gate) so a stale corpus doesn't silently degrade retrieval. <a href="https://developer.apple.com/documentation/coreml">Core ML →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML · IP Protection</span>
+    <strong>Don't Ship Tuned Weights in the Clear — Host On-Demand, Gate Access, Encrypt at Rest</strong>
+    <p>A tuned model (Sep 1's MLX-LoRA classifier, Sep 5's palettized weights) is intellectual property: its weights encode your proprietary labels, and an unencrypted <code>.mlpackage</code> bundled in the static IPA is extractable. The defense-in-depth practice: don't ship the tuned weights in the app binary — host the model and download it on demand over TLS into the app's container after a server-issued token check, then store the file with iOS Data Protection (<code>NSFileProtectionComplete</code>) so it is encrypted at rest whenever the device is locked. For a Binance iOS feature this is the IP-protection complement to the week's tuning/compression pipeline — the tuned weights are both your edge and a liability if shipped in the clear, and on-demand delivery also lets you rotate the model without an app release. <a href="https://developer.apple.com/documentation/coreml">Core ML model deployment →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Quantization-Aware Training</span>
+    <strong>Run Quantization-Aware Training Before the int4 Export — Preserve Accuracy Where the int4 Build Loses It</strong>
+    <p>Thursday's tip quantized to int4 to fit a 3B model on an iPhone, but a post-training int4 export can drop accuracy below the eval threshold on edge cases — a transaction classifier quietly missing a fraud pattern. The fix is quantization-aware training (QAT): during fine-tuning, simulate int4/int8 in the training graph so the weights adapt to quantized precision <em>before</em> the Core AI export, then the shipped int4 build retains the fp16 build's accuracy on the eval set. For the MLX-on-Mac loop (Sep 1: tune with <code>mlx_lm</code> LoRA → Sep 3: int4 convert → Core AI deploy), QAT is the accuracy-preserving step between tune and quantize — the difference between "ships" and "ships and still works." Run it only when the post-training int4 build fails the eval gate, not as a default (QAT is expensive). <a href="https://github.com/ml-explore/mlx-examples">MLX examples →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code · v2.1.261</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code v2.1.261 — <code>/skill-doctor</code> Shows Unused Skills' Context Cost; <code>bashOutputMaxChars</code> Raises Inline Output to 128K</a></h3>
+    <p>Claude Code <code>2.1.261</code> (Sep 4, changelog-verified) added <strong><code>/skill-doctor</code></strong> — a slash command that shows which loaded skills go unused and what they cost in context, so you can prune the skill footprint — plus <code>bashOutputMaxChars</code>/<code>taskOutputMaxChars</code> settings raising the inline command and background-task output Claude receives (up to 128K characters) before saving to a file, and a <code>--append-subagent-system-prompt-file</code> flag for prompts too large for the command line. <strong>Why it matters:</strong> <code>/skill-doctor</code> is the context-budget primitive the "context engineering" (Sep 3) and "harness engineering" (Sep 1) threads name — a managed skill footprint is the difference between a tight agent context and one bloated with unused tools, and the larger inline-output limits cut the context-switch to a saved file. <strong>How to use it:</strong> run <code>/skill-doctor</code> on long sessions and prune skills you are not invoking; raise <code>bashOutputMaxChars</code> when a build log you need exceeds the default. The release also tightened the dangerous-<code>rm</code> safety prompt (now catches <code>rm -rf</code> on positional parameters and inside <code>sh -c</code> scripts) and made Auto mode treat links that pack content into a diagram renderer's URL as uploads (no longer auto-approved) — both harness-hardening fixes that extend the GitSpawn thread (Sep 5). <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Embodied AI</span>
+    <h3><a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic's Model Hardware Standard — A Spec for AI Agents to Safely Operate Physical Lab Devices (and Free Claude for 10K Scientists)</a></h3>
+    <p>Anthropic opened the <strong>Model Hardware Standard (MHS)</strong> (Aug 27, verified on anthropic.com/news) — a shared, model-agnostic specification that lets AI agents safely operate physical devices (microscopes, liquid handlers, robotic arms) via a standardized driver exposing read/write primitives, with device-level safety limits (e.g. max laser power) auto-written into each device's reference file; agents control hardware through the Model Context Protocol (MCP), a CLI, or code APIs. Launch partners span science and industry (Genentech, University of Washington, Carnegie Mellon, HHMI Janelia, QuEra, plus AWS, Doosan Robotics, Universal Robots, QIAGEN, Tecan), with early adopters Hugging Face (LeRobot) and Raspberry Pi; CMU ran serial-dilution experiments roughly 3× faster (8 hours vs. a multi-week vendor setup), and an AI-built laser-relock controller for QuEra's neutral-atom quantum computers recovered the lock 99.3% of the time (695 of 700) versus a prior bespoke script's 58%. A companion post, <strong>"Expanding our support for scientists,"</strong> gives 10,000 verified principal investigators free Claude (a Team subscription; Standard seats free, Premium seats $15/month, for up to a year). <strong>Why it matters:</strong> agentic AI crosses from digital to physical — a standardized, safety-bounded spec is the governance layer that makes "agents that act in the real world" deployable, and free Claude for 10K scientists seeds the demand side. <em>(Aug 27 post; newly surfaced and verified this cycle, not covered in the prior five reports.)</em> <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">GitHub Copilot · Orchestration</span>
+    <h3><a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">GitHub's Project HydraFusion — Runtime Multi-Model Orchestration for Frontier-Quality Coding at Lower Cost</a></h3>
+    <p>GitHub shipped <strong>Project HydraFusion</strong> (Sep 4, verified on github.blog) as a research preview in Copilot — a runtime model-orchestration system that routes coding work across multiple models so selective coding workflows matched or exceeded a frontier (Opus 5) baseline <em>while reducing estimated workflow cost</em>. <strong>Why it matters:</strong> it productizes the "model router" pattern (Sep 4's tip) inside the IDE — instead of a developer hand-picking one model, a runtime picks the right model per sub-task (frontier for hard reasoning, cheaper for boilerplate), making "frontier quality" a function of orchestration rather than of always calling the biggest model. <strong>How to use it:</strong> for teams on Copilot, HydraFusion is the built-in path to cost-controlled frontier coding — turn it on for the selective workflows where it is available and measure cost and quality against your single-model baseline; for teams building their own router, it is the reference design for "orchestration delivers frontier quality at lower cost" and a validation that multi-model routing is now a vendor feature, not a hand-rolled experiment. <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">GitHub →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GitHub · Vocabulary</span>
+    <h3><a href="https://github.blog/">GitHub's "Decoding the New AI Lingo" — Loops, Harnesses, Squads, Hill Climbing Get an Official Glossary</a></h3>
+    <p>GitHub's "Decoding the new AI lingo: Loops, harnesses, squads, hill climbing…" (Sep 2, verified on github.blog) is the vendor's own glossary of the agentic-coding vocabulary that has consolidated in 2026 — naming and defining the patterns the discourse has been reaching for. <strong>Why it matters:</strong> it legitimates the terms the prior concepts thread introduced ("harness engineering," Sep 1; the "agent control plane," Sep 5) — when a vendor publishes a glossary, the vocabulary becomes shared, searchable ground rather than informal slang, and "harness" stops being one team's idiom. <strong>How to use it:</strong> use the glossary as a shared vocabulary when scoping agent work with your team — "is this a squad or a single-agent loop?" is a sharper design question than "what should the agent do," and shared terms make agent-architecture decisions reviewable. <a href="https://github.blog/">GitHub blog →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Open Source · Ecosystem</span>
+    <h3><a href="https://github.blog/">"OpenClaw Went Viral" — Meet the Maintainers Building and Securing a Breakout Open-Source AI Tool</a></h3>
+    <p>GitHub's "OpenClaw went viral. Meet the maintainers building and securing it." (Aug 27, verified on github.blog) profiles the maintainers behind OpenClaw, an open-source AI developer tool that reached viral adoption — the ecosystem datapoint that the agentic-coding category is not only vendor IDEs (Cursor, Copilot) but also a breakout open-source project carrying its own maintainer-and-security burden. <strong>Why it matters:</strong> for a Binance internal-tooling team, a viral open-source agent means developers arrive having already adopted it (cf. the "63% of vibe coders are not developers" thread) — the adoption curve outruns vendor rollouts, and an open-source agent in your devs' hands is a supply-chain and governance surface to track, not ignore (cf. the GitSpawn .git/config thread, Sep 5). <em>(OpenClaw as a project is verified on github.blog; prior reports excluded an unverified "OpenClaw 2.0" version-number claim from a WebSearch batch — the project itself, and its maintainers, are real.)</em> <a href="https://github.blog/">GitHub blog →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GitHub · Cost Engineering</span>
+    <h3><a href="https://github.blog/">GitHub's "How We Make AI Coding More Cost Efficient" — The Cost-Engineering Playbook for Agentic Coding, in Practice</a></h3>
+    <p>GitHub's "How we make AI coding more cost efficient without sacrificing task quality" (Sep 2, verified on github.blog) is the vendor's own engineering write-up of the cost-management practices behind Copilot's agentic coding — the productized counterpart to the "agent cost engineering" thread (Aug 30). <strong>Why it matters:</strong> cost is the operational constraint that decides whether an agentic-coding rollout scales from a pilot to org-wide; GitHub's practices are a reference implementation a Binance platform team can borrow rather than re-derive, and they pair naturally with today's HydraFusion card (orchestration is the other cost lever). <strong>How to use it:</strong> read it as a playbook — adopt the per-task cost accounting and the quality-preserving shortcuts it describes into your own agent-cost tracking, and pair with a spend ceiling (cf. Claude Code's native team spend visibility, Sep 4) so a runaway agent cannot burn budget. <a href="https://github.blog/">GitHub blog →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Stablecoins · Macro</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/05/dollar-backed-stablecoins-can-push-local-currencies-lower-bank-of-korea-study-finds">Bank of Korea Study: Dollar-Backed Stablecoins Can Push Local Currencies Lower</a></h3>
+    <p>A Bank of Korea study finds that dollar-backed stablecoins can push local currencies lower (CoinDesk, Sep 5) — the mechanism being that demand for USD-collateralized stablecoins channels capital toward dollar reserves and dollar-denominated assets and away from local-currency instruments, a digital form of dollarization that pressures emerging-market exchange rates. <strong>Why it matters:</strong> it is a central bank — not a crypto firm — formally flagging stablecoin FX spillover, the most credible "stablecoins have macro effects" datapoint yet; for a Binance market or issuer team, a central bank studying stablecoin FX impact is the leading indicator that stablecoin issuance faces macro-prudential scrutiny, not just securities regulation. <strong>How to use it:</strong> factor "stablecoin-driven local-currency pressure" into jurisdictional risk models; a central-bank finding this effect is the kind of input that precedes reserve-ratio or issuance guardrails, so model it ahead of the rule. <a href="https://www.coindesk.com/business/2026/09/05/dollar-backed-stablecoins-can-push-local-currencies-lower-bank-of-korea-study-finds">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional · DeFi</span>
+    <h3><a href="https://www.theblock.co/news/defi">UBS, Jane Street Among Firms With ~$75M Combined Hyperliquid ETF Holdings — Bloomberg</a></h3>
+    <p>UBS and Jane Street are among the firms holding a combined roughly $75 million in a Hyperliquid ETF (The Block, citing Bloomberg, Sep 5) — blue-chip financial institutions taking positions in an ETF wrapping a crypto perpetuals DEX. <strong>Why it matters:</strong> it is a fresh datapoint for the "brokerage and institutional adoption of on-chain perp venues" thesis (cf. the brokerage-chain DEX thread, Sep 1) — institutional exposure to a crypto-native perp DEX via a regulated ETF wrapper rather than direct on-chain exposure, where the wrapper is the compliance bridge that lets traditional-finance risk and compliance teams hold the position. <strong>How to use it:</strong> for a Binance market-structure team, model "regulated-ETF exposure to a perp DEX" as a new institutional-access lane distinct from direct custody or CME futures; track which perp DEXes have (or are seeking) an ETF wrapper as the institutional-flow signal. <a href="https://www.theblock.co/news/defi">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · EU</span>
+    <h3><a href="https://cointelegraph.com/news/poland-upholds-crypto-bill-veto-zondacrypto-scandal-widens">Poland Upholds Crypto Bill Veto as Zondacrypto Scandal Widens</a></h3>
+    <p>Poland upheld a veto of a crypto bill as a scandal around Zondacrypto — the country's licensed crypto exchange — widened (Cointelegraph, Sep 5), leaving the legislative path to a Polish crypto framework blocked by a domestic exchange-governance scandal. <strong>Why it matters:</strong> it is a fresh EU-jurisdiction datapoint distinct from this week's US threads (SEC ETF-review speed-up, Coinbase equity-perpetuals filing) and Asia thread (South Korea's 3-stage tokenization roadmap, Sep 5) — a national crypto bill stalling on a domestic-exchange scandal shows that jurisdictional crypto regulation can derail on local political risk, not just macro policy. <strong>How to use it:</strong> for a Binance listings and compliance team, Poland is a reminder that EU-member national tracks (distinct from MiCA) carry political-risk dependency — track the bill's re-introduction path and the Zondacrypto resolution as the variables that unblock the jurisdiction, and do not assume the EU is one regulatory surface. <a href="https://cointelegraph.com/news/poland-upholds-crypto-bill-veto-zondacrypto-scandal-widens">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Embodied AI</span>
+    <strong>"Embodied Agentic AI" — Agents Cross From Digital to Physical, Bounded by a Standardized Safety Spec</strong>
+    <p>A concept catalyzed by Anthropic's Model Hardware Standard (today's AI card): agentic AI is crossing from acting on digital artifacts (code, documents) to acting in the physical world (microscopes, liquid handlers, robotic arms) — and the crossing is gated by a standardized, safety-bounded spec (MHS: device-level limits, a shared driver, MCP/CLI/API control). <strong>Why it matters NOW:</strong> (1) for a Binance team, "embodied agentic AI" is the next surface beyond software agents — a model that operates a physical device multiplies both leverage and blast radius, and the safety spec is the governance layer that makes it deployable (cf. the agent control plane, Sep 5, extended to physical tools); (2) it reframes "agentic AI" from "writes code and answers questions" to "runs experiments and calibrates lasers" — the capability frontier is now physical, not just textual; (3) caveat — Claude's spatial and physical reasoning still requires expert oversight (the Genentech foaming-sample example), so "embodied" today is agent-supervised, not agent-autonomous. <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Governance</span>
+    <strong>"Architecture as Code" — Architectural Rules Become Executable, Machine-Checkable Governance</strong>
+    <p>A concept from the 2026 architecture discourse: "architecture as code" — describing and validating architectural rules through executable code, so governance (layering, dependency direction, module boundaries) is automated and a system can be checked against its intended design without a human reviewer reading every change. <strong>Why it matters NOW:</strong> (1) it is the governance counterpart to specification-driven development (Sep 4) — a spec defines <em>what</em> to build, architecture-as-code defines <em>what is allowed</em>, and an agent's output can be validated against both automatically; (2) for a Binance team adopting agentic coding, executable architecture rules are how you keep autonomous agents inside your architectural invariants without a human gate on every PR — the rule set, not the reviewer, becomes the boundary; (3) caveat — architecture-as-code inherits the quality of the rules it encodes; a vague rule validates nothing, so authoring and reviewing the rules is the new review surface. <a href="https://www.archunit.org/">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Quality</span>
+    <strong>"The AI Code Trust Gap" — Adoption (≈92% Daily Use) Outruns Trust (≈29% Trust the Output)</strong>
+    <p>A concept consolidating across the 2026 vibe-coding discourse: adoption of AI coding tools is near-universal (roughly 92% of US developers report using them daily) but only about 29% trust the code they produce — the gap between "everyone uses it" and "few trust it" is the defining governance problem of agentic coding, with some reports flagging rising bug rates alongside the speed gains. <strong>Why it matters NOW:</strong> (1) for a Binance team, the trust gap is the operational risk — code shipped faster but trusted less means the review and eval gates (cf. the harness-engineering thread, Sep 1) are not optional, they are the only thing between velocity and defect accumulation (the "cognitive debt," Aug 31); (2) it reframes the ROI question — adoption is not the win, trustworthy adoption is, so measure trust (defect-injection rate, eval pass-rate) alongside velocity; (3) caveat — the adoption and trust figures are industry-survey estimates that vary by source; treat the gap as direction-of-travel, not a precise print. <a href="https://github.blog/">Synthesis →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.anthropic.com/news/model-hardware-standard-research-preview">Anthropic — Previewing the Model Hardware Standard (Aug 27)</a>
+      <span class="desc">The verified primary source behind today's top AI card and the "embodied agentic AI" concept — the model-agnostic spec for agents to safely operate physical lab devices, with launch partners (Genentech, CMU, QuEra, HHMI) and concrete results (CMU 3× faster, QuEra 99.3% laser-relock).</span>
+    </li>
+    <li>
+      <a href="https://docs.claude.com/en/docs/claude-code/changelog">Claude Code changelog — v2.1.261 (Sep 4)</a>
+      <span class="desc">The verified primary source behind today's Claude Code card — <code>/skill-doctor</code> (prune unused skills by context cost), <code>bashOutputMaxChars</code>/<code>taskOutputMaxChars</code> (up to 128K inline output), the dangerous-<code>rm</code> safety-prompt tightening, and Auto-mode upload-tightening.</span>
+    </li>
+    <li>
+      <a href="https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration/">GitHub — Project HydraFusion: Frontier quality via multi-model orchestration (Sep 4)</a>
+      <span class="desc">The verified primary source behind today's HydraFusion card — a runtime model-orchestration research preview in Copilot that matched or exceeded an Opus 5 baseline while reducing estimated workflow cost.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/05/dollar-backed-stablecoins-can-push-local-currencies-lower-bank-of-korea-study-finds">CoinDesk — Dollar-backed stablecoins can push local currencies lower, Bank of Korea study finds (Sep 5)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's lead crypto card — a central bank formally flagging stablecoin FX spillover, the leading indicator of macro-prudential scrutiny of stablecoin issuance.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/poland-upholds-crypto-bill-veto-zondacrypto-scandal-widens">Cointelegraph — Poland upholds crypto bill veto as Zondacrypto scandal widens (Sep 5)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's EU regulatory card — a national crypto framework stalling on a domestic-exchange-governance scandal, a reminder that EU-member national tracks carry political-risk dependency.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-06 (Sunday) · Generated 2026-09-06T02:30:00Z · v4 design</p>
+
+  <p>Curated for an iOS developer at Binance. Sunday tip theme — Best of Week: revisit the on-device / Edge AI thread (the week's most iOS-impactful category, covered Tue + Thu + Sat) with fresh angles not previously carded — on-device embeddings + a local vector index for retrieval that never leaves the phone, IP protection for tuned weights (host on-demand, gate access, encrypt at rest), and quantization-aware training before the int4 export to preserve accuracy. AI: Claude Code v2.1.261 adds <code>/skill-doctor</code> (prune unused skills by context cost) plus larger inline-output limits and harness-hardening safety fixes, Anthropic opens the Model Hardware Standard (a spec for agents to safely operate physical lab devices, with free Claude for 10K scientists), and GitHub ships Project HydraFusion (runtime multi-model orchestration for frontier-quality coding at lower cost). Vibe: GitHub's own "decoding the new AI lingo" glossary (loops, harnesses, squads), the OpenClaw maintainers (a viral open-source AI tool's ecosystem), and GitHub's "how we make AI coding more cost efficient" playbook. Crypto: a Bank of Korea study finds dollar-backed stablecoins can push local currencies lower, UBS and Jane Street hold ~$75M combined in a Hyperliquid ETF, and Poland upholds a crypto-bill veto as the Zondacrypto scandal widens. Concepts: "embodied agentic AI" (agents cross from digital to physical, bounded by a safety spec), "architecture as code" (architectural rules become executable governance), and "the AI code trust gap" (≈92% daily adoption outruns ≈29% trust).</p>
+
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded (Sep 5, 4, 3, 1; Sep 2 returned 404 — not generated). ~100 prior topics indexed across titles, concepts, and tips. ~28 duplicate candidates filtered in favor of fresh angles: GPT-6 Astra rollout / "Path to Astra" threshold (Sep 3–4 — deduped; only fresh v2.1.261 + HydraFusion carded, Astra itself excluded), OpenAI $1B Daybreak + Google Fairwind (Sep 5 — deduped), Claude Fable/Mythos 5.1 + Enterprise Frontier Safeguards (Sep 3 — deduped), Claude Code v2.1.260 /diff panel + GitSpawn + AI-native-workflows + Claude Code live-subagent-streaming/limit-reset/team-spend (Sep 3–5 — deduped; only fresh v2.1.261 carded), AMC/Robinhood tokenized shares + South Korea 3-stage tokenization + OpenReserve/Revolut national bank charters (Sep 5 — deduped), August NFP 162K + Zcash $1000 + US bitcoin ETF $731M/$103B + Trump-Hyperliquid + Pineapple/FinCEN/QuFi/CLARITY-Act/Kalshi/UK-ETNs/IMF-El-Salvador (Sep 5 snapshot'd — deduped), Standard Chartered UAE + Coinbase equity-perps + Ondo US-stock-perps + crypto-cap $2.82T (Sep 3–4 — deduped), ICE/tZERO + Robinhood-Chain + Sber $46B (Sep 1 — deduped), Google Pics / 353K-vibe-course / agentic-3-lanes / Google agentic-video (Sep 1–3 — deduped), and the prior on-device tip set (Core-AI-decision-tree/Core-AI-Debugger/ZDR-default Aug 29; MLX-LoRA→Core-AI/Foundation-Models-tool-calling/updatable-Core-ML Sep 1; ANE-dispatch/int4-quant/hybrid-routing Sep 3; palettization/os-signpost-profiling/BGTask-thermal Sep 5 — only fresh on-device-embeddings + tuned-weight-IP-protection + quantization-aware-training carded as the Sunday best-of-week set, distinct from prior on-device tips), and the prior concept set (harness-engineering/modular-monolith/brokerage-chain-DEX Sep 1; token-supercycle/capability-thresholds/context-engineering Sep 3; SDD/equity-perpetual-convergence Sep 4; defender-subsidy/synthetic-equity-issuer-rights/agent-control-plane Sep 5 — only fresh embodied-agentic-AI + architecture-as-code + AI-code-trust-gap carded).</p>
+
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): "Claude can now autonomously conduct scientific experiments using laboratory equipment (Sep 4)" — a WebSearch synthesis; the verified source is the <em>August 27</em> "Previewing the Model Hardware Standard" post on anthropic.com/news (carded today with the correct date, not the synthesized Sep 4 date). "Claude Managed Agents: Dreaming / multi-agent orchestration / Outcomes / Webhooks" — NOT found on anthropic.com/news (the only September posts visible are the Sep 1 Fable/Mythos and Enterprise Frontier Safeguards posts; the Managed-Agents item appears to originate from the earlier "Code w/ Claude SF 2026" event, not a September newsroom post) — excluded pending verification. "Anthropic $300B+ IPO talks" and "Claude completed the first machine-checked proof of Fermat's Last Theorem" — NOT found on anthropic.com/news; excluded. "Meta Muse Spark 1.3" — excluded (same fabrication class as the previously-excluded "Muse Code"/"Muse Spark 1.2"). "OpenAI DevDay Sept 29 in San Francisco" — not present in the OpenAI Blog RSS this cycle; excluded pending verification. "TimesFM-3" (Google forecasting) — not present in the recent Google AI Blog RSS items; excluded. "Kiro" AI-native IDE — WebSearch-mentioned, no primary-source verification; excluded. GPT-6 Astra "released Sep 5 as the most intelligent and aligned model" — the Astra rollout was carded Sep 4 and is deduped this cycle; excluded (the OpenAI Astra customer cases Playco/Legora were snapshot'd Sep 5 and are not re-carded). WebSearch returns synthesized summaries without citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — Claude Code v2.1.261 via docs.claude.com/en/docs/claude-code/changelog, the Model Hardware Standard via anthropic.com/news, HydraFusion + the GitHub lingo/OpenClaw/cost posts via github.blog, and all three crypto cards via The Block / CoinDesk / Cointelegraph RSS with real Sep 4–5 article URLs (the Bank of Korea CoinDesk article returned HTTP 429 to WebFetch — carded from the RSS headline, which is self-contained, with the real article URL cited).</p>
+
+  <p><strong>Markets snapshot:</strong> Claude Code v2.1.261 — <code>/skill-doctor</code>, <code>bashOutputMaxChars</code> up to 128K, dangerous-<code>rm</code> safety + Auto-mode upload-tightening (docs.claude.com changelog, Sep 4) · Anthropic Model Hardware Standard — model-agnostic spec for agents to operate physical lab devices; CMU 3× faster, QuEra 99.3% laser-relock; 10K PIs get free Claude (anthropic.com/news, Aug 27) · GitHub Project HydraFusion — runtime multi-model orchestration research preview in Copilot; matches/exceeds Opus 5 at lower cost (github.blog, Sep 4) · GitHub "Decoding the new AI lingo" glossary + "How we make AI coding more cost efficient" + "OpenClaw went viral" maintainer profile (github.blog, Sep 2 / Aug 27) · Bank of Korea study: dollar-backed stablecoins can push local currencies lower (CoinDesk, Sep 5) · UBS, Jane Street among firms with ~$75M combined Hyperliquid ETF holdings (The Block/Bloomberg, Sep 5) · Poland upholds crypto-bill veto as Zondacrypto scandal widens (Cointelegraph, Sep 5) · LeBron James teases a Polymarket partnership in a social-media video (The Block, Sep 5) · Bitcoin ETF inflows hit $3.8B in the strongest three-week stretch of 2026 (Cointelegraph, Sep 5) · Southeast Asia's crypto funding rebounds to $680M as investors focus on mature firms (CoinDesk, Sep 5) · XRP Ledger has fewer active accounts than last year but bigger trades and more value (CoinDesk, Sep 5) · Robinhood won't back down after AMC CEO demands a halt to stock tokens (CoinDesk, Sep 4 — the AMC/Robinhood issuer-rights thread, covered Sep 5) · British investor who thought he lost $2,000 in bitcoin in 2012 just recovered $4.5M (CoinDesk, Sep 5) · "Token buybacks are booming — but are they good for crypto projects?" (Cointelegraph, Sep 4) · OpenAI Astra customer cases — Playco game prototyping (50% fewer manual fixes), Legora financial-doc review (Sep 3, snapshot'd Sep 5 — not re-carded) · OpenAI "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT" (OpenAI Blog, Sep 2) · OpenAI supports California's bill to advance youth AI safety (OpenAI Blog, Aug 31).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (The Block ~20 items, Cointelegraph ~30, CoinDesk ~25, OpenAI Blog RSS ~15 recent items, Google AI Blog ~20; Hacker News RSS returned HTTP 502 Bad Gateway — skipped, consistent with prior runs) + WebFetch primary-source verification (anthropic.com/news → Model Hardware Standard Aug 27 verified present + Fable/Mythos + Enterprise Frontier Safeguards Sep 1 already-known, no new September Anthropic post; docs.claude.com/en/docs/claude-code/changelog → v2.1.261 verified as the only release after v2.1.260; github.blog → Project HydraFusion Sep 4 + the "decoding the new AI lingo" / "OpenClaw went viral" / "cost efficient" posts all verified present). FAILED fetches: coindesk.com Bank of Korea article returned HTTP 429 Too Many Requests — carded from the self-contained RSS headline with the real article URL cited; openai.com/index/* pages 403 to WebFetch (consistent with prior runs) — OpenAI items confirmed via the OpenAI Blog RSS items instead. GITHUB_COM_TOKEN confirmed set for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes <code>get_file_contents</code> for reads but <code>create_or_update_file</code> is not available, so the local-clone push is the archive path).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~20 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~30 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~25 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~15 recent items)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~20 items, most older)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>FAIL (HTTP 502 Bad Gateway)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news — MHS Aug 27 verified; docs.claude.com changelog — v2.1.261 verified; github.blog — HydraFusion/lingo/OpenClaw/cost verified); FAIL (coindesk.com Bank of Korea — 429 → carded from RSS headline)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports (Sep 2 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
