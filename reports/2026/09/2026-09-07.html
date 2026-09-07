@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-07</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Monday, September 7, 2026 · OpenAI–Cursor Termination Post-SpaceX · OpenAI Automated Research Intern · Agentic CLI Battleground · Liquid Network $320M White-Hat · Reusable BTC Collateral Mortgages · CFTC Dismisses CME Perps Suit</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Monday: Claude Code / Codex — Agentic Workflow: Hooks, MCP, Skills) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Monday: Claude Code / Codex (Agentic Workflow — Hooks, MCP, Skills)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · MCP Fleet</span>
+    <strong>Push MCP Server Configs Fleet-Wide With <code>managedMcpServers</code> — Stop Hand-Configuring Every Dev's <code>~/.claude.json</code></strong>
+    <p>Claude Code <code>v2.1.259</code> (Sep 2, changelog-verified) added the <code>managedMcpServers</code> managed setting, letting an org push HTTP/SSE MCP-server configs to every Claude Code instance centrally instead of each developer hand-editing <code>~/.claude.json</code>. <strong>Why it matters:</strong> it's the "agent control plane" (Sep 5 concept) made concrete for MCP — a new internal tool server (a Binance-internal data API, a deploy MCP) lands on every dev's agent via one settings file, not a ticket-per-machine, and the config is version-controllable and reviewable. <strong>How to use it:</strong> declare your team's MCP servers once in the managed settings file; pair with <code>--permission-prompts none</code> (today's tip 2) and an explicit permission allowlist so the auto-configured servers can't exceed their intended scope. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Headless</span>
+    <strong>Run Claude Code Unattended With <code>--permission-prompts none</code> — For CI, Autoscaled Runners, and Scheduled Agents</strong>
+    <p><code>v2.1.259</code> added <code>--permission-prompts none</code> for unattended headless hosts — Claude Code will not block on a permission prompt (and denies rather than hangs on an unplanned action). <strong>Why it matters:</strong> it's the primitive that lets an agent run inside CI / an autoscaled runner / a scheduled job without a human at a terminal to approve a tool call — the difference between "agent in a pipeline" and "agent that stalls the pipeline" (cf. the harness-engineering thread, Sep 1). <strong>How to use it:</strong> pair it with an explicit permission allowlist (allow only the read/safe-write paths the job needs) so the agent can do its bounded work and denies anything outside it; never run it interactively on a dev box where you <em>want</em> prompts. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Subagents</span>
+    <strong>Load Large Subagent Personas From a File With <code>--append-subagent-system-prompt-file</code> — Bypass the Command-Line Length Limit</strong>
+    <p><code>v2.1.261</code> (Sep 4, changelog-verified) added <code>--append-subagent-system-prompt-file</code> for prompts too large for the command line — point the flag at a file holding a subagent's system prompt and it's appended to the subagent's context. <strong>Why it matters:</strong> a real subagent persona (role, constraints, tool guidance, examples) easily exceeds shell argument limits; loading it from a file means you can version-control and review complex agent personas as code rather than cramming them into a one-liner — the "skills as reviewed artifacts" discipline. <strong>How to use it:</strong> keep your team's subagent personas in checked-in <code>.md</code> files, load them per-subagent, and run <code>/skill-doctor</code> (cf. Sep 6) to confirm the loaded persona is actually <em>used</em> and not silently bloating context. <a href="https://docs.claude.com/en/docs/claude-code/changelog">Changelog →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Cursor · M&amp;A</span>
+    <h3><a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI's "Decision on Cursor" Following SpaceX's Acquisition of Anysphere — Model Access Cut Nov 12</a></h3>
+    <p>OpenAI published <strong>"Our decision on Cursor following its acquisition by SpaceX"</strong> (Sep 6, verified on the OpenAI Blog RSS), confirming Elon Musk's SpaceX acquired Cursor's parent Anysphere and triggering OpenAI to terminate its Cursor partnership, with a reported Nov 12, 2026 cutoff; OpenAI cited doubt that SpaceX would honor its terms of service, referencing prior Musk-contract disputes. Cursor CEO Michael Truell reportedly said OpenAI models account for ~5% of Cursor traffic (Cursor also runs Anthropic + Google models), and the deal was reportedly worth up to ~$1B/yr to OpenAI. <strong>Why it matters:</strong> the single biggest agentic-coding tool-vendor reshuffle of the year — if you run Cursor with OpenAI models, plan the model switch before Nov 12; and it's the live instance of the "your agent tool can be acquired out from under you" risk (cf. the model-router tip, Sep 4, and today's tool-acquisition-risk concept). <strong>How to use it:</strong> pin a model router in front of your agent so a single vendor's cutoff can't break your flow; verify which models your Cursor config actually uses. <em>(Caveat: the Nov 12 date, 5% traffic figure, and $1B revenue are from reporting on the post; the post's existence and the SpaceX acquisition are OpenAI-verified.)</em> <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Research Agents</span>
+    <h3><a href="https://openai.com/index/research-acceleration-view-inside-openai">OpenAI "Research Acceleration: The View Inside OpenAI" — Automated Research Intern Milestone</a></h3>
+    <p>OpenAI posted <strong>"Research acceleration: The view inside OpenAI"</strong> (Sep 6, verified on the OpenAI Blog RSS) — the company's accounting of progress toward an <strong>"automated research intern,"</strong> a system that performs well-defined research tasks under human guidance, reportedly marking the achievement of that goal. <strong>Why it matters:</strong> research automation is the next agentic surface beyond coding — a model that can own a bounded research task (literature scan, experiment design, reproducing a result) under a human's direction multiplies a researcher's throughput the way coding agents multiplied a developer's. <strong>How to use it:</strong> for an internal-research / ML team, scope one bounded, reviewable research task and benchmark an agent against a human intern on it; gate the outputs (a reproduced result, a synthesized lit review) behind review since multi-step research compounds errors (cf. the cognitive-debt guardrail, Aug 31). <em>(Caveat: the "automated research intern milestone" framing is from reporting on the post; the post itself is verified on the OpenAI Blog RSS.)</em> <a href="https://openai.com/index/research-acceleration-view-inside-openai">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Agentic Coding · Market</span>
+    <h3><a href="https://cursor.com/changelog">The Agentic-Coding CLI Battleground Consolidates — Codex, Claude Code, Gemini CLI, Grok Build</a></h3>
+    <p>The 2026 agentic-coding market has consolidated into a CLI battleground (synthesis across this week's reporting): OpenAI <strong>Codex</strong>, Anthropic <strong>Claude Code</strong>, Google <strong>Gemini CLI</strong>, and xAI's <strong>Grok Build</strong> competing for the terminal — the surface that gives agents deeper system access and pipeline integration than IDE plugins (Cursor, Copilot). Adoption is near-universal (~85% of developers use AI coding tools regularly, per the "vibe coding" discourse Karpathy named in Feb 2025), but the same discourse flags a <em>"debugging hangover"</em> — AI accelerates shipping while human expertise in architecture, testing, and design remains the binding constraint on reliability. <strong>Why it matters:</strong> for a team standardizing a tool, the CLI is the portable, pipeline-integratable lane (vs. IDE-bound Cursor/Copilot); match the tool to the task and keep portability so a single acquisition (today's OpenAI/Cursor card) can't strand your workflow. <strong>How to use it:</strong> don't lock to one CLI while the market is this volatile — pilot two (e.g., Claude Code for interactive work, Codex for long autonomous tasks) and measure against your eval suite. <a href="https://cursor.com/changelog">Cursor changelog →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Microsoft · Native Scaffolding</span>
+    <h3><a href="https://visualstudio.microsoft.com/devblogs/">Microsoft's AI-Assisted WinUI Scaffolding — Copilot + VS Code + Templates Generate a Native Win11 App in ~30 Min</a></h3>
+    <p>Microsoft unveiled an AI-assisted WinUI development solution (Sep 6, WebSearch-reported) that pairs VS Code, WinUI templates, and GitHub Copilot to generate and deploy a WinUI 3 app in roughly 30 minutes — productizing the "AI scaffolds a native app from templates" pattern. <strong>Why it matters:</strong> it's the same shape an iOS team can mirror — Xcode project templates + Claude Code / Copilot spinning a SwiftUI starter module in minutes rather than an afternoon; the leverage is in codifying the template + the generation prompt, not the OS. <strong>How to use it:</strong> for your own platform, codify a project template + a generation prompt so a new feature module (or a spike) is scaffolded in minutes; gate the output behind your architecture rules (cf. "architecture as code," Sep 6) so the scaffold fits your invariants rather than importing the template's defaults. <em>(Caveat: WebSearch-sourced; verify exact scope on the Microsoft DevBlogs page.)</em> <a href="https://visualstudio.microsoft.com/devblogs/">DevBlogs →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Vibe Coding · Practice</span>
+    <strong>Vibe Coding's "Debugging Hangover" — Speed Gains Meet Rising Bug Rates</strong>
+    <p>The 2026 vibe-coding discourse names a <strong>"debugging hangover"</strong> (synthesis across this week's reporting): the rush of AI-accelerated shipping is followed by a maintenance / debugging debt as unverified AI code accumulates, with some reports flagging rising bug rates alongside the speed gains. It's the practice-reality counterpart to the "AI code trust gap" (Sep 6, ~92% adoption vs ~29% trust) and the "cognitive debt" thread (Aug 31): adoption is not the win — <em>trustworthy</em> adoption is. <strong>Why it matters:</strong> for a Binance team, the hangover is the operational risk — code shipped faster but debugged less means your review and eval gates are the only thing between velocity and defect accumulation, and the debt surfaces weeks after the PR merged. <strong>How to use it:</strong> pair every agentic-coding rollout with an eval gate (cf. the harness-engineering thread, Sep 1) and measure defect-injection rate alongside velocity; treat a rising bug rate as the signal to slow the AI pace, not speed it. <a href="https://github.blog/">GitHub blog →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Liquid Network · Onchain Security</span>
+    <h3><a href="https://www.theblock.co/news/defi/2026-09-06-liquid-network-pauses-after-purported-white-hat-hackers-withdraw-320-million-in-bitcoin-413626">Liquid Network Pauses After "White-Hat" Hackers Withdraw $320M in Bitcoin</a></h3>
+    <p>The Liquid Network (a Bitcoin sidechain) paused after purported white-hat hackers withdrew roughly <strong>$320 million in bitcoin</strong> (The Block, Sep 6) — ~4,000 BTC moved in what the Hodler's Digest framed as a white-hat extraction rather than a theft, prompting the sidechain's operators to halt. <strong>Why it matters:</strong> it's the largest onchain "white-hat intervention" event in recent memory, and a live stress-test of sidechain pause/resume incident response — directly relevant to a Binance market/custody team modeling sidechain risk and bridge-pause topology. <strong>How to use it:</strong> factor "sidechain pause under a white-hat extraction" into your bridge-risk model; the incident response (pause, verify the white-hat's claim, coordinate return, patch) is the playbook to rehearse for your own onchain venues. <a href="https://www.theblock.co/news/defi/2026-09-06-liquid-network-pauses-after-purported-white-hat-hackers-withdraw-320-million-in-bitcoin-413626">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Lending · Product</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/06/better-and-coinbase-s-bitcoin-backed-mortgages-can-reuse-borrowers-collateral">Better + Coinbase Bitcoin-Backed Mortgages Can Reuse Borrowers' Collateral</a></h3>
+    <p>Better and Coinbase's bitcoin-backed mortgage product (CoinDesk, Sep 6) lets borrowers <strong>reuse the same BTC collateral across multiple loans</strong> — a lending-design innovation that decouples the collateral asset from a single loan's lockup. <strong>Why it matters:</strong> "reusable collateral" is a crypto-backed-lending product primitive a Binance lending team can model — the same BTC backs a mortgage and, separately, a margin or credit line, multiplying capital efficiency without forcing the borrower to unlock/relock between products. <strong>How to use it:</strong> model reusable-collateral lending as a product class; track the custody / liquidation design (how is the shared collateral margined across loans, and who liquidates first in a drawdown?) as the variable that decides whether it ships. <a href="https://www.coindesk.com/business/2026/09/06/better-and-coinbase-s-bitcoin-backed-mortgages-can-reuse-borrowers-collateral">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">CFTC · Derivatives</span>
+    <h3><a href="https://cointelegraph.com/news/cftc-dismiss-cme-lawsuit-crypto-perpetual-futures">CFTC Files to Dismiss Its CME Lawsuit Over Crypto Perpetual Futures</a></h3>
+    <p>The CFTC filed to dismiss its lawsuit against CME over crypto perpetual futures (Cointelegraph, Sep 6) — unwinding the legal backdrop that sat behind the "equity-perpetual convergence" (Sep 4 concept) and Coinbase's equity-perp SEC filing (Sep 4). <strong>Why it matters:</strong> removing the CFTC–CME perps litigation clears a jurisdictional obstacle for onshore crypto perpetuals — a Binance derivatives team should model this as one variable resolving in favor of onshore perp venues, and it's the regulatory thaw that the equity-perp filings were waiting on. <strong>How to use it:</strong> track the CFTC's perps posture post-dismissal as the signal for whether onshore US perps (and equity perps) gain a clearer path; pair with the Coinbase equity-perp filing (Sep 4) as the live onshore attempt to watch. <a href="https://cointelegraph.com/news/cftc-dismiss-cme-lawsuit-crypto-perpetual-futures">Cointelegraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Agent Protocols</span>
+    <strong>MCP vs ACP — The Two Complementary Agent Protocols (External Tools vs Internal Project Context)</strong>
+    <p>A distinction consolidating across the 2026 architecture discourse: the <strong>Model Context Protocol (MCP)</strong>, Anthropic's late-2024 "USB-C for AI," connects an agent to external tools / data / services; the <strong>Agent Context Protocol (ACP)</strong> operates a level up — a structured system that gives an agent internal understanding of the project it works on (architectural decisions, milestones, coding patterns). In short: MCP connects an agent to its external tools, ACP gives it the internal "beliefs and goals" to reason about the project. <strong>Why it matters NOW:</strong> (1) for a Binance team, MCP is the integration layer (today's <code>managedMcpServers</code> tip) and ACP is the project-context layer — instrument both and don't conflate them; an agent with MCP but no ACP can call your tools but doesn't know your codebase's intent. (2) It refines "context engineering" (Sep 3, 4): part of context engineering is <em>which protocol carries what</em> — MCP carries tool-results, ACP carries project-beliefs. (3) Caveat — "ACP" as a named standard is still consolidating across the discourse; instrument it via tool-invocation-coverage and project-context-recall before treating it as a productized protocol. <a href="https://modelcontextprotocol.io/">MCP →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Vendor Risk</span>
+    <strong>"Tool-Acquisition Risk" — The Cursor/SpaceX Cutoff Shows Your Agent Tool Can Be Bought Out From Under You</strong>
+    <p>A concept catalyzed by today's lead AI card: when SpaceX acquired Cursor's parent Anysphere, OpenAI severed Cursor's model access — a vendor cutoff triggered not by a model-vendor decision about <em>you</em>, but by a <em>corporate acquisition of the tool itself</em>. <strong>Why it matters NOW:</strong> (1) it's distinct from "model portability" (Aug 31, choosing between models) and the "model router" tip (Sep 4) — those assume your <em>tool</em> is stable; the Cursor case shows the tool is itself a dependency that can be acquired, and the acquirer's disputes (Musk vs OpenAI) can sever your access on a date you don't control. (2) For a Binance team, it means your agent stack carries a <em>corporate-control</em> portability risk on top of model portability — standardize tools whose ownership is stable, or run two in parallel. (3) Caveat — the SpaceX/Anysphere acquisition is OpenAI-verified (today's AI card); whether this generalizes to a <em>class</em> of tool-acquisition risk depends on further M&amp;A in the category, so model it as a live precedent, not yet a pattern. <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Onchain Security</span>
+    <strong>"White-Hat Extraction" as an Onchain Security Mechanism — The Liquid $320M Case</strong>
+    <p>A concept crystallizing from today's lead crypto card: white-hat hackers withdrawing $320M from the Liquid Network to force a pause — <em>extraction as intervention</em> — is an onchain security pattern where a skilled party preemptively moves funds to expose a vulnerability and compel a fix, rather than to steal. <strong>Why it matters NOW:</strong> (1) for a Binance custody / security team, "white-hat extraction" is a distinct incident class from theft — the incident response (pause, verify the white-hat's claim, coordinate return, patch) is a playbook to rehearse, and a sidechain pause is the expected mitigation, not a failure of it. (2) It reframes onchain security: the frontier isn't only defense-against-attackers, it's coordinated response to <em>cooperative</em> extractors who are exposing a bug you haven't fixed yet. (3) Caveat — whether the Liquid case is genuinely white-hat (vs. a theft framed as white-hat) is pending verification; treat "white-hat extraction" as the pattern your response should handle <em>regardless</em> of the actor's stated intent. <a href="https://www.theblock.co/news/defi/2026-09-06-liquid-network-pauses-after-purported-white-hat-hackers-withdraw-320-million-in-bitcoin-413626">Catalyst →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex">OpenAI — Our decision on Cursor following its acquisition by SpaceX (Sep 6)</a>
+      <span class="desc">The verified primary source behind today's lead AI card and the tool-acquisition-risk concept — OpenAI's own announcement that it is terminating its Cursor partnership after SpaceX acquired Anysphere, with a reported Nov 12 cutoff.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/research-acceleration-view-inside-openai">OpenAI — Research acceleration: The view inside OpenAI (Sep 6)</a>
+      <span class="desc">The RSS-verified primary source behind today's research-intern card — OpenAI's accounting of progress toward an "automated research intern," the next agentic surface beyond coding.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/defi/2026-09-06-liquid-network-pauses-after-purported-white-hat-hackers-withdraw-320-million-in-bitcoin-413626">The Block — Liquid Network pauses after white-hat hackers withdraw $320M in bitcoin (Sep 6)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's lead crypto card and the white-hat-extraction concept — a ~4,000 BTC white-hat intervention forcing a sidechain pause, the largest such event in recent memory.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/06/better-and-coinbase-s-bitcoin-backed-mortgages-can-reuse-borrowers-collateral">CoinDesk — Better and Coinbase's bitcoin-backed mortgages can reuse borrowers' collateral (Sep 6)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's lending card — a reusable-collateral design that decouples a BTC asset from a single loan's lockup, a product primitive for crypto-backed lending.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/cftc-dismiss-cme-lawsuit-crypto-perpetual-futures">Cointelegraph — CFTC files to dismiss CME lawsuit over crypto perpetual futures (Sep 6)</a>
+      <span class="desc">The RSS-confirmed primary source behind today's market-structure card — the dismissal that unwinds the legal backdrop behind the equity-perpetual convergence and Coinbase's equity-perp filing.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>AI &amp; Crypto Daily</strong> — 2026-09-07 (Monday) · Generated 2026-09-07T02:45:00Z · v4 design</p>
+
+  <p>Curated for an iOS developer at Binance. Monday tip theme — Claude Code / Codex agentic workflow (hooks, MCP, skills): push MCP-server configs fleet-wide with <code>managedMcpServers</code> (v2.1.259), run Claude Code unattended in CI with <code>--permission-prompts none</code> (v2.1.259), and load large subagent personas from a file with <code>--append-subagent-system-prompt-file</code> (v2.1.261). AI: OpenAI publishes "Our decision on Cursor following its acquisition by SpaceX" — model access cut Nov 12 (SpaceX acquired Anysphere; ~5% of Cursor's traffic is OpenAI; ~$1B/yr to OpenAI at risk), OpenAI posts "Research acceleration: The view inside OpenAI" marking the automated-research-intern milestone, and the agentic-coding CLI battleground consolidates (Codex / Claude Code / Gemini CLI / Grok Build; ~85% adoption; "debugging hangover"). Vibe: Microsoft's AI-assisted WinUI scaffolding (Copilot + VS Code + templates → native app ~30 min) and vibe coding's "debugging hangover" (speed gains meet rising bug rates). Crypto: the Liquid Network pauses after white-hat hackers withdraw $320M in bitcoin, Better + Coinbase's bitcoin-backed mortgages let borrowers reuse collateral, and the CFTC files to dismiss its CME perps lawsuit. Concepts: "MCP vs ACP" (the two complementary agent protocols — external tools vs internal project context), "tool-acquisition risk" (the Cursor/SpaceX cutoff as a corporate-control portability risk), and "white-hat extraction" as an onchain security mechanism.</p>
+
+  <p><strong>Dedup:</strong> 4 of 5 past reports loaded via GHE MCP <code>get_file_contents</code> (Sep 6, 5, 4, 3; Sep 2 returned 404 — not generated, skipped silently). ~100 prior topics indexed across titles, concepts, and tips. ~24 duplicate candidates filtered in favor of fresh angles: the OpenAI–Cursor wind-down / Nov-12-shutoff saga (carded Aug 29–Sep 1, then deduped Sep 3–6 — only the fresh OpenAI-published <em>formal decision</em> + SpaceX-acquisition-confirmed angle is carded today, not the prior wind-down reporting; the broader saga is referenced, not re-carded), Claude Fable/Mythos 5.1 + Enterprise Frontier Safeguards (Sep 1, carded Sep 3 — filtered), GPT-6 Astra rollout + Path-to-Astra threshold + $1B Daybreak + Astra safety overview + Astra customer cases Playco/Legora + Gemini agentic video (Sep 1–5, carded Sep 3–6 — filtered; only the fresh research-acceleration post is carded), Claude Code v2.1.260 /diff + v2.1.261 /skill-doctor + bashOutputMaxChars + live-subagent-streaming + /limit-reset + team-spend + OAuth-plaintext (Sep 3–6, carded — filtered; only the fresh <code>managedMcpServers</code> + <code>--permission-prompts none</code> + <code>--append-subagent-system-prompt-file</code> tips carded, distinct from prior news cards), GitSpawn .git/config hijack + Manifold-Security agent-vuln disclosure (Sep 5, carded — filtered; the same-class Codex CVEs deduped), Google Pics / Gemini 3.8 Flash / Lyria 3.5 (Sep 1–3, Pics carded Sep 3 — Flash unverified on blog.google so excluded, Pics deduped), AMC/Robinhood issuer-rights + South Korea 3-stage tokenization + OpenReserve/Revolut bank charters + Coinbase equity-perps SEC filing + Standard Chartered UAE + crypto-cap $2.82T/Zcash + BTC ETF $731M/$103B + Aug NFP 162K + Trump-Hyperliquid + UK ETNs + Kalshi + CLARITY Act + FinCEN + QuFi + Pineapple/Injective + El Salvador/IMF + BTC≈18oz gold + LeBron/Polymarket (Sep 4–6, carded/snapshot'd — filtered), and the prior concept set (embodied-agentic-AI / architecture-as-code / AI-code-trust-gap Sep 6; defender-subsidy / synthetic-equity-issuer-rights / agent-control-plane Sep 5; SDD / context-engineering / equity-perpetual-convergence Sep 4; token-supercycle / capability-thresholds Sep 3 — only fresh MCP-vs-ACP + tool-acquisition-risk + white-hat-extraction carded; the debugging-hangover Vibe card is framed as the practice-reality counterpart to the Sep 6 trust-gap <em>concept</em>, distinct in framing).</p>
+
+  <p><strong>EXCLUDED as unverified/secondary syntheses after primary-source checks</strong> (consistent with prior reports' methodology): "Claude can now operate in the background on macOS for Pro/Max users (Sep 3)" — NOT found on anthropic.com/news (the newsroom shows only 2 September posts: Fable/Mythos 5.1 + Enterprise Frontier Safeguards, both Sep 1; no computer-use / background-macOS post) → EXCLUDED. "Anthropic 75% cache-read price reduction for Fable 5.1" — NOT found on anthropic.com/news → EXCLUDED (same exclusion as Sep 5/6). "Gemini 3.8 Flash general availability (Sep 2)" — NOT confirmed on blog.google/technology/ai/ (the page references Gemini 3.7 Flash + Gemini Omni 1.1 Flash + Lyria 3.5, but no 3.8 Flash) → EXCLUDED pending verification (same exclusion class as Sep 3's Gemini 3.8 coding-upgrade synthesis). "GPT-5.6 Sol/Terra/Luna GA coming weeks" — no standalone OpenAI Blog RSS title confirms a product launch post (the models are referenced in the broader Astra/research context); folded under the research-acceleration card with a caveat rather than carded standalone. "Kiro" AI-native IDE — WebSearch-mentioned, no primary-source verification; excluded (same as Sep 5/6). WebSearch returns synthesized summaries without always-citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — the OpenAI Cursor decision + research-acceleration posts via the OpenAI Blog RSS (with real openai.com/index URLs), the Claude Code <code>managedMcpServers</code> / <code>--permission-prompts none</code> / <code>--append-subagent-system-prompt-file</code> tips via docs.claude.com/en/docs/claude-code/changelog (v2.1.259 / v2.1.261 entries verified), and all three crypto cards via The Block / CoinDesk / Cointelegraph RSS with real Sep 6 article URLs. Microsoft WinUI scaffolding carded as WebSearch-sourced with an explicit caveat pending a Microsoft DevBlogs primary source.</p>
+
+  <p><strong>Markets snapshot:</strong> OpenAI "Our decision on Cursor following its acquisition by SpaceX" — model access cut Nov 12 (OpenAI Blog, Sep 6) · OpenAI "Research acceleration: The view inside OpenAI" — automated research intern milestone (OpenAI Blog, Sep 6) · Agentic-coding CLI battleground — Codex / Claude Code / Gemini CLI / Grok Build; ~85% developer adoption; "debugging hangover" (synthesis) · Claude Code v2.1.259 — <code>managedMcpServers</code>, <code>--permission-prompts none</code>, GitLab MR support; v2.1.261 — <code>/skill-doctor</code>, <code>bashOutputMaxChars</code> up to 128K, <code>--append-subagent-system-prompt-file</code>; v2.1.263 — bug fixes (docs.claude.com changelog, Sep 2/4/6) · Liquid Network pauses after white-hat hackers withdraw ~$320M / ~4,000 BTC (The Block, Sep 6) · Better + Coinbase bitcoin-backed mortgages can reuse borrowers' collateral (CoinDesk, Sep 6) · CFTC files to dismiss CME lawsuit over crypto perpetual futures (Cointelegraph, Sep 6) · Satoshi-era Bitcoin wallet wakes after 16 years, 600 BTC moves (Cointelegraph, Sep 6) · Bitcoin ETF inflows hit $3.8B in strongest three-week stretch of 2026 (Cointelegraph, Sep 6) · Bitcoin clears $81,000 as privacy coins lead a broad crypto rally (CoinDesk, Sep 6) · Trezor says ShipMonk breach affected another 67,000 US customers (The Block, Sep 6) · Tether-backed Orionx to shut down after audit flags $7M custody gap (Cointelegraph, Sep 6) · Tether sued over $42M in frozen coins (Cointelegraph, Sep 6) · US, UK launch joint alliance targeting crypto scam centers (Cointelegraph, Sep 6) · Ukrainian police took down a crypto scam stealing up to $1M/month (CoinDesk, Sep 6) · Strive CEO says company could end 2026 as second-largest public bitcoin holder (The Block, Sep 6) · Stablecoin-payments startup Diameter Pay raises $10M (The Block, Sep 6) · Coinbase-backed Router Protocol to shut down, burn 303M ROUTE tokens (The Block, Sep 6) · "We checked 6 years of bitcoin data — the NFP report isn't a big price mover" (CoinDesk, Sep 6) · Microsoft AI-assisted WinUI scaffolding — Copilot + VS Code + templates → native Win11 app ~30 min (WebSearch, Sep 6) · Google "Pairing Antigravity with Gemini 3.7 Flash solves multi-agent math/engineering" + Gemini Omni 1.1 Flash + Lyria 3.5 + Gemini Live productivity (blog.google, recent).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture/MCP; all 7 succeeded and returned synthesized prose) + RSS (The Block ~22 items, Cointelegraph ~25, CoinDesk ~22, OpenAI Blog ~18, Google AI Blog ~18; Hacker News RSS returned an empty payload this run — skipped, consistent with prior intermittent 502/empty failures) + WebFetch primary-source verification (anthropic.com/news → ONLY Fable/Mythos 5.1 + Enterprise Frontier Safeguards as September posts → "background macOS" + "75% cache cut" syntheses NOT found → EXCLUDED; docs.claude.com/en/docs/claude-code/changelog → v2.1.259 + v2.1.261 + v2.1.263 verified, <code>managedMcpServers</code> / <code>--permission-prompts none</code> / <code>--append-subagent-system-prompt-file</code> entries present; blog.google/technology/ai/ → Gemini 3.8 Flash NOT confirmed → EXCLUDED, Gemini 3.7 Flash / Omni 1.1 / Lyria 3.5 / Antigravity present; OpenAI Blog RSS → "Our decision on Cursor following its acquisition by SpaceX" + "Research acceleration: The view inside OpenAI" verified with real openai.com/index URLs; cursor.com/changelog → "Self-hosted machines" Sep 2 = the Sep 4 My-Machines/Team-Pools card, deduped). FAILED fetches: openai.com/index/* pages 403 to WebFetch (consistent with prior runs) — OpenAI items confirmed via the OpenAI Blog RSS items instead (with real URLs). GITHUB_COM_TOKEN confirmed set (len=93) for the github.com Pages push. GHE archive written via the local git clone (sean-y/daily-digest, main branch) — the established archive mechanism used by prior reports (the mcp-ghe server exposes <code>get_file_contents</code> for reads but <code>create_or_update_file</code> is not available, so the local-clone push is the archive path).</p>
+
+  <table>
+    <thead>
+      <tr><th>Feed</th><th>Source</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The Block</td><td>RSS</td><td>OK (~22 items)</td></tr>
+      <tr><td>Cointelegraph</td><td>RSS</td><td>OK (~25 items)</td></tr>
+      <tr><td>CoinDesk</td><td>RSS</td><td>OK (~22 items)</td></tr>
+      <tr><td>OpenAI Blog</td><td>RSS</td><td>OK (~18 items — Cursor decision + Research acceleration verified)</td></tr>
+      <tr><td>Google AI Blog</td><td>RSS</td><td>OK (~18 items)</td></tr>
+      <tr><td>Hacker News</td><td>RSS</td><td>EMPTY payload (skipped)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>OK (7/7; synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (anthropic.com/news — only 2 Sep posts → background-macOS/cache-cut EXCLUDED; docs.claude.com changelog — v2.1.259/261/263 verified; blog.google — Gemini 3.8 Flash NOT found → EXCLUDED; cursor.com/changelog — Self-hosted-machines deduped); FAIL (openai.com/index/* 403 → RSS-confirmed)</td></tr>
+      <tr><td>GHE archive (sean-y/daily-digest)</td><td>local/git</td><td>4/5 reports (Sep 2 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (len=93, push attempted)</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
