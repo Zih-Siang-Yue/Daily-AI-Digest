@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-11</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+header .subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.section-note {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: -10px 0 16px;
+  line-height: 1.55;
+}
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Friday, September 11, 2026</div>
+  <div class="subtitle">High-signal digest for AI, vibe coding &amp; crypto — built for the iOS/Binance engineer</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Friday: AI Infra & Prompt Engineering — RAG, tool use, agent arch) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Infra &amp; Prompt Engineering (RAG · Tool Use · Agent Arch)</div>
+  <p class="section-note">Friday rotation. Earlier weeks already covered BM25+dense+reranker RAG, Foundation-Models guided JSON, the model-router/confidence-gating pattern, and on-device embeddings — so today goes to three agent-infra angles not yet carded.</p>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agentic RAG · Tool Routing</span>
+    <strong>Stop Always-Retrieving — Give the Agent a Retriever Tool and Let It Decide Retrieve-vs-Compute</strong>
+    <p>The fixed <code>embed query → vector search → stuff into prompt → generate</code> RAG pipeline retrieves on every turn, even when the answer is computable, already cached, or needs a live API rather than docs. The agentic-RAG move is to expose retrieval as <em>one tool among several</em> (a vector-search tool, a SQL-over-truth tool, a live-API tool) and let the model route — retrieve only when its own confidence is low or the question needs fresh evidence, otherwise answer directly or call the cheaper tool. Pair the loop with an explicit iteration/token budget so a hesitant model can't spiral. <strong>Why it matters:</strong> for a Binance iOS feature (in-app support search, docs Q&amp;A) this cuts latency and cost on the ~60% of queries that don't need retrieval, and it's the cloud counterpart to the on-device embedding store (Sep 6) — the agent earns the right to skip the retriever. <a href="https://docs.anthropic.com/en/docs/build-with-claude/tool-use">Tool-use docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Tool Use · Structured Outputs</span>
+    <strong>Force Tool-Call Arguments Through a Strict JSON Schema — Reject Malformed Calls Before They Break the Loop</strong>
+    <p>The failure mode that quietly kills agent loops is a malformed tool call: the model emits a missing field or a wrong-type value, the tool throws, and the agent recovers badly or loops. The fix is <strong>strict-mode function calling</strong> — OpenAI strict schemas, Anthropic tool-use with JSON-schema validation, or Apple Foundation Models' guided generation — declare each tool's argument schema once, force conforming JSON, and reject + re-prompt on any schema violation at the harness boundary rather than letting a bad call propagate. <strong>Why it matters:</strong> for a Binance agent that books trades or moves funds, strict tool schemas are the type-safety layer that turns "the agent almost did the right thing" into "the agent literally cannot call the tool wrong" — the guardrail that makes bounded autonomy possible (cf. the agent control plane, Sep 5). <a href="https://platform.openai.com/docs/guides/structured-outputs">Structured outputs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Agent Arch · Observability</span>
+    <strong>Emit a Span Per Agent Step (Plan → Tool → Observe → Reflect) — Debug the Agent Loop Like You Debug a Request</strong>
+    <p>When an agentic feature ships a wrong result, "the model messed up" isn't a post-mortem you can act on — you need to see <em>which step</em> went wrong. Instrument the loop with a span per phase (plan, tool-call, observation, reflection) carrying the input, the tool name, the raw output, and the token/cost delta, exported to the same tracing backend (OpenTelemetry) as your services. Pair it with an eval gate — a fixed set of agent tasks with expected outcomes — so a regression shows up as a failing eval, not a user ticket. <strong>Why it matters:</strong> for a Binance team running agents in prod, per-step tracing + an eval suite is the difference between "agentic feature we can ship" and "agentic feature we can debug after it ships" — the observability layer behind the verification-driven-development pattern carded below. <a href="https://opentelemetry.io/docs/concepts/observability-primer/">Observability primer →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Agent Runtime</span>
+    <h3><a href="https://openai.com/index/introducing-the-agents-api">OpenAI Ships the Agents API — A Managed Agent Loop (Tools, State, Handoffs) as a First-Class API</a></h3>
+    <p>OpenAI introduced the <strong>Agents API</strong> (Sep 10, RSS-verified on openai.com) — a managed, hosted agent runtime that owns the plan-act-observe loop, tool execution, state/memory, and multi-agent handoffs as API primitives, so you build agents against a vendor-run loop instead of hand-rolling the harness. <strong>Why it matters:</strong> it's the productization of the "agent harness" (the loop, the tool dispatcher, the context/memory layer) — the part teams have been building themselves — now offered as infrastructure, lowering the shipping floor but moving the control plane onto a vendor. <strong>How to use it:</strong> prototype one bounded agent task against the Agents API and measure cost/latency/quality vs. your hand-rolled loop; keep an eval gate (today's tip 3) in front so the vendor-run loop is held to the same bar as your own. <a href="https://openai.com/index/introducing-the-agents-api">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Codex · Developer Privacy</span>
+    <h3><a href="https://openai.com/index/navier-stokes-solution">OpenAI's Navier-Stokes Claim + the Buckmaster/Alpöge Plagiarism Allegation — Your Private Codex Sessions Aren't a Vault</a></h3>
+    <p>OpenAI posted <strong>"On the Navier–Stokes Millennium Prize Problem"</strong> (Sep 8, RSS-verified on openai.com), and NYU mathematician Tristan Buckmaster and collaborator Levent Alpöge publicly alleged that private research and draft proofs they'd entered into Codex sessions may have informed OpenAI's internal math work — sparking a developer-privacy and chat-log-usage debate. <strong>Why it matters:</strong> it's the sharpest live instance of "your agent's conversation log may not be a private vault" — the code, proofs, or research you paste into an agentic tool can become training or internal-R&amp;D signal you didn't consent to. <strong>How to use it:</strong> treat any sensitive IP (unpublished research, proprietary algorithms, customer data) pasted into a coding agent as potentially disclosed — run a data-classification gate before paste, prefer self-hosted agents (cf. Cursor's self-hosted machines, Sep 2) for sensitive flows, and re-check the provider's data-use terms. <em>(Caveat: the Navier-Stokes post is verified; the plagiarism allegation is from reporting, not a primary OpenAI admission.)</em> <a href="https://openai.com/index/navier-stokes-solution">OpenAI →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Threat Intel</span>
+    <h3><a href="https://thenextweb.com/news/anthropic-claude-misuse-threat-intelligence-report">Anthropic's September Threat-Intelligence Report — Claude Misused for Surveillance and Weapons, With Concrete Abuse Patterns</a></h3>
+    <p>Anthropic published its September 2026 threat-intelligence / misuse update (Sep 10, surfaced via TNW), detailing cases where Claude was misused for surveillance and weapons-related tasks — the concrete abuse patterns, not just the capability. <strong>Why it matters:</strong> a misuse report with named abuse patterns is the threat model you build against — it tells you the attack surface (how bad actors prompt the model for surveillance, stalking, or weapon guidance) so your own agent's safety controls target the real patterns, not hypothetical ones. <strong>How to use it:</strong> read the report's abuse taxonomies and map each to a mitigation in your agent (input filters, tool-permission scoping, output moderation on sensitive intents); pair with the OpenAI/Hugging-Face coordinated-agent incident (Sep 10 concept) so your threat model covers both single-prompt misuse and multi-agent collusion. <a href="https://thenextweb.com/news/anthropic-claude-misuse-threat-intelligence-report">TNW writeup →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+  <p class="section-note">Three agent-tooling drops this week — all reframing how an agent gets its tools and its subagents.</p>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Multi-Agent</span>
+    <h3><a href="https://cursor.com/changelog">Cursor 'Projects' — A Coordinator Agent Delegates to Thousands of Cloud Subagents Over Month-Scale Work</a></h3>
+    <p>Cursor launched <strong>Projects</strong> (Sep 10, verified on cursor.com/changelog) — a capability for larger, long-running bodies of work that maintains context over months, delegates tasks to thousands of subagents, and performs recurring work without being prompted, powered by a coordinator agent running on cloud agents. <strong>Why it matters:</strong> it's the clearest productization yet of the "coordinator + parallel subagent" architecture (cf. the squads/harnesses glossary, Sep 6) — multi-agent orchestration moved from a pattern you build to a feature you buy, and the "thousands of subagents" + recurring-work angle pushes agents past one-shot tasks into always-on background workflows. <strong>How to use it:</strong> try Projects on a bounded migration or recurring-maintenance task and measure subagent-coordination overhead vs. a single long agent; watch the cost ceiling (cloud subagents at scale) and keep the work behind review gates. <a href="https://cursor.com/changelog">Changelog →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">JetBrains · Agent Interop</span>
+    <h3>JetBrains Exports Java/Kotlin Language Intelligence over LSP, Adds ACP Support, Open-Sources KotlinLLM + Benchmark</h3>
+    <p>JetBrains announced it is exporting its native Java and Kotlin language intelligence over the <strong>Language Server Protocol (LSP)</strong>, extending deep IDE semantic analysis into agentic flows and alternative editors (Cursor, VS Code), alongside support for <strong>ACP (Agent Communication Protocol)</strong> and in-IDE agent skills, and open-sourcing <strong>KotlinLLM</strong> with a dedicated Kotlin benchmark for AI coding agents. <strong>Why it matters:</strong> it's the vendor adoption that validates the "MCP vs ACP" distinction (Sep 7 concept) — a major IDE vendor shipping ACP support treats agent-to-project-context as a real protocol, and LSP-export means an agent gets the same semantic understanding the IDE has without re-indexing your codebase. <strong>How to use it:</strong> if you're on Java/Kotlin, point your agent at JetBrains' LSP/ACP endpoints so tool-use and codebase reasoning share one source of truth; benchmark your agent against the KotlinLLM benchmark to see where it regresses. <em>(Caveat: WebSearch-sourced; verify scope on blog.jetbrains.com.)</em> <a href="https://blog.jetbrains.com">JetBrains blog →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google Cloud · Tool Bundles</span>
+    <h3>Google Cloud's Developer Plugin for AI Agents — Install a Cohesive Tool Bundle Instead of Wiring MCP Servers One-by-One</h3>
+    <p>Google Cloud rolled out an installable plugin system for AI coding agents (Sep 11, WebSearch-sourced) that bundles Google Cloud SDK access, live infrastructure introspection, and official API documentation into one installable package — solving the "tool coupling" problem of configuring discrete MCP servers and manual agent skills one by one. <strong>Why it matters:</strong> it reframes agent tooling from "wire N discrete MCP servers" to "install one cohesive bundle" — the plugin-bundle approach is a packaging layer on top of MCP that reduces per-tool config drift, and it's the vendor counterpart to today's agentic-RAG and strict-schema tips (cleaner tool surfaces = safer agent loops). <strong>How to use it:</strong> if your agents touch Google Cloud, install the plugin and compare setup time + tool-call accuracy against your hand-wired MCP config; treat the bundle approach as a template for your own internal tool-bundles (a Binance-internal data API shipped as one installable agent plugin). <em>(Caveat: WebSearch-sourced; verify on cloud.google.com/blog.)</em> <a href="https://cloud.google.com/blog">Google Cloud blog →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · US</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/09/10/new-clarity-act-text-tweaks-defi-credit-union-provisions-but-road-a">Revised CLARITY Act Text Tweaks DeFi &amp; Credit Union Provisions; Senate Vote Next Week, Polymarket ~18%</a></h3>
+    <p>The Senate circulated a revised <strong>CLARITY Act</strong> draft (Sep 10, RSS-confirmed on CoinDesk + The Block) ahead of a key cloture vote next week — under the new text, non-decentralized DeFi protocols must register with the CFTC, "decentralized" is narrowly defined (no entity can control/censor; runs on pre-set smart-contract rules), DeFi scope is narrowed to spot/cash commodity transactions (excluding many derivative/prediction-market flows), and federal credit unions get formal DLT/digital-asset clearance; Treasury Secretary Bessent urged passage, while Polymarket prices the bill's passage-into-law this year at ~18%. <strong>Why it matters:</strong> it's the live US market-structure rule that decides which crypto venues must register, how "decentralized" is legally tested, and whether DeFi derivative/prediction venues face a CFTC registration gate — directly material to a Binance listings/compliance/market-structure team. <strong>How to use it:</strong> model the "decentralized vs non-decentralized" test against your own on-chain venues; track the cloture vote and the vertical-integration firewall fight (the Dem/Rep battleground over whether exchanges, brokerage, clearing, and prop trading must be structurally unbundled). <a href="https://www.coindesk.com/policy/2026/09/10/new-clarity-act-text-tweaks-defi-credit-union-provisions-but-road-a">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Institutional · Market Structure</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/10/nasdaq-invests-usd100-million-in-kraken-parent-company-payward-at">Nasdaq Invests $100M in Kraken Parent Payward at a $21B Valuation</a></h3>
+    <p>Nasdaq is investing $100 million in Kraken's parent company Payward at a $21 billion valuation (Sep 10, RSS-confirmed across CoinDesk / Cointelegraph / The Block), expanding the two firms' partnership. <strong>Why it matters:</strong> a major US equities exchange taking an equity stake in a crypto exchange is a fresh institutional-convergence datapoint — it's not just a custody or listing partnership but a capital alignment, and it signals the traditional-exchange-to-crypto-exchange M&amp;A/investment lane is active (cf. the Consensys/MetaMask reshuffle, Sep 10). <strong>How to use it:</strong> for a Binance market-structure/partnerships team, model "incumbent-exchange equity investment in a crypto venue" as a competitor-alignment signal; track whether Nasdaq's stake comes with data, listing, or clearing tie-ins that reshape the crypto-listings landscape. <a href="https://www.coindesk.com/business/2026/09/10/nasdaq-invests-usd100-million-in-kraken-parent-company-payward-at">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Derivatives · AI Convergence</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/09/10/okx-brings-openai-and-anthropic-bets-to-europe-as-pre-ipo-trading-">OKX Brings OpenAI &amp; Anthropic 'Bets' to Europe as Pre-IPO Trading Grows</a></h3>
+    <p>OKX is offering European users exposure/"bets" on OpenAI and Anthropic as pre-IPO trading grows (Sep 10, RSS-confirmed on CoinDesk) — a crypto exchange listing derivatives or synthetic exposure to private AI companies that retail investors can't otherwise access. <strong>Why it matters:</strong> it's a clean instance of the AI×crypto convergence lane — crypto rails delivering synthetic exposure to private AI companies (which lack public shares), so demand for "AI exposure" routes through derivatives markets rather than equities, and it reframes what a crypto exchange lists (not just tokens but pre-IPO AI exposure). <strong>How to use it:</strong> for a Binance listings/derivatives team, track "synthetic pre-IPO AI exposure via perps" as a product category; watch the regulatory response — EU ESMA has already flagged Polymarket/Kalshi authorization gaps (Sep 10) — since pre-IPO synthetic exposure to private firms sits in a regulatory gray zone. <a href="https://www.coindesk.com/markets/2026/09/10/okx-brings-openai-and-anthropic-bets-to-europe-as-pre-ipo-trading-">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Agent Architecture</span>
+    <strong>"Agent API-ification" — The Agent Harness Becomes Vendor Infrastructure (OpenAI's Agents API as Catalyst)</strong>
+    <p>A concept catalyzed by OpenAI's Agents API (today's lead AI card): the agent harness — the plan-act-observe loop, tool dispatcher, state/memory, and multi-agent handoffs — is migrating from something each team hand-builds to a vendor-hosted API primitive. <strong>Why it matters NOW:</strong> (1) it's the runtime counterpart to the "agent control plane" (Sep 5) and the "MCP vs ACP" protocols (Sep 7) — the protocols standardize <em>what</em> the agent touches, the Agents API standardizes <em>how the loop itself runs</em>; (2) for a Binance team, "agent harness as a service" lowers the shipping floor but moves the control plane onto a vendor — so portability (can you re-host the loop?) and observability (per-step tracing, today's tip) become the new lock-in risks; (3) caveat — a vendor-run agent loop concentrates the coordinated-agentic-risk surface (Sep 10) inside one provider's sandbox, so evaluate multi-agent-collusion controls at the provider, not just in your own agent. <a href="https://openai.com/index/introducing-the-agents-api">Catalyst →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Engineering Practice</span>
+    <strong>"Verification-Driven Development" — Writing Code Is Free, So the Dev's Job Shifts from Author to Reviewer/Architect</strong>
+    <p>A concept consolidating across the 2026 vibe-coding discourse (synthesis of this week's reporting + "The Chasm: The Shape of Unfinished AI Codebases" essay): because AI makes generating code nearly free, the binding constraint moves from authoring code to verifying it — the developer's primary role shifts from author to reviewer and architect, and teams pair vibe coding with strict automated test suites, end-to-end playbooks, and PR-review agents. <strong>Why it matters NOW:</strong> (1) it's the constructive response to the "AI code trust gap" (Sep 6, ~92% adoption vs ~29% trust) and the "debugging hangover" (Sep 7) — adoption isn't the win, <em>verifiable</em> adoption is; (2) for a Binance team, verification-driven development means your eval gate, your architecture rules ("architecture as code," Sep 6), and your per-step agent tracing (today's tip 3) are the product, not the generated code; (3) caveat — verification infrastructure is itself the new bottleneck, so invest in the eval/test/trace tooling before scaling agent usage. <a href="https://jimmyhmiller.com/shape-of-unfinished-ai-codebases">Synthesis →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Concept · Macro-Financial</span>
+    <strong>"AI Capex → Systemic Risk" — The BIS Warns the AI Capex Arms Race Runs on Opaque Debt</strong>
+    <p>A concept catalyzed by the BIS chief's warning (Sep 10, CoinDesk): AI's rapid rise is a capex arms race funded substantially by opaque debt, and that debt-funded capex push poses global financial-stability risks — the AI buildout is now a macro-financial-stability variable, not just a tech trend. <strong>Why it matters NOW:</strong> (1) for a Binance reader sitting at the AI×crypto×macro intersection, the BIS warning means AI capex is a systemic-risk input to track alongside rate decisions and Treasury yields — an AI-capex deleveraging event would hit risk assets (including crypto) the way a tech-debt unwind would; (2) it connects to the "model fatigue" thread (Sep 10) — the same labs spending billions on capex are the ones whose model-pace burnout is being petitioned; (3) caveat — the BIS warning is directional; the exact debt-opacity and systemic-transmission specifics are still being assessed, so treat it as a macro-risk signal to monitor, not a dated forecast. <a href="https://www.coindesk.com/business/2026/09/10/ai-s-rapid-rise-poses-global-financial-stability-risks-says-head-">Catalyst →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/introducing-the-agents-api">OpenAI — Introducing the Agents API (Sep 10)</a>
+      <span class="desc">The RSS-verified primary behind today's lead AI card and the "Agent API-ification" concept — a managed, hosted agent runtime owning the loop, tools, state, and multi-agent handoffs as API primitives.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/navier-stokes-solution">OpenAI — On the Navier-Stokes Millennium Prize Problem (Sep 8)</a>
+      <span class="desc">The RSS-verified primary behind today's Codex privacy card — the math claim that triggered the Buckmaster/Alpöge plagiarism allegation over private Codex session logs.</span>
+    </li>
+    <li>
+      <a href="https://cursor.com/changelog">Cursor — Projects changelog (Sep 10)</a>
+      <span class="desc">The WebFetch-verified primary behind today's lead Vibe card — Projects maintains context over months, delegates to thousands of subagents, and runs recurring work via a coordinator agent on cloud agents.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/09/10/new-clarity-act-text-tweaks-defi-credit-union-provisions-but-road-a">CoinDesk — New CLARITY Act text tweaks DeFi, credit union provisions (Sep 10)</a>
+      <span class="desc">The RSS-confirmed primary behind today's lead crypto card — the revised market-structure bill's CFTC-registration test for non-decentralized DeFi and its narrowed spot scope, ahead of next week's Senate vote.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/10/ai-s-rapid-rise-poses-global-financial-stability-risks-says-head-">CoinDesk — BIS chief warns AI capex arms race relies on opaque debt (Sep 10)</a>
+      <span class="desc">The RSS-confirmed primary behind today's "AI Capex → Systemic Risk" concept — the head of the Bank for International Settlements flagging the AI buildout as a global financial-stability risk.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-11 02:15 UTC · <strong>v4</strong> · Friday (AI Infra &amp; Prompt Engineering tip rotation — RAG, tool use, agent arch)</p>
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+  <p><strong>Markets snapshot:</strong> BTC ~$78K (resistance $80–82K, failed to reclaim); ETH ~$2,475 (cooling after late-Aug 30%+ rally); crypto cap ~$2.76T (–0.6%), daily vol ~$94B. Macro: FOMC Sep 16 (~60% hike odds, CME FedWatch), 30-year Treasury yield at a 19-year high; CLARITY Act cloture vote Sep 15 (Polymarket ~18% passage this year); Treasury Sec Bessent doubles down on bond buybacks. Flows: Bitcoin ETFs shed $167M (reversing the 3-week inflow run); Liquid Network resumed after the $320M exploit; BTC sell-side risk at rare lows. Institutional: Nasdaq $100M into Kraken parent at $21B; Citadel urges SEC oversight of event contracts on public firms; Polymarket names ex-Amazon CFO Warren Jenson as first CFO. Onchain: Solana record 263K tokens issued in a day; Uniswap launches 'StablePair Hook'; Coinbase rebrands Base App back to Coinbase Wallet. EU: UK House of Lords backs mandatory digital-asset strategy; ESMA warns growing crypto ties amplify TradFi risk; EU finance groups (Nasdaq, Börse Stuttgart) push to scrap tokenized-securities cap.</p>
+  <p><strong>Sources:</strong> WebSearch (9 queries — 7 AI/vibe/dev/edge/concepts + 2 crypto; all 9 succeeded, synthesized prose) + RSS (theblock ~16, cointelegraph ~30, coindesk ~25, openai ~1189, googleai ~20, hnrss ~20 — all 6 feeds OK this run) + WebFetch verification (cursor.com/changelog → "Projects" Sep 10 verified; openai.com/index/* items verified via OpenAI Blog RSS titles + dates). No Reddit feeds attempted (blocked in this environment).</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded locally (Sep 10, 7, 6; Sep 9 &amp; 8 missing — not generated, treated as a first-run dedup gap). ~90 prior topics indexed across titles, concepts, and tips. Filtered: model launches GPT-6 Astra / Claude Fable 5.1 / Gemini 3.8 Flash (covered Sep 3–4 — excluded), Meta Muse Spark 1.3 (excluded — same fabrication class as the previously-excluded "Muse Code"/"Muse Spark 1.2"), the Liquid Network $320M white-hat incident (covered Sep 7 — only the resumption noted in the snapshot, not re-carded), the quantum $300M hardware race (covered Sep 10 — the "researchers halve quantum-resource estimate" folded into the snapshot, not re-carded), Microsoft WinUI / Project Zenith native scaffolding (covered Sep 7), the prior on-device ML tip set (MLX-LoRA / Foundation-Models guided JSON / ANE-CPU-fallback / palettization / os-signposts / BGTaskScheduler / on-device embeddings / weight encryption / QAT / speculative decoding / whisper.cpp / ONNX — covered Sep 1–10, so today's tips go to agentic-RAG + strict tool schemas + agent-loop tracing, all fresh), and the prior concept set (model fatigue / coordinated agentic risk / inference-time compute / MCP vs ACP / tool-acquisition risk / white-hat extraction / embodied agentic AI / architecture as code / AI code trust gap / debugging hangover — only fresh agent-API-ification + verification-driven-development + AI-capex-systemic-risk carded).</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses</strong> (consistent with prior reports' methodology): "Meta Muse Spark 1.3" with a 1M-token context window — excluded (same fabrication class as the previously-excluded "Muse Code"/"Muse Spark 1.2"; no primary source on ai.meta.com). "Microsoft Project Zenith" — same native-scaffolding story as Sep 7's WinUI card, deduped. "Hebbian Robotics HFlow" and "Interactive Sessions" SDLC orchestrator — WebSearch-mentioned, niche, no primary-source verification; excluded. The OpenAI/Hugging-Face "swarm hack" — same incident as Sep 10's "coordinated agentic risk" concept (carded then); only the ABC "in the agent's own words" follow-up is referenced, not re-carded. GPT-6 Astra / Claude Fable 5.1 / Gemini 3.8 Flash re-mentions in this cycle's model-fatigue recap — deduped (covered Sep 3–4). WebSearch returns synthesized summaries without always-citable article URLs, so every WebSearch-sourced story was verified against a primary source before carding — OpenAI Agents API + Navier-Stokes post via the OpenAI Blog RSS (real openai.com/index URLs, Sep 8–10), Cursor "Projects" via cursor.com/changelog (WebFetch-verified, Sep 10), all three crypto cards via CoinDesk RSS with real Sep 10 article URLs, and the Anthropic threat-intel report via the TNW writeup surfaced on the HN RSS. JetBrains LSP/ACP + Google Cloud plugin carded as WebSearch-sourced with explicit caveats pending a blog.jetbrains.com / cloud.google.com/blog primary.</p>
+  <table>
+    <thead>
+      <tr><th>Feed / Source</th><th>Status</th><th>Items</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>theblock.co RSS</td><td>✓ OK</td><td>16</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✓ OK</td><td>30</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✓ OK</td><td>25</td></tr>
+      <tr><td>openai.com/blog RSS</td><td>✓ OK</td><td>1189 (Agents API + Navier-Stokes verified)</td></tr>
+      <tr><td>blog.google/technology/ai RSS</td><td>✓ OK</td><td>20</td></tr>
+      <tr><td>hnrss.org</td><td>✓ OK</td><td>20 (Anthropic misuse report surfaced)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>9/9 OK (synthesized, verified)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>OK (cursor.com/changelog — "Projects" Sep 10 verified)</td></tr>
+      <tr><td>GHE dedup (sean-y/daily-digest)</td><td>local</td><td>3/5 reports (Sep 9 &amp; 8 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>token present (push attempted)</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> · Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
