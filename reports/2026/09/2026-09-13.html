@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-13</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+header .subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.section-note {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: -10px 0 16px;
+  line-height: 1.55;
+}
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, September 13, 2026</div>
+  <div class="subtitle">High-signal digest for AI, vibe coding &amp; crypto — built for the iOS/Binance engineer</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Sunday: Best of Week — revisit Claude Code / Codex agentic workflow, the Monday slot that didn't run) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — Best of Week: Claude Code / Codex Agentic Workflow (Hooks · MCP · Skills)</div>
+  <p class="section-note">Sunday rotation. This week ran Edge AI (Thu) and AI Infra (Fri), and Saturday revisited AI x iOS — but the Monday "Claude Code / Codex agentic workflow" slot was skipped (Sep 8–9 missing). It's also the cycle's most actionable category: the week's biggest dev-tools news — an OpenAI→Cursor model cutoff, the GitSpawn sandbox-escape flaw, and Codex <code>/goal</code> autonomous mode — all turn on how you harden a CLI coding agent's loop. So today's best-of-week revisits that slot with three fresh hardening angles, distinct from the prior agentic tip set (agentic-RAG tool routing, strict JSON tool schemas, per-step agent tracing — covered Sep 11).</p>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code · Hooks</span>
+    <strong>Wire Pre/Post Tool-Use Hooks as Deterministic Guardrails — Don't Trust the Agent's Discretion on Destructive Ops</strong>
+    <p>Claude Code <strong>hooks</strong> let you run a shell command before or after a tool call (e.g. <code>PreToolUse</code> on <code>Bash</code>/<code>Write</code>/<code>Edit</code>), giving you a deterministic gate the model can't talk its way past — block writes outside the repo root, reject shell commands matching a denylist, auto-run the test suite after every <code>Edit</code>, or strip/audit a cloned repo's <code>.git/config</code> before the agent reads it. <strong>Why it matters:</strong> it's the cheapest mitigation for the GitSpawn class of flaw (today's Vibe card), where a malicious <code>.git/config</code> (<code>core.fsmonitor</code>) executed <em>before</em> user confirmation — a <code>PreToolUse</code> hook that sanitizes or rejects untrusted repo configs turns "the agent ran something from the repo" into "the hook blocked it." For a Binance flow where an agent touches code that handles funds or keys, hooks are the type-safety layer between the model and the filesystem. <strong>How to use it:</strong> add a <code>PreToolUse</code> matcher for <code>Write|Edit|Bash</code>, exit non-zero to deny, and log every hook decision to the trace backend (cf. per-step tracing, Sep 11) so a denied action is as visible as an allowed one. <a href="https://docs.claude.com/en/docs/claude-code/hooks">Hooks docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex · Autonomous Mode</span>
+    <strong>Cap <code>/goal</code> Autonomous Runs With a Hard Token/Time/FS Budget — Long-Horizon Agents Need a Circuit Breaker</strong>
+    <p>Codex's <code>/goal</code> autonomous mode lets an agent run multi-hour, long-horizon tasks in a sandbox — debugging sweeps, cross-repo refactors, whole-feature scaffolding — without per-step prompting. The failure mode isn't quality, it's <em>scope creep</em>: an under-bounded agent burns tokens re-reading the same files, edits outside the intended module, or "fixes" a flaky test by deleting it. The fix is an explicit budget before you hit enter: a token cap, a wall-clock cap, a filesystem write-scope allowlist, and a sandbox that can't reach the network or your production secrets. <strong>Why it matters:</strong> the CVE-2026-19592 sandbox-breakout vector (today's Vibe card) is precisely the class of bug that turns a long autonomous run into an incident — a hard budget + scoped sandbox is the circuit breaker that bounds the blast radius even if a sandbox bug fires. <strong>How to use it:</strong> run <code>/goal</code> only inside a throwaway container with a mounted (not host) repo, set <code>--max-tokens</code>/<code>timeout</code>, and gate the agent's first commit behind a human review pass (cf. verification-driven development, Sep 11) before it can touch <code>main</code>. <a href="https://developers.openai.com/codex">Codex docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MCP · Least Privilege</span>
+    <strong>Scope Each MCP Server to the Minimum Surface — One Compromised Tool Server Shouldn't Own Your Whole Perimeter</strong>
+    <p>The "composable CLI stack" (today's concept) means you wire several MCP tool servers into one agent — a filesystem server, a GitHub server, a database server, an internal-API server. The default mistake is to give each one broad access (full-repo FS, org-wide GitHub, prod DB). The hardening pattern is <strong>least-privilege per server</strong>: a read-only filesystem server scoped to one worktree, a GitHub server scoped to one repo's issues/PRs (no <code>admin</code>), a DB server with a read-only role on a replica. Pair it with per-server auth so one server's leak doesn't compromise the others. <strong>Why it matters:</strong> the GitSpawn flaw showed a malicious repo can reach the agent's tool surface — if that surface is one over-privileged server, the blast radius is "everything the server can do"; if it's N narrowly-scoped servers, it's one slice. For a Binance agent this is the difference between "the agent read one support ticket" and "the agent queried the trading DB." <strong>How to use it:</strong> inventory every MCP server your agent touches, write down its max permission, and ask "would I be OK if this one server went rogue?" — if not, narrow it before the next run. <a href="https://modelcontextprotocol.io/docs/concepts/security">MCP security →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Frontier Labs · IPO</span>
+    <h3><a href="https://cointelegraph.com/news/nvidia-considers-10b-investment-in-anthropic-record-ipo-reuters">Nvidia Weighs $10B Into Anthropic's Record IPO; Altman Says an OpenAI IPO "Won't Happen This Year"</a></h3>
+    <p>The two frontier labs diverged sharply on public-market timing this week: <strong>Nvidia is considering a $10B investment in what reporting frames as a record Anthropic IPO</strong> (Sep 12, Cointelegraph/Reuters RSS-confirmed), while <strong>Sam Altman said an OpenAI IPO "won't happen this year"</strong> (Sep 12, CoinDesk RSS-confirmed). <strong>Why it matters:</strong> it crystallizes the AI-capital arms race into a binary a Binance reader can price — one lab going public (with a strategic-chipmaker anchor investor) vs one staying private, and it's the real-IPO resolution of the synthetic pre-IPO exposure OKX offered European users last week (Sep 11): the "bet on Anthropic" product now has an actual listing event to settle against. <strong>How to use it:</strong> model the Anthropic IPO as the 2026 AI-capital benchmark — the Nvidia anchor signals chip-supply leverage as the strategic moat, and the listing will set the public comps every private AI lab (and every pre-IPO synthetic) reprices against. <a href="https://cointelegraph.com/news/nvidia-considers-10b-investment-in-anthropic-record-ipo-reuters">Cointelegraph →</a> · <a href="https://www.coindesk.com/markets/2026/09/12/openai-ipo-won-t-happen-this-year-says-sam-altman">CoinDesk →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic · Governance</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees">Amodei Warns Frontier Models Could Reach Catastrophic Autonomous Cyber-Swarm Capability in 6–12 Months — Calls for a "Pacing Mechanism"; Musk &amp; Altman Agree</a></h3>
+    <p>Anthropic CEO Dario Amodei issued a high-profile statement (Sep 12, CoinDesk RSS-confirmed + WebSearch-sourced detail) warning that frontier models could reach <strong>catastrophic autonomous capabilities — including automated cyber-swarms — within 6 to 12 months</strong>, and proposed a <strong>"pacing mechanism"</strong>: coordination among Western labs, U.S. antitrust waivers to let competitors align on release cadence, and diplomatic guardrails with foreign adversaries. Elon Musk and OpenAI's Altman publicly agreed. <strong>Why it matters:</strong> it's a governance move distinct from Anthropic's Sep 10 misuse report (Sep 11 card) — this is the CEO of a frontier lab publicly asking rivals and government to <em>coordinate a slowdown</em>, which reframes "model fatigue" (Sep 10 concept) from burnout into policy. <strong>How to use it:</strong> track the pacing proposal as a 2026 regulatory input — if antitrust waivers for AI-alignment coordination materialize, they reshape which model partnerships (and which M&amp;A, cf. the Cursor acquisition reporting) are permissible; treat the 6–12-month capability timeline as the planning horizon for your own agent-safety controls (today's hooks/budget/MCP tips). <a href="https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees">CoinDesk →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Enterprise Agents</span>
+    <h3><a href="https://openai.com/index/perplexity-improving-accuracy-with-astra">Perplexity Trusts GPT-6 Astra With End-to-End Systems — a Shipping Case of a Frontier Model Running Production Agents</a></h3>
+    <p>OpenAI's blog (Sep, RSS-verified on openai.com) details <strong>Perplexity trusting GPT-6 Astra with end-to-end systems</strong> — a published case study of a frontier model deployed not as a chat endpoint but as the engine behind Perplexity's full answer/research pipeline in production. <strong>Why it matters:</strong> it's a clean, shipping datapoint for "agent API-ification" (Sep 11 concept) — a frontier model moved from API-call-in-a-loop to running an end-to-end product surface — and it answers the question "is Astra good enough to back a real product, not just a demo" with a named customer and a real workload. <strong>How to use it:</strong> read it as a benchmark reference: if you're sizing Astra for a Binance agentic feature, Perplexity's deployment is a public data point on accuracy and reliability at product scale; pair it with your own eval gate (Sep 11 tip) before committing, since a case study is marketing-adjacent, not your traffic. <a href="https://openai.com/index/perplexity-improving-accuracy-with-astra">OpenAI →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+  <p class="section-note">Three moves this cycle — all reframing how an agent gets its models, how its sandbox holds, and how the next generation learns to drive it.</p>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Model Cutoff</span>
+    <h3>OpenAI Reportedly Cuts Off Model Supply to Cursor (Nov 12 Shutoff) After Reported SpaceX/xAI Acquisition; Cursor Pivots to Composer 2.5 + Multi-Agent</h3>
+    <p>Per WebSearch-sourced reporting (pending primary verification): <strong>OpenAI is terminating its commercial agreement to supply models to Cursor, with a shutoff date of November 12, 2026</strong>, citing contract-compliance concerns following a <strong>reported SpaceX/xAI acquisition of Cursor</strong>; Cursor is said to be pivoting hard to its own <strong>Composer 2.5</strong> coding engine on xAI compute and repositioning around multi-agent orchestration across non-OpenAI backends. <strong>Why it matters:</strong> it's the live realization of the "tool-acquisition risk" concept (Sep 7) — a single acquisition just stranded every Cursor workflow built on OpenAI models, with ~2 months to migrate. <strong>How to use it:</strong> treat it as the case study for vendor-portability: if your agent stack is locked to one model provider behind one IDE, draft the migration path now (which model, which CLI, which MCP servers port over) — the composable-stack pattern (today's concept) exists exactly so a Nov-12-style cutoff is a config change, not a rewrite. <em>(Caveat: WebSearch-sourced synthesis; the model cutoff and acquisition are not yet verified against a primary openai.com/cursor.com source — treat as reported, pending confirmation.)</em> <a href="https://cursor.com/changelog">Cursor changelog →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Security · CLI Agents</span>
+    <h3>The "GitSpawn" Vulnerability — Malicious <code>.git/config</code> Escapes CLI-Agent Sandboxes Before User Confirmation (Claude Code · Codex · Cursor)</h3>
+    <p>Per WebSearch-sourced security research (Manifold Security, pending primary verification): the <strong>GitSpawn</strong> vulnerability chain affects CLI coding agents including <strong>Claude Code, Codex, and Cursor-connected tooling</strong> — a malicious repository configuration (e.g. a crafted <code>.git/config</code> hook like <code>core.fsmonitor</code>) can <strong>execute arbitrary code outside the agent's sandbox before the user confirms</strong> the action. Rapid patches and mitigations are reported as deploying across the platforms. <strong>Why it matters:</strong> it's the sharp edge of "agentic supply-chain infiltration" (Sep 12 concept) — the agent doesn't have to be prompt-injected to do harm; merely cloning an untrusted repo can fire the exploit, because the agent's tool surface reaches the filesystem and git hooks. <strong>How to use it:</strong> pair today's three tips — a <code>PreToolUse</code> hook that sanitizes <code>.git/config</code>, a scoped sandbox that can't reach secrets, and least-privilege MCP servers — and never point a coding agent at an untrusted repo inside your corporate perimeter until you've confirmed the patch landed on your CLI version. <em>(Caveat: WebSearch-sourced; the CVE specifics and vendor patch status pending verification against a Manifold-Security/advisory primary.)</em> <a href="https://modelcontextprotocol.io/docs/concepts/security">Hardening reference →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Vibe Coding at Scale</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Inside Google's 353,000-Person Vibe-Coding Course — the Largest Agentic-Coding Cohort to Date</a></h3>
+    <p>Google published a recap of its <strong>353,000-person vibe-coding course</strong> (Sep, blog.google RSS-verified) — the largest agentic-coding education cohort reported to date, teaching developers to drive AI agents end-to-end across a full SDLC. <strong>Why it matters:</strong> the signal isn't the course, it's the <em>scale</em> — 353K is a leading indicator that "prompt-architecture + diff-evaluation" (cf. verification-driven development, Sep 11) is becoming baseline developer literacy, not a specialist skill, which is the same shift "The Work Now Within Reach" (OpenAI blog, RSS) names. <strong>How to use it:</strong> skim the recap for the curriculum structure — if Google is teaching a specific agent-loop / eval / review pattern at this scale, it's a free, vetted syllabus to align your own team's onboarding against, and a benchmark for what "vibe-coding fluency" will mean in 2026 hiring. <a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Google →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Macro · BTC Technical</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-09-12-cryptoquant-bitcoin-resistance-support-levels-414519">Fed Hike "All But Assured" After Hot CPI; CryptoQuant Says BTC Must Clear $81,700 to Confirm a New Bull Market</a></h3>
+    <p>Following Friday's hot August core-CPI (+0.3%) that pushed long-end Treasury yields to a 22-year high (Sep 12 card), CoinDesk now reports the September-16 Fed hike is <strong>"all but assured"</strong> with a rundown of how risk assets might react (Sep 11, RSS-confirmed); separately, CryptoQuant flags <strong>$81,700 as the resistance BTC must clear to confirm a new bull market</strong> (Sep 12, The Block RSS-confirmed). <strong>Why it matters:</strong> it's the follow-through to Friday's macro tape — the CPI print moved hike odds from ~70% (Sep 12) to "assured," and the bull-case now has a concrete price level ($81,700) to invalidate, so the cross-asset trade (yields up → BTC down) has a named upside trigger too. <strong>How to use it:</strong> model the Sep-16 FOMC against your crypto exposure with $81,700 as the bull-confirmation line and the post-CPI pullback floor as risk — the level is the cleaner signal than the CPI print itself, which the market has already absorbed. <a href="https://www.theblock.co/news/markets/2026-09-12-cryptoquant-bitcoin-resistance-support-levels-414519">The Block →</a> · <a href="https://www.coindesk.com/markets/2026/09/11/hotter-cpi-complicates-fed-hold-as-warsh-s-preferred-inflation-gauge-tells-different-story">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security · Social Engineering</span>
+    <h3><a href="https://www.theblock.co/news/business/2026-09-12-revolut-says-customer-kyc-bitcoin-transaction-data-exposed-after-fake-request-from-govt-domain-414516">Revolut Exposed Customer KYC &amp; Bitcoin Tx Data After Falling for a Fake Government-Domain Request</a></h3>
+    <p>Revolut disclosed (Sep 12, RSS-confirmed across The Block/CoinDesk) that <strong>customer KYC data and Bitcoin transaction records were exposed</strong> after the company was socially-engineered by a request spoofing a government domain — passports and bitcoin activity were among the exposed fields. <strong>Why it matters:</strong> it's a live, high-trust-venue breach via the oldest vector (a forged authority request), and for a Binance security/platform team it's the exact threat pattern that decides whether your customer-data egress controls hold under social pressure — a "government request" bypassing KYC data protections is the failure mode to drill against. <strong>How to use it:</strong> treat it as a tabletop scenario: run a red-team on your own "verified sender / authority-impersonation" path (support tooling, law-enforcement-response workflows, data-export pipelines) and confirm each has an out-of-band verification step that can't be satisfied by a spoofed domain alone. <a href="https://www.theblock.co/news/business/2026-09-12-revolut-says-customer-kyc-bitcoin-transaction-data-exposed-after-fake-request-from-govt-domain-414516">The Block →</a> · <a href="https://www.coindesk.com/tech/2026/09/12/bitcoin-activity-passports-exposed-after-revolut-falls-for-fake-government-request">CoinDesk →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">AI × Portfolio Theory</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/12/ditching-bonds-for-bitcoin-how-crypto-can-tackle-the-ai-heavy-portfolio-dilemma">"Ditching Bonds for Bitcoin" — Crypto as the Diversifier for the AI-Heavy Portfolio Dilemma</a></h3>
+    <p>CoinDesk (Sep 12, RSS-confirmed) runs the thesis that <strong>portfolios overweight AI equities face a concentration dilemma that crypto — specifically bitcoin — can diversify</strong>, framing BTC as the asset that decorrelates from an AI-capex-heavy equity stack the way bonds used to. <strong>Why it matters:</strong> it names a fresh AI×crypto intersection that's neither "crypto firm uses AI" (Ripple treasury, Sep 12) nor "AI firm lists on crypto rails" (OKX pre-IPO, Sep 11) — it's <em>portfolio construction</em>: as AI becomes the dominant equity risk, BTC is pitched as the new ballast, which reframes crypto's institutional thesis from "digital gold" to "AI-equity hedge." <strong>How to use it:</strong> treat it as a directional thesis, not a trade — the durable signal is the framing (BTC as AI-equity diversifier), and it connects to the BIS "AI capex → systemic risk" worry (Sep 11): if AI capex is a systemic-risk input, a hedge against it becomes a portfolio primitive worth modeling. <a href="https://www.coindesk.com/business/2026/09/12/ditching-bonds-for-bitcoin-how-crypto-can-tackle-the-ai-heavy-portfolio-dilemma">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture · Infra</span>
+    <strong>Sidecarless &amp; eBPF-Powered Infrastructure — the Service Mesh Moves Out of the Pod and Into the Kernel</strong>
+    <p>The classic sidecar service mesh (Envoy injected per Kubernetes pod) is falling out of favor — high memory footprint, per-pod latency, and upgrade complexity — in favor of <strong>sidecarless / ambient meshes</strong> (Istio Ambient) and <strong>eBPF-driven networking</strong> (Cilium): routing, mTLS, zero-trust enforcement, and distributed tracing run directly in the Linux kernel via eBPF programs, drastically cutting resource cost and eliminating per-pod sidecar maintenance. <strong>Why it matters NOW:</strong> it's the infra counterpart to the agentic moves — a Binance platform team running thousands of pods pays the sidecar tax in CPU and latency at scale, and eBPF/ambient meshes are the mature 2026 answer; it also pairs with the observability thread (per-step agent tracing → eBPF kernel-level tracing, Sep 11) as one coherent telemetry stack. <strong>Caveat:</strong> ambient/eBPF meshes shift trust into the kernel and the node agent, so the threat model changes (a node escape is now a mesh escape) — pick the mesh whose node-trust boundary matches your compliance posture. <a href="https://istio.io/latest/blog/2022/introducing-ambient-mesh/">Istio Ambient →</a> · <a href="https://cilium.io/">Cilium →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Edge AI · Topology</span>
+    <strong>Reflexive Edge + Attested Private Cloud Compute — Apple's Hybrid Edge-Cloud Inference Topology</strong>
+    <p>Apple's on-device inference isn't "everything runs locally" — it's a <strong>hybrid edge-compute topology</strong>: frequent, latency-sensitive, user-data-touching tasks (contextual notifications, predictive text, semantic search, on-device tool-calling) run <strong>reflexively on the device's Neural Engine</strong>, while queries exceeding the on-device model's capacity route to <strong>Private Cloud Compute (PCC)</strong> — hardware-attested, non-persistent cloud servers running larger models, with requests encrypted and state wiped after serving. <strong>Why it matters NOW:</strong> for an iOS dev this is the architectural counterpart to today's Foundation-Models tool-calling thread (Sep 12) — the on-device agent isn't an island, it's the first tier of a two-tier privacy-preserving inference stack, and the attested-ephemeral-cloud tier is the design pattern that lets you ship "cloud-capable" AI without storing user data server-side. <strong>Caveat:</strong> the PCC attestation chain is the load-bearing trust boundary — verify the attestation flow (not just "is it encrypted") before routing sensitive prompts off-device, and keep a deterministic on-device fallback for the high-stakes actions (cf. Sep 12 trade-booking fallback). <a href="https://security.apple/docs/private-cloud-compute/hardware-security/">Apple PCC →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Dev Tools · Pattern</span>
+    <strong>The "Composable CLI Stack" — Orchestrator + Terminal Agents + MCP, the Multi-Vendor Response to Model-Cutoff Risk</strong>
+    <p>A pattern crystallizing across the 2026 agentic-CLI discourse (synthesis of this week's OpenAI→Cursor cutoff, the GitSpawn flaw, and the broader "agentic-CLI battleground," Sep 7): rather than one tool dominating, engineering teams are <strong>composing the stack</strong> — using an AI IDE (Cursor/Windsurf) as the orchestration/editor workspace while routing terminal-level autonomous jobs to <strong>Claude Code and Codex</strong>, with <strong>MCP as the shared tool standard</strong> so a tool server built for one CLI ports to the others. <strong>Why it matters NOW:</strong> it's the constructive response to "tool-acquisition risk" (Sep 7) and this week's cutoff — when one provider strands your workflow (OpenAI→Cursor, Nov 12), a composable stack means the orchestrator, the terminal agent, and the tool layer are independently swappable, so a cutoff is a config change rather than a rewrite; MCP is the linchpin that makes the tool layer portable. <strong>Caveat:</strong> composability multiplies the security surface (today's GitSpawn + least-privilege-MCP tips) — the same portability that lets you swap providers also lets one compromised MCP server reach every CLI in the stack, so compose with per-server least-privilege, not blanket trust. <a href="https://modelcontextprotocol.io/">MCP →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://cointelegraph.com/news/nvidia-considers-10b-investment-in-anthropic-record-ipo-reuters">Cointelegraph/Reuters — Nvidia considers $10B investment in potential record Anthropic IPO (Sep 12)</a>
+      <span class="desc">The RSS-confirmed primary behind today's lead AI card — the strategic-chipmaker anchor investment framing the 2026 AI-capital benchmark.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/09/12/anthropic-ceo-calls-for-ai-race-to-slow-down-musk-and-openai-s-altman-agrees">CoinDesk — Anthropic CEO calls for AI race to slow down; Musk and OpenAI's Altman agree (Sep 12)</a>
+      <span class="desc">The RSS-confirmed primary behind today's Amodei pacing card — a frontier-lab CEO publicly proposing coordinated release-slowdown and the rivals who agreed.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/perplexity-improving-accuracy-with-astra">OpenAI — Perplexity trusts GPT-6 Astra with end-to-end systems</a>
+      <span class="desc">The RSS-verified primary behind today's enterprise-agents card — a shipping case of a frontier model running a production answer/research pipeline.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/markets/2026-09-12-cryptoquant-bitcoin-resistance-support-levels-414519">The Block — CryptoQuant: bitcoin must clear resistance at $81,700 to confirm new bull market (Sep 12)</a>
+      <span class="desc">The RSS-confirmed primary behind today's lead crypto card — the named price level that invalidates/confirms the bull case into the Sep-16 FOMC.</span>
+    </li>
+    <li>
+      <a href="https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/">Google — Inside our 353,000-person vibe coding course</a>
+      <span class="desc">The RSS-verified primary behind today's Vibe card — the largest agentic-coding education cohort to date and a free, vetted syllabus for team onboarding.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-13 ~02:30 UTC · <strong>v4</strong> · Sunday (Best-of-Week tip rotation — revisiting Claude Code / Codex agentic workflow, the Monday slot that didn't run, because this cycle's CLI-agent security + autonomy news makes it the most actionable category)</p>
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+  <p><strong>Markets snapshot:</strong> BTC — CryptoQuant flags $81,700 as the level to clear to confirm a new bull market; the Sep-16 Fed hike is now "all but assured" after the hot Aug core-CPI (continuing Friday's $77–80K whipsaw and the 22-yr Treasury-yield high). Frontier-lab capital: Nvidia weighs a $10B investment in a record Anthropic IPO (Reuters/Cointelegraph) while Altman says an OpenAI IPO "won't happen this year" (CoinDesk) — the two labs diverge on public-market timing, resolving last week's OKX pre-IPO synthetic bets into a real listing event. AI governance: Amodei warns frontier models could reach catastrophic autonomous cyber-swarm capability in 6–12 months and proposes a "pacing mechanism"; Musk and Altman agree (CoinDesk). Security: Revolut exposed customer KYC + Bitcoin tx data after falling for a fake government-domain request (The Block/CoinDesk); the GitSpawn CLI-agent sandbox flaw (WebSearch, pending primary) shows malicious <code>.git/config</code> (<code>core.fsmonitor</code>) escaping Claude Code/Codex/Cursor sandboxes pre-confirmation. Flows/institutional: Bitcoin ETF outflows accelerated to $449M/3d (continued from Fri); Ripple stablecoin chief cites a $13T corporate-treasury opportunity for RLUSD; Anchorage adds institutional access to Frgmnt's fUSD; UniCredit seeks a crypto trading/custody infra partner; Hyperliquid's biggest risk is regulation (Ran Neuner). Politics/RWA: two crypto billionaires (Ben Delo, Christopher Harborne) donate $97M to Farage's Reform UK; India's richest state explores tokenizing its own assets to fund infrastructure (cf. Sep 12 SEBI Demat 2.0). Elsewhere: Caroline Ellison joins nonprofit Manifund; Bitcoin Suisse to shift up to half of Swiss jobs abroad; Zodia Custody CEO steps down; SBF's Supreme Court petition pending (cf. Sep 12). AI-adjacent: Google ran a 353,000-person vibe-coding course (blog.google); OpenAI is scaling storage to serve 1B+ ChatGPT users (OpenAI RSS); Google's €13B Finland AI-infra expansion + Gemini Spark autonomous browser errands (WebSearch-sourced, not on blog.google RSS this cycle → folded into snapshot as reported, not carded).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (theblock 15, cointelegraph 15, coindesk 15, openai.com/blog 15 shown of ~1192, blog.google/technology/ai 15 — 5 of 6 feeds OK; hnrss.org returned a 502 Bad Gateway this run, so AI/HN items were covered via WebSearch + the OpenAI/Google RSS instead) + WebFetch primary-source verification not required this cycle (every carded story anchored to an RSS-verified primary with a real Sep 12 article/blog URL, except the two WebSearch-only Vibe cards which carry explicit caveats). No Reddit feeds attempted (blocked in this environment).</p>
+  <p><strong>Dedup:</strong> 3 of 5 past reports loaded locally (Sep 12, 11, 10; Sep 9 &amp; 8 missing — not generated, treated as a first-run dedup gap). ~95 prior topics indexed across titles, concepts, and tips. Filtered: the prior AI set (ChatGPT for Financial Services, GPT-Live-1 voice API, DeepSeek-V4.1-Flash, OpenAI Agents API, Navier-Stokes/Codex-privacy, Anthropic threat-intel report, ChatGPT Images 2.5 Flare/Sunburst, 1Password×Codex, Oracle×Kimi K3, GPT-6 Astra, Claude Fable/Mythos 5.1, Gemini 3.8 Flash — carded Sep 10–12), the prior Vibe set (Cognition Devin self-testing, Grok CLI/Build MCP+Plan Mode, Aiope, Cursor Projects, JetBrains LSP/ACP/KotlinLLM, Google Cloud developer plugin, Catenary, Airuncode, Switch — carded Sep 10–12), the prior Crypto set (BTC CPI/22-yr yields/hike-odds-70%, Ripple AI agents in $1B treasury, India SEBI Demat 2.0 tokenized bonds, CLARITY Act revised text, Nasdaq×Kraken $21B, OKX pre-IPO AI bets, Consensys/MetaMask split, US Bank USDBC, quantum $300M race, Standard Chartered SKY 5× "DeFi federal bank", Bitcoin ETF $449M outflows, Robinhood crypto +61% Aug, SBF Supreme Court petition, Metaplanet exec pool cut — carded/folded Sep 10–12; today's Fed-hike-assured + CryptoQuant $81,700 is the fresh follow-through, not a re-card; the Anthropic-IPO card is the real listing vs Sep 11's OKX pre-IPO synthetic-bet angle; the Ripple RLUSD $13T-treasury line is folded into the snapshot, not re-carded, to avoid Ripple fatigue after Sep 12's Ripple-AI-agents card), the prior Claude Code/agentic tip set (agentic-RAG tool routing, strict JSON tool schemas, per-step agent tracing, MLX-vs-CoreML decision matrix, Background-Assets+mmap, Foundation-Models tool-calling — all carded Sep 11–12, so today's best-of-week goes to Claude Code hooks + Codex <code>/goal</code> sandbox budgets + least-privilege MCP scoping, all fresh), and the prior concept set (model fatigue, coordinated agentic risk, inference-time compute, MCP vs ACP, tool-acquisition risk, white-hat extraction, agent API-ification, verification-driven development, AI capex→systemic risk, architecture as code, AI code trust gap, debugging hangover, agent control plane, context engineering, modular monolith, local-first, agentic supply-chain infiltration, DeFi's federal bank — only fresh sidecarless/eBPF + reflexive-edge/attested-PCC + composable-CLI-stack carded).</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses</strong> (consistent with prior reports' methodology): "Hebbian Robotics HFlow (YC S26)" and "Interactive Sessions SDLC orchestrator" — WebSearch-mentioned, niche, no primary-source verification; excluded (same exclusion as Sep 11). "GitFig (Figma→GitHub sync)" — WebSearch-sourced dev tool, no primary URL verified this run; not carded (may revisit once a primary is found). The OpenAI→Cursor model cutoff + reported SpaceX/xAI acquisition of Cursor, the GitSpawn vulnerability, and Codex <code>/goal</code> + CVE-2026-19592 are WebSearch-sourced (Vertex AI grounding); carded with explicit caveats pending verification against a primary openai.com/cursor.com/Manifold-Security source — consistent with how Sep 12 carded Grok CLI/Aiope as WebSearch/HN-sourced pending verification. Google's €13B Finland AI-infra expansion and Gemini Spark autonomous browser errands were WebSearch-sourced only (not on the blog.google RSS this cycle) → folded into the snapshot as reported signals, not carded standalone, to avoid asserting unverified specifics. WebSearch returns synthesized prose without always-citable article URLs, so every carded story was anchored to an RSS-verified primary where possible: Nvidia×Anthropic IPO (Cointelegraph), OpenAI-no-IPO + Amodei pacing (CoinDesk), Perplexity×Astra (OpenAI Blog RSS), CryptoQuant $81,700 + Revolut breach + ditching-bonds-for-bitcoin (The Block/CoinDesk RSS), and Google's 353K vibe-coding course (blog.google RSS) — all with real Sep 12 article/blog URLs.</p>
+  <table>
+    <thead>
+      <tr><th>Feed / Source</th><th>Status</th><th>Items</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>theblock.co RSS</td><td>✓ OK</td><td>15</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✓ OK</td><td>15</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✓ OK</td><td>15</td></tr>
+      <tr><td>openai.com/blog RSS</td><td>✓ OK</td><td>15 of ~1192 (Perplexity×Astra verified)</td></tr>
+      <tr><td>blog.google/technology/ai RSS</td><td>✓ OK</td><td>15 (353K vibe-coding course surfaced)</td></tr>
+      <tr><td>hnrss.org</td><td>✗ 502 Bad Gateway</td><td>0 (covered via WebSearch + OpenAI/Google RSS)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>7/7 OK (synthesized, verified/caveated where carded)</td></tr>
+      <tr><td>GHE dedup (sean-y/daily-digest)</td><td>local clone</td><td>3/5 reports (Sep 9 &amp; 8 missing)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>GITHUB_COM_TOKEN present (push attempted)</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> · Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
