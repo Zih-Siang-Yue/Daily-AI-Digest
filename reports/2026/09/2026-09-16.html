@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-16</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+header .subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  letter-spacing: 0.3px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+.section-note {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: -10px 0 16px;
+  line-height: 1.55;
+}
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Wednesday, September 16, 2026</div>
+  <div class="subtitle">High-signal digest for AI, vibe coding &amp; crypto — built for the iOS/Binance engineer</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Wednesday: AI Dev Tools — Cursor · Windsurf · Copilot advanced usage) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips — AI Dev Tools (Cursor · Windsurf · Copilot Advanced Usage)</div>
+  <p class="section-note">Wednesday rotation. The agentic-workflow hardening angles already ran across the last week — Claude Code <strong>Skills</strong>, <strong>subagents</strong>, Codex <code>config.toml</code> sandbox scopes (Sep 14); Claude Code <strong>hooks</strong>, Codex <code>/goal</code> budgets, MCP least-privilege (Sep 13); agentic-RAG routing, strict JSON tool schemas, per-step tracing (Sep 11). So today's Wednesday "AI Dev Tools" slot goes to the three IDE/dev-tool surfaces NOT yet covered as tips: <strong>Cursor's</strong> background cloud sandboxes &amp; event-driven automations, <strong>GitHub Copilot's</strong> issue-to-PR agent mode, and <strong>Windsurf's</strong> Cascade flow-aware indexing — the three alternatives to the CLI-agent lane (Claude Code/Codex) the prior tips operated on.</p>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor · Background Automations</span>
+    <strong>Stop Triggering Agents by Hand — Wire Cursor's Background Cloud Sandboxes to Linear / GitHub / PagerDuty Events</strong>
+    <p>Cursor's <strong>Composer background cloud sandboxes</strong> don't just run on your prompt — they can be triggered <em>automatically</em> off external events: a new Linear issue, a GitHub issue/PR, or a PagerDuty alert spins up an isolated cloud agent that investigates, codes a fix, and opens a pull request without you typing a character. <strong>Why it matters:</strong> it's the shift from <em>chat-triggered</em> agents (you prompt, it runs) to <em>event-triggered</em> agents (the system fires the agent when something happens), which is the same event-driven shape today's EDAA concept card names — and for a Binance on-call flow it means a Pd-2 alert can produce a draft fix PR before you've finished reading the runbook. <strong>How to use it:</strong> pick ONE bounded, reversible trigger (e.g. a labeled Linear issue type) to wire to a background agent, keep the cloud sandbox network-off and the PR behind a human review gate (cf. verification-driven development, Sep 11), and measure auto-PR merge-rate vs. revert-rate before widening scope. <a href="https://docs.cursor.com/">Cursor docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot · Agent Mode</span>
+    <strong>Delegate an Entire GitHub Issue to Copilot's Agent Mode — It Opens a Verified PR, Not a Chat Suggestion</strong>
+    <p>GitHub Copilot has moved past the chat-panel era into <strong>agent mode / Copilot Workspace</strong>: hand an agent a GitHub issue and it plans, edits across files, runs tests in a sandbox, and opens a verified pull request — the diff is reviewable code, not a suggested snippet you paste. <strong>Why it matters:</strong> for an iOS/Binance engineer already inside the GitHub flow, Copilot agent mode is the lowest-friction entry into agentic coding because it lives where your issues and PRs already are — no separate CLI, no new auth, no second billing relationship — and it's the incumbent counterweight to Cursor (today's other tip) for teams that won't adopt a forked editor. <strong>How to use it:</strong> try it on a well-scoped, single-repo issue with an existing test suite (the suite is the verification gate — cf. strict JSON schemas, Sep 11), require CI green + a human review before merge, and compare its plan/edit/test loop against a Claude Code or Codex run on the same issue to see which produces the cleaner diff. <a href="https://docs.github.com/en/copilot">Copilot docs →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf · Cascade</span>
+    <strong>Use Windsurf Cascade for Sustained-Context Edits — Flow-Aware Workspace Indexing Beats Per-File Agents on Long Tasks</strong>
+    <p><strong>Windsurf's Cascade engine</strong> (now aligned with Cognition, the makers of Devin) builds a deep, flow-aware index of your whole workspace and maintains <em>continuity</em> across a long editing session — so a multi-file refactor that would rot a per-file agent's context stays coherent, because Cascade tracks the workspace's evolving state rather than re-reading files each turn. <strong>Why it matters:</strong> it's the IDE-native answer to the "context rot → use subagents" problem (Sep 14 tip) — instead of delegating to isolated subagents to protect the main context, Cascade's indexing keeps one context coherent longer, which is the right tradeoff for a focused refactor where you want the agent to <em>remember</em> the whole change, not hand it off. <strong>How to use it:</strong> reach for Cascade on a bounded multi-file refactor where context continuity matters (a Swift module extraction, a Binance SDK migration); reach for a terminal CLI agent (Claude Code/Codex) when the job is a long-horizon, multi-repo or background task (cf. composable CLI stack, Sep 13). <a href="https://windsurf.com/">Windsurf →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+  <p class="section-note">A slow frontier-lab news cycle this run — the OpenAI blog's last drop is Sep 14 (Fyxer + Perplexity×Astra, both carded Sep 15), and Google's blog went to framing/insights posts rather than a model drop. So today's AI set goes to one fresh Google research post, the human catalyst behind the (already-covered) safety-standards arc, and a fresh AI×compute market datapoint — with the standards-body structural progression folded into the snapshot, not re-carded, per dedup.</p>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google · Research</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/">Google's "AI &amp; Economy ATLAS" (Sep 15) — Fresh Labor/Economy Insights Plus a Science &amp; Societal-Impact Framing Cycle</a></h3>
+    <p>Google published <strong>"New insights from Google's AI &amp; Economy ATLAS"</strong> (Sep 15, blog.google RSS-verified) alongside a soft framing cycle — "AI to accelerate science," "AI for societal impact," "AI for everyone in every language" — none a model drop, but the ATLAS post is the substantive one: a labor/economy research insights release. <strong>Why it matters:</strong> for a Binance reader the ATLAS economy/labor datapoints are the macro input that sits alongside the BIS "AI capex → systemic risk" warning (Sep 11) — AI's labor and capex signals are now first-class economy variables, not just tech news, and Google publishing them signals the labs are packaging AI's economic externalities for policymakers (cf. the AI-policy-window arc). <strong>How to use it:</strong> read the ATLAS insights as a policy-adjacent input, not a product; pair with the Sep 11 AI-capex systemic-risk card when sizing AI's macro footprint. <em>(Caveat: the ATLAS specifics are from the RSS title + blog.google framing; no model/product launch this cycle.)</em> <a href="https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/">Google →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Governance · Human Catalyst</span>
+    <h3>Alignment-Researcher Departures &amp; Warnings — the Human Pressure Behind the Safety-Standards Push (Distinct From the Sep 14 Card)</h3>
+    <p>Reporting indicates a wave of <strong>frontier-lab alignment researchers departing or publicly warning</strong> over existential-risk concerns — the human catalyst behind the cross-lab safety-standards body the Sep 14 card covered as "in discussion," now described as taking structural shape (a FINRA-model independent-audit body, per reporting) that OpenAI frames as not requiring an antitrust exemption. <strong>Why it matters:</strong> the durable signal isn't the policy proposal (which shifts), it's that alignment researchers are <em>voting with their feet</em> — the internal-pressure variable that decides whether a voluntary standards body has teeth or is optics, and the threat-model input a Binance platform team should weigh before trusting any frontier-model agent with sensitive flows. <strong>How to use it:</strong> track researcher departures/warnings as a leading indicator of how seriously a lab takes its own safety claims — a lab losing its alignment team is a vendor-risk signal, not just a governance story. <em>(Caveat: WebSearch-sourced synthesis; the specific researcher names and the FINRA-model structure are from reporting pending a primary joint-lab disclosure — the phenomenon is the signal, the specifics are unverified.)</em> <a href="https://www.axios.com/2026/09/13/ai-labs-regulation-safety">Standards-arc context →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">AI × Compute · Market</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-09-15-bitcoin-price-recovery-unlikely-lure-ai-focused-miners-back-coinshares-says-414844">CoinShares: BTC Price Recovery Won't Lure AI-Focused Miners Back — the Hashpower-to-Compute Reallocation Looks Structural</a></h3>
+    <p>CoinShares reports (Sep 15, The Block RSS-confirmed) that a <strong>Bitcoin price recovery is unlikely to lure AI-focused miners back</strong> to BTC — miners that pivoted idle/underutilized hashpower toward AI compute workloads are staying put because AI compute demand pays better per watt than BTC mining even at higher BTC prices. <strong>Why it matters:</strong> it's a clean AI×crypto datapoint that the hashpower↔AI-compute reallocation is <em>structural, not cyclical</em> — for a Binance reader it means the Bitcoin network's security-budget dynamics (miner revenue, difficulty, sell pressure) now have an AI-demand floor pulling hashpower away, so BTC's hashrate is a function of AI compute pricing, not just BTC price. <strong>How to use it:</strong> model Bitcoin network security and miner economics with an "AI-compute opportunity cost" variable; track AI GPU/compute spot pricing alongside BTC price as a joint input to hashrate forecasts. <a href="https://www.theblock.co/news/markets/2026-09-15-bitcoin-price-recovery-unlikely-lure-ai-focused-miners-back-coinshares-says-414844">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+  <p class="section-note">Two industry-trend cards this cycle — both reframing the <em>business model</em> and the <em>open-source counterweight</em> of the agentic-coding stack, both WebSearch-sourced landscape syntheses (no fresh dated release this cycle) and carded with explicit caveats, consistent with how prior reports carded Monid / Effect-TS / Cursor-6×-PR.</p>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Open-Source · Agentic CLI</span>
+    <h3>Aider &amp; Cline — the Consolidated Open-Source Agentic-CLI Bench (BYOK, No Platform Markup)</h3>
+    <p>While the commercial agentic-coding stack consolidates around Cursor + Claude Code + Codex, the open-source long tail has itself consolidated around two reference tools: <strong>Aider</strong> (command-line git pair-programmer with strict multi-file diff verification) and <strong>Cline</strong> (a top VS Code extension for open-source agentic loops) — both bring-your-own-key, no-platform-markup alternatives that let a team run an agent against its own model account without a middleman. <strong>Why it matters:</strong> for a Binance team with an enterprise model contract (or a self-hosted model), Aider/Cline are the vendor-portability escape hatch — the "composable CLI stack" (Sep 13 concept) whose BYOK model means an OpenAI→Cursor-style cutoff (Sep 13 card) can't strand your workflow, because you hold the model key. <strong>How to use it:</strong> keep Aider/Cline as a configured fallback alongside your primary agent so a vendor pricing or access change is a config swap, not a migration; benchmark Aider's diff-verification strictness as a quality bar for your primary agent. <em>(Caveat: WebSearch-sourced landscape synthesis; Aider/Cline are established projects — verify current feature scope on their repos before relying on a specific capability.)</em> <a href="https://aider.chat/">Aider →</a> · <a href="https://github.com/cline/cline">Cline →</a></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Pricing · Industry Trend</span>
+    <h3>AI-Coding Pricing Consolidation — the End of Flat $20/Month "Unlimited," Shift to Token / Compute-Credit Tiers</h3>
+    <p>The unsustainable flat-$20/month "unlimited agent" pricing that launched the vibe-coding wave is consolidating toward <strong>token-consumption tiers, compute credits, and hybrid subscription+usage billing</strong>, as power-user caps exposed the unit-economics gap between what heavy agent users consume and what they pay. <strong>Why it matters:</strong> it's the business-model counterpart to today's "deterministic sandwich" and "cost-aware/token-economic architecture" (Sep 14 concept) — as agent pricing moves to per-token/per-compute, the same spend-gating discipline a platform team applies to its LLM fleet (Sep 14) now applies to your IDE agent bill, and a flat-fee team plan is becoming a legacy artifact. <strong>How to use it:</strong> re-baseline your team's agent spend under the new tiered model (track tokens/compute per dev, set per-workspace ceilings cf. Monid's spend controls, Sep 14), and treat the agent bill as a FinOps line item, not a seat license. <em>(Caveat: WebSearch-sourced industry trend; specific provider pricing tiers pending verification against each vendor's pricing page.)</em> <a href="https://cursor.com/pricing">Cursor pricing →</a></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+  <p class="section-note">This is the cycle's dominant story: the <strong>CLarity Act FAILED</strong> the Senate procedural vote the Sep 15 report previewed as "today's vote" — the binary outcome (cloture vs. limbo) that report flagged as the cleaner signal has landed, and it's "limbo." Two fresh enforcement/security cards round out the section.</p>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Senate Vote</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead">'This One Stings' — the Clarity Act FAILS the Senate Procedural Vote; BTC Falls to a $75.6K September Low, Crypto Stocks Sink</a></h3>
+    <p>The Senate's <strong>cloture vote on the CLARITY Act failed on Sep 15</strong> (The Block / CoinDesk / Cointelegraph RSS-confirmed, ~18:50–21:24 UTC) — lead Senate Republican Lummis rejected the Democratic counteroffer, the vote fell short of the 60-vote threshold, and the bill's biggest US market-structure push is back in limbo; Sen. Warren said she wants a crypto bill "but the Clarity Act just isn't it." Markets reacted hard: <strong>Bitcoin fell to a ~$75.6K September low</strong> (global bonds at multidecade highs), <strong>crypto stocks sank</strong> (Coinbase, Circle, miners), and <strong>Polymarket passage odds plunged to ~16%</strong>. <strong>Why it matters:</strong> it's the resolution of the vote the Sep 15 report carded as the day's binary signal — the "decentralized vs. non-decentralized" CFTC-registration test and the DeFi derivative/prediction-venue gate are now NOT landing this Congress, so US crypto venues stay under the current (muddier) regime longer, which is the compliance status quo a Binance listings/market-structure team operates against. <strong>How to use it:</strong> re-baseline your US market-structure roadmap to "no Clarity this year" (Polymarket ~16%); watch for the House crypto tax bill markup (today, Sep 16) and a possible Senate retry as the next live variables. <a href="https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead">The Block →</a> · <a href="https://www.coindesk.com/policy/2026/09/15/clarity-act-fails-in-senate-here-is-how-the-crypto-industry-is-reacting">CoinDesk →</a> · <a href="https://cointelegraph.com/news/us-senate-fails-to-advance-clarity-act">Cointelegraph →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Enforcement · Insider Trading</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-15-doj-charges-robinhood-engineers-front-running-crypto-listings-hyperliquid-41486">DOJ Charges Former Robinhood Engineers With Front-Running Crypto Listings on Hyperliquid</a></h3>
+    <p>The DOJ charged <strong>former Robinhood engineers with front-running crypto listings on Hyperliquid</strong> (Sep 15, The Block RSS-confirmed) — the defendants allegedly used foreknowledge of upcoming listings to trade ahead of the moves on the perp DEX. <strong>Why it matters:</strong> it's a fresh, concrete enforcement action against crypto insider trading routed through a decentralized perp venue — for a Binance listings/compliance team it's the exact threat pattern (employee foreknowledge → front-run on a DEX) to drill against, and it validates that DOJ treats DEX-front-running as reachable fraud, not a gray-zone DeFi behavior. <strong>How to use it:</strong> treat it as a tabletop scenario for your own listings-information firewall — confirm that pre-listing information is need-to-know, logged, and that employee trading is gated/monitored across both CEX and DEX venues; the Hyperliquid angle means DEX-wallet monitoring is in scope, not just CEX account surveillance. <a href="https://www.theblock.co/news/regulation/2026-09-15-doj-charges-robinhood-engineers-front-running-crypto-listings-hyperliquid-41486">The Block →</a></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security · Bridge Exploit</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/09/15/a-hacker-turned-25-cents-of-bitcoin-into-46-billion-fake-btc-tokens-on-a-defi-b">A Hacker Turned 25¢ of Bitcoin Into 46 Billion Fake BTC Tokens on a DeFi Bridge</a></h3>
+    <p>A hacker turned <strong>$0.25 of bitcoin into 46 billion fake BTC tokens</strong> on a DeFi bridge (Sep 15, CoinDesk RSS-confirmed) — a precision/decimal-handling bug in the bridge's wrapped-BTC accounting let the attacker mint an astronomically inflated wrapped-BTC balance from a trivial input, the kind of integer/precision flaw that turns a rounding error into a system-break. <strong>Why it matters:</strong> it's the sharpest 2026 datapoint for why <strong>bridge accounting correctness</strong> is a first-class security surface — not the bridge's multisig or validator set, but the <em>arithmetic</em> of how wrapped assets are minted/redeemed, and for a Binance security/cross-chain team it's the textbook case that a one-cent input shouldn't be able to produce a billion-token output under any code path. <strong>How to use it:</strong> audit every mint/redeem path for unbounded growth (no fixed cap on mint output per input), require invariant checks (total-wrapped ≤ total-custodied) enforced on every state transition, and add property-based tests that specifically fuzz the decimal/precision edge — the 25¢→46B case is your red-team scenario. <a href="https://www.coindesk.com/tech/2026/09/15/a-hacker-turned-25-cents-of-bitcoin-into-46-billion-fake-btc-tokens-on-a-defi-b">CoinDesk →</a></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+  <p class="section-note">Three production-agent reliability concepts trending in the 2026 architecture discourse — all three fresh (none carded Sep 11–15), all three forming a coherent "make agent runs auditable and bounded" trio: <strong>deterministic guardrails</strong> (the sandwich), <strong>durable state</strong> (suspend/resume for HITL), and <strong>explicit topology</strong> (state-machine runs).</p>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Agent Arch · Guardrails</span>
+    <strong>The "Deterministic Sandwich" — Wrap Non-Deterministic AI Between Deterministic Input-Validation and Execution-Sandbox Layers</strong>
+    <p>The anti-pattern of relying on prompt-based instructions for safety ("don't do X") is being replaced by the <strong>deterministic sandwich</strong>: a deterministic <em>input layer</em> (PII masking, schema validation, intent firewalls, semantic routing) feeds the probabilistic <em>reasoning layer</em> (the model), whose tool calls are then executed through a deterministic <em>execution layer</em> (sandboxed code execution, lint, unit-test dry-run, DB-transaction dry-run before commit). <strong>Why it matters NOW:</strong> it's the structural answer to "don't trust the agent's discretion on destructive ops" (cf. Claude Code hooks, Sep 13; strict JSON schemas, Sep 11) — instead of asking the model to be safe, you make the <em>unsafe action impossible to execute</em> at the deterministic bookends, and it's distinct from defense-in-depth sandboxing (Sep 15, which is about VM/Wasm <em>containment nesting</em>): the sandwich is about <em>validation wrapping</em> at the loop's input/output boundaries. <strong>How to use it:</strong> for any agent that touches funds, keys, or prod, write the input-validation and execution-sandbox layers as deterministic code the model cannot bypass — the model reasons, the deterministic layers enforce; instrument both layers into the per-step trace (Sep 11) so a denied action is as visible as an allowed one. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Agent Arch · Human-in-the-Loop</span>
+    <strong>Durable Execution + Suspend/Resume for HITL — Agent State Serializes, Pauses for Approval, and Resumes Without Losing Context</strong>
+    <p>Production agent workflows can't hold an open synchronous connection while an agent runs a multi-minute step or waits for human sign-off, so they're being built on <strong>durable execution engines</strong> (Temporal, Inngest, LangGraph persistence) that serialize the agent's runtime state, <strong>pause</strong> it to await an event or a human approval, and <strong>resume</strong> safely — the agent's plan, partial tool outputs, and reasoning context all survive the wait. <strong>Why it matters NOW:</strong> it's the implementation mechanism behind the "agent control plane" (Sep 5) and the "trust architecture / stage-for-approval" pattern (Fyxer, Sep 15) — human-in-the-loop isn't a chat confirmation, it's a <em>persisted checkpoint</em> the run resumes from, which is the only way to ship an agent that books a trade or moves funds with a real approval gate; it's also the fix for the "long autonomous run loses state on crash" failure (cf. Codex <code>/goal</code> budget, Sep 13). <strong>How to use it:</strong> model your agent's run as a durable workflow, not a request — checkpoint after each tool call, stage non-reversible actions behind a resume-on-approval gate, and make the checkpoint the unit of retry so a crash mid-run resumes from the last good state, not from scratch. <a href="https://temporal.io/">Temporal →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Agent Arch · Topology</span>
+    <strong>State-Graph / FSM Agent Topology — Model Agent Runs as Explicit State Machines, Not Opaque Prompt Chaining</strong>
+    <p>Instead of an agent free-forming its path through a conversation (the unpredictable "prompt chaining" anti-pattern that's hard to debug), production agents are being modeled as <strong>explicit state machines / finite-state graphs</strong> (formalized by orchestration engines like LangGraph): nodes represent reasoning or tool tasks, edges represent <em>conditional routing logic</em>, and the architect defines strictly which state transitions are allowed — making a run an auditable, replayable graph rather than an opaque LLM monologue. <strong>Why it matters NOW:</strong> it's the auditability counterpart to per-step tracing (Sep 11) and the dual-loop architecture (Sep 15) — tracing shows <em>what</em> happened per step, the state graph shows <em>what paths were legal</em> in the first place, so a regression shows up as a forbidden transition, not just a slow step; for a regulated-finance agent it's also the artifact a compliance reviewer can read ("the agent can reach state X only via path Y"). <strong>How to use it:</strong> enumerate your agent's states and the allowed transitions as code (not prose in a prompt), gate each transition behind the deterministic-sandwich bookends, and emit the state-graph + the realized path as a span so every run is replayable for post-mortem. <a href="https://langchain-ai.github.io/langgraph/">LangGraph →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-09-15-this-one-stings-clarity-act-fails-senate-is-cryptos-biggest-regulatory-push-dead">The Block — 'This one stings': Clarity Act fails procedural Senate vote (Sep 15)</a>
+      <span class="desc">The RSS-confirmed primary behind today's lead crypto card — the failed cloture vote, the Lummis/Dem-counteroffer breakdown, and the "is crypto's biggest regulatory push dead?" framing, with BTC at a $75.6K September low.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-09-15-doj-charges-robinhood-engineers-front-running-crypto-listings-hyperliquid-41486">The Block — DOJ charges Robinhood former engineers with front-running crypto listings on Hyperliquid (Sep 15)</a>
+      <span class="desc">The RSS-confirmed primary behind today's enforcement card — insider-trading charges routed through a perp DEX, the threat pattern a Binance listings firewall drills against.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/09/15/a-hacker-turned-25-cents-of-bitcoin-into-46-billion-fake-btc-tokens-on-a-defi-b">CoinDesk — A hacker turned 25¢ of bitcoin into 46B fake BTC tokens on a DeFi bridge (Sep 15)</a>
+      <span class="desc">The RSS-confirmed primary behind today's security card — a precision/decimal bug minting 46B fake wrapped BTC from a $0.25 input, the textbook case for bridge-accounting invariant checks.</span>
+    </li>
+    <li>
+      <a href="https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/">Google — New insights from Google's AI &amp; Economy ATLAS (Sep 15)</a>
+      <span class="desc">The RSS-verified primary behind today's lead AI card — Google's labor/economy research release, the macro input that sits alongside the BIS AI-capex systemic-risk warning.</span>
+    </li>
+    <li>
+      <a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic — Building effective agents</a>
+      <span class="desc">The stable reference behind today's "deterministic sandwich" concept — the engineering guide that frames deterministic guardrails around probabilistic reasoning, the basis for the input/execution-layer pattern.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-16 ~02:40 UTC · <strong>v4</strong> · Wednesday (AI Dev Tools tip rotation — Cursor background automations, GitHub Copilot agent mode, Windsurf Cascade; the Claude Code/Codex/MCP hardening angles ran Sep 11–14, so today goes to the three IDE/dev-tool surfaces not yet covered)</p>
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 2 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+  <p><strong>Markets snapshot:</strong> BTC fell to a ~$75.6K September low (Sep 15) after the CLARITY Act failed the Senate procedural vote — "this one stings" (The Block); crypto stocks sank (Coinbase, Circle, miners), Polymarket passage odds plunged to ~16%. The Sep-16 Fed hike remains "all but assured" (Sep 13) with the FOMC today; global bonds hit multidecade highs. Regulation (post-Clarity): the House crypto tax bill markup is TODAY (Sep 16, The Block/Cointelegraph Sep 15) — it omits mining/staking reward deferral; Sen. Warren wants a crypto bill "but not Clarity"; DOJ seeks $61M in USDT tied to sanctioned Iranian oil sales laundered on Binance (Sep 15). Enforcement/security: DOJ charged former Robinhood engineers with front-running crypto listings on Hyperliquid (Sep 15, carded); a 25¢→46B-fake-BTC bridge exploit (Sep 15, carded); ETH wallet exploit backfired as an MEV bot captured $7.7M and Kelp froze the address (Sep 15, the constructive MEV-intercept counterpart); USDT payments surfaced in a Polish energy giant's failed $230M oil deal (Sep 15). Flows/institutional: Binance adds 11 US-listed ETFs to its wealth-management offering (Sep 15); Ark Invest sold $14M in Circle and trimmed Coinbase (Sep 15); Strive reached 25,000 BTC (Sep 14); Velocity extended Series A to $48M at $200M with Visa/Circle/Ripple backing (Sep 15); Standard Chartered sees Arbitrum ARB 70× to $10 by end-2030 citing Robinhood Chain revenue (Sep 15); Nigel Farage-backed Stack BTC eyes a $16M gold-dealer deal to fund BTC buys (Sep 15). DeFi/protocol: Solana more than tripled its transaction-size limit in a mainnet upgrade (Sep 15); Balancer proposed winding down and distributing treasury to BAL holders (Sep 15); CoinEx to cease operations after 9 years citing "significant crypto contraction" (Sep 15); Ethereum &amp; Base developers abandoned the effort to align account-abstraction proposals (Sep 15); Zama expanded its confidential (FHE) Morpho lineup after the first vault hit $40M and launched private swaps on Ethereum (Sep 15); Tonkeeper rebranded as Keeper with 7-network support incl. BTC/ETH (Sep 15). Macro/CBDC: ECB called merchants into the digital-euro pilot (Sep 15); a BoE official said stablecoin growth could boost dollar dominance and US Treasury demand (Sep 15); a BIS paper found a major gap in Bitcoin onchain transfer estimates (Sep 15). AI-adjacent (folded): Google's AI &amp; Economy ATLAS + science/societal-impact framing cycle (Sep 15, carded as the lead AI item); the cross-lab safety-standards body reportedly taking structural shape (FINRA-model, no-antitrust-exemption stance) — folded into the snapshot, NOT re-carded, as the same subject as the Sep 14 "in discussion" card (only the alignment-researcher-departures human-catalyst facet is carded); Google DevFest (Sep 14, folded Sep 14–15); OpenAI blog had no fresh post after Sep 14 (Fyxer + Perplexity×Astra deduped vs Sep 15).</p>
+  <p><strong>Sources:</strong> WebSearch (5 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe-coding landscape, CoreML/MLX/iOS Edge-AI, trending agent-architecture concepts; all 5 succeeded and returned synthesized prose used for tip + concept + Vibe-trend grounding) + RSS (theblock ~20, cointelegraph ~30, coindesk ~25, openai.com/blog ~1192 — last fresh post Sep 14, blog.google/technology/ai ~20 — AI &amp; Economy ATLAS + framing cycle Sep 15; 5 of 6 feeds OK this run; hnrss.org returned 502 Bad Gateway again, so AI/HN items were covered via WebSearch + the OpenAI/Google RSS instead) + WebFetch verification attempted on openai.com/index/* (HTTP 403 Forbidden — openai.com blocks WebFetch, so OpenAI items rely on RSS title+URL verification only, consistent with prior reports). No Reddit feeds attempted (blocked in this environment).</p>
+  <p><strong>Dedup:</strong> 5 of 5 past reports loaded locally from the GHE mirror (Sep 11, 12, 13, 14, 15 — all present). ~110+ prior topics indexed across titles, concepts, and tips. Filtered: the prior governance arc (Amodei pacing Sep 11 &amp; 13, Musk/Altman agree Sep 13, standards-body-in-discussion Sep 14, RubyGems swarm + Claude-for-Advisors + ByteDance $29.6B + China "fear mongering" Sep 15), so today's governance angle is the alignment-researcher-departures <em>human-catalyst</em> facet (carded, distinct from the Sep 14 standards-body card) — the standards-body <em>structural</em> progression (FINRA-model) is folded into the snapshot, NOT re-carded, per dedup rule #2 (same subject as Sep 14). The prior AI-dev-tooling tip set (Claude Code Skills/subagents + Codex config.toml Sep 14; Claude Code hooks + Codex /goal + MCP least-privilege Sep 13; agentic-RAG + strict JSON schemas + per-step tracing Sep 11), so today's Wednesday rotation goes to Cursor background automations + Copilot agent-mode + Windsurf Cascade — the three IDE/dev-tool surfaces not yet covered, all fresh. The prior Vibe set (Pi-box + Fyxer Sep 15; Monid + Effect-TS + Cursor-6×-PR Sep 14; Cursor cutoff + GitSpawn + Google 353K Sep 13; Devin×Astra + Grok-CLI + Aiope Sep 12; Cursor Projects + JetBrains LSP/ACP + Google Cloud plugin Sep 11), so today's Vibe goes to Aider/Cline open-source bench + AI-coding pricing consolidation (both WebSearch-sourced landscape trends, caveated). The prior Crypto set (CLARITY-vote-preview "goes to floor TODAY" + crypto-sits-out-AI-selloff + Kraken-RHA-yield Sep 15; CLARITY-"is-it-dead" + Circle×Tazapay + Symbiosis Sep 14; Fed-hike + CryptoQuant $81,700 + Revolut breach + ditching-bonds Sep 13; BTC-CPI + Ripple-treasury + India-SEBI Sep 12; CLARITY-revised + Nasdaq×Kraken + OKX pre-IPO Sep 11), so today carded the CLARITY-<strong>FAILURE</strong> (the substantively-new outcome of the Sep 15 "vote today" preview — kept per dedup rule #2, since the vote RESULT is a different event than the vote PREVIEW) + DOJ×Robinhood×Hyperliquid front-running + 25¢→46B-fake-BTC bridge exploit — all fresh, RSS-anchored. The prior concept set (dual-loop-agent + context-engineering-tier + defense-in-depth-sandboxing Sep 15; cell-based-architecture + cost-aware/token-economic + AI-slop-vs-maintainability Sep 14; sidecarless/eBPF + reflexive-edge/PCC + composable-CLI-stack Sep 13; local-first + agentic-supply-chain + DeFi-federal-bank Sep 12; agent-API-ification + verification-driven-dev + AI-capex-systemic-risk Sep 11), so today's concepts go to deterministic-sandwich + durable-execution-HITL + state-graph/FSM-topology — all fresh, all three a coherent "auditable &amp; bounded agent runs" trio distinct from prior concept cards.</p>
+  <p><strong>EXCLUDED as unverified/secondary syntheses</strong> (consistent with prior reports' methodology): "OpenAI/Anthropic/Google shared safety-standards body takes FINRA-model structural shape" — WebSearch-sourced synthesis of an ongoing initiative; the same subject as the Sep 14 "in discussion" card → folded into the snapshot as reported structural progression, NOT re-carded (per dedup rule #2); only the distinct alignment-researcher-departures human-catalyst facet is carded, with an explicit caveat that the FINRA-model structure and specific researcher names are pending a primary joint-lab disclosure. "Aider &amp; Cline open-source bench" and "AI-coding pricing consolidation ($20/mo → token/compute tiers)" — both WebSearch-sourced landscape syntheses (not dated primary releases); carded as Vibe industry-trend cards with explicit caveats, consistent with how Sep 14 carded Monid/Effect-TS and Sep 13 carded the Cursor cutoff/GitSpawn. "Spec-driven agentic development replacing pure vibe coding" — WebSearch-sourced paradigm shift; adjacent to the Sep 11 "verification-driven development" concept → not carded to avoid concept-overlap fatigue (the deterministic-sandwich + durable-execution-HITL + state-graph/FSM trio is fresher and more architecturally distinct). WebFetch on openai.com/index/* returned HTTP 403 (openai.com blocks WebFetch), so no OpenAI essay (e.g. "The Work Now Within Reach," "Paul Christiano joins OpenAI Foundation Board," "put data to work") was carded this cycle — only the OpenAI Blog RSS title+URL was available, and all fresh-enough OpenAI RSS items (Fyxer, Perplexity×Astra) were already carded Sep 15. Every carded story was anchored to a primary where possible: Clarity-failure (The Block + CoinDesk + Cointelegraph RSS, real Sep 15 URLs), DOJ×Robinhood×Hyperliquid (The Block RSS), 25¢→46B bridge exploit (CoinDesk RSS), Google AI &amp; Economy ATLAS (blog.google RSS), CoinShares AI-miners (The Block RSS); the alignment-researcher-departures, Aider/Cline, pricing-consolidation, and three concept cards carry stable reference links + explicit caveats.</p>
+  <table>
+    <thead>
+      <tr><th>Feed / Source</th><th>Status</th><th>Items</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>theblock.co RSS</td><td>✓ OK</td><td>20 (Clarity failure + DOJ×Robinhood + CoinShares AI-miners surfaced)</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>✓ OK</td><td>30 (Clarity failure + Binance ETFs + Solana tx-size + ECB/BoE/BIS surfaced)</td></tr>
+      <tr><td>coindesk.com RSS</td><td>✓ OK</td><td>25 (Clarity failure + 25¢→46B bridge + House tax bill surfaced)</td></tr>
+      <tr><td>openai.com/blog RSS</td><td>✓ OK</td><td>~1192 (no fresh post after Sep 14 — Fyxer + Perplexity×Astra deduped vs Sep 15)</td></tr>
+      <tr><td>blog.google/technology/ai RSS</td><td>✓ OK</td><td>20 (AI &amp; Economy ATLAS + science/societal framing Sep 15 — light cycle, no model drop)</td></tr>
+      <tr><td>hnrss.org</td><td>✗ 502 Bad Gateway</td><td>0 (covered via WebSearch + OpenAI/Google RSS — same failure as Sep 13)</td></tr>
+      <tr><td>WebSearch</td><td>API</td><td>5/5 OK (synthesized, used for tip + concept + Vibe-trend grounding)</td></tr>
+      <tr><td>WebFetch verification</td><td>HTTP</td><td>openai.com/index/* → 403 Forbidden (blocked); so OpenAI items rely on RSS title+URL only</td></tr>
+      <tr><td>GHE dedup (sean-y/daily-digest)</td><td>local clone</td><td>5/5 reports (Sep 11–15 all present)</td></tr>
+      <tr><td>github.com Pages (Daily-AI-Digest)</td><td>Contents API</td><td>GITHUB_COM_TOKEN present (push attempted)</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> · Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
