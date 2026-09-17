@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-17</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">September 17, 2026 · Thursday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Thursday — Edge AI / On-device ML) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML · Edge AI</span>
+    <strong>Ship an On-Device LLM on the Neural Engine With Core ML Stateful Models + MLTensor</strong>
+    <p>Core ML's stateful-model API lets you embed an explicit KV-cache as <em>state</em> directly inside the compute graph, so a sub-3B SLM executes on the <strong>Apple Neural Engine</strong> (best tokens-per-watt, no thermal throttle) rather than falling back to the GPU the way an MLX eager loop does. <strong>Why it matters:</strong> it closes the gap that made MLX Swift the default for on-device generative LLMs — you keep graph-level ANE scheduling and battery efficiency <em>and</em> get stateful multi-turn generation, which is the shape a private in-app support or transaction-summarization LLM needs. <strong>How to use it:</strong> convert your PyTorch model with <code>coremltools.convert(..., stateful=True)</code>, expose the KV-cache as an <code>MLTensor</code> state dict, and benchmark tokens/sec against the MLX Swift baseline on the <em>same</em> physical device before committing — ANE wins on sustained background inference, MLX wins on dynamic prompt shapes. <a href="https://apple.github.io/coremltools/docs/">coremltools →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Hybrid Pipeline</span>
+    <strong>Run Core ML Perception on the ANE + an MLX Swift LLM on the GPU Concurrently — They Don't Contend</strong>
+    <p>The cleanest production on-device agent stack is a <em>hybrid</em>: a Core ML vision/audio model on the Neural Engine feeds structured context into an MLX Swift generative LLM running on the Metal GPU — and because the ANE and GPU are separate execution units on Apple silicon, they run concurrently with minimal hardware contention. <strong>Why it matters:</strong> it ends the false "Core ML <em>or</em> MLX" choice (cf. Sep 12 decision matrix); the real answer for a full agent (perceive → reason → act) is <em>both</em>, each on the unit it wins on, which is the shape your iOS on-device agent will take once you go past a single model. <strong>How to use it:</strong> run the Core ML perception pass on a <code>.neuralEngine</code> compute-unit preference, hand its typed output to an MLX Swift generation loop on <code>.gpu</code>, and verify with Instruments that the two never serialize on the same unit. <a href="https://github.com/ml-explore/mlx-examples">MLX examples →</a> · <a href="https://developer.apple.com/documentation/coreml">Core ML →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Benchmarking</span>
+    <strong>Don't Trust the Simulator for On-Device ML — Build a Physical-iPhone tokens/sec &amp; Peak-RSS Harness</strong>
+    <p>Metal compute behavior is not fully emulated in the iOS Simulator, so a model that "feels fast" in Xcode can thermal-throttle or balloon memory on a real iPhone — the only trustworthy numbers come from a physical-device harness that logs tokens/sec, time-to-first-token, and peak resident memory under sustained load. <strong>Why it matters:</strong> the difference between "shippable" and "throttles after 30 seconds" is invisible until you measure on silicon, and it's the gate that decides whether your on-device LLM survives a real support-chat session or collapses on the second user turn. <strong>How to use it:</strong> wrap your generation loop in an <code>os_signpost</code> interval (cf. Sep profiling tip), sample <code>mach_task_basic_info</code> for RSS, and run a 50-turn conversation on the oldest supported device — gate the merge on a tokens/sec floor <em>and</em> a "no throttle for 5 min" ceiling, not just correctness. <a href="https://developer.apple.com/documentation/foundation/metrics_and_signposts">Signposts →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Monetization</span>
+    <h3><a href="https://openai.com/index/reimagining-advertising-with-ai">OpenAI "Reimagines Advertising With AI" — Sponsored Agents, Marketer Tools, HubSpot &amp; Shopify Integrations</a></h3>
+    <p>OpenAI unveiled an advertising push (Sep 16, RSS-verified) built around <strong>Sponsored Agents</strong> — brand-sponsored autonomous agents that complete tasks inside ChatGPT — plus marketer tooling and native integrations with HubSpot and Shopify. <strong>Why it matters:</strong> "Sponsored Agents" turns the agent's tool-calling surface into the new ad unit — the monetization lands on the <em>action</em> the agent takes, not the page it renders — which directly shapes how a Binance reader should think about distribution once agentic browsing replaces link-clicking. <strong>How to use it:</strong> model your own agent's tool surface as a future ad slot (which actions are sponsor-eligible, which stay organic) and track the HubSpot/Shopify connector pattern as the template for agent-to-merchant handoffs. <em>(RSS-verified on openai.com; integration specifics from the launch post.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Safety</span>
+    <h3><a href="https://openai.com/index/model-misalignment-reporting-framework">OpenAI Publishes a Model-Misalignment Reporting Framework + 6 Unexpected-Behavior Reports</a></h3>
+    <p>OpenAI released (Sep 16, RSS-verified) a framework for tracking, investigating, and disclosing <strong>model misalignment</strong>, alongside six concrete reports of concerning model behavior. <strong>Why it matters:</strong> it pushes "eval transparency" from research-talk to a recurring disclosure norm — a pattern a Binance reader building agent evals should mirror internally (you can't safely gate an agent that trades on funds if you can't name the failure modes you're watching for). <strong>How to use it:</strong> borrow the report taxonomy as a template for your own agent-incident log, and pair it with the Claude Code hooks/Codex-budget guardrails carded Sep 13 so each disclosed behavior maps to a deterministic mitigation. <em>(RSS-verified; full framework on openai.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Claude Code</span>
+    <h3><a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code Adds a <code>/design</code> Plugin, Tests Opus 5.2 in Gray-Scale, Hardens MCP Sessions</a></h3>
+    <p>Anthropic shipped routine Claude Code updates (WebSearch-sourced, pending changelog verification): a <code>/design</code> plugin that streams UI-spec extraction and prototyping straight from the terminal, gray-scale routing that signals <strong>Claude Opus 5.2</strong> is being live-tested for faster code-gen latency, and v2.1.x hardening of remote session forking and MCP resilience. <strong>Why it matters:</strong> <code>/design</code> extends the agentic CLI past code into UI-spec work (the same shape as today's Edge-AI hybrid-pipeline tip — the agent's tool surface keeps widening), and Opus 5.2 testing is the leading indicator of the next model cadence you should size your eval suite against. <strong>How to use it:</strong> try <code>/design</code> on one bounded UI-spec task and measure its output against your Figma-to-component flow; hold Opus 5.2 as a signal, not a dependency, until the release notes land. <em>(Caveat: WebSearch-sourced; verify scope on docs.claude.com changelog.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Infra</span>
+    <h3><a href="https://openai.com/index/scaling-storage-one-billion-users-part-one">How OpenAI Scaled "Habitat" — From a Python Library to 22M req/s Storage for 1B ChatGPT Users</a></h3>
+    <p>OpenAI's engineering blog (Sep 11, RSS-verified) details how <strong>Habitat</strong> evolved from an internal Python library into a globally distributed online-storage platform serving 1 billion ChatGPT users at <strong>22 million requests per second</strong>. <strong>Why it matters:</strong> it's a rare primary-source datapoint on the storage tier that frontier-AI scale actually requires — directly relevant to a Binance infra reader sizing stateful, high-QPS, globally-distributed systems, and the clearest "this is what 1B-user inference economics looks like" reference published this quarter. <strong>How to use it:</strong> read the architecture as a reference for sharded stateful storage under conversational-AI access patterns, and mine the Python-library-to-platform evolution for your own internal-tool-to-infra migrations. <em>(RSS-verified on openai.com; part one of a series.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor · Tool Risk</span>
+    <h3><a href="https://cursor.com">OpenAI Terminates Cursor's Direct API Access Nov 12 — the SpaceX/Anysphere Acquisition's First Real Workflow Casualty</a></h3>
+    <p>Following SpaceX's $60B acquisition of Anysphere (closed Aug 14, 2026), OpenAI issued notice (WebSearch-sourced) winding down Cursor's direct model access effective <strong>November 12</strong>, citing terms-of-service concerns with Musk-affiliated entities and withholding future frontier releases during the transition. <strong>Why it matters:</strong> it's the live realization of the "tool-acquisition risk" concept carded Sep 7–11 — a single acquisition can strand your agent's model access overnight — and the first time the Cursor community has to plan a real migration, not a theoretical one. <strong>How to use it:</strong> OpenAI models are ~5% of Cursor traffic (Claude/Gemini/Grok carry the rest), so most users are unaffected — but if you rely on GPT models, move to <strong>BYOK</strong> (your own OpenAI key), Azure, or Bedrock routing now, and audit which Cursor-hosted features (Tab autocomplete, background agents) lose OpenAI support after Nov 12. <em>(Caveat: WebSearch-sourced; verify on cursor.com / openai.com before committing a migration.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Coder · Self-Host</span>
+    <h3><a href="https://coder.com">Coder "Agent Relay" — Run Claude Code Agents in Your Own VPC While Anthropic Handles the Model Loop</a></h3>
+    <p>Developer-workspace platform Coder introduced <strong>Agent Relay</strong> (WebSearch-sourced), letting enterprises run Claude Code agents inside their own self-hosted, network-governed VPCs while Anthropic keeps running the model loop — the agent's tool execution lands inside your perimeter, the inference stays with Anthropic. <strong>Why it matters:</strong> it cracks the "I want Claude Code but I can't let it touch production from outside" problem for regulated teams — the exact custody/authorization boundary a Binance infra reader needs before an agent can run against internal repos — and it's a deployment pattern that ports to other CLIs (Codex, Gemini CLI) once the relay contract is proven. <strong>How to use it:</strong> evaluate Agent Relay as the sandbox-perimeter layer between the agent and your secrets/CI, and pair it with the MCP-minimum-scope tip (Sep 13) so a compromised tool server can't own the whole VPC. <em>(Caveat: WebSearch-sourced; verify on coder.com.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Fed · Macro</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/09/16/fed-raises-rates-by-25-basis-points-in-first-hike-since-july-2023">Fed Hikes 25bps to 3.75–4.0% — First Move Since July 2023; BTC Swings $75K–$76.5K, Settles ~$75.8K (−1.5%)</a></h3>
+    <p>The FOMC voted 12–0 (Sep 16, RSS-verified via CoinDesk/The Block) to raise the funds rate a quarter point to <strong>3.75–4.0%</strong> — the first hike in over three years — and BTC/ETH whipsawed in a tight band, with BTC dipping to ~$75,355 intraday before settling near <strong>$75.8K, down ~1–1.5%</strong> on the day. <strong>Why it matters:</strong> the hike was &gt;90% priced-in (CME FedWatch), so the muted reaction confirms the Sep 12–16 macro tape (hot CPI, 22-yr bond-yield high) has already been absorbed — the live variable now is whether this is a single hike or the start of a renewed tightening cycle, which is the cross-asset risk-asset correlation a Binance reader should model next. <strong>How to use it:</strong> treat the Sep 16 decision as priced-in and watch the next CPI print + dot-plot for the "one-and-done vs. cycle" signal, not today's BTC tick. <em>(Hike RSS-verified; BTC price WebSearch-sourced.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · BTC Reserve</span>
+    <h3><a href="https://cointelegraph.com/news/us-bitcoin-reserve-bill-passes-house-committee">House Committee Advances Bill to Codify Trump's Strategic Bitcoin Reserve — 20-Year Lockup of Forfeited BTC</a></h3>
+    <p>A House committee advanced legislation (Sep 16–17, RSS-verified via The Block/Cointelegraph) to codify the Strategic Bitcoin Reserve, locking up BTC acquired through civil and criminal forfeiture for <strong>20 years</strong> and cementing the reserve as permanent U.S. policy. <strong>Why it matters:</strong> it moves the sovereign-BTC-accumulation thesis from executive order to statute — a structural, multi-decade supply sink that's distinct from price-action news and directly relevant to a Binance listings/treasury reader tracking how state demand reshapes the float. <strong>How to use it:</strong> model the reserve's projected intake against circulating supply as a slow-burn bid, and track the custody design (which agency, what audit) as the variable that decides whether it's real accumulation or optics. <em>(RSS-verified; bill advancing to full House.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation · Pivot</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-16-go-time-sec-cftc-prepare-push-crypto-rules-clarity-act-stalls-senate-415281">Post-Clarity Pivot: SEC &amp; CFTC "Go Time" on Crypto Rules + House Panel Approves First Federal Crypto Tax Framework</a></h3>
+    <p>With the CLARITY Act stalled in the Senate (cf. Sep 16 failure), both the <strong>SEC and CFTC</strong> said they're preparing to push crypto rules independently (CFTC Chair: "locked in and ready to ship"), while the House Ways and Means Committee advanced the <strong>Digital Asset Tax Certainty Act</strong> — the first federal crypto tax framework (Sep 16, RSS-verified via The Block/CoinDesk). <strong>Why it matters:</strong> it's the regulatory fragmentation that follows a stalled omnibus bill — agencies fill the vacuum on parallel tracks, which means more rules, faster, but less coherent — and for a Binance compliance/infra reader it's the signal that the post-Clarity compliance workload is <em>larger</em>, not smaller. <strong>How to use it:</strong> map your compliance surface across all three tracks (SEC, CFTC, IRS) rather than waiting on a single market-structure bill, and track the UK FCA's Sep authorization guidance as the offshore parallel. <em>(RSS-verified across The Block/CoinDesk.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>"Spec-Driven Agentic Engineering" — Vibe Coding Grows Up</strong>
+    <p>The 2025 "vibe coding" framing (intent-in-plain-English, forget the code exists) is being retired in serious engineering environments after audits showed ~40–45% of unvetted AI code carried OWASP-level flaws; the replacement is <strong>spec-driven agentic engineering</strong> — developers write concise specs (inputs, outputs, edge cases, constraints), the agent plans and executes against the spec, and the human shifts to architect/orbestrator/reviewer. <strong>Why it matters NOW:</strong> it reframes the iOS/Binance engineer's job from "writing code" to "writing contracts the agent executes" — the same role-shift the Cognition-Devin-self-testing story (Sep 12) and the Claude Code /design plugin (today) both point at — and it's the discipline that separates teams shipping agents from teams demoing them. <a href="https://docs.claude.com/en/docs/claude-code/overview">Claude Code →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">FinOps · AI</span>
+    <strong>"Model Cascading / SLM-First Routing" — Route to a Cheap Local Model First, Escalate to Frontier Only When Needed</strong>
+    <p>The FinOps-for-AI pattern gaining traction is <strong>model cascading</strong>: an orchestrator routes each query to a small, cheap, locally-hosted SLM first, and escalates to a heavy frontier model only when the SLM's confidence is low or the task exceeds its scope — turning variable per-token spend into bounded, tiered cost. <strong>Why it matters NOW:</strong> it's the architecture answer to the "AI capex → systemic risk" thread (Sep 11) and the ByteDance-$29.6B-loan capex signal (Sep 15) — the lever that decides whether an agent fleet is a cost center or a margin line — and for an iOS reader it's the same decision as today's Core-ML-stateful tip: run the small model on the device (free, private) and only call the frontier when the local model taps out. <a href="https://openai.com/index/how-to-connect-ai-usage-to-business-value">OpenAI →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Regulation</span>
+    <strong>"Post-Clarity Regulatory Fragmentation" — Crypto Rules Now Ship on Parallel Agency Tracks</strong>
+    <p>With the CLARITY Act's omnibus market-structure bill stalled (Sep 16), U.S. crypto regulation is fragmenting across parallel agency tracks — <strong>SEC</strong>, <strong>CFTC</strong>, the <strong>IRS</strong> tax framework, state AGs, and offshore the <strong>UK FCA</strong> — each shipping rules independently rather than under a single coherent statute. <strong>Why it matters NOW:</strong> it's a structural shift, not a delay — more rules arrive faster, but with gaps and overlaps that a compliance team has to stitch together, and it names the pattern a Binance reader will live under for the next 12–18 months regardless of whether Clarity revives in the lame-duck session. <a href="https://www.theblock.co/news/regulation/2026-09-16-go-time-sec-cftc-prepare-push-crypto-rules-clarity-act-stalls-senate-415281">The Block →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/reimagining-advertising-with-ai">OpenAI — Reimagining Advertising With AI (Sponsored Agents)</a>
+      <span class="desc">Primary-source launch post for the "agent action as ad unit" model; read it before designing your own agent's tool surface as a future ad slot.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/model-misalignment-reporting-framework">OpenAI — Model Misalignment Reporting Framework</a>
+      <span class="desc">A reusable taxonomy for tracking and disclosing unexpected model behavior; borrow it as a template for your own agent-incident log.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/scaling-storage-one-billion-users-part-one">OpenAI — Scaling Online Storage to Serve 1B ChatGPT Users (Habitat, 22M req/s)</a>
+      <span class="desc">Rare primary-source on the storage tier frontier-AI scale actually requires; a reference architecture for sharded stateful systems under conversational-AI access patterns.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/how-to-connect-ai-usage-to-business-value">OpenAI — How to Connect AI Usage to Business Value (ChatGPT Work &amp; Codex Analytics)</a>
+      <span class="desc">Practical playbook for measuring adoption-vs-spend and tying agent usage to outcomes — the metrics layer that justifies the model-cascading cost architecture.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/coindesk-indices/2026/09/15/crypto-long-and-short-six-signs-a-crypto-winter-is-ending">CoinDesk — Six Signs a Crypto Winter Is Ending</a>
+      <span class="desc">A framework for reading cycle-turn signals beyond the day-to-day price tape; pairs with today's Fed-hike and BTC-reserve cards as the structural lens.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-17 02:30 UTC · <strong>v4</strong> · Thursday (Edge AI / On-device ML tip rotation)</p>
+  <p><strong>Stories:</strong> 3 tips + 4 AI + 2 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+  <p><strong>Markets snapshot:</strong> Fed delivered its first hike since July 2023 (12–0 unanimous, +25bps to a 3.75–4.0% range, &gt;90% priced-in per CME FedWatch); BTC whipsawed $75.0K–$76.5K intraday, low ~$75,355, settled ~$75.8K (−1 to −1.5%); ETH tracked BTC. Policy/regulation: House committee advanced the Strategic Bitcoin Reserve bill (codifying Trump's plan, 20-year lockup of forfeited BTC); with the CLARITY Act stalled in the Senate (cf. Sep 16 "this one stings"), the SEC and CFTC said they're in "go time" to push crypto rules independently, and the House Ways and Means Committee advanced the Digital Asset Tax Certertainty Act (first federal crypto tax framework); UK FCA set crypto authorization guidance ahead of its September application window. Security/infra: Revolut hackers demanded $3M in Monero and threatened to sell customer data (a follow-on to the Sep 13 KYC-exposure incident); Celsius sued BitMEX for $495M over 2020-crash liquidations (6,360 BTC); DOJ filings showed Hamas' military wing told donors to avoid Binance and use Trust Wallet/Bybit/OKX/Kast/Redotpay. AI-adjacent: OpenAI unveiled "Sponsored Agents" advertising + HubSpot/Shopify integrations; OpenAI published a model-misalignment reporting framework (6 reports); OpenAI detailed Habitat storage scaling to 22M req/s for 1B ChatGPT users; OpenAI's ChatGPT Work + Codex analytics tied AI usage to business value; Coder launched Agent Relay for self-hosted VPC Claude Code; Anthropic gray-scale-tested Claude Opus 5.2 and added a /design plugin to Claude Code; OpenAI's Nov 12 termination of Cursor's direct API access (post-SpaceX/Anysphere $60B close) is the first real tool-acquisition-risk realization.</p>
+  <p><strong>Sources:</strong> WebSearch (8 queries — Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture, Cursor/OpenAI cutoff, BTC price post-Fed; all 8 succeeded and returned synthesized prose) + RSS (theblock ~20, cointelegraph ~30, coindesk ~25, openai.com/blog ~12, blog.google/technology/ai ~8 — 5 of 6 feeds OK; hnrss returned 502 Bad Gateway and was skipped; no Reddit feeds attempted per env restriction). Primary-source verification: OpenAI Blog RSS items (Sponsored Agents, Model-Misalignment Framework, Habitat, Business-Value analytics) verified via real openai.com/index URLs with Sep 11–16 dates; crypto cards (Fed hike, Strategic Bitcoin Reserve, SEC/CFTC push, crypto tax framework) verified via The Block/Cointelegraph/CoinDesk RSS with real Sep 16–17 article URLs; BTC post-Fed price point and Cursor OpenAI-cutoff specifics are WebSearch-sourced and explicitly caveated in-card. No WebFetch of authenticated/internal URLs.</p>
+  <p><strong>Dedup:</strong> All 5 past reports loaded locally (Sep 12–16, ~110 prior topics indexed across titles, concepts, and tips). Filtered: the OpenAI×Anthropic×Google "AI safety standards body / pace the frontier" story (carded Sep 13 + Sep 14 — the Sep 17 FINRA-model DC briefing is a continuation, folded into the snapshot not re-carded), Cognition Devin self-testing with GPT-6 Astra (carded Sep 12), Perplexity trusts GPT-6 Astra (carded Sep 13), Fyxer AI executive assistant (carded Sep 15), GitSpawn vulnerability (carded Sep 13 as the Vibe card + Pre/Post-hooks tip referenced it — folded into snapshot), Google's AI &amp; Economy ATLAS (carded Sep 16), the CLARITY Act Senate failure (carded Sep 16 — today's SEC/CFTC + tax-framework card is the post-failure <em>pivot</em>, a distinct angle, not a re-card), Revolut KYC exposure (carded Sep 13 — today's Monero-extortion follow-on folded into snapshot), and the broader prior on-device ML tip set (MLX-LoRA, Foundation-Models guided JSON, ANE-CPU fallback, palettization, os-signposts, BGTaskScheduler, on-device embeddings, weight encryption, QAT, MLX speculative decoding, whisper.cpp, ONNX Mobile, MLX-vs-CoreML decision matrix, Background-Assets+mmap delivery, Foundation-Models tool-calling — covered Sep 1–12; today's three Edge-AI tips go to Core-ML-stateful-models, the hybrid ANE+MLX pipeline, and a physical-device benchmark harness, all fresh angles). Prior concept set also filtered (local-first/CRDT, agentic supply-chain infiltration, DeFi's federal bank, context engineering, verification-driven development, modular monolith, model fatigue, coordinated agentic risk, MCP-vs-ACP, tool-acquisition risk, white-hat extraction, agent API-ification, AI capex→systemic risk, architecture-as-code, agent control plane — only fresh spec-driven-agentic-engineering + model-cascading/SLM-first-routing + post-clarity-regulatory-fragmentation carded).</p>
+  <table>
+    <thead><tr><th>Section</th><th>Items</th><th>Primary source</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Tips</td><td>3</td><td>WebSearch synthesis + Apple docs</td></tr>
+      <tr><td>AI Tools</td><td>4</td><td>OpenAI Blog RSS (3) + WebSearch (Claude Code)</td></tr>
+      <tr><td>Vibe / Dev Tools</td><td>2</td><td>WebSearch (caveated)</td></tr>
+      <tr><td>Crypto &amp; Markets</td><td>3</td><td>The Block / Cointelegraph / CoinDesk RSS</td></tr>
+      <tr><td>Hot Concepts</td><td>3</td><td>WebSearch synthesis</td></tr>
+      <tr><td>Worth Reading</td><td>5</td><td>OpenAI Blog RSS + CoinDesk RSS</td></tr>
+    </tbody>
+  </table>
+</footer>
+
+</body>
+</html>
