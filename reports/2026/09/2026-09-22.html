@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-22</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">September 22, 2026 · Tuesday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Tuesday — AI x iOS: CoreML, Create ML, MLX on-device inference) ===== -->
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips &mdash; AI x iOS (Core ML · Create ML · MLX On-Device)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">MLX · Speculative Decoding</span>
+    <strong>Run Speculative Decoding On-Device &mdash; ANE Draft (Core ML) + GPU Verify (MLX Swift) for ~1.5&ndash;2&times; tok/s</strong>
+    <p>The highest-leverage on-device-LLM speedup is also the least-used on iOS: a tiny quantized <em>draft</em> model runs on the Apple Neural Engine via Core ML proposing tokens, while the main model verifies them on the GPU via MLX Swift &mdash; gaining 1.5&ndash;2&times; tokens/sec with zero quality loss, because the ANE excels at the compute-dense draft-proposal step and the GPU handles the memory-bandwidth-bound verify. <strong>Why it matters:</strong> it&rsquo;s the concrete use of the hybrid ANE+MLX split (carded Sep 17 as a topology) pushed into an actual inference optimization, and it&rsquo;s the pattern that makes a 3B-SLM chat feel instant. <strong>How to use it:</strong> enable the draft path in <code>mlx-lm</code> (prompt-lookup or a small matched draft model), let Core ML compile the draft to the ANE, and pass proposals through a shared <code>IOSurface</code> buffer so there&rsquo;s no copy &mdash; benchmark with the physical-iPhone harness from Sep 17, never the simulator. <a href="https://github.com/ml-explore/mlx-swift-examples">MLX Swift examples →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Apple Intelligence</span>
+    <strong>Default to the System Foundation Models API Before Bundling a 4-bit SLM &mdash; Zero App-Download Footprint</strong>
+    <p>Before you ship a bundled <code>.mlpackage</code> or MLX weights file, check Apple&rsquo;s <strong>Foundation Models</strong> framework (System Foundation Models API): it exposes the on-device ~3B Apple Intelligence model (summarization, proofreading, entity extraction, tool-calling) with <strong>no model download, no added app size, OS-managed context, and ANE-optimized thermals</strong> &mdash; the system model is the zero-cost default. <strong>Why it matters:</strong> for an iOS feature that needs summarization/extraction, the system model is the right first choice; you only fall back to a bundled MLX weights file when you need a model the system one can&rsquo;t run (custom open-weights LLM, fine-tuned behavior) &mdash; and that decision directly shapes your app-size and battery budget. <strong>How to use it:</strong> guard on Apple-Intelligence availability, call the system model first, and reserve <code>mlx-lm</code> 4-bit conversion for the features the system model can&rsquo;t cover. <a href="https://developer.apple.com/machine-learning/">Apple ML →</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Memory · Jetsam</span>
+    <strong>Budget the KV-Cache Against Jetsam &mdash; Poll <code>os_proc_available_memory()</code> and Shed Before iOS Kills Your App</strong>
+    <p>The #1 cause of on-device-LLM crashes isn&rsquo;t the model weights &mdash; it&rsquo;s the unbounded KV-cache growing under long context: a 4-bit 3B SLM needs ~1.6&ndash;2 GB of weights, and iOS terminates foreground apps past ~3.5&ndash;5 GB on a 6&ndash;8 GB device, so a long conversation&rsquo;s KV-cache is what pushes you over. <strong>Why it matters:</strong> it&rsquo;s the memory analog of the thermalState gate (Sep 15) &mdash; you must shed load before the Jetsam killer fires, not after &mdash; and it directly determines your usable max context length. <strong>How to use it:</strong> cap <code>max_tokens</code>/context, evict oldest KV pages on a rolling basis, and poll <code>os_proc_available_memory()</code> each turn to degrade gracefully (truncate history) before the OS acts. <a href="https://developer.apple.com/documentation/foundation/processinfo/1410902-bytesavailable">ProcessInfo →</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI · Safety</span>
+    <h3><a href="https://openai.com/index/building-standards-next-phase-ai">OpenAI &ldquo;Building Standards for the Next Phase of AI&rdquo; &mdash; Cross-Lab Safety Body With Anthropic + Google DeepMind, Backing the FRONTIER Act</a></h3>
+    <p>OpenAI published <strong>&ldquo;Building standards for the next phase of AI&rdquo;</strong> (Sep 21, RSS-verified openai.com/index/building-standards-next-phase-ai) confirming weeks of coordination with Anthropic and Google DeepMind on a <strong>FINRA-style self-regulatory standards body</strong> that independently tests frontier models before deployment, with Altman and Hassabis endorsing Amodei&rsquo;s call to slow frontier rollouts; the labs back the bipartisan <strong>FRONTIER Act</strong> (in-lab independent verifiers), and a <strong>consumer class-action</strong> alleges the private pacts stifle competition. <strong>Why it matters:</strong> the access-control / safety-tier pattern (cf. Sep 21 Mythos / Daybreak Blue) is becoming formal <em>industry policy</em> &mdash; and the SRO + statute route is the template a regulated-finance reader should expect to gate high-stakes model tiers. <em>(RSS primary + WebSearch synthesis; HN-adjacent &mdash; NBC News via HN reports OpenAI flagged 6 new &ldquo;concerning&rdquo; behavior incidents and unveiled a tracking plan, the operational version of this move.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Codex · Security</span>
+    <h3><a href="https://accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice/">OpenAI Codex &ldquo;Heapjack&rdquo; &amp; &ldquo;Overpatch&rdquo; Sandbox Escapes Patched &mdash; Update CLI &ge;0.149.0 / Desktop &ge;26.818</a></h3>
+    <p>Security firm Accomplish disclosed two Codex sandbox escapes (Sep 21, HN-verified accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice): <strong>&ldquo;Heapjack&rdquo;</strong> extracted trust tokens from a shared V8 heap to run unsandboxed commands &mdash; even in read-only mode &mdash; and <strong>&ldquo;Overpatch&rdquo;</strong> abused <code>apply_patch</code> write perms to escape the workspace root and edit system config like <code>.zshrc</code>; OpenAI patched both within 8 days (Codex CLI 0.149.0+, Desktop 26.818+). <strong>Why it matters:</strong> actionable today &mdash; if you run Codex CLI/Desktop, upgrade now &mdash; and the bug class (token reuse + file-write privilege escalation) is the exact shape of the agent-sandboxing debate carded Sep 15 (defense-in-depth) and Sep 16 (deterministic sandwich). <strong>How to use it:</strong> upgrade, then audit your Codex allowed-paths / sandbox config the way you&rsquo;d audit a CI runner. <a href="https://openai.com/index/codex">Codex →</a></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">xAI · Coding Model</span>
+    <h3><a href="https://x.ai/news">xAI Grok 4.7 &mdash; Tuned for Multi-File Software Engineering &amp; Autonomous Coding Agents (500K Context)</a></h3>
+    <p>xAI released <strong>Grok 4.7</strong> (Sep 21, WebSearch), optimized for multi-file software engineering and long-running autonomous coding-agent tasks with improved reinforcement learning on repo-scale objectives, retaining a <strong>500K-token context window</strong>. <strong>Why it matters:</strong> it pushes the coding-model frontier beyond Claude/GPT into Grok, positioned for the same whole-repo agentic loops carded across September &mdash; and the multi-file-RL framing means it&rsquo;s built for the orchestrator-worker / agentic-design-pattern topologies (Sep 21) rather than single-file autocomplete. <strong>How to use it:</strong> benchmark Grok 4.7 against your current coding agent on a real multi-file refactor (e.g. a SDK migration) before committing &mdash; treat the 500K window as an enabler for full-repo context, not a reason to skip context-curation. <em>(WebSearch-sourced; verify on x.ai/news.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Open-Weight · Model</span>
+    <h3><a href="https://huggingface.co/XiaomiMiMo">Xiaomi MiMo-V2.6 &mdash; Open-Weight (MIT), 1M-Context, Specialized for Code Refactoring &amp; Cybersecurity</a></h3>
+    <p>Xiaomi released <strong>MiMo-V2.6</strong> (Sep 21, WebSearch) under an <strong>MIT license</strong> with a <strong>1M-token context window</strong>, specialized for autonomous code refactoring and cybersecurity vulnerability analysis &mdash; fully open-weight, so runnable locally. <strong>Why it matters:</strong> an MIT-licensed 1M-context coding/cybersecurity model is the natural on-device / local-inference candidate for an iOS dev experimenting with MLX Swift (cf. today&rsquo;s tips) &mdash; no API dependency, no vendor lock-in, and the license clears enterprise use. <strong>How to use it:</strong> pull the weights from Hugging Face, convert to MLX 4-bit via <code>mlx-lm</code>, and run a local vuln-scan + refactor loop against a sample repo to size where a 1M window actually earns its memory cost. <em>(WebSearch-sourced; verify on huggingface.co/XiaomiMiMo.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google · Mobile Testing</span>
+    <h3><a href="https://github.com/google">Google ARTEMIS &mdash; Open-Source MCP Framework for Coding Agents to Test &amp; Navigate Android Apps Natively</a></h3>
+    <p>Google open-sourced <strong>ARTEMIS</strong> (WebSearch, week of Sep 21), an automation framework that lets coding agents test and navigate Android applications natively via the <strong>Model Context Protocol</strong> &mdash; executing natural-language commands on physical and virtual devices. <strong>Why it matters:</strong> it&rsquo;s the mobile-testing analog to the Playwright/Cypress browser sandboxes agents already use in their verify loops &mdash; and for a team shipping Android alongside iOS (Binance), it closes the gap where an agent could refactor a view but couldn&rsquo;t drive an emulator to confirm it built and ran. <strong>How to use it:</strong> register ARTEMIS as an MCP tool-server so your coding agent can launch an emulator, tap through a flow, and read logcat inside its own verify step (cf. Sep 16 deterministic sandwich). <em>(WebSearch-sourced; verify on github.com/google.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">CI/CD · Code Review</span>
+    <h3><a href="https://github.com/features/codeql">OpenCodeReview CLI &mdash; Terminal Agent Fusing Static Analysis + LLMs for Line-Level CI/CD Reviews</a></h3>
+    <p><strong>OpenCodeReview CLI</strong> (WebSearch, Sep 21) is an open-source terminal agent that merges deterministic static-analysis pipelines with LLMs to deliver <strong>line-level code reviews</strong> &mdash; targeting race conditions, SQL injection, and null-pointer exceptions &mdash; directly in CI/CD. <strong>Why it matters:</strong> it&rsquo;s the <strong>deterministic-plus-probabilistic</strong> combination (cf. Sep 16 sandwich, Sep 21 HydraFusion cross-model critique) applied to the review gate itself: the SAST pipeline supplies ground-truth findings so the LLM annotates <em>real</em> issues instead of hallucinating style nits. <strong>How to use it:</strong> add it as a required CI status check that runs <em>after</em> the SAST pass, letting the LLM only enrich confirmed findings with fix-suggestions &mdash; gate the merge on the SAST layer, not the LLM prose. <em>(WebSearch-sourced.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">CopilotKit · Channels</span>
+    <h3><a href="https://github.com/CopilotKit/CopilotKit">CopilotKit Channels SDK &mdash; Ship Coding/Support Agents Into Slack, Discord &amp; Teams With Native UI</a></h3>
+    <p>CopilotKit released the open-source <strong>Channels SDK</strong> (WebSearch, Sep 21), letting developers deploy coding and support agents directly into Slack, Discord, and Microsoft Teams with native UI components, streaming responses, and file-handling hooks. <strong>Why it matters:</strong> it operationalizes <em>agent as a teammate in the chat channel</em> &mdash; the deployment surface for internal tooling/support agents (distinct from the IDE surface for coding agents) &mdash; and it&rsquo;s the channel-integration complement to the agent-runtime moves (Sep 18 OpenAI Agents API, Sep 21 Claude Code Projects). <strong>How to use it:</strong> prototype one internal-support agent (e.g. an on-call runbook lookup) in your team&rsquo;s chat before generalizing; reuse the streaming + file-handling primitives rather than rebuilding per platform. <em>(WebSearch-sourced.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets · Rally</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-09-21-bitcoin-taps-85000-for-first-time-since-january-as-crypto-short-liquidations-surge-415905">Bitcoin Taps $85K&ndash;$86K (First Time Since January) as Short Liquidations Surge &mdash; Traders Warn Leverage Building</a></h3>
+    <p>Over Sep 21 (RSS-verified The Block / Cointelegraph / CoinDesk) <strong>Bitcoin ripped through $85K &mdash; its highest since January &mdash; tagging $86K</strong> as short liquidations surged, with CoinDesk framing a <strong>$90K test</strong> if the squeeze continues but flagging that <strong>leverage is building</strong>; BTC&rsquo;s Q3 gain is now <strong>~44%</strong>. <strong>Why it matters:</strong> it&rsquo;s the continuation of the Sep 18 $80K-reclaim V-recovery (carded) &mdash; the bull case (Tom Lee: &ldquo;crypto bull market underway&rdquo;, institutions underweight) is now the consensus tape; the live risk variable is leverage, not lagged news. <strong>How to use it:</strong> treat $85&ndash;86K as the new short-term support to defend; the same leverage fueling the squeeze is what amplifies a squeeze-down, so size for both directions. <em>(RSS-verified; The Block + Cointelegraph + CoinDesk, real Sep 21 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Big Tech · Recruiting</span>
+    <h3><a href="https://www.coindesk.com/business/2026/09/21/google-and-apple-seek-crypto-talent-as-big-tech-eyes-stablecoin-and-tokenization-rails">Google &amp; Apple Seek Crypto Talent as Big Tech Eyes Stablecoin &amp; Tokenization Rails</a></h3>
+    <p>CoinDesk reported (Sep 21, RSS-verified) that <strong>Google and Apple are hiring crypto talent</strong> as Big Tech eyes stablecoin and tokenization rails &mdash; the clearest signal yet that the consumer platforms are building payments/asset rails on-chain. <strong>Why it matters:</strong> for a reader at the intersection of iOS and Binance this is the most directly relevant story of the cycle &mdash; Apple building on stablecoin rails would reshape the iOS payments surface, and the job reqs are a leading indicator of a roadmap that changes what a mobile/crypto engineer should be building. <strong>How to use it:</strong> track the specific job postings as a forward signal; map your stablecoin/tokenization + iOS skill surface against them. <em>(RSS-verified on coindesk.com, real Sep 21 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">ECB · Tokenization</span>
+    <h3><a href="https://cointelegraph.com/news/eurosystem-central-bank-money-tokenized-finance">ECB Launches &ldquo;Pontes&rdquo; to Settle Tokenized Assets in Central-Bank Money (No Stablecoins) &amp; Plans to Buy Tokenized Bonds With Its Own Funds</a></h3>
+    <p>The ECB launched <strong>Pontes</strong> (Sep 21, RSS-verified Cointelegraph / CoinDesk), a platform to settle tokenized assets in <strong>central-bank money without stablecoins</strong>, and announced it will <strong>invest its own funds in tokenized securities via Pontes</strong> &mdash; the most aggressive G3 central-bank tokenization move to date. <strong>Why it matters:</strong> it reframes the RWA/settlement stack from <em>private stablecoin</em> to <em>central-bank-money-native</em>, and competes directly with private settlement rails &mdash; a structural shift for any tokenized-asset roadmap (cf. Sep 18 SEC tokenized-stocks arc). <strong>How to use it:</strong> size your tokenization settlement strategy against central-bank-money rails, not just stablecoin rails; the Pontes timeline is the gate to watch. <em>(RSS-verified; Cointelegraph + CoinDesk, real Sep 21 URLs.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Platform Eng</span>
+    <strong>Platform Engineering &amp; Internal Developer Platforms (IDPs) &mdash; &ldquo;Paved Roads&rdquo; With DevEx-as-a-SLA</strong>
+    <p>Platform engineering has consolidated into <strong>Internal Developer Platforms</strong>: self-service portals (Backstage), standardized deployment templates, ephemeral environments, and declarative infra (Crossplane, OpenTofu) &mdash; with <strong>DevEx measured as an SLA</strong> (deployment frequency, MTTR, onboarding speed), not a vibe. <strong>Why it matters NOW:</strong> it&rsquo;s the org-level answer to the agentic-coding verification bottleneck &mdash; a paved road with embedded guardrails (CI/tests/observability pre-wired) is exactly what lets coding agents ship safely at speed, and it&rsquo;s the infra-layer complement to the modular-monolith (Sep 21) and the deterministic-sandwich (Sep 16). <strong>How to use it:</strong> make one golden-path template (e.g. a new microservice scaffold with CI + tests + tracing wired) your first IDP deliverable; measure onboarding time to a running dev env as the leading DevEx metric. <a href="https://backstage.io/">Backstage →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">FinOps</span>
+    <strong>FinOps &amp; Carbon-Aware (Green) Architecture &mdash; Cost &amp; Energy as First-Class NFRs</strong>
+    <p>AI inference workloads and multi-region clusters have made <strong>cost and energy first-class non-functional requirements</strong>: carbon-aware scheduling (running batch indexing / model retraining during low-carbon-grid windows), resource optimization via Rust/Go for memory/compute footprint, and per-request cost tagging. <strong>Why it matters NOW:</strong> it&rsquo;s the pragmatic flipside of the agentic surge &mdash; more agent runs = more inference spend = the billing line item that forces FinOps into the architecture itself, and the modulith (Sep 21) + IDP patterns both serve it (fewer network hops, shared infra, less idle compute). <strong>How to use it:</strong> tag every agent run with model + token cost; schedule non-urgent eval/retraining into overnight low-carbon windows; flag the top-3 inference-cost endpoints for a Rust/Go rewrite. <a href="https://lfnetworking.org/charter-for-a-carbon-aware-computing-research-group-cc-rg-proposed/">Carbon-aware computing →</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Protocol</span>
+    <strong>MCP Authorization Moving Into the IAM Layer &mdash; Tool Permissions Become SSO/OAuth Scopes</strong>
+    <p>The Model Context Protocol (carded Sep 16/18 as the universal agent&ndash;tool protocol) has matured one step further in 2026: <strong>authorization has moved into the enterprise identity-and-access-management (IAM) layer</strong>, so agent tool-permissions are now managed like any other SSO/OAuth scope &mdash; not hand-wired per agent. <strong>Why it matters NOW:</strong> it&rsquo;s the maturation step that turns MCP from a dev convenience into an enterprise-grade access-control plane, and it&rsquo;s the missing piece between the agent topologies (Sep 21 design patterns) and real production deployment &mdash; it&rsquo;s what lets your security team bless an agent stack instead of blocking it. <strong>How to use it:</strong> model MCP tool-scopes as IAM groups, audit agent tool-access through your existing IdP logs (not a separate agent console), and treat scope-expansion as a reviewed change. <a href="https://modelcontextprotocol.io/">MCP →</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section worth-reading">
+  <h2>📚 Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/building-standards-next-phase-ai">OpenAI &mdash; Building standards for the next phase of AI</a>
+      <span class="desc">RSS-verified primary source (Sep 21) for today&rsquo;s lead AI card: the cross-lab self-regulatory body with Anthropic + Google DeepMind and the FRONTIER Act endorsement.</span>
+    </li>
+    <li>
+      <a href="https://accomplish.ai/blog/escaping-the-openai-codex-sandbox-twice/">Accomplish &mdash; Escaping the OpenAI Codex sandbox, twice</a>
+      <span class="desc">HN-trending primary behind today&rsquo;s Codex security card: the Heapjack + Overpatch sandbox escapes and the 8-day patch timeline &mdash; read it before upgrading Codex.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/markets/2026-09-21-bitcoin-taps-85000-for-first-time-since-january-as-crypto-short-liquidations-surge-415905">The Block &mdash; Bitcoin taps $85K for first time since January as crypto short liquidations surge</a>
+      <span class="desc">RSS-verified primary behind today&rsquo;s lead crypto card: the short-squeeze through $85K with the leverage-buildup caveat.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/09/21/google-and-apple-seek-crypto-talent-as-big-tech-eyes-stablecoin-and-tokenization-rails">CoinDesk &mdash; Google and Apple seek crypto talent as Big Tech eyes stablecoin and tokenization rails</a>
+      <span class="desc">The most directly reader-relevant story of the cycle: Big Tech building on-chain payments/asset rails and hiring for it.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/eurosystem-central-bank-money-tokenized-finance">Cointelegraph &mdash; ECB launches Pontes to settle tokenized assets in central-bank money</a>
+      <span class="desc">The structural tokenization-rails shift: central-bank-money-native settlement vs. private stablecoin settlement.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-22 ~02:45 UTC · <strong>v4</strong> · Tuesday (AI x iOS tip rotation &mdash; speculative decoding on the ANE+GPU, Apple System Foundation Models API, KV-cache/Jetsam budgeting)</p>
+  <p><strong>Stories:</strong> 3 tips + 4 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+  <p><strong>Markets snapshot:</strong> <strong>Bitcoin ripped through $85K</strong> on Sep 21 (highest since January), tagging <strong>$86K</strong> as short liquidations surged, with CoinDesk framing a <strong>$90K test</strong> but flagging <strong>leverage build-up</strong> (carded) &mdash; BTC&rsquo;s Q3 gain is now <strong>~44%</strong>. The bull case is now consensus: <strong>Tom Lee says &ldquo;crypto bull market underway&rdquo;</strong> and institutions remain underweight (Cointelegraph); <strong>Strategy bought 950 BTC for $76M</strong> (total 846K BTC, The Block/Cointelegraph/CoinDesk, Sep 21). Tokenization/RWA: the <strong>ECB launched Pontes</strong> to settle tokenized assets in central-bank money and plans to buy tokenized bonds with its own funds (carded); <strong>Ondo lets institutions convert stocks directly into tokenized shares</strong> (Cointelegraph, Sep 21); <strong>Circle launched Bitcoin-backed USDC borrowing</strong> for institutions (Cointelegraph, Sep 21). Regulation/politics: post-Clarity, <strong>Fairshake PAC committed $30M against Sherrod Brown</strong> (The Block/Cointelegraph/CoinDesk, Sep 21); <strong>Treasury&rsquo;s Bessent championed dollar dominance via stablecoins</strong> (CoinDesk) and <strong>told CNBC the Trump admin won&rsquo;t give AI leaders a &ldquo;liability shield&rdquo;</strong> (HN/CNBC, Sep 21); <strong>Saudi Arabia exited the China-backed mBridge CBDC project</strong> (Cointelegraph/FT, Sep 21). Politics/risk: <strong>Polymarket faced a $10M fraud attempt</strong> as its CEO pushed growth over compliance (The Block/WSJ, Sep 20). Corporate: <strong>Coinbase opens IPO allocations to US customers starting with Oura</strong> (The Block, Sep 21); <strong>ZetaChain voted to shut down its L1 and move ZETA to Solana</strong> (The Block, Sep 20). Big Tech: <strong>Google &amp; Apple seek crypto talent</strong> for stablecoin/tokenization rails (carded). Macro/Treasuries: Bessent on bond affordability + AI liability (CNBC, Sep 21). Stability items: <strong>Claude elevated errors for multiple models</strong> (status.claude.com, Sep 21, HN) and <strong>Grok API/Grok.com outages</strong> (status.x.ai, Sep 21, HN).</p>
+  <p><strong>Sources:</strong> WebSearch (7 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose) + RSS (theblock, cointelegraph, coindesk, hnrss.org, openai.com/blog, blog.google/technology/ai &mdash; all 6 feeds OK this cycle, including hnrss.org which had returned 502 yesterday; ~10 latest items parsed per feed via Python). Primary-source verification: OpenAI Blog RSS &ldquo;Building standards for the next phase of AI&rdquo; (Sep 21) verified via real openai.com/index URL; the Codex Heapjack/Overpatch escapes verified via accomplish.ai blog trending on HN (Sep 21); crypto cards (BTC $85&ndash;86K short-squeeze, Google/Apple crypto talent, ECB Pontes) verified via The Block / CoinDesk / Cointelegraph RSS with real Sep 21 article URLs. xAI Grok 4.7, Xiaomi MiMo-V2.6, Google ARTEMIS, OpenCodeReview CLI, and CopilotKit Channels SDK are WebSearch-sourced and explicitly caveated in-card. No WebFetch of authenticated/internal URLs; no Reddit feeds attempted per env restriction.</p>
+  <p><strong>Dedup:</strong> 5 prior reports indexed locally (Sep 15, 16, 17, 18, 21 &mdash; Sep 19/20 weekend reports absent, first-run-equivalent for those slots). ~90+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: Claude Code Projects / always-on coordinator (Sep 18), OpenAI terminates Cursor API Nov 12 (Sep 17), Context Engineering / GraphRAG (Sep 15), Modular Monolith + Agentic Design Patterns + Wasm Component Model (Sep 21 &mdash; same architecture search surfaced them again today), Cell-Based Architecture + Data-Contract-First/Event-Driven (Sep 18), Spec-Driven Agentic Engineering (Sep 17), the Fed hike (Sep 17) and Clarity failure (Sep 16), and the Sep 18 BTC-$80K-reclaim card (today&rsquo;s BTC-$85&ndash;86K card is the fresh continuation). Prior tip set filtered: Core ML stateful + concurrent CoreML/MLX + physical benchmark harness (Sep 17), Create ML programmatic + thermalState gating (Sep 15) &mdash; today&rsquo;s Tuesday-theme tips go to on-device speculative decoding, the Apple System Foundation Models API, and KV-cache/Jetsam budgeting, all fresh angles. Prior concept set filtered &mdash; only fresh Platform Engineering/IDPs, FinOps/Carbon-Aware, and MCP-into-IAM carded. Dedup count: 5 reports indexed, ~90+ prior topics filtered against.</p>
+  <table>
+    <thead><tr><th>Section</th><th>Items</th><th>Primary source</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Tips</td><td>3</td><td>WebSearch synthesis (CoreML/MLX/iOS) + Apple docs</td></tr>
+      <tr><td>AI Tools</td><td>4</td><td>OpenAI Blog RSS (standards) + HN (Codex escapes) + WebSearch (Grok 4.7, MiMo-V2.6)</td></tr>
+      <tr><td>Vibe / Dev Tools</td><td>3</td><td>WebSearch (caveated)</td></tr>
+      <tr><td>Crypto &amp; Markets</td><td>3</td><td>The Block / CoinDesk / Cointelegraph RSS</td></tr>
+      <tr><td>Hot Concepts</td><td>3</td><td>WebSearch synthesis</td></tr>
+      <tr><td>Worth Reading</td><td>5</td><td>OpenAI Blog RSS + HN + The Block RSS + CoinDesk RSS + Cointelegraph RSS</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> · Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
