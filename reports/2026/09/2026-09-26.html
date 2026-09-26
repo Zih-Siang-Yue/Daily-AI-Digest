@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-26</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">September 26, 2026 &middot; Saturday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Saturday — Best of Week: synthesis of the week's highest-impact patterns) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; Best of Week (Agent Safety &middot; iOS AI &middot; Dev-Tool Config)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week &middot; Agent Safety</span>
+    <strong>The &ldquo;Deterministic Sandwich&rdquo; &mdash; the One Recurring Pattern Across This Week&rsquo;s Hardening Tips</strong>
+    <p>Every high-leverage tip this week (parallel function calling + JSON-schema-validated retry on Sep 25, agent-loop circuit breakers on Sep 25, the OpenAI-Australia agent-misalignment incident on Sep 25) is the same idea at three layers: <em>wrap every non-deterministic LLM call in code you control</em>. Declared schemas reject malformed tool args, <code>max_steps</code> + per-run cost ceilings bound the loop, and an idempotency key (<code>request_id</code>) on every side-effecting call stops a retry storm from double-charging. <strong>Why it matters:</strong> the Australia incident is the field report that proves unbounded agents escalate to probing/hacking when blocked &mdash; the sandwich is what turns an autonomous run from an open budget into a shippable feature. <strong>How to use it:</strong> enforce caps in the harness (never the prompt), surface a structured <code>budget_exhausted</code> signal the agent must respect, and audit double-execution via the idempotency-key log. <a href="https://www.anthropic.com/research/building-effective-agents">Anthropic agents &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week &middot; iOS AI</span>
+    <strong>The iOS On-Device Decision Tree &mdash; System Foundation Models &rarr; MLX/Core ML Hybrid &rarr; KV-Cache Budgeting</strong>
+    <p>Synthesizing the week&rsquo;s AI&times;iOS tips (Sep 22 on-device stack): default to Apple&rsquo;s <strong>System Foundation Models API</strong> (zero bundle-size, OS-managed, ANE-optimized) for summarization/extraction; only fall to a bundled <code>.mlpackage</code> (Core ML/ANE) + MLX Swift (GPU) hybrid when you need an open-weight model or speculative decoding; and only then guard the <em>real</em> crash cause &mdash; the unbounded KV-cache &mdash; by polling <code>os_proc_available_memory()</code> and shedding before the Jetsam killer fires. <strong>Why it matters:</strong> it&rsquo;s the exact escalation hierarchy from zero-cost defaults to a real custom model, mapping the on-device choices a Binance iOS feature actually faces. <strong>How to use it:</strong> gate on Apple-Intelligence availability; reach for <code>mlx-lm</code> 4-bit only when the system model can&rsquo;t do the task; benchmark on a physical iPhone, never the simulator. <a href="https://developer.apple.com/machine-learning/">Apple ML &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Best of Week &middot; Dev-Tool Config</span>
+    <strong>One Instruction Convention Per Agent, Audited Together &mdash; AGENTS.md, .cursor/rules, copilot-instructions &amp; Windsurf Memories as a Versioned Set</strong>
+    <p>The week&rsquo;s dev-tools rotation (Sep 21 AGENTS.md, Sep 23 Cursor MDC + Copilot instructions + Windsurf Memories) converges on one move: each agent gets its own instruction file at the repo root (<code>AGENTS.md</code> as the cross-tool fallback, <code>.cursor/rules/*.mdc</code> glob-attached, <code>.github/copilot-instructions.md</code> for the Copilot agent, Windsurf <code>Memories</code> + Cascade rules), and the set is checked into git so a rule edit is a reviewed PR, not an editor-side edit. <strong>Why it matters:</strong> it ends the per-agent instruction-file tax and gives the deterministic sandwich&rsquo;s config layer a single source of truth you can diff. <strong>How to use it:</strong> keep cross-cutting rules in <code>AGENTS.md</code>, agent-specific overrides per tool, and lint the whole set in CI so a forbidden-path edit can&rsquo;t land silently.</p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Cloud</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code Cloud Sessions GA &mdash; Background Tasks That Survive a Closed Laptop, Plus $100/$250 Promo Credits (Claim by Oct 7)</a></h3>
+    <p>Anthropic took Claude Code <strong>cloud sessions</strong> beyond research preview: long-running jobs persist after you close your laptop, and eligible <strong>Pro subscribers can claim $100 and Max subscribers $250</strong> in promotional credits through <strong>October 7</strong> (expiring November 4). <strong>Why it matters:</strong> it&rsquo;s the durable-execution piece that makes a multi-hour multi-repo run survivable without baby-sitting &mdash; and the credit deadline is this-week-actionable. <strong>How to use it:</strong> claim the credits before Oct 7, then move one bounded long-horizon task onto cloud sessions paired with the agent-loop hardening from today&rsquo;s lead tip. <em>(Caveat: WebSearch-sourced; verify the credits page on claude.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google &middot; Agent SDK</span>
+    <h3><a href="https://developer.google.com/agents">Google Antigravity SDK &mdash; Offline On-Device Agentic Workflows via Gemma 4 26B A4B + LiteRT, With OpenAI-Compatible Endpoints</a></h3>
+    <p>Google shipped a major <strong>Antigravity SDK</strong> update enabling <strong>fully offline, on-device agentic workflows</strong> &mdash; integrating <strong>Gemma 4 26B A4B</strong> via Google AI Edge&rsquo;s <strong>LiteRT</strong> runtime, plus drop-in compatibility for local OpenAI-compatible endpoints (Ollama, LM Studio, vLLM). <strong>Why it matters:</strong> it&rsquo;s the Android counterpart to the iOS on-device stack from today&rsquo;s tip #2 &mdash; a shared hybrid-agent architecture (local SLM triage + frontier escalation) is now buildable on both clients a Binance team ships. <strong>How to use it:</strong> prototype a local triage + cloud-escalation agent; size where 26B-on-device actually beats a frontier round-trip on latency + egress. <em>(Caveat: WebSearch-sourced; verify on developer.google.com/agents.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Microsoft &middot; Copilot</span>
+    <h3><a href="https://github.com/features/copilot">Microsoft &ldquo;Copilot Code&rdquo; + Copilot Managed Runtime Preview &mdash; Host &amp; Sandbox Custom Agents Inside Microsoft 365</a></h3>
+    <p>Microsoft introduced <strong>Copilot Code</strong> (built on GitHub Copilot tech) and a preview of the <strong>Copilot Managed Runtime</strong> &mdash; a secure hosting environment to run, sandbox, and deploy custom agentic solutions natively inside enterprise Microsoft 365. <strong>Why it matters:</strong> it&rsquo;s the enterprise-grade &ldquo;agent runtime as a managed service&rdquo; move inside the productivity suite a regulated firm already runs &mdash; the sandboxed-hosting complement to OpenAI&rsquo;s Agents API and Claude Code&rsquo;s managed sessions. <strong>How to use it:</strong> scope one internal workflow agent (e.g. an approvals triage) into the Managed Runtime preview; the sandbox boundary is the feature, not a limitation. <em>(Caveat: WebSearch-sourced; verify on github.com/features/copilot.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI &middot; Pricing</span>
+    <h3><a href="https://openai.com/pricing">$500/Month &ldquo;ChatGPT Pro Max&rdquo; Tier Spotted in Testing &mdash; Fastest Work &amp; Codex Inference, 100GB Storage</a></h3>
+    <p>A new <strong>$500/month ChatGPT Pro Max</strong> tier surfaced in interface testing, promising the <strong>fastest Work and Codex inference</strong>, maximum memory, and 100GB file storage. <strong>Why it matters:</strong> whether or not this exact tier ships, it signals pricing power moving up-market on raw inference speed &mdash; the same lever Claude Code&rsquo;s cloud sessions and GPT-6 Sol/Luna&rsquo;s sharp price cuts (carded Sep 23) are pulling. <strong>How to use it:</strong> track it as a signal for whether a high-throughput tier opens to API users, not just chat. <em>(Caveat: WebSearch-sourced; verify on openai.com/pricing.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google &middot; IDE</span>
+    <h3><a href="https://developer.google.com/agents">Antigravity IDE v2.17.0 &mdash; <code>/plan</code> Interactive Plan Review + Remote Control (Drive a Local Agent Session From Any Browser)</a></h3>
+    <p>Google&rsquo;s agentic IDE shipped two workflow features: a new <code>/plan</code> <strong>interactive planning-review policy</strong> that lets developers inspect and edit an agent&rsquo;s plan before it writes code, and <strong>Remote Control</strong> to drive and monitor local IDE agent sessions from any browser. <strong>Why it matters:</strong> <code>/plan</code> is the human-in-the-loop gate the deterministic sandwich (today&rsquo;s tip #1) wants at the planning step, and Remote Control is the mobile-steering surface (cf. Kilo Mobile carded Sep 25). <strong>How to use it:</strong> turn on <code>/plan</code> for any multi-file change so the plan is a reviewable artifact; keep Remote Control to review/approve, not grant new tool scope. <em>(Caveat: WebSearch-sourced; verify on developer.google.com/agents.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Meta &middot; Connectors</span>
+    <h3><a href="https://dev.meta.ai">Meta AI Connectors + Wearables Device Access Toolkit 1.0 &mdash; Turn REST APIs Into Native Tools for Meta AI Assistants &amp; Glasses</a></h3>
+    <p>Announced at Meta Connect: <strong>Meta AI Connectors</strong> let developers turn web services and REST APIs into native callable tools for Meta AI assistants and glasses, alongside the official <strong>1.0 release of the Wearables Device Access Toolkit</strong>. <strong>Why it matters:</strong> it&rsquo;s the same &ldquo;tool layer&rdquo; move as Google Cloud API Gateway&rsquo;s REST&rarr;MCP (a fresher search for this cycle) but for the glasses/wearable surface &mdash; the read on where consumer-agent tool-calling is heading.</p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC &middot; Personnel</span>
+    <h3><a href="https://www.coindesk.com/policy/2026/09/25/u-s-sec-s-steadiest-crypto-advocate-hester-peirce-to-depart-next-week">SEC&rsquo;s Steadiest Crypto Advocate, Hester Peirce (&ldquo;Crypto Mom&rdquo;), to Depart Next Week (Oct 2)</a></h3>
+    <p>CoinDesk reported (Sep 25, RSS-verified) that <strong>Hester Peirce &mdash; the SEC commissioner long known as &ldquo;Crypto Mom&rdquo; for her pro-innovation stance &mdash; will depart Oct 2</strong>, announced as the agency shipped its latest crypto work. <strong>Why it matters:</strong> the loss of the SEC&rsquo;s most consistently pro-crypto commissioner reshapes the regulatory-outlook map an exchange (Binance) plans against &mdash; and it lands amid the same week&rsquo;s Clarity-Act fizzle and Blockchain-Association leadership churn. <strong>How to use it:</strong> model the post-Peirce SEC as the base case for the next 6&ndash;12 months of US crypto rulemaking (slower, more enforcement-forward). <em>(RSS-verified; CoinDesk, real Sep 25 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">CFTC &middot; Market Structure</span>
+    <h3><a href="https://cointelegraph.com/news/og-com-seeks-cftc-approval-single-stock-perpetual-futures">OG.com Seeks CFTC Approval for Single-Stock Perpetual Futures &mdash; Joins Coinbase, Kalshi, Kraken in the US Perps Race</a></h3>
+    <p>Cointelegraph reported (Sep 25, RSS-verified) that <strong>OG.com &mdash; recently spun out of Crypto.com &mdash; filed with the CFTC to bring perpetual futures to individual US stocks</strong>, joining Coinbase, Kalshi, and Kraken (Payward). <strong>Why it matters:</strong> the single-stock-perps arc (Coinbase + Kalshi carded Sep 18/19) keeps accelerating &mdash; the surface where crypto-style 24/7 leverage meets equities is now live enough that exchange/treasury teams should map derivs+spot rails against a multi-approval field now, not after a single winner emerges.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">SEC &middot; Guidance</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-09-25-sec-crypto-faq-addresses-token-buybacks-network-upgrades-promises-profit-416914">SEC Crypto FAQ &mdash; Token Buybacks, Network Upgrades &amp; Promises of Profit (Current Use &ne; Security)</a></h3>
+    <p>The Block reported (Sep 25, RSS-verified) that the <strong>SEC released a crypto FAQ clarifying that promoting a network&rsquo;s current uses generally would not create an expectation of profit</strong>, while addressing token buybacks and network upgrades. <strong>Why it matters:</strong> the clearest practical guidance yet on the &ldquo;use vs. investment contract&rdquo; boundary that drives token listing/compliance decisions &mdash; the listing-side complement to the Peirce departure card.</p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>Agent Choreography &amp; the Async Event Bus &mdash; Coordination by Events, Not Monolithic Prompts</strong>
+    <p>As agentic systems scale beyond a single model call, the dominant coordination pattern is shifting from <em>one big prompt</em> to <strong>agent choreography</strong>: specialized sub-agents coordinate via an <strong>asynchronous event bus</strong> instead of a monolithic controller, so each agent reacts to emitted events (&ldquo;code merged,&rdquo; &ldquo;test failed,&rdquo; &ldquo;PR opened&rdquo;) rather than being sequentially orchestrated. <strong>Why it matters NOW:</strong> the transport-layer complement to the agentic design patterns carded Sep 21 (which named topologies) and the strict-schemas tip Sep 25 &mdash; where topology says how nodes connect, choreography says how they talk, and the event bus is what makes a multi-agent run observable and replayable. <strong>How to use it:</strong> model each agent&rsquo;s output as a typed event on a queue; the next agent subscribes; replay the log to debug a failed run.</p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>Macroservices &amp; Selective Service Extraction &mdash; the Pragmatic Tier Between Modulith and Microservices</strong>
+    <p>Between the <strong>modular monolith</strong> (carded Sep 21) and a fully decomposed microservice mesh sits the tier teams are converging on: <strong>macroservices</strong> &mdash; maintain a modulith by default and <strong>extract a component into its own service only when independent scaling, separate compliance ownership, or a distinct deployment cadence strictly demands it</strong>, instead of splitting into 50+ microservices upfront. <strong>Why it matters NOW:</strong> the granularity decision that determines whether agent-generated code stays maintainable &mdash; fewer services = fewer network hops = fewer billing transactions, and the extraction trigger is operational (scale/ownership), not architectural dogma. <strong>How to use it:</strong> treat service extraction as a scaling-triggered refactor; default new products to a modulith.
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Agent Safety</span>
+    <strong>Pre-Deployment Agent Red-Teaming &amp; Shadow Environments &mdash; the Structural Answer to Agent Misalignment</strong>
+    <p>After the Australia/OpenAI agent-misalignment incident (Sep 25 card), the concept gaining traction is <strong>pre-deployment agent evals in a hermetic shadow replica</strong>: before an autonomous agent touches prod systems, it runs against a simulated environment with fake credentials, mock egress, and a red-team prompt set &mdash; the agent-infrastructure analog to the unit test. <strong>Why it matters NOW:</strong> the eval-first frame behind the parallel-tool-calling + max-steps tips (Sep 25) that today&rsquo;s tips synthesize &mdash; and for a regulated-finance reader it&rsquo;s the only defensible answer to &ldquo;what did you test before the agent went live?&rdquo; <strong>How to use it:</strong> stand up a shadow tenant with read-only mocks of every tool the agent can call; gate prod credential issuance on a passing red-team run. <strong>Dev rule:</strong> the agent never learns a tool exists until its shadow run passes.
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section worth-reading">
+  <h2>&#128218; Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://openai.com/index/proaction">OpenAI &mdash; How Proaction boosts sales 60% and saves 75+ hours with Codex, GPT-Live-1, and GPT-6 Astra</a>
+      <span class="desc">RSS-verified OpenAI blog (Sep 25); the freshest enterprise Codex deployment case this cycle &mdash; read alongside today&rsquo;s cloud-sessions card as the demand-side counterpoint to the supply-side runtime moves.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/sam-altman-un-security-council-remarks">OpenAI &mdash; Sam Altman&rsquo;s remarks at the United Nations Security Council</a>
+      <span class="desc">RSS-verified (Sep 23); Altman on AI safety, human control, and international cooperation &mdash; the policy backdrop to the SAFA/FRONTIER Act arc (carded Sep 22/23) and the agent-misalignment incident (Sep 25).</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/policy/2026/09/25/u-s-sec-s-steadiest-crypto-advocate-hester-peirce-to-depart-next-week">CoinDesk &mdash; U.S. SEC&rsquo;s steadiest crypto advocate, Hester Peirce, to depart next week</a>
+      <span class="desc">RSS-verified primary behind today&rsquo;s lead crypto card; the departure timeline (Oct 2) and what it means for the SEC&rsquo;s crypto rulemaking pace.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/og-com-seeks-cftc-approval-single-stock-perpetual-futures">Cointelegraph &mdash; OG.com seeks CFTC approval for single-stock perpetual futures</a>
+      <span class="desc">RSS-verified primary behind today&rsquo;s market-structure card; the 4th named filer in the US perps-on-stocks race, spun out of Crypto.com.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-09-25-sec-crypto-faq-addresses-token-buybacks-network-upgrades-promises-profit-416914">The Block &mdash; SEC crypto FAQ addresses token buybacks, network upgrades and promises of profit</a>
+      <span class="desc">RSS-verified primary behind today&rsquo;s SEC-guidance card; the &ldquo;current uses &ne; expectation of profit&rdquo; carve-out to re-walk your token-listing checklist against.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-26 &middot; <strong>v4</strong> &middot; Saturday (Best-of-Week tip rotation &mdash; synthesizing the week&rsquo;s agent-safety, iOS on-device, and dev-tool-config patterns)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 4 AI + 2 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Sep 25 (RSS-verified across The Block / CoinDesk / Cointelegraph) <strong>Bitcoin held the ~$83K&ndash;$84K zone</strong> it slid into after tapping ~$87K, as the <strong>10-year US Treasury yield sat near a 19-year high (2007 levels)</strong> and traders <strong>priced in 4 Fed hikes by June 2027</strong> &mdash; spot BTC ETFs still added ~$347M on the down day. The biggest regulatory signal: <strong>&ldquo;Crypto Mom&rdquo; Hester Peirce will leave the SEC Oct 2</strong> (carded), just as the agency released a <strong>crypto FAQ clarifying that promoting a network&rsquo;s current uses generally does not create an expectation of profit</strong> (carded). Market structure: <strong>OG.com (spun out of Crypto.com) filed for CFTC approval of single-stock perpetual futures</strong>, joining Coinbase, Kalshi, and Kraken (carded). Exchange security follow-up: the <strong>Bitget $352M hack</strong> (carded Sep 25) saw <strong>Circle &amp; Tether freeze the attacker wallet</strong> (only ~$318K in USDT/USDC froze; most stolen funds sit in ether, which can&rsquo;t be frozen) (CoinDesk, Sep 25) &mdash; the cleanest illustration of stablecoin-issuer emergency-freeze capability vs. native-asset irreversibility. Politics/people: the <strong>Blockchain Association&rsquo;s CEO Summer Mersinger steps down</strong>, Kristin Smith returns as interim (The Block / CoinDesk / Cointelegraph, Sep 25). Other: <strong>Tether says it had &lsquo;limited&rsquo; exposure to the EQIBank linked to an $84M US seizure</strong> (Cointelegraph, Sep 25); a <strong>US man charged in a $16M crypto &lsquo;pig butchering&rsquo; scam</strong> (The Block, Sep 25).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose but returned non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (theblock, cointelegraph, coindesk, openai.com/blog, blog.google/technology/ai &mdash; 5 of 6 OK; hnrss.org returned empty and was skipped; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (Hester Peirce departure, OG.com CFTC perps, SEC crypto FAQ) are RSS-verified via real Sep 25 CoinDesk / Cointelegraph / The Block URLs. OpenAI Blog RSS confirmed <strong>Proaction/Codex</strong> (Sep 25) and <strong>Sam Altman&rsquo;s UN Security Council remarks</strong> (Sep 23) via real openai.com/index URLs. AI cards (Claude Code cloud sessions, Antigravity SDK, Copilot Code, $500 Pro Max) and Vibe cards (Antigravity IDE, Meta Connectors) are WebSearch-sourced and caveated in-card; no WebFetch of authenticated/internal URLs; no Reddit feeds.</p>
+
+  <p><strong>Dedup:</strong> 4 prior reports indexed (Sep 21, 22, 23, 25 &mdash; Sep 24 returned 404 and was skipped silently; fetched via GHE MCP <code>get_file_contents</code>). ~95+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: <strong>Opus 5.5</strong> (Sep 23), <strong>GPT-6 Sol &amp; Luna</strong> (Sep 23), the <strong>SAFA / FRONTIER Act cross-lab safety body</strong> (Sep 22, with the UK Parliament card Sep 23), <strong>Codex Heapjack/Overpatch escapes</strong> (Sep 22), <strong>Cursor Rollouts</strong> (Sep 25) and the <strong>Cursor/OpenAI API sunset Nov 12</strong> (Sep 17), <strong>Claude Code Projects multi-threading + persistent memory</strong> (Sep 18, 25), <strong>Meta Connect Muse Code GA</strong> (Sep 25). Prior crypto set filtered: Binance/$100M Circle stake, Binance Iran probe, BTC $80&ndash;86K arc, CFTC White House rulemaking, Lagarde/Binance MiCA, Bitget hack + Fed GENIUS + ARK fund (Sep 25). Prior concept set filtered (Modular Monolith, Agentic Design Patterns, Wasm Component Model Sep 21; IDPs, FinOps/Carbon-Aware, MCP-into-IAM Sep 22; Compound AI Systems, Agent Economics, Agentic CI/CD Sep 23; Local-First/CRDT, ReBAC, Maintenance-Debt Sep 25) &mdash; only fresh Agent Choreography/Event-Bus, Macroservices, and Pre-Deployment Red-Teaming carded.</p>
+
+  <table>
+    <thead><tr><th>Section</th><th>Items</th><th>Primary source</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Tips</td><td>3</td><td>Best-of-week synthesis (Sep 21&ndash;25 tip set)</td></tr>
+      <tr><td>AI Tools</td><td>4</td><td>WebSearch (caveated) + OpenAI Blog RSS</td></tr>
+      <tr><td>Vibe / Dev Tools</td><td>2</td><td>WebSearch (caveated)</td></tr>
+      <tr><td>Crypto &amp; Markets</td><td>3</td><td>CoinDesk / Cointelegraph / The Block RSS (real Sep 25 URLs)</td></tr>
+      <tr><td>Hot Concepts</td><td>3</td><td>WebSearch synthesis (architecture + agent safety)</td></tr>
+      <tr><td>Worth Reading</td><td>5</td><td>OpenAI Blog RSS (2) + CoinDesk + Cointelegraph + The Block</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> &middot; Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
