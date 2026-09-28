@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-09-28</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">September 28, 2026 &middot; Monday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Monday — Claude Code / Codex: hooks, MCP, skills) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; Claude Code / Codex (Hooks &middot; MCP &middot; Skills)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code &middot; Hooks</span>
+    <strong>Gate Side-Effects With <code>PreToolUse</code> / <code>PostToolUse</code> Hooks &mdash; the Deterministic Boundary at Execute Time</strong>
+    <p>Claude Code hooks let a script intercept a tool call before or after it runs: a <code>PreToolUse</code> hook on <code>Bash</code> can match the command against a deny regex and exit non-zero to <em>block</em> the call (or emit JSON on stdout to rewrite it); a <code>PostToolUse</code> hook on <code>Write</code>/<code>Edit</code> runs your formatter + linter and can post the diff to the PR. <strong>Why it matters:</strong> it&rsquo;s the execute-time gate the &ldquo;deterministic sandwich&rdquo; (Sep 16/25) needs &mdash; the model can <em>ask</em> for a shell command, but a hook enforces the allowlist in code the model can&rsquo;t talk its way past (cf. the Australia agent-hack Sep 25). <strong>How to use it:</strong> declare hooks in <code>.claude/settings.json</code> keyed by tool name + event, keep hook scripts fast + idempotent, and log every block/rewrite so the guardrail is auditable. <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Claude Code hooks &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code &middot; MCP</span>
+    <strong>Scope MCP Servers Per-Project &amp; Deny-by-Default &mdash; the Tool-Surface Least-Privilege Move</strong>
+    <p>Wire only the MCP servers a project actually needs in <code>.mcp.json</code>, namespace every tool by its server (<code>mcp__github__create_issue</code>), and expose only the tool sub-list each agent may call via the harness allowlist &mdash; never grant the full server surface and hope the prompt restrains it. <strong>Why it matters:</strong> it&rsquo;s the least-privilege answer to the &ldquo;every agent has an open tool surface&rdquo; problem the Databricks Unity Gateway move (today&rsquo;s AI card) operationalizes at enterprise scale &mdash; and for an iOS dev it&rsquo;s how you let a release-notes agent read Jira without also letting it push a tag. <strong>How to use it:</strong> enumerate servers per-project, surface the allowed tool sub-list in <code>AGENTS.md</code> (Sep 21), and audit actual calls against the allowlist via the hook log. <a href="https://docs.anthropic.com/en/docs/claude-code/mcp">Claude Code MCP &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code &middot; Skills</span>
+    <strong>Package Reusable Skills as Semver-Tagged Bundles in <code>.claude/skills/</code></strong>
+    <p>Wrap a (<em>prompt fragment + allowed MCP tools + eval script</em>) into a Skill under <code>.claude/skills/&lt;name&gt;/SKILL.md</code> with frontmatter (<code>name</code>, <code>version</code>, <code>allowed-tools</code>), pin the version per-project, and treat a skill bump as a reviewed PR &mdash; so every agent run uses the identical skill, and a skill edit can&rsquo;t silently change behavior across repos. <strong>Why it matters:</strong> skills become the agent-native reuse unit (the npm-package analog), and version-pinning is what stops the &ldquo;the agent worked yesterday&rdquo; class of regression that pure prompt-editing creates. <strong>How to use it:</strong> define one skill per repeatable workflow (e.g. &ldquo;release-notes-from-jira&rdquo;), reference it from <code>AGENTS.md</code>, and add a <code>skill-version:</code> tag to each PR so skill drift is visible. <a href="https://docs.anthropic.com/en/docs/claude-code/skills">Agent Skills &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Claude Code</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code Projects Redesigned as a Coordinator-Led Agent Swarm &mdash; Parallel Cloud Sessions + Autonomous PR Merge</a></h3>
+    <p>Anthropic rearchitected <strong>Claude Code Projects</strong> from single-session terminal runs into a multi-agent topology: a central <strong>coordinator agent</strong> decomposes a large task into parallel cloud sessions on separate branches, reviews the diffs, and <strong>merges the pull requests autonomously</strong>. It also added a <strong>Claude Design bridge</strong> for two-way sync between a design system and the live UI repo. <strong>Why it matters:</strong> it&rsquo;s the topology shift past the &ldquo;multi-threading + persistent memory&rdquo; Claude Code coverage from Sep 18/25 &mdash; the agent now owns the merge, not just the write, so the human gate moves to <em>plan approval</em> and <em>post-merge verification</em>, not line-by-line review. <strong>How to use it:</strong> enable on one bounded multi-file task with a <code>required-green-tests</code> + <code>code-review</code> status gate before the auto-merge; keep the coordinator&rsquo;s tool allowlist narrow (today&rsquo;s tip #2). <em>(Caveat: WebSearch-sourced; verify on docs.anthropic.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI &middot; Codex</span>
+    <h3><a href="https://openai.com/index/codex/">Codex Becomes a General-Purpose Agent Workspace &mdash; macOS Computer Use, Scheduled Automations &amp; Context Security Reviews</a></h3>
+    <p>Following its integration as the default ChatGPT desktop workflow, <strong>Codex</strong> now supports <strong>native macOS computer use</strong>, <strong>scheduled background automations</strong>, and <strong>Context Security reviews</strong> that scan what the agent can see &mdash; moving it from a pure code generator to a host-level agent. This came a few days after a ~56-minute Codex outage (late Sep 25) that hit the desktop app, VS Code extension, CLI, and API, for which OpenAI issued quota resets to paid subscribers. <strong>Why it matters:</strong> the &ldquo;coding tool &rarr; host-level agent&rdquo; evolution is theOS-level surface change worth tracking &mdash; agents that can drive the OS also need OS-level sandboxing, which is exactly what the <em>Heapjack</em> sandbox-escape disclosure (Sep 22) argued for. <strong>How to use it:</strong> turn on Context Security before granting computer-use scope; gate scheduled automations behind a dry-run + approval hook. <em>(Caveat: WebSearch-sourced; verify on openai.com/index/codex.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Databricks &middot; Governance</span>
+    <h3><a href="https://www.databricks.com/blog">Databricks Centralizes Coding-Agent Governance on Unity Gateway &mdash; Enforce Models, MCP Servers, Tools &amp; Smart Routing Centrally</a></h3>
+    <p>Databricks shipped enterprise governance controls letting orgs <strong>centrally configure coding agents</strong> &mdash; enforcing permitted models, allowed MCP servers, available tool skills, agent harnesses, and Smart Routing via the Unity Gateway CLI or enterprise MDM, alongside adding Databricks-hosted <strong>GPT-6 Astra, GPT-6 Sol, and Google Gemini 3.8 Flash</strong> to its Foundation Model APIs. <strong>Why it matters:</strong> it&rsquo;s the first major-platform instance of the <strong>coding-agent governance plane</strong> (today&rsquo;s lead concept) &mdash; the policy-over-agents layer that turns &ldquo;which model + which tools + which harness&rdquo; from per-developer choice into a centrally-audited control, the enterprise complement to per-project MCP allowlisting (tip #2). <strong>How to use it:</strong> scope one team&rsquo;s agents through Unity Gateway, treat the policy file as the source of truth (mirror into <code>AGENTS.md</code>), and alert on any agent run that bypasses the gateway. <em>(Caveat: WebSearch-sourced; verify on databricks.com/blog.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">DeepSeek &middot; Google &middot; Models</span>
+    <h3><a href="https://platform.deepseek.com">Mid-Tier Coding Models Diffuse Into Agent Stacks &mdash; DeepSeek V4-Flash Agent Retrain + Gemini 3.8 Flash Broad Rollout</a></h3>
+    <p><strong>DeepSeek</strong> shipped a retrained <strong>V4-Flash</strong> checkpoint built on an improved synthetic pipeline focused on agent execution, multi-file codebase manipulation, and tool use (no price change), while <strong>Google</strong> rolled <strong>Gemini 3.8 Flash</strong> across AI Studio, the Gemini API, Antigravity, Android Studio, and Stitch &mdash; tuned for agentic workflows and multi-step CLI reasoning at lower unit cost. <strong>Why it matters:</strong> the mid-tier coding-model slot (Sol / Luna / Gemini 3.8 Flash / DeepSeek V4-Flash) is now crowded enough that <em>per-request model routing</em> (Weave Router, Sep 23) is the layer that makes the multi-model cascade actually pay off; for a team running hundreds of agent turns/day the router is the direct cost-control knob. <strong>How to use it:</strong> baseline Sol vs Gemini 3.8 Flash vs DeepSeek V4-Flash on one real multi-file refactor before fixing a default. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agent Orchestration</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Agent Fleet Orchestrators &mdash; Superset, Capy &amp; Antigravity Manage Parallel Agents Across Branches/Worktrees</a></h3>
+    <p>The new tool tier above the single-agent IDE: orchestrators like <strong>Superset</strong>, <strong>Capy</strong>, and <strong>Antigravity</strong> dispatch <em>fleets</em> of concurrent agents across separate git branches/worktrees, each running tests and submitting independent PRs. <strong>Why it matters:</strong> it&rsquo;s the step past Claude Code&rsquo;s coordinator-swarm (today&rsquo;s AI card) &mdash; where Claude Code&rsquo;s coordinator runs inside one tool, fleet orchestrators run <em>across</em> tools and repos, and the human&rsquo;s job becomes reviewing the PR queue, not any single agent. <strong>How to use it:</strong> start one fleet run on a low-risk repo with a per-agent branch-naming convention and a shared <code>AGENTS.md</code>; never auto-merge fleet PRs. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Trust &amp; Verification</span>
+    <h3><a href="https://cursor.com">The Production-Trust Gap Closes &mdash; Integrated Security Scanning + Synthetic Unit-Test Gen + PR Verification Agents Become IDE-Standard</a></h3>
+    <p>After a year of CVE reports on vibe-coded MVPs (missing auth checks, leaked secrets, ghost deps), the major AI IDEs are converging on a <strong>trust stack</strong>: integrated secret/dependency security scanning, synthetic unit-test generation on every diff, and a dedicated PR-verification agent that re-checks the change against the task spec before merge. <strong>Why it matters:</strong> it&rsquo;s the structural counterweight to the &ldquo;maintenance debt&rdquo; concept carded Sep 25 &mdash; trust stops being a review-time activity and becomes a build-time gate, which is what makes an agentic-CI/CD loop (Sep 23) safe to run unattended. <strong>How to use it:</strong> enable the security scan + synthetic-test gen as required status checks; treat the PR-verification agent&rsquo;s &ldquo;spec match&rdquo; report as a merge gate, not a suggestion. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum &middot; Roadmap</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/09/27/vitalik-buterin-maps-ethereum-s-shift-beyond-a-blockchain-in-sweeping-2030-vision">Vitalik Buterin Maps Ethereum&rsquo;s Shift &ldquo;Beyond a Blockchain&rdquo; Toward a 2030 &ldquo;World Cryptographic Computer&rdquo;</a></h3>
+    <p>Ethereum co-founder <strong>Vitalik Buterin</strong> laid out a sweeping 2030 vision (Sep 27, RSS-verified CoinDesk + The Block): Ethereum is &ldquo;<strong>really not just a blockchain anymore</strong>,&rdquo; with a roadmap to do far more work <em>without forcing every node to repeat the same calculations</em> &mdash; effectively reframing the base layer as a verifiable compute platform, not just a settlement ledger. <strong>Why it matters:</strong> for a Binance reader this is the multi-year architecture north-star that shapes which L1/L2 rails get funding &mdash; the &ldquo;world cryptographic computer&rdquo; framing (compute offchain + cryptographic verification onchain) is the direction in which RWA settlement, proof-carrying execution, and roll-up-based execution are all converging. <strong>How to use it:</strong> treat EVM-equivalent rollups + verifiable-compute bridges as the build target, not a single L1 settlement chain. <em>(RSS-verified; CoinDesk + The Block, real Sep 27 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Flows &middot; BTC ETFs</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-09-26-bitcoin-etfs-turn-positive-for-2026-with-2-4-billion-weekly-inflow-their-largest-since-october-416944">Bitcoin ETFs Turn Positive for 2026 With $2.4B Weekly Inflow &mdash; Largest Since October</a></h3>
+    <p><strong>Spot Bitcoin ETFs pulled ~$2.4B in weekly inflows</strong> (Sep 26, RSS-verified The Block), their largest weekly haul since last October &mdash; flipping year-to-date net flows <strong>back above zero</strong> after the funds sat ~$5.8B in the red just two months ago. <strong>Why it matters:</strong> it&rsquo;s the demand-side confirmation that the Sept BTC-ETF-arc (record-pace inflows Sep 23, spot held ~$83&ndash;86K Sep 24&ndash;26) has compounding legs, and it reframes the &ldquo;institutions held crypto through a 50% drawdown&rdquo; Bitwise datapoint from Sep 25 as the start of a re-allocation, not a one-off. <strong>How to use it:</strong> the ETF-flow run-rate is now the leading indicator for spot stability &mdash; size your hedging/treasury posture against it. <em>(RSS-verified; The Block, real Sep 26 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security &middot; Rollback</span>
+    <h3><a href="https://cointelegraph.com/news/zano-rolls-blockchain-back-a-month-after-gateway-address-exploit">Zano Rolls Its Blockchain Back a Month After a Gateway Address Exploit &mdash; a Rare Hard-Fork Reversal</a></h3>
+    <p>Privacy-focused chain <strong>Zano restarted at the block height immediately before Hard Fork 6</strong> (which introduced &ldquo;Gateway Addresses&rdquo;) after an exploit abused the feature (Sep 28, RSS-verified Cointelegraph) &mdash; effectively <strong>rewinding a month of onchain history</strong> to undo the damage. <strong>Why it matters:</strong> a full chain rollback is the nuclear option exchanges/wallets must plan for but rarely see exercised; it voids every transaction in the rolled-back window, so any swap/withdraw/deposit a reader&rsquo;s system recorded in that range can become disputed. <strong>How to use it:</strong> ensure your reconciliation pipeline can re-process a reorg window for any chain you list, and treat &ldquo;exploit &rarr; rollback&rdquo; as the threat-model entry on your listing risk register, not just &ldquo;exploit &rarr; freeze.&rdquo; <em>(RSS-verified; Cointelegraph, real Sep 28 URL.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Architecture</span>
+    <strong>The Coding-Agent Governance Plane &mdash; Policy-over-Agents as a First-Class Platform Layer</strong>
+    <p>As every team runs multiple coding agents (Claude Code, Codex, Cursor, Copilot) the policy layer &mdash; <em>which models may be used, which MCP servers exposed, which tools callable, which harness version, with what routing</em> &mdash; is converging into a distinct platform concern: the <strong>coding-agent governance plane</strong>, enforced centrally (Databricks Unity Gateway is today&rsquo;s instance) and mirrored per-repo in <code>AGENTS.md</code>. <strong>Why it matters NOW:</strong> it&rsquo;s the platform answer to the &ldquo;every agent has an open tool surface&rdquo; risk the Australia incident (Sep 25) made concrete &mdash; where IAM scopes said <em>which tool</em> (Sep 22) and ReBAC says <em>which row</em> (Sep 25), the governance plane says <em>which agent may use which model+tool at all</em>. <strong>How to use it:</strong> treat the policy file as the source of truth; lint it in CI; alert on any agent run that bypasses the gateway. <a href="https://www.databricks.com/blog">Databricks Unity Gateway &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Reuse &middot; Agents</span>
+    <strong>Agent Skills as Versioned Artifacts &mdash; the npm-Package Analog for Agent Behavior</strong>
+    <p>The emerging reuse unit for agents is the <strong>Skill</strong>: a self-contained bundle of (system-prompt fragment + allowed-tools + eval set) that&rsquo;s packaged, semver-tagged, and registered so any agent run can pin a specific version &mdash; the agent-native analog of an npm package, where the skill (not the raw prompt) is what you version, review, and roll back. <strong>Why it matters NOW:</strong> it&rsquo;s what turns one-off prompt-engineering into a reviewable dependency surface; a skill bump becomes a PR with an eval delta, and a regression is a one-line roll-back in the pin. <strong>How to use it:</strong> define skills under <code>.claude/skills/&lt;name&gt;/SKILL.md</code> with a <code>version</code> field, commit the eval results alongside the bump, and reference the pinned version from <code>AGENTS.md</code>. <a href="https://docs.anthropic.com/en/docs/claude-code/skills">Skills docs &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Memory &middot; Debuggability</span>
+    <strong>Event-Sourced Agent Memory &amp; Replay &mdash; the Append-Only Log That Makes a Failed Run Debuggable</strong>
+    <p>Distinct from Claude Code&rsquo;s persistent <em>project-fact</em> memory (Sep 25), <strong>event-sourced agent memory</strong> models every state change (tool call, env observation, message) as an <em>append-only event</em> on a per-run log; replay the log to reproduce a failure, branch it to test a fix, or snapshot it for audit. <strong>Why it matters NOW:</strong> it&rsquo;s the memory-layer complement to the agent-choreography/event-bus concept (Sep 26) &mdash; where choreography says how agents <em>talk</em>, event-sourced memory says how a single agent&rsquo;s run is <em>reconstructed</em>, and for a regulated-finance reader it&rsquo;s the &ldquo;what did the agent do, in order, and why&rdquo; answer an auditor will eventually ask. <strong>How to use it:</strong> emit a structured event per tool call (input, output, model, tokens); store immutable; debug by replaying the exact run. <a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section worth-reading">
+  <h2>&#128218; Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.coindesk.com/tech/2026/09/27/vitalik-buterin-maps-ethereum-s-shift-beyond-a-blockchain-in-sweeping-2030-vision">CoinDesk &mdash; Vitalik Buterin maps Ethereum&rsquo;s shift beyond a blockchain in sweeping 2030 vision</a>
+      <span class="desc">RSS-verified primary (Sep 27) behind today&rsquo;s lead crypto card: the &ldquo;world cryptographic computer&rdquo; framing and what changes by 2030 &mdash; the multi-year architecture north-star.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/markets/2026-09-26-bitcoin-etfs-turn-positive-for-2026-with-2-4-billion-weekly-inflow-their-largest-since-october-416944">The Block &mdash; Bitcoin ETFs turn positive for 2026 with $2.4B weekly inflow, their largest since October</a>
+      <span class="desc">The ETF-flow run-rate that flipped YTD net flows positive after a $5.8B deficit two months ago &mdash; the demand-side follow-through to the late-Sept spot ETF arc.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/zano-rolls-blockchain-back-a-month-after-gateway-address-exploit">Cointelegraph &mdash; Zano rolls blockchain back a month after Gateway Address exploit</a>
+      <span class="desc">RSS-verified primary (Sep 28) behind today&rsquo;s security card: a rare full chain rollback and what it means for exchange reorg-windows and reconciliation.</span>
+    </li>
+    <li>
+      <a href="https://docs.anthropic.com/en/docs/claude-code/hooks">Anthropic Docs &mdash; Claude Code Hooks (PreToolUse / PostToolUse)</a>
+      <span class="desc">Official reference behind today&rsquo;s lead tip: the execute-time hook contract, match-by-tool, and the block/rewrite/append-&amp;-stream exit-code protocol.</span>
+    </li>
+    <li>
+      <a href="https://www.anthropic.com/research/building-effective-agents">Anthropic &mdash; Building Effective Agents</a>
+      <span class="desc">The canonical agentic-design patterns paper underpinning today&rsquo;s concepts &mdash; read alongside the Skills and event-sourced-memory cards.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-09-28 &middot; <strong>v4</strong> &middot; Monday (Claude Code / Codex rotation &mdash; hooks, MCP server scoping, semver Skill bundles)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 4 AI + 2 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Sep 26&ndash;28 (RSS-verified across The Block / CoinDesk / Cointelegraph) <strong>spot Bitcoin ETFs pulled ~$2.4B in weekly inflows &mdash; their largest week since October &mdash; flipping YTD net flows positive</strong> after a ~$5.8B deficit just two months ago (The Block, carded). The week&rsquo;s biggest protocol signal: <strong>Vitalik Buterin&rsquo;s &ldquo;Ethereum 2030&rdquo; vision reframing ETH as a &ldquo;world cryptographic computer&rdquo; beyond a blockchain</strong> (CoinDesk + The Block, carded). Notable incident: privacy chain <strong>Zano rolled its blockchain back a full month</strong> after a Gateway Address exploit (Cointelegraph, carded) &mdash; a rare hard-fork reversal that voids every tx in the rolled-back window. Other: <strong>Kalshi lost its appeal</strong> over Ohio/Tennessee sports-betting laws, widening a circuit split (The Block, Sep 26); <strong>Kraken parent Payward</strong> detailed a pivot to full-stack financial infrastructure (CoinDesk, Sep 26); <strong>THORChain refused to blacklist Bitget-hack addresses</strong> (Cointelegraph Hodler&rsquo;s Digest, Sep 27); <strong>Riot Platforms repaid its $200M credit facility</strong> (Cointelegraph, Sep 27); an <strong>onchain analyst tied $18.4M of Robinhood Chain memecoin extractions to a single rug-pull</strong> (The Block, Sep 27). Aliased to prior coverage (not re-carded): the <strong>Binance/Circle USDC deal</strong> follow-up (Sep 23), the <strong>Clarity Act collapse</strong> postmortem (CoinDesk, Sep 27), and the <strong>SEC crypto FAQ</strong> (Sep 25).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded and returned synthesized prose but gave non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (theblock.co, cointelegraph.com, coindesk.com all OK; hnrss.org returned 502 Bad Gateway and was skipped silently; openai.com/blog and blog.google/technology/ai not re-fetched this cycle; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (Vitalik Ethereum-2030, BTC ETF $2.4B weekly inflow, Zano rollback) are RSS-verified via real Sep 26&ndash;28 CoinDesk / The Block / Cointelegraph URLs. AI cards (Claude Code Projects swarm, Codex agent-workspace evolution, Databricks Unity Gateway governance, Gemini 3.8 Flash + DeepSeek V4-Flash) are WebSearch-sourced and caveated in-card. No WebFetch of authenticated/internal URLs; no Reddit feeds.</p>
+
+  <p><strong>Dedup:</strong> 3 prior reports indexed (Sep 23, 25, 26 &mdash; Sep 24 and Sep 27 returned 404 and were skipped silently; fetched via GHE MCP <code>get_file_contents</code>). ~100+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: <strong>Opus 5.5</strong> (Sep 23), <strong>GPT-6 Sol &amp; Luna</strong> (Sep 23), the <strong>SAFA / cross-lab safety body</strong> arc (Sep 22/23), <strong>Codex Heapjack escapes</strong> (Sep 22), <strong>Cursor/OpenAI Nov-12 model sunset</strong> (Sep 17), <strong>Cursor Rollouts</strong> (Sep 25), <strong>Claude Code persistent project-fact memory</strong> (Sep 25), <strong>Claude Code Cloud Sessions GA + $100/$250 credits</strong> (Sep 26) &mdash; today&rsquo;s Claude Code card uses the fresh coordinator-swarm topology angle, not the credits angle. Prior crypto set filtered (Bitget $352M, Fed GENIUS, ARK onchain fund, Hester Peirce, OG.com perps, SEC FAQ, BTC $83&ndash;86K arc, Binance/Circle stake). Prior concept set filtered (Compound AI Systems, Agent Economics, Agentic CI/CD Sep 23; Local-First/CRDT, ReBAC, Maintenance-Debt Sep 25; Agent Choreography/Event-Bus, Macroservices, Pre-Deployment Red-Teaming Sep 26) &mdash; only fresh Coding-Agent Governance Plane, Agent-Skills-as-Versioned-Artifacts, and Event-Sourced Agent Memory carded. Dedup count: 3 reports indexed, ~100+ prior topics filtered against.</p>
+
+  <table>
+    <thead><tr><th>Section</th><th>Items</th><th>Primary source</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Tips</td><td>3</td><td>Claude Code docs (hooks, MCP, skills)</td></tr>
+      <tr><td>AI Tools</td><td>4</td><td>WebSearch (caveated) &mdash; Anthropic, OpenAI, Databricks, DeepSeek/Google</td></tr>
+      <tr><td>Vibe / Dev Tools</td><td>2</td><td>WebSearch (caveated) &mdash; fleet orchestrators, trust stack</td></tr>
+      <tr><td>Crypto &amp; Markets</td><td>3</td><td>CoinDesk + The Block + Cointelegraph RSS (real Sep 26&ndash;28 URLs)</td></tr>
+      <tr><td>Hot Concepts</td><td>3</td><td>WebSearch synthesis (governance plane, skills, event-sourced memory)</td></tr>
+      <tr><td>Worth Reading</td><td>5</td><td>CoinDesk + The Block + Cointelegraph RSS + Anthropic docs (2)</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> &middot; Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
