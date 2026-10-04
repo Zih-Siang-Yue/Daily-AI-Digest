@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-10-04</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">October 4, 2026 &middot; Sunday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Sunday — Best of Week, Part 2: the Agentic-Workflow Stack, replaying Wed&rsquo;s AI-Dev-Tools triad) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; Best-of-Week Replay (Agentic Workflow Stack: routing &middot; memory &middot; governance)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor &middot; Routing</span>
+    <strong>Ship the Per-Request Model Router as a CI-Reviewed Config, Not a Vibe</strong>
+    <p>Replaying the week&rsquo;s highest-leverage AI-Dev-Tools move: declare <em>which model handles which sub-task</em> in a checked-in <code>.cursor/rules/routing.mdc</code> &mdash; send read/grep/explore sub-calls to the cheap tier (<strong>GPT-6.1 Sol</strong> at ~$2/M, <strong>Gemini 3.8 Flash</strong>, <strong>DeepSeek V4-Flash</strong>) and reserve the frontier model (Astra/Opus 5.5) for the multi-file edit. <strong>Why it matters:</strong> without an explicit routing rule the router defaults to one model and the SLM+LLM cascade (Sep 29) never pays off; with it, the ~70&ndash;80% of turns an SLM can handle stop paying frontier prices &mdash; and Claude Code 2.1&rsquo;s new auto-resume (today) means the cheap tier&rsquo;s long runs no longer risk a cliff-edge abort. <strong>How to use it:</strong> snapshot the rule + a per-run token-cost split into CI so every routing change is a reviewed PR with a measured delta. <a href="https://docs.cursor.com/">Cursor docs &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf &middot; Memory</span>
+    <strong>Treat Cascade Memories as Typed, TTL&rsquo;d Tiers &mdash; Never a Free-Form Notepad</strong>
+    <p>A memory is only useful if it&rsquo;s <em>tagged with a tier and an expiry</em>: permanent architecture facts (<code>arch:</code> &mdash; module boundaries, forbidden paths) never expire; project-fact (<code>project:</code> &mdash; current sprint goal) TTLs on milestone; ephemeral task state (<code>scratch:</code>) clears on session end. <strong>Why it matters:</strong> an untyped memory blob either re-derives constraints every turn (wasteful) or, worse, floods the window with stale facts and dilutes the working signal &mdash; the context-engineering discipline (Sep 29) applied at the IDE layer. <strong>How to use it:</strong> never let the agent self-promote a <code>scratch:</code> fact to <code>arch:</code> without a human ack; treat that promotion as the review gate. <a href="https://codeium.com/windsurf">Windsurf &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot &middot; Governance</span>
+    <strong>Scope Copilot Agent Mode to a Workspace Subset + Tool Allowlist, Audited via Actions Logs</strong>
+    <p>Copilot Agent Mode runs with the repo&rsquo;s full tool surface by default; the production move is to <strong>scope it</strong>: pin an allowed-tools list and a workspace path subset in <code>.github/copilot-instructions.md</code>, plus an audit hook emitting every tool call to the Actions log. <strong>Why it matters:</strong> it&rsquo;s the IDE-layer enforcement of the coding-agent governance plane (Sep 28) &mdash; the allowlist pattern Claude Code&rsquo;s per-project MCP scoping uses, now at the Copilot tier, and the artifact a regulated reviewer will ask to see before an agent touches a payments repo. <strong>How to use it:</strong> alert on any out-of-scope tool call in the log, and treat the audit trail as the compliance artifact for agent-initiated changes. <a href="https://docs.github.com/en/copilot">Copilot &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Google DeepMind &middot; Frontier</span>
+    <h3><a href="https://deepmind.google/technologies/gemini/">Google DeepMind Launches Gemini 4 Argon &mdash; Long-Horizon SWE &amp; Cybersecurity Remediation (~77.9% DeepSWE)</a></h3>
+    <p>Google DeepMind&rsquo;s newest flagship <strong>Gemini 4 Argon</strong> is tuned for long-horizon multi-step developer tasks, complex codebase refactoring, and automated cybersecurity vulnerability detection/patching &mdash; scoring roughly <strong>77.9% on DeepSWE</strong>, with expanded context limits. Rollout is phased: vetted cyber-defense partners (the <em>Fairwind Program</em>) and government eval partners first, then broad API + enterprise. <strong>Why it matters:</strong> Argon reframes model choice from &ldquo;which model writes the best function&rdquo; to &ldquo;which model survives a 50-step repo task without derailing&rdquo; &mdash; and the cybersecurity-remediation focus is a new frontier-model use-case a security-conscious iOS/finance team should benchmark against GPT-6.1 Sol. <strong>How to use it:</strong> request access via the Fairwind/government eval track, and baseline Argon vs Sol on one real multi-file refactor before pinning a default. <em>(Caveat: WebSearch-sourced; verify on deepmind.google/technologies/gemini/.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Claude Code</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code 2.1 &mdash; Auto-Resuming Long-Running Context Tasks Instead of Erroring Out</a></h3>
+    <p>Anthropic pushed <strong>Claude Code 2.1</strong> with hardened terminal-session resilience: timed-out replies and long-running context tasks now <strong>auto-resume</strong> rather than abort the run, alongside smarter auto-compaction and session-resume flows that recover gracefully from partial API timeouts. <strong>Why it matters:</strong> it kills the single most frustrating failure mode of a multi-hour agent refactor &mdash; the cliff-edge cutoff that leaves a half-written method &mdash; and pairs directly with the persistent coordinator-swarm (Sep 28) and Claude Mods (Oct 3): an unattended fleet is only useful if a flaky connection doesn&rsquo;t torch the run. <strong>How to use it:</strong> pin 2.1 on any long-horizon migration, but still snapshot before risky edits &mdash; auto-resume is not a substitute for a clean rollback point. <em>(Caveat: WebSearch-sourced; verify on docs.anthropic.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Model Access</span>
+    <h3><a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/">Anthropic Opens Sonnet 5.5 to Developer APIs &mdash; ~30% Faster Code Gen &amp; Debug</a></h3>
+    <p>Anthropic made <strong>Claude Sonnet 5.5</strong> broadly accessible to developer APIs and tooling extensions, lifting inference speed by roughly <strong>30%</strong> for code generation and debugging workflows. <strong>Why it matters:</strong> Sonnet is the workhorse tier; a 30% speed lift at the API tier changes the per-request router&rsquo;s default &mdash; the explore tier can now be Sonnet 5.5 (fast, cheap, capable) rather than only Sol/Flash, which reshapes the cost cascade a Binance iOS agent runs on. <strong>How to use it:</strong> re-baseline your router&rsquo;s explore tier against Sonnet 5.5, and gate the new model behind a CI gold-path before broad rollout. <em>(Caveat: WebSearch-sourced; cross-ref Google AI Sept recap.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Agent Framework &middot; MCP</span>
+    <h3><a href="https://github.com/modelcontextprotocol/specification">Pi 1.0 &mdash; Native MCP Integration &amp; Parallel Tool-Execution in a QuickJS Sandbox</a></h3>
+    <p>The agent framework <strong>Pi</strong> shipped v1.0 with full native <strong>Model Context Protocol</strong> integration and <strong>parallel tool execution inside a secure QuickJS sandbox</strong> &mdash; so an agent can call multiple MCP servers concurrently, each tool isolated in its own JS runtime with resource caps. <strong>Why it matters:</strong> QuickJS per-tool isolation is the missing safety primitive for parallel tool-calling, and native MCP means any compliant server (internal Jira/Linear/Notion, Sep 29 OAuth MCP) is callable out of the box &mdash; the runtime complement to Pi&rsquo;s governance plane. <strong>How to use it:</strong> register your internal MCP servers, set per-tool CPU/mem caps, and let the scheduler fan out independent calls; log each tool&rsquo;s exit code as an OTEL span (Sep 30). <em>(Caveat: WebSearch-sourced; verify on Pi framework repo.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Enterprise &middot; Adoption</span>
+    <h3><a href="https://www.anthropic.com/news">Barclays Rolls Out Claude Code Enterprise-Wide &mdash; 50% of Developers by End-2026</a></h3>
+    <p><strong>Barclays</strong> announced an enterprise-wide Claude Code integration aiming to put the agent into the hands of <strong>50% of its developers by end-2026</strong>, scaling to a majority of its software engineers in 2027. <strong>Why it matters:</strong> the first major-bank production rollout of a coding agent at this scale &mdash; a public reference point for how a regulated firm governs agent access (allowlist, audit, phased onboarding) across thousands of devs, the exact template any bank&rsquo;s iOS/platform team will be asked to mirror in its own rollout. <strong>How to use it:</strong> read the rollout as a governance spec — phased team onboarding, per-team IAM, required reviewer on every agent PR — not as a marketing announcement. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Markets &middot; Adoption</span>
+    <h3><a href="https://www.coindesk.com/business/2026/10/03/blackrock-offers-a-glimpse-of-how-tokenization-may-change-your-investment-portfolio">BlackRock Maps the Tokenized Portfolio &mdash; From Single Assets to Rebalanced Baskets in Real Time</a></h3>
+    <p><strong>BlackRock</strong> sketched how tokenization evolves from single onchain stocks/funds to <em>entire investment portfolios</em> tradable, rebalanced, and managed in real time &mdash; motorizing the next rung beyond Goldman&rsquo;s $100B T-bill fund (Sep 29). <strong>Why it matters:</strong> it sets the product template a Binance asset-listing/treasury team should watch, because tokenized portfolio baskets reshape how retail allocates across crypto + tokenized equities. <strong>How to use it:</strong> model portfolio-level tokenization against your existing fund/asset integrations; the rebalancing primitive is the integration surface, not the single-asset token. <em>(RSS-verified; CoinDesk, real Oct 3 URL.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Recovery &middot; DeFi</span>
+    <h3><a href="https://cointelegraph.com/news/near-intents-recovers-entire-stolen-38m-after-ultimatum-to-exploiter">NEAR Intents Recovers Entire Stolen $3.8M After 48-Hour Ultimatum to Exploiter</a></h3>
+    <p><strong>NEAR Intents</strong> said the exploiter returned the entire $3.8M after being identified and given 48 hours to respond (Oct 3, RSS-verified Cointelegraph) &mdash; a full recovery without on-chain freezing. <strong>Why it matters:</strong> the cleanest &ldquo;name-and-ultimatum&rdquo; recovery template yet, and the contrast case to Drift&rsquo;s ~1% initial payouts (Oct 2, aliased Saturday) — the variable that predicts recovery is identification + a credible deadline, not a chain freeze. <strong>How to use it:</strong> fold the identify-then-ultimatum playbook into your incident-response runbook; the on-chain-forensics + doxxing-pressure path is the lever, not emergency halts. <em>(RSS-verified; Cointelegraph, real Oct 3 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Market Structure &middot; Risk</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-10-02-mike-belshe-bitgo-interview-clarity-417560">BitGo CEO: Clarity&rsquo;s Failure Left Capital-Market Risks &lsquo;Potentially Worse Than Lehman&rsquo;</a></h3>
+    <p>BitGo CEO <strong>Mike Belshe</strong> warned (Oct 2, RSS-verified The Block) that the Clarity Act&rsquo;s collapse left systemic risks from one firm holding exchange, brokerage, and custody &mdash; calling the exposure &ldquo;potentially worse than Lehman.&rdquo; <strong>Why it matters:</strong> the sharpest market-structure warning yet on the post-Clarity landscape; complements the ICBA-sues-OCC card (Saturday) as the second regulatory-risk signal this week, and it&rsquo;s the downside scenario a Binance custody/treasury team must keep on the risk register. <strong>How to use it:</strong> re-walk counterparty exposure to vertical-stack firms (exchange+broker+custody in one entity); the BitGo line is the case to escalate internally. <em>(RSS-verified; The Block, real Oct 2 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Settlement &middot; CBDC</span>
+    <h3><a href="https://www.theblock.co/news/regulation/2026-10-02-ecb-outlines-three-models-for-putting-central-bank-money-onchain-417552">ECB Outlines Three Models for Putting Central-Bank Money Onchain</a></h3>
+    <p>The <strong>ECB published three settlement models</strong> for bringing central-bank money onchain (Oct 2, RSS-verified The Block) &mdash; a structural choice that determines how tokenized commercial-bank money settles against the central-bank layer, with direct implications for intraday liquidity and collateral. <strong>Why it matters:</strong> central-bank money onchain is the settlement rail for the tokenized-MMF flows (Goldman Sep 29, BlackRock today) and the agent-mediated-payments arc (Sep 30) — directly relevant to a Binance settlement/collateral map. <strong>How to use it:</strong> map each of the three ECB models against your settlement-partner options; the model chosen reshapes how you size onchain liquidity partners. <em>(RSS-verified; The Block, real Oct 2 URL.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Workflow</span>
+    <strong>Spec-Driven Development &mdash; The Spec as the Executable Contract Between Orchestrator and Agent Fleet</strong>
+    <p>The formal successor to &ldquo;vibe coding&rdquo;: the <strong>spec</strong> (acceptance criteria + test plan + tool scope) becomes the executable contract — agents are measured against spec pass/fail, not vibes, and merge is gated on spec-test green. <strong>Why it matters NOW:</strong> with Claude Code 2.1&rsquo;s auto-resume (today) and persistent coordinator swarms (Sep 28), the unattended multi-hour run is real; the spec is the only artifact that lets you trust the result without re-reading every diff. <strong>How to use it:</strong> freeze the spec before the run, generate the test plan from it, and treat any spec drift mid-run as a stop-the-line signal, not a tweak. <a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="concept-tag">Control Flow</span>
+    <strong>Probabilistic-Deterministic Orchestration &mdash; LangGraph/Temporal State Machines for Agent Control Flow</strong>
+    <p>LLM non-determinism married to deterministic business logic via <strong>state machines</strong> (LangGraph, Temporal) that enforce schema, retry policy, and human-in-the-loop fallback on every agent step. <strong>Why it matters NOW:</strong> as agent fleets scale (Claude Code swarm Sep 28, dots Sep 30), a retry/human-loop state machine is the only thing keeping a flaky-LLM call from corrupting state — the durable-execution complement to Reusable Agent Environments (Oct 1). <strong>How to use it:</strong> model every agent step as a node with an idempotency key + retry policy + an explicit human-ack edge for destructive outputs; replay is the audit artifact. <a href="https://www.langchain.com/langgraph">LangGraph &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Frontier Eval</span>
+    <strong>Long-Horizon Agentic SWE &mdash; DeepSWE-Class Benchmarks as the Real Model-Selection Signal</strong>
+    <p>The benchmark-paradigm shift where frontier models are measured on <em>multi-step agentic software-engineering tasks</em> over a real repo (DeepSWE) rather than single-shot codegen. <strong>Gemini 4 Argon&rsquo;s ~77.9% DeepSWE</strong> (today&rsquo;s lead AI card) is the data point. <strong>Why it matters NOW:</strong> it reframes model choice from &ldquo;best at writing a function&rdquo; to &ldquo;survives a 50-step repo task without derailing&rdquo; &mdash; the eval that actually predicts production agent reliability, far better than HumanEval/MBPP. <strong>How to use it:</strong> add a DeepSWE-class task to your model-selection eval; the score is the leading indicator of long-run agent quality. <a href="https://www.swebench.com/">SWE-bench &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section worth-reading">
+  <h2>&#128218; Worth Reading</h2>
+  <ul>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-10-02-ecb-outlines-three-models-for-putting-central-bank-money-onchain-417552">The Block &mdash; ECB outlines three models for putting central bank money onchain</a>
+      <span class="desc">RSS-verified primary (Oct 2) behind today&rsquo;s lead crypto card &mdash; the settlement-rail choice that determines how tokenized commercial-bank money settles against the central-bank layer.</span>
+    </li>
+    <li>
+      <a href="https://www.theblock.co/news/regulation/2026-10-02-mike-belshe-bitgo-interview-clarity-417560">The Block &mdash; BitGo CEO says Clarity&rsquo;s failure left capital-markets risk potentially worse than Lehman</a>
+      <span class="desc">RSS-verified (Oct 2) behind today&rsquo;s market-structure card &mdash; the sharpest post-Clarity counterparty-risk warning, paired with Saturday&rsquo;s ICBA-sues-OCC signal.</span>
+    </li>
+    <li>
+      <a href="https://www.coindesk.com/business/2026/10/03/blackrock-offers-a-glimpse-of-how-tokenization-may-change-your-investment-portfolio">CoinDesk &mdash; BlackRock offers a glimpse of how tokenization may change your investment portfolio</a>
+      <span class="desc">RSS-verified (Oct 3) behind today&rsquo;s tokenization Vibe card &mdash; the next rung past single-asset tokenization toward rebalanced onchain portfolios.</span>
+    </li>
+    <li>
+      <a href="https://cointelegraph.com/news/near-intents-recovers-entire-stolen-38m-after-ultimatum-to-exploiter">Cointelegraph &mdash; NEAR Intents recovers entire stolen $3.8M after ultimatum to exploiter</a>
+      <span class="desc">RSS-verified primary (Oct 3) behind today&rsquo;s lead crypto card &mdash; the cleanest name-and-ultimatum recovery template to fold into your incident-response runbook.</span>
+    </li>
+    <li>
+      <a href="https://openai.com/index/practical-guide-building-gpt-6">OpenAI &mdash; A practical guide to building with the GPT-6 family</a>
+      <span class="desc">RSS-verified (Oct 2); first published Saturday as the lead AI card — re-listed as the canonical reference for the per-request router tip that anchors today&rsquo;s best-of-week replay.</span>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-10-04 &middot; <strong>v4</strong> &middot; Sunday (Best-of-week replay, Part 2 &mdash; the Agentic Workflow Stack: per-request routing, typed memory tiers, Copilot governance; complements Saturday&rsquo;s Edge-AI replay)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Oct 2&ndash;3 (RSS-verified across The Block / CoinDesk / Cointelegraph) the week&rsquo;s big market move was <strong>Bitcoin clearing the $85K sell wall and climbing back toward $87K</strong> (already carded Saturday). Sunday&rsquo;s freshest items: <strong>NEAR Intents recovered the entire stolen $3.8M</strong> after a 48-hour identify-and-ultimatum play (carded, lead); <strong>BitGo CEO Mike Belshe warned the post-Clarity landscape is &ldquo;potentially worse than Lehman&rdquo;</strong> for vertical-stack firms (carded); the <strong>ECB outlined three models for putting central-bank money onchain</strong> (carded) — the settlement-rail choice that governs how tokenized commercial-bank money settles. Tokenization march: <strong>BlackRock mapped the tokenized portfolio</strong> (carded in Vibe) and <strong>OpenPayd targeted a year-end Nasdaq listing</strong> to fund US stablecoin-payments expansion (CoinDesk, Oct 3). Labour market: <strong>crypto job postings tripled to 1,200+ in September</strong> even as applications fell (CoinDesk, Oct 3) — demand-side hires outpace candidate supply, the inverse of the broader tech-layoff narrative. AI&times;policy crossover: <strong>Trump is expected to appoint Jay Clayton as &ldquo;AI czar&rdquo;</strong> alongside the self-policing-CEOs arc (Cointelegraph, Oct 3) — the same week the SAFA cross-lab safety body (Sep 22/23) re-surfaced in web search but was dedup-filtered. Aliased to prior coverage (not re-carded): <strong>Bitcoin $85K breakout</strong> (Oct 3), <strong>Blast L2 wind-down</strong> (Oct 3), <strong>ICMA/ICBA sues OCC</strong> (Oct 3), <strong>OpenAI GPT-6 model guide</strong> (Oct 3), <strong>Claude Mods / Codex CLI 0.160 / DeepSeek Ascend tools</strong> (Oct 3), <strong>OpenAI distillation-defense / GPT-6.1 Astra cancellation / OpenAI&rarr;Cursor wind-down / Opus 5.5 Fast Mode</strong> (Oct 1), <strong>DevDay / GPT-6.1 Sol / dots / Codex /agents</strong> (Sep 30), <strong>Claude Code v2.1.283 enterprise controls / NVIDIA OpenShell</strong> (Sep 29), <strong>SAFA cross-lab safety body</strong> (Sep 22/23), <strong>Claude Code coordinator-swarm / agent workspace</strong> (Sep 28), <strong>Sonnet/Opus 5.5 base</strong> (Sep 23), <strong>Cursor Rollouts / Security Review</strong> (Sep 25/Oct 1), <strong>Muse Code / Copilot Managed Runtime</strong> (Sep 25/26), <strong>Codex Cloud reusable envs</strong> (Oct 1), <strong>Cursor cloud isolation AWS</strong> (Sep 30), <strong>Kilo Code / Cloudflare Clef</strong> (Oct 3), <strong>MetaMask exits Lido / CFTC event-contracts / Clarity Act failure</strong> (Oct 1), <strong>Robinhood AI+perps / Aztec zk.money / Bitwise NEAR ETF</strong> (Sep 30), <strong>Goldman $100B / Coinbase DCO / Apollo/Slok</strong> (Sep 29), <strong>Vitalik ETH-2030 / BTC ETF $2.4B / Zano rollback</strong> (Sep 28), <strong>Bitget $388M / Fed GENIUS / ARK onchain</strong> (Sep 25/29).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded with synthesized prose but returned non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (all 6 feeds healthy: theblock.co, cointelegraph.com, coindesk.com returned valid XML with fresh Oct 2&ndash;3 items; openai.com/blog/rss.xml healthy but no fresh items beyond the Oct 2 model guide already carded Saturday; blog.google/technology/ai returned the Sept recap as latest; hnrss.org returned empty this cycle, skipped silently; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (NEAR Intents $3.8M recovery, BitGo/Clarity warning, ECB three onchain models) are RSS-verified via real Oct 2&ndash;3 The Block / CoinDesk / Cointelegraph URLs. Vibe card on BlackRock is RSS-verified via real Oct 3 CoinDesk URL. AI cards (Gemini 4 Argon, Claude Code 2.1, Sonnet 5.5 dev-API access) and the Pi 1.0 / Barclays Vibe cards are WebSearch-sourced and caveated in-card. No WebFetch of authenticated/internal URLs; no Reddit feeds.</p>
+
+  <p><strong>Dedup:</strong> 4 prior reports indexed (Sep 29, 30, Oct 1, Oct 3 &mdash; <strong>Oct 2 absent (Friday skipped), skipped silently</strong>; read directly from the local <code>daily-digest</code> repo synced to GHE <code>main</code>). ~135+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: <strong>OpenAI GPT-6 model guide</strong> (Oct 3), <strong>Claude Mods / Codex CLI 0.160 / DeepSeek Ascend tools / Kilo Code / Cloudflare Clef</strong> (Oct 3), <strong>Astra cancellation / Sol launch / OpenAI&rarr;Cursor wind-down / Opus 5.5 Fast Mode</strong> (Oct 1), <strong>DevDay / dots / Codex /agents</strong> (Sep 30), <strong>SAFA</strong> (Sep 22/23 &mdash; re-surfaced in web search but dedup-filtered), <strong>Claude Code coordinator-swarm / agent workspace</strong> (Sep 28), <strong>Codex CLI v0.158 OAuth MCP / Claude Code v2.1.283</strong> (Sep 29), <strong>Databricks Unity Gateway</strong> (Sep 28), <strong>Cursor Rollouts / Security Review</strong> (Sep 25/Oct 1), <strong>Muse Code / Copilot Managed Runtime</strong> (Sep 25/26), <strong>NEAR Intents $50M block</strong> (Sep 29 &mdash; today&rsquo;s card is the fresh full-recovery follow-up, distinct). Prior concept set filtered (Context Engineering, SLM+LLM Hybrid, SPIFFE/SPIRE, Coding-Agent Governance Plane, Agent Skills, Event-Sourced Memory, Agent Choreography, Macroservices, Pre-Deployment Red-Teaming, Local-First/CRDT, ReBAC, Maintenance Debt, Compound AI Systems, Agentic CI/CD, Modular Monolith, MCP-into-IAM, Wasm, FinOps/Carbon-Aware, IDPs, Adversarial Distillation Defense, Release-Time Alignment Gates, Reusable Agent Environments, GraphRAG, Edge Decision Models, eBPF Sandboxing, Data Mesh &amp; Data Contracts, Agent-Mediated Payments, Agentic Observability) &mdash; only fresh Spec-Driven Development, Probabilistic-Deterministic Orchestration, and Long-Horizon Agentic SWE carded. Prior tip set filtered (Sep 28 hooks/MCP/skills, Sep 29 LoRA/Core AI/mmap, Sep 30 Cursor routing/Windsurf memories/Copilot scoping, Oct 1 prefill/decode/GQA/KV-cache/CoreML compute units, Oct 3 Saturday Edge-AI best-of-week replay) &mdash; today&rsquo;s Sunday replay revisits the Wed Sep 30 AI-Dev-Tools triad (routing, memory, governance) with a fresh synthesis, distinct from Saturday&rsquo;s Edge-AI replay. Dedup count: 4 reports indexed, ~135+ prior topics filtered against.</p>
+
+  <table>
+    <thead><tr><th>Section</th><th>Items</th><th>Primary source</th></tr></thead>
+    <tbody>
+      <tr><td>Tech Tips</td><td>3</td><td>Best-of-week replay &mdash; per-request routing, typed memory tiers, Copilot governance</td></tr>
+      <tr><td>AI Tools</td><td>3</td><td>WebSearch (caveated) &mdash; Gemini 4 Argon, Claude Code 2.1, Sonnet 5.5 dev-API</td></tr>
+      <tr><td>Vibe / Dev Tools</td><td>3</td><td>WebSearch (Pi 1.0, Barclays) + CoinDesk RSS (BlackRock)</td></tr>
+      <tr><td>Crypto &amp; Markets</td><td>3</td><td>The Block RSS (2) + Cointelegraph RSS (1) &mdash; real Oct 2&ndash;3 URLs</td></tr>
+      <tr><td>Hot Concepts</td><td>3</td><td>WebSearch synthesis &mdash; Spec-Driven Dev, Prob-Deterministic Orchestration, Long-Horizon SWE</td></tr>
+      <tr><td>Worth Reading</td><td>5</td><td>The Block RSS (2) + CoinDesk RSS (1) + Cointelegraph RSS (1) + OpenAI RSS (1, re-listed as router-tip anchor)</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> &middot; Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
