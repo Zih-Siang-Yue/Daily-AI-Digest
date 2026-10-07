@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-10-07</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);           color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);         color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent);      color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">October 7, 2026 &middot; Wednesday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Wednesday — AI Dev Tools: Cursor, Windsurf, Copilot advanced usage) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; AI Dev Tools (Cursor &middot; Windsurf &middot; Copilot advanced usage)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor &middot; Background Agents</span>
+    <strong>Spawn One Background Agent per Isolated <code>git worktree</code> &mdash; the Worktree Is the Rollback Unit</strong>
+    <p>Cursor's Background Agents can run multiple Composer sub-agents concurrently; the production-safe move is to give each one its own <code>git worktree</code> so parallel refactors edit independent working copies and never clobber each other. <strong>Why it matters:</strong> the worktree-per-agent layout (the same pattern Codex CLI shipped Oct 6) brings real parallel delegation onto the laptop without a cloud round-trip, and the worktree &mdash; not the PR &mdash; is the rollback unit, so a derailed sub-agent is <code>git worktree remove</code> away from clean. <strong>How to use it:</strong> open one worktree per sub-task, point each Background Agent at its own path, and merge only the survivor branches &mdash; discard the rest. <a href="https://docs.cursor.com/">Cursor docs &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot &middot; CI Gate</span>
+    <strong>Wire Copilot Code Review to Protected Branches via the REST/GraphQL API &mdash; Then Watch <code>ReviewBench</code> Drift</strong>
+    <p>GitHub's Oct-6 refresh made Copilot Code Review triggerable from CI/CD via REST/GraphQL (not just inline in the IDE), alongside the launch of <strong>ReviewBench</strong> &mdash; an open benchmark that measures AI review agents on precision, recall, and review depth against real production PRs. <strong>Why it matters:</strong> making the review a required status check closes the &ldquo;AI writes &rarr; AI reviews &rarr; human verifies&rdquo; loop (carded Sep 30) as a default-on gate; ReviewBench is the regression test that catches a silent Copilot downgrade before it reaches prod code. <strong>How to use it:</strong> call the review API from your Actions workflow on every PR, set the check required on <code>main</code>, and snapshot ReviewBench scores per Copilot version so a model swap is a measured change, not a vibe. <a href="https://docs.github.com/en/copilot">Copilot &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf &middot; Cascade</span>
+    <strong>Scope Cascade's Workspace Index to a Sub-Module Path &mdash; Don't Pull the Whole Monorepo Into Context</strong>
+    <p>By default, a Binance-scale monorepo makes Cascade index every package and re-derive module boundaries each turn &mdash; burning context on symbols your task will never touch. Pin the workspace to a sub-path. <strong>Why it matters:</strong> it's the context-engineering move (Sep 29) applied at the IDE layer &mdash; a scoped index keeps the working set tight, lets the agent reason about the real call graph, and stops drift-induced hallucinations across package boundaries. <strong>How to use it:</strong> in <code>codeium_config.toml</code> set <code>workspace_root</code> to the target package, refresh the Cascade index, and only widen the scope when the agent explicitly hits a cross-package reference. <a href="https://codeium.com/windsurf">Windsurf &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Big Tech &middot; Spend</span>
+    <h3><a href="https://www.anthropic.com/news">Meta Trims Claude Code Seats 60K&rarr;30K After $105M/28-Day Spend; Microsoft Cuts Budget by a Third</a></h3>
+    <p>Two of Anthropic's largest enterprise Claude Code customers reversed course &mdash; Meta cut internal seats in half (after spending ~<strong>$105M in a 28-day window</strong>) pushing engineers toward in-house Muse Code/MetaCode, and Microsoft cut its Claude budget by ~1/3 in favor of GitHub Copilot and OpenAI. <strong>Why it matters:</strong> the biggest-spend signal yet that frontier-model concentration risk has enterprises hedging across at least two providers &mdash; directly validating the multi-provider routing thesis (carded Oct 5); for a Binance iOS team it is the prompt to never pin a single agent as the default. <strong>How to use it:</strong> treat the dual-cut move as a vendor-risk case study; keep Copilot + Claude Code dual-sourced for any repo over the next two quarters. <em>(Caveat: WebSearch-sourced; verify on bloomberg/reuters.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI &middot; Provenance</span>
+    <h3><a href="https://openai.com/index/codex/">OpenAI's <code>textGrain</code> Watermark Rolls Out Across ChatGPT + Codex EU Outputs for AI-Act Compliance</a></h3>
+    <p>OpenAI deployed <strong>textGrain</strong> &mdash; an invisible statistical word-distribution watermark &mdash; across ChatGPT and Codex text outputs in the EU to satisfy AI-Act provenance rules, with global API users able to opt in; OpenAI notes the signal degrades if code/text is heavily modified. <strong>Why it matters:</strong> provenance-at-output is now a shipping requirement for any agent emitting text in the EU, the compliance edge case a Binance team shipping EU-facing AI features must account for at the API layer. <strong>How to use it:</strong> when routing EU traffic, opt in the watermark param, and verify detection against your golden outputs; expect signal loss on post-processed code. <em>(Caveat: WebSearch-sourced; verify on openai.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Security</span>
+    <h3><a href="https://www.anthropic.com/news">Anthropic Expands Cyber Verification Program &mdash; Tiered Access for Vetted Pen-Testers</a></h3>
+    <p>Anthropic opened an expanded <strong>Cyber Verification Program</strong> offering tiered access to Claude's advanced cyber capabilities for vetted penetration-testing, defensive-engineering, and critical-infrastructure stress-test teams. <strong>Why it matters:</strong> a finance/security-conscious org can now apply for structured access to frontier cyber-red-team tooling &mdash; directly relevant to a Binance security-eng team evaluating AI-driven attack-surface discovery. <strong>How to use it:</strong> route a request through Anthropic's cyber-verification intake, scope the access to a sandboxed engagement, and treat the output as a red-team finding requiring human confirmation before any fix ships. <em>(Caveat: WebSearch-sourced; verify on anthropic.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI &middot; Frontier Reasoning</span>
+    <h3><a href="https://openai.com/index/codex/">OpenAI Publishes Novel Math Theorems Formally Verified in Lean</a></h3>
+    <p>OpenAI released a collection of novel mathematical theorems and proofs produced by an internal frontier reasoning model, many <strong>formally verified in the Lean proof assistant</strong> &mdash; a credible demonstration that frontier models can produce non-trivial, original math, not just recapitulate known results. <strong>Why it matters:</strong> Lean-verified proofs are a clean capability boundary test &mdash; they distinguish genuine reasoning from plausible-sounding text, and hint at frontier models closing real formal-verification loops that secure-code and config-correctness pipelines can eventually reuse. <strong>How to use it:</strong> skim the Lean proofs as a calibration point for &ldquo;what counts as frontier reasoning today&rdquo; when benchmarking sol-tier models. <em>(Caveat: WebSearch-sourced; verify on openai.com.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">GitHub &middot; Code Review</span>
+    <h3><a href="https://github.blog/">Copilot Code Review Goes HEADLESS &mdash; API Trigger + ReviewBench Open Benchmark Land Together</a></h3>
+    <p>GitHub's Oct-6 update made Copilot Code Review callable from CI/CD via REST/GraphQL, with a new &ldquo;Balanced&rdquo; default effort and the launch of <strong>ReviewBench</strong> &mdash; an open benchmark that evaluates AI review agents against production PRs for precision, recall, and depth. <strong>Why it matters:</strong> it yanks AI review out of IDE-locked feature parity and into a measurable, CI-attached eval &mdash; the missing artifact that makes &ldquo;AI reviews AI&rdquo; a defensible required check rather than an opt-in nicety. <strong>How to use it:</strong> add the review API call to your Actions workflow on every PR, set the check required on <code>main</code>, and run ReviewBench before any Copilot model upgrade to catch silent drift. <em>(Caveat: WebSearch-sourced; verify on github.blog.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor &middot; Platform</span>
+    <h3><a href="https://cursor.com">Cursor Expands Beyond VS Code Fork &mdash; Git Collab Platform, Mobile Dev Workflows, Autonomous Agent Swarms</a></h3>
+    <p>Post-SpaceX acquisition, Cursor is extending beyond its core editor into a dedicated Git collaboration platform, mobile dev workflows, and autonomous agent swarms tailored to full-stack builds &mdash; using SpaceX compute to train in-house Composer/Fusion models now that OpenAI supply ends Nov 12. <strong>Why it matters:</strong> Cursor is no longer &ldquo;just an IDE&rdquo; &mdash; it is becoming a full-stack agent platform, which makes the per-request router arg (Oct 5) even more load-bearing for any team that wants to keep model choice portable. <strong>How to use it:</strong> do not re-pin to Cursor's in-house Composer models yet &mdash; keep the router on Claude/Gemini/Grok and treat Cursor's own models as one more fallback tier. <em>(Caveat: WebSearch-sourced; verify on cursor.com.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets &middot; Privacy Coin</span>
+    <h3><a href="https://cointelegraph.com/news/winklevoss-backed-zcash-etf-files-with-sec-for-nasdaq-listing">Winklevoss-Backed Spot Zcash ETF Files With SEC for Nasdaq Listing</a></h3>
+    <p>A Winklevoss-backed group filed to launch a <strong>spot Zcash ETF</strong> with a 0.25% fee and the proposed WINK ticker (Oct 6, RSS-verified Cointelegraph + The Block) &mdash; the first formal US spot-ZEC ETF filing. <strong>Why it matters:</strong> it is the market-structure follow-through to Zcash's DC lobbying push (carded Oct 5) and the Tachyon private-payment rebuild (Sep 30) &mdash; the protocol is now pressing the asset-access lever, not just the policy lever, and a regulated ZEC ETF reshapes the listing / liquidity profile a Binance asset team must model. <strong>How to use it:</strong> add the WINK ETF decision to the ZEC exposure watchlist; pair with the FinCEN mixing-rule withdrawal (carded Oct 6) as one market-structure stack. <em>(RSS-verified; Cointelegraph + The Block, real Oct 6 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Ethereum L2 &middot; Wind-Down</span>
+    <h3><a href="https://cointelegraph.com/news/consumer-crypto-chain-abstract-to-wind-down">Pudgy Penguins-Backed L2 Abstract Shutting Down After &ldquo;Tens of Millions&rdquo; in Losses</a></h3>
+    <p>Consumer crypto chain <strong>Abstract</strong> &mdash; the Pudgy Penguins-backed Ethereum L2 &mdash; is winding down after losing &ldquo;tens of millions&rdquo; (Oct 6, RSS-verified Cointelegraph + The Block), making it the <strong>second major L2 to publicly exit this month</strong> after Blast (carded Oct 3). Why it matters: two L2 wind-downs in a week is the clearest L2-attrition signal yet &mdash; a Binance listings/treasury team should re-walk L2-asset exposure and the withdrawal-window pattern (Blast's Oct 26 deadline is the template). <strong>How to use it:</strong> flag any Abstract-bridged asset for accelerated de-risking; treat the consumer-L2 thesis (NFT brand &rarr; chain) as a failed pattern, not a viable vertical. <em>(RSS-verified; Cointelegraph + The Block, real Oct 6 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation &middot; Custody</span>
+    <h3><a href="https://cointelegraph.com/news/rain-seeks-us-trust-bank-charter-days-after-occ-sued-over-crypto-charters">Rain Seeks US Trust Bank Charter Days After OCC Sued Over Crypto Trust Charters</a></h3>
+    <p>Stablecoin issuer <strong>Rain</strong> applied for a US national trust bank charter (Oct 6, RSS-verified Cointelegraph) &mdash; landing the same week the ICBA sued the OCC over the very authority to grant such charters (carded Oct 3). <strong>Why it matters:</strong> it is the live stress-test of whether the federal trust-charter path survives the ICBA challenge &mdash; the exact risk variable a Binance custody/partner map must price in, and the filing that most directly contests the ICBA legal theory. <strong>How to use it:</strong> track the Rain trust-charter decision as the leading indicator for the OCC-charter's survival; a denial validates the ICBA complaint, an approval narrows it. <em>(RSS-verified; Cointelegraph, real Oct 6 URL.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Workflow</span>
+    <strong>Vibe Coding vs Agentic Engineering &mdash; the 2026 Industry Split, Codified</strong>
+    <p>The industry has formally separated exploratory <strong>vibe coding</strong> (Karpathy's term — steering via natural-language intent) from rigorous <strong>agentic engineering</strong> (closed-loop: plan &rarr; execute &rarr; test &rarr; self-correct &rarr; PR). <strong>Why it matters NOW:</strong> with Meta and Microsoft publicly cutting Claude Code seats today over ROI concerns, the split reframes the build-vs-buy agent decision — vibe coding is for prototyping, agentic engineering is for production, and the two draw from different budgets and tooling stacks. <strong>How to use it:</strong> classify each team task as vibe or agentic, fund them from different line items, and gate production deploys behind the agentic-engineering test loop. <a href="https://www.anthropic.com/research/building-effective-agents">Building effective agents &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Eval</span>
+    <strong>AI Code-Review Benchmarks (ReviewBench) &mdash; the Eval That Makes &ldquo;AI Reviews AI&rdquo; a Defensible Gate</strong>
+    <p>With GitHub's <strong>ReviewBench</strong> (Oct 6), AI code review moves from a feature-parity checklist to a measurable, version-tracked eval &mdash; precision, recall, and review depth against real production PRs. Why it matters NOW: the &ldquo;AI writes &rarr; aI reviews &rarr; human verifies&rdquo; loop (Sep 30) is only as trustworthy as the review agent's measured quality; ReviewBench is the regression test that catches a silent Copilot downgrade before it lands in production code. <strong>How to use it:</strong> pin ReviewBench scores in the CI pipeline and gate Copilot model upgrades on a non-regression threshold you set in advance. <a href="https://docs.github.com/en/copilot">Copilot &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Settlement</span>
+    <strong>Stablecoin-as-Default Settlement Rail &mdash; Stripe&times;100 + Paxos USDG + Solana DvP Converge</strong>
+    <p>Three concurrent signals &mdash; Stripe extending stablecoin cards to <strong>100+ countries</strong> by year-end, <strong>Paxos</strong> launching a $3B <strong>USDG</strong> stablecoin on Arbitrum, and the <strong>Solana Foundation</strong>'s DvP program (with JPMorgan input) for seconds-settlement &mdash; mark the inflection where stablecoin rails become the default settlement layer for cross-border payments, not a crypto experiment. <strong>Why it matters NOW:</strong> a Binance iOS / payments team should treat stablecoin settlement as a first-class integration target within the quarter — the off-ramp-to-card-rail gap is closing and the tokenized-equities arc (Oct 6) layers on top. <strong>How to use it:</strong> map one new payment flow to a stablecoin rail this sprint; Stripe's expansion is the integration surface to scope first.</p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>&#128218; Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://cointelegraph.com/news/winklevoss-backed-zcash-etf-files-with-sec-for-nasdaq-listing">Cointelegraph &mdash; Winklevoss-backed Zcash ETF files with SEC for Nasdaq listing</a>
+        <span class="desc">RSS-verified primary (Oct 6) behind today&rsquo;s lead crypto card &mdash; the first formal US spot-ZEC ETF filing, with a 0.25% fee and proposed WINK ticker.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/consumer-crypto-chain-abstract-to-wind-down">Cointelegraph &mdash; Consumer crypto chain Abstract to wind down</a>
+        <span class="desc">RSS-verified (Oct 6) behind today&rsquo;s L2 wind-down card &mdash; the second major rollup exit this month after Blast, with losses in the &ldquo;tens of millions.&rdquo;</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/rain-seeks-us-trust-bank-charter-days-after-occ-sued-over-crypto-charters">Cointelegraph &mdash; Rain seeks US trust bank charter days after OCC sued over crypto charters</a>
+        <span class="desc">RSS-verified (Oct 6) behind today&rsquo;s regulatory card &mdash; the live stress test of the federal trust-charter path the ICBA is challenging.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/news/regulation/2026-10-06-conduit-sues-tether-usdt-freeze-417831">The Block &mdash; Conduit sues Tether over $2.8M USDT freeze, says it has &lsquo;no legal entitlement&rsquo; to funds</a>
+        <span class="desc">RSS-verified (Oct 6); a fresh legal dispute testing whether stablecoin issuers can unilaterally freeze user funds — the first court challenge of its kind, worth reading as the precedent case.</span>
+      </li>
+      <li>
+        <a href="https://docs.github.com/en/copilot">GitHub &mdash; Copilot Code Review API + ReviewBench docs</a>
+        <span class="desc">Primary documentation behind today&rsquo;s Copilot CI-gate tip and the ReviewBench concept card — the API reference for wiring review as a required status check.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p><strong>Generated:</strong> 2026-10-07 &middot; <strong>v4</strong> &middot; Wednesday (AI Dev Tools rotation &mdash; Cursor Background Agents + worktrees, Copilot Code Review API + ReviewBench, Windsurf Cascade workspace scoping)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 4 AI + 2 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Oct 5&ndash;7 (RSS-verified across The Block / Cointelegraph / CoinDesk) <strong>Bitcoin grinds toward $87K</strong> as US equities notch record highs, though The Block flags BTC <strong>getting rejected at $87K</strong> on retest (continuation of the Oct 1/3/6 arc, aliased). <strong>Binance BTC outflows hit their highest since mid-2023 as whales deposit stablecoins</strong> (Cointelegraph) &mdash; the most directly relevant signal to a Binance reader this cycle. ETH: Tom Lee says ether is &ldquo;dwarfing other macro assets&rdquo; as Bitmine adds 15,112 ETH; Solana treasuries: <strong>DeFi Development NAV more than doubles</strong> (2.56M SOL), <strong>Strive adds 2,000 BTC</strong> (biggest buy since June), <strong>Metaplanet sold 10K BTC then bought back 11K</strong> to &ldquo;demonstrate liquidity.&rdquo; Stablecoin rails: <strong>Paxos $3B USDG on Arbitrum</strong>, <strong>Stripe stablecoin cards to 100+ countries</strong>, <strong>Solana DvP</strong> carded in the Stablecoin-as-Default concept. Macro: <strong>US scraps $10K reporting rule for crypto to private wallets</strong> (Treasury, Oct 5) — distinct from the FinCEN mixing-rule withdraw (carded Oct 6). Other: <strong>OKX raises fresh capital at $25B valuation</strong> (StanChart, Circle, Ripple invest); <strong>Hong Kong doubles down on end-2026 crypto licensing bill deadline</strong>; <strong>Russia&rsquo;s digital ruble tops 220K accounts</strong> in its first month. Aliased to prior coverage (not re-carded): <strong>BTC $83&ndash;87K arc</strong> (Oct 6), <strong>CFTC+SEC framework / FinCEN mixing-rule withdraw / OKX&times;ICE tokenized stocks</strong> (Oct 6), <strong>Sonnet 5.5 GA / Gemini 4 Argon / Cursor&times;SpaceX / Codex Security Cloud</strong> (Oct 6), <strong>Kitesurf/WebMCP</strong> (Oct 6), <strong>Zcash lobbyist / Clayton SIF / Cathie Wood</strong> (Oct 5), <strong>GraphRAG / Edge Decision / eBPF</strong> (Oct 3), <strong>Spec-Driven Dev / Prob-Det / Long-SWE</strong> (Oct 4), <strong>Tokenized Equities / Too-Big-to-Pause</strong> (Oct 6).</p>
+
+  <p><strong>Sources:</strong> WebSearch (7 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture; all 7 succeeded with synthesized prose but returned non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (<strong>all 3 crypto feeds healthy</strong>: cointelegraph.com, theblock.co, coindesk.com returned valid XML with fresh Oct 5&ndash;6 items; openai.com/blog/rss and blog.google/technology/ai fetched OK but no fresh Oct items beyond the Sep recap already covered; hnrss.org returned valid XML but no AI-coding matches this cycle — skipped silently; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (Winklevoss Zcash ETF, Abstract L2 wind-down, Rain trust-charter filing) are RSS-verified via real Oct 6 Cointelegraph + The Block URLs. AI cards (Meta/MS Claude Code cuts, OpenAI textGrain watermark, OpenAI Lean theorems, Anthropic Cyber Verification) and Vibe cards (Copilot Review API + ReviewBench, Cursor platform expansion) are WebSearch-sourced and caveated in-card. No WebFetch of authenticated/internal URLs; no Reddit feeds.</p>
+
+  <p><strong>Dedup:</strong> 4 prior reports indexed (Oct 3, 4, 5, 6 &mdash; <strong>Oct 2 absent (Friday skipped), skipped silently</strong> per the &ldquo;minimum 0 reports&rdquo; rule; fetched via GHE MCP <code>get_file_contents</code>). ~150+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: <strong>Sonnet 5.5 GA</strong> (Oct 6), <strong>Gemini 4 Argon</strong> (Oct 4/6), <strong>Cursor&times;SpaceX acquisition</strong> (Oct 5/6), <strong>Codex Security Cloud</strong> (Oct 6), <strong>Kitesurf/WebMCP</strong> (Oct 6), <strong>CFTC+SEC framework / FinCEN mixing-rule / OKX&times;ICE</strong> (Oct 6), <strong>Zcash lobbyist / Clayton SIF / Cathie Wood</strong> (Oct 5), <strong>OpenAI GPT-6 model guide</strong> (Oct 3), <strong>Claude Mods / Codex CLI 0.160 / DeepSeek Ascend</strong> (Oct 3), <strong>Kilo Code / Cloudflare Clef</strong> (Oct 3), <strong>Pi 1.0 / Barclays / BlackRock</strong> (Oct 4), <strong>NEAR Intents / BitGo-Lehman / ECB onchain</strong> (Oct 4), <strong>Blast L2 / ICBA-sues-OCC</strong> (Oct 3). Prior concept set filtered (Context Engineering, SLM+LLM Hybrid, Coding-Agent Governance Plane, Agent Skills, Edge Decision Models, eBPF Sandboxing, GraphRAG, Agent-Mediated Payments, Agentic Observability, Tool Stacking/Multi-Provider Routing, Independent Frontier AI Auditing, AI&times;Crypto Policy Convergence, Spec-Driven Development, Probabilistic-Deterministic Orchestration, Long-Horizon Agentic SWE, GPU&ndash;NPU Convergence, Tokenized Equities, &ldquo;Too Big to Pause&rdquo;) &mdash; only fresh Vibe-vs-Agentic-Engineering split, AI Code-Review Benchmarks, and Stablecoin-as-Default-Settlement-Rail carded. Prior tip set filtered (Sep 26 deterministic sandwich, Sep 28 hooks/MCP/skills, Sep 29 LoRA/Core AI/mmap, Sep 30 Cursor routing/Windsurf memories/Copilot scoping, Oct 1 prefill-decode/GQA+KV-cache/Core ML compute-unit, Oct 3 4-Gate Preflight/LoRA hot-swap/Background Assets+mmap, Oct 4 Skills-as-spec/Stop hook/MCP tiering, Oct 5 per-request router/Cascade memories/Copilot scoping, Oct 6 Core ML+MLX concurrency/thermal-state throttle/mlmodelc precompile) &mdash; today&rsquo;s Wednesday AI-Dev-Tools rotation covers Background Agents + worktrees, Copilot Code Review API + ReviewBench, and Cascade workspace scoping, all distinct from the prior agentic-workflow angles. Dedup count: 4 reports indexed, ~150+ prior topics filtered against.</p>
+
+  <p><strong>Public mirror:</strong> <a href="https://zih-siang-yue.github.io/Daily-AI-Digest/reports/2026/10/2026-10-07.html" style="color:var(--link);">https://zih-siang-yue.github.io/Daily-AI-Digest/reports/2026/10/2026-10-07.html</a></p>
+
+  <table>
+    <thead><tr><th>Feed</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>WebSearch &times;7</td><td>OK</td><td>Synthesized prose; non-citable grounding URLs &rarr; in-card verify-on links</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>OK</td><td>~20 unique article URLs parsed; ETF + wind-down + Rain charter RSS-verified</td></tr>
+      <tr><td>theblock.co RSS</td><td>OK</td><td>20 article URLs parsed; Abstract + Winklevoss ETF verified</td></tr>
+      <tr><td>coindesk.com RSS</td><td>OK</td><td>Titles parsed; cited in markets snapshot</td></tr>
+      <tr><td>openai.com/blog RSS</td><td>OK (stale)</td><td>Feed fetched; no fresh items this cycle</td></tr>
+      <tr><td>blog.google/technology/ai RSS</td><td>OK (stale)</td><td>Feed fetched; latest item Sep recap</td></tr>
+      <tr><td>hnrss.org</td><td>OK (empty)</td><td>No AI-coding matches this cycle; skipped silently</td></tr>
+      <tr><td>Reddit feeds</td><td>Not attempted</td><td>Blocked in this environment per spec</td></tr>
+    </tbody>
+  </table>
+  <p>Archive: GHE <code>sean-y/daily-digest</code> &middot; Public mirror: GitHub Pages <code>Zih-Siang-Yue/Daily-AI-Digest</code></p>
+</footer>
+
+</body>
+</html>
