@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — 2026-10-11</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">Sunday, October 11, 2026 — Best of Week</div>
+</header>
+
+<div class="section">
+  <div class="section-title tips">💡 Daily Tech Tips &mdash; Best of Week: Agentic Workflow + Edge AI Profiling</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Claude Code</span>
+    <strong>Plan Mode First, Edits Second &mdash; the Worktree Is Your Rollback Unit</strong>
+    <p>Before letting a subagent touch code, run <code>/agents</code> to spawn it in an isolated git worktree and force a <code>plan</code> pass that produces a multi-file sketch you approve. If the diff goes sideways, <code>git worktree remove</code> is a one-command rollback &mdash; far cleaner than reverting a tangled commit on your main checkout. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code docs &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Codex</span>
+    <strong>&ldquo;Approve for Me&rdquo; Auto-Review: Build a Per-Repo Allowlist, Don&rsquo;t Blind-Trust It</strong>
+    <p>OpenAI&rsquo;s new auto-review supervisor can cut approval fatigue, but only if you scope it. Whitelist low-risk tool actions (read, lint, test runs) for auto-approval and keep <code>git push</code>, <code>rm</code>, and migration commands gated behind a human. Treat the allowlist as code: review it in PRs, never inline-edit it. <a href="https://platform.openai.com/docs/guides/codex">Codex docs &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Core ML</span>
+    <strong>Profile ANE vs GPU Per-Op With <code>os_signpost</code> Before You Commit a Backend</strong>
+    <p>Don&rsquo;t assume the Neural Engine always wins &mdash; autoregressive decode is memory-bandwidth-bound and often lands on the GPU. Wrap each model stage in <code>os_signpost</code> intervals and read the Core ML Performance Instrument to see actual op placement and latency. Commit to a backend only after the trace proves it. <a href="https://developer.apple.com/documentation/coreml">Core ML docs &rarr;</a></p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title ai">🤖 AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Open Weights</span>
+    <h3><a href="https://reflection.ai">Reflection AI Launches &ldquo;Beam&rdquo; &mdash; 501B Open-Weight Coding MoE, 80.9 SWE-bench Verified</a></h3>
+    <p>Beam is a 501B sparse Mixture-of-Experts model (23B active per token) built from scratch for coding and agentic workflows. It hits 80.9 on SWE-bench Verified while using 3&ndash;4&times; less inference compute than comparable open models like GLM-5.2 &mdash; weights ship under Apache 2.0 later this month. For teams running self-hosted coding agents, this is the first open model that credibly challenges the frontier on SWE-bench at a tractable cost.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI</span>
+    <h3><a href="https://platform.openai.com/docs/api-reference">Codex Decisions API Enters Public Beta &mdash; Typed, Deterministic Routing for Agents</a></h3>
+    <p>Rather than asking an LLM to emit free-form text for every branch, the Decisions API gives Codex and ChatGPT Work a high-speed, typed endpoint for deterministic classification and routing &mdash; the &ldquo;is this safe / which tool / which branch&rdquo; calls that run inside every agentic loop. Treating those decisions as a separate, cacheable, eval-able surface (instead of buried in a chat completion) makes agent behavior far easier to test and replay.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic</span>
+    <h3><a href="https://www.anthropic.com/news">Claude Code Splits Max/Team Credits &mdash; Dedicated API &amp; Agent Budgets</a></h3>
+    <p>Anthropic separated subscription tiers so Max and Team subscribers now get dedicated monthly API/Agent credits on top of baseline interactive <code>claude -p</code> CLI usage. Practically: you can now cap and track agentic spend independently from your personal coding budget, which matters once you start running background <code>/agents</code> in parallel worktrees. Set per-project cost ceilings via <code>/cost</code> before the credits evaporate.</p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Governance</span>
+    <h3><a href="https://www.bloomberg.com/news/articles/2026-10-10/microsoft-ceo-nadella-calls-for-emergency-brake-on-advanced-ai">NYC Council Grills Frontier Labs; Nadella Calls for an &ldquo;Emergency Brake&rdquo; on Advanced AI</a></h3>
+    <p>OpenAI, Anthropic, Google, and Meta testified before the NYC Council on frontier-AI risk, third-party safety validation, and human-in-the-loop shutdown protocols &mdash; the same week Microsoft&rsquo;s Satya Nadella publicly called for an industry-wide &ldquo;emergency brake&rdquo; on advanced AI. The signal for builders: autonomous-agent kill-switches and auditable shutdown are moving from best-practice to a de-facto compliance expectation.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title vibe">🛠 Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Google</span>
+    <h3><a href="https://developers.googleblog.com/">Google Ships Jules CLI &mdash; Agentic PR Workflows From Terminal &amp; Slack</a></h3>
+    <p>Jules, Google&rsquo;s coding agent, now has a direct command-line interface so you can kick off agentic pull-request workflows from your terminal and pipe them through Slack &mdash; no browser tab required. It slots Jules into the same terminal-native lane as Claude Code and Codex CLI, which is where backend/iOS engineers actually live. Worth a spin on a low-stakes repo to compare its plan&rarr;diff loop against your current default agent.</p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Infra</span>
+    <h3><a href="https://blog.cloudflare.com/">Deno Joins Cloudflare &mdash; Edge Runtimes Converge for Serverless AI Backends</a></h3>
+    <p>Deno is officially joining Cloudflare to converge the Workers and Deno edge runtimes &mdash; meaning one deploy target for serverless AI backends, coding agents, and edge inference shims. If you ship model-served features (a Binance-style API gateway with regional inference), the promise is a single sandbox with no rewrite between local Deno and Cloudflare&rsquo;s global edge. Track the runtime-merge roadmap before betting on it in prod.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title crypto">💰 Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/10/10/xrp-ledger-patched-decade-old-bug-that-could-create-billions-of-dollars-in-xrp-from-nothing">XRP Ledger Patches Decade-Old Bug That Could Mint Billions in XRP From Nothing</a></h3>
+    <p>A long-dormant XRPL flaw &mdash; exploitable to create XRP out of thin air &mdash; was disclosure-patched this week after years latent in the codebase. No abuse detected, but it&rsquo;s a stark reminder that &ldquo;battle-tested L1&rdquo; is a track record, not a guarantee &mdash; and exactly why chains are layering formal verification and bug-bounty surge programs. For app developers, it underscores keeping settlement finality assumptions conservative.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">L2</span>
+    <h3><a href="https://www.coindesk.com/markets/2026/10/10/robinhood-chain-slowdown-spreads-from-fees-to-trading-as-transactions-fall-more-than-40">Robinhood Chain Slowdown &mdash; Transactions &minus;40%, Priority Lane for Paying Traders Mooted</a></h3>
+    <p>Robinhood Chain&rsquo;s activity drop spread from fee revenue to trading volume (transactions down 40%+), and the team is weighing tech that gives paying traders execution priority. If shipped, that&rsquo;s a meaningful precedent for &ldquo;paid fast-lane&rdquo; ordering on a consumer-facing L2 &mdash; worth watching whether it draws MEV/precedence scrutiny from regulators already circling prediction-market precedence.</p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-10-10-ether-etfs-extend-outflow-streak-to-nine-days-as-solana-funds-snap-record-14-week-inflow-run-418215">Ether ETFs: 9-Day Outflow Streak; Solana Snaps Record 14-Week Inflow Run</a></h3>
+    <p>ETH ETF outflows stretched to nine sessions while Solana funds finally broke a record 14-week inflow streak &mdash; a clean read on where marginal institutional capital rotated this cycle. BTC consolidated near $82.5K after retreating from the Oct-7 ~$87K retest, with analysts forecasting an $80K&ndash;$90K Q4 range; JPMorgan pegs YTD crypto inflows at ~$50B with momentum improving into Q4.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title concepts">🔥 Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Trending</span>
+    <strong>Durable Execution for Agent Workflows &mdash; Temporal, Inngest, Cadence</strong>
+    <p>As agent tasks get long, multi-step, and human-in-the-loop, teams are abandoning hand-rolled DB-backed state machines for durable-execution engines that auto-persist every step across crashes and restarts. For an iOS engineer wiring approval-gated crypto flows, durable execution means a 12-step agent pipeline survives a deploy or a pod restart with zero compensating-transaction glue. <a href="https://temporal.io">Temporal &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Pattern</span>
+    <strong>Tree-of-Files Agent Memory &mdash; Plain Text Beats Opaque Vectors</strong>
+    <p>A Show HN pattern is gaining traction: store an agent&rsquo;s long-term memory as a tree of plain, human-readable files you can <code>grep</code>, <code>diff</code>, and code-review &mdash; instead of an opaque vector DB. The win is debuggability: you can see exactly what the agent &ldquo;knows,&rdquo; edit it, and version it in git. Try it for project-scoped context that changes weekly. <a href="https://github.com/gonzaroman/IHMT-MEMORY">Repo &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Edge</span>
+    <strong>Local-First &amp; CRDT Sync &mdash; Offline-First Mobile by Default</strong>
+    <p>Embedded client databases (SQLite-WASM, PGlite) plus CRDT sync engines (ElectricSQL, PowerSync) are making local-first architecture the default for offline-capable mobile/web apps. For a Binance-scale iOS app, that means zero-latency reads against a local DB with deterministic multi-device sync &mdash; no hand-rolled merge logic. Pair it with on-device ML (Core ML) and the app stays useful with no signal. <a href="https://electric-sql.com">ElectricSQL &rarr;</a></p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="worth-reading">
+    <h2>📚 Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://read.aindeev.com/p/why-your-ai-agents-cant-reach-the">Why your AI agents can&rsquo;t reach the tools you&rsquo;re signed in to, and how to fix it</a>
+        <span class="desc">Cracks open the #1 agent pain point: authenticated tool access. Covers OAuth-delegated, scoped-token, and MCP-proxy patterns for giving agents safe reach into your signed-in services.</span>
+      </li>
+      <li>
+        <a href="https://www.bloomberg.com/news/articles/2026-10-10/microsoft-ceo-nadella-calls-for-emergency-brake-on-advanced-ai">Bloomberg: Nadella calls for an &ldquo;Emergency Brake&rdquo; on advanced AI</a>
+        <span class="desc">The sharpest statement yet from a hyperscaler CEO on autonomous-agent kill-switches &mdash; read it alongside the NYC Council hearing transcript to see the governance direction.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/markets/2026/10/10/bitcoin-s-usd19-billion-wake-up-call-one-year-later-has-crypto-learned-anything">CoinDesk: One year after the 10/10 flash crash &mdash; has crypto learned anything?</a>
+        <span class="desc">Sober anniversary read on the $19B liquidation event. Argues BTC/ETH depth has rebuilt but long-tail altcoins remain structurally fragile &mdash; useful for sizing tail risk.</span>
+      </li>
+      <li>
+        <a href="https://github.com/ml-explore/mlx">Apple MLX &amp; mlx-community on Hugging Face</a>
+        <span class="desc">The fastest path to running open LLMs on Apple Silicon in Swift. Skip the PyTorch&rarr;Core ML conversion pain; load 4-bit checkpoints straight into mlx-swift.</span>
+      </li>
+      <li>
+        <a href="https://news.ycombinator.com/item?id=Show-HN-Dependency-Hell-AI-Era">Show HN: &ldquo;Dependency Hell&rdquo; updated for the AI era (PDF)</a>
+        <span class="desc">A 5-year-old classic dependency-management essay rewritten for the agentic-coding age &mdash; good weekend read on how AI-generated code reshapes supply-chain risk.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Generated:</strong> 2026-10-11 (Sunday) &middot; v4 &middot; <strong>Stories:</strong> 13 (3 tips, 4 AI, 2 vibe/dev, 3 crypto, 3 concepts) + 5 worth-reading</p>
+  <p><strong>Markets snapshot:</strong> BTC consolidating near $82.5K after retreating from the Oct-7 ~$87K retest; Q4 forecast range $80K&ndash;$90K. ETH ETF 9-day outflow streak; Solana snaps record 14-week inflow run. JPMorgan: ~$50B YTD crypto inflows, momentum improving into Q4.</p>
+  <p><strong>Dedup:</strong> 3 prior reports loaded (Oct 6, 7, 10). Oct 8 &amp; Oct 9 absent (skipped days, 404 in GHE repo). ~28 candidates filtered against the dedup set; no story repeated from the last 5 days.</p>
+  <p><strong>Sources:</strong> web_search (Tier 1) + RSS Tier 2/3 (theblock, cointelegraph, coindesk, hnrss, openai, google). Reddit feeds skipped per env policy.</p>
+  <table>
+    <tr><th>Feed</th><th>Status</th><th>Items</th></tr>
+    <tr><td>The Block (crypto)</td><td>healthy</td><td>20</td></tr>
+    <tr><td>CoinDesk (crypto)</td><td>healthy</td><td>25</td></tr>
+    <tr><td>Cointelegraph (crypto)</td><td>healthy</td><td>30</td></tr>
+    <tr><td>Hacker News (AI)</td><td>healthy</td><td>20</td></tr>
+    <tr><td>OpenAI blog (AI)</td><td>healthy</td><td>1287</td></tr>
+    <tr><td>Google AI blog (AI)</td><td>healthy</td><td>20</td></tr>
+  </table>
+  <p style="margin-top:12px"><strong>Archived to GHE:</strong> sean-y/daily-digest &middot; reports/2026/10/2026-10-11.html</p>
+  <p><strong>Public mirror:</strong> https://zih-siang-yue.github.io/Daily-AI-Digest/reports/2026/10/2026-10-11.html</p>
+</footer>
+
+</body>
+</html>
