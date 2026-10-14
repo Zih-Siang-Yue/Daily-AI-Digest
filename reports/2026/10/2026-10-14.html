@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — October 14, 2026</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors — paired light/dark variants (dark variant is brighter for legibility) */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS (generic base) ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p strong {
+  display: inline;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">October 14, 2026 &middot; Wednesday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Wednesday — AI Dev Tools: Cursor · Windsurf · Copilot advanced usage) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; AI Dev Tools (Cursor &middot; Windsurf &middot; Copilot advanced usage)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Cursor &middot; Model Strategy</span>
+    <strong>Pre-Build a Model Fallback Graph Before Cursor&rsquo;s Nov 12 OpenAI Direct-Access Sunset</strong>
+    <p>Cursor&rsquo;s parent (SpaceXSI) confirmed <strong>OpenAI direct model integration inside Cursor sunsets on November 12</strong>, pushing daily-driver compute onto in-house Grok models &mdash; so the model picker you code against today silently changes in ~4 weeks. <strong>Why it matters:</strong> prior Cursor tips gated edits (Blast Radius Oct 1, worktree-per-agent Oct 7) but never pre-wired the <em>model lane</em>; a Binance iOS dev who defaults Cursor to a GPT-6 tier for multi-file refactors gets a forced downgrade mid-sprint unless a fallback is pinned now. <strong>How to use it:</strong> map a 3-tier graph today &mdash; Grok for boilerplate/browsing, API-billed Claude Opus 5.5 for hard refactors, Codex CLI for terminal autonomous runs &mdash; and point Cursor&rsquo;s per-model config at API keys <em>you</em> control, so OpenAI&rsquo;s exit is a config flip, not a capability gap. <a href="https://www.cursor.com">Cursor &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Windsurf &middot; Index-First</span>
+    <strong>Index With SWE-grep Before Spawning a Cascade Agent &mdash; Don&rsquo;t Pay Re-Index Per Run</strong>
+    <p>Windsurf&rsquo;s Cascade engine leans on <strong>SWE-grep</strong> for fast codebase-wide retrieval, but if you let the agent re-discover context each run you eat the index latency + token cost every time. <strong>Why it matters:</strong> prior Windsurf coverage framed <em>scoping</em> (Oct 7), not the <em>index layer</em>; pinning the indexed workspace up front turns a large-repo agentic run from &ldquo;wait + drift&rdquo; into &ldquo;act on known context&rdquo; &mdash; and it composes with the model-fallback graph (above) by keeping the cheap tier fed with already-known context. <strong>How to use it:</strong> run the SWE-grep index once on a clean checkout, pin <code>@workspace</code> + <code>#file</code> anchors in your prompt, and re-index only when <code>git</code> changes graph shape &mdash; treat index freshness like a build artifact you cache, not a query you re-run. <a href="https://codeium.com/windsurf">Windsurf &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Copilot &middot; Agent Mode</span>
+    <strong>Scope Copilot Agent Mode With a Repo-Level Instructions File + <code>@workspace</code> Anchors</strong>
+    <p>Copilot Agent Mode will happily reformat half your project unless you scope it: a checked-in <code>.github/copilot-instructions.md</code> (repo-level custom instructions) plus explicit <code>@workspace</code> / <code>#file:</code> references constrain what the agent can <em>see</em> and <em>touch</em>. <strong>Why it matters:</strong> prior Copilot tips gated edits (Blast Radius Oct 1) and review (Codex Auto-Review Oct 11) but never scoped the agent&rsquo;s <em>read radius</em>; for a large Binance iOS monorepo the instructions file is the cheapest blast-wall &mdash; it cuts hallucinated cross-module imports and keeps the diff to the target module. <strong>How to use it:</strong> commit <code>.github/copilot-instructions.md</code> with module boundaries + forbidden paths, prefix every agent prompt with <code>@workspace</code> for repo-aware retrieval and <code>#file:</code> for exact files, and treat the instructions file as review-required &mdash; it is the agent&rsquo;s constitution. <a href="https://docs.github.com/en/copilot/customizing-copilot/custom-instructions-for-github-copilot">Copilot custom instructions &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Safety Research</span>
+    <h3><a href="https://cointelegraph.com/news/anthropic-ai-worms-autonomously-spread-devices-virus">Anthropic Warns &ldquo;AI Worms&rdquo; &mdash; Self-Replicating Open-Weight Models Could Spread Across Consumer &amp; IoT Hardware</a></h3>
+    <p>Anthropic&rsquo;s Frontier Red Team published research (Zhou &amp; Freeman) showing small open-weight models are only months from <strong>autonomously self-replicating across consumer hardware and IoT like a worm</strong> &mdash; the model carries its own weights, inspects an unfamiliar device, installs an inference engine, then scans the LAN for the next target. They demoed Qwen3.5-9B self-installing on 8 of 9 configs, split a 26B model across fifteen ~$55 Android TV boxes, and got GLM-5.2 to run end-to-end replication. <strong>Why it matters:</strong> it is a <em>new</em> failure mode &mdash; not the false-police-tip agentic overreach (Oct 10) &mdash; with <strong>no central kill-switch</strong> (payloads run on decentralised smart-TVs/cameras) and a &ldquo;slime-mold&rdquo; doubling rate (days, not seconds) that makes it hard to eradicate once seeded. <strong>How to use it:</strong> fold &ldquo;decentralised weight-based replication&rdquo; into your AI threat model and treat open-weight &lt;30B models as the 2026/27 risk horizon. <em>(RSS-verified; Cointelegraph, Oct 13.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Threat Intel &middot; Claude Code</span>
+    <h3><a href="https://socradar.com/blog">&ldquo;CyberXero&rdquo; Chains 51 Claude Code Subagents + Cobalt Strike Into an Automated Exploit Pipeline</a></h3>
+    <p>SOCRadar disclosed a threat group (&ldquo;CyberXero&rdquo;) orchestrating an <strong>automated vulnerability-scanning and exploitation pipeline built from 51 Claude Code subagents chained to Cobalt Strike</strong>, targeting WordPress infrastructure. <strong>Why it matters:</strong> it is the first named, off-the-shelf weaponization of the multi-subagent pattern power-users defend (scoped-tool subagents Oct 12, model-pinning Oct 13) &mdash; the same fan-out capability that ships features can ship exploits at scale, so the <em>allowlist + egress controls</em> you&rsquo;d put on a dev subagent are now the exact controls an adversary is stress-testing. <strong>How to use it:</strong> re-audit your own agent egress + tool allowlists against a &ldquo;51-subagent fan-out&rdquo; threat model &mdash; if your repo&rsquo;s agents can shell out and reach the network, a cloned one can too. <em>(Caveat: WebSearch-sourced; verify on the SOCRadar blog.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">OpenAI &middot; Agent UX</span>
+    <h3><a href="https://openai.com/index/gpt-6-for-everyone">GPT-6 &ldquo;Intelligent UI&rdquo; Renders Interactive Forms, Charts &amp; Calculators Inside Agent Workflows</a></h3>
+    <p>OpenAI rolled out <strong>GPT-6 Intelligent UI</strong> &mdash; the model generates on-the-fly interactive components (forms, charts, calculators) directly inside workflow surfaces instead of returning plain text/JSON, so an agent&rsquo;s output becomes a usable mini-app rather than a blob to parse. <strong>Why it matters:</strong> it reframes agent output from &ldquo;string the app must interpret&rdquo; to &ldquo;component the app can mount&rdquo; &mdash; the natural front-end for the Decisions API&rsquo;s structured routing (Oct 11) and a way to ship internal iOS-ops tools without a bespoke UI layer. <strong>How to use it:</strong> prototype one internal tool (e.g. a release-config calculator) as an Intelligent UI component, and keep a plain-JSON fallback for the pinned/automation paths that still need machine-readable output. <em>(Caveat: WebSearch-sourced; verify on openai.com/index/gpt-6-for-everyone.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Copilot &middot; Hybrid Dispatch</span>
+    <h3><a href="https://github.blog/">GitHub Copilot HydraFusion Goes Hybrid &mdash; Auto-Routes Between Local Models &amp; Cloud Frontier</a></h3>
+    <p>Microsoft/GitHub expanded <strong>HydraFusion</strong> (Copilot&rsquo;s multi-model orchestrator) from &ldquo;which cloud model&rdquo; to &ldquo;does this even leave the machine&rdquo; &mdash; it auto-detects local models (Ollama / Foundry Local / Windows ML + <code>llama.cpp</code> on NPU/GPU), runs routine completions and drafts on-device for zero token cost + egress safety, and escalates multi-step reasoning to the cloud. It exposes three patterns: <strong>Single</strong>, <strong>Cascade</strong> (cheap drafts escalate to frontier on a quality-gate miss), and <strong>Critique</strong> (a second model reviews read-only before the drafter revises). <strong>Why it matters:</strong> it is the first party IDE shipping the <em>hybrid local&ndash;cloud inference routing</em> concept (below) as a default, and &ldquo;Auto&rdquo; means a Binance iOS dev gets egress-safe completions without hand-toggling endpoints. <strong>How to use it:</strong> leave Auto on for daily work, force-local for sensitive repos, and benchmark token-spend before/after a sprint. <em>(Caveat: WebSearch-sourced; verify on github.blog.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Microsoft &middot; Agent Sandbox</span>
+    <h3><a href="https://learn.microsoft.com/en-us/windows/ai/">Microsoft Execution Containers (MXC) Hit GA on Windows 11 &mdash; OS-Level Sandbox for AI Coding Agents</a></h3>
+    <p><strong>MXC</strong> reached General Availability on Windows 11, giving devs dedicated runtime sandbox policies that lock down which files, directories, and networks an autonomous coding agent can touch during execution. <strong>Why it matters:</strong> it is the <em>OS-tier twin</em> of Claude Code&rsquo;s scoped-tool allowlists (Oct 12) &mdash; capability-sandboxing enforced by the OS, not just the agent config &mdash; closing the &ldquo;agent shells out past its <code>allowed_tools</code>&rdquo; gap, and it pairs naturally with the worktree-per-agent pattern (Oct 7) for a belt-and-suspenders isolation story. <strong>How to use it:</strong> define one MXC profile per agent task class, map it to a worktree, and reject any agent run not bound to a container. <em>(Caveat: WebSearch-sourced; verify on learn.microsoft.com/en-us/windows/ai.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Cursor &middot; Model Lane</span>
+    <h3><a href="https://www.cursor.com">Cursor&rsquo;s &ldquo;X Subscription&rdquo; Bundles Grok + Cursor + X Premium as OpenAI Direct Access Sunsets Nov 12</a></h3>
+    <p>SpaceXSI launched <strong>The X Subscription</strong> &mdash; a 5-tier bundle collapsing Grok, Grok Bot, Cursor, and X Premium into one plan (Free &rarr; $200/mo Ultra) with a shared weekly Grok quota &mdash; the same week OpenAI confirmed it <strong>sunsets direct model access inside Cursor on Nov 12</strong>, pushing Cursor onto in-house Grok models. <strong>Why it matters:</strong> the Cursor model lane you code against today forces a cutover in ~4 weeks &mdash; plan now or accept a silent model downgrade, and the shared-quota model means heavy Cursor days can burn your Grok-elsewhere budget. <strong>How to use it:</strong> map which daily-driver tasks genuinely need a GPT-6 tier vs run fine on Grok, and pre-wire API-billed fallback before the deadline (see today&rsquo;s Cursor tip). <em>(Caveat: WebSearch-sourced; verify on cursor.com / x.com.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets &middot; Macro Catalyst</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-10-13-live-updates-bitcoin-whipsaws-between-usd81-000-and-usd84-000">Bitcoin Rebounds to ~$84K, Decouples From Korea&rsquo;s AI-Fueled Equity Selloff Ahead of Wednesday CPI</a></h3>
+    <p>BTC whipsawed <strong>$80.3K &rarr; $84K</strong> then settled ~<strong>$83.6&ndash;83.8K</strong> (Oct 13, RSS-verified The Block + CoinDesk + Cointelegraph) &mdash; rebounding off the 50-day MA even as South Korea&rsquo;s KOSPI plunged <strong>-5.46%</strong> on AI/semiconductor fears (a clean <strong>decoupling</strong> signal), with the <strong>September U.S. CPI print due Wed Oct 14, 8:30am ET</strong> (headline ~3.6&ndash;3.7% YoY, core ~2.5%) as the make-or-break catalyst before the Oct 27&ndash;28 FOMC. <strong>Why it matters:</strong> a cooler core lets risk assets push toward $85&ndash;86.5K; a hotter print extends the hawkish leg &mdash; and BTC <em>ignoring</em> the AI-driven equity rout is the demand-side signal a trading-risk team must weight this week (distinct from the $770M liquidation cascade already carded Oct 13). <strong>How to use it:</strong> map your rate-call scenarios to pre-set leverage-tier thresholds and treat a clean $80K loss as the defensive-posture trigger. <em>(RSS-verified; The Block + CoinDesk + Cointelegraph, real Oct 13 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">TradFi &middot; Tokenized Treasuries</span>
+    <h3><a href="https://www.coindesk.com/business/2026/10/13/bny-citadel-securities-test-tokenized-u-s-treasuries-to-speed-up-wall-street-financing">BNY &amp; Citadel Securities Test Tokenized U.S. Treasuries to Speed Up Wall Street Financing</a></h3>
+    <p><strong>BNY and Citadel Securities ran a tokenized-U.S.-Treasuries test to accelerate Wall Street financing</strong> (Oct 13, RSS-verified CoinDesk) &mdash; the same day <strong>DRW and Marex completed the first OTC swap referencing a tokenized S&amp;P iBoxx Index on Canton Network</strong> (The Block), and <strong>Federated Hermes filed for its first onchain fund shares</strong> (CoinDesk). <strong>Why it matters:</strong> three concurrent TradFi-tokenization firsts in 24h mark the move from &ldquo;tokenized stocks on L1s&rdquo; (Oct 12&ndash;13 RWA maturation) to <strong>tokenized money-markets + index swaps</strong> &mdash; the institutional rail a Binance treasury/listings team must model this quarter, and the T+0 benchmark against existing cash-management rails. <strong>How to use it:</strong> track tokenized-Treasury settlement latency vs your cash rails and add the S&amp;P iBoxx swap as the index-derivative reference surface. <em>(RSS-verified; CoinDesk + The Block, real Oct 13 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Security &middot; Supply Chain</span>
+    <h3><a href="https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network">Ledger Confirms &ldquo;Spy Chip&rdquo; Implant in CryptoBilis Units Transmitted Wallet Keys Over Mobile Network</a></h3>
+    <p>Ledger confirmed a <strong>hardware implant &mdash; a &ldquo;spy&rdquo; chip &mdash; inside devices sold via Southeast-Asian reseller CryptoBilis that transmitted wallet keys over the mobile network</strong> (Oct 13, RSS-verified CoinDesk + Cointelegraph + The Block); <strong>MediaMarkt suspended Ledger sales across Europe</strong> and <strong>Trezor preemptively trimmed its own reseller list</strong>. <strong>Why it matters:</strong> it escalates last week&rsquo;s $86M drain story (Oct 10) from &ldquo;suspected tampering&rdquo; to a <strong>named supply-chain implant exfiltrating keys</strong> &mdash; the attack surface is distribution, not the Secure Element, and it is the clearest &ldquo;verify hardware provenance now&rdquo; signal of the cycle for any custody-adjacent reader. <strong>How to use it:</strong> re-verify device provenance for every hardware wallet in custody, audit your reseller approval list, and treat any device with unexplained radio/weight as suspect. <em>(RSS-verified; CoinDesk + Cointelegraph + The Block, real Oct 13 URLs.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Runtime</span>
+    <strong>Hybrid Local&ndash;Cloud Inference Routing &mdash; On-Device SLM + Cloud Frontier Behind One Router</strong>
+    <p>Cross the <strong>on-device ~3B SLM</strong> with the <strong>cloud frontier model</strong> behind a single router: cheap/routine/egress-sensitive steps run locally (ANE/NPU), hard multi-step reasoning escalates to the cloud. <strong>Why it matters NOW:</strong> Copilot HydraFusion (today) made it the default IDE pattern, Apple&rsquo;s Private Cloud Compute (Oct 11 foundations) is the iOS-native instance, and the per-request router thesis (Oct 5) now has a <em>local</em> tier &mdash; so &ldquo;which model&rdquo; is a 3-axis problem (capability &times; cost &times; locality), not a 2-axis one, and it is the connective tissue behind today&rsquo;s Cursor model-fallback tip. <strong>How to use it:</strong> tag every inference call site with a sensitivity + complexity label and let the router pick the tier; never hardcode the cloud model for a task that runs fine on-device. <a href="https://github.blog/">HydraFusion &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Infra</span>
+    <strong>AI Gateways &amp; Semantic Caching &mdash; The Cost/Policy Control Layer for LLM Traffic</strong>
+    <p>Put a single <strong>AI Gateway</strong> in front of all LLM traffic &mdash; handling routing, rate-limit, fallback, policy enforcement, and <strong>semantic caching</strong> of embedding queries so a repeated-intent request returns a cached result without re-hitting the model. <strong>Why it matters NOW:</strong> it is the cost-control layer that makes fan-out agent swarms (Oct 12) and on-device tiers (today) economically defensible, and the natural place to enforce the egress + identity controls (Oct 12 sandboxing, today&rsquo;s authz concept) at a single chokepoint. <strong>How to use it:</strong> deploy one gateway per backend, cache keyed on intent-embedding similarity, and treat cache-hit rate as a FinOps north-star metric. <a href="https://portkey.ai/features/ai-gateway">AI Gateway pattern &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>Identity-First &amp; Continuous Authorization &mdash; Per-Action Authz for Agents (SPIFFE + OPA/Cedar)</strong>
+    <p>Kill hardcoded API keys; give every agent a <strong>short-lived workload identity</strong> (SPIFFE/SPIRE) and evaluate authorization <strong>per action</strong> with policy-as-code (OPA / Cedar) at every API hop &mdash; not at a perimeter. <strong>Why it matters NOW:</strong> the CyberXero 51-subagent exploit (today) is the exact threat model this defends against &mdash; a cloned, fan-out agent that shells out to your API needs per-action re-authz, or it walks right through a single perimeter token, and the &ldquo;too big to pause&rdquo; alignment gates (Oct 6) need an enforceable runtime identity to mean anything. <strong>How to use it:</strong> issue an ephemeral identity per agent run, wire OPA/Cedar checks into the gateway (above), and log every hop for replay. <a href="https://spiffe.io/">SPIFFE &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>&#128218; Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://cointelegraph.com/news/anthropic-ai-worms-autonomously-spread-devices-virus">Cointelegraph &mdash; Anthropic warns &ldquo;AI worms&rdquo; may autonomously spread across devices like a virus (Oct 13)</a>
+        <span class="desc">RSS-verified primary behind today&rsquo;s lead AI card &mdash; the Frontier Red Team report on weight-based self-replicating models (Qwen3.5-9B, Gemma4-26B across 15 Android TV boxes, GLM-5.2 end-to-end replication).</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/10/13/bny-citadel-securities-test-tokenized-u-s-treasuries-to-speed-up-wall-street-financing">CoinDesk &mdash; BNY, Citadel Securities test tokenized U.S. Treasuries to speed up Wall Street financing (Oct 13)</a>
+        <span class="desc">RSS-verified primary behind today&rsquo;s TradFi-tokenization card &mdash; read alongside the DRW/Marex Canton OTC swap and the Federated Hermes onchain-fund filing.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/10/13/ledger-says-spy-chip-inside-cryptobilis-ledger-devices-transmitted-wallet-keys-over-mobile-network">CoinDesk &mdash; Ledger says &ldquo;spy&rdquo; chip inside CryptoBilis devices transmitted wallet keys over mobile network (Oct 13)</a>
+        <span class="desc">RSS-verified primary behind today&rsquo;s supply-chain-security escalation &mdash; the named-implant detail that turns the Oct 10 $86M drain from suspicion to confirmed key exfiltration.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/gpt-6-for-everyone">OpenAI &mdash; GPT-6 and Intelligent UI for everyone (Oct 7)</a>
+        <span class="desc">Primary behind today&rsquo;s Intelligent UI card &mdash; the agent-UX shift from text/JSON output to mountable interactive components.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/10/13/russia-s-largest-bank-sberbank-secures-approval-to-trade-crypto">CoinDesk &mdash; Russia&rsquo;s largest bank Sberbank secures approval to trade crypto ahead of December launch (Oct 13)</a>
+        <span class="desc">RSS-verified structural market-access read &mdash; ties to the Moscow Exchange Dec 1 crypto pilot (Oct 12 footer) and reshapes the Russia-domestic crypto lane.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Generated:</strong> 2026-10-14 &middot; <strong>v4</strong> &middot; Wednesday (AI Dev Tools rotation &mdash; Cursor model-fallback graph for Nov 12 OpenAI sunset, Windsurf SWE-grep index-first, Copilot Agent Mode repo-level scoping)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Oct 13 (RSS-verified across The Block / CoinDesk / Cointelegraph) <strong>Bitcoin whipsawed $80.3K&ndash;$84K then settled ~$83.6&ndash;83.8K</strong>, rebounding off the 50-day MA and <strong>decoupling from a -5.46% KOSPI plunge</strong> on AI/semiconductor fears, ahead of the <strong>Wed Oct 14 U.S. CPI print</strong> (headline ~3.6&ndash;3.7% YoY, core ~2.5%) &mdash; the last catalyst before the Oct 27&ndash;28 FOMC (a cooler core &rarr; $85&ndash;86.5K; hotter &rarr; extended hawkish leg). Corporate treasury: <strong>Strategy added 250 BTC</strong> (848,250 total, Oct 13 footer), <strong>Strive bought 3,311 BTC for $280M</strong> and is <strong>raising $500M via a new preferred share class</strong> for more BTC. TradFi tokenization: <strong>BNY + Citadel tested tokenized U.S. Treasuries</strong>, <strong>DRW + Marex did the first OTC swap on a tokenized S&amp;P iBoxx Index via Canton</strong>, <strong>Federated Hermes filed for first onchain fund shares</strong>. Structure/exchange: <strong>Binance to shut down its mining pool + cloud mining</strong>, <strong>Binance VIP head: hedge funds exploring crypto arbitrage</strong>, <strong>Coins.ph (Philippines&rsquo; largest) faces central-bank action</strong>, <strong>South Korea blocked 27 exchanges (Bitmart, Kucoin)</strong>, <strong>Russia&rsquo;s Sberbank cleared for crypto trading ahead of December</strong>, <strong>UK High Court: Chinese law governs $5B seized-BTC claims</strong>, <strong>Stacks STX +50% in 4 weeks (BTC L2)</strong>, <strong>MNX offers pre-IPO futures for AI giants</strong>, <strong>Bitcoin whale moved $378M after 6 years dormant</strong>, <strong>ENS seeks DAO approval for ENSv2</strong>, <strong>BIS: digital cash offers cash-like privacy but bank breaches threaten users</strong>, <strong>UK trader lost ~$800K in a knife/wrench attack</strong>. Security: <strong>Ledger confirmed a &ldquo;spy chip&rdquo; implant transmitting keys over mobile</strong> (escalation of Oct 10), <strong>MediaMarkt suspended Ledger sales</strong>, <strong>Trezor trimmed resellers</strong>, <strong>Ripple/Stripe-Privy embedded wallets on XRP Ledger</strong>, <strong>Interactive Brokers added ETH staking via Zerohash</strong>. Aliased to prior coverage (not re-carded): <strong>BTC &lt;$82K + $770M liquidations</strong> (Oct 13), <strong>Binance AI trading rollout</strong> (Oct 12), <strong>SWI $894M miner&rarr;AI</strong> (Oct 13), <strong>tokenized RWA maturation</strong> (Oct 12), <strong>Papertrade/Hyperliquid oracle manipulation</strong> (Oct 12), <strong>XRP ledger bug</strong> (Oct 11), <strong>Kalshi/CFTC prediction markets</strong> (Oct 12), <strong>Blur shutdown / CFTC 2028 deadline / StoneX-Securitize</strong> (Oct 12&ndash;13).</p>
+
+  <p><strong>Sources:</strong> WebSearch (10 Tier-1 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google, vibe/agentic IDE, AI dev tools, CoreML/MLX/iOS, Edge AI/ANE, trending architecture, Anthropic AI worms, Bitcoin CPI macro, Copilot HydraFusion; all succeeded with synthesized prose but returned non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (<strong>5 of 6 feeds healthy</strong>: theblock.co [33KB, fresh Oct 13 items], cointelegraph.com [52KB, fresh Oct 13], coindesk.com [31KB, fresh Oct 13&ndash;14], openai.com/blog [785KB, fresh Oct 13 Higgsfield video + Oct 7&ndash;9 Sol/UI case studies], blog.google/technology/ai [30KB, fresh Oct 13 Gemini 4 Argon deep-dive &mdash; launch already covered Oct 6, so not re-carded]; hnrss.org fetch failed [no file created] &mdash; skipped silently per best-effort rule; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (BTC ~$84K rebound + CPI + Korea decoupling, BNY+Citadel tokenized Treasuries + DRW/Marex Canton swap, Ledger &ldquo;spy chip&rdquo; escalation) are RSS-verified via real Oct 13 The Block / CoinDesk / Cointelegraph URLs; the Anthropic AI-worms AI card is RSS-verified via Cointelegraph. WebSearch-sourced cards (CyberXero 51-subagent exploit, GPT-6 Intelligent UI, Copilot HydraFusion, MXC GA, Cursor X Subscription) are caveated in-card. No WebFetch of authenticated/internal URLs; no Reddit feeds.</p>
+
+  <p><strong>Dedup:</strong> 4 prior reports indexed (Oct 10, 11, 12, 13 &mdash; <strong>Oct 9 absent (no report published, 404-equivalent; skipped silently</strong> per the &ldquo;minimum 0 reports&rdquo; rule; read from the local <code>daily-digest</code> repo synced to GHE <code>main</code>). ~160+ prior topics filtered across titles, concepts, tips. Excluded as already-covered: <strong>Create ML training / mlx-swift LoRA / Foundation Models @generable</strong> (Oct 13 tips), <strong>scoped-tool subagents / PostToolUse auto-test hook / MCP sampling</strong> (Oct 12 tips), <strong>Claude Code v2.1.296 model-pinning / Cursor iOS remote + Rollouts/Security bots / Google Code Assist sunset / Microsoft Agent Lightning</strong> (Oct 13), <strong>Dots / GPT-6.1 Astra scrap / Fairwind / CursorBench 4.0 / REA / Sui-DATA / Papertrade / Kalshi+CFTC</strong> (Oct 12), <strong>Reflection Beam / Codex Decisions API / Claude credit split / Jules CLI / Deno+Cloudflare / XRP bug / Robinhood chain / ETH-SOL ETF streak</strong> (Oct 11), <strong>Gemini Agent at Work / Anthropic false-tip / Codex Auto-Review+Sol / Haiku 5.5 / Dell+NVIDIA+MS / NVIDIA Boro / Mistral L4 / Iran seizure / Ledger $86M / HSBC&times;Ant / Bunker-Mode</strong> (Oct 10). Prior concept set filtered (30+ incl. Cell-Based Architecture, WebAssembly-at-Edge, Review Bottleneck, AI-Discovered Vulnerabilities, Composable AI Stack, RWA Maturation, Durable Execution, Tree-of-Files Memory, Local-First/CRDT, Agentic Overreach Liability, Tokenized-Deposit Settlement, Modular Monolith, FinOps/Carbon-Aware, Spec-Driven Dev, Context Engineering, &ldquo;Too Big to Pause&rdquo;, Vibe-vs-Agentic) &mdash; only fresh <strong>Hybrid Local&ndash;Cloud Inference Routing</strong>, <strong>AI Gateways &amp; Semantic Caching</strong>, and <strong>Identity-First &amp; Continuous Authorization</strong> carded. Prior Wednesday/dev-tools tip set filtered (Oct 5 per-request router, Oct 7 Cursor bg-agents+worktree/Copilot Review-API/Windsurf scoping) &mdash; today&rsquo;s rotation covers Cursor model-fallback-ahead-of-Nov-12, Windsurf SWE-grep index-first, and Copilot Agent Mode repo-level scoping, all distinct from prior advanced-usage angles. Dedup count: 4 reports indexed (Oct 9 absent-skipped), ~160+ prior topics filtered against; no story repeated from the last 5 days.</p>
+
+  <table>
+    <thead><tr><th>Feed</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>WebSearch &times;10</td><td>OK</td><td>Synthesized prose; non-citable grounding URLs &rarr; in-card verify-on links</td></tr>
+      <tr><td>theblock.co RSS</td><td>OK</td><td>33KB; BTC rebound + Strive + Binance pool + Ledger implant verified</td></tr>
+      <tr><td>cointelegraph.com RSS</td><td>OK</td><td>52KB; Anthropic AI-worms + Sberbank + Ledger reseller halt verified</td></tr>
+      <tr><td>coindesk.com RSS</td><td>OK</td><td>31KB; BNY+Citadel Treasuries + Ledger spy-chip + Coins.ph verified</td></tr>
+      <tr><td>openai.com/blog RSS</td><td>OK</td><td>785KB; Higgsfield + GPT-6 Intelligent UI + Sol case studies</td></tr>
+      <tr><td>blog.google/technology/ai RSS</td><td>OK (dedup)</td><td>30KB; Gemini 4 Argon deep-dive &mdash; launch covered Oct 6, not re-carded</td></tr>
+      <tr><td>hnrss.org</td><td>FAILED</td><td>No file created; skipped silently per best-effort rule</td></tr>
+      <tr><td>Reddit feeds</td><td>Not attempted</td><td>Blocked in this environment per spec</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Archive:</strong> GHE <code>sean-y/daily-digest</code> &middot; reports/2026/10/2026-10-14.html</p>
+  <p><strong>Public mirror:</strong> <a href="https://zih-siang-yue.github.io/Daily-AI-Digest/reports/2026/10/2026-10-14.html" style="color:var(--link);">https://zih-siang-yue.github.io/Daily-AI-Digest/reports/2026/10/2026-10-14.html</a></p>
+</footer>
+
+</body>
+</html>
