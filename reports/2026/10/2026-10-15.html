@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &amp; Crypto Daily — October 15, 2026</title>
+<style>
+:root {
+  /* Light palette */
+  --light-bg-page: #f7f8fa;
+  --light-bg-card: #ffffff;
+  --light-bg-elevated: #ffffff;
+  --light-text-primary: #0f172a;
+  --light-text-secondary: #475569;
+  --light-text-muted: #94a3b8;
+  --light-border: #e2e8f0;
+  --light-border-strong: #cbd5e1;
+  --light-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 4px 12px rgba(15,23,42,0.06);
+  --light-shadow-hover: 0 2px 4px rgba(15,23,42,0.06), 0 8px 20px rgba(15,23,42,0.10);
+
+  /* Dark palette */
+  --dark-bg-page: #0f1117;
+  --dark-bg-card: #1a1d26;
+  --dark-bg-elevated: #232731;
+  --dark-text-primary: #f1f5f9;
+  --dark-text-secondary: #cbd5e1;
+  --dark-text-muted: #94a3b8;
+  --dark-border: #2a2e3a;
+  --dark-border-strong: #3a3f4c;
+  --dark-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.45);
+  --dark-shadow-hover: 0 4px 8px rgba(0,0,0,0.4), 0 16px 32px rgba(0,0,0,0.55);
+
+  /* Accent colors */
+  --accent-tips-l: #0891b2;      --accent-tips-d: #22d3ee;
+  --accent-ai-l: #7c3aed;        --accent-ai-d: #a78bfa;
+  --accent-vibe-l: #059669;      --accent-vibe-d: #34d399;
+  --accent-crypto-l: #d97706;    --accent-crypto-d: #fbbf24;
+  --accent-concepts-l: #dc2626;  --accent-concepts-d: #f87171;
+  --link-l: #2563eb;             --link-d: #60a5fa;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-page: var(--light-bg-page);
+    --bg-card: var(--light-bg-card);
+    --bg-elevated: var(--light-bg-elevated);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-muted: var(--light-text-muted);
+    --border: var(--light-border);
+    --border-strong: var(--light-border-strong);
+    --shadow: var(--light-shadow);
+    --shadow-hover: var(--light-shadow-hover);
+    --accent-tips: var(--accent-tips-l);
+    --accent-ai: var(--accent-ai-l);
+    --accent-vibe: var(--accent-vibe-l);
+    --accent-crypto: var(--accent-crypto-l);
+    --accent-concepts: var(--accent-concepts-l);
+    --link: var(--link-l);
+    --tag-alpha: 0.14;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: var(--dark-bg-page);
+    --bg-card: var(--dark-bg-card);
+    --bg-elevated: var(--dark-bg-elevated);
+    --text-primary: var(--dark-text-primary);
+    --text-secondary: var(--dark-text-secondary);
+    --text-muted: var(--dark-text-muted);
+    --border: var(--dark-border);
+    --border-strong: var(--dark-border-strong);
+    --shadow: var(--dark-shadow);
+    --shadow-hover: var(--dark-shadow-hover);
+    --accent-tips: var(--accent-tips-d);
+    --accent-ai: var(--accent-ai-d);
+    --accent-vibe: var(--accent-vibe-d);
+    --accent-crypto: var(--accent-crypto-d);
+    --accent-concepts: var(--accent-concepts-d);
+    --link: var(--link-d);
+    --tag-alpha: 0.22;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 15px;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px 16px 64px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  text-align: center;
+  padding: 44px 24px 36px;
+  margin-bottom: 32px;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse at top, color-mix(in srgb, var(--accent-ai) 14%, transparent), transparent 60%),
+    var(--bg-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent-tips),
+    var(--accent-ai),
+    var(--accent-vibe),
+    var(--accent-crypto),
+    var(--accent-concepts));
+}
+header h1 {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--text-primary);
+}
+header .date {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ===== SECTIONS ===== */
+.section { margin-bottom: 40px; }
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 64px; height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+}
+.section-title.tips     { color: var(--accent-tips); }
+.section-title.ai       { color: var(--accent-ai); }
+.section-title.vibe     { color: var(--accent-vibe); }
+.section-title.crypto   { color: var(--accent-crypto); }
+.section-title.concepts { color: var(--accent-concepts); }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-hover);
+}
+.card.tips     { border-left-color: var(--accent-tips); }
+.card.ai       { border-left-color: var(--accent-ai); }
+.card.vibe     { border-left-color: var(--accent-vibe); }
+.card.crypto   { border-left-color: var(--accent-crypto); }
+.card.concepts { border-left-color: var(--accent-concepts); }
+
+.card h3 {
+  font-size: 17px;
+  font-weight: 650;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+.card h3 a {
+  color: var(--text-primary);
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 0.15s ease;
+}
+.card h3 a:hover { border-bottom-color: var(--link); color: var(--link); }
+.card strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 650;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.card p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.card p strong {
+  display: inline;
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+.card p a { color: var(--link); text-decoration: none; font-weight: 500; }
+.card p a:hover { text-decoration: underline; }
+.card code {
+  background: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', 'JetBrains Mono', Menlo, monospace;
+  font-weight: 500;
+}
+
+/* ===== TAGS ===== */
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.tip-tag      { background: color-mix(in srgb, var(--accent-tips) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-tips); }
+.ai-tag       { background: color-mix(in srgb, var(--accent-ai) calc(var(--tag-alpha) * 100%), transparent);       color: var(--accent-ai); }
+.vibe-tag     { background: color-mix(in srgb, var(--accent-vibe) calc(var(--tag-alpha) * 100%), transparent);     color: var(--accent-vibe); }
+.crypto-tag   { background: color-mix(in srgb, var(--accent-crypto) calc(var(--tag-alpha) * 100%), transparent);   color: var(--accent-crypto); }
+.concept-tag  { background: color-mix(in srgb, var(--accent-concepts) calc(var(--tag-alpha) * 100%), transparent); color: var(--accent-concepts); }
+
+/* ===== WORTH READING ===== */
+.worth-reading {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.worth-reading h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+.worth-reading ul { list-style: none; }
+.worth-reading li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.worth-reading li:last-child { border-bottom: none; padding-bottom: 0; }
+.worth-reading a {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+.worth-reading a:hover { text-decoration: underline; }
+.worth-reading .desc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 48px;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-size: 12.5px;
+  box-shadow: var(--shadow);
+}
+footer p { margin-bottom: 6px; color: var(--text-secondary); }
+footer p:last-of-type { color: var(--text-muted); }
+footer table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 12.5px;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+  overflow: hidden;
+}
+footer th, footer td {
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+footer tr:last-child td { border-bottom: none; }
+footer th {
+  font-weight: 700;
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 5%, transparent);
+}
+footer td { color: var(--text-secondary); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  body { padding: 16px 12px 48px; font-size: 14.5px; }
+  header { padding: 32px 20px 26px; border-radius: 14px; }
+  header h1 { font-size: 25px; }
+  .section-title { font-size: 18px; }
+  .card { padding: 16px 18px; border-radius: 10px; }
+  .worth-reading, footer { padding: 18px 18px; border-radius: 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AI &amp; Crypto Daily</h1>
+  <div class="date">October 15, 2026 &middot; Thursday</div>
+</header>
+
+<!-- ===== DAILY TECH TIPS (Thursday — Edge AI / On-Device ML: Apple Neural Engine · MLX · ExecuTorch) ===== -->
+<div class="section">
+  <div class="section-title tips">&#128161; Daily Tech Tips &mdash; Edge AI / On-Device ML (ANE &middot; MLX &middot; ExecuTorch)</div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ANE + GPU &middot; Hybrid Scheduling</span>
+    <strong>Co-Schedule LLM Prefill on ANE and Decode on GPU &mdash; Stop Running Everything on One Engine</strong>
+    <p>Prior tips covered ANE fixed-window prefill (Oct 10) and MLX dynamic decode (Oct 13) as separate paths. Today: run them together. Apple's runtime already dispatches static layers (embeddings, vision encoders) to the <strong>ANE via Core ML</strong> and dynamic autoregressive decode to the <strong>GPU via MLX</strong> &mdash; unified memory lets them share weights without copies. <strong>Why it matters:</strong> a Binance iOS dev running a 3B SLM purely on MLX/GPU leaves the ANE idle and burns 5&ndash;10x more battery per token; routing prefng.pngill to the ANE and decode to the GPU delivers the best tokens-per-watt. <strong>How to use it:</strong> export the embedding + encoder layers as <code>.mlpackage</code> for ANE, keep the transformer blocks in MLX for GPU decode, and profile the handoff with <code>os_signpost</code> to verify zero-copy weight sharing. <a href="https://developer.apple.com/documentation/coreml">Core ML docs &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">ExecuTorch &middot; Cross-Platform</span>
+    <strong>Use ExecuTorch's Core ML Backend to Ship One Model for iOS and Android</strong>
+    <p>Meta's <strong>ExecuTorch</strong> (PyTorch Mobile) now features an optimized <strong>Core ML backend</strong> that dispatches directly to the ANE, so you write one model export and run it on Apple Silicon natively. <strong>Why it matters:</strong> prior iOS tips (Oct 10&ndash;13) assumed you either use Core ML or MLX; ExecuTorch gives a third path for teams that need <em>cross-platform parity</em> &mdash; same graph, same quantization, but the Core ML delegate handles the ANE compilation on iOS while the XNNPACK delegate covers Android. <strong>How to use it:</strong> export via <code>torch.export</code>, register the Core ML delegate, and benchmark against your hand-tuned <code>.mlmodelc</code> to confirm the overhead is acceptable before committing. <a href="https://pytorch.org/executorch/main/">ExecuTorch &rarr;</a></p>
+  </div>
+
+  <div class="card tips">
+    <span class="section-tag tip-tag">Speculative Decoding &middot; Latency</span>
+    <strong>Cut On-Device SLM Decode Latency 2&ndash;3x With Speculative Decoding From a Tiny Draft Model</strong>
+    <p>Pair a <strong>0.5B draft model</strong> with your main <strong>3B model</strong>: the draft model generates candidate tokens cheaply, the main model verifies them in a single forward pass, and accepted tokens bypass the decode loop entirely. <strong>Why it matters:</strong> prior tips optimized prefill (Oct 10) and training (Oct 13) but not decode latency &mdash; and decode is memory-bandwidth-bound on mobile, so a 2&ndash;3x speedup directly improves perceived UX for on-device chat/summarization features without sacrificing quality. <strong>How to use it:</strong> quantize the draft model to 4-bit, keep the main model at 4&ndash;6 bit, and ensure both fit in unified memory with headroom for the UI; profile rejection rates to tune draft size. <a href="https://github.com/ml-explore/mlx-examples">MLX speculative decoding examples &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== AI TOOLS & UPDATES ===== -->
+<div class="section">
+  <div class="section-title ai">&#129302; AI Tools &amp; Updates</div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Anthropic &middot; Claude Code</span>
+    <h3><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code v2.1.299 &mdash; Idle Session Compaction, Nested Parallel Sessions, and /btw Command</a></h3>
+    <p>Anthropic shipped two updates in quick succession: <strong>v2.1.299 introduces idle session compaction</strong> &mdash; automatically summarizes and compacts long terminal sessions before the prompt cache expires, significantly reducing token usage for long-horizon tasks &mdash; and the desktop experience now supports <strong>nested parallel sessions</strong> (run sub-sessions inside a main loop), saved developer environments, a session recap card, and a <code>&thinsp;/btw</code> command for quick side questions without interrupting the main agent. <strong>Why it matters:</strong> the compaction feature directly attacks the cost-per-loop problem that made long autcrawls expensive (model-pinning Oct 13), while nested sessions compose with scoped-tool subagents (Oct 12) to enable multi-track agent pipelines within one terminal. <strong>How to use it:</strong> let compaction run on by default, pin one nested session per worktree, and use <code>/btw</code> for quick lookups instead of derailing the main agent. <em>(Caveat: WebSearch-sourced; verify on docs.anthropic.com/en/docs/claude-code.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Meta &middot; Agentic Models</span>
+    <h3><a href="https://ai.meta.com/">Meta Superintelligence Labs Launches Muse Wonder Model Family for Agentic Engineering</a></h3>
+    <p>Meta's Superintelligence Labs released the <strong>Muse Wonder</strong> and <strong>Muse Wonder Full</strong> model family (Oct 12), targeting agentic engineering tasks: full application scaffolding, workflow automation, and parsing legal/financial documents into functional apps from high-level specs. <strong>Why it matters:</strong> it is the first major agentic-code-adjacent release from Meta &mdash; distinct from the Llama open-weight line &mdash; and a signal that Meta is building purpose-built models for the <em>coding agent</em> tier, not just general LLMs; for a Binance iOS dev, it broadens the model menu beyond Claude/GPT/Gemini when evaluating inference cost vs. capability. <strong>How to use it:</strong> benchmark Muse Wonder on a bounded scaffolding task (e.g., generating a Swift Package module from a spec) and compare token-cost-per-file against your current default. <em>(Caveat: WebSearch-sourced; verify on ai.meta.com.)</em></p>
+  </div>
+
+  <div class="card ai">
+    <span class="section-tag ai-tag">Regulation &middot; Frontier AI</span>
+    <h3><a href="https://www.gov.uk/government/organisations/business-and-trade-committee">OpenAI &amp; Anthropic Endorse Binding AI Rules at UK Parliament; SAFA Standards Body Advances</a></h3>
+    <p>Both OpenAI and Anthropic testified before the UK Parliament's Business and Trade Committee (Oct 13), endorsing <strong>mandatory incident reporting and statutory guardrails</strong> for frontier AI systems &mdash; arguing voluntary commitments are no longer sufficient. The two also continue progressing <strong>SAFA (Standards Authority for Frontier AI)</strong>, a shared independent safety body with Google for standardized evaluation benchmarks and third-party audits. <strong>Why it matters:</strong> this is the strongest joint push for <em>binding</em> regulation from the top tier, and SAFA would make external audits a standardized requirement &mdash; directly relevant to any team shipping AI features at Binance, where compliance already gates product launches. <strong>How to use it:</strong> track SAFA's evaluation template as a pre-release checklist for AI-assisted features. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+</div>
+
+<!-- ===== VIBE CODING & DEV TOOLS ===== -->
+<div class="section">
+  <div class="section-title vibe">&#128295; Vibe Coding &amp; Dev Tools</div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Inference &middot; Open Source</span>
+    <h3><a href="https://github.com/pzhg/janas">Janas &mdash; Open-Source MoE Inference Engine Streams Expert Weights From NVMe SSDs</a></h3>
+    <p><strong>Janas</strong> is a new open-source inference engine designed to run <strong>large mixture-of-experts (MoE) models beyond local RAM capacity</strong> by dynamically streaming expert weights from high-speed NVMe SSDs &mdash; an 80B-parameter model can run on a 32&nbsp;GB machine. <strong>Why it matters:</strong> as MoE architectures dominate the frontier model landscape (GPT-6, Mixtral, Qwen MoE), the ability to run them locally without shelling out for 128GB+ of RAM is the edge-AI democratization moment &mdash; and it pairs naturally with the on-device routing pattern (Oct 14) for hybrid dev setups. <strong>How to use it:</strong> benchmark a sub-30B MoE on your dev machine, compare latency vs API calls over a sprint, and treat NVMe streaming as a middle tier between pure-local and cloud. <em>(Caveat: WebSearch-sourced.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">OpenAI &middot; Agentic UX</span>
+    <h3><a href="https://openai.com/index/amp-beyond-coding">OpenAI's Amp Puts AI Agents to Work Beyond Code With GPT-6 Astra &amp; Sign in with ChatGPT</a></h3>
+    <p>OpenAI published a case study on <strong>Amp</strong> (Oct 14), an agentic platform that extends AI agents beyond coding into general-purpose workflow automation using GPT-6 Astra, Ultrafast, GPT-Live-1, and <strong>Sign in with ChatGPT</strong> for identity. <strong>Why it matters:</strong> "Sign in with ChatGPT" is a new identity layer that lets third-party agents authenticate users via their OpenAI account &mdash; a potential <em>OAuth-for-agents</em> standard, and the beyond-code pattern (SentinelOne malware analysis, Third Moment's 10k-agent fleet, Block security) shows agents eating adjacent workflow categories. <strong>How to use it:</strong> evaluate whether your internal tools could expose an agent-auth surface, and prototype one non-coding agent task (e.g., release-note generation). <em>(RSS-verified; openai.com/index/amp-beyond-coding, Oct 14.)</em></p>
+  </div>
+
+  <div class="card vibe">
+    <span class="section-tag vibe-tag">Context Quality &middot; Copiloting</span>
+    <h3><a href="https://context7.com">Context7 &mdash; Version-Pinned Documentation Pulled Directly Into Copilot Context Windows</a></h3>
+    <p><strong>Context7</strong> released updates allowing AI coding copilots (Cursor, Claude Code, Copilot) to <strong>dynamically pull version-pinned documentation</strong> into context windows, preventing the hallucinated-API problem during framework migrations and upgrades. <strong>Why it matters:</strong> it attacks the <em>upstream stale-doc</em> failure mode that every team hits when the model's training data is a major version behind the SDK you're using &mdash; and it composes with <code>copilot-instructions.md</code> (Oct 14 tip) by adding a version-aware doc-fetching layer on top of repo-level scoping. <strong>How to use it:</strong> pin the SDK version in your agent config, let Context7 fetch the matching docs at prompt time, and audit what it pulls into context before trusting it. <em>(Caveat: WebSearch-sourced; verify on context7.com.)</em></p>
+  </div>
+</div>
+
+<!-- ===== CRYPTO & MARKETS ===== -->
+<div class="section">
+  <div class="section-title crypto">&#128176; Crypto &amp; Markets</div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Markets &middot; Macro Catalyst</span>
+    <h3><a href="https://www.theblock.co/news/markets/2026-10-14-bitcoin-falls-below-82000-core-inflation-fed-rate-hike-418582">Bitcoin Falls Below $82K as Hotter-Than-Expected CPI Revives Fed Hike Fears</a></h3>
+    <p>September's US CPI came in <strong>hot at 3.7% YoY</strong> (above 3.6% forecast) with core CPI at <strong>2.6%</strong> (Oct 14, RSS-verified The Block + Cointelegraph + CoinDesk). BTC dropped from ~$84K to <strong>~$81.5K</strong> as bond yields targeted 24-year highs; the NY Fed's Williams reaffirmed a possible rate hike this year. ETH fell to <strong>$2,420&ndash;$2,480</strong>. Spot BTC ETFs still saw <strong>+$175.6M inflows</strong> (Fidelity FBTC, BlackRock IBIT). Support: <strong>$80K&ndash;$81K</strong>. Next catalysts: PPI, Fed remarks before Oct 27&ndash;28 FOMC. <strong>Why it matters:</strong> yesterday's report anticipated the CPI as a make-or-break catalyst &mdash; a hotter core makes the defensive posture trigger ($80K loss) more likely. <em>(RSS-verified; The Block + Cointelegraph + CoinDesk, real Oct 14 URLs.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">AI &times; Crypto &middot; Payments</span>
+    <h3><a href="https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models">AI Agents Make 138 Million Crypto Payments as US Dominates AI Model Spending</a></h3>
+    <p>Chainalysis research shows <strong>AI agents executed 138 million crypto payments</strong> for model inference and API calls (Oct 14, RSS-verified CoinDesk), with <strong>US-linked wallets accounting for 88%</strong> of tracked AI model payments vs China's 0.1% share. <strong>Why it matters:</strong> it is the strongest quantified signal that <em>autonomous agents are becoming real economic actors on blockchain rails</em> &mdash; not just a narrative. For a Binance engineer, this validates agent-to-agent payment protocols, raises custody/auth questions for AI-managed wallets, and puts AI-payment UX on the near-term mobile roadmap. <strong>How to use it:</strong> map which internal AI workflows could settle micropayments on-chain and prototype a signed-agent wallet authorization pattern. <em>(RSS-verified; CoinDesk, real Oct 14 URL.)</em></p>
+  </div>
+
+  <div class="card crypto">
+    <span class="section-tag crypto-tag">Regulation &middot; Stablecoins</span>
+    <h3><a href="https://cointelegraph.com/news/eba-circle-usdc-stablecoin-significant-token-mica">EU Classifies Circle's USDC as 'Significant' Under MiCA; VanEck Withdraws Lido stETH ETF</a></h3>
+    <p>The European Banking Authority classified <strong>Circle's USDC as a "significant e-money token"</strong> under MiCA (Oct 14, RSS-verified Cointelegraph), subjecting USDC to enhanced oversight by French and EU authorities. Simultaneously, <strong>VanEck sought to withdraw its Lido stETH ETF application</strong> (Oct 15, RSS-verified Cointelegraph) &mdash; the first stETH ETF filing to be pulled. <strong>Why it matters:</strong> USDC's "significant" classification means tighter reserve, liquidity, and governance requirements that ripple through every EU-facing stablecoin integration &mdash; a Binance compliance team must update its EU stablecoin surface immediately. The VanEck withdrawal is a setback for the ETH staking ETF thesis. <em>(RSS-verified; Cointelegraph, real Oct 14&ndash;15 URLs.)</em></p>
+  </div>
+</div>
+
+<!-- ===== HOT INDUSTRY CONCEPTS ===== -->
+<div class="section">
+  <div class="section-title concepts">&#128293; Hot Industry Concepts</div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Economics</span>
+    <strong>Agentic Compute Economics &mdash; The Discipline of Cost-Matching, Sizing, and Governing Agent Fleets</strong>
+    <p>Running <strong>10,000 agents for 36+ hours</strong> (Third Moment Research, Oct 14 OpenAI blog), cutting model costs <strong>76x</strong> by tier-matching (Asana/Sol, Oct 14), halving Codex spend by task-routing (LegalOn, Oct 8), and AI agents making <strong>138M crypto payments</strong> (CoinDesk, Oct 14) &mdash; all in 48 hours. <strong>Why it matters NOW:</strong> it crystallizes a new engineering discipline &mdash; <em>agentic compute economics</em> &mdash; where you treat agent fleets like cloud infrastructure: cost-allocate per task, enforce budget caps, and measure ROI per agent-run. It's the practical twin of the AI Gateway concept (Oct 14): routing handles traffic, economics handles spend. <strong>How to use it:</strong> tag every agent invocation with a cost + outcome label, set circuit-breakers on fleet spend, and treat cost-per-completed-task (not cost-per-token) as the north-star metric. <a href="https://openai.com/index/third-moment-research">Third Moment case study &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Retrieval</span>
+    <strong>GraphRAG &mdash; Graph-Augmented Generation with Self-Correcting Retrieval Loops</strong>
+    <p>Standard vector-database retrieval has matured into <strong>graph-augmented generation</strong>: combine vector search with knowledge-graph traversal so the model follows entity relationships, not just embedding proximity. Self-correcting RAG loops add a verification step &mdash; the model checks whether retrieved chunks answer the query, and re-retrieves if not. <strong>Why it matters NOW:</strong> as agents fan out (subagents Oct 12, model pinning Oct 13, nested sessions today), <em>retrieval quality</em> becomes the bottleneck &mdash; a subagent that pulls the wrong file is a subagent that makes the wrong edit. GraphRAG directly improves retrieval precision for codebase-aware agents. <strong>How to use it:</strong> index your repo as a code knowledge graph (defs&rarr;callers&rarr;tests), and add a verify-and-reretrieve step to your RAG pipeline. <a href="https://microsoft.github.io/graphrag/">GraphRAG &rarr;</a></p>
+  </div>
+
+  <div class="card concepts">
+    <span class="section-tag concept-tag">Security</span>
+    <strong>Post-Quantum Readiness &mdash; Coinbase Calls to Start Bitcoin's Signature Migration Now</strong>
+    <p>Coinbase, which holds <strong>5% of all bitcoin</strong>, published priorities for Bitcoin's post-quantum transition (Oct 14, RSS-verified The Block + CoinDesk): flexible address designs, a backup quantum-proof key type, and community debate on lost-coin migration. This follows the "Bunker mode" quantum-security debate (Oct 10/14). <strong>Why it matters NOW:</strong> quantum computing progress has moved the "Y2Q" timeline from theoretical to actionable, and Coinbase's 5% holding makes its call a forcing function for the ecosystem. For a Binance custody team, post-quantum signature audit is now a 2026 roadmap item, not 2030. <strong>How to use it:</strong> inventory which wallets/addresses use quantum-vulnerable signatures and pilot a quantum-resistant address type on testnet. <a href="https://www.coindesk.com/tech/2026/10/14/coinbase-which-holds-5-of-all-bitcoin-wants-the-quantum-fix-started-now">Coinbase quantum priorities &rarr;</a></p>
+  </div>
+</div>
+
+<!-- ===== WORTH READING ===== -->
+<div class="section">
+  <div class="worth-reading">
+    <h2>&#128218; Worth Reading</h2>
+    <ul>
+      <li>
+        <a href="https://www.coindesk.com/business/2026/10/14/ai-agents-make-138-million-crypto-payments-as-u-s-dominates-spending-on-ai-models">CoinDesk &mdash; AI agents make 138 million crypto payments as US dominates spending on AI models (Oct 14)</a>
+        <span class="desc">RSS-verified primary behind the AI &times; Crypto payments card &mdash; the strongest quantified signal that autonomous agents act as real economic actors on-chain.</span>
+      </li>
+      <li>
+        <a href="https://www.theblock.co/news/markets/2026-10-14-bitcoin-falls-below-82000-core-inflation-fed-rate-hike-418582">The Block &mdash; Bitcoin falls below $82,000 as hotter core CPI revives Fed hike concerns (Oct 14)</a>
+        <span class="desc">RSS-verified market-move primary &mdash; the hot CPI narrative driving BTC lower and reshaping Q4 risk positioning ahead of the FOMC.</span>
+      </li>
+      <li>
+        <a href="https://openai.com/index/amp-beyond-coding">OpenAI &mdash; Amp puts AI agents to work beyond code (Oct 14)</a>
+        <span class="desc">RSS-verified case study on extending agents past coding into general workflow automation, featuring Sign in with ChatGPT as a new identity layer.</span>
+      </li>
+      <li>
+        <a href="https://www.coindesk.com/tech/2026/10/14/solana-sets-oct-21-for-alpenglow-upgrade-targeting-150-millisecond-finality">CoinDesk &mdash; Solana sets Oct 21 for Alpenglow upgrade targeting 150ms finality (Oct 14)</a>
+        <span class="desc">RSS-verified &mdash; Solana replaces its validator voting system, removing vote transactions from blocks; will sharply change headline transaction counts.</span>
+      </li>
+      <li>
+        <a href="https://cointelegraph.com/news/eba-circle-usdc-stablecoin-significant-token-mica">Cointelegraph &mdash; EU authority classifies Circle's USDC as 'significant' under MiCA (Oct 14)</a>
+        <span class="desc">RSS-verified &mdash; second-largest stablecoin faces enhanced EU oversight; read alongside the VanEck Lido stETH ETF withdrawal.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Generated:</strong> 2026-10-15 &middot; <strong>v4</strong> &middot; Thursday (Edge AI / On-Device ML rotation &mdash; hybrid ANE+GPU scheduling, ExecuTorch Core ML backend, speculative decoding on Apple Silicon)</p>
+
+  <p><strong>Stories:</strong> 3 tips + 3 AI + 3 dev tools + 3 crypto + 3 concepts + 5 reads</p>
+
+  <p><strong>Markets snapshot:</strong> Over Oct 14 (RSS-verified across The Block / CoinDesk / Cointelegraph) <strong>September US CPI came in hot at 3.7% YoY</strong> (above 3.6% forecast), core CPI 2.6%, sending <strong>BTC from ~$84K down to ~$81.5K</strong> as bond yields targeted 24-year highs. NY Fed's Williams reaffirmed a possible rate hike this year, while later commenting no hikes expected in 2027. <strong>ETH fell to $2,420&ndash;$2,480</strong>, spot BTC ETFs saw +$175.6M inflows. Support $80K&ndash;$81K, resistance $83.8K&ndash;$84.2K. Next catalysts: PPI print, Fed remarks ahead of Oct 27&ndash;28 FOMC. Corporate treasury: <strong>Strive bought 2,822 BTC for $235M</strong> (warrant exercises yielded $369M), continuing its aggressive accumulation. <strong>BlackRock crypto ETF assets surged 63% to $79.6B</strong> but remain 23% below 2025 peak. TradFi tokenization: <strong>BNY + Citadel completed the first tokenized Treasury repo on a major triparty platform</strong> (evolution from Oct 13's "test"). <strong>Standard Chartered pushed $2T stablecoin forecast to 2030</strong> as supply growth stalls, and <strong>opened direct BTC/ETH trading for affluent UAE clients</strong> with in-house custody. Regulatory: <strong>EU classified USDC as 'significant' under MiCA</strong>, <strong>VanEck withdrew Lido stETH ETF</strong>, <strong>Patrick Witt exited White House crypto role</strong> as Clarity Act stalls, <strong>OCC found debanking tied to crypto</strong>, <strong>Federal Bloc seizes 112 servers/241 websites</strong> in crypto scam sweep. Structure/exchange: <strong>Kraken's parent buys Lithuanian Saldo Bank</strong> (first crypto firm to buy EU bank), <strong>Polygon completes Coinme acquisition</strong> (48 US state licenses), <strong>Solana sets Oct 21 Alpenglow upgrade</strong> (150ms finality), <strong>EasyA $1.1B valuation</strong> targeting 2027 listing with tokenized shares. Security: <strong>Coinbase published post-quantum migration priorities for Bitcoin</strong>, <strong>StarkWare launched OffMarket for Polymarket privacy</strong>. Aliased to prior coverage (not re-carded): Ledger spy chip escalation (Oct 13&ndash;14), Binance AI trading rollout (Oct 13), Strive BTC purchases (Oct 13), SWI $894M miner&rarr;AI (Oct 13), BNY+Citadel tokenized Treasuries test (Oct 13), Kalshi/CFTC (Oct 12), Bunker-Mode (Oct 10).</p>
+
+  <p><strong>Sources:</strong> WebSearch (8 queries &mdash; Claude/Codex/Cursor, OpenAI/Anthropic/Google announcements, vibe/agentic IDE, AI dev tool releases, CoreML/MLX/iOS, Edge AI/ANE, trending architecture, crypto market fallback; all succeeded with synthesized prose but returned non-citable vertex-ai grounding URLs, so WebSearch-sourced cards are explicitly caveated with a verify-on link) + RSS (<strong>5 of 6 feeds healthy</strong>: theblock.co [37KB, fresh Oct 14 items], cointelegraph.com [35KB, fresh Oct 14&ndash;15], coindesk.com [28KB, fresh Oct 14], openai.com/blog [8KB, fresh Oct 14 Amp/SentinelOne/Third Moment/Block/EU items], blog.google/technology/ai [6KB, Gemini 4 Argon Oct 13 &mdash; launch covered Oct 6, not re-carded]; hnrss.org fetch returned empty [no file created] &mdash; skipped silently per best-effort rule; no Reddit feeds attempted per env restriction). Primary-source verification: all three crypto cards (BTC &lt;$82K on hot CPI, AI agents 138M crypto payments, EU USDC MiCA classification) are RSS-verified via real Oct 14&ndash;15 The Block / CoinDesk / Cointelegraph URLs. OpenAI Amp card is RSS-verified via openai.com/index/amp-beyond-coding. WebSearch-sourced cards (Claude Code v2.1.299, Meta Muse Wonder, SAFA/UK Parliament, Janas, Context7) are caveated in-card. No WebFetch of authenticated/internal URLs.</p>
+
+  <table>
+    <thead><tr><th>Feed</th><th>Status</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>WebSearch &times;8</td><td>OK</td><td>Synthesized prose; non-citable grounding URLs &rarr; in-card verify-on links</td></tr>
+      <tr><td>The Block (crypto)</td><td>OK</td><td>37KB; BTC &lt;$82K + Strive + BNY repo + Coinbase quantum verified</td></tr>
+      <tr><td>CoinDesk (crypto)</td><td>OK</td><td>28KB; AI payments 138M + Solana Alpenglow + Kraken bank verified</td></tr>
+      <tr><td>Cointelegraph (crypto)</td><td>OK</td><td>35KB; USDC MiCA + VanEck stETH + OCC debanking verified</td></tr>
+      <tr><td>OpenAI blog (AI)</td><td>OK</td><td>8KB; Amp + SentinelOne + Third Moment + Block security</td></tr>
+      <tr><td>Google AI blog (AI)</td><td>OK (dedup)</td><td>6KB; Gemini 4 Argon Oct 13 &mdash; launch covered Oct 6, not re-carded</td></tr>
+      <tr><td>Hacker News (AI)</td><td>FAILED</td><td>Empty response; skipped silently per best-effort rule</td></tr>
+      <tr><td>Reddit feeds</td><td>Not attempted</td><td>Blocked in this environment per spec</td></tr>
+    </tbody>
+  </table>
+
+  <p><strong>Dedup:</strong> 2 prior reports indexed (Oct 14, Oct 13 &mdash; read from GHE <code>sean-y/daily-digest</code> main). Oct 14 report's dedup footer lists Oct 10&ndash;13 topics; Oct 13 report's dedup footer lists Oct 6&ndash;12 topics. Combined dedup set covers ~160+ prior topics from Oct 6&ndash;14. Excluded as already-covered: <strong>CyberXero 51-subagent exploit / Cursor Nov 12 OpenAI sunset / X Subscription / Copilot HydraFusion hybrid / MXC GA / GPT-6 Intelligent UI / Anthropic AI worms</strong> (Oct 14), <strong>Claude Code v2.1.296 model-pinning / Cursor iOS remote + CI bots / Google Code Assist sunset / Agent Lightning / claude-mem / Copilot DFlash2 / Cell-Based Architecture / WebAssembly at Edge / Review Bottleneck</strong> (Oct 13), <strong>BTC &lt;$82K + $770M liquidations / Binance AI trading rollout / SWI $894M miner&rarr;AI / BNY+Citadel tokenized Treasuries test / DRW+Marex Canton / Ledger spy chip / Strive BTC / Sberbank / Kalshi+CFTC</strong> (Oct 10&ndash;13). Prior concept set filtered (30+ incl. Hybrid Local&ndash;Cloud Inference Routing, AI Gateways &amp; Semantic Caching, Identity-First &amp; Continuous Authz) &mdash; only fresh <strong>Agentic Compute Economics</strong>, <strong>GraphRAG</strong>, and <strong>Post-Quantum Readiness</strong> carded. Prior Thursday/Edge-AI tip set filtered (Oct 10 ANE fixed-window prefill / mlx-community load / Core AI gateway, Oct 11 os_signport profiling) &mdash; today's rotation covers hybrid ANE+GPU scheduling, ExecuTorch Core ML backend, and speculative decoding on Apple Silicon, all distinct from prior inference-only angles. Dedup count: 2 GHE reports indexed (Oct 10&ndash;12 topics consolidated in their footers), ~160+ prior topics filtered against; no story repeated from the last 5 days.</p>
+
+  <p><strong>Archive:</strong> GHE <code>sean-y/daily-digest</code> &middot; reports/2026/10/2026-10-15.html</p>
+</footer>
+
+</body>
+</html>
